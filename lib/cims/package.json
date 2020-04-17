@@ -1,0 +1,22 @@
+
+{
+  "name": "oci-cims",
+  "version": "0.0.36",
+  "description": "OCI NodeJS client for Cims ",
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.oci.oraclecorp.com/projects/SDK/repos/oci-typescript-sdk"
+  },
+  "main": "../../target/lib/cims/index.js",
+  "typings": "../../target/lib/cims/index.d.ts",
+  "scripts": {},
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "oci-common": "../common",
+    "querystring": "0.2.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}

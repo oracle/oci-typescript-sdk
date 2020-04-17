@@ -1,0 +1,21 @@
+{
+  "name": "oci-analytics",
+  "version": "0.0.36",
+  "description": "OCI NodeJS client for Analytics Service",
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.aka.lgl.grungy.us/projects/SDK/repos/oci-typescript-sdk"
+  },
+  "main": "../../target/lib/analytics/index.js",
+  "typings": "../../target/lib/analytics/index.d.ts",
+  "scripts": {},
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "oci-common": "../common",
+    "querystring": "0.2.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}

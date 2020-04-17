@@ -1,0 +1,49 @@
+services:
+  identity:
+    whitelisted: !!set
+      ? "*"
+    blacklisted: !!set
+      ? createCompartment
+      ? createRegionSubscription
+      ? createTag
+      ? createTagNamespace
+      ? updateCompartment
+      # Methods Only in Preview SDK
+      ? createManagedCompartment
+      ? createTagRule
+      ? listCostTrackingTags
+      ? listTagRules
+      ? deleteTagRule
+      ? getAccountByEntitlementId
+      ? getTagRule
+      ? listFaultDomains
+      ? listManagedCompartments
+      ? listTenancies
+      ? updateTagRule
+  virtualnetwork:
+    whitelisted: !!set
+      ? createPublicIp
+      ? deletePublicIp
+      ? getPublicIp
+      ? getPublicIpByIpAddress
+      ? getPublicIpByPrivateIpId
+      ? listPublicIps
+      ? updatePublicIp
+  loadbalancer:
+    whitelisted: !!set
+      ? createHostname
+      ? deleteHostname
+      ? getHostname
+      ? listHostnames
+      ? updateHostname
+  compute:
+    whitelisted: !!set
+      ? launchInstance
+      ? terminateInstance
+      ? instanceAction
+  objectstorage:
+    whitelisted: !!set
+      ? copyObject
+  email:
+    whitelisted: !!set
+      ? "*"

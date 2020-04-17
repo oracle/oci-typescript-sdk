@@ -1,0 +1,19 @@
+{
+    "window.zoomLevel": 0,
+    "explorer.confirmDelete": false,
+    "workbench.colorTheme": "Visual Studio Dark",
+    "mocha.files.glob": "./integration-test/**/*.ts",
+        "mocha.requires": [ "ts-node/register"  ],
+    "mocha.options": {
+        "timeout": 999999,
+        ":color": true
+    },
+    "terminal.integrated.rendererType": "dom",
+    "tslint.enable": true,
+    "tslint.configFile": "./tslint.json",
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "tslint.ignoreDefinitionFiles": true,
+    "editor.codeActionsOnSave" : {
+        "source.fixAll.tslint" : true
+    }
+}
