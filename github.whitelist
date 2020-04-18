@@ -1,9 +1,0 @@
-^lib/.*
-^examples/.*
-^index\.ts$
-^package\.json$
-^tsconfig\.json$
-^CHANGELOG\.md$
-^LICENSE\.txt$
-^licenseheader\.txt$
-^\.gitignore$

@@ -1,1 +1,0 @@
-Copyright (c) ${project.inceptionYear}, ${current.year}, Oracle and/or its affiliates. All rights reserved.
