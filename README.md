@@ -1,1 +1,0 @@
-# oci-typescript-sdk
