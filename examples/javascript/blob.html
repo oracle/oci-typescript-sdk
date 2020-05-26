@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Upload Manager App</title>
+  </head>
+  <body>
+    <script type="text/javascript" src="./../../dist/blob.js"></script>
+    <p><b>Upload Manager Demo</b></p>
+    <div id="name">Object Name : <input type="text" id="ObjectTxt" /></div>
+    <input type="file" accept="*/*" onchange="openFile(event)" /><br />
+    <script>
+      var openFile = function(event) {
+        var input = event.target;
+        var obj_name = document.getElementById("ObjectTxt").value;
+        uploadBlob(input.files[0], obj_name).then(value => {
+          alert("Image Uploaded" + value);
+        });
+        //alert(input.files[0]);
+      };
+    </script>
+  </body>
+</html>

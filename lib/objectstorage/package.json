@@ -1,0 +1,29 @@
+{
+  "name": "oci-objectstorage",
+  "version": "1.0.0",
+  "description": "OCI NodeJS client for ObjectStorage",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oracle/oci-typescript-sdk"
+  },
+  "main": "../../target/lib/objectstorage/index.js",
+  "typings": "../../target/lib/objectstorage/index.d.ts",
+  "scripts": {},
+  "author": {
+    "name": "Oracle Cloud Infrastructure",
+    "email": ""
+  },
+  "license": "(Universal Permissive License (UPL) 1.0 or Apache-2.0)",
+  "dependencies": {
+    "oci-common": "../common",
+    "await-semaphore": "^0.1.3"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "contributors": [
+    "Jyoti Saini <jyoti.s.saini@oracle.com>",
+    "Joe Levy <joe.levy@oracle.com>",
+    "Walt Tran <walt.tran@oracle.com>"
+  ]
+}
