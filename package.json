@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -16,21 +16,9 @@
   "scripts": {
     "prebuild": "npm run cleanup",
     "build": "tsc -p tsconfig.json",
-    "postbuild": "npm run node-test",
-    "all-test": "npm run browser-unittest && npm run node-test",
-    "browser-unittest": "sh scripts/run-browser-test.sh && webpack --config webpack.config.unit.js && npm run karma && rm -rf lib/**/tests/index.ts && rm -rf dist",
-    "browser-integration": "webpack --config webpack.config.integration.js && npm run karma && rm -rf dist",
-    "node-test": "mocha -r ts-node/register 'lib/**/!(browser)*.spec.ts'",
-    "integration-tests": "sh scripts/run_integration_tests.sh",
-    "test": "tsc -p tsconfig.json && mocha --reporter mocha-teamcity-reporter -r ts-node/register integration-test/*.ts --timeout 18000000 --color true",
-    "webpack": "webpack --config webpack.config.js",
-    "common": "rm-local-modules && npm install --save-dev ./lib/common",
-    "karma": "karma start --reporters teamcity --single-run --browsers ChromeHeadlessCors karma.config.js",
-    "eslint": "eslint --ext .ts lib/**/*.ts",
     "prettier:check": "prettier --config .prettierrc --c \"**/*.ts\"",
     "prettier:format": "prettier --config .prettierrc --write",
     "prettier:format-all": "npm run prettier:format -- \"**/*.ts\"",
-    "typedoc": "typedoc --options typedoc.json --theme ./node_modules/typedoc-neo-theme/bin/default --out custom-packages/docs ./lib --mode modules --hideGenerator --readme README.md --excludeExternals --name 'SDK API Reference'",
     "cleanup": "rm -rf target"
   },
   "license": "(Universal Permissive License (UPL) 1.0 or Apache-2.0)",

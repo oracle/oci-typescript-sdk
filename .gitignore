@@ -1,0 +1,17 @@
+node_modules
+dist/
+.idea
+*.iml
+target/
+coverage
+*.bk
+.nyc_output
+*.orig
+*.log
+custom-packages/
+*.js.map
+lib/**/*.js
+*.auto.spec.js
+integration-test/*.js
+.vscode
+.DS_Store
