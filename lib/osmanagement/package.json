@@ -1,0 +1,28 @@
+{
+  "name": "oci-osmanagement",
+  "version": "1.0.1",
+  "description": "OCI NodeJS client for OS Management",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oracle/oci-typescript-sdk"
+  },
+  "main": "../../target/lib/osmanagement/index.js",
+  "typings": "../../target/lib/osmanagement/index.d.ts",
+  "scripts": {},
+  "author": {
+    "name": "Oracle Cloud Infrastructure",
+    "email": ""
+  },
+  "license": "(Universal Permissive License (UPL) 1.0 or Apache-2.0)",
+  "dependencies": {
+    "oci-common": "../common"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "contributors": [
+    "Jyoti Saini <jyoti.s.saini@oracle.com>",
+    "Joe Levy <joe.levy@oracle.com>",
+    "Walt Tran <walt.tran@oracle.com>"
+  ]
+}
