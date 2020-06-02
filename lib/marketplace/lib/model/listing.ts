@@ -98,7 +98,7 @@ export interface Listing {
   "icon"?: model.UploadData;
   "banner"?: model.UploadData;
   /**
-   * The regions where the listing is available.
+   * The regions where the listing is eligible to be deployed.
    */
   "regions"?: Array<model.Region>;
   /**

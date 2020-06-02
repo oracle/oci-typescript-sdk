@@ -12,6 +12,7 @@ describe("Test Region", () => {
   const realm: Realm = Realm.register("ocx", "ocx-cloud.com");
 
   const existingRegions = [
+    Region.AP_CHUNCHEON_1,
     Region.AP_MUMBAI_1,
     Region.AP_SEOUL_1,
     Region.AP_SYDNEY_1,

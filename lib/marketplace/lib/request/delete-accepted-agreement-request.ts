@@ -19,10 +19,9 @@ export interface DeleteAcceptedAgreementRequest {
    */
   "acceptedAgreementId": string;
   /**
-   * A signature generated for the listing package terms of use agreements that you can retrieve with a [GetAgreement](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/marketplace/latest/Agreement/GetAgreement) API call.
-   *
+   * Deprecated. The signature value is ignored.
    */
-  "signature": string;
+  "signature"?: string;
   /**
    * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request,
    * please provide the request ID.

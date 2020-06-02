@@ -28,7 +28,11 @@ export interface ImageListingPackage extends model.ListingPackage {
    */
   "appCatalogListingResourceVersion"?: string;
   /**
-   * The regions where the listing is available.
+   * The id of the image corresponding to the package.
+   */
+  "imageId"?: string;
+  /**
+   * List of regions in which this ListingPackage is available.
    */
   "regions"?: Array<model.Region>;
 

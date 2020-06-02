@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The model for regions supported by a listing.
+ * The model for regions supported by a listing and package.
  */
 export interface Region {
   /**

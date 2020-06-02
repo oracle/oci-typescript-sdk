@@ -31,6 +31,10 @@ export interface ListingPackageSummary {
    */
   "packageType"?: model.PackageTypeEnum;
   /**
+   * The regions where the package is eligible to be deployed.
+   */
+  "regions"?: Array<model.Region>;
+  /**
    * The unique identifier for the package resource.
    */
   "resourceId"?: string;
@@ -46,7 +50,16 @@ Example: `2016-08-25T21:10:29.600Z`
 
 export namespace ListingPackageSummary {
   export function getJsonObj(obj: ListingPackageSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "regions": obj.regions
+          ? obj.regions.map(item => {
+              return model.Region.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
