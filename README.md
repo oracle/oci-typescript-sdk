@@ -42,17 +42,21 @@ Examples can be found [in the examples section](https://github.com/oracle/oci-ty
 
 ## Documentation
 
-Full documentation can be found [on the typescript documentation site](https://docs.cloud.oracle.com/en-us/iaas/Content/API/SDKDocs/typescriptsdk.htm).
+Full documentation can be found [on the sdk for typescript documentation site](https://docs.cloud.oracle.com/en-us/iaas/Content/API/SDKDocs/typescriptsdk.htm).
+
+## Versions Supported
+
+The SDK for TypeScript currently supports NodeJS version 10.15.3 and TypeScript version 3.6.4.
 
 ## Node & Browser Support
 
-The SDK for TypeScript currently supports NodeJS but do not have browser support.
+The SDK for TypeScript currently supports NodeJS but does not have browser support.
 
 ## Help
 
 - The [Issues](https://github.com/oracle/oci-typescript-sdk/issues) page of this GitHub repository.
 - [Stack Overflow](https://stackoverflow.com/), use the [oracle-cloud-infrastructure](https://stackoverflow.com/questions/tagged/oracle-cloud-infrastructure) and [oci-typescript-sdk](https://stackoverflow.com/questions/tagged/oci-typescript-sdk) tags in your post.
-- [Developer Tools](https://community.oracle.com/community/cloud_computing/bare-metal/content?filterID=contentstatus%5Bpublished%5D~category%5Bdeveloper-tools%5D&filterID=contentstatus%5Bpublished%5D~objecttype~objecttype%5Bthread%5D) of the Oracle Cloud forums.
+- [Developer Tools](https://community.oracle.com/community/cloud_computing/bare-metal/content?filterID=contentstatus%5Bpublished%5D~category%5Bdeveloper-tools%5D&filterID=contentstatus%5Bpublished%5D~objecttype~objecttype%5Bthread%5D) section of the Oracle Cloud forums.
 - [My Oracle Support](https://support.oracle.com).
 
 ## Contributing

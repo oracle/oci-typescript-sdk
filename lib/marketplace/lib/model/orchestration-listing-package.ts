@@ -26,6 +26,10 @@ export interface OrchestrationListingPackage extends model.ListingPackage {
    * List of variables for the orchestration resource.
    */
   "variables"?: Array<model.OrchestrationVariable>;
+  /**
+   * List of regions in which this ListingPackage is available.
+   */
+  "regions"?: Array<model.Region>;
 
   "packageType": string;
 }
@@ -40,6 +44,11 @@ export namespace OrchestrationListingPackage {
         "variables": obj.variables
           ? obj.variables.map(item => {
               return model.OrchestrationVariable.getJsonObj(item);
+            })
+          : undefined,
+        "regions": obj.regions
+          ? obj.regions.map(item => {
+              return model.Region.getJsonObj(item);
             })
           : undefined
       }

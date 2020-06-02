@@ -44,6 +44,10 @@ export interface ListingSummary {
    */
   "pricingTypes"?: Array<ListingSummary.PricingTypes>;
   /**
+   * The regions where the listing is eligible to be deployed.
+   */
+  "regions"?: Array<model.Region>;
+  /**
    * Indicates whether the listing is featured.
    */
   "isFeatured"?: boolean;
@@ -72,6 +76,12 @@ export namespace ListingSummary {
       ...obj,
       ...{
         "icon": obj.icon ? model.UploadData.getJsonObj(obj.icon) : undefined,
+
+        "regions": obj.regions
+          ? obj.regions.map(item => {
+              return model.Region.getJsonObj(item);
+            })
+          : undefined,
 
         "publisher": obj.publisher ? model.PublisherSummary.getJsonObj(obj.publisher) : undefined
       }
