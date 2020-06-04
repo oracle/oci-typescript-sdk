@@ -2,7 +2,7 @@
 
 [![wercker status](https://app.wercker.com/status/09bc4818e7b1d70b04285331a9bdbc41/s/master "wercker status")](https://app.wercker.com/project/byKey/09bc4818e7b1d70b04285331a9bdbc41)
 
-This is Oracle Cloud Infrastructure SDK for TypeScript. This project is open source and maintained by Oracle Corp.
+This is Oracle Cloud Infrastructure SDK for TypeScript. (Note that the SDK works with both JavaScript and TypeScript projects.) This project is open source and maintained by Oracle Corp.
 The home page for the project is [Oracle Cloud Infrastructure SDK for TypeScript](https://github.com/oracle/oci-typescript-sdk/).
 
 ## Installing
