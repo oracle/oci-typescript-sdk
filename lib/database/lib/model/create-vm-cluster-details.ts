@@ -37,6 +37,18 @@ export interface CreateVmClusterDetails {
    */
   "cpuCoreCount": number;
   /**
+   * The memory to be allocated in GBs.
+   */
+  "memorySizeInGBs"?: number;
+  /**
+   * The local node storage to be allocated in GBs.
+   */
+  "dbNodeStorageSizeInGBs"?: number;
+  /**
+   * The data disk group size to be allocated in TBs.
+   */
+  "dataStorageSizeInTBs"?: number;
+  /**
    * The public key portion of one or more key pairs used for SSH access to the VM cluster.
    */
   "sshPublicKeys": Array<string>;

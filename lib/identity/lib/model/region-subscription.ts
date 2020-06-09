@@ -25,30 +25,18 @@ To use any of the API operations, you must be authorized in an IAM policy. If yo
 */
 export interface RegionSubscription {
   /**
-    * The region's key.
+    * The region's key. See [Regions and Availability Domains](https://docs.cloud.oracle.com/Content/General/Concepts/regions.htm)
+* for the full list of supported 3-letter region codes.
 * <p>
-Allowed values are:
-* - `PHX`
-* - `IAD`
-* - `FRA`
-* - `LHR`
-* - `YYZ`
-* - `NRT`
-* - `ICN`
+Example: `PHX`
 * 
     */
   "regionKey": string;
   /**
-    * The region's name.
+    * The region's name. See [Regions and Availability Domains](https://docs.cloud.oracle.com/Content/General/Concepts/regions.htm)
+* for the full list of supported region names.
 * <p>
-Allowed values are:
-* - `ap-seoul-1`
-* - `ap-tokyo-1`
-* - `ca-toronto-1`
-* - `eu-frankurt-1`
-* - `uk-london-1`
-* - `us-ashburn-1`
-* - `us-phoenix-1`
+Example: `us-phoenix-1`
 * 
     */
   "regionName": string;

@@ -76,6 +76,10 @@ export interface IntegrationInstance {
    * The number of configured message packs (if any)
    */
   "messagePacks": number;
+  /**
+   * The file server is enabled or not.
+   */
+  "isFileServerEnabled"?: boolean;
 }
 
 export namespace IntegrationInstance {

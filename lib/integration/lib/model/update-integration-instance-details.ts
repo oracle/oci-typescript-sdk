@@ -48,6 +48,10 @@ export interface UpdateIntegrationInstanceDetails {
    * The number of configured message packs
    */
   "messagePacks"?: number;
+  /**
+   * The file server is enabled or not.
+   */
+  "isFileServerEnabled"?: boolean;
 }
 
 export namespace UpdateIntegrationInstanceDetails {

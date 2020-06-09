@@ -32,7 +32,9 @@ export interface UpdateAutonomousDatabaseDetails {
    */
   "dataStorageSizeInTBs"?: number;
   /**
-   * The user-friendly name for the Autonomous Database. The name does not have to be unique.
+   * The user-friendly name for the Autonomous Database. The name does not have to be unique. Can only be updated for Autonomous Databases
+   * using dedicated Exadata infrastructure.
+   *
    */
   "displayName"?: string;
   /**
@@ -66,13 +68,6 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * A list of the [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the network security groups (NSGs) that this resource belongs to. Setting this to an empty array after the list is created removes the resource from all NSGs. For more information about NSGs, see [Security Rules](https://docs.cloud.oracle.com/Content/Network/Concepts/securityrules.htm).
-   * **NsgIds restrictions:**
-   * - Autonomous Databases with private access require at least 1 Network Security Group (NSG). The nsgIds array cannot be empty.
-   *
-   */
-  "nsgIds"?: Array<string>;
-  /**
    * The Oracle license model that applies to the Oracle Autonomous Database. Note that when provisioning an Autonomous Database on [dedicated Exadata infrastructure](https://docs.cloud.oracle.com/Content/Database/Concepts/adbddoverview.htm), this attribute must be null because the attribute is already set at the
    * Autonomous Exadata Infrastructure level. When using [shared Exadata infrastructure](https://docs.cloud.oracle.com/Content/Database/Concepts/adboverview.htm#AEI), if a value is not specified, the system will supply the value of `BRING_YOUR_OWN_LICENSE`.
    *
@@ -95,6 +90,13 @@ Example: `{\"Department\": \"Finance\"}`
    * A valid Oracle Database version for Autonomous Database.
    */
   "dbVersion"?: string;
+  /**
+   * A list of the [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the network security groups (NSGs) that this resource belongs to. Setting this to an empty array after the list is created removes the resource from all NSGs. For more information about NSGs, see [Security Rules](https://docs.cloud.oracle.com/Content/Network/Concepts/securityrules.htm).
+   * **NsgIds restrictions:**
+   * - Autonomous Databases with private access require at least 1 Network Security Group (NSG). The nsgIds array cannot be empty.
+   *
+   */
+  "nsgIds"?: Array<string>;
 }
 
 export namespace UpdateAutonomousDatabaseDetails {

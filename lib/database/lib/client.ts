@@ -1316,7 +1316,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * Creates a new database in the specified Database Home. If the database version is provided, it must match the version of the Database Home. Applies only to Exadata DB systems.
+   * Creates a new database in the specified Database Home. If the database version is provided, it must match the version of the Database Home. Applies to Exadata DB systems and Exadata Cloud at Customer.
    *
    * @param CreateDatabaseRequest
    * @return CreateDatabaseResponse
@@ -1383,7 +1383,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * Creates a new Database Home in the specified DB system based on the request parameters you provide. Applies only to bare metal and Exadata DB systems.
+   * Creates a new Database Home in the specified DB system based on the request parameters you provide. Applies to bare metal DB systems, Exadata DB systems, and Exadata Cloud at Customer systems.
    *
    * @param CreateDbHomeRequest
    * @return CreateDbHomeResponse
@@ -2118,11 +2118,9 @@ The data in this database is local to the DB system and will be lost when the da
   }
 
   /**
-     * Deletes a Database Home. Applies only to bare metal and Exadata DB systems.
+     * Deletes a Database Home. Applies to bare metal DB systems, Exadata DB systems, and Exadata Cloud at Customer systems.
 * <p>
-The Database Home and its database data are local to the DB system, and on a bare metal DB system, both are lost when you delete the Database Home. Oracle recommends that you back up any data on the DB system before you delete it. You can use the `performFinalBackup` parameter with this operation on bare metal DB systems.
-* <p>
-On an Exadata DB system, the delete request is rejected if the Database Home is not empty. You must terminate all databases in the Database Home before you delete the home. The `performFinalBackup` parameter is not used with this operation on Exadata DB systems.
+Oracle recommends that you use the `performFinalBackup` parameter to back up any data on a bare metal DB system before you delete a Database Home. On an Exadata Cloud at Customer system or an Exadata DB system, you can delete a Database Home only when there are no databases in it and therefore you cannot use the `performFinalBackup` parameter to back up data.
 * 
      * @param DeleteDbHomeRequest
      * @return DeleteDbHomeResponse
@@ -4314,6 +4312,115 @@ A failover might result in data loss depending on the protection mode in effect 
         body: await response.json(),
         bodyKey: "vmClusterNetwork",
         bodyModel: "model.VmClusterNetwork",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Gets information about a specified patch package.
+   *
+   * @param GetVmClusterPatchRequest
+   * @return GetVmClusterPatchResponse
+   * @throws OciError when an error occurs
+   */
+  public async getVmClusterPatch(
+    getVmClusterPatchRequest: requests.GetVmClusterPatchRequest
+  ): Promise<responses.GetVmClusterPatchResponse> {
+    const pathParams = {
+      "{vmClusterId}": getVmClusterPatchRequest.vmClusterId,
+      "{patchId}": getVmClusterPatchRequest.patchId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {};
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vmClusters/{vmClusterId}/patches/{patchId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetVmClusterPatchResponse>{},
+        body: await response.json(),
+        bodyKey: "patch",
+        bodyModel: "model.Patch",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Gets the patch history details for the specified patchHistoryEntryId.
+   *
+   * @param GetVmClusterPatchHistoryEntryRequest
+   * @return GetVmClusterPatchHistoryEntryResponse
+   * @throws OciError when an error occurs
+   */
+  public async getVmClusterPatchHistoryEntry(
+    getVmClusterPatchHistoryEntryRequest: requests.GetVmClusterPatchHistoryEntryRequest
+  ): Promise<responses.GetVmClusterPatchHistoryEntryResponse> {
+    const pathParams = {
+      "{vmClusterId}": getVmClusterPatchHistoryEntryRequest.vmClusterId,
+      "{patchHistoryEntryId}": getVmClusterPatchHistoryEntryRequest.patchHistoryEntryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {};
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vmClusters/{vmClusterId}/patchHistoryEntries/{patchHistoryEntryId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetVmClusterPatchHistoryEntryResponse>{},
+        body: await response.json(),
+        bodyKey: "patchHistoryEntry",
+        bodyModel: "model.PatchHistoryEntry",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6800,6 +6907,174 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
+   * Gets the history of the patch actions performed on the specified Vm cluster.
+   *
+   * @param ListVmClusterPatchHistoryEntriesRequest
+   * @return ListVmClusterPatchHistoryEntriesResponse
+   * @throws OciError when an error occurs
+   */
+  public async listVmClusterPatchHistoryEntries(
+    listVmClusterPatchHistoryEntriesRequest: requests.ListVmClusterPatchHistoryEntriesRequest
+  ): Promise<responses.ListVmClusterPatchHistoryEntriesResponse> {
+    const pathParams = {
+      "{vmClusterId}": listVmClusterPatchHistoryEntriesRequest.vmClusterId
+    };
+
+    const queryParams = {
+      "limit": listVmClusterPatchHistoryEntriesRequest.limit,
+      "page": listVmClusterPatchHistoryEntriesRequest.page
+    };
+
+    let headerParams = {};
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vmClusters/{vmClusterId}/patchHistoryEntries",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListVmClusterPatchHistoryEntriesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "PatchHistoryEntrySummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PatchHistoryEntrySummary objects
+   * contained in responses from the listVmClusterPatchHistoryEntries operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllVmClusterPatchHistoryEntries(
+    request: requests.ListVmClusterPatchHistoryEntriesRequest
+  ): AsyncIterableIterator<models.PatchHistoryEntrySummary> {
+    return paginateRecords(request, req => this.listVmClusterPatchHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVmClusterPatchHistoryEntries operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllVmClusterPatchHistoryEntriesResponses(
+    request: requests.ListVmClusterPatchHistoryEntriesRequest
+  ): AsyncIterableIterator<responses.ListVmClusterPatchHistoryEntriesResponse> {
+    return paginateResponses(request, req => this.listVmClusterPatchHistoryEntries(req));
+  }
+
+  /**
+   * Lists the patches applicable to the requested Vm cluster.
+   *
+   * @param ListVmClusterPatchesRequest
+   * @return ListVmClusterPatchesResponse
+   * @throws OciError when an error occurs
+   */
+  public async listVmClusterPatches(
+    listVmClusterPatchesRequest: requests.ListVmClusterPatchesRequest
+  ): Promise<responses.ListVmClusterPatchesResponse> {
+    const pathParams = {
+      "{vmClusterId}": listVmClusterPatchesRequest.vmClusterId
+    };
+
+    const queryParams = {
+      "limit": listVmClusterPatchesRequest.limit,
+      "page": listVmClusterPatchesRequest.page
+    };
+
+    let headerParams = {};
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vmClusters/{vmClusterId}/patches",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListVmClusterPatchesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "PatchSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PatchSummary objects
+   * contained in responses from the listVmClusterPatches operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllVmClusterPatches(
+    request: requests.ListVmClusterPatchesRequest
+  ): AsyncIterableIterator<models.PatchSummary> {
+    return paginateRecords(request, req => this.listVmClusterPatches(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVmClusterPatches operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllVmClusterPatchesResponses(
+    request: requests.ListVmClusterPatchesRequest
+  ): AsyncIterableIterator<responses.ListVmClusterPatchesResponse> {
+    return paginateResponses(request, req => this.listVmClusterPatches(req));
+  }
+
+  /**
    * Gets a list of the VM clusters in the specified compartment.
    *
    * @param ListVmClustersRequest
@@ -7080,7 +7355,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Restarts the specified Autonomous Database. Restart supported only for databases using dedicated Exadata infrastructure.
+   * Restarts the specified Autonomous Database.
    *
    * @param RestartAutonomousDatabaseRequest
    * @return RestartAutonomousDatabaseResponse

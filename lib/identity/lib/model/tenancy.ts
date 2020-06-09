@@ -39,17 +39,10 @@ export interface Tenancy {
    */
   "description"?: string;
   /**
-    * The region key for the tenancy's home region. For more information about regions, see
+    * The region key for the tenancy's home region. For the full list of supported regions, see
 * [Regions and Availability Domains](https://docs.cloud.oracle.com/Content/General/Concepts/regions.htm).
 * <p>
-Allowed values are:
-* - `IAD`
-* - `PHX`
-* - `FRA`
-* - `LHR`
-* - `ICN`
-* - `YYZ`
-* - `NRT`
+Example: `PHX`
 * 
     */
   "homeRegionKey"?: string;
