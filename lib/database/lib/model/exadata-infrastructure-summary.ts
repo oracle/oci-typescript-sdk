@@ -49,10 +49,34 @@ export interface ExadataInfrastructureSummary {
    */
   "cpusEnabled"?: number;
   /**
+   * The total number of CPU cores available.
+   */
+  "maxCpuCount"?: number;
+  /**
+   * The memory allocated in GBs.
+   */
+  "memorySizeInGBs"?: number;
+  /**
+   * The total memory available in GBs.
+   */
+  "maxMemoryInGBs"?: number;
+  /**
+   * The local node storage allocated in GBs.
+   */
+  "dbNodeStorageSizeInGBs"?: number;
+  /**
+   * The total local node storage available in GBs.
+   */
+  "maxDbNodeStorageInGBs"?: number;
+  /**
    * Size, in terabytes, of the DATA disk group.
    *
    */
   "dataStorageSizeInTBs"?: number;
+  /**
+   * The total available DATA disk group size.
+   */
+  "maxDataStorageInTBs"?: number;
   /**
    * The IP address for the first control plane server.
    */
@@ -124,7 +148,7 @@ export namespace ExadataInfrastructureSummary {
     UPDATING = "UPDATING",
     DELETING = "DELETING",
     DELETED = "DELETED",
-    OFFLINE = "OFFLINE",
+    DISCONNECTED = "DISCONNECTED",
 
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

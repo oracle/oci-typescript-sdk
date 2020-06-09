@@ -1,5 +1,5 @@
 /**
- * Digital Assistant Control Plane API
+ * Digital Assistant Service Instance API
  * API to create and maintain Oracle Digital Assistant service instances.
  * OpenAPI spec version: 20190506
  *

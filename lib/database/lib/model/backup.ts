@@ -70,6 +70,10 @@ export interface Backup {
    * Shape of the backup's source database.
    */
   "shape"?: string;
+  /**
+   * Version of the backup's source database
+   */
+  "version"?: string;
 }
 
 export namespace Backup {

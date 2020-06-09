@@ -54,7 +54,7 @@ export interface DbNode {
    */
   "softwareStorageSizeInGB"?: number;
   /**
-   * The type of maintenance of dbNode.
+   * The type of database node maintenance.
    */
   "maintenanceType"?: DbNode.MaintenanceType;
   /**
@@ -66,7 +66,7 @@ export interface DbNode {
    */
   "timeMaintenanceWindowEnd"?: Date;
   /**
-   * Additional information like a message to customer about the maintenance.
+   * Additional information about the planned maintenance.
    */
   "additionalDetails"?: string;
 }

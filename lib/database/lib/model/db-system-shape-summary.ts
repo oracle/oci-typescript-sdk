@@ -49,6 +49,34 @@ export interface DbSystemShapeSummary {
    */
   "coreCountIncrement"?: number;
   /**
+   * The minimum number of CPU cores that can be enabled per node for this shape.
+   */
+  "minCoreCountPerNode"?: number;
+  /**
+   * The maximum memory that can be enabled for this shape.
+   */
+  "availableMemoryInGBs"?: number;
+  /**
+   * The minimum memory that need be allocated per node for this shape.
+   */
+  "minMemoryPerNodeInGBs"?: number;
+  /**
+   * The maximum Db Node storage that can be enabled for this shape.
+   */
+  "availableDbNodeStorageInGBs"?: number;
+  /**
+   * The minimum Db Node storage that need be allocated per node for this shape.
+   */
+  "minDbNodeStoragePerNodeInGBs"?: number;
+  /**
+   * The maximum DATA storage that can be enabled for this shape.
+   */
+  "availableDataStorageInTBs"?: number;
+  /**
+   * The minimum data storage that need be allocated for this shape.
+   */
+  "minDataStorageInTBs"?: number;
+  /**
    * The minimum number of database nodes available for this shape.
    */
   "minimumNodeCount"?: number;

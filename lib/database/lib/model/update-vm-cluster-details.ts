@@ -24,6 +24,18 @@ export interface UpdateVmClusterDetails {
    */
   "cpuCoreCount"?: number;
   /**
+   * The memory to be allocated in GBs.
+   */
+  "memorySizeInGBs"?: number;
+  /**
+   * The local node storage to be allocated in GBs.
+   */
+  "dbNodeStorageSizeInGBs"?: number;
+  /**
+   * The data disk group size to be allocated in TBs.
+   */
+  "dataStorageSizeInTBs"?: number;
+  /**
    * The Oracle license model that applies to the VM cluster. The default is BRING_YOUR_OWN_LICENSE.
    *
    */
@@ -32,6 +44,7 @@ export interface UpdateVmClusterDetails {
    * The public key portion of one or more key pairs used for SSH access to the VM cluster.
    */
   "sshPublicKeys"?: Array<string>;
+  "version"?: model.PatchDetails;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
@@ -55,7 +68,12 @@ export namespace UpdateVmClusterDetails {
   }
 
   export function getJsonObj(obj: UpdateVmClusterDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "version": obj.version ? model.PatchDetails.getJsonObj(obj.version) : undefined
+      }
+    };
 
     return jsonObj;
   }

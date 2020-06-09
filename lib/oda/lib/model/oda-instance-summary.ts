@@ -1,5 +1,5 @@
 /**
- * Digital Assistant Control Plane API
+ * Digital Assistant Service Instance API
  * API to create and maintain Oracle Digital Assistant service instances.
  * OpenAPI spec version: 20190506
  *
@@ -103,7 +103,13 @@ export namespace OdaInstanceSummary {
   }
 
   export enum LifecycleSubState {
+    CREATING = "CREATING",
+    STARTING = "STARTING",
+    STOPPING = "STOPPING",
+    CHANGINGCOMPARTMENT = "CHANGING_COMPARTMENT",
+    DELETING = "DELETING",
     DELETEPENDING = "DELETE_PENDING",
+    RECOVERING = "RECOVERING",
     PURGING = "PURGING",
     QUEUED = "QUEUED",
 

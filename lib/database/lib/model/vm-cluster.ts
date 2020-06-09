@@ -29,6 +29,10 @@ export interface VmCluster {
    */
   "compartmentId"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the last patch history. This value is updated as soon as a patch operation starts.
+   */
+  "lastPatchHistoryEntryId"?: string;
+  /**
    * The current state of the VM cluster.
    */
   "lifecycleState"?: VmCluster.LifecycleState;
@@ -70,6 +74,14 @@ export interface VmCluster {
    * The number of enabled CPU cores.
    */
   "cpusEnabled"?: number;
+  /**
+   * The memory allocated in GBs.
+   */
+  "memorySizeInGBs"?: number;
+  /**
+   * The local node storage allocated in GBs.
+   */
+  "dbNodeStorageSizeInGBs"?: number;
   /**
    * Size, in terabytes, of the DATA disk group.
    *

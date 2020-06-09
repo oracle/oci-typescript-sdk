@@ -299,6 +299,284 @@ After you send your request, the new object's `lifecycleState` will temporarily 
   }
 
   /**
+   * Bulk delete resources in the compartment. All resources must be in the same compartment.
+   * This API can only be invoked from tenancy's home region.
+   *
+   * @param BulkDeleteResourcesRequest
+   * @return BulkDeleteResourcesResponse
+   * @throws OciError when an error occurs
+   */
+  public async bulkDeleteResources(
+    bulkDeleteResourcesRequest: requests.BulkDeleteResourcesRequest
+  ): Promise<responses.BulkDeleteResourcesResponse> {
+    const pathParams = {
+      "{compartmentId}": bulkDeleteResourcesRequest.compartmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-request-id": bulkDeleteResourcesRequest.opcRequestId,
+      "opc-retry-token": bulkDeleteResourcesRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/compartments/{compartmentId}/actions/bulkDeleteResources",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        bulkDeleteResourcesRequest.bulkDeleteResourcesDetails,
+        "BulkDeleteResourcesDetails",
+        models.BulkDeleteResourcesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BulkDeleteResourcesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+     * Deletes the specified tag key definitions. This operation triggers a process that removes the
+* tags from all resources in your tenancy. 
+* <p>
+The following actions happen immediately:
+* \u00A0
+*   * If the tag is a cost-tracking tag, the tag no longer counts against your   
+*   10 cost-tracking tags limit, even if you do not disable the tag before running this operation.
+*   * If the tag is used with dynamic groups, the rules that contain the tag are no longer 
+*   evaluated against the tag. 
+* <p>
+After you start this operation, the state of the tag changes to DELETING, and tag removal
+* from resources begins. This process can take up to 48 hours depending on the number of resources that
+* are tagged and the regions in which those resources reside. 
+* <p>
+When all tags have been removed, the state changes to DELETED. You cannot restore a deleted tag. After the tag state
+* changes to DELETED, you can use the same tag name again.
+* <p>
+After you start this operation, you cannot start either the {@link #deleteTag(DeleteTagRequest) deleteTag} or the {@link #cascadeDeleteTagNamespace(CascadeDeleteTagNamespaceRequest) cascadeDeleteTagNamespace} operation until this process completes.
+* <p>
+In order to delete tags, you must first retire the tags. Use {@link #updateTag(UpdateTagRequest) updateTag}
+* to retire a tag. 
+* 
+     * @param BulkDeleteTagsRequest
+     * @return BulkDeleteTagsResponse
+     * @throws OciError when an error occurs
+     */
+  public async bulkDeleteTags(
+    bulkDeleteTagsRequest: requests.BulkDeleteTagsRequest
+  ): Promise<responses.BulkDeleteTagsResponse> {
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-request-id": bulkDeleteTagsRequest.opcRequestId,
+      "opc-retry-token": bulkDeleteTagsRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/tags/actions/bulkDelete",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        bulkDeleteTagsRequest.bulkDeleteTagsDetails,
+        "BulkDeleteTagsDetails",
+        models.BulkDeleteTagsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BulkDeleteTagsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Bulk move resources in the compartment. All resources must be in the same compartment.
+   * This API can only be invoked from tenancy's home region.
+   *
+   * @param BulkMoveResourcesRequest
+   * @return BulkMoveResourcesResponse
+   * @throws OciError when an error occurs
+   */
+  public async bulkMoveResources(
+    bulkMoveResourcesRequest: requests.BulkMoveResourcesRequest
+  ): Promise<responses.BulkMoveResourcesResponse> {
+    const pathParams = {
+      "{compartmentId}": bulkMoveResourcesRequest.compartmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-request-id": bulkMoveResourcesRequest.opcRequestId,
+      "opc-retry-token": bulkMoveResourcesRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/compartments/{compartmentId}/actions/bulkMoveResources",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        bulkMoveResourcesRequest.bulkMoveResourcesDetails,
+        "BulkMoveResourcesDetails",
+        models.BulkMoveResourcesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BulkMoveResourcesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+     * Deletes the specified tag namespace. This operation triggers a process that removes all of the tags 
+* defined in the specified tag namespace from all resources in your tenancy and then deletes the tag namespace.
+* <p>
+After you start the delete operation: 
+* <p>
+  * New tag key definitions cannot be created under the namespace. 
+*   * The state of the tag namespace changes to DELETING.
+*   * Tag removal from the resources begins. 
+* <p>
+This process can take up to 48 hours depending on the number of tag definitions in the namespace, the number of resources 
+* that are tagged, and the locations of the regions in which those resources reside.
+* <p>
+After all tags are removed, the state changes to DELETED. You cannot restore a deleted tag namespace. After the deleted tag namespace 
+* changes its state to DELETED, you can use the name of the deleted tag namespace again.
+* <p>
+After you start this operation, you cannot start either the {@link #deleteTag(DeleteTagRequest) deleteTag} or the {@link #bulkDeleteTags(BulkDeleteTagsRequest) bulkDeleteTags} operation until this process completes.
+* <p>
+To delete a tag namespace, you must first retire it. Use {@link #updateTagNamespace(UpdateTagNamespaceRequest) updateTagNamespace}
+* to retire a tag namespace.
+* 
+     * @param CascadeDeleteTagNamespaceRequest
+     * @return CascadeDeleteTagNamespaceResponse
+     * @throws OciError when an error occurs
+     */
+  public async cascadeDeleteTagNamespace(
+    cascadeDeleteTagNamespaceRequest: requests.CascadeDeleteTagNamespaceRequest
+  ): Promise<responses.CascadeDeleteTagNamespaceResponse> {
+    const pathParams = {
+      "{tagNamespaceId}": cascadeDeleteTagNamespaceRequest.tagNamespaceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "if-match": cascadeDeleteTagNamespaceRequest.ifMatch,
+      "opc-request-id": cascadeDeleteTagNamespaceRequest.opcRequestId,
+      "opc-retry-token": cascadeDeleteTagNamespaceRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/tagNamespaces/{tagNamespaceId}/actions/cascadeDelete",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CascadeDeleteTagNamespaceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
      * Moves the specified tag namespace to the specified compartment within the same tenancy.
 * <p>
 To move the tag namespace, you must have the manage tag-namespaces permission on both compartments.
@@ -960,6 +1238,9 @@ You must also specify a *description* for the network source (although it can be
 * <p>
 After you send your request, the new object's `lifecycleState` will temporarily be CREATING. Before using the
 * object, first make sure its `lifecycleState` has changed to ACTIVE.
+* <p>
+After your network resource is created, you can use it in policy to restrict access to only requests made from an allowed 
+* IP address specified in your network source. For more information, see [Managing Network Sources](https://docs.cloud.oracle.com/Content/Identity/Tasks/managingnetworksources.htm).
 * 
      * @param CreateNetworkSourceRequest
      * @return CreateNetworkSourceResponse
@@ -2472,11 +2753,14 @@ These things happen immediately:
 *   * If the tag was used with dynamic groups, none of the rules that contain the tag will 
 *   be evaluated against the tag. 
 * <p>
-Once you start the delete operation, the state of the tag changes to DELETING and tag removal
+When you start the delete operation, the state of the tag changes to DELETING and tag removal
 * from resources begins. This can take up to 48 hours depending on the number of resources that
-* were tagged as well as the regions in which those resources reside. When all tags have been
-* removed, the state changes to DELETED. You cannot restore a deleted tag. Once the deleted tag
-* changes its state to DELETED, you can use the same tag name again. 
+* were tagged as well as the regions in which those resources reside.
+* <p>
+When all tags have been removed, the state changes to DELETED. You cannot restore a deleted tag. Once the deleted tag
+* changes its state to DELETED, you can use the same tag name again.
+* <p>
+After you start this operation, you cannot start either the {@link #bulkDeleteTags(BulkDeleteTagsRequest) bulkDeleteTags} or the {@link #cascadeDeleteTagNamespace(CascadeDeleteTagNamespaceRequest) cascadeDeleteTagNamespace} operation until this process completes. 
 * <p>
 To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagRequest) updateTag}
 * to retire a tag. 
@@ -2586,8 +2870,11 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
   }
 
   /**
-     * Deletes the specified tag namespace. Only an empty tag namespace can be deleted. To delete
-* a tag namespace, first delete all its tag definitions. 
+     * Deletes the specified tag namespace. Only an empty tag namespace can be deleted with this operation. To use this operation 
+* to delete a tag namespace that contains tag definitions, first delete all of its tag definitions. 
+* <p>
+Use {@link #cascadeDeleteTagNamespace(CascadeDeleteTagNamespaceRequest) cascadeDeleteTagNamespace} to delete a tag namespace along with all of
+* the tag definitions contained within that namespace. 
 * <p>
 Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
 * 
@@ -3909,6 +4196,64 @@ Every user has permission to use this API call for *their own user ID*.  An admi
         body: await response.json(),
         bodyKey: "items",
         bodyModel: "AvailabilityDomain[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Lists the resource types supported by compartment bulk actions.
+   *
+   * @param ListBulkActionResourceTypesRequest
+   * @return ListBulkActionResourceTypesResponse
+   * @throws OciError when an error occurs
+   */
+  public async listBulkActionResourceTypes(
+    listBulkActionResourceTypesRequest: requests.ListBulkActionResourceTypesRequest
+  ): Promise<responses.ListBulkActionResourceTypesResponse> {
+    const pathParams = {};
+
+    const queryParams = {
+      "bulkActionType": listBulkActionResourceTypesRequest.bulkActionType,
+      "page": listBulkActionResourceTypesRequest.page,
+      "limit": listBulkActionResourceTypesRequest.limit
+    };
+
+    let headerParams = {};
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/compartments/bulkActionResourceTypes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListBulkActionResourceTypesResponse>{},
+        body: await response.json(),
+        bodyKey: "bulkActionResourceTypeCollection",
+        bodyModel: "model.BulkActionResourceTypeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
