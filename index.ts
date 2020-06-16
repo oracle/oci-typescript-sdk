@@ -13,7 +13,8 @@ export import DefaultRequestSigner = common.DefaultRequestSigner;
 export import OciError = common.OciError;
 export import HandleErrorResponse = common.handleErrorResponse;
 export import ConvertStringToType = common.convertStringToType;
-
+export import LOG = common.LOG;
+export import ConfigFileAuthenticationDetailsProvider = common.ConfigFileAuthenticationDetailsProvider;
 // Analytics Service
 export import analytics = require("oci-analytics");
 

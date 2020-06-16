@@ -55,6 +55,11 @@ export class LimitsClient {
    */
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
+    if (this.logger) this.logger.info(`LimitsClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -97,6 +102,7 @@ export class LimitsClient {
   public async getResourceAvailability(
     getResourceAvailabilityRequest: requests.GetResourceAvailabilityRequest
   ): Promise<responses.GetResourceAvailabilityResponse> {
+    if (this.logger) this.logger.debug("Calling operation LimitsClient#getResourceAvailability.");
     const pathParams = {
       "{serviceName}": getResourceAvailabilityRequest.serviceName,
       "{limitName}": getResourceAvailabilityRequest.limitName
@@ -156,6 +162,7 @@ export class LimitsClient {
   public async listLimitDefinitions(
     listLimitDefinitionsRequest: requests.ListLimitDefinitionsRequest
   ): Promise<responses.ListLimitDefinitionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation LimitsClient#listLimitDefinitions.");
     const pathParams = {};
 
     const queryParams = {
@@ -245,6 +252,7 @@ export class LimitsClient {
   public async listLimitValues(
     listLimitValuesRequest: requests.ListLimitValuesRequest
   ): Promise<responses.ListLimitValuesResponse> {
+    if (this.logger) this.logger.debug("Calling operation LimitsClient#listLimitValues.");
     const pathParams = {};
 
     const queryParams = {
@@ -337,6 +345,7 @@ export class LimitsClient {
   public async listServices(
     listServicesRequest: requests.ListServicesRequest
   ): Promise<responses.ListServicesResponse> {
+    if (this.logger) this.logger.debug("Calling operation LimitsClient#listServices.");
     const pathParams = {};
 
     const queryParams = {
@@ -447,6 +456,11 @@ export class QuotasClient {
    */
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
+    if (this.logger) this.logger.info(`QuotasClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -508,6 +522,7 @@ export class QuotasClient {
   public async createQuota(
     createQuotaRequest: requests.CreateQuotaRequest
   ): Promise<responses.CreateQuotaResponse> {
+    if (this.logger) this.logger.debug("Calling operation QuotasClient#createQuota.");
     const pathParams = {};
 
     const queryParams = {};
@@ -569,6 +584,7 @@ export class QuotasClient {
   public async deleteQuota(
     deleteQuotaRequest: requests.DeleteQuotaRequest
   ): Promise<responses.DeleteQuotaResponse> {
+    if (this.logger) this.logger.debug("Calling operation QuotasClient#deleteQuota.");
     const pathParams = {
       "{quotaId}": deleteQuotaRequest.quotaId
     };
@@ -619,6 +635,7 @@ export class QuotasClient {
   public async getQuota(
     getQuotaRequest: requests.GetQuotaRequest
   ): Promise<responses.GetQuotaResponse> {
+    if (this.logger) this.logger.debug("Calling operation QuotasClient#getQuota.");
     const pathParams = {
       "{quotaId}": getQuotaRequest.quotaId
     };
@@ -676,6 +693,7 @@ export class QuotasClient {
   public async listQuotas(
     listQuotasRequest: requests.ListQuotasRequest
   ): Promise<responses.ListQuotasResponse> {
+    if (this.logger) this.logger.debug("Calling operation QuotasClient#listQuotas.");
     const pathParams = {};
 
     const queryParams = {
@@ -764,6 +782,7 @@ export class QuotasClient {
   public async updateQuota(
     updateQuotaRequest: requests.UpdateQuotaRequest
   ): Promise<responses.UpdateQuotaResponse> {
+    if (this.logger) this.logger.debug("Calling operation QuotasClient#updateQuota.");
     const pathParams = {
       "{quotaId}": updateQuotaRequest.quotaId
     };

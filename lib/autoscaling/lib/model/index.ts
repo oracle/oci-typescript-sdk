@@ -1,7 +1,11 @@
 /**
  * Autoscaling API
- * APIs for dynamically scaling Compute resources to meet application requirements. 
-For information about the Compute service, see [Overview of the Compute Service](/Content/Compute/Concepts/computeoverview.htm).
+ * APIs for dynamically scaling Compute resources to meet application requirements. For more information about
+autoscaling, see [Autoscaling](/Content/Compute/Tasks/autoscalinginstancepools.htm). For information about the
+Compute service, see [Overview of the Compute Service](/Content/Compute/Concepts/computeoverview.htm).
+
+**Note:** Autoscaling is not available in US Government Cloud tenancies. For more information, see
+[Oracle Cloud Infrastructure US Government Cloud](/Content/General/Concepts/govoverview.htm).
 
  * OpenAPI spec version: 20181001
  * 
@@ -35,6 +39,8 @@ import * as CreateAutoScalingPolicyDetails from "./create-auto-scaling-policy-de
 export import CreateAutoScalingPolicyDetails = CreateAutoScalingPolicyDetails.CreateAutoScalingPolicyDetails;
 import * as CreateConditionDetails from "./create-condition-details";
 export import CreateConditionDetails = CreateConditionDetails.CreateConditionDetails;
+import * as ExecutionSchedule from "./execution-schedule";
+export import ExecutionSchedule = ExecutionSchedule.ExecutionSchedule;
 import * as Metric from "./metric";
 export import Metric = Metric.Metric;
 import * as Resource from "./resource";
@@ -48,11 +54,19 @@ export import UpdateAutoScalingPolicyDetails = UpdateAutoScalingPolicyDetails.Up
 import * as UpdateConditionDetails from "./update-condition-details";
 export import UpdateConditionDetails = UpdateConditionDetails.UpdateConditionDetails;
 
+import * as CreateScheduledPolicyDetails from "./create-scheduled-policy-details";
+export import CreateScheduledPolicyDetails = CreateScheduledPolicyDetails.CreateScheduledPolicyDetails;
 import * as CreateThresholdPolicyDetails from "./create-threshold-policy-details";
 export import CreateThresholdPolicyDetails = CreateThresholdPolicyDetails.CreateThresholdPolicyDetails;
+import * as CronExecutionSchedule from "./cron-execution-schedule";
+export import CronExecutionSchedule = CronExecutionSchedule.CronExecutionSchedule;
 import * as InstancePoolResource from "./instance-pool-resource";
 export import InstancePoolResource = InstancePoolResource.InstancePoolResource;
+import * as ScheduledPolicy from "./scheduled-policy";
+export import ScheduledPolicy = ScheduledPolicy.ScheduledPolicy;
 import * as ThresholdPolicy from "./threshold-policy";
 export import ThresholdPolicy = ThresholdPolicy.ThresholdPolicy;
+import * as UpdateScheduledPolicyDetails from "./update-scheduled-policy-details";
+export import UpdateScheduledPolicyDetails = UpdateScheduledPolicyDetails.UpdateScheduledPolicyDetails;
 import * as UpdateThresholdPolicyDetails from "./update-threshold-policy-details";
 export import UpdateThresholdPolicyDetails = UpdateThresholdPolicyDetails.UpdateThresholdPolicyDetails;

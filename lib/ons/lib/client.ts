@@ -58,6 +58,12 @@ export class NotificationControlPlaneClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181201";
+    if (this.logger)
+      this.logger.info(`NotificationControlPlaneClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -101,6 +107,8 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async changeTopicCompartment(
     changeTopicCompartmentRequest: requests.ChangeTopicCompartmentRequest
   ): Promise<responses.ChangeTopicCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation NotificationControlPlaneClient#changeTopicCompartment.");
     const pathParams = {
       "{topicId}": changeTopicCompartmentRequest.topicId
     };
@@ -171,6 +179,8 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async createTopic(
     createTopicRequest: requests.CreateTopicRequest
   ): Promise<responses.CreateTopicResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation NotificationControlPlaneClient#createTopic.");
     const pathParams = {};
 
     const queryParams = {};
@@ -235,6 +245,8 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async deleteTopic(
     deleteTopicRequest: requests.DeleteTopicRequest
   ): Promise<responses.DeleteTopicResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation NotificationControlPlaneClient#deleteTopic.");
     const pathParams = {
       "{topicId}": deleteTopicRequest.topicId
     };
@@ -286,6 +298,8 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async getTopic(
     getTopicRequest: requests.GetTopicRequest
   ): Promise<responses.GetTopicResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation NotificationControlPlaneClient#getTopic.");
     const pathParams = {
       "{topicId}": getTopicRequest.topicId
     };
@@ -346,6 +360,8 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 120.
   public async listTopics(
     listTopicsRequest: requests.ListTopicsRequest
   ): Promise<responses.ListTopicsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation NotificationControlPlaneClient#listTopics.");
     const pathParams = {};
 
     const queryParams = {
@@ -438,6 +454,8 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async updateTopic(
     updateTopicRequest: requests.UpdateTopicRequest
   ): Promise<responses.UpdateTopicResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation NotificationControlPlaneClient#updateTopic.");
     const pathParams = {
       "{topicId}": updateTopicRequest.topicId
     };
@@ -526,6 +544,12 @@ export class NotificationDataPlaneClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181201";
+    if (this.logger)
+      this.logger.info(`NotificationDataPlaneClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -592,6 +616,10 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async changeSubscriptionCompartment(
     changeSubscriptionCompartmentRequest: requests.ChangeSubscriptionCompartmentRequest
   ): Promise<responses.ChangeSubscriptionCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation NotificationDataPlaneClient#changeSubscriptionCompartment."
+      );
     const pathParams = {
       "{subscriptionId}": changeSubscriptionCompartmentRequest.subscriptionId
     };
@@ -653,6 +681,8 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async createSubscription(
     createSubscriptionRequest: requests.CreateSubscriptionRequest
   ): Promise<responses.CreateSubscriptionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation NotificationDataPlaneClient#createSubscription.");
     const pathParams = {};
 
     const queryParams = {};
@@ -717,6 +747,8 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async deleteSubscription(
     deleteSubscriptionRequest: requests.DeleteSubscriptionRequest
   ): Promise<responses.DeleteSubscriptionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation NotificationDataPlaneClient#deleteSubscription.");
     const pathParams = {
       "{subscriptionId}": deleteSubscriptionRequest.subscriptionId
     };
@@ -770,6 +802,8 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async getConfirmSubscription(
     getConfirmSubscriptionRequest: requests.GetConfirmSubscriptionRequest
   ): Promise<responses.GetConfirmSubscriptionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation NotificationDataPlaneClient#getConfirmSubscription.");
     const pathParams = {
       "{id}": getConfirmSubscriptionRequest.id
     };
@@ -833,6 +867,8 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async getSubscription(
     getSubscriptionRequest: requests.GetSubscriptionRequest
   ): Promise<responses.GetSubscriptionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation NotificationDataPlaneClient#getSubscription.");
     const pathParams = {
       "{subscriptionId}": getSubscriptionRequest.subscriptionId
     };
@@ -893,6 +929,8 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async getUnsubscription(
     getUnsubscriptionRequest: requests.GetUnsubscriptionRequest
   ): Promise<responses.GetUnsubscriptionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation NotificationDataPlaneClient#getUnsubscription.");
     const pathParams = {
       "{id}": getUnsubscriptionRequest.id
     };
@@ -951,6 +989,8 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async listSubscriptions(
     listSubscriptionsRequest: requests.ListSubscriptionsRequest
   ): Promise<responses.ListSubscriptionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation NotificationDataPlaneClient#listSubscriptions.");
     const pathParams = {};
 
     const queryParams = {
@@ -1053,6 +1093,8 @@ For more information about publishing messages, see [Publishing Messages](https:
   public async publishMessage(
     publishMessageRequest: requests.PublishMessageRequest
   ): Promise<responses.PublishMessageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation NotificationDataPlaneClient#publishMessage.");
     const pathParams = {
       "{topicId}": publishMessageRequest.topicId
     };
@@ -1114,6 +1156,10 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async resendSubscriptionConfirmation(
     resendSubscriptionConfirmationRequest: requests.ResendSubscriptionConfirmationRequest
   ): Promise<responses.ResendSubscriptionConfirmationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation NotificationDataPlaneClient#resendSubscriptionConfirmation."
+      );
     const pathParams = {
       "{id}": resendSubscriptionConfirmationRequest.id
     };
@@ -1169,6 +1215,8 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async updateSubscription(
     updateSubscriptionRequest: requests.UpdateSubscriptionRequest
   ): Promise<responses.UpdateSubscriptionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation NotificationDataPlaneClient#updateSubscription.");
     const pathParams = {
       "{subscriptionId}": updateSubscriptionRequest.subscriptionId
     };

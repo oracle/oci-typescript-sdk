@@ -64,6 +64,11 @@ export class DnsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180115";
+    if (this.logger) this.logger.info(`DnsClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -125,6 +130,8 @@ export class DnsClient {
   public async changeSteeringPolicyCompartment(
     changeSteeringPolicyCompartmentRequest: requests.ChangeSteeringPolicyCompartmentRequest
   ): Promise<responses.ChangeSteeringPolicyCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DnsClient#changeSteeringPolicyCompartment.");
     const pathParams = {
       "{steeringPolicyId}": changeSteeringPolicyCompartmentRequest.steeringPolicyId
     };
@@ -181,6 +188,7 @@ export class DnsClient {
   public async changeTsigKeyCompartment(
     changeTsigKeyCompartmentRequest: requests.ChangeTsigKeyCompartmentRequest
   ): Promise<responses.ChangeTsigKeyCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#changeTsigKeyCompartment.");
     const pathParams = {
       "{tsigKeyId}": changeTsigKeyCompartmentRequest.tsigKeyId
     };
@@ -238,6 +246,7 @@ export class DnsClient {
   public async changeZoneCompartment(
     changeZoneCompartmentRequest: requests.ChangeZoneCompartmentRequest
   ): Promise<responses.ChangeZoneCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#changeZoneCompartment.");
     const pathParams = {
       "{zoneId}": changeZoneCompartmentRequest.zoneId
     };
@@ -296,6 +305,7 @@ export class DnsClient {
   public async createSteeringPolicy(
     createSteeringPolicyRequest: requests.CreateSteeringPolicyRequest
   ): Promise<responses.CreateSteeringPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#createSteeringPolicy.");
     const pathParams = {};
 
     const queryParams = {};
@@ -363,6 +373,8 @@ For the purposes of access control, the attachment is automatically placed
   public async createSteeringPolicyAttachment(
     createSteeringPolicyAttachmentRequest: requests.CreateSteeringPolicyAttachmentRequest
   ): Promise<responses.CreateSteeringPolicyAttachmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DnsClient#createSteeringPolicyAttachment.");
     const pathParams = {};
 
     const queryParams = {};
@@ -426,6 +438,7 @@ For the purposes of access control, the attachment is automatically placed
   public async createTsigKey(
     createTsigKeyRequest: requests.CreateTsigKeyRequest
   ): Promise<responses.CreateTsigKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#createTsigKey.");
     const pathParams = {};
 
     const queryParams = {};
@@ -489,6 +502,7 @@ For the purposes of access control, the attachment is automatically placed
   public async createZone(
     createZoneRequest: requests.CreateZoneRequest
   ): Promise<responses.CreateZoneResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#createZone.");
     const pathParams = {};
 
     const queryParams = {
@@ -551,6 +565,7 @@ For the purposes of access control, the attachment is automatically placed
   public async deleteDomainRecords(
     deleteDomainRecordsRequest: requests.DeleteDomainRecordsRequest
   ): Promise<responses.DeleteDomainRecordsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#deleteDomainRecords.");
     const pathParams = {
       "{zoneNameOrId}": deleteDomainRecordsRequest.zoneNameOrId,
       "{domain}": deleteDomainRecordsRequest.domain
@@ -606,6 +621,7 @@ For the purposes of access control, the attachment is automatically placed
   public async deleteRRSet(
     deleteRRSetRequest: requests.DeleteRRSetRequest
   ): Promise<responses.DeleteRRSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#deleteRRSet.");
     const pathParams = {
       "{zoneNameOrId}": deleteRRSetRequest.zoneNameOrId,
       "{domain}": deleteRRSetRequest.domain,
@@ -665,6 +681,7 @@ For the purposes of access control, the attachment is automatically placed
   public async deleteSteeringPolicy(
     deleteSteeringPolicyRequest: requests.DeleteSteeringPolicyRequest
   ): Promise<responses.DeleteSteeringPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#deleteSteeringPolicy.");
     const pathParams = {
       "{steeringPolicyId}": deleteSteeringPolicyRequest.steeringPolicyId
     };
@@ -718,6 +735,8 @@ For the purposes of access control, the attachment is automatically placed
   public async deleteSteeringPolicyAttachment(
     deleteSteeringPolicyAttachmentRequest: requests.DeleteSteeringPolicyAttachmentRequest
   ): Promise<responses.DeleteSteeringPolicyAttachmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DnsClient#deleteSteeringPolicyAttachment.");
     const pathParams = {
       "{steeringPolicyAttachmentId}":
         deleteSteeringPolicyAttachmentRequest.steeringPolicyAttachmentId
@@ -771,6 +790,7 @@ For the purposes of access control, the attachment is automatically placed
   public async deleteTsigKey(
     deleteTsigKeyRequest: requests.DeleteTsigKeyRequest
   ): Promise<responses.DeleteTsigKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#deleteTsigKey.");
     const pathParams = {
       "{tsigKeyId}": deleteTsigKeyRequest.tsigKeyId
     };
@@ -829,6 +849,7 @@ For the purposes of access control, the attachment is automatically placed
   public async deleteZone(
     deleteZoneRequest: requests.DeleteZoneRequest
   ): Promise<responses.DeleteZoneResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#deleteZone.");
     const pathParams = {
       "{zoneNameOrId}": deleteZoneRequest.zoneNameOrId
     };
@@ -885,6 +906,7 @@ For the purposes of access control, the attachment is automatically placed
   public async getDomainRecords(
     getDomainRecordsRequest: requests.GetDomainRecordsRequest
   ): Promise<responses.GetDomainRecordsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#getDomainRecords.");
     const pathParams = {
       "{zoneNameOrId}": getDomainRecordsRequest.zoneNameOrId,
       "{domain}": getDomainRecordsRequest.domain
@@ -1001,6 +1023,7 @@ For the purposes of access control, the attachment is automatically placed
   public async getRRSet(
     getRRSetRequest: requests.GetRRSetRequest
   ): Promise<responses.GetRRSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#getRRSet.");
     const pathParams = {
       "{zoneNameOrId}": getRRSetRequest.zoneNameOrId,
       "{domain}": getRRSetRequest.domain,
@@ -1112,6 +1135,7 @@ For the purposes of access control, the attachment is automatically placed
   public async getSteeringPolicy(
     getSteeringPolicyRequest: requests.GetSteeringPolicyRequest
   ): Promise<responses.GetSteeringPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#getSteeringPolicy.");
     const pathParams = {
       "{steeringPolicyId}": getSteeringPolicyRequest.steeringPolicyId
     };
@@ -1172,6 +1196,7 @@ For the purposes of access control, the attachment is automatically placed
   public async getSteeringPolicyAttachment(
     getSteeringPolicyAttachmentRequest: requests.GetSteeringPolicyAttachmentRequest
   ): Promise<responses.GetSteeringPolicyAttachmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#getSteeringPolicyAttachment.");
     const pathParams = {
       "{steeringPolicyAttachmentId}": getSteeringPolicyAttachmentRequest.steeringPolicyAttachmentId
     };
@@ -1232,6 +1257,7 @@ For the purposes of access control, the attachment is automatically placed
   public async getTsigKey(
     getTsigKeyRequest: requests.GetTsigKeyRequest
   ): Promise<responses.GetTsigKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#getTsigKey.");
     const pathParams = {
       "{tsigKeyId}": getTsigKeyRequest.tsigKeyId
     };
@@ -1293,6 +1319,7 @@ For the purposes of access control, the attachment is automatically placed
   public async getZone(
     getZoneRequest: requests.GetZoneRequest
   ): Promise<responses.GetZoneResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#getZone.");
     const pathParams = {
       "{zoneNameOrId}": getZoneRequest.zoneNameOrId
     };
@@ -1357,6 +1384,7 @@ For the purposes of access control, the attachment is automatically placed
   public async getZoneRecords(
     getZoneRecordsRequest: requests.GetZoneRecordsRequest
   ): Promise<responses.GetZoneRecordsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#getZoneRecords.");
     const pathParams = {
       "{zoneNameOrId}": getZoneRecordsRequest.zoneNameOrId
     };
@@ -1473,6 +1501,7 @@ For the purposes of access control, the attachment is automatically placed
   public async listSteeringPolicies(
     listSteeringPoliciesRequest: requests.ListSteeringPoliciesRequest
   ): Promise<responses.ListSteeringPoliciesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#listSteeringPolicies.");
     const pathParams = {};
 
     const queryParams = {
@@ -1574,6 +1603,8 @@ For the purposes of access control, the attachment is automatically placed
   public async listSteeringPolicyAttachments(
     listSteeringPolicyAttachmentsRequest: requests.ListSteeringPolicyAttachmentsRequest
   ): Promise<responses.ListSteeringPolicyAttachmentsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DnsClient#listSteeringPolicyAttachments.");
     const pathParams = {};
 
     const queryParams = {
@@ -1676,6 +1707,7 @@ For the purposes of access control, the attachment is automatically placed
   public async listTsigKeys(
     listTsigKeysRequest: requests.ListTsigKeysRequest
   ): Promise<responses.ListTsigKeysResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#listTsigKeys.");
     const pathParams = {};
 
     const queryParams = {
@@ -1767,6 +1799,7 @@ For the purposes of access control, the attachment is automatically placed
   public async listZones(
     listZonesRequest: requests.ListZonesRequest
   ): Promise<responses.ListZonesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#listZones.");
     const pathParams = {};
 
     const queryParams = {
@@ -1868,6 +1901,7 @@ For the purposes of access control, the attachment is automatically placed
   public async patchDomainRecords(
     patchDomainRecordsRequest: requests.PatchDomainRecordsRequest
   ): Promise<responses.PatchDomainRecordsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#patchDomainRecords.");
     const pathParams = {
       "{zoneNameOrId}": patchDomainRecordsRequest.zoneNameOrId,
       "{domain}": patchDomainRecordsRequest.domain
@@ -1945,6 +1979,7 @@ For the purposes of access control, the attachment is automatically placed
   public async patchRRSet(
     patchRRSetRequest: requests.PatchRRSetRequest
   ): Promise<responses.PatchRRSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#patchRRSet.");
     const pathParams = {
       "{zoneNameOrId}": patchRRSetRequest.zoneNameOrId,
       "{domain}": patchRRSetRequest.domain,
@@ -2027,6 +2062,7 @@ For the purposes of access control, the attachment is automatically placed
   public async patchZoneRecords(
     patchZoneRecordsRequest: requests.PatchZoneRecordsRequest
   ): Promise<responses.PatchZoneRecordsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#patchZoneRecords.");
     const pathParams = {
       "{zoneNameOrId}": patchZoneRecordsRequest.zoneNameOrId
     };
@@ -2109,6 +2145,7 @@ For the purposes of access control, the attachment is automatically placed
   public async updateDomainRecords(
     updateDomainRecordsRequest: requests.UpdateDomainRecordsRequest
   ): Promise<responses.UpdateDomainRecordsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#updateDomainRecords.");
     const pathParams = {
       "{zoneNameOrId}": updateDomainRecordsRequest.zoneNameOrId,
       "{domain}": updateDomainRecordsRequest.domain
@@ -2186,6 +2223,7 @@ For the purposes of access control, the attachment is automatically placed
   public async updateRRSet(
     updateRRSetRequest: requests.UpdateRRSetRequest
   ): Promise<responses.UpdateRRSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#updateRRSet.");
     const pathParams = {
       "{zoneNameOrId}": updateRRSetRequest.zoneNameOrId,
       "{domain}": updateRRSetRequest.domain,
@@ -2265,6 +2303,7 @@ For the purposes of access control, the attachment is automatically placed
   public async updateSteeringPolicy(
     updateSteeringPolicyRequest: requests.UpdateSteeringPolicyRequest
   ): Promise<responses.UpdateSteeringPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#updateSteeringPolicy.");
     const pathParams = {
       "{steeringPolicyId}": updateSteeringPolicyRequest.steeringPolicyId
     };
@@ -2330,6 +2369,8 @@ For the purposes of access control, the attachment is automatically placed
   public async updateSteeringPolicyAttachment(
     updateSteeringPolicyAttachmentRequest: requests.UpdateSteeringPolicyAttachmentRequest
   ): Promise<responses.UpdateSteeringPolicyAttachmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DnsClient#updateSteeringPolicyAttachment.");
     const pathParams = {
       "{steeringPolicyAttachmentId}":
         updateSteeringPolicyAttachmentRequest.steeringPolicyAttachmentId
@@ -2396,6 +2437,7 @@ For the purposes of access control, the attachment is automatically placed
   public async updateTsigKey(
     updateTsigKeyRequest: requests.UpdateTsigKeyRequest
   ): Promise<responses.UpdateTsigKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#updateTsigKey.");
     const pathParams = {
       "{tsigKeyId}": updateTsigKeyRequest.tsigKeyId
     };
@@ -2463,6 +2505,7 @@ For the purposes of access control, the attachment is automatically placed
   public async updateZone(
     updateZoneRequest: requests.UpdateZoneRequest
   ): Promise<responses.UpdateZoneResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#updateZone.");
     const pathParams = {
       "{zoneNameOrId}": updateZoneRequest.zoneNameOrId
     };
@@ -2534,6 +2577,7 @@ For the purposes of access control, the attachment is automatically placed
   public async updateZoneRecords(
     updateZoneRecordsRequest: requests.UpdateZoneRecordsRequest
   ): Promise<responses.UpdateZoneRecordsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#updateZoneRecords.");
     const pathParams = {
       "{zoneNameOrId}": updateZoneRecordsRequest.zoneNameOrId
     };

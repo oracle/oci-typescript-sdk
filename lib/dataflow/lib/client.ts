@@ -58,6 +58,11 @@ export class DataFlowClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200129";
+    if (this.logger) this.logger.info(`DataFlowClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -121,6 +126,8 @@ export class DataFlowClient {
   public async changeApplicationCompartment(
     changeApplicationCompartmentRequest: requests.ChangeApplicationCompartmentRequest
   ): Promise<responses.ChangeApplicationCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataFlowClient#changeApplicationCompartment.");
     const pathParams = {
       "{applicationId}": changeApplicationCompartmentRequest.applicationId
     };
@@ -181,6 +188,7 @@ export class DataFlowClient {
   public async changeRunCompartment(
     changeRunCompartmentRequest: requests.ChangeRunCompartmentRequest
   ): Promise<responses.ChangeRunCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#changeRunCompartment.");
     const pathParams = {
       "{runId}": changeRunCompartmentRequest.runId
     };
@@ -238,6 +246,7 @@ export class DataFlowClient {
   public async createApplication(
     createApplicationRequest: requests.CreateApplicationRequest
   ): Promise<responses.CreateApplicationResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#createApplication.");
     const pathParams = {};
 
     const queryParams = {};
@@ -300,6 +309,7 @@ export class DataFlowClient {
   public async createRun(
     createRunRequest: requests.CreateRunRequest
   ): Promise<responses.CreateRunResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#createRun.");
     const pathParams = {};
 
     const queryParams = {};
@@ -362,6 +372,7 @@ export class DataFlowClient {
   public async deleteApplication(
     deleteApplicationRequest: requests.DeleteApplicationRequest
   ): Promise<responses.DeleteApplicationResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#deleteApplication.");
     const pathParams = {
       "{applicationId}": deleteApplicationRequest.applicationId
     };
@@ -414,6 +425,7 @@ export class DataFlowClient {
   public async deleteRun(
     deleteRunRequest: requests.DeleteRunRequest
   ): Promise<responses.DeleteRunResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#deleteRun.");
     const pathParams = {
       "{runId}": deleteRunRequest.runId
     };
@@ -465,6 +477,7 @@ export class DataFlowClient {
   public async getApplication(
     getApplicationRequest: requests.GetApplicationRequest
   ): Promise<responses.GetApplicationResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#getApplication.");
     const pathParams = {
       "{applicationId}": getApplicationRequest.applicationId
     };
@@ -521,6 +534,7 @@ export class DataFlowClient {
    * @throws OciError when an error occurs
    */
   public async getRun(getRunRequest: requests.GetRunRequest): Promise<responses.GetRunResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#getRun.");
     const pathParams = {
       "{runId}": getRunRequest.runId
     };
@@ -579,6 +593,7 @@ export class DataFlowClient {
   public async getRunLog(
     getRunLogRequest: requests.GetRunLogRequest
   ): Promise<responses.GetRunLogResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#getRunLog.");
     const pathParams = {
       "{runId}": getRunLogRequest.runId,
       "{name}": getRunLogRequest.name
@@ -662,6 +677,7 @@ export class DataFlowClient {
   public async listApplications(
     listApplicationsRequest: requests.ListApplicationsRequest
   ): Promise<responses.ListApplicationsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#listApplications.");
     const pathParams = {};
 
     const queryParams = {
@@ -757,6 +773,7 @@ export class DataFlowClient {
   public async listRunLogs(
     listRunLogsRequest: requests.ListRunLogsRequest
   ): Promise<responses.ListRunLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#listRunLogs.");
     const pathParams = {
       "{runId}": listRunLogsRequest.runId
     };
@@ -848,6 +865,7 @@ export class DataFlowClient {
   public async listRuns(
     listRunsRequest: requests.ListRunsRequest
   ): Promise<responses.ListRunsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#listRuns.");
     const pathParams = {};
 
     const queryParams = {
@@ -944,6 +962,7 @@ export class DataFlowClient {
   public async updateApplication(
     updateApplicationRequest: requests.UpdateApplicationRequest
   ): Promise<responses.UpdateApplicationResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#updateApplication.");
     const pathParams = {
       "{applicationId}": updateApplicationRequest.applicationId
     };
@@ -1008,6 +1027,7 @@ export class DataFlowClient {
   public async updateRun(
     updateRunRequest: requests.UpdateRunRequest
   ): Promise<responses.UpdateRunResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#updateRun.");
     const pathParams = {
       "{runId}": updateRunRequest.runId
     };

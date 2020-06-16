@@ -18,6 +18,7 @@ export interface CreateDbHomeRequest {
    * Request to create a new Database Home.
    */
   "createDbHomeWithDbSystemIdDetails":
+    | model.CreateDbHomeWithDbSystemIdFromDatabaseDetails
     | model.CreateDbHomeWithDbSystemIdFromBackupDetails
     | model.CreateDbHomeWithDbSystemIdDetails
     | model.CreateDbHomeWithVmClusterIdDetails;

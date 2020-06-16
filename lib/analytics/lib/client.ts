@@ -58,6 +58,11 @@ export class AnalyticsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190331";
+    if (this.logger) this.logger.info(`AnalyticsClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -121,6 +126,8 @@ export class AnalyticsClient {
   public async changeAnalyticsInstanceCompartment(
     changeAnalyticsInstanceCompartmentRequest: requests.ChangeAnalyticsInstanceCompartmentRequest
   ): Promise<responses.ChangeAnalyticsInstanceCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AnalyticsClient#changeAnalyticsInstanceCompartment.");
     const pathParams = {
       "{analyticsInstanceId}": changeAnalyticsInstanceCompartmentRequest.analyticsInstanceId
     };
@@ -184,6 +191,8 @@ export class AnalyticsClient {
   public async createAnalyticsInstance(
     createAnalyticsInstanceRequest: requests.CreateAnalyticsInstanceRequest
   ): Promise<responses.CreateAnalyticsInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AnalyticsClient#createAnalyticsInstance.");
     const pathParams = {};
 
     const queryParams = {};
@@ -257,6 +266,8 @@ export class AnalyticsClient {
   public async deleteAnalyticsInstance(
     deleteAnalyticsInstanceRequest: requests.DeleteAnalyticsInstanceRequest
   ): Promise<responses.DeleteAnalyticsInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AnalyticsClient#deleteAnalyticsInstance.");
     const pathParams = {
       "{analyticsInstanceId}": deleteAnalyticsInstanceRequest.analyticsInstanceId
     };
@@ -314,6 +325,7 @@ export class AnalyticsClient {
   public async deleteWorkRequest(
     deleteWorkRequestRequest: requests.DeleteWorkRequestRequest
   ): Promise<responses.DeleteWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#deleteWorkRequest.");
     const pathParams = {
       "{workRequestId}": deleteWorkRequestRequest.workRequestId
     };
@@ -365,6 +377,7 @@ export class AnalyticsClient {
   public async getAnalyticsInstance(
     getAnalyticsInstanceRequest: requests.GetAnalyticsInstanceRequest
   ): Promise<responses.GetAnalyticsInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#getAnalyticsInstance.");
     const pathParams = {
       "{analyticsInstanceId}": getAnalyticsInstanceRequest.analyticsInstanceId
     };
@@ -423,6 +436,7 @@ export class AnalyticsClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#getWorkRequest.");
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -486,6 +500,7 @@ export class AnalyticsClient {
   public async listAnalyticsInstances(
     listAnalyticsInstancesRequest: requests.ListAnalyticsInstancesRequest
   ): Promise<responses.ListAnalyticsInstancesResponse> {
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#listAnalyticsInstances.");
     const pathParams = {};
 
     const queryParams = {
@@ -577,6 +592,7 @@ export class AnalyticsClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#listWorkRequestErrors.");
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -663,6 +679,7 @@ export class AnalyticsClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#listWorkRequestLogs.");
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -749,6 +766,7 @@ export class AnalyticsClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#listWorkRequests.");
     const pathParams = {};
 
     const queryParams = {
@@ -840,6 +858,7 @@ export class AnalyticsClient {
   public async scaleAnalyticsInstance(
     scaleAnalyticsInstanceRequest: requests.ScaleAnalyticsInstanceRequest
   ): Promise<responses.ScaleAnalyticsInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#scaleAnalyticsInstance.");
     const pathParams = {
       "{analyticsInstanceId}": scaleAnalyticsInstanceRequest.analyticsInstanceId
     };
@@ -903,6 +922,7 @@ export class AnalyticsClient {
   public async startAnalyticsInstance(
     startAnalyticsInstanceRequest: requests.StartAnalyticsInstanceRequest
   ): Promise<responses.StartAnalyticsInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#startAnalyticsInstance.");
     const pathParams = {
       "{analyticsInstanceId}": startAnalyticsInstanceRequest.analyticsInstanceId
     };
@@ -961,6 +981,7 @@ export class AnalyticsClient {
   public async stopAnalyticsInstance(
     stopAnalyticsInstanceRequest: requests.StopAnalyticsInstanceRequest
   ): Promise<responses.StopAnalyticsInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#stopAnalyticsInstance.");
     const pathParams = {
       "{analyticsInstanceId}": stopAnalyticsInstanceRequest.analyticsInstanceId
     };
@@ -1019,6 +1040,8 @@ export class AnalyticsClient {
   public async updateAnalyticsInstance(
     updateAnalyticsInstanceRequest: requests.UpdateAnalyticsInstanceRequest
   ): Promise<responses.UpdateAnalyticsInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AnalyticsClient#updateAnalyticsInstance.");
     const pathParams = {
       "{analyticsInstanceId}": updateAnalyticsInstanceRequest.analyticsInstanceId
     };

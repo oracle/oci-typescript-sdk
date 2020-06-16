@@ -20,7 +20,7 @@ const provider = new common.ConfigFileAuthenticationDetailsProvider(
 );
 
 /**
- * This file provides an example of how to use the File Storage service in the SDK for Typescript.
+ * This file provides an example of how to use the File Storage service in the SDK for TypeScript.
  *
  * In order to demonstrate functionality for mount targets and export sets, this script will also create a VCN
  * and subnet. These will be deleted at the end of the script. This script also makes some assumptions about

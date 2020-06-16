@@ -37,7 +37,7 @@ const tenancyId = {
   const userDetails = {
     compartmentId: provider.getTenantId() || "",
     name: userName,
-    description: "Created by a SDK for Typescript example"
+    description: "Created by a SDK for TypeScript example"
   };
 
   const userReq = {
@@ -52,7 +52,7 @@ const tenancyId = {
   const groupDetails = {
     compartmentId: provider.getTenantId() || "",
     name: groupName,
-    description: "Created by a SDK for Typescript example"
+    description: "Created by a SDK for TypeScript example"
   };
 
   const groupReq = {

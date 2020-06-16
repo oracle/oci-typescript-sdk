@@ -57,6 +57,11 @@ export class DataSafeClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181201";
+    if (this.logger) this.logger.info(`DataSafeClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -118,6 +123,10 @@ export class DataSafeClient {
   public async changeDataSafePrivateEndpointCompartment(
     changeDataSafePrivateEndpointCompartmentRequest: requests.ChangeDataSafePrivateEndpointCompartmentRequest
   ): Promise<responses.ChangeDataSafePrivateEndpointCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataSafeClient#changeDataSafePrivateEndpointCompartment."
+      );
     const pathParams = {
       "{dataSafePrivateEndpointId}":
         changeDataSafePrivateEndpointCompartmentRequest.dataSafePrivateEndpointId
@@ -180,6 +189,8 @@ export class DataSafeClient {
   public async createDataSafePrivateEndpoint(
     createDataSafePrivateEndpointRequest: requests.CreateDataSafePrivateEndpointRequest
   ): Promise<responses.CreateDataSafePrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#createDataSafePrivateEndpoint.");
     const pathParams = {};
 
     const queryParams = {};
@@ -238,6 +249,8 @@ export class DataSafeClient {
   public async deleteDataSafePrivateEndpoint(
     deleteDataSafePrivateEndpointRequest: requests.DeleteDataSafePrivateEndpointRequest
   ): Promise<responses.DeleteDataSafePrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deleteDataSafePrivateEndpoint.");
     const pathParams = {
       "{dataSafePrivateEndpointId}": deleteDataSafePrivateEndpointRequest.dataSafePrivateEndpointId
     };
@@ -294,6 +307,8 @@ export class DataSafeClient {
   public async enableDataSafeConfiguration(
     enableDataSafeConfigurationRequest: requests.EnableDataSafeConfigurationRequest
   ): Promise<responses.EnableDataSafeConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#enableDataSafeConfiguration.");
     const pathParams = {};
 
     const queryParams = {
@@ -354,6 +369,8 @@ export class DataSafeClient {
   public async getDataSafeConfiguration(
     getDataSafeConfigurationRequest: requests.GetDataSafeConfigurationRequest
   ): Promise<responses.GetDataSafeConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getDataSafeConfiguration.");
     const pathParams = {};
 
     const queryParams = {
@@ -411,6 +428,8 @@ export class DataSafeClient {
   public async getDataSafePrivateEndpoint(
     getDataSafePrivateEndpointRequest: requests.GetDataSafePrivateEndpointRequest
   ): Promise<responses.GetDataSafePrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getDataSafePrivateEndpoint.");
     const pathParams = {
       "{dataSafePrivateEndpointId}": getDataSafePrivateEndpointRequest.dataSafePrivateEndpointId
     };
@@ -468,6 +487,7 @@ export class DataSafeClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getWorkRequest.");
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -531,6 +551,8 @@ export class DataSafeClient {
   public async listDataSafePrivateEndpoints(
     listDataSafePrivateEndpointsRequest: requests.ListDataSafePrivateEndpointsRequest
   ): Promise<responses.ListDataSafePrivateEndpointsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listDataSafePrivateEndpoints.");
     const pathParams = {};
 
     const queryParams = {
@@ -621,6 +643,7 @@ export class DataSafeClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listWorkRequestErrors.");
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -707,6 +730,7 @@ export class DataSafeClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listWorkRequestLogs.");
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -793,6 +817,7 @@ export class DataSafeClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listWorkRequests.");
     const pathParams = {};
 
     const queryParams = {
@@ -878,6 +903,8 @@ export class DataSafeClient {
   public async updateDataSafePrivateEndpoint(
     updateDataSafePrivateEndpointRequest: requests.UpdateDataSafePrivateEndpointRequest
   ): Promise<responses.UpdateDataSafePrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updateDataSafePrivateEndpoint.");
     const pathParams = {
       "{dataSafePrivateEndpointId}": updateDataSafePrivateEndpointRequest.dataSafePrivateEndpointId
     };

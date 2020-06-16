@@ -59,6 +59,11 @@ export class EventsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181201";
+    if (this.logger) this.logger.info(`EventsClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -122,6 +127,7 @@ export class EventsClient {
   public async changeRuleCompartment(
     changeRuleCompartmentRequest: requests.ChangeRuleCompartmentRequest
   ): Promise<responses.ChangeRuleCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation EventsClient#changeRuleCompartment.");
     const pathParams = {
       "{ruleId}": changeRuleCompartmentRequest.ruleId
     };
@@ -179,6 +185,7 @@ export class EventsClient {
   public async createRule(
     createRuleRequest: requests.CreateRuleRequest
   ): Promise<responses.CreateRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation EventsClient#createRule.");
     const pathParams = {};
 
     const queryParams = {};
@@ -240,6 +247,7 @@ export class EventsClient {
   public async deleteRule(
     deleteRuleRequest: requests.DeleteRuleRequest
   ): Promise<responses.DeleteRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation EventsClient#deleteRule.");
     const pathParams = {
       "{ruleId}": deleteRuleRequest.ruleId
     };
@@ -290,6 +298,7 @@ export class EventsClient {
   public async getRule(
     getRuleRequest: requests.GetRuleRequest
   ): Promise<responses.GetRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation EventsClient#getRule.");
     const pathParams = {
       "{ruleId}": getRuleRequest.ruleId
     };
@@ -348,6 +357,7 @@ export class EventsClient {
   public async listRules(
     listRulesRequest: requests.ListRulesRequest
   ): Promise<responses.ListRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation EventsClient#listRules.");
     const pathParams = {};
 
     const queryParams = {
@@ -437,6 +447,7 @@ export class EventsClient {
   public async updateRule(
     updateRuleRequest: requests.UpdateRuleRequest
   ): Promise<responses.UpdateRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation EventsClient#updateRule.");
     const pathParams = {
       "{ruleId}": updateRuleRequest.ruleId
     };

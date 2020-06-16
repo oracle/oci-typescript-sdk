@@ -3,8 +3,6 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
-import log4js = require("log4js");
-
 /**
  * An interface defines the logger related APIs.
  */
@@ -18,38 +16,16 @@ export interface Logger {
   trace(message?: any, ...optionalParams: any[]): void;
 }
 
-export class DefaultLogger implements Logger {
-  private logger: log4js.Logger;
+export module LOG {
+  var _logger: Logger;
 
-  public constructor() {
-    this.logger = log4js.getLogger();
-    this.level = "debug";
-  }
-  public get level(): string {
-    return this.logger.level;
-  }
-
-  public set level(level: string) {
-    this.logger.level = level;
-  }
-
-  public debug(message?: any, ...optionalParams: any[]): void {
-    this.logger.debug(message, optionalParams);
-  }
-
-  public info(message?: any, ...optionalParams: any[]): void {
-    this.logger.info(message, optionalParams);
-  }
-
-  public warn(message?: any, ...optionalParams: any[]): void {
-    this.logger.warn(message, optionalParams);
-  }
-
-  public error(message?: any, ...optionalParams: any[]): void {
-    this.logger.error(message, optionalParams);
-  }
-
-  public trace(message?: any, ...optionalParams: any[]): void {
-    this.logger.trace(message, optionalParams);
-  }
+  export declare var logger: Logger;
+  Object.defineProperty(LOG, "logger", {
+    get: function() {
+      return _logger;
+    },
+    set: function(log: Logger) {
+      _logger = log;
+    }
+  });
 }

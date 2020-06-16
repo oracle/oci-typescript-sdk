@@ -59,6 +59,11 @@ export class LoadBalancerClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20170115";
+    if (this.logger) this.logger.info(`LoadBalancerClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -122,6 +127,8 @@ export class LoadBalancerClient {
   public async changeLoadBalancerCompartment(
     changeLoadBalancerCompartmentRequest: requests.ChangeLoadBalancerCompartmentRequest
   ): Promise<responses.ChangeLoadBalancerCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LoadBalancerClient#changeLoadBalancerCompartment.");
     const pathParams = {
       "{loadBalancerId}": changeLoadBalancerCompartmentRequest.loadBalancerId
     };
@@ -183,6 +190,7 @@ export class LoadBalancerClient {
   public async createBackend(
     createBackendRequest: requests.CreateBackendRequest
   ): Promise<responses.CreateBackendResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createBackend.");
     const pathParams = {
       "{loadBalancerId}": createBackendRequest.loadBalancerId,
       "{backendSetName}": createBackendRequest.backendSetName
@@ -244,6 +252,7 @@ export class LoadBalancerClient {
   public async createBackendSet(
     createBackendSetRequest: requests.CreateBackendSetRequest
   ): Promise<responses.CreateBackendSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createBackendSet.");
     const pathParams = {
       "{loadBalancerId}": createBackendSetRequest.loadBalancerId
     };
@@ -304,6 +313,7 @@ export class LoadBalancerClient {
   public async createCertificate(
     createCertificateRequest: requests.CreateCertificateRequest
   ): Promise<responses.CreateCertificateResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createCertificate.");
     const pathParams = {
       "{loadBalancerId}": createCertificateRequest.loadBalancerId
     };
@@ -366,6 +376,7 @@ export class LoadBalancerClient {
   public async createHostname(
     createHostnameRequest: requests.CreateHostnameRequest
   ): Promise<responses.CreateHostnameResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createHostname.");
     const pathParams = {
       "{loadBalancerId}": createHostnameRequest.loadBalancerId
     };
@@ -426,6 +437,7 @@ export class LoadBalancerClient {
   public async createListener(
     createListenerRequest: requests.CreateListenerRequest
   ): Promise<responses.CreateListenerResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createListener.");
     const pathParams = {
       "{loadBalancerId}": createListenerRequest.loadBalancerId
     };
@@ -513,6 +525,7 @@ When you create a load balancer, the system assigns an IP address.
   public async createLoadBalancer(
     createLoadBalancerRequest: requests.CreateLoadBalancerRequest
   ): Promise<responses.CreateLoadBalancerResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createLoadBalancer.");
     const pathParams = {};
 
     const queryParams = {};
@@ -573,6 +586,7 @@ When you create a load balancer, the system assigns an IP address.
   public async createPathRouteSet(
     createPathRouteSetRequest: requests.CreatePathRouteSetRequest
   ): Promise<responses.CreatePathRouteSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createPathRouteSet.");
     const pathParams = {
       "{loadBalancerId}": createPathRouteSetRequest.loadBalancerId
     };
@@ -635,6 +649,7 @@ When you create a load balancer, the system assigns an IP address.
   public async createRuleSet(
     createRuleSetRequest: requests.CreateRuleSetRequest
   ): Promise<responses.CreateRuleSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createRuleSet.");
     const pathParams = {
       "{loadBalancerId}": createRuleSetRequest.loadBalancerId
     };
@@ -694,6 +709,7 @@ When you create a load balancer, the system assigns an IP address.
   public async deleteBackend(
     deleteBackendRequest: requests.DeleteBackendRequest
   ): Promise<responses.DeleteBackendResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteBackend.");
     const pathParams = {
       "{loadBalancerId}": deleteBackendRequest.loadBalancerId,
       "{backendSetName}": deleteBackendRequest.backendSetName,
@@ -753,6 +769,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async deleteBackendSet(
     deleteBackendSetRequest: requests.DeleteBackendSetRequest
   ): Promise<responses.DeleteBackendSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteBackendSet.");
     const pathParams = {
       "{loadBalancerId}": deleteBackendSetRequest.loadBalancerId,
       "{backendSetName}": deleteBackendSetRequest.backendSetName
@@ -808,6 +825,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async deleteCertificate(
     deleteCertificateRequest: requests.DeleteCertificateRequest
   ): Promise<responses.DeleteCertificateResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteCertificate.");
     const pathParams = {
       "{loadBalancerId}": deleteCertificateRequest.loadBalancerId,
       "{certificateName}": deleteCertificateRequest.certificateName
@@ -864,6 +882,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async deleteHostname(
     deleteHostnameRequest: requests.DeleteHostnameRequest
   ): Promise<responses.DeleteHostnameResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteHostname.");
     const pathParams = {
       "{loadBalancerId}": deleteHostnameRequest.loadBalancerId,
       "{name}": deleteHostnameRequest.name
@@ -919,6 +938,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async deleteListener(
     deleteListenerRequest: requests.DeleteListenerRequest
   ): Promise<responses.DeleteListenerResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteListener.");
     const pathParams = {
       "{loadBalancerId}": deleteListenerRequest.loadBalancerId,
       "{listenerName}": deleteListenerRequest.listenerName
@@ -974,6 +994,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async deleteLoadBalancer(
     deleteLoadBalancerRequest: requests.DeleteLoadBalancerRequest
   ): Promise<responses.DeleteLoadBalancerResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteLoadBalancer.");
     const pathParams = {
       "{loadBalancerId}": deleteLoadBalancerRequest.loadBalancerId
     };
@@ -1032,6 +1053,7 @@ To delete a path route rule from a path route set, use the
   public async deletePathRouteSet(
     deletePathRouteSetRequest: requests.DeletePathRouteSetRequest
   ): Promise<responses.DeletePathRouteSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deletePathRouteSet.");
     const pathParams = {
       "{loadBalancerId}": deletePathRouteSetRequest.loadBalancerId,
       "{pathRouteSetName}": deletePathRouteSetRequest.pathRouteSetName
@@ -1091,6 +1113,7 @@ To delete a rule from a rule set, use the
   public async deleteRuleSet(
     deleteRuleSetRequest: requests.DeleteRuleSetRequest
   ): Promise<responses.DeleteRuleSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteRuleSet.");
     const pathParams = {
       "{loadBalancerId}": deleteRuleSetRequest.loadBalancerId,
       "{ruleSetName}": deleteRuleSetRequest.ruleSetName
@@ -1146,6 +1169,7 @@ To delete a rule from a rule set, use the
   public async getBackend(
     getBackendRequest: requests.GetBackendRequest
   ): Promise<responses.GetBackendResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getBackend.");
     const pathParams = {
       "{loadBalancerId}": getBackendRequest.loadBalancerId,
       "{backendSetName}": getBackendRequest.backendSetName,
@@ -1200,6 +1224,7 @@ To delete a rule from a rule set, use the
   public async getBackendHealth(
     getBackendHealthRequest: requests.GetBackendHealthRequest
   ): Promise<responses.GetBackendHealthResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getBackendHealth.");
     const pathParams = {
       "{loadBalancerId}": getBackendHealthRequest.loadBalancerId,
       "{backendSetName}": getBackendHealthRequest.backendSetName,
@@ -1255,6 +1280,7 @@ To delete a rule from a rule set, use the
   public async getBackendSet(
     getBackendSetRequest: requests.GetBackendSetRequest
   ): Promise<responses.GetBackendSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getBackendSet.");
     const pathParams = {
       "{loadBalancerId}": getBackendSetRequest.loadBalancerId,
       "{backendSetName}": getBackendSetRequest.backendSetName
@@ -1308,6 +1334,7 @@ To delete a rule from a rule set, use the
   public async getBackendSetHealth(
     getBackendSetHealthRequest: requests.GetBackendSetHealthRequest
   ): Promise<responses.GetBackendSetHealthResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getBackendSetHealth.");
     const pathParams = {
       "{loadBalancerId}": getBackendSetHealthRequest.loadBalancerId,
       "{backendSetName}": getBackendSetHealthRequest.backendSetName
@@ -1361,6 +1388,7 @@ To delete a rule from a rule set, use the
   public async getHealthChecker(
     getHealthCheckerRequest: requests.GetHealthCheckerRequest
   ): Promise<responses.GetHealthCheckerResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getHealthChecker.");
     const pathParams = {
       "{loadBalancerId}": getHealthCheckerRequest.loadBalancerId,
       "{backendSetName}": getHealthCheckerRequest.backendSetName
@@ -1414,6 +1442,7 @@ To delete a rule from a rule set, use the
   public async getHostname(
     getHostnameRequest: requests.GetHostnameRequest
   ): Promise<responses.GetHostnameResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getHostname.");
     const pathParams = {
       "{loadBalancerId}": getHostnameRequest.loadBalancerId,
       "{name}": getHostnameRequest.name
@@ -1467,6 +1496,7 @@ To delete a rule from a rule set, use the
   public async getLoadBalancer(
     getLoadBalancerRequest: requests.GetLoadBalancerRequest
   ): Promise<responses.GetLoadBalancerResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getLoadBalancer.");
     const pathParams = {
       "{loadBalancerId}": getLoadBalancerRequest.loadBalancerId
     };
@@ -1519,6 +1549,8 @@ To delete a rule from a rule set, use the
   public async getLoadBalancerHealth(
     getLoadBalancerHealthRequest: requests.GetLoadBalancerHealthRequest
   ): Promise<responses.GetLoadBalancerHealthResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LoadBalancerClient#getLoadBalancerHealth.");
     const pathParams = {
       "{loadBalancerId}": getLoadBalancerHealthRequest.loadBalancerId
     };
@@ -1571,6 +1603,7 @@ To delete a rule from a rule set, use the
   public async getPathRouteSet(
     getPathRouteSetRequest: requests.GetPathRouteSetRequest
   ): Promise<responses.GetPathRouteSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getPathRouteSet.");
     const pathParams = {
       "{loadBalancerId}": getPathRouteSetRequest.loadBalancerId,
       "{pathRouteSetName}": getPathRouteSetRequest.pathRouteSetName
@@ -1624,6 +1657,7 @@ To delete a rule from a rule set, use the
   public async getRuleSet(
     getRuleSetRequest: requests.GetRuleSetRequest
   ): Promise<responses.GetRuleSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getRuleSet.");
     const pathParams = {
       "{loadBalancerId}": getRuleSetRequest.loadBalancerId,
       "{ruleSetName}": getRuleSetRequest.ruleSetName
@@ -1677,6 +1711,7 @@ To delete a rule from a rule set, use the
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getWorkRequest.");
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -1729,6 +1764,7 @@ To delete a rule from a rule set, use the
   public async listBackendSets(
     listBackendSetsRequest: requests.ListBackendSetsRequest
   ): Promise<responses.ListBackendSetsResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listBackendSets.");
     const pathParams = {
       "{loadBalancerId}": listBackendSetsRequest.loadBalancerId
     };
@@ -1781,6 +1817,7 @@ To delete a rule from a rule set, use the
   public async listBackends(
     listBackendsRequest: requests.ListBackendsRequest
   ): Promise<responses.ListBackendsResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listBackends.");
     const pathParams = {
       "{loadBalancerId}": listBackendsRequest.loadBalancerId,
       "{backendSetName}": listBackendsRequest.backendSetName
@@ -1834,6 +1871,7 @@ To delete a rule from a rule set, use the
   public async listCertificates(
     listCertificatesRequest: requests.ListCertificatesRequest
   ): Promise<responses.ListCertificatesResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listCertificates.");
     const pathParams = {
       "{loadBalancerId}": listCertificatesRequest.loadBalancerId
     };
@@ -1886,6 +1924,7 @@ To delete a rule from a rule set, use the
   public async listHostnames(
     listHostnamesRequest: requests.ListHostnamesRequest
   ): Promise<responses.ListHostnamesResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listHostnames.");
     const pathParams = {
       "{loadBalancerId}": listHostnamesRequest.loadBalancerId
     };
@@ -1945,6 +1984,7 @@ To delete a rule from a rule set, use the
   public async listListenerRules(
     listListenerRulesRequest: requests.ListListenerRulesRequest
   ): Promise<responses.ListListenerRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listListenerRules.");
     const pathParams = {
       "{loadBalancerId}": listListenerRulesRequest.loadBalancerId,
       "{listenerName}": listListenerRulesRequest.listenerName
@@ -1998,6 +2038,8 @@ To delete a rule from a rule set, use the
   public async listLoadBalancerHealths(
     listLoadBalancerHealthsRequest: requests.ListLoadBalancerHealthsRequest
   ): Promise<responses.ListLoadBalancerHealthsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LoadBalancerClient#listLoadBalancerHealths.");
     const pathParams = {};
 
     const queryParams = {
@@ -2082,6 +2124,7 @@ To delete a rule from a rule set, use the
   public async listLoadBalancers(
     listLoadBalancersRequest: requests.ListLoadBalancersRequest
   ): Promise<responses.ListLoadBalancersResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listLoadBalancers.");
     const pathParams = {};
 
     const queryParams = {
@@ -2171,6 +2214,7 @@ To delete a rule from a rule set, use the
   public async listPathRouteSets(
     listPathRouteSetsRequest: requests.ListPathRouteSetsRequest
   ): Promise<responses.ListPathRouteSetsResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listPathRouteSets.");
     const pathParams = {
       "{loadBalancerId}": listPathRouteSetsRequest.loadBalancerId
     };
@@ -2223,6 +2267,7 @@ To delete a rule from a rule set, use the
   public async listPolicies(
     listPoliciesRequest: requests.ListPoliciesRequest
   ): Promise<responses.ListPoliciesResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listPolicies.");
     const pathParams = {};
 
     const queryParams = {
@@ -2307,6 +2352,7 @@ To delete a rule from a rule set, use the
   public async listProtocols(
     listProtocolsRequest: requests.ListProtocolsRequest
   ): Promise<responses.ListProtocolsResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listProtocols.");
     const pathParams = {};
 
     const queryParams = {
@@ -2391,6 +2437,7 @@ To delete a rule from a rule set, use the
   public async listRuleSets(
     listRuleSetsRequest: requests.ListRuleSetsRequest
   ): Promise<responses.ListRuleSetsResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listRuleSets.");
     const pathParams = {
       "{loadBalancerId}": listRuleSetsRequest.loadBalancerId
     };
@@ -2443,6 +2490,7 @@ To delete a rule from a rule set, use the
   public async listShapes(
     listShapesRequest: requests.ListShapesRequest
   ): Promise<responses.ListShapesResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listShapes.");
     const pathParams = {};
 
     const queryParams = {
@@ -2527,6 +2575,7 @@ To delete a rule from a rule set, use the
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listWorkRequests.");
     const pathParams = {
       "{loadBalancerId}": listWorkRequestsRequest.loadBalancerId
     };
@@ -2612,6 +2661,7 @@ To delete a rule from a rule set, use the
   public async updateBackend(
     updateBackendRequest: requests.UpdateBackendRequest
   ): Promise<responses.UpdateBackendResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateBackend.");
     const pathParams = {
       "{loadBalancerId}": updateBackendRequest.loadBalancerId,
       "{backendSetName}": updateBackendRequest.backendSetName,
@@ -2674,6 +2724,7 @@ To delete a rule from a rule set, use the
   public async updateBackendSet(
     updateBackendSetRequest: requests.UpdateBackendSetRequest
   ): Promise<responses.UpdateBackendSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateBackendSet.");
     const pathParams = {
       "{loadBalancerId}": updateBackendSetRequest.loadBalancerId,
       "{backendSetName}": updateBackendSetRequest.backendSetName
@@ -2735,6 +2786,7 @@ To delete a rule from a rule set, use the
   public async updateHealthChecker(
     updateHealthCheckerRequest: requests.UpdateHealthCheckerRequest
   ): Promise<responses.UpdateHealthCheckerResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateHealthChecker.");
     const pathParams = {
       "{loadBalancerId}": updateHealthCheckerRequest.loadBalancerId,
       "{backendSetName}": updateHealthCheckerRequest.backendSetName
@@ -2798,6 +2850,7 @@ To delete a rule from a rule set, use the
   public async updateHostname(
     updateHostnameRequest: requests.UpdateHostnameRequest
   ): Promise<responses.UpdateHostnameResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateHostname.");
     const pathParams = {
       "{loadBalancerId}": updateHostnameRequest.loadBalancerId,
       "{name}": updateHostnameRequest.name
@@ -2858,6 +2911,7 @@ To delete a rule from a rule set, use the
   public async updateListener(
     updateListenerRequest: requests.UpdateListenerRequest
   ): Promise<responses.UpdateListenerResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateListener.");
     const pathParams = {
       "{loadBalancerId}": updateListenerRequest.loadBalancerId,
       "{listenerName}": updateListenerRequest.listenerName
@@ -2919,6 +2973,7 @@ To delete a rule from a rule set, use the
   public async updateLoadBalancer(
     updateLoadBalancerRequest: requests.UpdateLoadBalancerRequest
   ): Promise<responses.UpdateLoadBalancerResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateLoadBalancer.");
     const pathParams = {
       "{loadBalancerId}": updateLoadBalancerRequest.loadBalancerId
     };
@@ -2979,6 +3034,8 @@ To delete a rule from a rule set, use the
   public async updateNetworkSecurityGroups(
     updateNetworkSecurityGroupsRequest: requests.UpdateNetworkSecurityGroupsRequest
   ): Promise<responses.UpdateNetworkSecurityGroupsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LoadBalancerClient#updateNetworkSecurityGroups.");
     const pathParams = {
       "{loadBalancerId}": updateNetworkSecurityGroupsRequest.loadBalancerId
     };
@@ -3045,6 +3102,7 @@ To add a new path route rule to a path route set, the `pathRoutes` in the
   public async updatePathRouteSet(
     updatePathRouteSetRequest: requests.UpdatePathRouteSetRequest
   ): Promise<responses.UpdatePathRouteSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updatePathRouteSet.");
     const pathParams = {
       "{loadBalancerId}": updatePathRouteSetRequest.loadBalancerId,
       "{pathRouteSetName}": updatePathRouteSetRequest.pathRouteSetName
@@ -3110,6 +3168,7 @@ To add a new rule to a set, the body must include both the new rule to add and t
   public async updateRuleSet(
     updateRuleSetRequest: requests.UpdateRuleSetRequest
   ): Promise<responses.UpdateRuleSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateRuleSet.");
     const pathParams = {
       "{loadBalancerId}": updateRuleSetRequest.loadBalancerId,
       "{ruleSetName}": updateRuleSetRequest.ruleSetName

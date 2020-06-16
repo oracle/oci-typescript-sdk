@@ -59,6 +59,11 @@ export class OsManagementClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190801";
+    if (this.logger) this.logger.info(`OsManagementClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -121,6 +126,8 @@ export class OsManagementClient {
   public async addPackagesToSoftwareSource(
     addPackagesToSoftwareSourceRequest: requests.AddPackagesToSoftwareSourceRequest
   ): Promise<responses.AddPackagesToSoftwareSourceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#addPackagesToSoftwareSource.");
     const pathParams = {
       "{softwareSourceId}": addPackagesToSoftwareSourceRequest.softwareSourceId
     };
@@ -178,6 +185,10 @@ export class OsManagementClient {
   public async attachChildSoftwareSourceToManagedInstance(
     attachChildSoftwareSourceToManagedInstanceRequest: requests.AttachChildSoftwareSourceToManagedInstanceRequest
   ): Promise<responses.AttachChildSoftwareSourceToManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#attachChildSoftwareSourceToManagedInstance."
+      );
     const pathParams = {
       "{managedInstanceId}": attachChildSoftwareSourceToManagedInstanceRequest.managedInstanceId
     };
@@ -237,6 +248,10 @@ export class OsManagementClient {
   public async attachManagedInstanceToManagedInstanceGroup(
     attachManagedInstanceToManagedInstanceGroupRequest: requests.AttachManagedInstanceToManagedInstanceGroupRequest
   ): Promise<responses.AttachManagedInstanceToManagedInstanceGroupResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#attachManagedInstanceToManagedInstanceGroup."
+      );
     const pathParams = {
       "{managedInstanceGroupId}":
         attachManagedInstanceToManagedInstanceGroupRequest.managedInstanceGroupId
@@ -294,6 +309,10 @@ export class OsManagementClient {
   public async attachParentSoftwareSourceToManagedInstance(
     attachParentSoftwareSourceToManagedInstanceRequest: requests.AttachParentSoftwareSourceToManagedInstanceRequest
   ): Promise<responses.AttachParentSoftwareSourceToManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#attachParentSoftwareSourceToManagedInstance."
+      );
     const pathParams = {
       "{managedInstanceId}": attachParentSoftwareSourceToManagedInstanceRequest.managedInstanceId
     };
@@ -351,6 +370,10 @@ export class OsManagementClient {
   public async changeManagedInstanceGroupCompartment(
     changeManagedInstanceGroupCompartmentRequest: requests.ChangeManagedInstanceGroupCompartmentRequest
   ): Promise<responses.ChangeManagedInstanceGroupCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#changeManagedInstanceGroupCompartment."
+      );
     const pathParams = {
       "{managedInstanceGroupId}":
         changeManagedInstanceGroupCompartmentRequest.managedInstanceGroupId
@@ -410,6 +433,8 @@ export class OsManagementClient {
   public async changeScheduledJobCompartment(
     changeScheduledJobCompartmentRequest: requests.ChangeScheduledJobCompartmentRequest
   ): Promise<responses.ChangeScheduledJobCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#changeScheduledJobCompartment.");
     const pathParams = {
       "{scheduledJobId}": changeScheduledJobCompartmentRequest.scheduledJobId
     };
@@ -468,6 +493,8 @@ export class OsManagementClient {
   public async changeSoftwareSourceCompartment(
     changeSoftwareSourceCompartmentRequest: requests.ChangeSoftwareSourceCompartmentRequest
   ): Promise<responses.ChangeSoftwareSourceCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#changeSoftwareSourceCompartment.");
     const pathParams = {
       "{softwareSourceId}": changeSoftwareSourceCompartmentRequest.softwareSourceId
     };
@@ -527,6 +554,8 @@ export class OsManagementClient {
   public async createManagedInstanceGroup(
     createManagedInstanceGroupRequest: requests.CreateManagedInstanceGroupRequest
   ): Promise<responses.CreateManagedInstanceGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#createManagedInstanceGroup.");
     const pathParams = {};
 
     const queryParams = {};
@@ -597,6 +626,7 @@ export class OsManagementClient {
   public async createScheduledJob(
     createScheduledJobRequest: requests.CreateScheduledJobRequest
   ): Promise<responses.CreateScheduledJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation OsManagementClient#createScheduledJob.");
     const pathParams = {};
 
     const queryParams = {};
@@ -666,6 +696,8 @@ export class OsManagementClient {
   public async createSoftwareSource(
     createSoftwareSourceRequest: requests.CreateSoftwareSourceRequest
   ): Promise<responses.CreateSoftwareSourceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#createSoftwareSource.");
     const pathParams = {};
 
     const queryParams = {};
@@ -733,6 +765,8 @@ export class OsManagementClient {
   public async deleteManagedInstanceGroup(
     deleteManagedInstanceGroupRequest: requests.DeleteManagedInstanceGroupRequest
   ): Promise<responses.DeleteManagedInstanceGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#deleteManagedInstanceGroup.");
     const pathParams = {
       "{managedInstanceGroupId}": deleteManagedInstanceGroupRequest.managedInstanceGroupId
     };
@@ -784,6 +818,7 @@ export class OsManagementClient {
   public async deleteScheduledJob(
     deleteScheduledJobRequest: requests.DeleteScheduledJobRequest
   ): Promise<responses.DeleteScheduledJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation OsManagementClient#deleteScheduledJob.");
     const pathParams = {
       "{scheduledJobId}": deleteScheduledJobRequest.scheduledJobId
     };
@@ -835,6 +870,8 @@ export class OsManagementClient {
   public async deleteSoftwareSource(
     deleteSoftwareSourceRequest: requests.DeleteSoftwareSourceRequest
   ): Promise<responses.DeleteSoftwareSourceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#deleteSoftwareSource.");
     const pathParams = {
       "{softwareSourceId}": deleteSoftwareSourceRequest.softwareSourceId
     };
@@ -887,6 +924,10 @@ export class OsManagementClient {
   public async detachChildSoftwareSourceFromManagedInstance(
     detachChildSoftwareSourceFromManagedInstanceRequest: requests.DetachChildSoftwareSourceFromManagedInstanceRequest
   ): Promise<responses.DetachChildSoftwareSourceFromManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#detachChildSoftwareSourceFromManagedInstance."
+      );
     const pathParams = {
       "{managedInstanceId}": detachChildSoftwareSourceFromManagedInstanceRequest.managedInstanceId
     };
@@ -943,6 +984,10 @@ export class OsManagementClient {
   public async detachManagedInstanceFromManagedInstanceGroup(
     detachManagedInstanceFromManagedInstanceGroupRequest: requests.DetachManagedInstanceFromManagedInstanceGroupRequest
   ): Promise<responses.DetachManagedInstanceFromManagedInstanceGroupResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#detachManagedInstanceFromManagedInstanceGroup."
+      );
     const pathParams = {
       "{managedInstanceGroupId}":
         detachManagedInstanceFromManagedInstanceGroupRequest.managedInstanceGroupId
@@ -998,6 +1043,10 @@ export class OsManagementClient {
   public async detachParentSoftwareSourceFromManagedInstance(
     detachParentSoftwareSourceFromManagedInstanceRequest: requests.DetachParentSoftwareSourceFromManagedInstanceRequest
   ): Promise<responses.DetachParentSoftwareSourceFromManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#detachParentSoftwareSourceFromManagedInstance."
+      );
     const pathParams = {
       "{managedInstanceId}": detachParentSoftwareSourceFromManagedInstanceRequest.managedInstanceId
     };
@@ -1054,6 +1103,7 @@ export class OsManagementClient {
   public async getErratum(
     getErratumRequest: requests.GetErratumRequest
   ): Promise<responses.GetErratumResponse> {
+    if (this.logger) this.logger.debug("Calling operation OsManagementClient#getErratum.");
     const pathParams = {
       "{erratumId}": getErratumRequest.erratumId
     };
@@ -1107,6 +1157,7 @@ export class OsManagementClient {
   public async getManagedInstance(
     getManagedInstanceRequest: requests.GetManagedInstanceRequest
   ): Promise<responses.GetManagedInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation OsManagementClient#getManagedInstance.");
     const pathParams = {
       "{managedInstanceId}": getManagedInstanceRequest.managedInstanceId
     };
@@ -1160,6 +1211,8 @@ export class OsManagementClient {
   public async getManagedInstanceGroup(
     getManagedInstanceGroupRequest: requests.GetManagedInstanceGroupRequest
   ): Promise<responses.GetManagedInstanceGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#getManagedInstanceGroup.");
     const pathParams = {
       "{managedInstanceGroupId}": getManagedInstanceGroupRequest.managedInstanceGroupId
     };
@@ -1223,6 +1276,7 @@ export class OsManagementClient {
   public async getScheduledJob(
     getScheduledJobRequest: requests.GetScheduledJobRequest
   ): Promise<responses.GetScheduledJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation OsManagementClient#getScheduledJob.");
     const pathParams = {
       "{scheduledJobId}": getScheduledJobRequest.scheduledJobId
     };
@@ -1286,6 +1340,7 @@ export class OsManagementClient {
   public async getSoftwarePackage(
     getSoftwarePackageRequest: requests.GetSoftwarePackageRequest
   ): Promise<responses.GetSoftwarePackageResponse> {
+    if (this.logger) this.logger.debug("Calling operation OsManagementClient#getSoftwarePackage.");
     const pathParams = {
       "{softwareSourceId}": getSoftwarePackageRequest.softwareSourceId,
       "{softwarePackageName}": getSoftwarePackageRequest.softwarePackageName
@@ -1340,6 +1395,7 @@ export class OsManagementClient {
   public async getSoftwareSource(
     getSoftwareSourceRequest: requests.GetSoftwareSourceRequest
   ): Promise<responses.GetSoftwareSourceResponse> {
+    if (this.logger) this.logger.debug("Calling operation OsManagementClient#getSoftwareSource.");
     const pathParams = {
       "{softwareSourceId}": getSoftwareSourceRequest.softwareSourceId
     };
@@ -1403,6 +1459,7 @@ export class OsManagementClient {
   public async getWindowsUpdate(
     getWindowsUpdateRequest: requests.GetWindowsUpdateRequest
   ): Promise<responses.GetWindowsUpdateResponse> {
+    if (this.logger) this.logger.debug("Calling operation OsManagementClient#getWindowsUpdate.");
     const pathParams = {
       "{windowsUpdate}": getWindowsUpdateRequest.windowsUpdate
     };
@@ -1455,6 +1512,7 @@ export class OsManagementClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation OsManagementClient#getWorkRequest.");
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -1518,6 +1576,10 @@ export class OsManagementClient {
   public async installAllPackageUpdatesOnManagedInstance(
     installAllPackageUpdatesOnManagedInstanceRequest: requests.InstallAllPackageUpdatesOnManagedInstanceRequest
   ): Promise<responses.InstallAllPackageUpdatesOnManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#installAllPackageUpdatesOnManagedInstance."
+      );
     const pathParams = {
       "{managedInstanceId}": installAllPackageUpdatesOnManagedInstanceRequest.managedInstanceId
     };
@@ -1574,6 +1636,10 @@ export class OsManagementClient {
   public async installAllWindowsUpdatesOnManagedInstance(
     installAllWindowsUpdatesOnManagedInstanceRequest: requests.InstallAllWindowsUpdatesOnManagedInstanceRequest
   ): Promise<responses.InstallAllWindowsUpdatesOnManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#installAllWindowsUpdatesOnManagedInstance."
+      );
     const pathParams = {
       "{managedInstanceId}": installAllWindowsUpdatesOnManagedInstanceRequest.managedInstanceId
     };
@@ -1630,6 +1696,8 @@ export class OsManagementClient {
   public async installPackageOnManagedInstance(
     installPackageOnManagedInstanceRequest: requests.InstallPackageOnManagedInstanceRequest
   ): Promise<responses.InstallPackageOnManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#installPackageOnManagedInstance.");
     const pathParams = {
       "{managedInstanceId}": installPackageOnManagedInstanceRequest.managedInstanceId
     };
@@ -1688,6 +1756,10 @@ export class OsManagementClient {
   public async installPackageUpdateOnManagedInstance(
     installPackageUpdateOnManagedInstanceRequest: requests.InstallPackageUpdateOnManagedInstanceRequest
   ): Promise<responses.InstallPackageUpdateOnManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#installPackageUpdateOnManagedInstance."
+      );
     const pathParams = {
       "{managedInstanceId}": installPackageUpdateOnManagedInstanceRequest.managedInstanceId
     };
@@ -1746,6 +1818,10 @@ export class OsManagementClient {
   public async installWindowsUpdateOnManagedInstance(
     installWindowsUpdateOnManagedInstanceRequest: requests.InstallWindowsUpdateOnManagedInstanceRequest
   ): Promise<responses.InstallWindowsUpdateOnManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#installWindowsUpdateOnManagedInstance."
+      );
     const pathParams = {
       "{managedInstanceId}": installWindowsUpdateOnManagedInstanceRequest.managedInstanceId
     };
@@ -1804,6 +1880,10 @@ export class OsManagementClient {
   public async listAvailablePackagesForManagedInstance(
     listAvailablePackagesForManagedInstanceRequest: requests.ListAvailablePackagesForManagedInstanceRequest
   ): Promise<responses.ListAvailablePackagesForManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#listAvailablePackagesForManagedInstance."
+      );
     const pathParams = {
       "{managedInstanceId}": listAvailablePackagesForManagedInstanceRequest.managedInstanceId
     };
@@ -1894,6 +1974,10 @@ export class OsManagementClient {
   public async listAvailableSoftwareSourcesForManagedInstance(
     listAvailableSoftwareSourcesForManagedInstanceRequest: requests.ListAvailableSoftwareSourcesForManagedInstanceRequest
   ): Promise<responses.ListAvailableSoftwareSourcesForManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#listAvailableSoftwareSourcesForManagedInstance."
+      );
     const pathParams = {
       "{managedInstanceId}": listAvailableSoftwareSourcesForManagedInstanceRequest.managedInstanceId
     };
@@ -1988,6 +2072,10 @@ export class OsManagementClient {
   public async listAvailableUpdatesForManagedInstance(
     listAvailableUpdatesForManagedInstanceRequest: requests.ListAvailableUpdatesForManagedInstanceRequest
   ): Promise<responses.ListAvailableUpdatesForManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#listAvailableUpdatesForManagedInstance."
+      );
     const pathParams = {
       "{managedInstanceId}": listAvailableUpdatesForManagedInstanceRequest.managedInstanceId
     };
@@ -2078,6 +2166,10 @@ export class OsManagementClient {
   public async listAvailableWindowsUpdatesForManagedInstance(
     listAvailableWindowsUpdatesForManagedInstanceRequest: requests.ListAvailableWindowsUpdatesForManagedInstanceRequest
   ): Promise<responses.ListAvailableWindowsUpdatesForManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#listAvailableWindowsUpdatesForManagedInstance."
+      );
     const pathParams = {
       "{managedInstanceId}": listAvailableWindowsUpdatesForManagedInstanceRequest.managedInstanceId
     };
@@ -2172,6 +2264,8 @@ export class OsManagementClient {
   public async listManagedInstanceGroups(
     listManagedInstanceGroupsRequest: requests.ListManagedInstanceGroupsRequest
   ): Promise<responses.ListManagedInstanceGroupsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#listManagedInstanceGroups.");
     const pathParams = {};
 
     const queryParams = {
@@ -2262,6 +2356,8 @@ export class OsManagementClient {
   public async listManagedInstances(
     listManagedInstancesRequest: requests.ListManagedInstancesRequest
   ): Promise<responses.ListManagedInstancesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#listManagedInstances.");
     const pathParams = {};
 
     const queryParams = {
@@ -2351,6 +2447,10 @@ export class OsManagementClient {
   public async listPackagesInstalledOnManagedInstance(
     listPackagesInstalledOnManagedInstanceRequest: requests.ListPackagesInstalledOnManagedInstanceRequest
   ): Promise<responses.ListPackagesInstalledOnManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#listPackagesInstalledOnManagedInstance."
+      );
     const pathParams = {
       "{managedInstanceId}": listPackagesInstalledOnManagedInstanceRequest.managedInstanceId
     };
@@ -2441,6 +2541,7 @@ export class OsManagementClient {
   public async listScheduledJobs(
     listScheduledJobsRequest: requests.ListScheduledJobsRequest
   ): Promise<responses.ListScheduledJobsResponse> {
+    if (this.logger) this.logger.debug("Calling operation OsManagementClient#listScheduledJobs.");
     const pathParams = {};
 
     const queryParams = {
@@ -2534,6 +2635,8 @@ export class OsManagementClient {
   public async listSoftwareSourcePackages(
     listSoftwareSourcePackagesRequest: requests.ListSoftwareSourcePackagesRequest
   ): Promise<responses.ListSoftwareSourcePackagesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#listSoftwareSourcePackages.");
     const pathParams = {
       "{softwareSourceId}": listSoftwareSourcePackagesRequest.softwareSourceId
     };
@@ -2624,6 +2727,7 @@ export class OsManagementClient {
   public async listSoftwareSources(
     listSoftwareSourcesRequest: requests.ListSoftwareSourcesRequest
   ): Promise<responses.ListSoftwareSourcesResponse> {
+    if (this.logger) this.logger.debug("Calling operation OsManagementClient#listSoftwareSources.");
     const pathParams = {};
 
     const queryParams = {
@@ -2713,6 +2817,8 @@ export class OsManagementClient {
   public async listUpcomingScheduledJobs(
     listUpcomingScheduledJobsRequest: requests.ListUpcomingScheduledJobsRequest
   ): Promise<responses.ListUpcomingScheduledJobsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#listUpcomingScheduledJobs.");
     const pathParams = {};
 
     const queryParams = {
@@ -2806,6 +2912,7 @@ export class OsManagementClient {
   public async listWindowsUpdates(
     listWindowsUpdatesRequest: requests.ListWindowsUpdatesRequest
   ): Promise<responses.ListWindowsUpdatesResponse> {
+    if (this.logger) this.logger.debug("Calling operation OsManagementClient#listWindowsUpdates.");
     const pathParams = {};
 
     const queryParams = {
@@ -2894,6 +3001,10 @@ export class OsManagementClient {
   public async listWindowsUpdatesInstalledOnManagedInstance(
     listWindowsUpdatesInstalledOnManagedInstanceRequest: requests.ListWindowsUpdatesInstalledOnManagedInstanceRequest
   ): Promise<responses.ListWindowsUpdatesInstalledOnManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#listWindowsUpdatesInstalledOnManagedInstance."
+      );
     const pathParams = {
       "{managedInstanceId}": listWindowsUpdatesInstalledOnManagedInstanceRequest.managedInstanceId
     };
@@ -2985,6 +3096,8 @@ export class OsManagementClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#listWorkRequestErrors.");
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -3077,6 +3190,7 @@ export class OsManagementClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation OsManagementClient#listWorkRequestLogs.");
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -3170,6 +3284,7 @@ export class OsManagementClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation OsManagementClient#listWorkRequests.");
     const pathParams = {};
 
     const queryParams = {
@@ -3260,6 +3375,8 @@ export class OsManagementClient {
   public async removePackageFromManagedInstance(
     removePackageFromManagedInstanceRequest: requests.RemovePackageFromManagedInstanceRequest
   ): Promise<responses.RemovePackageFromManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#removePackageFromManagedInstance.");
     const pathParams = {
       "{managedInstanceId}": removePackageFromManagedInstanceRequest.managedInstanceId
     };
@@ -3318,6 +3435,8 @@ export class OsManagementClient {
   public async removePackagesFromSoftwareSource(
     removePackagesFromSoftwareSourceRequest: requests.RemovePackagesFromSoftwareSourceRequest
   ): Promise<responses.RemovePackagesFromSoftwareSourceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#removePackagesFromSoftwareSource.");
     const pathParams = {
       "{softwareSourceId}": removePackagesFromSoftwareSourceRequest.softwareSourceId
     };
@@ -3374,6 +3493,7 @@ export class OsManagementClient {
   public async runScheduledJobNow(
     runScheduledJobNowRequest: requests.RunScheduledJobNowRequest
   ): Promise<responses.RunScheduledJobNowResponse> {
+    if (this.logger) this.logger.debug("Calling operation OsManagementClient#runScheduledJobNow.");
     const pathParams = {
       "{scheduledJobId}": runScheduledJobNowRequest.scheduledJobId
     };
@@ -3432,6 +3552,8 @@ export class OsManagementClient {
   public async searchSoftwarePackages(
     searchSoftwarePackagesRequest: requests.SearchSoftwarePackagesRequest
   ): Promise<responses.SearchSoftwarePackagesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#searchSoftwarePackages.");
     const pathParams = {};
 
     const queryParams = {
@@ -3522,6 +3644,8 @@ export class OsManagementClient {
   public async skipNextScheduledJobExecution(
     skipNextScheduledJobExecutionRequest: requests.SkipNextScheduledJobExecutionRequest
   ): Promise<responses.SkipNextScheduledJobExecutionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#skipNextScheduledJobExecution.");
     const pathParams = {
       "{scheduledJobId}": skipNextScheduledJobExecutionRequest.scheduledJobId
     };
@@ -3579,6 +3703,8 @@ export class OsManagementClient {
   public async updateManagedInstanceGroup(
     updateManagedInstanceGroupRequest: requests.UpdateManagedInstanceGroupRequest
   ): Promise<responses.UpdateManagedInstanceGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#updateManagedInstanceGroup.");
     const pathParams = {
       "{managedInstanceGroupId}": updateManagedInstanceGroupRequest.managedInstanceGroupId
     };
@@ -3643,6 +3769,7 @@ export class OsManagementClient {
   public async updateScheduledJob(
     updateScheduledJobRequest: requests.UpdateScheduledJobRequest
   ): Promise<responses.UpdateScheduledJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation OsManagementClient#updateScheduledJob.");
     const pathParams = {
       "{scheduledJobId}": updateScheduledJobRequest.scheduledJobId
     };
@@ -3707,6 +3834,8 @@ export class OsManagementClient {
   public async updateSoftwareSource(
     updateSoftwareSourceRequest: requests.UpdateSoftwareSourceRequest
   ): Promise<responses.UpdateSoftwareSourceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#updateSoftwareSource.");
     const pathParams = {
       "{softwareSourceId}": updateSoftwareSourceRequest.softwareSourceId
     };

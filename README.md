@@ -1,9 +1,9 @@
-# Oracle Cloud Infrastructure SDK for Typescript
+# Oracle Cloud Infrastructure SDK for TypeScript and JavaScript
 
 [![wercker status](https://app.wercker.com/status/09bc4818e7b1d70b04285331a9bdbc41/s/master "wercker status")](https://app.wercker.com/project/byKey/09bc4818e7b1d70b04285331a9bdbc41)
 
-This is Oracle Cloud Infrastructure SDK for TypeScript. (Note that the SDK works with both JavaScript and TypeScript projects.) This project is open source and maintained by Oracle Corp.
-The home page for the project is [Oracle Cloud Infrastructure SDK for TypeScript](https://github.com/oracle/oci-typescript-sdk/).
+This is Oracle Cloud Infrastructure SDK for TypeScript and JavaScript. (Note that the SDK works with both JavaScript and TypeScript projects.) This project is open source and maintained by Oracle Corp.
+The home page for the project is [Oracle Cloud Infrastructure SDK for TypeScript and JavaScript](https://github.com/oracle/oci-typescript-sdk/).
 
 ## Installing
 
@@ -15,9 +15,9 @@ npm install oci-sdk
 
 Alternatively you can git clone this repo.
 
-## Working with the SDK for TypeScript
+## Working with the SDK for TypeScript and JavaScript
 
-To start working with the SDK for TypeScript, you import the service package, create a client, and then use that client to make calls. [Refer to examples section](https://github.com/oracle/oci-typescript-sdk/tree/master/examples) for examples on how to make requests.
+To start working with the SDK for TypeScript and JavaScript, you import the service package, create a client, and then use that client to make calls. [Refer to examples section](https://github.com/oracle/oci-typescript-sdk/tree/master/examples) for examples on how to make requests.
 
 ### Configuring
 
@@ -28,7 +28,7 @@ Before using the SDK, set up a config file with the required credentials. See [S
 The `oci-typescript-sdk` contains the following:
 
 - **Service packages**: All packages except `common` and any other package found inside `lib`. These packages represent
-  the Oracle Cloud Infrastructure services supported by the SDK for TypeScript. Each package represents a service.
+  the Oracle Cloud Infrastructure services supported by the SDK for TypeScript and JavaScript. Each package represents a service.
   These packages include methods to interact with the service, structs that model
   input and output parameters, and a client struct that acts as receiver for the above methods.
 
@@ -42,15 +42,15 @@ Examples can be found [in the examples section](https://github.com/oracle/oci-ty
 
 ## Documentation
 
-Full documentation can be found [on the sdk for typescript documentation site](https://docs.cloud.oracle.com/en-us/iaas/Content/API/SDKDocs/typescriptsdk.htm).
+Full documentation can be found [on the sdk for typescript and javascript documentation site](https://docs.cloud.oracle.com/en-us/iaas/Content/API/SDKDocs/typescriptsdk.htm).
 
 ## Versions Supported
 
-The SDK for TypeScript currently supports NodeJS version 10.15.3 and TypeScript version 3.6.4.
+The SDK for TypeScript and JavaScript currently supports NodeJS version 10.15.3 and TypeScript version 3.6.4.
 
 ## Node & Browser Support
 
-The SDK for TypeScript currently supports NodeJS but does not have browser support.
+The SDK for TypeScript and JavaScript currently supports NodeJS but does not have browser support.
 
 ## Help
 

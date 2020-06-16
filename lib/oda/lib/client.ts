@@ -58,6 +58,11 @@ export class OdaClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190506";
+    if (this.logger) this.logger.info(`OdaClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -121,6 +126,7 @@ export class OdaClient {
   public async changeOdaInstanceCompartment(
     changeOdaInstanceCompartmentRequest: requests.ChangeOdaInstanceCompartmentRequest
   ): Promise<responses.ChangeOdaInstanceCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation OdaClient#changeOdaInstanceCompartment.");
     const pathParams = {
       "{odaInstanceId}": changeOdaInstanceCompartmentRequest.odaInstanceId
     };
@@ -186,6 +192,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async createOdaInstance(
     createOdaInstanceRequest: requests.CreateOdaInstanceRequest
   ): Promise<responses.CreateOdaInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation OdaClient#createOdaInstance.");
     const pathParams = {};
 
     const queryParams = {};
@@ -258,6 +265,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async deleteOdaInstance(
     deleteOdaInstanceRequest: requests.DeleteOdaInstanceRequest
   ): Promise<responses.DeleteOdaInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation OdaClient#deleteOdaInstance.");
     const pathParams = {
       "{odaInstanceId}": deleteOdaInstanceRequest.odaInstanceId
     };
@@ -313,6 +321,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async getOdaInstance(
     getOdaInstanceRequest: requests.GetOdaInstanceRequest
   ): Promise<responses.GetOdaInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation OdaClient#getOdaInstance.");
     const pathParams = {
       "{odaInstanceId}": getOdaInstanceRequest.odaInstanceId
     };
@@ -374,6 +383,7 @@ You can use this operation to monitor the status of jobs that you
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation OdaClient#getWorkRequest.");
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -437,6 +447,7 @@ If the `opc-next-page` header appears in the response, then
   public async listOdaInstances(
     listOdaInstancesRequest: requests.ListOdaInstancesRequest
   ): Promise<responses.ListOdaInstancesResponse> {
+    if (this.logger) this.logger.debug("Calling operation OdaClient#listOdaInstances.");
     const pathParams = {};
 
     const queryParams = {
@@ -530,6 +541,7 @@ If the `opc-next-page` header appears in the response, then
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
+    if (this.logger) this.logger.debug("Calling operation OdaClient#listWorkRequestErrors.");
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -622,6 +634,7 @@ If the `opc-next-page` header appears in the response, then
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation OdaClient#listWorkRequestLogs.");
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -714,6 +727,7 @@ If the `opc-next-page` header appears in the response, then
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation OdaClient#listWorkRequests.");
     const pathParams = {};
 
     const queryParams = {
@@ -803,6 +817,7 @@ If the `opc-next-page` header appears in the response, then
   public async startOdaInstance(
     startOdaInstanceRequest: requests.StartOdaInstanceRequest
   ): Promise<responses.StartOdaInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation OdaClient#startOdaInstance.");
     const pathParams = {
       "{odaInstanceId}": startOdaInstanceRequest.odaInstanceId
     };
@@ -862,6 +877,7 @@ If the `opc-next-page` header appears in the response, then
   public async stopOdaInstance(
     stopOdaInstanceRequest: requests.StopOdaInstanceRequest
   ): Promise<responses.StopOdaInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation OdaClient#stopOdaInstance.");
     const pathParams = {
       "{odaInstanceId}": stopOdaInstanceRequest.odaInstanceId
     };
@@ -918,6 +934,7 @@ If the `opc-next-page` header appears in the response, then
   public async updateOdaInstance(
     updateOdaInstanceRequest: requests.UpdateOdaInstanceRequest
   ): Promise<responses.UpdateOdaInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation OdaClient#updateOdaInstance.");
     const pathParams = {
       "{odaInstanceId}": updateOdaInstanceRequest.odaInstanceId
     };

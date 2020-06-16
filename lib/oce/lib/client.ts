@@ -57,6 +57,11 @@ export class OceInstanceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190912";
+    if (this.logger) this.logger.info(`OceInstanceClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -118,6 +123,8 @@ export class OceInstanceClient {
   public async changeOceInstanceCompartment(
     changeOceInstanceCompartmentRequest: requests.ChangeOceInstanceCompartmentRequest
   ): Promise<responses.ChangeOceInstanceCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OceInstanceClient#changeOceInstanceCompartment.");
     const pathParams = {
       "{oceInstanceId}": changeOceInstanceCompartmentRequest.oceInstanceId
     };
@@ -180,6 +187,7 @@ export class OceInstanceClient {
   public async createOceInstance(
     createOceInstanceRequest: requests.CreateOceInstanceRequest
   ): Promise<responses.CreateOceInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation OceInstanceClient#createOceInstance.");
     const pathParams = {};
 
     const queryParams = {};
@@ -238,6 +246,7 @@ export class OceInstanceClient {
   public async deleteOceInstance(
     deleteOceInstanceRequest: requests.DeleteOceInstanceRequest
   ): Promise<responses.DeleteOceInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation OceInstanceClient#deleteOceInstance.");
     const pathParams = {
       "{oceInstanceId}": deleteOceInstanceRequest.oceInstanceId
     };
@@ -293,6 +302,7 @@ export class OceInstanceClient {
   public async getOceInstance(
     getOceInstanceRequest: requests.GetOceInstanceRequest
   ): Promise<responses.GetOceInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation OceInstanceClient#getOceInstance.");
     const pathParams = {
       "{oceInstanceId}": getOceInstanceRequest.oceInstanceId
     };
@@ -350,6 +360,7 @@ export class OceInstanceClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation OceInstanceClient#getWorkRequest.");
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -413,6 +424,7 @@ export class OceInstanceClient {
   public async listOceInstances(
     listOceInstancesRequest: requests.ListOceInstancesRequest
   ): Promise<responses.ListOceInstancesResponse> {
+    if (this.logger) this.logger.debug("Calling operation OceInstanceClient#listOceInstances.");
     const pathParams = {};
 
     const queryParams = {
@@ -502,6 +514,8 @@ export class OceInstanceClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OceInstanceClient#listWorkRequestErrors.");
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -588,6 +602,7 @@ export class OceInstanceClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation OceInstanceClient#listWorkRequestLogs.");
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -674,6 +689,7 @@ export class OceInstanceClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation OceInstanceClient#listWorkRequests.");
     const pathParams = {};
 
     const queryParams = {
@@ -759,6 +775,7 @@ export class OceInstanceClient {
   public async updateOceInstance(
     updateOceInstanceRequest: requests.UpdateOceInstanceRequest
   ): Promise<responses.UpdateOceInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation OceInstanceClient#updateOceInstance.");
     const pathParams = {
       "{oceInstanceId}": updateOceInstanceRequest.oceInstanceId
     };

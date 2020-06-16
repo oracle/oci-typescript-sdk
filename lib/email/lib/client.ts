@@ -62,6 +62,11 @@ export class EmailClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20170907";
+    if (this.logger) this.logger.info(`EmailClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -123,6 +128,7 @@ export class EmailClient {
   public async changeSenderCompartment(
     changeSenderCompartmentRequest: requests.ChangeSenderCompartmentRequest
   ): Promise<responses.ChangeSenderCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#changeSenderCompartment.");
     const pathParams = {
       "{senderId}": changeSenderCompartmentRequest.senderId
     };
@@ -178,6 +184,7 @@ export class EmailClient {
   public async createSender(
     createSenderRequest: requests.CreateSenderRequest
   ): Promise<responses.CreateSenderResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#createSender.");
     const pathParams = {};
 
     const queryParams = {};
@@ -242,6 +249,7 @@ export class EmailClient {
   public async createSuppression(
     createSuppressionRequest: requests.CreateSuppressionRequest
   ): Promise<responses.CreateSuppressionResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#createSuppression.");
     const pathParams = {};
 
     const queryParams = {};
@@ -299,6 +307,7 @@ export class EmailClient {
   public async deleteSender(
     deleteSenderRequest: requests.DeleteSenderRequest
   ): Promise<responses.DeleteSenderResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#deleteSender.");
     const pathParams = {
       "{senderId}": deleteSenderRequest.senderId
     };
@@ -351,6 +360,7 @@ export class EmailClient {
   public async deleteSuppression(
     deleteSuppressionRequest: requests.DeleteSuppressionRequest
   ): Promise<responses.DeleteSuppressionResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#deleteSuppression.");
     const pathParams = {
       "{suppressionId}": deleteSuppressionRequest.suppressionId
     };
@@ -400,6 +410,7 @@ export class EmailClient {
   public async getSender(
     getSenderRequest: requests.GetSenderRequest
   ): Promise<responses.GetSenderResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#getSender.");
     const pathParams = {
       "{senderId}": getSenderRequest.senderId
     };
@@ -459,6 +470,7 @@ export class EmailClient {
   public async getSuppression(
     getSuppressionRequest: requests.GetSuppressionRequest
   ): Promise<responses.GetSuppressionResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#getSuppression.");
     const pathParams = {
       "{suppressionId}": getSuppressionRequest.suppressionId
     };
@@ -512,6 +524,7 @@ export class EmailClient {
   public async listSenders(
     listSendersRequest: requests.ListSendersRequest
   ): Promise<responses.ListSendersResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#listSenders.");
     const pathParams = {};
 
     const queryParams = {
@@ -613,6 +626,7 @@ export class EmailClient {
   public async listSuppressions(
     listSuppressionsRequest: requests.ListSuppressionsRequest
   ): Promise<responses.ListSuppressionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#listSuppressions.");
     const pathParams = {};
 
     const queryParams = {
@@ -711,6 +725,7 @@ export class EmailClient {
   public async updateSender(
     updateSenderRequest: requests.UpdateSenderRequest
   ): Promise<responses.UpdateSenderResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#updateSender.");
     const pathParams = {
       "{senderId}": updateSenderRequest.senderId
     };

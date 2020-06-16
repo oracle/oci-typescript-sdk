@@ -5,13 +5,8 @@
 
 import common = require("oci-common");
 import * as identity from "oci-identity";
-import {
-  paginateRecords,
-  paginateResponses,
-  paginatedRecordsWithLimit,
-  paginatedResponsesWithLimit
-} from "oci-common/lib/paginators";
-import { ConfigFileReader } from "oci-common/lib/config-file-reader";
+import { paginatedRecordsWithLimit, paginatedResponsesWithLimit } from "oci-common/lib/paginators";
+
 const configurationFilePath = "~/.oci/config";
 const configProfile = "DEFAULT";
 
@@ -19,14 +14,7 @@ const provider: common.ConfigFileAuthenticationDetailsProvider = new common.Conf
   configurationFilePath,
   configProfile
 );
-const config = ConfigFileReader.parseDefault(null);
-const profile = config.accumulator.configurationsByProfile.get("DEFAULT");
-let compartmentId = "";
-if (profile) {
-  compartmentId = profile.get("tenancy") as string;
-} else {
-  compartmentId = "";
-}
+const compartmentId = provider.getTenantId();
 
 (async () => {
   const identityClient = new identity.IdentityClient({ authenticationDetailsProvider: provider });

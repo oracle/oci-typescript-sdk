@@ -39,7 +39,7 @@ function generateRequestId() {
 }
 
 export function addUserAgent(headers: Headers) {
-  const clientInfo = `Oracle-TypescriptSDK/${version}`;
+  const clientInfo = `Oracle-TypeScriptSDK/${version}`;
 
   // Check if the sdk is used in browser or node, populate header accordingly.
   if (!isBrowser()) {

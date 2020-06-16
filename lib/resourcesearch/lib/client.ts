@@ -55,6 +55,11 @@ export class ResourceSearchClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180409";
+    if (this.logger) this.logger.info(`ResourceSearchClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -94,6 +99,7 @@ export class ResourceSearchClient {
   public async getResourceType(
     getResourceTypeRequest: requests.GetResourceTypeRequest
   ): Promise<responses.GetResourceTypeResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceSearchClient#getResourceType.");
     const pathParams = {
       "{name}": getResourceTypeRequest.name
     };
@@ -147,6 +153,7 @@ export class ResourceSearchClient {
   public async listResourceTypes(
     listResourceTypesRequest: requests.ListResourceTypesRequest
   ): Promise<responses.ListResourceTypesResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceSearchClient#listResourceTypes.");
     const pathParams = {};
 
     const queryParams = {
@@ -233,6 +240,7 @@ export class ResourceSearchClient {
   public async searchResources(
     searchResourcesRequest: requests.SearchResourcesRequest
   ): Promise<responses.SearchResourcesResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceSearchClient#searchResources.");
     const pathParams = {};
 
     const queryParams = {

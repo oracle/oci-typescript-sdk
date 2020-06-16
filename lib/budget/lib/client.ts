@@ -57,6 +57,11 @@ export class BudgetClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190111";
+    if (this.logger) this.logger.info(`BudgetClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -119,6 +124,7 @@ export class BudgetClient {
   public async createAlertRule(
     createAlertRuleRequest: requests.CreateAlertRuleRequest
   ): Promise<responses.CreateAlertRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation BudgetClient#createAlertRule.");
     const pathParams = {
       "{budgetId}": createAlertRuleRequest.budgetId
     };
@@ -183,6 +189,7 @@ export class BudgetClient {
   public async createBudget(
     createBudgetRequest: requests.CreateBudgetRequest
   ): Promise<responses.CreateBudgetResponse> {
+    if (this.logger) this.logger.debug("Calling operation BudgetClient#createBudget.");
     const pathParams = {};
 
     const queryParams = {};
@@ -244,6 +251,7 @@ export class BudgetClient {
   public async deleteAlertRule(
     deleteAlertRuleRequest: requests.DeleteAlertRuleRequest
   ): Promise<responses.DeleteAlertRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation BudgetClient#deleteAlertRule.");
     const pathParams = {
       "{budgetId}": deleteAlertRuleRequest.budgetId,
       "{alertRuleId}": deleteAlertRuleRequest.alertRuleId
@@ -295,6 +303,7 @@ export class BudgetClient {
   public async deleteBudget(
     deleteBudgetRequest: requests.DeleteBudgetRequest
   ): Promise<responses.DeleteBudgetResponse> {
+    if (this.logger) this.logger.debug("Calling operation BudgetClient#deleteBudget.");
     const pathParams = {
       "{budgetId}": deleteBudgetRequest.budgetId
     };
@@ -345,6 +354,7 @@ export class BudgetClient {
   public async getAlertRule(
     getAlertRuleRequest: requests.GetAlertRuleRequest
   ): Promise<responses.GetAlertRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation BudgetClient#getAlertRule.");
     const pathParams = {
       "{budgetId}": getAlertRuleRequest.budgetId,
       "{alertRuleId}": getAlertRuleRequest.alertRuleId
@@ -403,6 +413,7 @@ export class BudgetClient {
   public async getBudget(
     getBudgetRequest: requests.GetBudgetRequest
   ): Promise<responses.GetBudgetResponse> {
+    if (this.logger) this.logger.debug("Calling operation BudgetClient#getBudget.");
     const pathParams = {
       "{budgetId}": getBudgetRequest.budgetId
     };
@@ -461,6 +472,7 @@ export class BudgetClient {
   public async listAlertRules(
     listAlertRulesRequest: requests.ListAlertRulesRequest
   ): Promise<responses.ListAlertRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation BudgetClient#listAlertRules.");
     const pathParams = {
       "{budgetId}": listAlertRulesRequest.budgetId
     };
@@ -560,6 +572,7 @@ Additional targetTypes would be available in future releases. Clients should ign
   public async listBudgets(
     listBudgetsRequest: requests.ListBudgetsRequest
   ): Promise<responses.ListBudgetsResponse> {
+    if (this.logger) this.logger.debug("Calling operation BudgetClient#listBudgets.");
     const pathParams = {};
 
     const queryParams = {
@@ -649,6 +662,7 @@ Additional targetTypes would be available in future releases. Clients should ign
   public async updateAlertRule(
     updateAlertRuleRequest: requests.UpdateAlertRuleRequest
   ): Promise<responses.UpdateAlertRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation BudgetClient#updateAlertRule.");
     const pathParams = {
       "{budgetId}": updateAlertRuleRequest.budgetId,
       "{alertRuleId}": updateAlertRuleRequest.alertRuleId
@@ -713,6 +727,7 @@ Additional targetTypes would be available in future releases. Clients should ign
   public async updateBudget(
     updateBudgetRequest: requests.UpdateBudgetRequest
   ): Promise<responses.UpdateBudgetResponse> {
+    if (this.logger) this.logger.debug("Calling operation BudgetClient#updateBudget.");
     const pathParams = {
       "{budgetId}": updateBudgetRequest.budgetId
     };

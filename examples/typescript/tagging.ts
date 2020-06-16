@@ -2,14 +2,13 @@
  * Copyright (c) 2020, Oracle and/or its affiliates.  All rights reserved.
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
 
- This script provides an example on how to use tagging in the SDK for Typescript to manage tags and tag namespaces, 
+ This script provides an example on how to use tagging in the SDK for TypeScript to manage tags and tag namespaces, 
   as well as how to apply freeform and defined tags to a resource.
  */
 
 import * as identity from "oci-identity";
 import core = require("oci-core");
 import common = require("oci-common");
-import { ConfigFileReader } from "oci-common/lib/config-file-reader";
 
 const configurationFilePath = "~/.oci/config";
 const configProfile = "DEFAULT";
@@ -18,24 +17,16 @@ const provider: common.ConfigFileAuthenticationDetailsProvider = new common.Conf
   configurationFilePath,
   configProfile
 );
-const config = ConfigFileReader.parseDefault(null);
-const profile = config.accumulator.configurationsByProfile.get("DEFAULT");
 
 (async () => {
-  let compartmentId = "";
-  if (profile) {
-    compartmentId = profile.get("tenancy") as string;
-  } else {
-    compartmentId = "";
-  }
-
+  const compartmentId = provider.getTenantId();
   const identityClient = new identity.IdentityClient({ authenticationDetailsProvider: provider });
 
   // Create a namespace
   const namespace: identity.models.CreateTagNamespaceDetails = {
     compartmentId: compartmentId,
     name: `typeScriptExample_namespace${Math.floor(Math.random() * Math.floor(1000000))}`,
-    description: "SDK for Typescript example tag namespace"
+    description: "SDK for TypeScript example tag namespace"
   };
   const namespaceReq: identity.requests.CreateTagNamespaceRequest = {
     createTagNamespaceDetails: namespace
@@ -47,7 +38,7 @@ const profile = config.accumulator.configurationsByProfile.get("DEFAULT");
   // Create a tag one
   const tagOneName: identity.models.CreateTagDetails = {
     name: "typeScriptExample_tagOne",
-    description: "SDK for Typescript example tag one"
+    description: "SDK for TypeScript example tag one"
   };
 
   const createTagOneReq: identity.requests.CreateTagRequest = {
@@ -60,7 +51,7 @@ const profile = config.accumulator.configurationsByProfile.get("DEFAULT");
   // Create another tag
   const tagTwoName: identity.models.CreateTagDetails = {
     name: "typeScriptExample_tagTwo",
-    description: "SDK for Typescript example tag two"
+    description: "SDK for TypeScript example tag two"
   };
 
   const createTagTwoReq: identity.requests.CreateTagRequest = {
@@ -132,7 +123,7 @@ const profile = config.accumulator.configurationsByProfile.get("DEFAULT");
       const createVCNDetails: core.models.CreateVcnDetails = {
         cidrBlock: "10.0.0.0/16",
         compartmentId: compartmentId,
-        displayName: "SDK for Typescript tagging example VCN",
+        displayName: "SDK for TypeScript tagging example VCN",
         dnsLabel: `vcn${Math.floor(Math.random() * Math.floor(1000000))}`,
         freeformTags: { "free": "form", "another": "item" },
         definedTags: {

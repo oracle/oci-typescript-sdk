@@ -61,6 +61,11 @@ export class BdsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190531";
+    if (this.logger) this.logger.info(`BdsClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -124,6 +129,7 @@ export class BdsClient {
   public async addBlockStorage(
     addBlockStorageRequest: requests.AddBlockStorageRequest
   ): Promise<responses.AddBlockStorageResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#addBlockStorage.");
     const pathParams = {
       "{bdsInstanceId}": addBlockStorageRequest.bdsInstanceId
     };
@@ -187,6 +193,7 @@ export class BdsClient {
   public async addCloudSql(
     addCloudSqlRequest: requests.AddCloudSqlRequest
   ): Promise<responses.AddCloudSqlResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#addCloudSql.");
     const pathParams = {
       "{bdsInstanceId}": addCloudSqlRequest.bdsInstanceId
     };
@@ -250,6 +257,7 @@ export class BdsClient {
   public async addWorkerNodes(
     addWorkerNodesRequest: requests.AddWorkerNodesRequest
   ): Promise<responses.AddWorkerNodesResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#addWorkerNodes.");
     const pathParams = {
       "{bdsInstanceId}": addWorkerNodesRequest.bdsInstanceId
     };
@@ -312,6 +320,7 @@ export class BdsClient {
   public async changeBdsInstanceCompartment(
     changeBdsInstanceCompartmentRequest: requests.ChangeBdsInstanceCompartmentRequest
   ): Promise<responses.ChangeBdsInstanceCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#changeBdsInstanceCompartment.");
     const pathParams = {
       "{bdsInstanceId}": changeBdsInstanceCompartmentRequest.bdsInstanceId
     };
@@ -374,6 +383,7 @@ export class BdsClient {
   public async createBdsInstance(
     createBdsInstanceRequest: requests.CreateBdsInstanceRequest
   ): Promise<responses.CreateBdsInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#createBdsInstance.");
     const pathParams = {};
 
     const queryParams = {};
@@ -432,6 +442,7 @@ export class BdsClient {
   public async deleteBdsInstance(
     deleteBdsInstanceRequest: requests.DeleteBdsInstanceRequest
   ): Promise<responses.DeleteBdsInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#deleteBdsInstance.");
     const pathParams = {
       "{bdsInstanceId}": deleteBdsInstanceRequest.bdsInstanceId
     };
@@ -487,6 +498,7 @@ export class BdsClient {
   public async getBdsInstance(
     getBdsInstanceRequest: requests.GetBdsInstanceRequest
   ): Promise<responses.GetBdsInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#getBdsInstance.");
     const pathParams = {
       "{bdsInstanceId}": getBdsInstanceRequest.bdsInstanceId
     };
@@ -544,6 +556,7 @@ export class BdsClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#getWorkRequest.");
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -602,6 +615,7 @@ export class BdsClient {
   public async listBdsInstances(
     listBdsInstancesRequest: requests.ListBdsInstancesRequest
   ): Promise<responses.ListBdsInstancesResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#listBdsInstances.");
     const pathParams = {};
 
     const queryParams = {
@@ -691,6 +705,7 @@ export class BdsClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#listWorkRequestErrors.");
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -779,6 +794,7 @@ export class BdsClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#listWorkRequestLogs.");
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -867,6 +883,7 @@ export class BdsClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#listWorkRequests.");
     const pathParams = {};
 
     const queryParams = {
@@ -955,6 +972,7 @@ export class BdsClient {
   public async removeCloudSql(
     removeCloudSqlRequest: requests.RemoveCloudSqlRequest
   ): Promise<responses.RemoveCloudSqlResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#removeCloudSql.");
     const pathParams = {
       "{bdsInstanceId}": removeCloudSqlRequest.bdsInstanceId
     };
@@ -1015,6 +1033,7 @@ export class BdsClient {
   public async updateBdsInstance(
     updateBdsInstanceRequest: requests.UpdateBdsInstanceRequest
   ): Promise<responses.UpdateBdsInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#updateBdsInstance.");
     const pathParams = {
       "{bdsInstanceId}": updateBdsInstanceRequest.bdsInstanceId
     };

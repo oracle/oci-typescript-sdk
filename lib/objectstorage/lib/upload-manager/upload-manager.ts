@@ -5,7 +5,7 @@
 
 import { ObjectStorageClient } from "../client";
 import { models } from "../../index";
-import { OciError } from "oci-common";
+import { OciError, LOG } from "oci-common";
 import { UploadResponse } from "./upload-response";
 import { Semaphore } from "await-semaphore";
 import { UploadableBlob } from "./uploadable-blob";
@@ -39,6 +39,10 @@ export class UploadManager {
     options?: Partial<UploadOptions>
   ) {
     this.options = { ...UploadManager.defaultUploadOptions, ...options };
+  }
+
+  public get logger() {
+    return LOG.logger;
   }
 
   private static defaultUploadOptions: UploadOptions = {
@@ -86,7 +90,7 @@ export class UploadManager {
     const contentMD5Hash: PutObjectContentMD5HashDetails = this.options.enforceMD5
       ? { contentMD5: await content.getMD5Hash() }
       : {};
-    console.log("uploading using single upload");
+    if (this.logger) this.logger.debug("uploading using single upload");
     const response = await this.client.putObject({
       ...requestDetails,
       ...contentDetails,
@@ -129,7 +133,7 @@ export class UploadManager {
         return { etag: response.eTag, partNum: uploadPartNum };
       });
     } catch (ex) {
-      console.error(`Upload of part: ${uploadPartNum} failed due to ${ex}`);
+      if (this.logger) this.logger.error(`Upload of part: ${uploadPartNum} failed due to ${ex}`);
       throw ex;
     }
   }
@@ -182,16 +186,17 @@ export class UploadManager {
       };
     } catch (ex) {
       if (this.options.isDisableAutoAbort) {
-        console.log(
-          `Not aborting failed multipart upload as per configuration, client must manually abort it`
-        );
+        if (this.logger)
+          this.logger.info(
+            `Not aborting failed multipart upload as per configuration, client must manually abort it`
+          );
       } else {
-        console.error(`Aborting multi-part upload ${uploadId}`);
+        if (this.logger) this.logger.error(`Aborting multi-part upload ${uploadId}`);
         await this.client.abortMultipartUpload({
           ...UploadManager.composeRequestDetails(requestDetails),
           uploadId: uploadId
         });
-        console.error(`Abort complete`);
+        if (this.logger) this.logger.error(`Abort complete`);
       }
       if (ex instanceof OciError) throw ex;
       throw new OciError(

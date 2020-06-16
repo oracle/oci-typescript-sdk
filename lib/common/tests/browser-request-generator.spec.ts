@@ -20,7 +20,7 @@ describe("Test Request Generator ", () => {
     "Content-Type": "application/json"
   };
 
-  const clientInfo = `Oracle-TypescriptSDK/${version}`;
+  const clientInfo = `Oracle-TypeScriptSDK/${version}`;
 
   it("should compose request properly in Browser ", async function() {
     const sdkRequest = await composeRequest({

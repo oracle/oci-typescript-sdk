@@ -1,7 +1,11 @@
 /**
  * Autoscaling API
- * APIs for dynamically scaling Compute resources to meet application requirements. 
-For information about the Compute service, see [Overview of the Compute Service](/Content/Compute/Concepts/computeoverview.htm).
+ * APIs for dynamically scaling Compute resources to meet application requirements. For more information about
+autoscaling, see [Autoscaling](/Content/Compute/Tasks/autoscalinginstancepools.htm). For information about the
+Compute service, see [Overview of the Compute Service](/Content/Compute/Concepts/computeoverview.htm).
+
+**Note:** Autoscaling is not available in US Government Cloud tenancies. For more information, see
+[Oracle Cloud Infrastructure US Government Cloud](/Content/General/Concepts/govoverview.htm).
 
  * OpenAPI spec version: 20181001
  * 
@@ -24,18 +28,18 @@ export interface Capacity {
   /**
    * The maximum number of instances the instance pool is allowed to increase to (scale out).
    */
-  "max": number;
+  "max"?: number;
   /**
    * The minimum number of instances the instance pool is allowed to decrease to (scale in).
    */
-  "min": number;
+  "min"?: number;
   /**
    * The initial number of instances to launch in the instance pool immediately after autoscaling is
    * enabled. After autoscaling retrieves performance metrics, the number of instances is automatically adjusted from this
    * initial number to a number that is based on the limits that you set.
    *
    */
-  "initial": number;
+  "initial"?: number;
 }
 
 export namespace Capacity {

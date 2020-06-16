@@ -29,4 +29,44 @@ export interface ListGroupsRequest {
    *
    */
   "limit"?: number;
+  /**
+   * A filter to only return resources that match the given name exactly.
+   *
+   */
+  "name"?: string;
+  /**
+   * The field to sort by. You can provide one sort order (`sortOrder`). Default order for
+   * TIMECREATED is descending. Default order for NAME is ascending. The NAME
+   * sort order is case sensitive.
+   * <p>
+   **Note:** In general, some \"List\" operations (for example, `ListInstances`) let you
+   * optionally filter by Availability Domain if the scope of the resource type is within a
+   * single Availability Domain. If you call one of these \"List\" operations without specifying
+   * an Availability Domain, the resources are grouped by Availability Domain, then sorted.
+   *
+   */
+  "sortBy"?: ListGroupsRequest.SortBy;
+  /**
+   * The sort order to use, either ascending (`ASC`) or descending (`DESC`). The NAME sort order
+   * is case sensitive.
+   *
+   */
+  "sortOrder"?: ListGroupsRequest.SortOrder;
+  /**
+   * A filter to only return resources that match the given lifecycle state.  The state value is case-insensitive.
+   *
+   */
+  "lifecycleState"?: string;
+}
+
+export namespace ListGroupsRequest {
+  export enum SortBy {
+    TIMECREATED = "TIMECREATED",
+    NAME = "NAME"
+  }
+
+  export enum SortOrder {
+    ASC = "ASC",
+    DESC = "DESC"
+  }
 }

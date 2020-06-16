@@ -1,7 +1,11 @@
 /**
  * Autoscaling API
- * APIs for dynamically scaling Compute resources to meet application requirements. 
-For information about the Compute service, see [Overview of the Compute Service](/Content/Compute/Concepts/computeoverview.htm).
+ * APIs for dynamically scaling Compute resources to meet application requirements. For more information about
+autoscaling, see [Autoscaling](/Content/Compute/Tasks/autoscalinginstancepools.htm). For information about the
+Compute service, see [Overview of the Compute Service](/Content/Compute/Concepts/computeoverview.htm).
+
+**Note:** Autoscaling is not available in US Government Cloud tenancies. For more information, see
+[Oracle Cloud Infrastructure US Government Cloud](/Content/General/Concepts/govoverview.htm).
 
  * OpenAPI spec version: 20181001
  * 
@@ -57,6 +61,11 @@ export class AutoScalingClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181001";
+    if (this.logger) this.logger.info(`AutoScalingClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -101,6 +110,10 @@ When you move an autoscaling configuration to a different compartment, associate
   public async changeAutoScalingConfigurationCompartment(
     changeAutoScalingConfigurationCompartmentRequest: requests.ChangeAutoScalingConfigurationCompartmentRequest
   ): Promise<responses.ChangeAutoScalingConfigurationCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AutoScalingClient#changeAutoScalingConfigurationCompartment."
+      );
     const pathParams = {
       "{autoScalingConfigurationId}":
         changeAutoScalingConfigurationCompartmentRequest.autoScalingConfigurationId
@@ -163,6 +176,8 @@ When you move an autoscaling configuration to a different compartment, associate
   public async createAutoScalingConfiguration(
     createAutoScalingConfigurationRequest: requests.CreateAutoScalingConfigurationRequest
   ): Promise<responses.CreateAutoScalingConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AutoScalingClient#createAutoScalingConfiguration.");
     const pathParams = {};
 
     const queryParams = {};
@@ -225,6 +240,8 @@ When you move an autoscaling configuration to a different compartment, associate
   public async createAutoScalingPolicy(
     createAutoScalingPolicyRequest: requests.CreateAutoScalingPolicyRequest
   ): Promise<responses.CreateAutoScalingPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AutoScalingClient#createAutoScalingPolicy.");
     const pathParams = {
       "{autoScalingConfigurationId}": createAutoScalingPolicyRequest.autoScalingConfigurationId
     };
@@ -288,6 +305,8 @@ When you move an autoscaling configuration to a different compartment, associate
   public async deleteAutoScalingConfiguration(
     deleteAutoScalingConfigurationRequest: requests.DeleteAutoScalingConfigurationRequest
   ): Promise<responses.DeleteAutoScalingConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AutoScalingClient#deleteAutoScalingConfiguration.");
     const pathParams = {
       "{autoScalingConfigurationId}":
         deleteAutoScalingConfigurationRequest.autoScalingConfigurationId
@@ -339,6 +358,8 @@ When you move an autoscaling configuration to a different compartment, associate
   public async deleteAutoScalingPolicy(
     deleteAutoScalingPolicyRequest: requests.DeleteAutoScalingPolicyRequest
   ): Promise<responses.DeleteAutoScalingPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AutoScalingClient#deleteAutoScalingPolicy.");
     const pathParams = {
       "{autoScalingConfigurationId}": deleteAutoScalingPolicyRequest.autoScalingConfigurationId,
       "{autoScalingPolicyId}": deleteAutoScalingPolicyRequest.autoScalingPolicyId
@@ -391,6 +412,8 @@ When you move an autoscaling configuration to a different compartment, associate
   public async getAutoScalingConfiguration(
     getAutoScalingConfigurationRequest: requests.GetAutoScalingConfigurationRequest
   ): Promise<responses.GetAutoScalingConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AutoScalingClient#getAutoScalingConfiguration.");
     const pathParams = {
       "{autoScalingConfigurationId}": getAutoScalingConfigurationRequest.autoScalingConfigurationId
     };
@@ -448,6 +471,7 @@ When you move an autoscaling configuration to a different compartment, associate
   public async getAutoScalingPolicy(
     getAutoScalingPolicyRequest: requests.GetAutoScalingPolicyRequest
   ): Promise<responses.GetAutoScalingPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation AutoScalingClient#getAutoScalingPolicy.");
     const pathParams = {
       "{autoScalingConfigurationId}": getAutoScalingPolicyRequest.autoScalingConfigurationId,
       "{autoScalingPolicyId}": getAutoScalingPolicyRequest.autoScalingPolicyId
@@ -508,6 +532,8 @@ When you move an autoscaling configuration to a different compartment, associate
   public async listAutoScalingConfigurations(
     listAutoScalingConfigurationsRequest: requests.ListAutoScalingConfigurationsRequest
   ): Promise<responses.ListAutoScalingConfigurationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AutoScalingClient#listAutoScalingConfigurations.");
     const pathParams = {};
 
     const queryParams = {
@@ -596,6 +622,8 @@ When you move an autoscaling configuration to a different compartment, associate
   public async listAutoScalingPolicies(
     listAutoScalingPoliciesRequest: requests.ListAutoScalingPoliciesRequest
   ): Promise<responses.ListAutoScalingPoliciesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AutoScalingClient#listAutoScalingPolicies.");
     const pathParams = {
       "{autoScalingConfigurationId}": listAutoScalingPoliciesRequest.autoScalingConfigurationId
     };
@@ -686,6 +714,8 @@ When you move an autoscaling configuration to a different compartment, associate
   public async updateAutoScalingConfiguration(
     updateAutoScalingConfigurationRequest: requests.UpdateAutoScalingConfigurationRequest
   ): Promise<responses.UpdateAutoScalingConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AutoScalingClient#updateAutoScalingConfiguration.");
     const pathParams = {
       "{autoScalingConfigurationId}":
         updateAutoScalingConfigurationRequest.autoScalingConfigurationId
@@ -751,6 +781,8 @@ When you move an autoscaling configuration to a different compartment, associate
   public async updateAutoScalingPolicy(
     updateAutoScalingPolicyRequest: requests.UpdateAutoScalingPolicyRequest
   ): Promise<responses.UpdateAutoScalingPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AutoScalingClient#updateAutoScalingPolicy.");
     const pathParams = {
       "{autoScalingConfigurationId}": updateAutoScalingPolicyRequest.autoScalingConfigurationId,
       "{autoScalingPolicyId}": updateAutoScalingPolicyRequest.autoScalingPolicyId

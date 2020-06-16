@@ -58,6 +58,11 @@ export class DatabaseClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20160918";
+    if (this.logger) this.logger.info(`DatabaseClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -119,6 +124,8 @@ export class DatabaseClient {
   public async activateExadataInfrastructure(
     activateExadataInfrastructureRequest: requests.ActivateExadataInfrastructureRequest
   ): Promise<responses.ActivateExadataInfrastructureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#activateExadataInfrastructure.");
     const pathParams = {
       "{exadataInfrastructureId}": activateExadataInfrastructureRequest.exadataInfrastructureId
     };
@@ -190,6 +197,10 @@ export class DatabaseClient {
   public async changeAutonomousContainerDatabaseCompartment(
     changeAutonomousContainerDatabaseCompartmentRequest: requests.ChangeAutonomousContainerDatabaseCompartmentRequest
   ): Promise<responses.ChangeAutonomousContainerDatabaseCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#changeAutonomousContainerDatabaseCompartment."
+      );
     const pathParams = {
       "{autonomousContainerDatabaseId}":
         changeAutonomousContainerDatabaseCompartmentRequest.autonomousContainerDatabaseId
@@ -261,6 +272,8 @@ export class DatabaseClient {
   public async changeAutonomousDatabaseCompartment(
     changeAutonomousDatabaseCompartmentRequest: requests.ChangeAutonomousDatabaseCompartmentRequest
   ): Promise<responses.ChangeAutonomousDatabaseCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeAutonomousDatabaseCompartment.");
     const pathParams = {
       "{autonomousDatabaseId}": changeAutonomousDatabaseCompartmentRequest.autonomousDatabaseId
     };
@@ -330,6 +343,10 @@ export class DatabaseClient {
   public async changeAutonomousExadataInfrastructureCompartment(
     changeAutonomousExadataInfrastructureCompartmentRequest: requests.ChangeAutonomousExadataInfrastructureCompartmentRequest
   ): Promise<responses.ChangeAutonomousExadataInfrastructureCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#changeAutonomousExadataInfrastructureCompartment."
+      );
     const pathParams = {
       "{autonomousExadataInfrastructureId}":
         changeAutonomousExadataInfrastructureCompartmentRequest.autonomousExadataInfrastructureId
@@ -401,6 +418,8 @@ export class DatabaseClient {
   public async changeBackupDestinationCompartment(
     changeBackupDestinationCompartmentRequest: requests.ChangeBackupDestinationCompartmentRequest
   ): Promise<responses.ChangeBackupDestinationCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeBackupDestinationCompartment.");
     const pathParams = {
       "{backupDestinationId}": changeBackupDestinationCompartmentRequest.backupDestinationId
     };
@@ -470,6 +489,8 @@ export class DatabaseClient {
   public async changeDbSystemCompartment(
     changeDbSystemCompartmentRequest: requests.ChangeDbSystemCompartmentRequest
   ): Promise<responses.ChangeDbSystemCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeDbSystemCompartment.");
     const pathParams = {
       "{dbSystemId}": changeDbSystemCompartmentRequest.dbSystemId
     };
@@ -538,6 +559,8 @@ export class DatabaseClient {
   public async changeExadataInfrastructureCompartment(
     changeExadataInfrastructureCompartmentRequest: requests.ChangeExadataInfrastructureCompartmentRequest
   ): Promise<responses.ChangeExadataInfrastructureCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeExadataInfrastructureCompartment.");
     const pathParams = {
       "{exadataInfrastructureId}":
         changeExadataInfrastructureCompartmentRequest.exadataInfrastructureId
@@ -602,6 +625,8 @@ export class DatabaseClient {
   public async changeVmClusterCompartment(
     changeVmClusterCompartmentRequest: requests.ChangeVmClusterCompartmentRequest
   ): Promise<responses.ChangeVmClusterCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeVmClusterCompartment.");
     const pathParams = {
       "{vmClusterId}": changeVmClusterCompartmentRequest.vmClusterId
     };
@@ -666,6 +691,8 @@ export class DatabaseClient {
   public async completeExternalBackupJob(
     completeExternalBackupJobRequest: requests.CompleteExternalBackupJobRequest
   ): Promise<responses.CompleteExternalBackupJobResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#completeExternalBackupJob.");
     const pathParams = {
       "{backupId}": completeExternalBackupJobRequest.backupId
     };
@@ -735,6 +762,8 @@ export class DatabaseClient {
   public async createAutonomousContainerDatabase(
     createAutonomousContainerDatabaseRequest: requests.CreateAutonomousContainerDatabaseRequest
   ): Promise<responses.CreateAutonomousContainerDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createAutonomousContainerDatabase.");
     const pathParams = {};
 
     const queryParams = {};
@@ -801,6 +830,8 @@ export class DatabaseClient {
   public async createAutonomousDataWarehouse(
     createAutonomousDataWarehouseRequest: requests.CreateAutonomousDataWarehouseRequest
   ): Promise<responses.CreateAutonomousDataWarehouseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createAutonomousDataWarehouse.");
     const pathParams = {};
 
     const queryParams = {};
@@ -862,6 +893,8 @@ export class DatabaseClient {
   public async createAutonomousDataWarehouseBackup(
     createAutonomousDataWarehouseBackupRequest: requests.CreateAutonomousDataWarehouseBackupRequest
   ): Promise<responses.CreateAutonomousDataWarehouseBackupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createAutonomousDataWarehouseBackup.");
     const pathParams = {};
 
     const queryParams = {};
@@ -923,6 +956,8 @@ export class DatabaseClient {
   public async createAutonomousDatabase(
     createAutonomousDatabaseRequest: requests.CreateAutonomousDatabaseRequest
   ): Promise<responses.CreateAutonomousDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createAutonomousDatabase.");
     const pathParams = {};
 
     const queryParams = {};
@@ -990,6 +1025,8 @@ export class DatabaseClient {
   public async createAutonomousDatabaseBackup(
     createAutonomousDatabaseBackupRequest: requests.CreateAutonomousDatabaseBackupRequest
   ): Promise<responses.CreateAutonomousDatabaseBackupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createAutonomousDatabaseBackup.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1057,6 +1094,7 @@ export class DatabaseClient {
   public async createBackup(
     createBackupRequest: requests.CreateBackupRequest
   ): Promise<responses.CreateBackupResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createBackup.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1123,6 +1161,7 @@ export class DatabaseClient {
   public async createBackupDestination(
     createBackupDestinationRequest: requests.CreateBackupDestinationRequest
   ): Promise<responses.CreateBackupDestinationResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createBackupDestination.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1187,6 +1226,7 @@ export class DatabaseClient {
   public async createConsoleConnection(
     createConsoleConnectionRequest: requests.CreateConsoleConnectionRequest
   ): Promise<responses.CreateConsoleConnectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createConsoleConnection.");
     const pathParams = {
       "{dbNodeId}": createConsoleConnectionRequest.dbNodeId
     };
@@ -1257,6 +1297,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createDataGuardAssociation(
     createDataGuardAssociationRequest: requests.CreateDataGuardAssociationRequest
   ): Promise<responses.CreateDataGuardAssociationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createDataGuardAssociation.");
     const pathParams = {
       "{databaseId}": createDataGuardAssociationRequest.databaseId
     };
@@ -1325,6 +1367,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createDatabase(
     createDatabaseRequest: requests.CreateDatabaseRequest
   ): Promise<responses.CreateDatabaseResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createDatabase.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1392,6 +1435,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createDbHome(
     createDbHomeRequest: requests.CreateDbHomeRequest
   ): Promise<responses.CreateDbHomeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createDbHome.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1457,6 +1501,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createExadataInfrastructure(
     createExadataInfrastructureRequest: requests.CreateExadataInfrastructureRequest
   ): Promise<responses.CreateExadataInfrastructureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createExadataInfrastructure.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1526,6 +1572,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createExternalBackupJob(
     createExternalBackupJobRequest: requests.CreateExternalBackupJobRequest
   ): Promise<responses.CreateExternalBackupJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createExternalBackupJob.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1592,6 +1639,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createVmCluster(
     createVmClusterRequest: requests.CreateVmClusterRequest
   ): Promise<responses.CreateVmClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createVmCluster.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1659,6 +1707,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createVmClusterNetwork(
     createVmClusterNetworkRequest: requests.CreateVmClusterNetworkRequest
   ): Promise<responses.CreateVmClusterNetworkResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createVmClusterNetwork.");
     const pathParams = {
       "{exadataInfrastructureId}": createVmClusterNetworkRequest.exadataInfrastructureId
     };
@@ -1740,6 +1789,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async dbNodeAction(
     dbNodeActionRequest: requests.DbNodeActionRequest
   ): Promise<responses.DbNodeActionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#dbNodeAction.");
     const pathParams = {
       "{dbNodeId}": dbNodeActionRequest.dbNodeId
     };
@@ -1806,6 +1856,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async deleteAutonomousDataWarehouse(
     deleteAutonomousDataWarehouseRequest: requests.DeleteAutonomousDataWarehouseRequest
   ): Promise<responses.DeleteAutonomousDataWarehouseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteAutonomousDataWarehouse.");
     const pathParams = {
       "{autonomousDataWarehouseId}": deleteAutonomousDataWarehouseRequest.autonomousDataWarehouseId
     };
@@ -1856,6 +1908,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async deleteAutonomousDatabase(
     deleteAutonomousDatabaseRequest: requests.DeleteAutonomousDatabaseRequest
   ): Promise<responses.DeleteAutonomousDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteAutonomousDatabase.");
     const pathParams = {
       "{autonomousDatabaseId}": deleteAutonomousDatabaseRequest.autonomousDatabaseId
     };
@@ -1911,6 +1965,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async deleteBackup(
     deleteBackupRequest: requests.DeleteBackupRequest
   ): Promise<responses.DeleteBackupResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteBackup.");
     const pathParams = {
       "{backupId}": deleteBackupRequest.backupId
     };
@@ -1966,6 +2021,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async deleteBackupDestination(
     deleteBackupDestinationRequest: requests.DeleteBackupDestinationRequest
   ): Promise<responses.DeleteBackupDestinationResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteBackupDestination.");
     const pathParams = {
       "{backupDestinationId}": deleteBackupDestinationRequest.backupDestinationId
     };
@@ -2016,6 +2072,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async deleteConsoleConnection(
     deleteConsoleConnectionRequest: requests.DeleteConsoleConnectionRequest
   ): Promise<responses.DeleteConsoleConnectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteConsoleConnection.");
     const pathParams = {
       "{dbNodeId}": deleteConsoleConnectionRequest.dbNodeId,
       "{consoleConnectionId}": deleteConsoleConnectionRequest.consoleConnectionId
@@ -2069,6 +2126,7 @@ The data in this database is local to the DB system and will be lost when the da
   public async deleteDatabase(
     deleteDatabaseRequest: requests.DeleteDatabaseRequest
   ): Promise<responses.DeleteDatabaseResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteDatabase.");
     const pathParams = {
       "{databaseId}": deleteDatabaseRequest.databaseId
     };
@@ -2129,6 +2187,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async deleteDbHome(
     deleteDbHomeRequest: requests.DeleteDbHomeRequest
   ): Promise<responses.DeleteDbHomeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteDbHome.");
     const pathParams = {
       "{dbHomeId}": deleteDbHomeRequest.dbHomeId
     };
@@ -2186,6 +2245,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async deleteExadataInfrastructure(
     deleteExadataInfrastructureRequest: requests.DeleteExadataInfrastructureRequest
   ): Promise<responses.DeleteExadataInfrastructureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteExadataInfrastructure.");
     const pathParams = {
       "{exadataInfrastructureId}": deleteExadataInfrastructureRequest.exadataInfrastructureId
     };
@@ -2242,6 +2303,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async deleteVmCluster(
     deleteVmClusterRequest: requests.DeleteVmClusterRequest
   ): Promise<responses.DeleteVmClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteVmCluster.");
     const pathParams = {
       "{vmClusterId}": deleteVmClusterRequest.vmClusterId
     };
@@ -2298,6 +2360,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async deleteVmClusterNetwork(
     deleteVmClusterNetworkRequest: requests.DeleteVmClusterNetworkRequest
   ): Promise<responses.DeleteVmClusterNetworkResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteVmClusterNetwork.");
     const pathParams = {
       "{exadataInfrastructureId}": deleteVmClusterNetworkRequest.exadataInfrastructureId,
       "{vmClusterNetworkId}": deleteVmClusterNetworkRequest.vmClusterNetworkId
@@ -2356,6 +2419,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async deregisterAutonomousDatabaseDataSafe(
     deregisterAutonomousDatabaseDataSafeRequest: requests.DeregisterAutonomousDatabaseDataSafeRequest
   ): Promise<responses.DeregisterAutonomousDatabaseDataSafeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deregisterAutonomousDatabaseDataSafe.");
     const pathParams = {
       "{autonomousDatabaseId}": deregisterAutonomousDatabaseDataSafeRequest.autonomousDatabaseId
     };
@@ -2411,6 +2476,10 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async downloadExadataInfrastructureConfigFile(
     downloadExadataInfrastructureConfigFileRequest: requests.DownloadExadataInfrastructureConfigFileRequest
   ): Promise<responses.DownloadExadataInfrastructureConfigFileResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#downloadExadataInfrastructureConfigFile."
+      );
     const pathParams = {
       "{exadataInfrastructureId}":
         downloadExadataInfrastructureConfigFileRequest.exadataInfrastructureId
@@ -2482,6 +2551,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async downloadVmClusterNetworkConfigFile(
     downloadVmClusterNetworkConfigFileRequest: requests.DownloadVmClusterNetworkConfigFileRequest
   ): Promise<responses.DownloadVmClusterNetworkConfigFileResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#downloadVmClusterNetworkConfigFile.");
     const pathParams = {
       "{exadataInfrastructureId}":
         downloadVmClusterNetworkConfigFileRequest.exadataInfrastructureId,
@@ -2559,6 +2630,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async failoverDataGuardAssociation(
     failoverDataGuardAssociationRequest: requests.FailoverDataGuardAssociationRequest
   ): Promise<responses.FailoverDataGuardAssociationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#failoverDataGuardAssociation.");
     const pathParams = {
       "{databaseId}": failoverDataGuardAssociationRequest.databaseId,
       "{dataGuardAssociationId}": failoverDataGuardAssociationRequest.dataGuardAssociationId
@@ -2629,6 +2702,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async generateAutonomousDataWarehouseWallet(
     generateAutonomousDataWarehouseWalletRequest: requests.GenerateAutonomousDataWarehouseWalletRequest
   ): Promise<responses.GenerateAutonomousDataWarehouseWalletResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#generateAutonomousDataWarehouseWallet.");
     const pathParams = {
       "{autonomousDataWarehouseId}":
         generateAutonomousDataWarehouseWalletRequest.autonomousDataWarehouseId
@@ -2705,6 +2780,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async generateAutonomousDatabaseWallet(
     generateAutonomousDatabaseWalletRequest: requests.GenerateAutonomousDatabaseWalletRequest
   ): Promise<responses.GenerateAutonomousDatabaseWalletResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#generateAutonomousDatabaseWallet.");
     const pathParams = {
       "{autonomousDatabaseId}": generateAutonomousDatabaseWalletRequest.autonomousDatabaseId
     };
@@ -2780,6 +2857,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async generateRecommendedVmClusterNetwork(
     generateRecommendedVmClusterNetworkRequest: requests.GenerateRecommendedVmClusterNetworkRequest
   ): Promise<responses.GenerateRecommendedVmClusterNetworkResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#generateRecommendedVmClusterNetwork.");
     const pathParams = {
       "{exadataInfrastructureId}":
         generateRecommendedVmClusterNetworkRequest.exadataInfrastructureId
@@ -2845,6 +2924,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getAutonomousContainerDatabase(
     getAutonomousContainerDatabaseRequest: requests.GetAutonomousContainerDatabaseRequest
   ): Promise<responses.GetAutonomousContainerDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getAutonomousContainerDatabase.");
     const pathParams = {
       "{autonomousContainerDatabaseId}":
         getAutonomousContainerDatabaseRequest.autonomousContainerDatabaseId
@@ -2902,6 +2983,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getAutonomousDataWarehouse(
     getAutonomousDataWarehouseRequest: requests.GetAutonomousDataWarehouseRequest
   ): Promise<responses.GetAutonomousDataWarehouseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getAutonomousDataWarehouse.");
     const pathParams = {
       "{autonomousDataWarehouseId}": getAutonomousDataWarehouseRequest.autonomousDataWarehouseId
     };
@@ -2953,6 +3036,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getAutonomousDataWarehouseBackup(
     getAutonomousDataWarehouseBackupRequest: requests.GetAutonomousDataWarehouseBackupRequest
   ): Promise<responses.GetAutonomousDataWarehouseBackupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getAutonomousDataWarehouseBackup.");
     const pathParams = {
       "{autonomousDataWarehouseBackupId}":
         getAutonomousDataWarehouseBackupRequest.autonomousDataWarehouseBackupId
@@ -3010,6 +3095,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getAutonomousDatabase(
     getAutonomousDatabaseRequest: requests.GetAutonomousDatabaseRequest
   ): Promise<responses.GetAutonomousDatabaseResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getAutonomousDatabase.");
     const pathParams = {
       "{autonomousDatabaseId}": getAutonomousDatabaseRequest.autonomousDatabaseId
     };
@@ -3067,6 +3153,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getAutonomousDatabaseBackup(
     getAutonomousDatabaseBackupRequest: requests.GetAutonomousDatabaseBackupRequest
   ): Promise<responses.GetAutonomousDatabaseBackupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getAutonomousDatabaseBackup.");
     const pathParams = {
       "{autonomousDatabaseBackupId}": getAutonomousDatabaseBackupRequest.autonomousDatabaseBackupId
     };
@@ -3125,6 +3213,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getAutonomousDatabaseRegionalWallet(
     getAutonomousDatabaseRegionalWalletRequest: requests.GetAutonomousDatabaseRegionalWalletRequest
   ): Promise<responses.GetAutonomousDatabaseRegionalWalletResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getAutonomousDatabaseRegionalWallet.");
     const pathParams = {};
 
     const queryParams = {};
@@ -3176,6 +3266,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getAutonomousDatabaseWallet(
     getAutonomousDatabaseWalletRequest: requests.GetAutonomousDatabaseWalletRequest
   ): Promise<responses.GetAutonomousDatabaseWalletResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getAutonomousDatabaseWallet.");
     const pathParams = {
       "{autonomousDatabaseId}": getAutonomousDatabaseWalletRequest.autonomousDatabaseId
     };
@@ -3228,6 +3320,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getAutonomousExadataInfrastructure(
     getAutonomousExadataInfrastructureRequest: requests.GetAutonomousExadataInfrastructureRequest
   ): Promise<responses.GetAutonomousExadataInfrastructureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getAutonomousExadataInfrastructure.");
     const pathParams = {
       "{autonomousExadataInfrastructureId}":
         getAutonomousExadataInfrastructureRequest.autonomousExadataInfrastructureId
@@ -3284,6 +3378,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getBackup(
     getBackupRequest: requests.GetBackupRequest
   ): Promise<responses.GetBackupResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getBackup.");
     const pathParams = {
       "{backupId}": getBackupRequest.backupId
     };
@@ -3340,6 +3435,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getBackupDestination(
     getBackupDestinationRequest: requests.GetBackupDestinationRequest
   ): Promise<responses.GetBackupDestinationResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getBackupDestination.");
     const pathParams = {
       "{backupDestinationId}": getBackupDestinationRequest.backupDestinationId
     };
@@ -3397,6 +3493,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getConsoleConnection(
     getConsoleConnectionRequest: requests.GetConsoleConnectionRequest
   ): Promise<responses.GetConsoleConnectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getConsoleConnection.");
     const pathParams = {
       "{dbNodeId}": getConsoleConnectionRequest.dbNodeId,
       "{consoleConnectionId}": getConsoleConnectionRequest.consoleConnectionId
@@ -3454,6 +3551,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getDataGuardAssociation(
     getDataGuardAssociationRequest: requests.GetDataGuardAssociationRequest
   ): Promise<responses.GetDataGuardAssociationResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDataGuardAssociation.");
     const pathParams = {
       "{databaseId}": getDataGuardAssociationRequest.databaseId,
       "{dataGuardAssociationId}": getDataGuardAssociationRequest.dataGuardAssociationId
@@ -3510,6 +3608,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getDatabase(
     getDatabaseRequest: requests.GetDatabaseRequest
   ): Promise<responses.GetDatabaseResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDatabase.");
     const pathParams = {
       "{databaseId}": getDatabaseRequest.databaseId
     };
@@ -3565,6 +3664,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getDbHome(
     getDbHomeRequest: requests.GetDbHomeRequest
   ): Promise<responses.GetDbHomeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDbHome.");
     const pathParams = {
       "{dbHomeId}": getDbHomeRequest.dbHomeId
     };
@@ -3621,6 +3721,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getDbHomePatch(
     getDbHomePatchRequest: requests.GetDbHomePatchRequest
   ): Promise<responses.GetDbHomePatchResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDbHomePatch.");
     const pathParams = {
       "{dbHomeId}": getDbHomePatchRequest.dbHomeId,
       "{patchId}": getDbHomePatchRequest.patchId
@@ -3673,6 +3774,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getDbHomePatchHistoryEntry(
     getDbHomePatchHistoryEntryRequest: requests.GetDbHomePatchHistoryEntryRequest
   ): Promise<responses.GetDbHomePatchHistoryEntryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getDbHomePatchHistoryEntry.");
     const pathParams = {
       "{dbHomeId}": getDbHomePatchHistoryEntryRequest.dbHomeId,
       "{patchHistoryEntryId}": getDbHomePatchHistoryEntryRequest.patchHistoryEntryId
@@ -3729,6 +3832,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getDbNode(
     getDbNodeRequest: requests.GetDbNodeRequest
   ): Promise<responses.GetDbNodeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDbNode.");
     const pathParams = {
       "{dbNodeId}": getDbNodeRequest.dbNodeId
     };
@@ -3784,6 +3888,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getDbSystem(
     getDbSystemRequest: requests.GetDbSystemRequest
   ): Promise<responses.GetDbSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDbSystem.");
     const pathParams = {
       "{dbSystemId}": getDbSystemRequest.dbSystemId
     };
@@ -3840,6 +3945,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getDbSystemPatch(
     getDbSystemPatchRequest: requests.GetDbSystemPatchRequest
   ): Promise<responses.GetDbSystemPatchResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDbSystemPatch.");
     const pathParams = {
       "{dbSystemId}": getDbSystemPatchRequest.dbSystemId,
       "{patchId}": getDbSystemPatchRequest.patchId
@@ -3892,6 +3998,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getDbSystemPatchHistoryEntry(
     getDbSystemPatchHistoryEntryRequest: requests.GetDbSystemPatchHistoryEntryRequest
   ): Promise<responses.GetDbSystemPatchHistoryEntryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getDbSystemPatchHistoryEntry.");
     const pathParams = {
       "{dbSystemId}": getDbSystemPatchHistoryEntryRequest.dbSystemId,
       "{patchHistoryEntryId}": getDbSystemPatchHistoryEntryRequest.patchHistoryEntryId
@@ -3948,6 +4056,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getExadataInfrastructure(
     getExadataInfrastructureRequest: requests.GetExadataInfrastructureRequest
   ): Promise<responses.GetExadataInfrastructureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getExadataInfrastructure.");
     const pathParams = {
       "{exadataInfrastructureId}": getExadataInfrastructureRequest.exadataInfrastructureId
     };
@@ -4006,6 +4116,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getExadataInfrastructureOcpus(
     getExadataInfrastructureOcpusRequest: requests.GetExadataInfrastructureOcpusRequest
   ): Promise<responses.GetExadataInfrastructureOcpusResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getExadataInfrastructureOcpus.");
     const pathParams = {
       "{autonomousExadataInfrastructureId}":
         getExadataInfrastructureOcpusRequest.autonomousExadataInfrastructureId
@@ -4061,6 +4173,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getExadataIormConfig(
     getExadataIormConfigRequest: requests.GetExadataIormConfigRequest
   ): Promise<responses.GetExadataIormConfigResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getExadataIormConfig.");
     const pathParams = {
       "{dbSystemId}": getExadataIormConfigRequest.dbSystemId
     };
@@ -4116,6 +4229,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getExternalBackupJob(
     getExternalBackupJobRequest: requests.GetExternalBackupJobRequest
   ): Promise<responses.GetExternalBackupJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getExternalBackupJob.");
     const pathParams = {
       "{backupId}": getExternalBackupJobRequest.backupId
     };
@@ -4171,6 +4285,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getMaintenanceRun(
     getMaintenanceRunRequest: requests.GetMaintenanceRunRequest
   ): Promise<responses.GetMaintenanceRunResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getMaintenanceRun.");
     const pathParams = {
       "{maintenanceRunId}": getMaintenanceRunRequest.maintenanceRunId
     };
@@ -4226,6 +4341,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getVmCluster(
     getVmClusterRequest: requests.GetVmClusterRequest
   ): Promise<responses.GetVmClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getVmCluster.");
     const pathParams = {
       "{vmClusterId}": getVmClusterRequest.vmClusterId
     };
@@ -4283,6 +4399,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getVmClusterNetwork(
     getVmClusterNetworkRequest: requests.GetVmClusterNetworkRequest
   ): Promise<responses.GetVmClusterNetworkResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getVmClusterNetwork.");
     const pathParams = {
       "{exadataInfrastructureId}": getVmClusterNetworkRequest.exadataInfrastructureId,
       "{vmClusterNetworkId}": getVmClusterNetworkRequest.vmClusterNetworkId
@@ -4343,6 +4460,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getVmClusterPatch(
     getVmClusterPatchRequest: requests.GetVmClusterPatchRequest
   ): Promise<responses.GetVmClusterPatchResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getVmClusterPatch.");
     const pathParams = {
       "{vmClusterId}": getVmClusterPatchRequest.vmClusterId,
       "{patchId}": getVmClusterPatchRequest.patchId
@@ -4395,6 +4513,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getVmClusterPatchHistoryEntry(
     getVmClusterPatchHistoryEntryRequest: requests.GetVmClusterPatchHistoryEntryRequest
   ): Promise<responses.GetVmClusterPatchHistoryEntryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getVmClusterPatchHistoryEntry.");
     const pathParams = {
       "{vmClusterId}": getVmClusterPatchHistoryEntryRequest.vmClusterId,
       "{patchHistoryEntryId}": getVmClusterPatchHistoryEntryRequest.patchHistoryEntryId
@@ -4452,6 +4572,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async launchAutonomousExadataInfrastructure(
     launchAutonomousExadataInfrastructureRequest: requests.LaunchAutonomousExadataInfrastructureRequest
   ): Promise<responses.LaunchAutonomousExadataInfrastructureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#launchAutonomousExadataInfrastructure.");
     const pathParams = {};
 
     const queryParams = {};
@@ -4525,6 +4647,7 @@ An initial database is created on the DB system based on the request parameters 
   public async launchDbSystem(
     launchDbSystemRequest: requests.LaunchDbSystemRequest
   ): Promise<responses.LaunchDbSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#launchDbSystem.");
     const pathParams = {};
 
     const queryParams = {};
@@ -4591,6 +4714,8 @@ An initial database is created on the DB system based on the request parameters 
   public async listAutonomousContainerDatabases(
     listAutonomousContainerDatabasesRequest: requests.ListAutonomousContainerDatabasesRequest
   ): Promise<responses.ListAutonomousContainerDatabasesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listAutonomousContainerDatabases.");
     const pathParams = {};
 
     const queryParams = {
@@ -4681,6 +4806,8 @@ An initial database is created on the DB system based on the request parameters 
   public async listAutonomousDataWarehouseBackups(
     listAutonomousDataWarehouseBackupsRequest: requests.ListAutonomousDataWarehouseBackupsRequest
   ): Promise<responses.ListAutonomousDataWarehouseBackupsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listAutonomousDataWarehouseBackups.");
     const pathParams = {};
 
     const queryParams = {
@@ -4770,6 +4897,8 @@ An initial database is created on the DB system based on the request parameters 
   public async listAutonomousDataWarehouses(
     listAutonomousDataWarehousesRequest: requests.ListAutonomousDataWarehousesRequest
   ): Promise<responses.ListAutonomousDataWarehousesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listAutonomousDataWarehouses.");
     const pathParams = {};
 
     const queryParams = {
@@ -4857,6 +4986,8 @@ An initial database is created on the DB system based on the request parameters 
   public async listAutonomousDatabaseBackups(
     listAutonomousDatabaseBackupsRequest: requests.ListAutonomousDatabaseBackupsRequest
   ): Promise<responses.ListAutonomousDatabaseBackupsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listAutonomousDatabaseBackups.");
     const pathParams = {};
 
     const queryParams = {
@@ -4947,6 +5078,7 @@ An initial database is created on the DB system based on the request parameters 
   public async listAutonomousDatabases(
     listAutonomousDatabasesRequest: requests.ListAutonomousDatabasesRequest
   ): Promise<responses.ListAutonomousDatabasesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listAutonomousDatabases.");
     const pathParams = {};
 
     const queryParams = {
@@ -5041,6 +5173,8 @@ An initial database is created on the DB system based on the request parameters 
   public async listAutonomousDbPreviewVersions(
     listAutonomousDbPreviewVersionsRequest: requests.ListAutonomousDbPreviewVersionsRequest
   ): Promise<responses.ListAutonomousDbPreviewVersionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listAutonomousDbPreviewVersions.");
     const pathParams = {};
 
     const queryParams = {
@@ -5127,6 +5261,8 @@ An initial database is created on the DB system based on the request parameters 
   public async listAutonomousDbVersions(
     listAutonomousDbVersionsRequest: requests.ListAutonomousDbVersionsRequest
   ): Promise<responses.ListAutonomousDbVersionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listAutonomousDbVersions.");
     const pathParams = {};
 
     const queryParams = {
@@ -5213,6 +5349,10 @@ An initial database is created on the DB system based on the request parameters 
   public async listAutonomousExadataInfrastructureShapes(
     listAutonomousExadataInfrastructureShapesRequest: requests.ListAutonomousExadataInfrastructureShapesRequest
   ): Promise<responses.ListAutonomousExadataInfrastructureShapesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#listAutonomousExadataInfrastructureShapes."
+      );
     const pathParams = {};
 
     const queryParams = {
@@ -5299,6 +5439,8 @@ An initial database is created on the DB system based on the request parameters 
   public async listAutonomousExadataInfrastructures(
     listAutonomousExadataInfrastructuresRequest: requests.ListAutonomousExadataInfrastructuresRequest
   ): Promise<responses.ListAutonomousExadataInfrastructuresResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listAutonomousExadataInfrastructures.");
     const pathParams = {};
 
     const queryParams = {
@@ -5387,6 +5529,7 @@ An initial database is created on the DB system based on the request parameters 
   public async listBackupDestination(
     listBackupDestinationRequest: requests.ListBackupDestinationRequest
   ): Promise<responses.ListBackupDestinationResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listBackupDestination.");
     const pathParams = {};
 
     const queryParams = {
@@ -5478,6 +5621,7 @@ An initial database is created on the DB system based on the request parameters 
   public async listBackups(
     listBackupsRequest: requests.ListBackupsRequest
   ): Promise<responses.ListBackupsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listBackups.");
     const pathParams = {};
 
     const queryParams = {
@@ -5562,6 +5706,7 @@ An initial database is created on the DB system based on the request parameters 
   public async listConsoleConnections(
     listConsoleConnectionsRequest: requests.ListConsoleConnectionsRequest
   ): Promise<responses.ListConsoleConnectionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listConsoleConnections.");
     const pathParams = {
       "{dbNodeId}": listConsoleConnectionsRequest.dbNodeId
     };
@@ -5618,6 +5763,8 @@ An initial database is created on the DB system based on the request parameters 
   public async listDataGuardAssociations(
     listDataGuardAssociationsRequest: requests.ListDataGuardAssociationsRequest
   ): Promise<responses.ListDataGuardAssociationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listDataGuardAssociations.");
     const pathParams = {
       "{databaseId}": listDataGuardAssociationsRequest.databaseId
     };
@@ -5702,6 +5849,7 @@ An initial database is created on the DB system based on the request parameters 
   public async listDatabases(
     listDatabasesRequest: requests.ListDatabasesRequest
   ): Promise<responses.ListDatabasesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDatabases.");
     const pathParams = {};
 
     const queryParams = {
@@ -5791,6 +5939,8 @@ An initial database is created on the DB system based on the request parameters 
   public async listDbHomePatchHistoryEntries(
     listDbHomePatchHistoryEntriesRequest: requests.ListDbHomePatchHistoryEntriesRequest
   ): Promise<responses.ListDbHomePatchHistoryEntriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listDbHomePatchHistoryEntries.");
     const pathParams = {
       "{dbHomeId}": listDbHomePatchHistoryEntriesRequest.dbHomeId
     };
@@ -5875,6 +6025,7 @@ An initial database is created on the DB system based on the request parameters 
   public async listDbHomePatches(
     listDbHomePatchesRequest: requests.ListDbHomePatchesRequest
   ): Promise<responses.ListDbHomePatchesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbHomePatches.");
     const pathParams = {
       "{dbHomeId}": listDbHomePatchesRequest.dbHomeId
     };
@@ -5959,6 +6110,7 @@ An initial database is created on the DB system based on the request parameters 
   public async listDbHomes(
     listDbHomesRequest: requests.ListDbHomesRequest
   ): Promise<responses.ListDbHomesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbHomes.");
     const pathParams = {};
 
     const queryParams = {
@@ -6049,6 +6201,7 @@ An initial database is created on the DB system based on the request parameters 
   public async listDbNodes(
     listDbNodesRequest: requests.ListDbNodesRequest
   ): Promise<responses.ListDbNodesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbNodes.");
     const pathParams = {};
 
     const queryParams = {
@@ -6137,6 +6290,8 @@ An initial database is created on the DB system based on the request parameters 
   public async listDbSystemPatchHistoryEntries(
     listDbSystemPatchHistoryEntriesRequest: requests.ListDbSystemPatchHistoryEntriesRequest
   ): Promise<responses.ListDbSystemPatchHistoryEntriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listDbSystemPatchHistoryEntries.");
     const pathParams = {
       "{dbSystemId}": listDbSystemPatchHistoryEntriesRequest.dbSystemId
     };
@@ -6221,6 +6376,7 @@ An initial database is created on the DB system based on the request parameters 
   public async listDbSystemPatches(
     listDbSystemPatchesRequest: requests.ListDbSystemPatchesRequest
   ): Promise<responses.ListDbSystemPatchesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbSystemPatches.");
     const pathParams = {
       "{dbSystemId}": listDbSystemPatchesRequest.dbSystemId
     };
@@ -6304,6 +6460,7 @@ An initial database is created on the DB system based on the request parameters 
   public async listDbSystemShapes(
     listDbSystemShapesRequest: requests.ListDbSystemShapesRequest
   ): Promise<responses.ListDbSystemShapesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbSystemShapes.");
     const pathParams = {};
 
     const queryParams = {
@@ -6388,6 +6545,7 @@ An initial database is created on the DB system based on the request parameters 
   public async listDbSystems(
     listDbSystemsRequest: requests.ListDbSystemsRequest
   ): Promise<responses.ListDbSystemsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbSystems.");
     const pathParams = {};
 
     const queryParams = {
@@ -6476,6 +6634,7 @@ An initial database is created on the DB system based on the request parameters 
   public async listDbVersions(
     listDbVersionsRequest: requests.ListDbVersionsRequest
   ): Promise<responses.ListDbVersionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbVersions.");
     const pathParams = {};
 
     const queryParams = {
@@ -6562,6 +6721,8 @@ An initial database is created on the DB system based on the request parameters 
   public async listExadataInfrastructures(
     listExadataInfrastructuresRequest: requests.ListExadataInfrastructuresRequest
   ): Promise<responses.ListExadataInfrastructuresResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listExadataInfrastructures.");
     const pathParams = {};
 
     const queryParams = {
@@ -6650,6 +6811,7 @@ An initial database is created on the DB system based on the request parameters 
   public async listGiVersions(
     listGiVersionsRequest: requests.ListGiVersionsRequest
   ): Promise<responses.ListGiVersionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listGiVersions.");
     const pathParams = {};
 
     const queryParams = {
@@ -6735,6 +6897,7 @@ An initial database is created on the DB system based on the request parameters 
   public async listMaintenanceRuns(
     listMaintenanceRunsRequest: requests.ListMaintenanceRunsRequest
   ): Promise<responses.ListMaintenanceRunsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listMaintenanceRuns.");
     const pathParams = {};
 
     const queryParams = {
@@ -6825,6 +6988,7 @@ An initial database is created on the DB system based on the request parameters 
   public async listVmClusterNetworks(
     listVmClusterNetworksRequest: requests.ListVmClusterNetworksRequest
   ): Promise<responses.ListVmClusterNetworksResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listVmClusterNetworks.");
     const pathParams = {
       "{exadataInfrastructureId}": listVmClusterNetworksRequest.exadataInfrastructureId
     };
@@ -6916,6 +7080,8 @@ An initial database is created on the DB system based on the request parameters 
   public async listVmClusterPatchHistoryEntries(
     listVmClusterPatchHistoryEntriesRequest: requests.ListVmClusterPatchHistoryEntriesRequest
   ): Promise<responses.ListVmClusterPatchHistoryEntriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listVmClusterPatchHistoryEntries.");
     const pathParams = {
       "{vmClusterId}": listVmClusterPatchHistoryEntriesRequest.vmClusterId
     };
@@ -7000,6 +7166,7 @@ An initial database is created on the DB system based on the request parameters 
   public async listVmClusterPatches(
     listVmClusterPatchesRequest: requests.ListVmClusterPatchesRequest
   ): Promise<responses.ListVmClusterPatchesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listVmClusterPatches.");
     const pathParams = {
       "{vmClusterId}": listVmClusterPatchesRequest.vmClusterId
     };
@@ -7084,6 +7251,7 @@ An initial database is created on the DB system based on the request parameters 
   public async listVmClusters(
     listVmClustersRequest: requests.ListVmClustersRequest
   ): Promise<responses.ListVmClustersResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listVmClusters.");
     const pathParams = {};
 
     const queryParams = {
@@ -7174,6 +7342,8 @@ An initial database is created on the DB system based on the request parameters 
   public async registerAutonomousDatabaseDataSafe(
     registerAutonomousDatabaseDataSafeRequest: requests.RegisterAutonomousDatabaseDataSafeRequest
   ): Promise<responses.RegisterAutonomousDatabaseDataSafeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#registerAutonomousDatabaseDataSafe.");
     const pathParams = {
       "{autonomousDatabaseId}": registerAutonomousDatabaseDataSafeRequest.autonomousDatabaseId
     };
@@ -7229,6 +7399,8 @@ An initial database is created on the DB system based on the request parameters 
   public async reinstateDataGuardAssociation(
     reinstateDataGuardAssociationRequest: requests.ReinstateDataGuardAssociationRequest
   ): Promise<responses.ReinstateDataGuardAssociationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#reinstateDataGuardAssociation.");
     const pathParams = {
       "{databaseId}": reinstateDataGuardAssociationRequest.databaseId,
       "{dataGuardAssociationId}": reinstateDataGuardAssociationRequest.dataGuardAssociationId
@@ -7299,6 +7471,8 @@ An initial database is created on the DB system based on the request parameters 
   public async restartAutonomousContainerDatabase(
     restartAutonomousContainerDatabaseRequest: requests.RestartAutonomousContainerDatabaseRequest
   ): Promise<responses.RestartAutonomousContainerDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#restartAutonomousContainerDatabase.");
     const pathParams = {
       "{autonomousContainerDatabaseId}":
         restartAutonomousContainerDatabaseRequest.autonomousContainerDatabaseId
@@ -7364,6 +7538,8 @@ An initial database is created on the DB system based on the request parameters 
   public async restartAutonomousDatabase(
     restartAutonomousDatabaseRequest: requests.RestartAutonomousDatabaseRequest
   ): Promise<responses.RestartAutonomousDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#restartAutonomousDatabase.");
     const pathParams = {
       "{autonomousDatabaseId}": restartAutonomousDatabaseRequest.autonomousDatabaseId
     };
@@ -7427,6 +7603,8 @@ An initial database is created on the DB system based on the request parameters 
   public async restoreAutonomousDataWarehouse(
     restoreAutonomousDataWarehouseRequest: requests.RestoreAutonomousDataWarehouseRequest
   ): Promise<responses.RestoreAutonomousDataWarehouseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#restoreAutonomousDataWarehouse.");
     const pathParams = {
       "{autonomousDataWarehouseId}": restoreAutonomousDataWarehouseRequest.autonomousDataWarehouseId
     };
@@ -7490,6 +7668,8 @@ An initial database is created on the DB system based on the request parameters 
   public async restoreAutonomousDatabase(
     restoreAutonomousDatabaseRequest: requests.RestoreAutonomousDatabaseRequest
   ): Promise<responses.RestoreAutonomousDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#restoreAutonomousDatabase.");
     const pathParams = {
       "{autonomousDatabaseId}": restoreAutonomousDatabaseRequest.autonomousDatabaseId
     };
@@ -7558,6 +7738,7 @@ An initial database is created on the DB system based on the request parameters 
   public async restoreDatabase(
     restoreDatabaseRequest: requests.RestoreDatabaseRequest
   ): Promise<responses.RestoreDatabaseResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#restoreDatabase.");
     const pathParams = {
       "{databaseId}": restoreDatabaseRequest.databaseId
     };
@@ -7626,6 +7807,8 @@ An initial database is created on the DB system based on the request parameters 
   public async startAutonomousDataWarehouse(
     startAutonomousDataWarehouseRequest: requests.StartAutonomousDataWarehouseRequest
   ): Promise<responses.StartAutonomousDataWarehouseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#startAutonomousDataWarehouse.");
     const pathParams = {
       "{autonomousDataWarehouseId}": startAutonomousDataWarehouseRequest.autonomousDataWarehouseId
     };
@@ -7684,6 +7867,7 @@ An initial database is created on the DB system based on the request parameters 
   public async startAutonomousDatabase(
     startAutonomousDatabaseRequest: requests.StartAutonomousDatabaseRequest
   ): Promise<responses.StartAutonomousDatabaseResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#startAutonomousDatabase.");
     const pathParams = {
       "{autonomousDatabaseId}": startAutonomousDatabaseRequest.autonomousDatabaseId
     };
@@ -7747,6 +7931,8 @@ An initial database is created on the DB system based on the request parameters 
   public async stopAutonomousDataWarehouse(
     stopAutonomousDataWarehouseRequest: requests.StopAutonomousDataWarehouseRequest
   ): Promise<responses.StopAutonomousDataWarehouseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#stopAutonomousDataWarehouse.");
     const pathParams = {
       "{autonomousDataWarehouseId}": stopAutonomousDataWarehouseRequest.autonomousDataWarehouseId
     };
@@ -7805,6 +7991,7 @@ An initial database is created on the DB system based on the request parameters 
   public async stopAutonomousDatabase(
     stopAutonomousDatabaseRequest: requests.StopAutonomousDatabaseRequest
   ): Promise<responses.StopAutonomousDatabaseResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#stopAutonomousDatabase.");
     const pathParams = {
       "{autonomousDatabaseId}": stopAutonomousDatabaseRequest.autonomousDatabaseId
     };
@@ -7872,6 +8059,8 @@ A switchover guarantees no data loss.
   public async switchoverDataGuardAssociation(
     switchoverDataGuardAssociationRequest: requests.SwitchoverDataGuardAssociationRequest
   ): Promise<responses.SwitchoverDataGuardAssociationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#switchoverDataGuardAssociation.");
     const pathParams = {
       "{databaseId}": switchoverDataGuardAssociationRequest.databaseId,
       "{dataGuardAssociationId}": switchoverDataGuardAssociationRequest.dataGuardAssociationId
@@ -7941,6 +8130,8 @@ A switchover guarantees no data loss.
   public async terminateAutonomousContainerDatabase(
     terminateAutonomousContainerDatabaseRequest: requests.TerminateAutonomousContainerDatabaseRequest
   ): Promise<responses.TerminateAutonomousContainerDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#terminateAutonomousContainerDatabase.");
     const pathParams = {
       "{autonomousContainerDatabaseId}":
         terminateAutonomousContainerDatabaseRequest.autonomousContainerDatabaseId
@@ -7996,6 +8187,10 @@ A switchover guarantees no data loss.
   public async terminateAutonomousExadataInfrastructure(
     terminateAutonomousExadataInfrastructureRequest: requests.TerminateAutonomousExadataInfrastructureRequest
   ): Promise<responses.TerminateAutonomousExadataInfrastructureResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#terminateAutonomousExadataInfrastructure."
+      );
     const pathParams = {
       "{autonomousExadataInfrastructureId}":
         terminateAutonomousExadataInfrastructureRequest.autonomousExadataInfrastructureId
@@ -8051,6 +8246,7 @@ A switchover guarantees no data loss.
   public async terminateDbSystem(
     terminateDbSystemRequest: requests.TerminateDbSystemRequest
   ): Promise<responses.TerminateDbSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#terminateDbSystem.");
     const pathParams = {
       "{dbSystemId}": terminateDbSystemRequest.dbSystemId
     };
@@ -8105,6 +8301,8 @@ A switchover guarantees no data loss.
   public async updateAutonomousContainerDatabase(
     updateAutonomousContainerDatabaseRequest: requests.UpdateAutonomousContainerDatabaseRequest
   ): Promise<responses.UpdateAutonomousContainerDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateAutonomousContainerDatabase.");
     const pathParams = {
       "{autonomousContainerDatabaseId}":
         updateAutonomousContainerDatabaseRequest.autonomousContainerDatabaseId
@@ -8174,6 +8372,8 @@ A switchover guarantees no data loss.
   public async updateAutonomousDataWarehouse(
     updateAutonomousDataWarehouseRequest: requests.UpdateAutonomousDataWarehouseRequest
   ): Promise<responses.UpdateAutonomousDataWarehouseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateAutonomousDataWarehouse.");
     const pathParams = {
       "{autonomousDataWarehouseId}": updateAutonomousDataWarehouseRequest.autonomousDataWarehouseId
     };
@@ -8237,6 +8437,8 @@ A switchover guarantees no data loss.
   public async updateAutonomousDatabase(
     updateAutonomousDatabaseRequest: requests.UpdateAutonomousDatabaseRequest
   ): Promise<responses.UpdateAutonomousDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateAutonomousDatabase.");
     const pathParams = {
       "{autonomousDatabaseId}": updateAutonomousDatabaseRequest.autonomousDatabaseId
     };
@@ -8306,6 +8508,8 @@ A switchover guarantees no data loss.
   public async updateAutonomousDatabaseRegionalWallet(
     updateAutonomousDatabaseRegionalWalletRequest: requests.UpdateAutonomousDatabaseRegionalWalletRequest
   ): Promise<responses.UpdateAutonomousDatabaseRegionalWalletResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateAutonomousDatabaseRegionalWallet.");
     const pathParams = {};
 
     const queryParams = {};
@@ -8364,6 +8568,8 @@ A switchover guarantees no data loss.
   public async updateAutonomousDatabaseWallet(
     updateAutonomousDatabaseWalletRequest: requests.UpdateAutonomousDatabaseWalletRequest
   ): Promise<responses.UpdateAutonomousDatabaseWalletResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateAutonomousDatabaseWallet.");
     const pathParams = {
       "{autonomousDatabaseId}": updateAutonomousDatabaseWalletRequest.autonomousDatabaseId
     };
@@ -8423,6 +8629,8 @@ A switchover guarantees no data loss.
   public async updateAutonomousExadataInfrastructure(
     updateAutonomousExadataInfrastructureRequest: requests.UpdateAutonomousExadataInfrastructureRequest
   ): Promise<responses.UpdateAutonomousExadataInfrastructureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateAutonomousExadataInfrastructure.");
     const pathParams = {
       "{autonomousExadataInfrastructureId}":
         updateAutonomousExadataInfrastructureRequest.autonomousExadataInfrastructureId
@@ -8494,6 +8702,7 @@ A switchover guarantees no data loss.
   public async updateBackupDestination(
     updateBackupDestinationRequest: requests.UpdateBackupDestinationRequest
   ): Promise<responses.UpdateBackupDestinationResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateBackupDestination.");
     const pathParams = {
       "{backupDestinationId}": updateBackupDestinationRequest.backupDestinationId
     };
@@ -8558,6 +8767,7 @@ A switchover guarantees no data loss.
   public async updateDatabase(
     updateDatabaseRequest: requests.UpdateDatabaseRequest
   ): Promise<responses.UpdateDatabaseResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateDatabase.");
     const pathParams = {
       "{databaseId}": updateDatabaseRequest.databaseId
     };
@@ -8625,6 +8835,7 @@ A switchover guarantees no data loss.
   public async updateDbHome(
     updateDbHomeRequest: requests.UpdateDbHomeRequest
   ): Promise<responses.UpdateDbHomeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateDbHome.");
     const pathParams = {
       "{dbHomeId}": updateDbHomeRequest.dbHomeId
     };
@@ -8692,6 +8903,7 @@ A switchover guarantees no data loss.
   public async updateDbSystem(
     updateDbSystemRequest: requests.UpdateDbSystemRequest
   ): Promise<responses.UpdateDbSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateDbSystem.");
     const pathParams = {
       "{dbSystemId}": updateDbSystemRequest.dbSystemId
     };
@@ -8760,6 +8972,8 @@ A switchover guarantees no data loss.
   public async updateExadataInfrastructure(
     updateExadataInfrastructureRequest: requests.UpdateExadataInfrastructureRequest
   ): Promise<responses.UpdateExadataInfrastructureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateExadataInfrastructure.");
     const pathParams = {
       "{exadataInfrastructureId}": updateExadataInfrastructureRequest.exadataInfrastructureId
     };
@@ -8829,6 +9043,7 @@ A switchover guarantees no data loss.
   public async updateExadataIormConfig(
     updateExadataIormConfigRequest: requests.UpdateExadataIormConfigRequest
   ): Promise<responses.UpdateExadataIormConfigResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateExadataIormConfig.");
     const pathParams = {
       "{dbSystemId}": updateExadataIormConfigRequest.dbSystemId
     };
@@ -8897,6 +9112,7 @@ A switchover guarantees no data loss.
   public async updateMaintenanceRun(
     updateMaintenanceRunRequest: requests.UpdateMaintenanceRunRequest
   ): Promise<responses.UpdateMaintenanceRunResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateMaintenanceRun.");
     const pathParams = {
       "{maintenanceRunId}": updateMaintenanceRunRequest.maintenanceRunId
     };
@@ -8960,6 +9176,7 @@ A switchover guarantees no data loss.
   public async updateVmCluster(
     updateVmClusterRequest: requests.UpdateVmClusterRequest
   ): Promise<responses.UpdateVmClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateVmCluster.");
     const pathParams = {
       "{vmClusterId}": updateVmClusterRequest.vmClusterId
     };
@@ -9029,6 +9246,7 @@ A switchover guarantees no data loss.
   public async updateVmClusterNetwork(
     updateVmClusterNetworkRequest: requests.UpdateVmClusterNetworkRequest
   ): Promise<responses.UpdateVmClusterNetworkResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateVmClusterNetwork.");
     const pathParams = {
       "{exadataInfrastructureId}": updateVmClusterNetworkRequest.exadataInfrastructureId,
       "{vmClusterNetworkId}": updateVmClusterNetworkRequest.vmClusterNetworkId
@@ -9100,6 +9318,8 @@ A switchover guarantees no data loss.
   public async validateVmClusterNetwork(
     validateVmClusterNetworkRequest: requests.ValidateVmClusterNetworkRequest
   ): Promise<responses.ValidateVmClusterNetworkResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#validateVmClusterNetwork.");
     const pathParams = {
       "{exadataInfrastructureId}": validateVmClusterNetworkRequest.exadataInfrastructureId,
       "{vmClusterNetworkId}": validateVmClusterNetworkRequest.vmClusterNetworkId

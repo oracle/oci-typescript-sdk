@@ -57,6 +57,11 @@ export class IdentityClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20160918";
+    if (this.logger) this.logger.info(`IdentityClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -119,6 +124,7 @@ export class IdentityClient {
   public async activateMfaTotpDevice(
     activateMfaTotpDeviceRequest: requests.ActivateMfaTotpDeviceRequest
   ): Promise<responses.ActivateMfaTotpDeviceResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#activateMfaTotpDevice.");
     const pathParams = {
       "{userId}": activateMfaTotpDeviceRequest.userId,
       "{mfaTotpDeviceId}": activateMfaTotpDeviceRequest.mfaTotpDeviceId
@@ -187,6 +193,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
   public async addUserToGroup(
     addUserToGroupRequest: requests.AddUserToGroupRequest
   ): Promise<responses.AddUserToGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#addUserToGroup.");
     const pathParams = {};
 
     const queryParams = {};
@@ -251,6 +258,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
   public async assembleEffectiveTagSet(
     assembleEffectiveTagSetRequest: requests.AssembleEffectiveTagSetRequest
   ): Promise<responses.AssembleEffectiveTagSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#assembleEffectiveTagSet.");
     const pathParams = {};
 
     const queryParams = {
@@ -309,6 +317,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
   public async bulkDeleteResources(
     bulkDeleteResourcesRequest: requests.BulkDeleteResourcesRequest
   ): Promise<responses.BulkDeleteResourcesResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#bulkDeleteResources.");
     const pathParams = {
       "{compartmentId}": bulkDeleteResourcesRequest.compartmentId
     };
@@ -390,6 +399,7 @@ In order to delete tags, you must first retire the tags. Use {@link #updateTag(U
   public async bulkDeleteTags(
     bulkDeleteTagsRequest: requests.BulkDeleteTagsRequest
   ): Promise<responses.BulkDeleteTagsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#bulkDeleteTags.");
     const pathParams = {};
 
     const queryParams = {};
@@ -450,6 +460,7 @@ In order to delete tags, you must first retire the tags. Use {@link #updateTag(U
   public async bulkMoveResources(
     bulkMoveResourcesRequest: requests.BulkMoveResourcesRequest
   ): Promise<responses.BulkMoveResourcesResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#bulkMoveResources.");
     const pathParams = {
       "{compartmentId}": bulkMoveResourcesRequest.compartmentId
     };
@@ -529,6 +540,8 @@ To delete a tag namespace, you must first retire it. Use {@link #updateTagNamesp
   public async cascadeDeleteTagNamespace(
     cascadeDeleteTagNamespaceRequest: requests.CascadeDeleteTagNamespaceRequest
   ): Promise<responses.CascadeDeleteTagNamespaceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityClient#cascadeDeleteTagNamespace.");
     const pathParams = {
       "{tagNamespaceId}": cascadeDeleteTagNamespaceRequest.tagNamespaceId
     };
@@ -591,6 +604,8 @@ Moving a tag namespace moves all the tag key definitions contained in the tag na
   public async changeTagNamespaceCompartment(
     changeTagNamespaceCompartmentRequest: requests.ChangeTagNamespaceCompartmentRequest
   ): Promise<responses.ChangeTagNamespaceCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityClient#changeTagNamespaceCompartment.");
     const pathParams = {
       "{tagNamespaceId}": changeTagNamespaceCompartmentRequest.tagNamespaceId
     };
@@ -655,6 +670,7 @@ Every user has permission to create an auth token for *their own user ID*. An ad
   public async createAuthToken(
     createAuthTokenRequest: requests.CreateAuthTokenRequest
   ): Promise<responses.CreateAuthTokenResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#createAuthToken.");
     const pathParams = {
       "{userId}": createAuthTokenRequest.userId
     };
@@ -736,6 +752,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
   public async createCompartment(
     createCompartmentRequest: requests.CreateCompartmentRequest
   ): Promise<responses.CreateCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#createCompartment.");
     const pathParams = {};
 
     const queryParams = {};
@@ -807,6 +824,7 @@ Every user has permission to create a secret key for *their own user ID*. An adm
   public async createCustomerSecretKey(
     createCustomerSecretKeyRequest: requests.CreateCustomerSecretKeyRequest
   ): Promise<responses.CreateCustomerSecretKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#createCustomerSecretKey.");
     const pathParams = {
       "{userId}": createCustomerSecretKeyRequest.userId
     };
@@ -887,6 +905,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
   public async createDynamicGroup(
     createDynamicGroupRequest: requests.CreateDynamicGroupRequest
   ): Promise<responses.CreateDynamicGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#createDynamicGroup.");
     const pathParams = {};
 
     const queryParams = {};
@@ -968,6 +987,7 @@ After creating the group, you need to put users in it and write policies for it.
   public async createGroup(
     createGroupRequest: requests.CreateGroupRequest
   ): Promise<responses.CreateGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#createGroup.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1046,6 +1066,7 @@ After you send your request, the new object's `lifecycleState` will temporarily
   public async createIdentityProvider(
     createIdentityProviderRequest: requests.CreateIdentityProviderRequest
   ): Promise<responses.CreateIdentityProviderResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#createIdentityProvider.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1108,6 +1129,7 @@ After you send your request, the new object's `lifecycleState` will temporarily
   public async createIdpGroupMapping(
     createIdpGroupMappingRequest: requests.CreateIdpGroupMappingRequest
   ): Promise<responses.CreateIdpGroupMappingResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#createIdpGroupMapping.");
     const pathParams = {
       "{identityProviderId}": createIdpGroupMappingRequest.identityProviderId
     };
@@ -1171,6 +1193,7 @@ After you send your request, the new object's `lifecycleState` will temporarily
   public async createMfaTotpDevice(
     createMfaTotpDeviceRequest: requests.CreateMfaTotpDeviceRequest
   ): Promise<responses.CreateMfaTotpDeviceResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#createMfaTotpDevice.");
     const pathParams = {
       "{userId}": createMfaTotpDeviceRequest.userId
     };
@@ -1249,6 +1272,7 @@ After your network resource is created, you can use it in policy to restrict acc
   public async createNetworkSource(
     createNetworkSourceRequest: requests.CreateNetworkSourceRequest
   ): Promise<responses.CreateNetworkSourceResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#createNetworkSource.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1310,6 +1334,8 @@ After your network resource is created, you can use it in policy to restrict acc
   public async createOAuthClientCredential(
     createOAuthClientCredentialRequest: requests.CreateOAuthClientCredentialRequest
   ): Promise<responses.CreateOAuthClientCredentialResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityClient#createOAuthClientCredential.");
     const pathParams = {
       "{userId}": createOAuthClientCredentialRequest.userId
     };
@@ -1383,6 +1409,7 @@ Use this operation after creating a new user, or if a user forgets their passwor
   public async createOrResetUIPassword(
     createOrResetUIPasswordRequest: requests.CreateOrResetUIPasswordRequest
   ): Promise<responses.CreateOrResetUIPasswordResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#createOrResetUIPassword.");
     const pathParams = {
       "{userId}": createOrResetUIPasswordRequest.userId
     };
@@ -1457,6 +1484,7 @@ New policies take effect typically within 10 seconds.
   public async createPolicy(
     createPolicyRequest: requests.CreatePolicyRequest
   ): Promise<responses.CreatePolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#createPolicy.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1518,6 +1546,8 @@ New policies take effect typically within 10 seconds.
   public async createRegionSubscription(
     createRegionSubscriptionRequest: requests.CreateRegionSubscriptionRequest
   ): Promise<responses.CreateRegionSubscriptionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityClient#createRegionSubscription.");
     const pathParams = {
       "{tenancyId}": createRegionSubscriptionRequest.tenancyId
     };
@@ -1579,6 +1609,7 @@ New policies take effect typically within 10 seconds.
   public async createSmtpCredential(
     createSmtpCredentialRequest: requests.CreateSmtpCredentialRequest
   ): Promise<responses.CreateSmtpCredentialResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#createSmtpCredential.");
     const pathParams = {
       "{userId}": createSmtpCredentialRequest.userId
     };
@@ -1653,6 +1684,7 @@ Every user has permission to create a Swift password for *their own user ID*. An
   public async createSwiftPassword(
     createSwiftPasswordRequest: requests.CreateSwiftPasswordRequest
   ): Promise<responses.CreateSwiftPasswordResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#createSwiftPassword.");
     const pathParams = {
       "{userId}": createSwiftPasswordRequest.userId
     };
@@ -1737,6 +1769,7 @@ The tag must have a value type, which is specified with a validator. Tags can us
   public async createTag(
     createTagRequest: requests.CreateTagRequest
   ): Promise<responses.CreateTagResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#createTag.");
     const pathParams = {
       "{tagNamespaceId}": createTagRequest.tagNamespaceId
     };
@@ -1807,6 +1840,7 @@ If you specify that a value is required, a value is set during resource creation
   public async createTagDefault(
     createTagDefaultRequest: requests.CreateTagDefaultRequest
   ): Promise<responses.CreateTagDefaultResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#createTagDefault.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1882,6 +1916,7 @@ You must also specify a *description* for the namespace.
   public async createTagNamespace(
     createTagNamespaceRequest: requests.CreateTagNamespaceRequest
   ): Promise<responses.CreateTagNamespaceResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#createTagNamespace.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1972,6 +2007,7 @@ A new user has no permissions until you place the user in one or more groups (se
   public async createUser(
     createUserRequest: requests.CreateUserRequest
   ): Promise<responses.CreateUserResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#createUser.");
     const pathParams = {};
 
     const queryParams = {};
@@ -2038,6 +2074,7 @@ Every user has permission to use this operation to delete a key for *their own u
   public async deleteApiKey(
     deleteApiKeyRequest: requests.DeleteApiKeyRequest
   ): Promise<responses.DeleteApiKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteApiKey.");
     const pathParams = {
       "{userId}": deleteApiKeyRequest.userId,
       "{fingerprint}": deleteApiKeyRequest.fingerprint
@@ -2089,6 +2126,7 @@ Every user has permission to use this operation to delete a key for *their own u
   public async deleteAuthToken(
     deleteAuthTokenRequest: requests.DeleteAuthTokenRequest
   ): Promise<responses.DeleteAuthTokenResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteAuthToken.");
     const pathParams = {
       "{userId}": deleteAuthTokenRequest.userId,
       "{authTokenId}": deleteAuthTokenRequest.authTokenId
@@ -2140,6 +2178,7 @@ Every user has permission to use this operation to delete a key for *their own u
   public async deleteCompartment(
     deleteCompartmentRequest: requests.DeleteCompartmentRequest
   ): Promise<responses.DeleteCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteCompartment.");
     const pathParams = {
       "{compartmentId}": deleteCompartmentRequest.compartmentId
     };
@@ -2195,6 +2234,7 @@ Every user has permission to use this operation to delete a key for *their own u
   public async deleteCustomerSecretKey(
     deleteCustomerSecretKeyRequest: requests.DeleteCustomerSecretKeyRequest
   ): Promise<responses.DeleteCustomerSecretKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteCustomerSecretKey.");
     const pathParams = {
       "{userId}": deleteCustomerSecretKeyRequest.userId,
       "{customerSecretKeyId}": deleteCustomerSecretKeyRequest.customerSecretKeyId
@@ -2246,6 +2286,7 @@ Every user has permission to use this operation to delete a key for *their own u
   public async deleteDynamicGroup(
     deleteDynamicGroupRequest: requests.DeleteDynamicGroupRequest
   ): Promise<responses.DeleteDynamicGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteDynamicGroup.");
     const pathParams = {
       "{dynamicGroupId}": deleteDynamicGroupRequest.dynamicGroupId
     };
@@ -2296,6 +2337,7 @@ Every user has permission to use this operation to delete a key for *their own u
   public async deleteGroup(
     deleteGroupRequest: requests.DeleteGroupRequest
   ): Promise<responses.DeleteGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteGroup.");
     const pathParams = {
       "{groupId}": deleteGroupRequest.groupId
     };
@@ -2347,6 +2389,7 @@ Every user has permission to use this operation to delete a key for *their own u
   public async deleteIdentityProvider(
     deleteIdentityProviderRequest: requests.DeleteIdentityProviderRequest
   ): Promise<responses.DeleteIdentityProviderResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteIdentityProvider.");
     const pathParams = {
       "{identityProviderId}": deleteIdentityProviderRequest.identityProviderId
     };
@@ -2396,6 +2439,7 @@ Every user has permission to use this operation to delete a key for *their own u
   public async deleteIdpGroupMapping(
     deleteIdpGroupMappingRequest: requests.DeleteIdpGroupMappingRequest
   ): Promise<responses.DeleteIdpGroupMappingResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteIdpGroupMapping.");
     const pathParams = {
       "{identityProviderId}": deleteIdpGroupMappingRequest.identityProviderId,
       "{mappingId}": deleteIdpGroupMappingRequest.mappingId
@@ -2447,6 +2491,7 @@ Every user has permission to use this operation to delete a key for *their own u
   public async deleteMfaTotpDevice(
     deleteMfaTotpDeviceRequest: requests.DeleteMfaTotpDeviceRequest
   ): Promise<responses.DeleteMfaTotpDeviceResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteMfaTotpDevice.");
     const pathParams = {
       "{userId}": deleteMfaTotpDeviceRequest.userId,
       "{mfaTotpDeviceId}": deleteMfaTotpDeviceRequest.mfaTotpDeviceId
@@ -2498,6 +2543,7 @@ Every user has permission to use this operation to delete a key for *their own u
   public async deleteNetworkSource(
     deleteNetworkSourceRequest: requests.DeleteNetworkSourceRequest
   ): Promise<responses.DeleteNetworkSourceResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteNetworkSource.");
     const pathParams = {
       "{networkSourceId}": deleteNetworkSourceRequest.networkSourceId
     };
@@ -2548,6 +2594,8 @@ Every user has permission to use this operation to delete a key for *their own u
   public async deleteOAuthClientCredential(
     deleteOAuthClientCredentialRequest: requests.DeleteOAuthClientCredentialRequest
   ): Promise<responses.DeleteOAuthClientCredentialResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityClient#deleteOAuthClientCredential.");
     const pathParams = {
       "{userId}": deleteOAuthClientCredentialRequest.userId,
       "{oauth2ClientCredentialId}": deleteOAuthClientCredentialRequest.oauth2ClientCredentialId
@@ -2598,6 +2646,7 @@ Every user has permission to use this operation to delete a key for *their own u
   public async deletePolicy(
     deletePolicyRequest: requests.DeletePolicyRequest
   ): Promise<responses.DeletePolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#deletePolicy.");
     const pathParams = {
       "{policyId}": deletePolicyRequest.policyId
     };
@@ -2648,6 +2697,7 @@ Every user has permission to use this operation to delete a key for *their own u
   public async deleteSmtpCredential(
     deleteSmtpCredentialRequest: requests.DeleteSmtpCredentialRequest
   ): Promise<responses.DeleteSmtpCredentialResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteSmtpCredential.");
     const pathParams = {
       "{userId}": deleteSmtpCredentialRequest.userId,
       "{smtpCredentialId}": deleteSmtpCredentialRequest.smtpCredentialId
@@ -2701,6 +2751,7 @@ Deletes the specified Swift password for the specified user.
   public async deleteSwiftPassword(
     deleteSwiftPasswordRequest: requests.DeleteSwiftPasswordRequest
   ): Promise<responses.DeleteSwiftPasswordResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteSwiftPassword.");
     const pathParams = {
       "{userId}": deleteSwiftPasswordRequest.userId,
       "{swiftPasswordId}": deleteSwiftPasswordRequest.swiftPasswordId
@@ -2772,6 +2823,7 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
   public async deleteTag(
     deleteTagRequest: requests.DeleteTagRequest
   ): Promise<responses.DeleteTagResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteTag.");
     const pathParams = {
       "{tagNamespaceId}": deleteTagRequest.tagNamespaceId,
       "{tagName}": deleteTagRequest.tagName
@@ -2828,6 +2880,7 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
   public async deleteTagDefault(
     deleteTagDefaultRequest: requests.DeleteTagDefaultRequest
   ): Promise<responses.DeleteTagDefaultResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteTagDefault.");
     const pathParams = {
       "{tagDefaultId}": deleteTagDefaultRequest.tagDefaultId
     };
@@ -2885,6 +2938,7 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
   public async deleteTagNamespace(
     deleteTagNamespaceRequest: requests.DeleteTagNamespaceRequest
   ): Promise<responses.DeleteTagNamespaceResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteTagNamespace.");
     const pathParams = {
       "{tagNamespaceId}": deleteTagNamespaceRequest.tagNamespaceId
     };
@@ -2935,6 +2989,7 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
   public async deleteUser(
     deleteUserRequest: requests.DeleteUserRequest
   ): Promise<responses.DeleteUserResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteUser.");
     const pathParams = {
       "{userId}": deleteUserRequest.userId
     };
@@ -2985,6 +3040,7 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
   public async generateTotpSeed(
     generateTotpSeedRequest: requests.GenerateTotpSeedRequest
   ): Promise<responses.GenerateTotpSeedResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#generateTotpSeed.");
     const pathParams = {
       "{userId}": generateTotpSeedRequest.userId,
       "{mfaTotpDeviceId}": generateTotpSeedRequest.mfaTotpDeviceId
@@ -3045,6 +3101,7 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
   public async getAuthenticationPolicy(
     getAuthenticationPolicyRequest: requests.GetAuthenticationPolicyRequest
   ): Promise<responses.GetAuthenticationPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#getAuthenticationPolicy.");
     const pathParams = {
       "{compartmentId}": getAuthenticationPolicyRequest.compartmentId
     };
@@ -3108,6 +3165,7 @@ This operation does not return a list of all the resources inside the compartmen
   public async getCompartment(
     getCompartmentRequest: requests.GetCompartmentRequest
   ): Promise<responses.GetCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#getCompartment.");
     const pathParams = {
       "{compartmentId}": getCompartmentRequest.compartmentId
     };
@@ -3164,6 +3222,7 @@ This operation does not return a list of all the resources inside the compartmen
   public async getDynamicGroup(
     getDynamicGroupRequest: requests.GetDynamicGroupRequest
   ): Promise<responses.GetDynamicGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#getDynamicGroup.");
     const pathParams = {
       "{dynamicGroupId}": getDynamicGroupRequest.dynamicGroupId
     };
@@ -3224,6 +3283,7 @@ This operation does not return a list of all the users in the group. To do that,
   public async getGroup(
     getGroupRequest: requests.GetGroupRequest
   ): Promise<responses.GetGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#getGroup.");
     const pathParams = {
       "{groupId}": getGroupRequest.groupId
     };
@@ -3279,6 +3339,7 @@ This operation does not return a list of all the users in the group. To do that,
   public async getIdentityProvider(
     getIdentityProviderRequest: requests.GetIdentityProviderRequest
   ): Promise<responses.GetIdentityProviderResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#getIdentityProvider.");
     const pathParams = {
       "{identityProviderId}": getIdentityProviderRequest.identityProviderId
     };
@@ -3334,6 +3395,7 @@ This operation does not return a list of all the users in the group. To do that,
   public async getIdpGroupMapping(
     getIdpGroupMappingRequest: requests.GetIdpGroupMappingRequest
   ): Promise<responses.GetIdpGroupMappingResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#getIdpGroupMapping.");
     const pathParams = {
       "{identityProviderId}": getIdpGroupMappingRequest.identityProviderId,
       "{mappingId}": getIdpGroupMappingRequest.mappingId
@@ -3391,6 +3453,7 @@ This operation does not return a list of all the users in the group. To do that,
   public async getMfaTotpDevice(
     getMfaTotpDeviceRequest: requests.GetMfaTotpDeviceRequest
   ): Promise<responses.GetMfaTotpDeviceResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#getMfaTotpDevice.");
     const pathParams = {
       "{userId}": getMfaTotpDeviceRequest.userId,
       "{mfaTotpDeviceId}": getMfaTotpDeviceRequest.mfaTotpDeviceId
@@ -3448,6 +3511,7 @@ This operation does not return a list of all the users in the group. To do that,
   public async getNetworkSource(
     getNetworkSourceRequest: requests.GetNetworkSourceRequest
   ): Promise<responses.GetNetworkSourceResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#getNetworkSource.");
     const pathParams = {
       "{networkSourceId}": getNetworkSourceRequest.networkSourceId
     };
@@ -3503,6 +3567,7 @@ This operation does not return a list of all the users in the group. To do that,
   public async getPolicy(
     getPolicyRequest: requests.GetPolicyRequest
   ): Promise<responses.GetPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#getPolicy.");
     const pathParams = {
       "{policyId}": getPolicyRequest.policyId
     };
@@ -3556,6 +3621,7 @@ This operation does not return a list of all the users in the group. To do that,
    * @throws OciError when an error occurs
    */
   public async getTag(getTagRequest: requests.GetTagRequest): Promise<responses.GetTagResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#getTag.");
     const pathParams = {
       "{tagNamespaceId}": getTagRequest.tagNamespaceId,
       "{tagName}": getTagRequest.tagName
@@ -3613,6 +3679,7 @@ This operation does not return a list of all the users in the group. To do that,
   public async getTagDefault(
     getTagDefaultRequest: requests.GetTagDefaultRequest
   ): Promise<responses.GetTagDefaultResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#getTagDefault.");
     const pathParams = {
       "{tagDefaultId}": getTagDefaultRequest.tagDefaultId
     };
@@ -3669,6 +3736,7 @@ This operation does not return a list of all the users in the group. To do that,
   public async getTagNamespace(
     getTagNamespaceRequest: requests.GetTagNamespaceRequest
   ): Promise<responses.GetTagNamespaceResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#getTagNamespace.");
     const pathParams = {
       "{tagNamespaceId}": getTagNamespaceRequest.tagNamespaceId
     };
@@ -3721,6 +3789,7 @@ This operation does not return a list of all the users in the group. To do that,
   public async getTaggingWorkRequest(
     getTaggingWorkRequestRequest: requests.GetTaggingWorkRequestRequest
   ): Promise<responses.GetTaggingWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#getTaggingWorkRequest.");
     const pathParams = {
       "{workRequestId}": getTaggingWorkRequestRequest.workRequestId
     };
@@ -3776,6 +3845,7 @@ This operation does not return a list of all the users in the group. To do that,
   public async getTenancy(
     getTenancyRequest: requests.GetTenancyRequest
   ): Promise<responses.GetTenancyResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#getTenancy.");
     const pathParams = {
       "{tenancyId}": getTenancyRequest.tenancyId
     };
@@ -3826,6 +3896,7 @@ This operation does not return a list of all the users in the group. To do that,
   public async getUser(
     getUserRequest: requests.GetUserRequest
   ): Promise<responses.GetUserResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#getUser.");
     const pathParams = {
       "{userId}": getUserRequest.userId
     };
@@ -3881,6 +3952,7 @@ This operation does not return a list of all the users in the group. To do that,
   public async getUserGroupMembership(
     getUserGroupMembershipRequest: requests.GetUserGroupMembershipRequest
   ): Promise<responses.GetUserGroupMembershipResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#getUserGroupMembership.");
     const pathParams = {
       "{userGroupMembershipId}": getUserGroupMembershipRequest.userGroupMembershipId
     };
@@ -3938,6 +4010,8 @@ This operation does not return a list of all the users in the group. To do that,
   public async getUserUIPasswordInformation(
     getUserUIPasswordInformationRequest: requests.GetUserUIPasswordInformationRequest
   ): Promise<responses.GetUserUIPasswordInformationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityClient#getUserUIPasswordInformation.");
     const pathParams = {
       "{userId}": getUserUIPasswordInformationRequest.userId
     };
@@ -3995,6 +4069,7 @@ This operation does not return a list of all the users in the group. To do that,
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#getWorkRequest.");
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -4054,6 +4129,7 @@ Every user has permission to use this API call for *their own user ID*.  An admi
   public async listApiKeys(
     listApiKeysRequest: requests.ListApiKeysRequest
   ): Promise<responses.ListApiKeysResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listApiKeys.");
     const pathParams = {
       "{userId}": listApiKeysRequest.userId
     };
@@ -4111,6 +4187,7 @@ Every user has permission to use this API call for *their own user ID*.  An admi
   public async listAuthTokens(
     listAuthTokensRequest: requests.ListAuthTokensRequest
   ): Promise<responses.ListAuthTokensResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listAuthTokens.");
     const pathParams = {
       "{userId}": listAuthTokensRequest.userId
     };
@@ -4171,6 +4248,7 @@ Every user has permission to use this API call for *their own user ID*.  An admi
   public async listAvailabilityDomains(
     listAvailabilityDomainsRequest: requests.ListAvailabilityDomainsRequest
   ): Promise<responses.ListAvailabilityDomainsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listAvailabilityDomains.");
     const pathParams = {};
 
     const queryParams = {
@@ -4227,6 +4305,8 @@ Every user has permission to use this API call for *their own user ID*.  An admi
   public async listBulkActionResourceTypes(
     listBulkActionResourceTypesRequest: requests.ListBulkActionResourceTypesRequest
   ): Promise<responses.ListBulkActionResourceTypesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityClient#listBulkActionResourceTypes.");
     const pathParams = {};
 
     const queryParams = {
@@ -4302,6 +4382,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   public async listCompartments(
     listCompartmentsRequest: requests.ListCompartmentsRequest
   ): Promise<responses.ListCompartmentsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listCompartments.");
     const pathParams = {};
 
     const queryParams = {
@@ -4309,7 +4390,11 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "page": listCompartmentsRequest.page,
       "limit": listCompartmentsRequest.limit,
       "accessLevel": listCompartmentsRequest.accessLevel,
-      "compartmentIdInSubtree": listCompartmentsRequest.compartmentIdInSubtree
+      "compartmentIdInSubtree": listCompartmentsRequest.compartmentIdInSubtree,
+      "name": listCompartmentsRequest.name,
+      "sortBy": listCompartmentsRequest.sortBy,
+      "sortOrder": listCompartmentsRequest.sortOrder,
+      "lifecycleState": listCompartmentsRequest.lifecycleState
     };
 
     let headerParams = {};
@@ -4388,6 +4473,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   public async listCostTrackingTags(
     listCostTrackingTagsRequest: requests.ListCostTrackingTagsRequest
   ): Promise<responses.ListCostTrackingTagsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listCostTrackingTags.");
     const pathParams = {};
 
     const queryParams = {
@@ -4472,6 +4558,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   public async listCustomerSecretKeys(
     listCustomerSecretKeysRequest: requests.ListCustomerSecretKeysRequest
   ): Promise<responses.ListCustomerSecretKeysResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listCustomerSecretKeys.");
     const pathParams = {
       "{userId}": listCustomerSecretKeysRequest.userId
     };
@@ -4530,12 +4617,17 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   public async listDynamicGroups(
     listDynamicGroupsRequest: requests.ListDynamicGroupsRequest
   ): Promise<responses.ListDynamicGroupsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listDynamicGroups.");
     const pathParams = {};
 
     const queryParams = {
       "compartmentId": listDynamicGroupsRequest.compartmentId,
       "page": listDynamicGroupsRequest.page,
-      "limit": listDynamicGroupsRequest.limit
+      "limit": listDynamicGroupsRequest.limit,
+      "name": listDynamicGroupsRequest.name,
+      "sortBy": listDynamicGroupsRequest.sortBy,
+      "sortOrder": listDynamicGroupsRequest.sortOrder,
+      "lifecycleState": listDynamicGroupsRequest.lifecycleState
     };
 
     let headerParams = {};
@@ -4615,6 +4707,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   public async listFaultDomains(
     listFaultDomainsRequest: requests.ListFaultDomainsRequest
   ): Promise<responses.ListFaultDomainsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listFaultDomains.");
     const pathParams = {};
 
     const queryParams = {
@@ -4669,12 +4762,17 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   public async listGroups(
     listGroupsRequest: requests.ListGroupsRequest
   ): Promise<responses.ListGroupsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listGroups.");
     const pathParams = {};
 
     const queryParams = {
       "compartmentId": listGroupsRequest.compartmentId,
       "page": listGroupsRequest.page,
-      "limit": listGroupsRequest.limit
+      "limit": listGroupsRequest.limit,
+      "name": listGroupsRequest.name,
+      "sortBy": listGroupsRequest.sortBy,
+      "sortOrder": listGroupsRequest.sortOrder,
+      "lifecycleState": listGroupsRequest.lifecycleState
     };
 
     let headerParams = {};
@@ -4749,13 +4847,17 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   public async listIdentityProviderGroups(
     listIdentityProviderGroupsRequest: requests.ListIdentityProviderGroupsRequest
   ): Promise<responses.ListIdentityProviderGroupsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityClient#listIdentityProviderGroups.");
     const pathParams = {
       "{identityProviderId}": listIdentityProviderGroupsRequest.identityProviderId
     };
 
     const queryParams = {
       "page": listIdentityProviderGroupsRequest.page,
-      "limit": listIdentityProviderGroupsRequest.limit
+      "limit": listIdentityProviderGroupsRequest.limit,
+      "name": listIdentityProviderGroupsRequest.name,
+      "lifecycleState": listIdentityProviderGroupsRequest.lifecycleState
     };
 
     let headerParams = {};
@@ -4836,13 +4938,18 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   public async listIdentityProviders(
     listIdentityProvidersRequest: requests.ListIdentityProvidersRequest
   ): Promise<responses.ListIdentityProvidersResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listIdentityProviders.");
     const pathParams = {};
 
     const queryParams = {
       "protocol": listIdentityProvidersRequest.protocol,
       "compartmentId": listIdentityProvidersRequest.compartmentId,
       "page": listIdentityProvidersRequest.page,
-      "limit": listIdentityProvidersRequest.limit
+      "limit": listIdentityProvidersRequest.limit,
+      "name": listIdentityProvidersRequest.name,
+      "sortBy": listIdentityProvidersRequest.sortBy,
+      "sortOrder": listIdentityProvidersRequest.sortOrder,
+      "lifecycleState": listIdentityProvidersRequest.lifecycleState
     };
 
     let headerParams = {};
@@ -4920,6 +5027,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   public async listIdpGroupMappings(
     listIdpGroupMappingsRequest: requests.ListIdpGroupMappingsRequest
   ): Promise<responses.ListIdpGroupMappingsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listIdpGroupMappings.");
     const pathParams = {
       "{identityProviderId}": listIdpGroupMappingsRequest.identityProviderId
     };
@@ -5005,6 +5113,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   public async listMfaTotpDevices(
     listMfaTotpDevicesRequest: requests.ListMfaTotpDevicesRequest
   ): Promise<responses.ListMfaTotpDevicesResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listMfaTotpDevices.");
     const pathParams = {
       "{userId}": listMfaTotpDevicesRequest.userId
     };
@@ -5093,12 +5202,17 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   public async listNetworkSources(
     listNetworkSourcesRequest: requests.ListNetworkSourcesRequest
   ): Promise<responses.ListNetworkSourcesResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listNetworkSources.");
     const pathParams = {};
 
     const queryParams = {
       "compartmentId": listNetworkSourcesRequest.compartmentId,
       "page": listNetworkSourcesRequest.page,
-      "limit": listNetworkSourcesRequest.limit
+      "limit": listNetworkSourcesRequest.limit,
+      "name": listNetworkSourcesRequest.name,
+      "sortBy": listNetworkSourcesRequest.sortBy,
+      "sortOrder": listNetworkSourcesRequest.sortOrder,
+      "lifecycleState": listNetworkSourcesRequest.lifecycleState
     };
 
     let headerParams = {};
@@ -5176,6 +5290,8 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   public async listOAuthClientCredentials(
     listOAuthClientCredentialsRequest: requests.ListOAuthClientCredentialsRequest
   ): Promise<responses.ListOAuthClientCredentialsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityClient#listOAuthClientCredentials.");
     const pathParams = {
       "{userId}": listOAuthClientCredentialsRequest.userId
     };
@@ -5265,12 +5381,17 @@ To determine which policies apply to a particular group or compartment, you must
   public async listPolicies(
     listPoliciesRequest: requests.ListPoliciesRequest
   ): Promise<responses.ListPoliciesResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listPolicies.");
     const pathParams = {};
 
     const queryParams = {
       "compartmentId": listPoliciesRequest.compartmentId,
       "page": listPoliciesRequest.page,
-      "limit": listPoliciesRequest.limit
+      "limit": listPoliciesRequest.limit,
+      "name": listPoliciesRequest.name,
+      "sortBy": listPoliciesRequest.sortBy,
+      "sortOrder": listPoliciesRequest.sortOrder,
+      "lifecycleState": listPoliciesRequest.lifecycleState
     };
 
     let headerParams = {};
@@ -5347,6 +5468,7 @@ To determine which policies apply to a particular group or compartment, you must
   public async listRegionSubscriptions(
     listRegionSubscriptionsRequest: requests.ListRegionSubscriptionsRequest
   ): Promise<responses.ListRegionSubscriptionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listRegionSubscriptions.");
     const pathParams = {
       "{tenancyId}": listRegionSubscriptionsRequest.tenancyId
     };
@@ -5397,6 +5519,7 @@ To determine which policies apply to a particular group or compartment, you must
   public async listRegions(
     listRegionsRequest: requests.ListRegionsRequest
   ): Promise<responses.ListRegionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listRegions.");
     const pathParams = {};
 
     const queryParams = {};
@@ -5447,6 +5570,7 @@ To determine which policies apply to a particular group or compartment, you must
   public async listSmtpCredentials(
     listSmtpCredentialsRequest: requests.ListSmtpCredentialsRequest
   ): Promise<responses.ListSmtpCredentialsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listSmtpCredentials.");
     const pathParams = {
       "{userId}": listSmtpCredentialsRequest.userId
     };
@@ -5506,6 +5630,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async listSwiftPasswords(
     listSwiftPasswordsRequest: requests.ListSwiftPasswordsRequest
   ): Promise<responses.ListSwiftPasswordsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listSwiftPasswords.");
     const pathParams = {
       "{userId}": listSwiftPasswordsRequest.userId
     };
@@ -5562,6 +5687,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async listTagDefaults(
     listTagDefaultsRequest: requests.ListTagDefaultsRequest
   ): Promise<responses.ListTagDefaultsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listTagDefaults.");
     const pathParams = {};
 
     const queryParams = {
@@ -5648,6 +5774,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async listTagNamespaces(
     listTagNamespacesRequest: requests.ListTagNamespacesRequest
   ): Promise<responses.ListTagNamespacesResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listTagNamespaces.");
     const pathParams = {};
 
     const queryParams = {
@@ -5733,6 +5860,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async listTaggingWorkRequestErrors(
     listTaggingWorkRequestErrorsRequest: requests.ListTaggingWorkRequestErrorsRequest
   ): Promise<responses.ListTaggingWorkRequestErrorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityClient#listTaggingWorkRequestErrors.");
     const pathParams = {
       "{workRequestId}": listTaggingWorkRequestErrorsRequest.workRequestId
     };
@@ -5822,6 +5951,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async listTaggingWorkRequestLogs(
     listTaggingWorkRequestLogsRequest: requests.ListTaggingWorkRequestLogsRequest
   ): Promise<responses.ListTaggingWorkRequestLogsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityClient#listTaggingWorkRequestLogs.");
     const pathParams = {
       "{workRequestId}": listTaggingWorkRequestLogsRequest.workRequestId
     };
@@ -5911,6 +6042,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async listTaggingWorkRequests(
     listTaggingWorkRequestsRequest: requests.ListTaggingWorkRequestsRequest
   ): Promise<responses.ListTaggingWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listTaggingWorkRequests.");
     const pathParams = {};
 
     const queryParams = {
@@ -5995,6 +6127,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async listTags(
     listTagsRequest: requests.ListTagsRequest
   ): Promise<responses.ListTagsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listTags.");
     const pathParams = {
       "{tagNamespaceId}": listTagsRequest.tagNamespaceId
     };
@@ -6087,6 +6220,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async listUserGroupMemberships(
     listUserGroupMembershipsRequest: requests.ListUserGroupMembershipsRequest
   ): Promise<responses.ListUserGroupMembershipsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityClient#listUserGroupMemberships.");
     const pathParams = {};
 
     const queryParams = {
@@ -6174,6 +6309,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async listUsers(
     listUsersRequest: requests.ListUsersRequest
   ): Promise<responses.ListUsersResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listUsers.");
     const pathParams = {};
 
     const queryParams = {
@@ -6181,7 +6317,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "page": listUsersRequest.page,
       "limit": listUsersRequest.limit,
       "identityProviderId": listUsersRequest.identityProviderId,
-      "externalIdentifier": listUsersRequest.externalIdentifier
+      "externalIdentifier": listUsersRequest.externalIdentifier,
+      "name": listUsersRequest.name,
+      "sortBy": listUsersRequest.sortBy,
+      "sortOrder": listUsersRequest.sortOrder,
+      "lifecycleState": listUsersRequest.lifecycleState
     };
 
     let headerParams = {};
@@ -6257,6 +6397,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listWorkRequests.");
     const pathParams = {};
 
     const queryParams = {
@@ -6348,6 +6489,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async moveCompartment(
     moveCompartmentRequest: requests.MoveCompartmentRequest
   ): Promise<responses.MoveCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#moveCompartment.");
     const pathParams = {
       "{compartmentId}": moveCompartmentRequest.compartmentId
     };
@@ -6410,6 +6552,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async recoverCompartment(
     recoverCompartmentRequest: requests.RecoverCompartmentRequest
   ): Promise<responses.RecoverCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#recoverCompartment.");
     const pathParams = {
       "{compartmentId}": recoverCompartmentRequest.compartmentId
     };
@@ -6468,6 +6611,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async removeUserFromGroup(
     removeUserFromGroupRequest: requests.RemoveUserFromGroupRequest
   ): Promise<responses.RemoveUserFromGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#removeUserFromGroup.");
     const pathParams = {
       "{userGroupMembershipId}": removeUserFromGroupRequest.userGroupMembershipId
     };
@@ -6518,6 +6662,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async resetIdpScimClient(
     resetIdpScimClientRequest: requests.ResetIdpScimClientRequest
   ): Promise<responses.ResetIdpScimClientResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#resetIdpScimClient.");
     const pathParams = {
       "{identityProviderId}": resetIdpScimClientRequest.identityProviderId
     };
@@ -6569,6 +6714,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async updateAuthToken(
     updateAuthTokenRequest: requests.UpdateAuthTokenRequest
   ): Promise<responses.UpdateAuthTokenResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateAuthToken.");
     const pathParams = {
       "{userId}": updateAuthTokenRequest.userId,
       "{authTokenId}": updateAuthTokenRequest.authTokenId
@@ -6633,6 +6779,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async updateAuthenticationPolicy(
     updateAuthenticationPolicyRequest: requests.UpdateAuthenticationPolicyRequest
   ): Promise<responses.UpdateAuthenticationPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityClient#updateAuthenticationPolicy.");
     const pathParams = {
       "{compartmentId}": updateAuthenticationPolicyRequest.compartmentId
     };
@@ -6695,6 +6843,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async updateCompartment(
     updateCompartmentRequest: requests.UpdateCompartmentRequest
   ): Promise<responses.UpdateCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateCompartment.");
     const pathParams = {
       "{compartmentId}": updateCompartmentRequest.compartmentId
     };
@@ -6758,6 +6907,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async updateCustomerSecretKey(
     updateCustomerSecretKeyRequest: requests.UpdateCustomerSecretKeyRequest
   ): Promise<responses.UpdateCustomerSecretKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateCustomerSecretKey.");
     const pathParams = {
       "{userId}": updateCustomerSecretKeyRequest.userId,
       "{customerSecretKeyId}": updateCustomerSecretKeyRequest.customerSecretKeyId
@@ -6821,6 +6971,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async updateDynamicGroup(
     updateDynamicGroupRequest: requests.UpdateDynamicGroupRequest
   ): Promise<responses.UpdateDynamicGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateDynamicGroup.");
     const pathParams = {
       "{dynamicGroupId}": updateDynamicGroupRequest.dynamicGroupId
     };
@@ -6883,6 +7034,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async updateGroup(
     updateGroupRequest: requests.UpdateGroupRequest
   ): Promise<responses.UpdateGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateGroup.");
     const pathParams = {
       "{groupId}": updateGroupRequest.groupId
     };
@@ -6945,6 +7097,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async updateIdentityProvider(
     updateIdentityProviderRequest: requests.UpdateIdentityProviderRequest
   ): Promise<responses.UpdateIdentityProviderResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateIdentityProvider.");
     const pathParams = {
       "{identityProviderId}": updateIdentityProviderRequest.identityProviderId
     };
@@ -7007,6 +7160,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async updateIdpGroupMapping(
     updateIdpGroupMappingRequest: requests.UpdateIdpGroupMappingRequest
   ): Promise<responses.UpdateIdpGroupMappingResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateIdpGroupMapping.");
     const pathParams = {
       "{identityProviderId}": updateIdpGroupMappingRequest.identityProviderId,
       "{mappingId}": updateIdpGroupMappingRequest.mappingId
@@ -7070,6 +7224,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async updateNetworkSource(
     updateNetworkSourceRequest: requests.UpdateNetworkSourceRequest
   ): Promise<responses.UpdateNetworkSourceResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateNetworkSource.");
     const pathParams = {
       "{networkSourceId}": updateNetworkSourceRequest.networkSourceId
     };
@@ -7133,6 +7288,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async updateOAuthClientCredential(
     updateOAuthClientCredentialRequest: requests.UpdateOAuthClientCredentialRequest
   ): Promise<responses.UpdateOAuthClientCredentialResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityClient#updateOAuthClientCredential.");
     const pathParams = {
       "{userId}": updateOAuthClientCredentialRequest.userId,
       "{oauth2ClientCredentialId}": updateOAuthClientCredentialRequest.oauth2ClientCredentialId
@@ -7199,6 +7356,7 @@ Policy changes take effect typically within 10 seconds.
   public async updatePolicy(
     updatePolicyRequest: requests.UpdatePolicyRequest
   ): Promise<responses.UpdatePolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#updatePolicy.");
     const pathParams = {
       "{policyId}": updatePolicyRequest.policyId
     };
@@ -7262,6 +7420,7 @@ Policy changes take effect typically within 10 seconds.
   public async updateSmtpCredential(
     updateSmtpCredentialRequest: requests.UpdateSmtpCredentialRequest
   ): Promise<responses.UpdateSmtpCredentialResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateSmtpCredential.");
     const pathParams = {
       "{userId}": updateSmtpCredentialRequest.userId,
       "{smtpCredentialId}": updateSmtpCredentialRequest.smtpCredentialId
@@ -7328,6 +7487,7 @@ Updates the specified Swift password's description.
   public async updateSwiftPassword(
     updateSwiftPasswordRequest: requests.UpdateSwiftPasswordRequest
   ): Promise<responses.UpdateSwiftPasswordResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateSwiftPassword.");
     const pathParams = {
       "{userId}": updateSwiftPasswordRequest.userId,
       "{swiftPasswordId}": updateSwiftPasswordRequest.swiftPasswordId
@@ -7401,6 +7561,7 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
   public async updateTag(
     updateTagRequest: requests.UpdateTagRequest
   ): Promise<responses.UpdateTagResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateTag.");
     const pathParams = {
       "{tagNamespaceId}": updateTagRequest.tagNamespaceId,
       "{tagName}": updateTagRequest.tagName
@@ -7470,6 +7631,7 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
   public async updateTagDefault(
     updateTagDefaultRequest: requests.UpdateTagDefaultRequest
   ): Promise<responses.UpdateTagDefaultResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateTagDefault.");
     const pathParams = {
       "{tagDefaultId}": updateTagDefaultRequest.tagDefaultId
     };
@@ -7542,6 +7704,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
   public async updateTagNamespace(
     updateTagNamespaceRequest: requests.UpdateTagNamespaceRequest
   ): Promise<responses.UpdateTagNamespaceResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateTagNamespace.");
     const pathParams = {
       "{tagNamespaceId}": updateTagNamespaceRequest.tagNamespaceId
     };
@@ -7597,6 +7760,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
   public async updateUser(
     updateUserRequest: requests.UpdateUserRequest
   ): Promise<responses.UpdateUserResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateUser.");
     const pathParams = {
       "{userId}": updateUserRequest.userId
     };
@@ -7660,6 +7824,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
   public async updateUserCapabilities(
     updateUserCapabilitiesRequest: requests.UpdateUserCapabilitiesRequest
   ): Promise<responses.UpdateUserCapabilitiesResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateUserCapabilities.");
     const pathParams = {
       "{userId}": updateUserCapabilitiesRequest.userId
     };
@@ -7723,6 +7888,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
   public async updateUserState(
     updateUserStateRequest: requests.UpdateUserStateRequest
   ): Promise<responses.UpdateUserStateResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateUserState.");
     const pathParams = {
       "{userId}": updateUserStateRequest.userId
     };
@@ -7800,6 +7966,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
   public async uploadApiKey(
     uploadApiKeyRequest: requests.UploadApiKeyRequest
   ): Promise<responses.UploadApiKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#uploadApiKey.");
     const pathParams = {
       "{userId}": uploadApiKeyRequest.userId
     };

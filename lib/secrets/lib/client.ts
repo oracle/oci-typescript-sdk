@@ -56,6 +56,11 @@ export class SecretsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190301";
+    if (this.logger) this.logger.info(`SecretsClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -96,6 +101,7 @@ export class SecretsClient {
   public async getSecretBundle(
     getSecretBundleRequest: requests.GetSecretBundleRequest
   ): Promise<responses.GetSecretBundleResponse> {
+    if (this.logger) this.logger.debug("Calling operation SecretsClient#getSecretBundle.");
     const pathParams = {
       "{secretId}": getSecretBundleRequest.secretId
     };
@@ -157,6 +163,7 @@ export class SecretsClient {
   public async listSecretBundleVersions(
     listSecretBundleVersionsRequest: requests.ListSecretBundleVersionsRequest
   ): Promise<responses.ListSecretBundleVersionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation SecretsClient#listSecretBundleVersions.");
     const pathParams = {
       "{secretId}": listSecretBundleVersionsRequest.secretId
     };

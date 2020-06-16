@@ -61,6 +61,11 @@ export class DeploymentClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190501";
+    if (this.logger) this.logger.info(`DeploymentClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -122,6 +127,8 @@ export class DeploymentClient {
   public async changeDeploymentCompartment(
     changeDeploymentCompartmentRequest: requests.ChangeDeploymentCompartmentRequest
   ): Promise<responses.ChangeDeploymentCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DeploymentClient#changeDeploymentCompartment.");
     const pathParams = {
       "{deploymentId}": changeDeploymentCompartmentRequest.deploymentId
     };
@@ -184,6 +191,7 @@ export class DeploymentClient {
   public async createDeployment(
     createDeploymentRequest: requests.CreateDeploymentRequest
   ): Promise<responses.CreateDeploymentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DeploymentClient#createDeployment.");
     const pathParams = {};
 
     const queryParams = {};
@@ -255,6 +263,7 @@ export class DeploymentClient {
   public async deleteDeployment(
     deleteDeploymentRequest: requests.DeleteDeploymentRequest
   ): Promise<responses.DeleteDeploymentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DeploymentClient#deleteDeployment.");
     const pathParams = {
       "{deploymentId}": deleteDeploymentRequest.deploymentId
     };
@@ -310,6 +319,7 @@ export class DeploymentClient {
   public async getDeployment(
     getDeploymentRequest: requests.GetDeploymentRequest
   ): Promise<responses.GetDeploymentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DeploymentClient#getDeployment.");
     const pathParams = {
       "{deploymentId}": getDeploymentRequest.deploymentId
     };
@@ -368,6 +378,7 @@ export class DeploymentClient {
   public async listDeployments(
     listDeploymentsRequest: requests.ListDeploymentsRequest
   ): Promise<responses.ListDeploymentsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DeploymentClient#listDeployments.");
     const pathParams = {};
 
     const queryParams = {
@@ -437,6 +448,7 @@ export class DeploymentClient {
   public async updateDeployment(
     updateDeploymentRequest: requests.UpdateDeploymentRequest
   ): Promise<responses.UpdateDeploymentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DeploymentClient#updateDeployment.");
     const pathParams = {
       "{deploymentId}": updateDeploymentRequest.deploymentId
     };
@@ -522,6 +534,11 @@ export class GatewayClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190501";
+    if (this.logger) this.logger.info(`GatewayClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -583,6 +600,7 @@ export class GatewayClient {
   public async changeGatewayCompartment(
     changeGatewayCompartmentRequest: requests.ChangeGatewayCompartmentRequest
   ): Promise<responses.ChangeGatewayCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation GatewayClient#changeGatewayCompartment.");
     const pathParams = {
       "{gatewayId}": changeGatewayCompartmentRequest.gatewayId
     };
@@ -645,6 +663,7 @@ export class GatewayClient {
   public async createGateway(
     createGatewayRequest: requests.CreateGatewayRequest
   ): Promise<responses.CreateGatewayResponse> {
+    if (this.logger) this.logger.debug("Calling operation GatewayClient#createGateway.");
     const pathParams = {};
 
     const queryParams = {};
@@ -716,6 +735,7 @@ export class GatewayClient {
   public async deleteGateway(
     deleteGatewayRequest: requests.DeleteGatewayRequest
   ): Promise<responses.DeleteGatewayResponse> {
+    if (this.logger) this.logger.debug("Calling operation GatewayClient#deleteGateway.");
     const pathParams = {
       "{gatewayId}": deleteGatewayRequest.gatewayId
     };
@@ -771,6 +791,7 @@ export class GatewayClient {
   public async getGateway(
     getGatewayRequest: requests.GetGatewayRequest
   ): Promise<responses.GetGatewayResponse> {
+    if (this.logger) this.logger.debug("Calling operation GatewayClient#getGateway.");
     const pathParams = {
       "{gatewayId}": getGatewayRequest.gatewayId
     };
@@ -829,6 +850,7 @@ export class GatewayClient {
   public async listGateways(
     listGatewaysRequest: requests.ListGatewaysRequest
   ): Promise<responses.ListGatewaysResponse> {
+    if (this.logger) this.logger.debug("Calling operation GatewayClient#listGateways.");
     const pathParams = {};
 
     const queryParams = {
@@ -897,6 +919,7 @@ export class GatewayClient {
   public async updateGateway(
     updateGatewayRequest: requests.UpdateGatewayRequest
   ): Promise<responses.UpdateGatewayResponse> {
+    if (this.logger) this.logger.debug("Calling operation GatewayClient#updateGateway.");
     const pathParams = {
       "{gatewayId}": updateGatewayRequest.gatewayId
     };
@@ -982,6 +1005,11 @@ export class WorkRequestsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190501";
+    if (this.logger) this.logger.info(`WorkRequestsClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -1043,6 +1071,7 @@ export class WorkRequestsClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation WorkRequestsClient#cancelWorkRequest.");
     const pathParams = {
       "{workRequestId}": cancelWorkRequestRequest.workRequestId
     };
@@ -1094,6 +1123,7 @@ export class WorkRequestsClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation WorkRequestsClient#getWorkRequest.");
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -1157,6 +1187,8 @@ export class WorkRequestsClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation WorkRequestsClient#listWorkRequestErrors.");
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1225,6 +1257,7 @@ export class WorkRequestsClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation WorkRequestsClient#listWorkRequestLogs.");
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1293,6 +1326,7 @@ export class WorkRequestsClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation WorkRequestsClient#listWorkRequests.");
     const pathParams = {};
 
     const queryParams = {
