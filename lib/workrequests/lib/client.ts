@@ -63,6 +63,11 @@ export class WorkRequestClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20160918";
+    if (this.logger) this.logger.info(`WorkRequestClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -124,6 +129,7 @@ export class WorkRequestClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation WorkRequestClient#getWorkRequest.");
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -177,6 +183,8 @@ export class WorkRequestClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation WorkRequestClient#listWorkRequestErrors.");
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -264,6 +272,7 @@ export class WorkRequestClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation WorkRequestClient#listWorkRequestLogs.");
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -351,6 +360,7 @@ export class WorkRequestClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation WorkRequestClient#listWorkRequests.");
     const pathParams = {};
 
     const queryParams = {

@@ -60,6 +60,11 @@ export class MonitoringClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180401";
+    if (this.logger) this.logger.info(`MonitoringClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -124,6 +129,8 @@ For information about moving resources between compartments, see [Moving Resourc
   public async changeAlarmCompartment(
     changeAlarmCompartmentRequest: requests.ChangeAlarmCompartmentRequest
   ): Promise<responses.ChangeAlarmCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MonitoringClient#changeAlarmCompartment.");
     const pathParams = {
       "{alarmId}": changeAlarmCompartmentRequest.alarmId
     };
@@ -186,6 +193,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   public async createAlarm(
     createAlarmRequest: requests.CreateAlarmRequest
   ): Promise<responses.CreateAlarmResponse> {
+    if (this.logger) this.logger.debug("Calling operation MonitoringClient#createAlarm.");
     const pathParams = {};
 
     const queryParams = {};
@@ -253,6 +261,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   public async deleteAlarm(
     deleteAlarmRequest: requests.DeleteAlarmRequest
   ): Promise<responses.DeleteAlarmResponse> {
+    if (this.logger) this.logger.debug("Calling operation MonitoringClient#deleteAlarm.");
     const pathParams = {
       "{alarmId}": deleteAlarmRequest.alarmId
     };
@@ -309,6 +318,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   public async getAlarm(
     getAlarmRequest: requests.GetAlarmRequest
   ): Promise<responses.GetAlarmResponse> {
+    if (this.logger) this.logger.debug("Calling operation MonitoringClient#getAlarm.");
     const pathParams = {
       "{alarmId}": getAlarmRequest.alarmId
     };
@@ -372,6 +382,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   public async getAlarmHistory(
     getAlarmHistoryRequest: requests.GetAlarmHistoryRequest
   ): Promise<responses.GetAlarmHistoryResponse> {
+    if (this.logger) this.logger.debug("Calling operation MonitoringClient#getAlarmHistory.");
     const pathParams = {
       "{alarmId}": getAlarmHistoryRequest.alarmId
     };
@@ -441,6 +452,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   public async listAlarms(
     listAlarmsRequest: requests.ListAlarmsRequest
   ): Promise<responses.ListAlarmsResponse> {
+    if (this.logger) this.logger.debug("Calling operation MonitoringClient#listAlarms.");
     const pathParams = {};
 
     const queryParams = {
@@ -536,6 +548,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   public async listAlarmsStatus(
     listAlarmsStatusRequest: requests.ListAlarmsStatusRequest
   ): Promise<responses.ListAlarmsStatusResponse> {
+    if (this.logger) this.logger.debug("Calling operation MonitoringClient#listAlarmsStatus.");
     const pathParams = {};
 
     const queryParams = {
@@ -629,6 +642,7 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
   public async listMetrics(
     listMetricsRequest: requests.ListMetricsRequest
   ): Promise<responses.ListMetricsResponse> {
+    if (this.logger) this.logger.debug("Calling operation MonitoringClient#listMetrics.");
     const pathParams = {};
 
     const queryParams = {
@@ -737,6 +751,7 @@ https://telemetry-ingestion.eu-frankfurt-1.oraclecloud.com
   public async postMetricData(
     postMetricDataRequest: requests.PostMetricDataRequest
   ): Promise<responses.PostMetricDataResponse> {
+    if (this.logger) this.logger.debug("Calling operation MonitoringClient#postMetricData.");
     const pathParams = {};
 
     const queryParams = {};
@@ -798,6 +813,8 @@ This call is subject to a Monitoring limit that applies to the total number of r
   public async removeAlarmSuppression(
     removeAlarmSuppressionRequest: requests.RemoveAlarmSuppressionRequest
   ): Promise<responses.RemoveAlarmSuppressionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MonitoringClient#removeAlarmSuppression.");
     const pathParams = {
       "{alarmId}": removeAlarmSuppressionRequest.alarmId
     };
@@ -853,6 +870,7 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
   public async summarizeMetricsData(
     summarizeMetricsDataRequest: requests.SummarizeMetricsDataRequest
   ): Promise<responses.SummarizeMetricsDataResponse> {
+    if (this.logger) this.logger.debug("Calling operation MonitoringClient#summarizeMetricsData.");
     const pathParams = {};
 
     const queryParams = {
@@ -917,6 +935,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   public async updateAlarm(
     updateAlarmRequest: requests.UpdateAlarmRequest
   ): Promise<responses.UpdateAlarmResponse> {
+    if (this.logger) this.logger.debug("Calling operation MonitoringClient#updateAlarm.");
     const pathParams = {
       "{alarmId}": updateAlarmRequest.alarmId
     };

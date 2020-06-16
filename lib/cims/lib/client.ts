@@ -56,6 +56,11 @@ export class IncidentClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181231";
+    if (this.logger) this.logger.info(`IncidentClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -94,6 +99,7 @@ export class IncidentClient {
   public async createIncident(
     createIncidentRequest: requests.CreateIncidentRequest
   ): Promise<responses.CreateIncidentResponse> {
+    if (this.logger) this.logger.debug("Calling operation IncidentClient#createIncident.");
     const pathParams = {};
 
     const queryParams = {};
@@ -156,6 +162,7 @@ export class IncidentClient {
   public async getIncident(
     getIncidentRequest: requests.GetIncidentRequest
   ): Promise<responses.GetIncidentResponse> {
+    if (this.logger) this.logger.debug("Calling operation IncidentClient#getIncident.");
     const pathParams = {
       "{incidentKey}": getIncidentRequest.incidentKey
     };
@@ -215,6 +222,7 @@ export class IncidentClient {
   public async getStatus(
     getStatusRequest: requests.GetStatusRequest
   ): Promise<responses.GetStatusResponse> {
+    if (this.logger) this.logger.debug("Calling operation IncidentClient#getStatus.");
     const pathParams = {
       "{source}": getStatusRequest.source
     };
@@ -273,6 +281,8 @@ export class IncidentClient {
   public async listIncidentResourceTypes(
     listIncidentResourceTypesRequest: requests.ListIncidentResourceTypesRequest
   ): Promise<responses.ListIncidentResourceTypesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IncidentClient#listIncidentResourceTypes.");
     const pathParams = {};
 
     const queryParams = {
@@ -368,6 +378,7 @@ export class IncidentClient {
   public async listIncidents(
     listIncidentsRequest: requests.ListIncidentsRequest
   ): Promise<responses.ListIncidentsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IncidentClient#listIncidents.");
     const pathParams = {};
 
     const queryParams = {
@@ -462,6 +473,7 @@ export class IncidentClient {
   public async updateIncident(
     updateIncidentRequest: requests.UpdateIncidentRequest
   ): Promise<responses.UpdateIncidentResponse> {
+    if (this.logger) this.logger.debug("Calling operation IncidentClient#updateIncident.");
     const pathParams = {
       "{incidentKey}": updateIncidentRequest.incidentKey
     };
@@ -528,6 +540,7 @@ export class IncidentClient {
   public async validateUser(
     validateUserRequest: requests.ValidateUserRequest
   ): Promise<responses.ValidateUserResponse> {
+    if (this.logger) this.logger.debug("Calling operation IncidentClient#validateUser.");
     const pathParams = {};
 
     const queryParams = {

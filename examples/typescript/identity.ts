@@ -20,13 +20,7 @@ const provider: common.ConfigFileAuthenticationDetailsProvider = new common.Conf
   configProfile
 );
 
-const profile = config.accumulator.configurationsByProfile.get("DEFAULT");
-let tenancy = "";
-if (profile) {
-  tenancy = profile.get("tenancy") as string;
-} else {
-  tenancy = "";
-}
+const tenancy = provider.getTenantId();
 const tenancyId: identity.requests.ListRegionSubscriptionsRequest = {
   tenancyId: tenancy || ""
 };
@@ -48,7 +42,7 @@ const tenancyId: identity.requests.ListRegionSubscriptionsRequest = {
   const userDetails: identity.models.CreateUserDetails = {
     compartmentId: tenancy,
     name: userName,
-    description: "Created by a SDK for Typescript example"
+    description: "Created by a SDK for TypeScript example"
   };
 
   const userReq: identity.requests.CreateUserRequest = {
@@ -63,7 +57,7 @@ const tenancyId: identity.requests.ListRegionSubscriptionsRequest = {
   const groupDetails: identity.models.CreateGroupDetails = {
     compartmentId: tenancy,
     name: groupName,
-    description: "Created by a SDK for Typescript example"
+    description: "Created by a SDK for TypeScript example"
   };
 
   const groupReq: identity.requests.CreateGroupRequest = {

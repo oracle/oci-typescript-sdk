@@ -60,6 +60,11 @@ export class DbBackupsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190415";
+    if (this.logger) this.logger.info(`DbBackupsClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -122,6 +127,7 @@ export class DbBackupsClient {
   public async createBackup(
     createBackupRequest: requests.CreateBackupRequest
   ): Promise<responses.CreateBackupResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbBackupsClient#createBackup.");
     const pathParams = {};
 
     const queryParams = {};
@@ -189,6 +195,7 @@ export class DbBackupsClient {
   public async deleteBackup(
     deleteBackupRequest: requests.DeleteBackupRequest
   ): Promise<responses.DeleteBackupResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbBackupsClient#deleteBackup.");
     const pathParams = {
       "{backupId}": deleteBackupRequest.backupId
     };
@@ -244,6 +251,7 @@ export class DbBackupsClient {
   public async getBackup(
     getBackupRequest: requests.GetBackupRequest
   ): Promise<responses.GetBackupResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbBackupsClient#getBackup.");
     const pathParams = {
       "{backupId}": getBackupRequest.backupId
     };
@@ -303,6 +311,7 @@ export class DbBackupsClient {
   public async listBackups(
     listBackupsRequest: requests.ListBackupsRequest
   ): Promise<responses.ListBackupsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbBackupsClient#listBackups.");
     const pathParams = {};
 
     const queryParams = {
@@ -393,6 +402,7 @@ export class DbBackupsClient {
   public async updateBackup(
     updateBackupRequest: requests.UpdateBackupRequest
   ): Promise<responses.UpdateBackupResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbBackupsClient#updateBackup.");
     const pathParams = {
       "{backupId}": updateBackupRequest.backupId
     };
@@ -473,6 +483,11 @@ export class DbSystemClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190415";
+    if (this.logger) this.logger.info(`DbSystemClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -535,6 +550,7 @@ export class DbSystemClient {
   public async createDbSystem(
     createDbSystemRequest: requests.CreateDbSystemRequest
   ): Promise<responses.CreateDbSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#createDbSystem.");
     const pathParams = {};
 
     const queryParams = {};
@@ -608,6 +624,7 @@ export class DbSystemClient {
   public async deleteDbSystem(
     deleteDbSystemRequest: requests.DeleteDbSystemRequest
   ): Promise<responses.DeleteDbSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#deleteDbSystem.");
     const pathParams = {
       "{dbSystemId}": deleteDbSystemRequest.dbSystemId
     };
@@ -663,6 +680,7 @@ export class DbSystemClient {
   public async getDbSystem(
     getDbSystemRequest: requests.GetDbSystemRequest
   ): Promise<responses.GetDbSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#getDbSystem.");
     const pathParams = {
       "{dbSystemId}": getDbSystemRequest.dbSystemId
     };
@@ -723,6 +741,7 @@ export class DbSystemClient {
   public async listDbSystems(
     listDbSystemsRequest: requests.ListDbSystemsRequest
   ): Promise<responses.ListDbSystemsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#listDbSystems.");
     const pathParams = {};
 
     const queryParams = {
@@ -814,6 +833,7 @@ export class DbSystemClient {
   public async restartDbSystem(
     restartDbSystemRequest: requests.RestartDbSystemRequest
   ): Promise<responses.RestartDbSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#restartDbSystem.");
     const pathParams = {
       "{dbSystemId}": restartDbSystemRequest.dbSystemId
     };
@@ -875,6 +895,7 @@ export class DbSystemClient {
   public async startDbSystem(
     startDbSystemRequest: requests.StartDbSystemRequest
   ): Promise<responses.StartDbSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#startDbSystem.");
     const pathParams = {
       "{dbSystemId}": startDbSystemRequest.dbSystemId
     };
@@ -934,6 +955,7 @@ A stopped DB System is not billed.
   public async stopDbSystem(
     stopDbSystemRequest: requests.StopDbSystemRequest
   ): Promise<responses.StopDbSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#stopDbSystem.");
     const pathParams = {
       "{dbSystemId}": stopDbSystemRequest.dbSystemId
     };
@@ -1003,6 +1025,7 @@ Updating different fields in the DB System will have different results
   public async updateDbSystem(
     updateDbSystemRequest: requests.UpdateDbSystemRequest
   ): Promise<responses.UpdateDbSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#updateDbSystem.");
     const pathParams = {
       "{dbSystemId}": updateDbSystemRequest.dbSystemId
     };
@@ -1088,6 +1111,11 @@ export class MysqlaasClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190415";
+    if (this.logger) this.logger.info(`MysqlaasClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -1149,6 +1177,7 @@ export class MysqlaasClient {
   public async createConfiguration(
     createConfigurationRequest: requests.CreateConfigurationRequest
   ): Promise<responses.CreateConfigurationResponse> {
+    if (this.logger) this.logger.debug("Calling operation MysqlaasClient#createConfiguration.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1222,6 +1251,7 @@ export class MysqlaasClient {
   public async deleteConfiguration(
     deleteConfigurationRequest: requests.DeleteConfigurationRequest
   ): Promise<responses.DeleteConfigurationResponse> {
+    if (this.logger) this.logger.debug("Calling operation MysqlaasClient#deleteConfiguration.");
     const pathParams = {
       "{configurationId}": deleteConfigurationRequest.configurationId
     };
@@ -1273,6 +1303,7 @@ export class MysqlaasClient {
   public async getConfiguration(
     getConfigurationRequest: requests.GetConfigurationRequest
   ): Promise<responses.GetConfigurationResponse> {
+    if (this.logger) this.logger.debug("Calling operation MysqlaasClient#getConfiguration.");
     const pathParams = {
       "{configurationId}": getConfigurationRequest.configurationId
     };
@@ -1339,6 +1370,7 @@ The default sort order is a multi-part sort by:
   public async listConfigurations(
     listConfigurationsRequest: requests.ListConfigurationsRequest
   ): Promise<responses.ListConfigurationsResponse> {
+    if (this.logger) this.logger.debug("Calling operation MysqlaasClient#listConfigurations.");
     const pathParams = {};
 
     const queryParams = {
@@ -1434,6 +1466,7 @@ The default sort order is a multi-part sort by:
   public async listShapes(
     listShapesRequest: requests.ListShapesRequest
   ): Promise<responses.ListShapesResponse> {
+    if (this.logger) this.logger.debug("Calling operation MysqlaasClient#listShapes.");
     const pathParams = {};
 
     const queryParams = {
@@ -1491,6 +1524,7 @@ The list is sorted by version family.
   public async listVersions(
     listVersionsRequest: requests.ListVersionsRequest
   ): Promise<responses.ListVersionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation MysqlaasClient#listVersions.");
     const pathParams = {};
 
     const queryParams = {
@@ -1543,6 +1577,7 @@ The list is sorted by version family.
   public async updateConfiguration(
     updateConfigurationRequest: requests.UpdateConfigurationRequest
   ): Promise<responses.UpdateConfigurationResponse> {
+    if (this.logger) this.logger.debug("Calling operation MysqlaasClient#updateConfiguration.");
     const pathParams = {
       "{configurationId}": updateConfigurationRequest.configurationId
     };
@@ -1631,6 +1666,11 @@ export class WorkRequestsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190415";
+    if (this.logger) this.logger.info(`WorkRequestsClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -1692,6 +1732,7 @@ export class WorkRequestsClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation WorkRequestsClient#getWorkRequest.");
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -1756,6 +1797,8 @@ export class WorkRequestsClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation WorkRequestsClient#listWorkRequestErrors.");
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1842,6 +1885,7 @@ export class WorkRequestsClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation WorkRequestsClient#listWorkRequestLogs.");
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1928,6 +1972,7 @@ export class WorkRequestsClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation WorkRequestsClient#listWorkRequests.");
     const pathParams = {};
 
     const queryParams = {

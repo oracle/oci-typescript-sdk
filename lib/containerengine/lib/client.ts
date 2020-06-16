@@ -61,6 +61,11 @@ export class ContainerEngineClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180222";
+    if (this.logger) this.logger.info(`ContainerEngineClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -122,6 +127,7 @@ export class ContainerEngineClient {
   public async createCluster(
     createClusterRequest: requests.CreateClusterRequest
   ): Promise<responses.CreateClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#createCluster.");
     const pathParams = {};
 
     const queryParams = {};
@@ -180,6 +186,7 @@ export class ContainerEngineClient {
   public async createKubeconfig(
     createKubeconfigRequest: requests.CreateKubeconfigRequest
   ): Promise<responses.CreateKubeconfigResponse> {
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#createKubeconfig.");
     const pathParams = {
       "{clusterId}": createKubeconfigRequest.clusterId
     };
@@ -238,6 +245,7 @@ export class ContainerEngineClient {
   public async createNodePool(
     createNodePoolRequest: requests.CreateNodePoolRequest
   ): Promise<responses.CreateNodePoolResponse> {
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#createNodePool.");
     const pathParams = {};
 
     const queryParams = {};
@@ -296,6 +304,7 @@ export class ContainerEngineClient {
   public async deleteCluster(
     deleteClusterRequest: requests.DeleteClusterRequest
   ): Promise<responses.DeleteClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#deleteCluster.");
     const pathParams = {
       "{clusterId}": deleteClusterRequest.clusterId
     };
@@ -351,6 +360,7 @@ export class ContainerEngineClient {
   public async deleteNodePool(
     deleteNodePoolRequest: requests.DeleteNodePoolRequest
   ): Promise<responses.DeleteNodePoolResponse> {
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#deleteNodePool.");
     const pathParams = {
       "{nodePoolId}": deleteNodePoolRequest.nodePoolId
     };
@@ -406,6 +416,8 @@ export class ContainerEngineClient {
   public async deleteWorkRequest(
     deleteWorkRequestRequest: requests.DeleteWorkRequestRequest
   ): Promise<responses.DeleteWorkRequestResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#deleteWorkRequest.");
     const pathParams = {
       "{workRequestId}": deleteWorkRequestRequest.workRequestId
     };
@@ -456,6 +468,7 @@ export class ContainerEngineClient {
   public async getCluster(
     getClusterRequest: requests.GetClusterRequest
   ): Promise<responses.GetClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#getCluster.");
     const pathParams = {
       "{clusterId}": getClusterRequest.clusterId
     };
@@ -513,6 +526,8 @@ export class ContainerEngineClient {
   public async getClusterOptions(
     getClusterOptionsRequest: requests.GetClusterOptionsRequest
   ): Promise<responses.GetClusterOptionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#getClusterOptions.");
     const pathParams = {
       "{clusterOptionId}": getClusterOptionsRequest.clusterOptionId
     };
@@ -567,6 +582,7 @@ export class ContainerEngineClient {
   public async getNodePool(
     getNodePoolRequest: requests.GetNodePoolRequest
   ): Promise<responses.GetNodePoolResponse> {
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#getNodePool.");
     const pathParams = {
       "{nodePoolId}": getNodePoolRequest.nodePoolId
     };
@@ -624,6 +640,8 @@ export class ContainerEngineClient {
   public async getNodePoolOptions(
     getNodePoolOptionsRequest: requests.GetNodePoolOptionsRequest
   ): Promise<responses.GetNodePoolOptionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#getNodePoolOptions.");
     const pathParams = {
       "{nodePoolOptionId}": getNodePoolOptionsRequest.nodePoolOptionId
     };
@@ -678,6 +696,7 @@ export class ContainerEngineClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#getWorkRequest.");
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -740,6 +759,7 @@ export class ContainerEngineClient {
   public async listClusters(
     listClustersRequest: requests.ListClustersRequest
   ): Promise<responses.ListClustersResponse> {
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listClusters.");
     const pathParams = {};
 
     const queryParams = {
@@ -828,6 +848,7 @@ export class ContainerEngineClient {
   public async listNodePools(
     listNodePoolsRequest: requests.ListNodePoolsRequest
   ): Promise<responses.ListNodePoolsResponse> {
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listNodePools.");
     const pathParams = {};
 
     const queryParams = {
@@ -916,6 +937,8 @@ export class ContainerEngineClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#listWorkRequestErrors.");
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -970,6 +993,8 @@ export class ContainerEngineClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#listWorkRequestLogs.");
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1024,6 +1049,7 @@ export class ContainerEngineClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listWorkRequests.");
     const pathParams = {};
 
     const queryParams = {
@@ -1114,6 +1140,7 @@ export class ContainerEngineClient {
   public async updateCluster(
     updateClusterRequest: requests.UpdateClusterRequest
   ): Promise<responses.UpdateClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#updateCluster.");
     const pathParams = {
       "{clusterId}": updateClusterRequest.clusterId
     };
@@ -1174,6 +1201,7 @@ export class ContainerEngineClient {
   public async updateNodePool(
     updateNodePoolRequest: requests.UpdateNodePoolRequest
   ): Promise<responses.UpdateNodePoolResponse> {
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#updateNodePool.");
     const pathParams = {
       "{nodePoolId}": updateNodePoolRequest.nodePoolId
     };

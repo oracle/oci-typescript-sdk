@@ -204,6 +204,11 @@ export namespace LaunchDbSystemBase {
             <model.LaunchDbSystemDetails>(<object>jsonObj),
             true
           );
+        case "DATABASE":
+          return model.LaunchDbSystemFromDatabaseDetails.getJsonObj(
+            <model.LaunchDbSystemFromDatabaseDetails>(<object>jsonObj),
+            true
+          );
         case "DB_BACKUP":
           return model.LaunchDbSystemFromBackupDetails.getJsonObj(
             <model.LaunchDbSystemFromBackupDetails>(<object>jsonObj),

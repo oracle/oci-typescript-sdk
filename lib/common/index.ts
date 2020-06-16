@@ -13,6 +13,7 @@ import * as range from "./lib/range";
 import { Region } from "./lib/region";
 import { Realm } from "./lib/realm";
 import { EndpointBuilder } from "./lib/endpoint-builder";
+import { LOG } from "./lib/log";
 import {
   DelayStrategy,
   TerminationStrategy,
@@ -82,5 +83,6 @@ export {
   composeResponse,
   HttpRequest,
   ConfigFileAuthenticationDetailsProvider,
-  ConfigFileReader
+  ConfigFileReader,
+  LOG
 };

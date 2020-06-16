@@ -36,6 +36,11 @@ export namespace CreateDbHomeBase {
 
     if ("source" in obj && obj.source) {
       switch (obj.source) {
+        case "DATABASE":
+          return model.CreateDbHomeWithDbSystemIdFromDatabaseDetails.getJsonObj(
+            <model.CreateDbHomeWithDbSystemIdFromDatabaseDetails>(<object>jsonObj),
+            true
+          );
         case "DB_BACKUP":
           return model.CreateDbHomeWithDbSystemIdFromBackupDetails.getJsonObj(
             <model.CreateDbHomeWithDbSystemIdFromBackupDetails>(<object>jsonObj),

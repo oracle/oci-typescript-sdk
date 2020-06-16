@@ -66,6 +66,11 @@ export class BlockstorageClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20160918";
+    if (this.logger) this.logger.info(`BlockstorageClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -134,6 +139,8 @@ export class BlockstorageClient {
   public async changeBootVolumeBackupCompartment(
     changeBootVolumeBackupCompartmentRequest: requests.ChangeBootVolumeBackupCompartmentRequest
   ): Promise<responses.ChangeBootVolumeBackupCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#changeBootVolumeBackupCompartment.");
     const pathParams = {
       "{bootVolumeBackupId}": changeBootVolumeBackupCompartmentRequest.bootVolumeBackupId
     };
@@ -196,6 +203,8 @@ export class BlockstorageClient {
   public async changeBootVolumeCompartment(
     changeBootVolumeCompartmentRequest: requests.ChangeBootVolumeCompartmentRequest
   ): Promise<responses.ChangeBootVolumeCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#changeBootVolumeCompartment.");
     const pathParams = {
       "{bootVolumeId}": changeBootVolumeCompartmentRequest.bootVolumeId
     };
@@ -258,6 +267,8 @@ export class BlockstorageClient {
   public async changeVolumeBackupCompartment(
     changeVolumeBackupCompartmentRequest: requests.ChangeVolumeBackupCompartmentRequest
   ): Promise<responses.ChangeVolumeBackupCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#changeVolumeBackupCompartment.");
     const pathParams = {
       "{volumeBackupId}": changeVolumeBackupCompartmentRequest.volumeBackupId
     };
@@ -320,6 +331,8 @@ export class BlockstorageClient {
   public async changeVolumeCompartment(
     changeVolumeCompartmentRequest: requests.ChangeVolumeCompartmentRequest
   ): Promise<responses.ChangeVolumeCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#changeVolumeCompartment.");
     const pathParams = {
       "{volumeId}": changeVolumeCompartmentRequest.volumeId
     };
@@ -382,6 +395,8 @@ export class BlockstorageClient {
   public async changeVolumeGroupBackupCompartment(
     changeVolumeGroupBackupCompartmentRequest: requests.ChangeVolumeGroupBackupCompartmentRequest
   ): Promise<responses.ChangeVolumeGroupBackupCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#changeVolumeGroupBackupCompartment.");
     const pathParams = {
       "{volumeGroupBackupId}": changeVolumeGroupBackupCompartmentRequest.volumeGroupBackupId
     };
@@ -444,6 +459,8 @@ export class BlockstorageClient {
   public async changeVolumeGroupCompartment(
     changeVolumeGroupCompartmentRequest: requests.ChangeVolumeGroupCompartmentRequest
   ): Promise<responses.ChangeVolumeGroupCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#changeVolumeGroupCompartment.");
     const pathParams = {
       "{volumeGroupId}": changeVolumeGroupCompartmentRequest.volumeGroupId
     };
@@ -505,6 +522,8 @@ export class BlockstorageClient {
   public async copyBootVolumeBackup(
     copyBootVolumeBackupRequest: requests.CopyBootVolumeBackupRequest
   ): Promise<responses.CopyBootVolumeBackupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#copyBootVolumeBackup.");
     const pathParams = {
       "{bootVolumeBackupId}": copyBootVolumeBackupRequest.bootVolumeBackupId
     };
@@ -570,6 +589,7 @@ export class BlockstorageClient {
   public async copyVolumeBackup(
     copyVolumeBackupRequest: requests.CopyVolumeBackupRequest
   ): Promise<responses.CopyVolumeBackupResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#copyVolumeBackup.");
     const pathParams = {
       "{volumeBackupId}": copyVolumeBackupRequest.volumeBackupId
     };
@@ -637,6 +657,7 @@ export class BlockstorageClient {
   public async createBootVolume(
     createBootVolumeRequest: requests.CreateBootVolumeRequest
   ): Promise<responses.CreateBootVolumeResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#createBootVolume.");
     const pathParams = {};
 
     const queryParams = {};
@@ -703,6 +724,8 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
   public async createBootVolumeBackup(
     createBootVolumeBackupRequest: requests.CreateBootVolumeBackupRequest
   ): Promise<responses.CreateBootVolumeBackupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#createBootVolumeBackup.");
     const pathParams = {};
 
     const queryParams = {};
@@ -777,6 +800,7 @@ You may optionally specify a *display name* for the volume, which is simply a fr
   public async createVolume(
     createVolumeRequest: requests.CreateVolumeRequest
   ): Promise<responses.CreateVolumeResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#createVolume.");
     const pathParams = {};
 
     const queryParams = {};
@@ -843,6 +867,7 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
   public async createVolumeBackup(
     createVolumeBackupRequest: requests.CreateVolumeBackupRequest
   ): Promise<responses.CreateVolumeBackupResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#createVolumeBackup.");
     const pathParams = {};
 
     const queryParams = {};
@@ -907,6 +932,8 @@ For more information about Oracle defined backup policies and user defined backu
   public async createVolumeBackupPolicy(
     createVolumeBackupPolicyRequest: requests.CreateVolumeBackupPolicyRequest
   ): Promise<responses.CreateVolumeBackupPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#createVolumeBackupPolicy.");
     const pathParams = {};
 
     const queryParams = {};
@@ -971,6 +998,8 @@ For more information about Oracle defined backup policies and user defined backu
   public async createVolumeBackupPolicyAssignment(
     createVolumeBackupPolicyAssignmentRequest: requests.CreateVolumeBackupPolicyAssignmentRequest
   ): Promise<responses.CreateVolumeBackupPolicyAssignmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#createVolumeBackupPolicyAssignment.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1036,6 +1065,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async createVolumeGroup(
     createVolumeGroupRequest: requests.CreateVolumeGroupRequest
   ): Promise<responses.CreateVolumeGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#createVolumeGroup.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1098,6 +1128,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async createVolumeGroupBackup(
     createVolumeGroupBackupRequest: requests.CreateVolumeGroupBackupRequest
   ): Promise<responses.CreateVolumeGroupBackupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#createVolumeGroupBackup.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1162,6 +1194,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async deleteBootVolume(
     deleteBootVolumeRequest: requests.DeleteBootVolumeRequest
   ): Promise<responses.DeleteBootVolumeResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#deleteBootVolume.");
     const pathParams = {
       "{bootVolumeId}": deleteBootVolumeRequest.bootVolumeId
     };
@@ -1211,6 +1244,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async deleteBootVolumeBackup(
     deleteBootVolumeBackupRequest: requests.DeleteBootVolumeBackupRequest
   ): Promise<responses.DeleteBootVolumeBackupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#deleteBootVolumeBackup.");
     const pathParams = {
       "{bootVolumeBackupId}": deleteBootVolumeBackupRequest.bootVolumeBackupId
     };
@@ -1261,6 +1296,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async deleteBootVolumeKmsKey(
     deleteBootVolumeKmsKeyRequest: requests.DeleteBootVolumeKmsKeyRequest
   ): Promise<responses.DeleteBootVolumeKmsKeyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#deleteBootVolumeKmsKey.");
     const pathParams = {
       "{bootVolumeId}": deleteBootVolumeKmsKeyRequest.bootVolumeId
     };
@@ -1314,6 +1351,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async deleteVolume(
     deleteVolumeRequest: requests.DeleteVolumeRequest
   ): Promise<responses.DeleteVolumeResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#deleteVolume.");
     const pathParams = {
       "{volumeId}": deleteVolumeRequest.volumeId
     };
@@ -1363,6 +1401,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async deleteVolumeBackup(
     deleteVolumeBackupRequest: requests.DeleteVolumeBackupRequest
   ): Promise<responses.DeleteVolumeBackupResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#deleteVolumeBackup.");
     const pathParams = {
       "{volumeBackupId}": deleteVolumeBackupRequest.volumeBackupId
     };
@@ -1417,6 +1456,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async deleteVolumeBackupPolicy(
     deleteVolumeBackupPolicyRequest: requests.DeleteVolumeBackupPolicyRequest
   ): Promise<responses.DeleteVolumeBackupPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#deleteVolumeBackupPolicy.");
     const pathParams = {
       "{policyId}": deleteVolumeBackupPolicyRequest.policyId
     };
@@ -1467,6 +1508,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async deleteVolumeBackupPolicyAssignment(
     deleteVolumeBackupPolicyAssignmentRequest: requests.DeleteVolumeBackupPolicyAssignmentRequest
   ): Promise<responses.DeleteVolumeBackupPolicyAssignmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#deleteVolumeBackupPolicyAssignment.");
     const pathParams = {
       "{policyAssignmentId}": deleteVolumeBackupPolicyAssignmentRequest.policyAssignmentId
     };
@@ -1518,6 +1561,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async deleteVolumeGroup(
     deleteVolumeGroupRequest: requests.DeleteVolumeGroupRequest
   ): Promise<responses.DeleteVolumeGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#deleteVolumeGroup.");
     const pathParams = {
       "{volumeGroupId}": deleteVolumeGroupRequest.volumeGroupId
     };
@@ -1567,6 +1611,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async deleteVolumeGroupBackup(
     deleteVolumeGroupBackupRequest: requests.DeleteVolumeGroupBackupRequest
   ): Promise<responses.DeleteVolumeGroupBackupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#deleteVolumeGroupBackup.");
     const pathParams = {
       "{volumeGroupBackupId}": deleteVolumeGroupBackupRequest.volumeGroupBackupId
     };
@@ -1617,6 +1663,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async deleteVolumeKmsKey(
     deleteVolumeKmsKeyRequest: requests.DeleteVolumeKmsKeyRequest
   ): Promise<responses.DeleteVolumeKmsKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#deleteVolumeKmsKey.");
     const pathParams = {
       "{volumeId}": deleteVolumeKmsKeyRequest.volumeId
     };
@@ -1666,6 +1713,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async getBootVolume(
     getBootVolumeRequest: requests.GetBootVolumeRequest
   ): Promise<responses.GetBootVolumeResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#getBootVolume.");
     const pathParams = {
       "{bootVolumeId}": getBootVolumeRequest.bootVolumeId
     };
@@ -1721,6 +1769,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async getBootVolumeBackup(
     getBootVolumeBackupRequest: requests.GetBootVolumeBackupRequest
   ): Promise<responses.GetBootVolumeBackupResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#getBootVolumeBackup.");
     const pathParams = {
       "{bootVolumeBackupId}": getBootVolumeBackupRequest.bootVolumeBackupId
     };
@@ -1777,6 +1826,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async getBootVolumeKmsKey(
     getBootVolumeKmsKeyRequest: requests.GetBootVolumeKmsKeyRequest
   ): Promise<responses.GetBootVolumeKmsKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#getBootVolumeKmsKey.");
     const pathParams = {
       "{bootVolumeId}": getBootVolumeKmsKeyRequest.bootVolumeId
     };
@@ -1834,6 +1884,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async getVolume(
     getVolumeRequest: requests.GetVolumeRequest
   ): Promise<responses.GetVolumeResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#getVolume.");
     const pathParams = {
       "{volumeId}": getVolumeRequest.volumeId
     };
@@ -1889,6 +1940,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async getVolumeBackup(
     getVolumeBackupRequest: requests.GetVolumeBackupRequest
   ): Promise<responses.GetVolumeBackupResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#getVolumeBackup.");
     const pathParams = {
       "{volumeBackupId}": getVolumeBackupRequest.volumeBackupId
     };
@@ -1944,6 +1996,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async getVolumeBackupPolicy(
     getVolumeBackupPolicyRequest: requests.GetVolumeBackupPolicyRequest
   ): Promise<responses.GetVolumeBackupPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#getVolumeBackupPolicy.");
     const pathParams = {
       "{policyId}": getVolumeBackupPolicyRequest.policyId
     };
@@ -2002,6 +2056,10 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async getVolumeBackupPolicyAssetAssignment(
     getVolumeBackupPolicyAssetAssignmentRequest: requests.GetVolumeBackupPolicyAssetAssignmentRequest
   ): Promise<responses.GetVolumeBackupPolicyAssetAssignmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation BlockstorageClient#getVolumeBackupPolicyAssetAssignment."
+      );
     const pathParams = {};
 
     const queryParams = {
@@ -2084,6 +2142,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async getVolumeBackupPolicyAssignment(
     getVolumeBackupPolicyAssignmentRequest: requests.GetVolumeBackupPolicyAssignmentRequest
   ): Promise<responses.GetVolumeBackupPolicyAssignmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#getVolumeBackupPolicyAssignment.");
     const pathParams = {
       "{policyAssignmentId}": getVolumeBackupPolicyAssignmentRequest.policyAssignmentId
     };
@@ -2139,6 +2199,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async getVolumeGroup(
     getVolumeGroupRequest: requests.GetVolumeGroupRequest
   ): Promise<responses.GetVolumeGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#getVolumeGroup.");
     const pathParams = {
       "{volumeGroupId}": getVolumeGroupRequest.volumeGroupId
     };
@@ -2194,6 +2255,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async getVolumeGroupBackup(
     getVolumeGroupBackupRequest: requests.GetVolumeGroupBackupRequest
   ): Promise<responses.GetVolumeGroupBackupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#getVolumeGroupBackup.");
     const pathParams = {
       "{volumeGroupBackupId}": getVolumeGroupBackupRequest.volumeGroupBackupId
     };
@@ -2250,6 +2313,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async getVolumeKmsKey(
     getVolumeKmsKeyRequest: requests.GetVolumeKmsKeyRequest
   ): Promise<responses.GetVolumeKmsKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#getVolumeKmsKey.");
     const pathParams = {
       "{volumeId}": getVolumeKmsKeyRequest.volumeId
     };
@@ -2308,6 +2372,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async listBootVolumeBackups(
     listBootVolumeBackupsRequest: requests.ListBootVolumeBackupsRequest
   ): Promise<responses.ListBootVolumeBackupsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#listBootVolumeBackups.");
     const pathParams = {};
 
     const queryParams = {
@@ -2397,6 +2463,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async listBootVolumes(
     listBootVolumesRequest: requests.ListBootVolumesRequest
   ): Promise<responses.ListBootVolumesResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#listBootVolumes.");
     const pathParams = {};
 
     const queryParams = {
@@ -2485,6 +2552,8 @@ For more information about Oracle defined backup policies and user defined backu
   public async listVolumeBackupPolicies(
     listVolumeBackupPoliciesRequest: requests.ListVolumeBackupPoliciesRequest
   ): Promise<responses.ListVolumeBackupPoliciesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#listVolumeBackupPolicies.");
     const pathParams = {};
 
     const queryParams = {
@@ -2568,6 +2637,7 @@ For more information about Oracle defined backup policies and user defined backu
   public async listVolumeBackups(
     listVolumeBackupsRequest: requests.ListVolumeBackupsRequest
   ): Promise<responses.ListVolumeBackupsResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#listVolumeBackups.");
     const pathParams = {};
 
     const queryParams = {
@@ -2658,6 +2728,8 @@ For more information about Oracle defined backup policies and user defined backu
   public async listVolumeGroupBackups(
     listVolumeGroupBackupsRequest: requests.ListVolumeGroupBackupsRequest
   ): Promise<responses.ListVolumeGroupBackupsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#listVolumeGroupBackups.");
     const pathParams = {};
 
     const queryParams = {
@@ -2746,6 +2818,7 @@ For more information about Oracle defined backup policies and user defined backu
   public async listVolumeGroups(
     listVolumeGroupsRequest: requests.ListVolumeGroupsRequest
   ): Promise<responses.ListVolumeGroupsResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#listVolumeGroups.");
     const pathParams = {};
 
     const queryParams = {
@@ -2834,6 +2907,7 @@ For more information about Oracle defined backup policies and user defined backu
   public async listVolumes(
     listVolumesRequest: requests.ListVolumesRequest
   ): Promise<responses.ListVolumesResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#listVolumes.");
     const pathParams = {};
 
     const queryParams = {
@@ -2922,6 +2996,7 @@ For more information about Oracle defined backup policies and user defined backu
   public async updateBootVolume(
     updateBootVolumeRequest: requests.UpdateBootVolumeRequest
   ): Promise<responses.UpdateBootVolumeResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#updateBootVolume.");
     const pathParams = {
       "{bootVolumeId}": updateBootVolumeRequest.bootVolumeId
     };
@@ -2986,6 +3061,8 @@ For more information about Oracle defined backup policies and user defined backu
   public async updateBootVolumeBackup(
     updateBootVolumeBackupRequest: requests.UpdateBootVolumeBackupRequest
   ): Promise<responses.UpdateBootVolumeBackupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#updateBootVolumeBackup.");
     const pathParams = {
       "{bootVolumeBackupId}": updateBootVolumeBackupRequest.bootVolumeBackupId
     };
@@ -3044,6 +3121,8 @@ For more information about Oracle defined backup policies and user defined backu
   public async updateBootVolumeKmsKey(
     updateBootVolumeKmsKeyRequest: requests.UpdateBootVolumeKmsKeyRequest
   ): Promise<responses.UpdateBootVolumeKmsKeyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#updateBootVolumeKmsKey.");
     const pathParams = {
       "{bootVolumeId}": updateBootVolumeKmsKeyRequest.bootVolumeId
     };
@@ -3108,6 +3187,7 @@ For more information about Oracle defined backup policies and user defined backu
   public async updateVolume(
     updateVolumeRequest: requests.UpdateVolumeRequest
   ): Promise<responses.UpdateVolumeResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#updateVolume.");
     const pathParams = {
       "{volumeId}": updateVolumeRequest.volumeId
     };
@@ -3172,6 +3252,7 @@ For more information about Oracle defined backup policies and user defined backu
   public async updateVolumeBackup(
     updateVolumeBackupRequest: requests.UpdateVolumeBackupRequest
   ): Promise<responses.UpdateVolumeBackupResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#updateVolumeBackup.");
     const pathParams = {
       "{volumeBackupId}": updateVolumeBackupRequest.volumeBackupId
     };
@@ -3234,6 +3315,8 @@ For more information about Oracle defined backup policies and user defined backu
   public async updateVolumeBackupPolicy(
     updateVolumeBackupPolicyRequest: requests.UpdateVolumeBackupPolicyRequest
   ): Promise<responses.UpdateVolumeBackupPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#updateVolumeBackupPolicy.");
     const pathParams = {
       "{policyId}": updateVolumeBackupPolicyRequest.policyId
     };
@@ -3304,6 +3387,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async updateVolumeGroup(
     updateVolumeGroupRequest: requests.UpdateVolumeGroupRequest
   ): Promise<responses.UpdateVolumeGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#updateVolumeGroup.");
     const pathParams = {
       "{volumeGroupId}": updateVolumeGroupRequest.volumeGroupId
     };
@@ -3366,6 +3450,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async updateVolumeGroupBackup(
     updateVolumeGroupBackupRequest: requests.UpdateVolumeGroupBackupRequest
   ): Promise<responses.UpdateVolumeGroupBackupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#updateVolumeGroupBackup.");
     const pathParams = {
       "{volumeGroupBackupId}": updateVolumeGroupBackupRequest.volumeGroupBackupId
     };
@@ -3424,6 +3510,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   public async updateVolumeKmsKey(
     updateVolumeKmsKeyRequest: requests.UpdateVolumeKmsKeyRequest
   ): Promise<responses.UpdateVolumeKmsKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#updateVolumeKmsKey.");
     const pathParams = {
       "{volumeId}": updateVolumeKmsKeyRequest.volumeId
     };
@@ -3511,6 +3598,11 @@ export class ComputeClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20160918";
+    if (this.logger) this.logger.info(`ComputeClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -3576,6 +3668,8 @@ export class ComputeClient {
   public async addImageShapeCompatibilityEntry(
     addImageShapeCompatibilityEntryRequest: requests.AddImageShapeCompatibilityEntryRequest
   ): Promise<responses.AddImageShapeCompatibilityEntryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#addImageShapeCompatibilityEntry.");
     const pathParams = {
       "{imageId}": addImageShapeCompatibilityEntryRequest.imageId,
       "{shapeName}": addImageShapeCompatibilityEntryRequest.shapeName
@@ -3633,6 +3727,7 @@ export class ComputeClient {
   public async attachBootVolume(
     attachBootVolumeRequest: requests.AttachBootVolumeRequest
   ): Promise<responses.AttachBootVolumeResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#attachBootVolume.");
     const pathParams = {};
 
     const queryParams = {};
@@ -3696,6 +3791,7 @@ export class ComputeClient {
   public async attachVnic(
     attachVnicRequest: requests.AttachVnicRequest
   ): Promise<responses.AttachVnicResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#attachVnic.");
     const pathParams = {};
 
     const queryParams = {};
@@ -3757,6 +3853,7 @@ export class ComputeClient {
   public async attachVolume(
     attachVolumeRequest: requests.AttachVolumeRequest
   ): Promise<responses.AttachVolumeResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#attachVolume.");
     const pathParams = {};
 
     const queryParams = {};
@@ -3834,6 +3931,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
   public async captureConsoleHistory(
     captureConsoleHistoryRequest: requests.CaptureConsoleHistoryRequest
   ): Promise<responses.CaptureConsoleHistoryResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#captureConsoleHistory.");
     const pathParams = {};
 
     const queryParams = {};
@@ -3894,6 +3992,8 @@ The `CaptureConsoleHistory` operation works with the other console history opera
   public async changeDedicatedVmHostCompartment(
     changeDedicatedVmHostCompartmentRequest: requests.ChangeDedicatedVmHostCompartmentRequest
   ): Promise<responses.ChangeDedicatedVmHostCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#changeDedicatedVmHostCompartment.");
     const pathParams = {
       "{dedicatedVmHostId}": changeDedicatedVmHostCompartmentRequest.dedicatedVmHostId
     };
@@ -3963,6 +4063,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
   public async changeImageCompartment(
     changeImageCompartmentRequest: requests.ChangeImageCompartmentRequest
   ): Promise<responses.ChangeImageCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#changeImageCompartment.");
     const pathParams = {
       "{imageId}": changeImageCompartmentRequest.imageId
     };
@@ -4030,6 +4131,8 @@ When you move an instance to a different compartment, associated resources such 
   public async changeInstanceCompartment(
     changeInstanceCompartmentRequest: requests.ChangeInstanceCompartmentRequest
   ): Promise<responses.ChangeInstanceCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#changeInstanceCompartment.");
     const pathParams = {
       "{instanceId}": changeInstanceCompartmentRequest.instanceId
     };
@@ -4097,6 +4200,8 @@ When you move an instance to a different compartment, associated resources such 
   public async createAppCatalogSubscription(
     createAppCatalogSubscriptionRequest: requests.CreateAppCatalogSubscriptionRequest
   ): Promise<responses.CreateAppCatalogSubscriptionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#createAppCatalogSubscription.");
     const pathParams = {};
 
     const queryParams = {};
@@ -4161,6 +4266,7 @@ When you move an instance to a different compartment, associated resources such 
   public async createDedicatedVmHost(
     createDedicatedVmHostRequest: requests.CreateDedicatedVmHostRequest
   ): Promise<responses.CreateDedicatedVmHostResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#createDedicatedVmHost.");
     const pathParams = {};
 
     const queryParams = {};
@@ -4250,6 +4356,7 @@ You may optionally specify a *display name* for the image, which is simply a fri
   public async createImage(
     createImageRequest: requests.CreateImageRequest
   ): Promise<responses.CreateImageResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#createImage.");
     const pathParams = {};
 
     const queryParams = {};
@@ -4320,6 +4427,8 @@ For more information about console access, see [Accessing the Console](https://d
   public async createInstanceConsoleConnection(
     createInstanceConsoleConnectionRequest: requests.CreateInstanceConsoleConnectionRequest
   ): Promise<responses.CreateInstanceConsoleConnectionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#createInstanceConsoleConnection.");
     const pathParams = {};
 
     const queryParams = {};
@@ -4380,6 +4489,8 @@ For more information about console access, see [Accessing the Console](https://d
   public async deleteAppCatalogSubscription(
     deleteAppCatalogSubscriptionRequest: requests.DeleteAppCatalogSubscriptionRequest
   ): Promise<responses.DeleteAppCatalogSubscriptionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#deleteAppCatalogSubscription.");
     const pathParams = {};
 
     const queryParams = {
@@ -4429,6 +4540,7 @@ For more information about console access, see [Accessing the Console](https://d
   public async deleteConsoleHistory(
     deleteConsoleHistoryRequest: requests.DeleteConsoleHistoryRequest
   ): Promise<responses.DeleteConsoleHistoryResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#deleteConsoleHistory.");
     const pathParams = {
       "{instanceConsoleHistoryId}": deleteConsoleHistoryRequest.instanceConsoleHistoryId
     };
@@ -4482,6 +4594,7 @@ If any VM instances are assigned to the dedicated virtual machine host,
   public async deleteDedicatedVmHost(
     deleteDedicatedVmHostRequest: requests.DeleteDedicatedVmHostRequest
   ): Promise<responses.DeleteDedicatedVmHostResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#deleteDedicatedVmHost.");
     const pathParams = {
       "{dedicatedVmHostId}": deleteDedicatedVmHostRequest.dedicatedVmHostId
     };
@@ -4536,6 +4649,7 @@ If any VM instances are assigned to the dedicated virtual machine host,
   public async deleteImage(
     deleteImageRequest: requests.DeleteImageRequest
   ): Promise<responses.DeleteImageResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#deleteImage.");
     const pathParams = {
       "{imageId}": deleteImageRequest.imageId
     };
@@ -4585,6 +4699,8 @@ If any VM instances are assigned to the dedicated virtual machine host,
   public async deleteInstanceConsoleConnection(
     deleteInstanceConsoleConnectionRequest: requests.DeleteInstanceConsoleConnectionRequest
   ): Promise<responses.DeleteInstanceConsoleConnectionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#deleteInstanceConsoleConnection.");
     const pathParams = {
       "{instanceConsoleConnectionId}":
         deleteInstanceConsoleConnectionRequest.instanceConsoleConnectionId
@@ -4639,6 +4755,7 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
   public async detachBootVolume(
     detachBootVolumeRequest: requests.DetachBootVolumeRequest
   ): Promise<responses.DetachBootVolumeResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#detachBootVolume.");
     const pathParams = {
       "{bootVolumeAttachmentId}": detachBootVolumeRequest.bootVolumeAttachmentId
     };
@@ -4698,6 +4815,7 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
   public async detachVnic(
     detachVnicRequest: requests.DetachVnicRequest
   ): Promise<responses.DetachVnicResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#detachVnic.");
     const pathParams = {
       "{vnicAttachmentId}": detachVnicRequest.vnicAttachmentId
     };
@@ -4751,6 +4869,7 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
   public async detachVolume(
     detachVolumeRequest: requests.DetachVolumeRequest
   ): Promise<responses.DetachVolumeResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#detachVolume.");
     const pathParams = {
       "{volumeAttachmentId}": detachVolumeRequest.volumeAttachmentId
     };
@@ -4810,6 +4929,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
   public async exportImage(
     exportImageRequest: requests.ExportImageRequest
   ): Promise<responses.ExportImageResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#exportImage.");
     const pathParams = {
       "{imageId}": exportImageRequest.imageId
     };
@@ -4878,6 +4998,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
   public async getAppCatalogListing(
     getAppCatalogListingRequest: requests.GetAppCatalogListingRequest
   ): Promise<responses.GetAppCatalogListingResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getAppCatalogListing.");
     const pathParams = {
       "{listingId}": getAppCatalogListingRequest.listingId
     };
@@ -4933,6 +5054,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
   public async getAppCatalogListingAgreements(
     getAppCatalogListingAgreementsRequest: requests.GetAppCatalogListingAgreementsRequest
   ): Promise<responses.GetAppCatalogListingAgreementsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#getAppCatalogListingAgreements.");
     const pathParams = {
       "{listingId}": getAppCatalogListingAgreementsRequest.listingId,
       "{resourceVersion}": getAppCatalogListingAgreementsRequest.resourceVersion
@@ -4989,6 +5112,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
   public async getAppCatalogListingResourceVersion(
     getAppCatalogListingResourceVersionRequest: requests.GetAppCatalogListingResourceVersionRequest
   ): Promise<responses.GetAppCatalogListingResourceVersionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#getAppCatalogListingResourceVersion.");
     const pathParams = {
       "{listingId}": getAppCatalogListingResourceVersionRequest.listingId,
       "{resourceVersion}": getAppCatalogListingResourceVersionRequest.resourceVersion
@@ -5045,6 +5170,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
   public async getBootVolumeAttachment(
     getBootVolumeAttachmentRequest: requests.GetBootVolumeAttachmentRequest
   ): Promise<responses.GetBootVolumeAttachmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getBootVolumeAttachment.");
     const pathParams = {
       "{bootVolumeAttachmentId}": getBootVolumeAttachmentRequest.bootVolumeAttachmentId
     };
@@ -5103,6 +5229,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
   public async getConsoleHistory(
     getConsoleHistoryRequest: requests.GetConsoleHistoryRequest
   ): Promise<responses.GetConsoleHistoryResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getConsoleHistory.");
     const pathParams = {
       "{instanceConsoleHistoryId}": getConsoleHistoryRequest.instanceConsoleHistoryId
     };
@@ -5161,6 +5288,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
   public async getConsoleHistoryContent(
     getConsoleHistoryContentRequest: requests.GetConsoleHistoryContentRequest
   ): Promise<responses.GetConsoleHistoryContentResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getConsoleHistoryContent.");
     const pathParams = {
       "{instanceConsoleHistoryId}": getConsoleHistoryContentRequest.instanceConsoleHistoryId
     };
@@ -5219,6 +5347,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
   public async getDedicatedVmHost(
     getDedicatedVmHostRequest: requests.GetDedicatedVmHostRequest
   ): Promise<responses.GetDedicatedVmHostResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getDedicatedVmHost.");
     const pathParams = {
       "{dedicatedVmHostId}": getDedicatedVmHostRequest.dedicatedVmHostId
     };
@@ -5276,6 +5405,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
   public async getImage(
     getImageRequest: requests.GetImageRequest
   ): Promise<responses.GetImageResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getImage.");
     const pathParams = {
       "{imageId}": getImageRequest.imageId
     };
@@ -5331,6 +5461,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
   public async getImageShapeCompatibilityEntry(
     getImageShapeCompatibilityEntryRequest: requests.GetImageShapeCompatibilityEntryRequest
   ): Promise<responses.GetImageShapeCompatibilityEntryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#getImageShapeCompatibilityEntry.");
     const pathParams = {
       "{imageId}": getImageShapeCompatibilityEntryRequest.imageId,
       "{shapeName}": getImageShapeCompatibilityEntryRequest.shapeName
@@ -5384,6 +5516,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
   public async getInstance(
     getInstanceRequest: requests.GetInstanceRequest
   ): Promise<responses.GetInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getInstance.");
     const pathParams = {
       "{instanceId}": getInstanceRequest.instanceId
     };
@@ -5439,6 +5572,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
   public async getInstanceConsoleConnection(
     getInstanceConsoleConnectionRequest: requests.GetInstanceConsoleConnectionRequest
   ): Promise<responses.GetInstanceConsoleConnectionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#getInstanceConsoleConnection.");
     const pathParams = {
       "{instanceConsoleConnectionId}":
         getInstanceConsoleConnectionRequest.instanceConsoleConnectionId
@@ -5491,6 +5626,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
   public async getVnicAttachment(
     getVnicAttachmentRequest: requests.GetVnicAttachmentRequest
   ): Promise<responses.GetVnicAttachmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getVnicAttachment.");
     const pathParams = {
       "{vnicAttachmentId}": getVnicAttachmentRequest.vnicAttachmentId
     };
@@ -5546,6 +5682,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
   public async getVolumeAttachment(
     getVolumeAttachmentRequest: requests.GetVolumeAttachmentRequest
   ): Promise<responses.GetVolumeAttachmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getVolumeAttachment.");
     const pathParams = {
       "{volumeAttachmentId}": getVolumeAttachmentRequest.volumeAttachmentId
     };
@@ -5603,6 +5740,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
   public async getWindowsInstanceInitialCredentials(
     getWindowsInstanceInitialCredentialsRequest: requests.GetWindowsInstanceInitialCredentialsRequest
   ): Promise<responses.GetWindowsInstanceInitialCredentialsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#getWindowsInstanceInitialCredentials.");
     const pathParams = {
       "{instanceId}": getWindowsInstanceInitialCredentialsRequest.instanceId
     };
@@ -5670,6 +5809,7 @@ For more information, see [Stopping and Starting an Instance](https://docs.cloud
   public async instanceAction(
     instanceActionRequest: requests.InstanceActionRequest
   ): Promise<responses.InstanceActionResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#instanceAction.");
     const pathParams = {
       "{instanceId}": instanceActionRequest.instanceId
     };
@@ -5761,6 +5901,7 @@ You can later add secondary VNICs to an instance. For more information, see
   public async launchInstance(
     launchInstanceRequest: requests.LaunchInstanceRequest
   ): Promise<responses.LaunchInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#launchInstance.");
     const pathParams = {};
 
     const queryParams = {
@@ -5828,6 +5969,8 @@ You can later add secondary VNICs to an instance. For more information, see
   public async listAppCatalogListingResourceVersions(
     listAppCatalogListingResourceVersionsRequest: requests.ListAppCatalogListingResourceVersionsRequest
   ): Promise<responses.ListAppCatalogListingResourceVersionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listAppCatalogListingResourceVersions.");
     const pathParams = {
       "{listingId}": listAppCatalogListingResourceVersionsRequest.listingId
     };
@@ -5917,6 +6060,7 @@ You can later add secondary VNICs to an instance. For more information, see
   public async listAppCatalogListings(
     listAppCatalogListingsRequest: requests.ListAppCatalogListingsRequest
   ): Promise<responses.ListAppCatalogListingsResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#listAppCatalogListings.");
     const pathParams = {};
 
     const queryParams = {
@@ -6002,6 +6146,8 @@ You can later add secondary VNICs to an instance. For more information, see
   public async listAppCatalogSubscriptions(
     listAppCatalogSubscriptionsRequest: requests.ListAppCatalogSubscriptionsRequest
   ): Promise<responses.ListAppCatalogSubscriptionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listAppCatalogSubscriptions.");
     const pathParams = {};
 
     const queryParams = {
@@ -6089,6 +6235,8 @@ You can later add secondary VNICs to an instance. For more information, see
   public async listBootVolumeAttachments(
     listBootVolumeAttachmentsRequest: requests.ListBootVolumeAttachmentsRequest
   ): Promise<responses.ListBootVolumeAttachmentsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listBootVolumeAttachments.");
     const pathParams = {};
 
     const queryParams = {
@@ -6175,6 +6323,7 @@ You can later add secondary VNICs to an instance. For more information, see
   public async listConsoleHistories(
     listConsoleHistoriesRequest: requests.ListConsoleHistoriesRequest
   ): Promise<responses.ListConsoleHistoriesResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#listConsoleHistories.");
     const pathParams = {};
 
     const queryParams = {
@@ -6264,6 +6413,8 @@ You can later add secondary VNICs to an instance. For more information, see
   public async listDedicatedVmHostInstanceShapes(
     listDedicatedVmHostInstanceShapesRequest: requests.ListDedicatedVmHostInstanceShapesRequest
   ): Promise<responses.ListDedicatedVmHostInstanceShapesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listDedicatedVmHostInstanceShapes.");
     const pathParams = {};
 
     const queryParams = {
@@ -6351,6 +6502,8 @@ You can later add secondary VNICs to an instance. For more information, see
   public async listDedicatedVmHostInstances(
     listDedicatedVmHostInstancesRequest: requests.ListDedicatedVmHostInstancesRequest
   ): Promise<responses.ListDedicatedVmHostInstancesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listDedicatedVmHostInstances.");
     const pathParams = {
       "{dedicatedVmHostId}": listDedicatedVmHostInstancesRequest.dedicatedVmHostId
     };
@@ -6441,6 +6594,8 @@ You can later add secondary VNICs to an instance. For more information, see
   public async listDedicatedVmHostShapes(
     listDedicatedVmHostShapesRequest: requests.ListDedicatedVmHostShapesRequest
   ): Promise<responses.ListDedicatedVmHostShapesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listDedicatedVmHostShapes.");
     const pathParams = {};
 
     const queryParams = {
@@ -6531,6 +6686,7 @@ You can limit the list by specifying a dedicated virtual machine host display na
   public async listDedicatedVmHosts(
     listDedicatedVmHostsRequest: requests.ListDedicatedVmHostsRequest
   ): Promise<responses.ListDedicatedVmHostsResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#listDedicatedVmHosts.");
     const pathParams = {};
 
     const queryParams = {
@@ -6621,6 +6777,8 @@ You can limit the list by specifying a dedicated virtual machine host display na
   public async listImageShapeCompatibilityEntries(
     listImageShapeCompatibilityEntriesRequest: requests.ListImageShapeCompatibilityEntriesRequest
   ): Promise<responses.ListImageShapeCompatibilityEntriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listImageShapeCompatibilityEntries.");
     const pathParams = {
       "{imageId}": listImageShapeCompatibilityEntriesRequest.imageId
     };
@@ -6713,6 +6871,7 @@ The order of images returned may change when new images are released.
   public async listImages(
     listImagesRequest: requests.ListImagesRequest
   ): Promise<responses.ListImagesResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#listImages.");
     const pathParams = {};
 
     const queryParams = {
@@ -6803,6 +6962,8 @@ For more information about console access, see [Accessing the Console](https://d
   public async listInstanceConsoleConnections(
     listInstanceConsoleConnectionsRequest: requests.ListInstanceConsoleConnectionsRequest
   ): Promise<responses.ListInstanceConsoleConnectionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listInstanceConsoleConnections.");
     const pathParams = {};
 
     const queryParams = {
@@ -6886,6 +7047,7 @@ For more information about console access, see [Accessing the Console](https://d
   public async listInstanceDevices(
     listInstanceDevicesRequest: requests.ListInstanceDevicesRequest
   ): Promise<responses.ListInstanceDevicesResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#listInstanceDevices.");
     const pathParams = {
       "{instanceId}": listInstanceDevicesRequest.instanceId
     };
@@ -6978,6 +7140,7 @@ For more information about console access, see [Accessing the Console](https://d
   public async listInstances(
     listInstancesRequest: requests.ListInstancesRequest
   ): Promise<responses.ListInstancesResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#listInstances.");
     const pathParams = {};
 
     const queryParams = {
@@ -7067,6 +7230,7 @@ For more information about console access, see [Accessing the Console](https://d
   public async listShapes(
     listShapesRequest: requests.ListShapesRequest
   ): Promise<responses.ListShapesResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#listShapes.");
     const pathParams = {};
 
     const queryParams = {
@@ -7152,6 +7316,7 @@ For more information about console access, see [Accessing the Console](https://d
   public async listVnicAttachments(
     listVnicAttachmentsRequest: requests.ListVnicAttachmentsRequest
   ): Promise<responses.ListVnicAttachmentsResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#listVnicAttachments.");
     const pathParams = {};
 
     const queryParams = {
@@ -7242,6 +7407,7 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
   public async listVolumeAttachments(
     listVolumeAttachmentsRequest: requests.ListVolumeAttachmentsRequest
   ): Promise<responses.ListVolumeAttachmentsResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#listVolumeAttachments.");
     const pathParams = {};
 
     const queryParams = {
@@ -7327,6 +7493,8 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
   public async removeImageShapeCompatibilityEntry(
     removeImageShapeCompatibilityEntryRequest: requests.RemoveImageShapeCompatibilityEntryRequest
   ): Promise<responses.RemoveImageShapeCompatibilityEntryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#removeImageShapeCompatibilityEntry.");
     const pathParams = {
       "{imageId}": removeImageShapeCompatibilityEntryRequest.imageId,
       "{shapeName}": removeImageShapeCompatibilityEntryRequest.shapeName
@@ -7383,6 +7551,7 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
   public async terminateInstance(
     terminateInstanceRequest: requests.TerminateInstanceRequest
   ): Promise<responses.TerminateInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#terminateInstance.");
     const pathParams = {
       "{instanceId}": terminateInstanceRequest.instanceId
     };
@@ -7434,6 +7603,7 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
   public async updateConsoleHistory(
     updateConsoleHistoryRequest: requests.UpdateConsoleHistoryRequest
   ): Promise<responses.UpdateConsoleHistoryResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#updateConsoleHistory.");
     const pathParams = {
       "{instanceConsoleHistoryId}": updateConsoleHistoryRequest.instanceConsoleHistoryId
     };
@@ -7498,6 +7668,7 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
   public async updateDedicatedVmHost(
     updateDedicatedVmHostRequest: requests.UpdateDedicatedVmHostRequest
   ): Promise<responses.UpdateDedicatedVmHostResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#updateDedicatedVmHost.");
     const pathParams = {
       "{dedicatedVmHostId}": updateDedicatedVmHostRequest.dedicatedVmHostId
     };
@@ -7562,6 +7733,7 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
   public async updateImage(
     updateImageRequest: requests.UpdateImageRequest
   ): Promise<responses.UpdateImageResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#updateImage.");
     const pathParams = {
       "{imageId}": updateImageRequest.imageId
     };
@@ -7632,6 +7804,7 @@ The OCID of the instance remains the same.
   public async updateInstance(
     updateInstanceRequest: requests.UpdateInstanceRequest
   ): Promise<responses.UpdateInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#updateInstance.");
     const pathParams = {
       "{instanceId}": updateInstanceRequest.instanceId
     };
@@ -7725,6 +7898,11 @@ export class ComputeManagementClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20160918";
+    if (this.logger) this.logger.info(`ComputeManagementClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -7791,6 +7969,8 @@ export class ComputeManagementClient {
   public async attachLoadBalancer(
     attachLoadBalancerRequest: requests.AttachLoadBalancerRequest
   ): Promise<responses.AttachLoadBalancerResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#attachLoadBalancer.");
     const pathParams = {
       "{instancePoolId}": attachLoadBalancerRequest.instancePoolId
     };
@@ -7860,6 +8040,10 @@ When you move a cluster network to a different compartment, associated resources
   public async changeClusterNetworkCompartment(
     changeClusterNetworkCompartmentRequest: requests.ChangeClusterNetworkCompartmentRequest
   ): Promise<responses.ChangeClusterNetworkCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeManagementClient#changeClusterNetworkCompartment."
+      );
     const pathParams = {
       "{clusterNetworkId}": changeClusterNetworkCompartmentRequest.clusterNetworkId
     };
@@ -7934,6 +8118,10 @@ When you move an instance configuration to a different compartment, associated r
   public async changeInstanceConfigurationCompartment(
     changeInstanceConfigurationCompartmentRequest: requests.ChangeInstanceConfigurationCompartmentRequest
   ): Promise<responses.ChangeInstanceConfigurationCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeManagementClient#changeInstanceConfigurationCompartment."
+      );
     const pathParams = {
       "{instanceConfigurationId}":
         changeInstanceConfigurationCompartmentRequest.instanceConfigurationId
@@ -8002,6 +8190,8 @@ When you move an instance pool to a different compartment, associated resources 
   public async changeInstancePoolCompartment(
     changeInstancePoolCompartmentRequest: requests.ChangeInstancePoolCompartmentRequest
   ): Promise<responses.ChangeInstancePoolCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#changeInstancePoolCompartment.");
     const pathParams = {
       "{instancePoolId}": changeInstancePoolCompartmentRequest.instancePoolId
     };
@@ -8065,6 +8255,8 @@ When you move an instance pool to a different compartment, associated resources 
   public async createClusterNetwork(
     createClusterNetworkRequest: requests.CreateClusterNetworkRequest
   ): Promise<responses.CreateClusterNetworkResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#createClusterNetwork.");
     const pathParams = {};
 
     const queryParams = {};
@@ -8132,6 +8324,8 @@ When you move an instance pool to a different compartment, associated resources 
   public async createInstanceConfiguration(
     createInstanceConfigurationRequest: requests.CreateInstanceConfigurationRequest
   ): Promise<responses.CreateInstanceConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#createInstanceConfiguration.");
     const pathParams = {};
 
     const queryParams = {};
@@ -8192,6 +8386,8 @@ When you move an instance pool to a different compartment, associated resources 
   public async createInstancePool(
     createInstancePoolRequest: requests.CreateInstancePoolRequest
   ): Promise<responses.CreateInstancePoolResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#createInstancePool.");
     const pathParams = {};
 
     const queryParams = {};
@@ -8252,6 +8448,8 @@ When you move an instance pool to a different compartment, associated resources 
   public async deleteInstanceConfiguration(
     deleteInstanceConfigurationRequest: requests.DeleteInstanceConfigurationRequest
   ): Promise<responses.DeleteInstanceConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#deleteInstanceConfiguration.");
     const pathParams = {
       "{instanceConfigurationId}": deleteInstanceConfigurationRequest.instanceConfigurationId
     };
@@ -8302,6 +8500,8 @@ When you move an instance pool to a different compartment, associated resources 
   public async detachLoadBalancer(
     detachLoadBalancerRequest: requests.DetachLoadBalancerRequest
   ): Promise<responses.DetachLoadBalancerResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#detachLoadBalancer.");
     const pathParams = {
       "{instancePoolId}": detachLoadBalancerRequest.instancePoolId
     };
@@ -8365,6 +8565,8 @@ When you move an instance pool to a different compartment, associated resources 
   public async getClusterNetwork(
     getClusterNetworkRequest: requests.GetClusterNetworkRequest
   ): Promise<responses.GetClusterNetworkResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#getClusterNetwork.");
     const pathParams = {
       "{clusterNetworkId}": getClusterNetworkRequest.clusterNetworkId
     };
@@ -8420,6 +8622,8 @@ When you move an instance pool to a different compartment, associated resources 
   public async getInstanceConfiguration(
     getInstanceConfigurationRequest: requests.GetInstanceConfigurationRequest
   ): Promise<responses.GetInstanceConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#getInstanceConfiguration.");
     const pathParams = {
       "{instanceConfigurationId}": getInstanceConfigurationRequest.instanceConfigurationId
     };
@@ -8475,6 +8679,8 @@ When you move an instance pool to a different compartment, associated resources 
   public async getInstancePool(
     getInstancePoolRequest: requests.GetInstancePoolRequest
   ): Promise<responses.GetInstancePoolResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#getInstancePool.");
     const pathParams = {
       "{instancePoolId}": getInstancePoolRequest.instancePoolId
     };
@@ -8531,6 +8737,10 @@ When you move an instance pool to a different compartment, associated resources 
   public async getInstancePoolLoadBalancerAttachment(
     getInstancePoolLoadBalancerAttachmentRequest: requests.GetInstancePoolLoadBalancerAttachmentRequest
   ): Promise<responses.GetInstancePoolLoadBalancerAttachmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeManagementClient#getInstancePoolLoadBalancerAttachment."
+      );
     const pathParams = {
       "{instancePoolId}": getInstancePoolLoadBalancerAttachmentRequest.instancePoolId,
       "{instancePoolLoadBalancerAttachmentId}":
@@ -8591,6 +8801,8 @@ If the instance configuration does not include all of the parameters that are
   public async launchInstanceConfiguration(
     launchInstanceConfigurationRequest: requests.LaunchInstanceConfigurationRequest
   ): Promise<responses.LaunchInstanceConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#launchInstanceConfiguration.");
     const pathParams = {
       "{instanceConfigurationId}": launchInstanceConfigurationRequest.instanceConfigurationId
     };
@@ -8658,6 +8870,8 @@ If the instance configuration does not include all of the parameters that are
   public async listClusterNetworkInstances(
     listClusterNetworkInstancesRequest: requests.ListClusterNetworkInstancesRequest
   ): Promise<responses.ListClusterNetworkInstancesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#listClusterNetworkInstances.");
     const pathParams = {
       "{clusterNetworkId}": listClusterNetworkInstancesRequest.clusterNetworkId
     };
@@ -8745,6 +8959,8 @@ If the instance configuration does not include all of the parameters that are
   public async listClusterNetworks(
     listClusterNetworksRequest: requests.ListClusterNetworksRequest
   ): Promise<responses.ListClusterNetworksResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#listClusterNetworks.");
     const pathParams = {};
 
     const queryParams = {
@@ -8832,6 +9048,8 @@ If the instance configuration does not include all of the parameters that are
   public async listInstanceConfigurations(
     listInstanceConfigurationsRequest: requests.ListInstanceConfigurationsRequest
   ): Promise<responses.ListInstanceConfigurationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#listInstanceConfigurations.");
     const pathParams = {};
 
     const queryParams = {
@@ -8916,6 +9134,8 @@ If the instance configuration does not include all of the parameters that are
   public async listInstancePoolInstances(
     listInstancePoolInstancesRequest: requests.ListInstancePoolInstancesRequest
   ): Promise<responses.ListInstancePoolInstancesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#listInstancePoolInstances.");
     const pathParams = {
       "{instancePoolId}": listInstancePoolInstancesRequest.instancePoolId
     };
@@ -9003,6 +9223,8 @@ If the instance configuration does not include all of the parameters that are
   public async listInstancePools(
     listInstancePoolsRequest: requests.ListInstancePoolsRequest
   ): Promise<responses.ListInstancePoolsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#listInstancePools.");
     const pathParams = {};
 
     const queryParams = {
@@ -9091,6 +9313,8 @@ If the instance configuration does not include all of the parameters that are
   public async resetInstancePool(
     resetInstancePoolRequest: requests.ResetInstancePoolRequest
   ): Promise<responses.ResetInstancePoolResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#resetInstancePool.");
     const pathParams = {
       "{instancePoolId}": resetInstancePoolRequest.instancePoolId
     };
@@ -9151,6 +9375,8 @@ If the instance configuration does not include all of the parameters that are
   public async softresetInstancePool(
     softresetInstancePoolRequest: requests.SoftresetInstancePoolRequest
   ): Promise<responses.SoftresetInstancePoolResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#softresetInstancePool.");
     const pathParams = {
       "{instancePoolId}": softresetInstancePoolRequest.instancePoolId
     };
@@ -9211,6 +9437,8 @@ If the instance configuration does not include all of the parameters that are
   public async startInstancePool(
     startInstancePoolRequest: requests.StartInstancePoolRequest
   ): Promise<responses.StartInstancePoolResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#startInstancePool.");
     const pathParams = {
       "{instancePoolId}": startInstancePoolRequest.instancePoolId
     };
@@ -9271,6 +9499,8 @@ If the instance configuration does not include all of the parameters that are
   public async stopInstancePool(
     stopInstancePoolRequest: requests.StopInstancePoolRequest
   ): Promise<responses.StopInstancePoolResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#stopInstancePool.");
     const pathParams = {
       "{instancePoolId}": stopInstancePoolRequest.instancePoolId
     };
@@ -9333,6 +9563,8 @@ When you delete a cluster network, all of its resources are permanently deleted,
   public async terminateClusterNetwork(
     terminateClusterNetworkRequest: requests.TerminateClusterNetworkRequest
   ): Promise<responses.TerminateClusterNetworkResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#terminateClusterNetwork.");
     const pathParams = {
       "{clusterNetworkId}": terminateClusterNetworkRequest.clusterNetworkId
     };
@@ -9387,6 +9619,8 @@ When you delete a cluster network, all of its resources are permanently deleted,
   public async terminateInstancePool(
     terminateInstancePoolRequest: requests.TerminateInstancePoolRequest
   ): Promise<responses.TerminateInstancePoolResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#terminateInstancePool.");
     const pathParams = {
       "{instancePoolId}": terminateInstancePoolRequest.instancePoolId
     };
@@ -9437,6 +9671,8 @@ When you delete a cluster network, all of its resources are permanently deleted,
   public async updateClusterNetwork(
     updateClusterNetworkRequest: requests.UpdateClusterNetworkRequest
   ): Promise<responses.UpdateClusterNetworkResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#updateClusterNetwork.");
     const pathParams = {
       "{clusterNetworkId}": updateClusterNetworkRequest.clusterNetworkId
     };
@@ -9500,6 +9736,8 @@ When you delete a cluster network, all of its resources are permanently deleted,
   public async updateInstanceConfiguration(
     updateInstanceConfigurationRequest: requests.UpdateInstanceConfigurationRequest
   ): Promise<responses.UpdateInstanceConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#updateInstanceConfiguration.");
     const pathParams = {
       "{instanceConfigurationId}": updateInstanceConfigurationRequest.instanceConfigurationId
     };
@@ -9566,6 +9804,8 @@ The OCID of the instance pool remains the same.
   public async updateInstancePool(
     updateInstancePoolRequest: requests.UpdateInstancePoolRequest
   ): Promise<responses.UpdateInstancePoolResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#updateInstancePool.");
     const pathParams = {
       "{instancePoolId}": updateInstancePoolRequest.instancePoolId
     };
@@ -9654,6 +9894,11 @@ export class VirtualNetworkClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20160918";
+    if (this.logger) this.logger.info(`VirtualNetworkClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -9720,6 +9965,8 @@ export class VirtualNetworkClient {
   public async acceptLocalPeeringToken(
     acceptLocalPeeringTokenRequest: requests.AcceptLocalPeeringTokenRequest
   ): Promise<responses.AcceptLocalPeeringTokenResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#acceptLocalPeeringToken.");
     const pathParams = {
       "{localPeeringConnectionId}": acceptLocalPeeringTokenRequest.localPeeringConnectionId
     };
@@ -9773,6 +10020,10 @@ export class VirtualNetworkClient {
   public async addNetworkSecurityGroupSecurityRules(
     addNetworkSecurityGroupSecurityRulesRequest: requests.AddNetworkSecurityGroupSecurityRulesRequest
   ): Promise<responses.AddNetworkSecurityGroupSecurityRulesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#addNetworkSecurityGroupSecurityRules."
+      );
     const pathParams = {
       "{networkSecurityGroupId}": addNetworkSecurityGroupSecurityRulesRequest.networkSecurityGroupId
     };
@@ -9838,6 +10089,7 @@ export class VirtualNetworkClient {
   public async attachServiceId(
     attachServiceIdRequest: requests.AttachServiceIdRequest
   ): Promise<responses.AttachServiceIdResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#attachServiceId.");
     const pathParams = {
       "{serviceGatewayId}": attachServiceIdRequest.serviceGatewayId
     };
@@ -9899,6 +10151,10 @@ export class VirtualNetworkClient {
   public async bulkAddVirtualCircuitPublicPrefixes(
     bulkAddVirtualCircuitPublicPrefixesRequest: requests.BulkAddVirtualCircuitPublicPrefixesRequest
   ): Promise<responses.BulkAddVirtualCircuitPublicPrefixesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#bulkAddVirtualCircuitPublicPrefixes."
+      );
     const pathParams = {
       "{virtualCircuitId}": bulkAddVirtualCircuitPublicPrefixesRequest.virtualCircuitId
     };
@@ -9949,6 +10205,10 @@ export class VirtualNetworkClient {
   public async bulkDeleteVirtualCircuitPublicPrefixes(
     bulkDeleteVirtualCircuitPublicPrefixesRequest: requests.BulkDeleteVirtualCircuitPublicPrefixesRequest
   ): Promise<responses.BulkDeleteVirtualCircuitPublicPrefixesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#bulkDeleteVirtualCircuitPublicPrefixes."
+      );
     const pathParams = {
       "{virtualCircuitId}": bulkDeleteVirtualCircuitPublicPrefixesRequest.virtualCircuitId
     };
@@ -9998,6 +10258,8 @@ export class VirtualNetworkClient {
   public async changeCpeCompartment(
     changeCpeCompartmentRequest: requests.ChangeCpeCompartmentRequest
   ): Promise<responses.ChangeCpeCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeCpeCompartment.");
     const pathParams = {
       "{cpeId}": changeCpeCompartmentRequest.cpeId
     };
@@ -10061,6 +10323,8 @@ export class VirtualNetworkClient {
   public async changeCrossConnectCompartment(
     changeCrossConnectCompartmentRequest: requests.ChangeCrossConnectCompartmentRequest
   ): Promise<responses.ChangeCrossConnectCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeCrossConnectCompartment.");
     const pathParams = {
       "{crossConnectId}": changeCrossConnectCompartmentRequest.crossConnectId
     };
@@ -10124,6 +10388,10 @@ export class VirtualNetworkClient {
   public async changeCrossConnectGroupCompartment(
     changeCrossConnectGroupCompartmentRequest: requests.ChangeCrossConnectGroupCompartmentRequest
   ): Promise<responses.ChangeCrossConnectGroupCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#changeCrossConnectGroupCompartment."
+      );
     const pathParams = {
       "{crossConnectGroupId}": changeCrossConnectGroupCompartmentRequest.crossConnectGroupId
     };
@@ -10187,6 +10455,8 @@ export class VirtualNetworkClient {
   public async changeDhcpOptionsCompartment(
     changeDhcpOptionsCompartmentRequest: requests.ChangeDhcpOptionsCompartmentRequest
   ): Promise<responses.ChangeDhcpOptionsCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeDhcpOptionsCompartment.");
     const pathParams = {
       "{dhcpId}": changeDhcpOptionsCompartmentRequest.dhcpId
     };
@@ -10250,6 +10520,8 @@ export class VirtualNetworkClient {
   public async changeDrgCompartment(
     changeDrgCompartmentRequest: requests.ChangeDrgCompartmentRequest
   ): Promise<responses.ChangeDrgCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeDrgCompartment.");
     const pathParams = {
       "{drgId}": changeDrgCompartmentRequest.drgId
     };
@@ -10318,6 +10590,8 @@ export class VirtualNetworkClient {
   public async changeIPSecConnectionCompartment(
     changeIPSecConnectionCompartmentRequest: requests.ChangeIPSecConnectionCompartmentRequest
   ): Promise<responses.ChangeIPSecConnectionCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeIPSecConnectionCompartment.");
     const pathParams = {
       "{ipscId}": changeIPSecConnectionCompartmentRequest.ipscId
     };
@@ -10381,6 +10655,8 @@ export class VirtualNetworkClient {
   public async changeInternetGatewayCompartment(
     changeInternetGatewayCompartmentRequest: requests.ChangeInternetGatewayCompartmentRequest
   ): Promise<responses.ChangeInternetGatewayCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeInternetGatewayCompartment.");
     const pathParams = {
       "{igId}": changeInternetGatewayCompartmentRequest.igId
     };
@@ -10444,6 +10720,10 @@ export class VirtualNetworkClient {
   public async changeLocalPeeringGatewayCompartment(
     changeLocalPeeringGatewayCompartmentRequest: requests.ChangeLocalPeeringGatewayCompartmentRequest
   ): Promise<responses.ChangeLocalPeeringGatewayCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#changeLocalPeeringGatewayCompartment."
+      );
     const pathParams = {
       "{localPeeringGatewayId}": changeLocalPeeringGatewayCompartmentRequest.localPeeringGatewayId
     };
@@ -10507,6 +10787,8 @@ export class VirtualNetworkClient {
   public async changeNatGatewayCompartment(
     changeNatGatewayCompartmentRequest: requests.ChangeNatGatewayCompartmentRequest
   ): Promise<responses.ChangeNatGatewayCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeNatGatewayCompartment.");
     const pathParams = {
       "{natGatewayId}": changeNatGatewayCompartmentRequest.natGatewayId
     };
@@ -10569,6 +10851,10 @@ export class VirtualNetworkClient {
   public async changeNetworkSecurityGroupCompartment(
     changeNetworkSecurityGroupCompartmentRequest: requests.ChangeNetworkSecurityGroupCompartmentRequest
   ): Promise<responses.ChangeNetworkSecurityGroupCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#changeNetworkSecurityGroupCompartment."
+      );
     const pathParams = {
       "{networkSecurityGroupId}":
         changeNetworkSecurityGroupCompartmentRequest.networkSecurityGroupId
@@ -10636,6 +10922,8 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   public async changePublicIpCompartment(
     changePublicIpCompartmentRequest: requests.ChangePublicIpCompartmentRequest
   ): Promise<responses.ChangePublicIpCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changePublicIpCompartment.");
     const pathParams = {
       "{publicIpId}": changePublicIpCompartmentRequest.publicIpId
     };
@@ -10699,6 +10987,10 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   public async changeRemotePeeringConnectionCompartment(
     changeRemotePeeringConnectionCompartmentRequest: requests.ChangeRemotePeeringConnectionCompartmentRequest
   ): Promise<responses.ChangeRemotePeeringConnectionCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#changeRemotePeeringConnectionCompartment."
+      );
     const pathParams = {
       "{remotePeeringConnectionId}":
         changeRemotePeeringConnectionCompartmentRequest.remotePeeringConnectionId
@@ -10763,6 +11055,8 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   public async changeRouteTableCompartment(
     changeRouteTableCompartmentRequest: requests.ChangeRouteTableCompartmentRequest
   ): Promise<responses.ChangeRouteTableCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeRouteTableCompartment.");
     const pathParams = {
       "{rtId}": changeRouteTableCompartmentRequest.rtId
     };
@@ -10826,6 +11120,8 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   public async changeSecurityListCompartment(
     changeSecurityListCompartmentRequest: requests.ChangeSecurityListCompartmentRequest
   ): Promise<responses.ChangeSecurityListCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeSecurityListCompartment.");
     const pathParams = {
       "{securityListId}": changeSecurityListCompartmentRequest.securityListId
     };
@@ -10889,6 +11185,8 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   public async changeServiceGatewayCompartment(
     changeServiceGatewayCompartmentRequest: requests.ChangeServiceGatewayCompartmentRequest
   ): Promise<responses.ChangeServiceGatewayCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeServiceGatewayCompartment.");
     const pathParams = {
       "{serviceGatewayId}": changeServiceGatewayCompartmentRequest.serviceGatewayId
     };
@@ -10952,6 +11250,8 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   public async changeSubnetCompartment(
     changeSubnetCompartmentRequest: requests.ChangeSubnetCompartmentRequest
   ): Promise<responses.ChangeSubnetCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeSubnetCompartment.");
     const pathParams = {
       "{subnetId}": changeSubnetCompartmentRequest.subnetId
     };
@@ -11020,6 +11320,8 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   public async changeVcnCompartment(
     changeVcnCompartmentRequest: requests.ChangeVcnCompartmentRequest
   ): Promise<responses.ChangeVcnCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeVcnCompartment.");
     const pathParams = {
       "{vcnId}": changeVcnCompartmentRequest.vcnId
     };
@@ -11088,6 +11390,8 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   public async changeVirtualCircuitCompartment(
     changeVirtualCircuitCompartmentRequest: requests.ChangeVirtualCircuitCompartmentRequest
   ): Promise<responses.ChangeVirtualCircuitCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeVirtualCircuitCompartment.");
     const pathParams = {
       "{virtualCircuitId}": changeVirtualCircuitCompartmentRequest.virtualCircuitId
     };
@@ -11149,6 +11453,8 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   public async connectLocalPeeringConnections(
     connectLocalPeeringConnectionsRequest: requests.ConnectLocalPeeringConnectionsRequest
   ): Promise<responses.ConnectLocalPeeringConnectionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#connectLocalPeeringConnections.");
     const pathParams = {
       "{localPeeringConnectionId}": connectLocalPeeringConnectionsRequest.localPeeringConnectionId
     };
@@ -11211,6 +11517,8 @@ This operation must be called by the VCN administrator who is designated as
   public async connectLocalPeeringGateways(
     connectLocalPeeringGatewaysRequest: requests.ConnectLocalPeeringGatewaysRequest
   ): Promise<responses.ConnectLocalPeeringGatewaysResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#connectLocalPeeringGateways.");
     const pathParams = {
       "{localPeeringGatewayId}": connectLocalPeeringGatewaysRequest.localPeeringGatewayId
     };
@@ -11273,6 +11581,8 @@ This operation must be called by the VCN administrator who is designated as
   public async connectRemotePeeringConnections(
     connectRemotePeeringConnectionsRequest: requests.ConnectRemotePeeringConnectionsRequest
   ): Promise<responses.ConnectRemotePeeringConnectionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#connectRemotePeeringConnections.");
     const pathParams = {
       "{remotePeeringConnectionId}":
         connectRemotePeeringConnectionsRequest.remotePeeringConnectionId
@@ -11341,6 +11651,7 @@ You may optionally specify a *display name* for the CPE, otherwise a default is 
   public async createCpe(
     createCpeRequest: requests.CreateCpeRequest
   ): Promise<responses.CreateCpeResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createCpe.");
     const pathParams = {};
 
     const queryParams = {};
@@ -11420,6 +11731,8 @@ You may optionally specify a *display name* for the cross-connect.
   public async createCrossConnect(
     createCrossConnectRequest: requests.CreateCrossConnectRequest
   ): Promise<responses.CreateCrossConnectResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createCrossConnect.");
     const pathParams = {};
 
     const queryParams = {};
@@ -11495,6 +11808,8 @@ You may optionally specify a *display name* for the cross-connect group.
   public async createCrossConnectGroup(
     createCrossConnectGroupRequest: requests.CreateCrossConnectGroupRequest
   ): Promise<responses.CreateCrossConnectGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createCrossConnectGroup.");
     const pathParams = {};
 
     const queryParams = {};
@@ -11567,6 +11882,7 @@ You may optionally specify a *display name* for the set of DHCP options, otherwi
   public async createDhcpOptions(
     createDhcpOptionsRequest: requests.CreateDhcpOptionsRequest
   ): Promise<responses.CreateDhcpOptionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createDhcpOptions.");
     const pathParams = {};
 
     const queryParams = {};
@@ -11639,6 +11955,7 @@ You may optionally specify a *display name* for the DRG, otherwise a default is 
   public async createDrg(
     createDrgRequest: requests.CreateDrgRequest
   ): Promise<responses.CreateDrgResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createDrg.");
     const pathParams = {};
 
     const queryParams = {};
@@ -11710,6 +12027,8 @@ For the purposes of access control, the DRG attachment is automatically placed i
   public async createDrgAttachment(
     createDrgAttachmentRequest: requests.CreateDrgAttachmentRequest
   ): Promise<responses.CreateDrgAttachmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createDrgAttachment.");
     const pathParams = {};
 
     const queryParams = {};
@@ -11771,6 +12090,8 @@ For the purposes of access control, the DRG attachment is automatically placed i
   public async createFlowLogConfig(
     createFlowLogConfigRequest: requests.CreateFlowLogConfigRequest
   ): Promise<responses.CreateFlowLogConfigResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createFlowLogConfig.");
     const pathParams = {};
 
     const queryParams = {};
@@ -11835,6 +12156,8 @@ For the purposes of access control, the DRG attachment is automatically placed i
   public async createFlowLogConfigAttachment(
     createFlowLogConfigAttachmentRequest: requests.CreateFlowLogConfigAttachmentRequest
   ): Promise<responses.CreateFlowLogConfigAttachmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createFlowLogConfigAttachment.");
     const pathParams = {};
 
     const queryParams = {};
@@ -11924,6 +12247,8 @@ For each tunnel, you need the IP address of Oracle's VPN headend and the shared 
   public async createIPSecConnection(
     createIPSecConnectionRequest: requests.CreateIPSecConnectionRequest
   ): Promise<responses.CreateIPSecConnectionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createIPSecConnection.");
     const pathParams = {};
 
     const queryParams = {};
@@ -12005,6 +12330,8 @@ You must specify whether the internet gateway is enabled when you create it. If 
   public async createInternetGateway(
     createInternetGatewayRequest: requests.CreateInternetGatewayRequest
   ): Promise<responses.CreateInternetGatewayResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createInternetGateway.");
     const pathParams = {};
 
     const queryParams = {};
@@ -12066,6 +12393,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
   public async createIpv6(
     createIpv6Request: requests.CreateIpv6Request
   ): Promise<responses.CreateIpv6Response> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createIpv6.");
     const pathParams = {};
 
     const queryParams = {};
@@ -12128,6 +12456,8 @@ You must specify whether the internet gateway is enabled when you create it. If 
   public async createLocalPeeringConnection(
     createLocalPeeringConnectionRequest: requests.CreateLocalPeeringConnectionRequest
   ): Promise<responses.CreateLocalPeeringConnectionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createLocalPeeringConnection.");
     const pathParams = {};
 
     const queryParams = {};
@@ -12189,6 +12519,8 @@ You must specify whether the internet gateway is enabled when you create it. If 
   public async createLocalPeeringGateway(
     createLocalPeeringGatewayRequest: requests.CreateLocalPeeringGatewayRequest
   ): Promise<responses.CreateLocalPeeringGatewayResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createLocalPeeringGateway.");
     const pathParams = {};
 
     const queryParams = {};
@@ -12251,6 +12583,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
   public async createNatGateway(
     createNatGatewayRequest: requests.CreateNatGatewayRequest
   ): Promise<responses.CreateNatGatewayResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createNatGateway.");
     const pathParams = {};
 
     const queryParams = {};
@@ -12312,6 +12645,8 @@ You must specify whether the internet gateway is enabled when you create it. If 
   public async createNetworkSecurityGroup(
     createNetworkSecurityGroupRequest: requests.CreateNetworkSecurityGroupRequest
   ): Promise<responses.CreateNetworkSecurityGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createNetworkSecurityGroup.");
     const pathParams = {};
 
     const queryParams = {};
@@ -12375,6 +12710,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
   public async createPrivateIp(
     createPrivateIpRequest: requests.CreatePrivateIpRequest
   ): Promise<responses.CreatePrivateIpResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createPrivateIp.");
     const pathParams = {};
 
     const queryParams = {};
@@ -12456,6 +12792,7 @@ Also, for reserved public IPs, the optional assignment part of this operation is
   public async createPublicIp(
     createPublicIpRequest: requests.CreatePublicIpRequest
   ): Promise<responses.CreatePublicIpResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createPublicIp.");
     const pathParams = {};
 
     const queryParams = {};
@@ -12517,6 +12854,8 @@ Also, for reserved public IPs, the optional assignment part of this operation is
   public async createRemotePeeringConnection(
     createRemotePeeringConnectionRequest: requests.CreateRemotePeeringConnectionRequest
   ): Promise<responses.CreateRemotePeeringConnectionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createRemotePeeringConnection.");
     const pathParams = {};
 
     const queryParams = {};
@@ -12592,6 +12931,7 @@ You may optionally specify a *display name* for the route table, otherwise a def
   public async createRouteTable(
     createRouteTableRequest: requests.CreateRouteTableRequest
   ): Promise<responses.CreateRouteTableResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createRouteTable.");
     const pathParams = {};
 
     const queryParams = {};
@@ -12666,6 +13006,8 @@ You may optionally specify a *display name* for the security list, otherwise a d
   public async createSecurityList(
     createSecurityListRequest: requests.CreateSecurityListRequest
   ): Promise<responses.CreateSecurityListResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createSecurityList.");
     const pathParams = {};
 
     const queryParams = {};
@@ -12735,6 +13077,8 @@ You may optionally specify a *display name* for the service gateway, otherwise a
   public async createServiceGateway(
     createServiceGatewayRequest: requests.CreateServiceGatewayRequest
   ): Promise<responses.CreateServiceGatewayResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createServiceGateway.");
     const pathParams = {};
 
     const queryParams = {};
@@ -12821,6 +13165,7 @@ You can also add a DNS label for the subnet, which is required if you want the I
   public async createSubnet(
     createSubnetRequest: requests.CreateSubnetRequest
   ): Promise<responses.CreateSubnetResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createSubnet.");
     const pathParams = {};
 
     const queryParams = {};
@@ -12910,6 +13255,7 @@ The VCN and subnets you create are not accessible until you attach an internet g
   public async createVcn(
     createVcnRequest: requests.CreateVcnRequest
   ): Promise<responses.CreateVcnResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createVcn.");
     const pathParams = {};
 
     const queryParams = {};
@@ -12991,6 +13337,8 @@ You may optionally specify a *display name* for the virtual circuit.
   public async createVirtualCircuit(
     createVirtualCircuitRequest: requests.CreateVirtualCircuitRequest
   ): Promise<responses.CreateVirtualCircuitResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createVirtualCircuit.");
     const pathParams = {};
 
     const queryParams = {};
@@ -13054,6 +13402,7 @@ You may optionally specify a *display name* for the virtual circuit.
   public async deleteCpe(
     deleteCpeRequest: requests.DeleteCpeRequest
   ): Promise<responses.DeleteCpeResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteCpe.");
     const pathParams = {
       "{cpeId}": deleteCpeRequest.cpeId
     };
@@ -13105,6 +13454,8 @@ You may optionally specify a *display name* for the virtual circuit.
   public async deleteCrossConnect(
     deleteCrossConnectRequest: requests.DeleteCrossConnectRequest
   ): Promise<responses.DeleteCrossConnectResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteCrossConnect.");
     const pathParams = {
       "{crossConnectId}": deleteCrossConnectRequest.crossConnectId
     };
@@ -13157,6 +13508,8 @@ You may optionally specify a *display name* for the virtual circuit.
   public async deleteCrossConnectGroup(
     deleteCrossConnectGroupRequest: requests.DeleteCrossConnectGroupRequest
   ): Promise<responses.DeleteCrossConnectGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteCrossConnectGroup.");
     const pathParams = {
       "{crossConnectGroupId}": deleteCrossConnectGroupRequest.crossConnectGroupId
     };
@@ -13211,6 +13564,7 @@ This is an asynchronous operation. The state of the set of options will switch t
   public async deleteDhcpOptions(
     deleteDhcpOptionsRequest: requests.DeleteDhcpOptionsRequest
   ): Promise<responses.DeleteDhcpOptionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteDhcpOptions.");
     const pathParams = {
       "{dhcpId}": deleteDhcpOptionsRequest.dhcpId
     };
@@ -13264,6 +13618,7 @@ This is an asynchronous operation. The state of the set of options will switch t
   public async deleteDrg(
     deleteDrgRequest: requests.DeleteDrgRequest
   ): Promise<responses.DeleteDrgResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteDrg.");
     const pathParams = {
       "{drgId}": deleteDrgRequest.drgId
     };
@@ -13316,6 +13671,8 @@ This is an asynchronous operation. The state of the set of options will switch t
   public async deleteDrgAttachment(
     deleteDrgAttachmentRequest: requests.DeleteDrgAttachmentRequest
   ): Promise<responses.DeleteDrgAttachmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteDrgAttachment.");
     const pathParams = {
       "{drgAttachmentId}": deleteDrgAttachmentRequest.drgAttachmentId
     };
@@ -13366,6 +13723,8 @@ This is an asynchronous operation. The state of the set of options will switch t
   public async deleteFlowLogConfig(
     deleteFlowLogConfigRequest: requests.DeleteFlowLogConfigRequest
   ): Promise<responses.DeleteFlowLogConfigResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteFlowLogConfig.");
     const pathParams = {
       "{flowLogConfigId}": deleteFlowLogConfigRequest.flowLogConfigId
     };
@@ -13417,6 +13776,8 @@ This is an asynchronous operation. The state of the set of options will switch t
   public async deleteFlowLogConfigAttachment(
     deleteFlowLogConfigAttachmentRequest: requests.DeleteFlowLogConfigAttachmentRequest
   ): Promise<responses.DeleteFlowLogConfigAttachmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteFlowLogConfigAttachment.");
     const pathParams = {
       "{flowLogConfigAttachmentId}": deleteFlowLogConfigAttachmentRequest.flowLogConfigAttachmentId
     };
@@ -13474,6 +13835,8 @@ This is an asynchronous operation. The connection's `lifecycleState` will change
   public async deleteIPSecConnection(
     deleteIPSecConnectionRequest: requests.DeleteIPSecConnectionRequest
   ): Promise<responses.DeleteIPSecConnectionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteIPSecConnection.");
     const pathParams = {
       "{ipscId}": deleteIPSecConnectionRequest.ipscId
     };
@@ -13528,6 +13891,8 @@ This is an asynchronous operation. The gateway's `lifecycleState` will change to
   public async deleteInternetGateway(
     deleteInternetGatewayRequest: requests.DeleteInternetGatewayRequest
   ): Promise<responses.DeleteInternetGatewayResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteInternetGateway.");
     const pathParams = {
       "{igId}": deleteInternetGatewayRequest.igId
     };
@@ -13579,6 +13944,7 @@ This is an asynchronous operation. The gateway's `lifecycleState` will change to
   public async deleteIpv6(
     deleteIpv6Request: requests.DeleteIpv6Request
   ): Promise<responses.DeleteIpv6Response> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteIpv6.");
     const pathParams = {
       "{ipv6Id}": deleteIpv6Request.ipv6Id
     };
@@ -13633,6 +13999,8 @@ This is an asynchronous operation; the local peering connection's `lifecycleStat
   public async deleteLocalPeeringConnection(
     deleteLocalPeeringConnectionRequest: requests.DeleteLocalPeeringConnectionRequest
   ): Promise<responses.DeleteLocalPeeringConnectionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteLocalPeeringConnection.");
     const pathParams = {
       "{localPeeringConnectionId}": deleteLocalPeeringConnectionRequest.localPeeringConnectionId
     };
@@ -13686,6 +14054,8 @@ This is an asynchronous operation; the local peering gateway's `lifecycleState` 
   public async deleteLocalPeeringGateway(
     deleteLocalPeeringGatewayRequest: requests.DeleteLocalPeeringGatewayRequest
   ): Promise<responses.DeleteLocalPeeringGatewayResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteLocalPeeringGateway.");
     const pathParams = {
       "{localPeeringGatewayId}": deleteLocalPeeringGatewayRequest.localPeeringGatewayId
     };
@@ -13740,6 +14110,7 @@ This is an asynchronous operation. The NAT gateway's `lifecycleState` will chang
   public async deleteNatGateway(
     deleteNatGatewayRequest: requests.DeleteNatGatewayRequest
   ): Promise<responses.DeleteNatGatewayResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteNatGateway.");
     const pathParams = {
       "{natGatewayId}": deleteNatGatewayRequest.natGatewayId
     };
@@ -13796,6 +14167,8 @@ To get a list of the VNICs in a network security group, use
   public async deleteNetworkSecurityGroup(
     deleteNetworkSecurityGroupRequest: requests.DeleteNetworkSecurityGroupRequest
   ): Promise<responses.DeleteNetworkSecurityGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteNetworkSecurityGroup.");
     const pathParams = {
       "{networkSecurityGroupId}": deleteNetworkSecurityGroupRequest.networkSecurityGroupId
     };
@@ -13856,6 +14229,7 @@ This operation cannot be used with primary private IPs, which are
   public async deletePrivateIp(
     deletePrivateIpRequest: requests.DeletePrivateIpRequest
   ): Promise<responses.DeletePrivateIpResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deletePrivateIp.");
     const pathParams = {
       "{privateIpId}": deletePrivateIpRequest.privateIpId
     };
@@ -13920,6 +14294,7 @@ If you want to simply unassign a reserved public IP and return it to your pool
   public async deletePublicIp(
     deletePublicIpRequest: requests.DeletePublicIpRequest
   ): Promise<responses.DeletePublicIpResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deletePublicIp.");
     const pathParams = {
       "{publicIpId}": deletePublicIpRequest.publicIpId
     };
@@ -13973,6 +14348,8 @@ This is an asynchronous operation; the RPC's `lifecycleState` changes to TERMINA
   public async deleteRemotePeeringConnection(
     deleteRemotePeeringConnectionRequest: requests.DeleteRemotePeeringConnectionRequest
   ): Promise<responses.DeleteRemotePeeringConnectionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteRemotePeeringConnection.");
     const pathParams = {
       "{remotePeeringConnectionId}": deleteRemotePeeringConnectionRequest.remotePeeringConnectionId
     };
@@ -14027,6 +14404,7 @@ This is an asynchronous operation. The route table's `lifecycleState` will chang
   public async deleteRouteTable(
     deleteRouteTableRequest: requests.DeleteRouteTableRequest
   ): Promise<responses.DeleteRouteTableResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteRouteTable.");
     const pathParams = {
       "{rtId}": deleteRouteTableRequest.rtId
     };
@@ -14081,6 +14459,8 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   public async deleteSecurityList(
     deleteSecurityListRequest: requests.DeleteSecurityListRequest
   ): Promise<responses.DeleteSecurityListResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteSecurityList.");
     const pathParams = {
       "{securityListId}": deleteSecurityListRequest.securityListId
     };
@@ -14132,6 +14512,8 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   public async deleteServiceGateway(
     deleteServiceGatewayRequest: requests.DeleteServiceGatewayRequest
   ): Promise<responses.DeleteServiceGatewayResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteServiceGateway.");
     const pathParams = {
       "{serviceGatewayId}": deleteServiceGatewayRequest.serviceGatewayId
     };
@@ -14184,6 +14566,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   public async deleteSubnet(
     deleteSubnetRequest: requests.DeleteSubnetRequest
   ): Promise<responses.DeleteSubnetResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteSubnet.");
     const pathParams = {
       "{subnetId}": deleteSubnetRequest.subnetId
     };
@@ -14236,6 +14619,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   public async deleteVcn(
     deleteVcnRequest: requests.DeleteVcnRequest
   ): Promise<responses.DeleteVcnResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteVcn.");
     const pathParams = {
       "{vcnId}": deleteVcnRequest.vcnId
     };
@@ -14290,6 +14674,8 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   public async deleteVirtualCircuit(
     deleteVirtualCircuitRequest: requests.DeleteVirtualCircuitRequest
   ): Promise<responses.DeleteVirtualCircuitResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteVirtualCircuit.");
     const pathParams = {
       "{virtualCircuitId}": deleteVirtualCircuitRequest.virtualCircuitId
     };
@@ -14351,6 +14737,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   public async detachServiceId(
     detachServiceIdRequest: requests.DetachServiceIdRequest
   ): Promise<responses.DetachServiceIdResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#detachServiceId.");
     const pathParams = {
       "{serviceGatewayId}": detachServiceIdRequest.serviceGatewayId
     };
@@ -14412,6 +14799,8 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   public async generateLocalPeeringToken(
     generateLocalPeeringTokenRequest: requests.GenerateLocalPeeringTokenRequest
   ): Promise<responses.GenerateLocalPeeringTokenResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#generateLocalPeeringToken.");
     const pathParams = {
       "{localPeeringConnectionId}": generateLocalPeeringTokenRequest.localPeeringConnectionId
     };
@@ -14460,6 +14849,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
    * @throws OciError when an error occurs
    */
   public async getCpe(getCpeRequest: requests.GetCpeRequest): Promise<responses.GetCpeResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getCpe.");
     const pathParams = {
       "{cpeId}": getCpeRequest.cpeId
     };
@@ -14533,6 +14923,8 @@ The operation returns configuration information for *all* of the
   public async getCpeDeviceConfigContent(
     getCpeDeviceConfigContentRequest: requests.GetCpeDeviceConfigContentRequest
   ): Promise<responses.GetCpeDeviceConfigContentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getCpeDeviceConfigContent.");
     const pathParams = {
       "{cpeId}": getCpeDeviceConfigContentRequest.cpeId
     };
@@ -14595,6 +14987,7 @@ The operation returns configuration information for *all* of the
   public async getCpeDeviceShape(
     getCpeDeviceShapeRequest: requests.GetCpeDeviceShapeRequest
   ): Promise<responses.GetCpeDeviceShapeResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getCpeDeviceShape.");
     const pathParams = {
       "{cpeDeviceShapeId}": getCpeDeviceShapeRequest.cpeDeviceShapeId
     };
@@ -14647,6 +15040,7 @@ The operation returns configuration information for *all* of the
   public async getCrossConnect(
     getCrossConnectRequest: requests.GetCrossConnectRequest
   ): Promise<responses.GetCrossConnectResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getCrossConnect.");
     const pathParams = {
       "{crossConnectId}": getCrossConnectRequest.crossConnectId
     };
@@ -14702,6 +15096,8 @@ The operation returns configuration information for *all* of the
   public async getCrossConnectGroup(
     getCrossConnectGroupRequest: requests.GetCrossConnectGroupRequest
   ): Promise<responses.GetCrossConnectGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getCrossConnectGroup.");
     const pathParams = {
       "{crossConnectGroupId}": getCrossConnectGroupRequest.crossConnectGroupId
     };
@@ -14757,6 +15153,8 @@ The operation returns configuration information for *all* of the
   public async getCrossConnectLetterOfAuthority(
     getCrossConnectLetterOfAuthorityRequest: requests.GetCrossConnectLetterOfAuthorityRequest
   ): Promise<responses.GetCrossConnectLetterOfAuthorityResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getCrossConnectLetterOfAuthority.");
     const pathParams = {
       "{crossConnectId}": getCrossConnectLetterOfAuthorityRequest.crossConnectId
     };
@@ -14808,6 +15206,8 @@ The operation returns configuration information for *all* of the
   public async getCrossConnectStatus(
     getCrossConnectStatusRequest: requests.GetCrossConnectStatusRequest
   ): Promise<responses.GetCrossConnectStatusResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getCrossConnectStatus.");
     const pathParams = {
       "{crossConnectId}": getCrossConnectStatusRequest.crossConnectId
     };
@@ -14858,6 +15258,7 @@ The operation returns configuration information for *all* of the
   public async getDhcpOptions(
     getDhcpOptionsRequest: requests.GetDhcpOptionsRequest
   ): Promise<responses.GetDhcpOptionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getDhcpOptions.");
     const pathParams = {
       "{dhcpId}": getDhcpOptionsRequest.dhcpId
     };
@@ -14911,6 +15312,7 @@ The operation returns configuration information for *all* of the
    * @throws OciError when an error occurs
    */
   public async getDrg(getDrgRequest: requests.GetDrgRequest): Promise<responses.GetDrgResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getDrg.");
     const pathParams = {
       "{drgId}": getDrgRequest.drgId
     };
@@ -14966,6 +15368,7 @@ The operation returns configuration information for *all* of the
   public async getDrgAttachment(
     getDrgAttachmentRequest: requests.GetDrgAttachmentRequest
   ): Promise<responses.GetDrgAttachmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getDrgAttachment.");
     const pathParams = {
       "{drgAttachmentId}": getDrgAttachmentRequest.drgAttachmentId
     };
@@ -15023,6 +15426,8 @@ The operation returns configuration information for *all* of the
   public async getDrgRedundancyStatus(
     getDrgRedundancyStatusRequest: requests.GetDrgRedundancyStatusRequest
   ): Promise<responses.GetDrgRedundancyStatusResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getDrgRedundancyStatus.");
     const pathParams = {
       "{drgId}": getDrgRedundancyStatusRequest.drgId
     };
@@ -15077,6 +15482,8 @@ The operation returns configuration information for *all* of the
   public async getFastConnectProviderService(
     getFastConnectProviderServiceRequest: requests.GetFastConnectProviderServiceRequest
   ): Promise<responses.GetFastConnectProviderServiceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getFastConnectProviderService.");
     const pathParams = {
       "{providerServiceId}": getFastConnectProviderServiceRequest.providerServiceId
     };
@@ -15129,6 +15536,8 @@ The operation returns configuration information for *all* of the
   public async getFastConnectProviderServiceKey(
     getFastConnectProviderServiceKeyRequest: requests.GetFastConnectProviderServiceKeyRequest
   ): Promise<responses.GetFastConnectProviderServiceKeyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getFastConnectProviderServiceKey.");
     const pathParams = {
       "{providerServiceId}": getFastConnectProviderServiceKeyRequest.providerServiceId,
       "{providerServiceKeyName}": getFastConnectProviderServiceKeyRequest.providerServiceKeyName
@@ -15182,6 +15591,7 @@ The operation returns configuration information for *all* of the
   public async getFlowLogConfig(
     getFlowLogConfigRequest: requests.GetFlowLogConfigRequest
   ): Promise<responses.GetFlowLogConfigResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getFlowLogConfig.");
     const pathParams = {
       "{flowLogConfigId}": getFlowLogConfigRequest.flowLogConfigId
     };
@@ -15238,6 +15648,8 @@ The operation returns configuration information for *all* of the
   public async getFlowLogConfigAttachment(
     getFlowLogConfigAttachmentRequest: requests.GetFlowLogConfigAttachmentRequest
   ): Promise<responses.GetFlowLogConfigAttachmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getFlowLogConfigAttachment.");
     const pathParams = {
       "{flowLogConfigAttachmentId}": getFlowLogConfigAttachmentRequest.flowLogConfigAttachmentId
     };
@@ -15296,6 +15708,8 @@ The operation returns configuration information for *all* of the
   public async getIPSecConnection(
     getIPSecConnectionRequest: requests.GetIPSecConnectionRequest
   ): Promise<responses.GetIPSecConnectionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getIPSecConnection.");
     const pathParams = {
       "{ipscId}": getIPSecConnectionRequest.ipscId
     };
@@ -15355,6 +15769,8 @@ The operation returns configuration information for *all* of the
   public async getIPSecConnectionDeviceConfig(
     getIPSecConnectionDeviceConfigRequest: requests.GetIPSecConnectionDeviceConfigRequest
   ): Promise<responses.GetIPSecConnectionDeviceConfigResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getIPSecConnectionDeviceConfig.");
     const pathParams = {
       "{ipscId}": getIPSecConnectionDeviceConfigRequest.ipscId
     };
@@ -15412,6 +15828,8 @@ The operation returns configuration information for *all* of the
   public async getIPSecConnectionDeviceStatus(
     getIPSecConnectionDeviceStatusRequest: requests.GetIPSecConnectionDeviceStatusRequest
   ): Promise<responses.GetIPSecConnectionDeviceStatusResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getIPSecConnectionDeviceStatus.");
     const pathParams = {
       "{ipscId}": getIPSecConnectionDeviceStatusRequest.ipscId
     };
@@ -15470,6 +15888,8 @@ The operation returns configuration information for *all* of the
   public async getIPSecConnectionTunnel(
     getIPSecConnectionTunnelRequest: requests.GetIPSecConnectionTunnelRequest
   ): Promise<responses.GetIPSecConnectionTunnelResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getIPSecConnectionTunnel.");
     const pathParams = {
       "{ipscId}": getIPSecConnectionTunnelRequest.ipscId,
       "{tunnelId}": getIPSecConnectionTunnelRequest.tunnelId
@@ -15528,6 +15948,10 @@ The operation returns configuration information for *all* of the
   public async getIPSecConnectionTunnelSharedSecret(
     getIPSecConnectionTunnelSharedSecretRequest: requests.GetIPSecConnectionTunnelSharedSecretRequest
   ): Promise<responses.GetIPSecConnectionTunnelSharedSecretResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#getIPSecConnectionTunnelSharedSecret."
+      );
     const pathParams = {
       "{ipscId}": getIPSecConnectionTunnelSharedSecretRequest.ipscId,
       "{tunnelId}": getIPSecConnectionTunnelSharedSecretRequest.tunnelId
@@ -15584,6 +16008,8 @@ The operation returns configuration information for *all* of the
   public async getInternetGateway(
     getInternetGatewayRequest: requests.GetInternetGatewayRequest
   ): Promise<responses.GetInternetGatewayResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getInternetGateway.");
     const pathParams = {
       "{igId}": getInternetGatewayRequest.igId
     };
@@ -15658,6 +16084,8 @@ The operation returns configuration information for all tunnels in the single sp
   public async getIpsecCpeDeviceConfigContent(
     getIpsecCpeDeviceConfigContentRequest: requests.GetIpsecCpeDeviceConfigContentRequest
   ): Promise<responses.GetIpsecCpeDeviceConfigContentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getIpsecCpeDeviceConfigContent.");
     const pathParams = {
       "{ipscId}": getIpsecCpeDeviceConfigContentRequest.ipscId
     };
@@ -15715,6 +16143,7 @@ The operation returns configuration information for all tunnels in the single sp
   public async getIpv6(
     getIpv6Request: requests.GetIpv6Request
   ): Promise<responses.GetIpv6Response> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getIpv6.");
     const pathParams = {
       "{ipv6Id}": getIpv6Request.ipv6Id
     };
@@ -15773,6 +16202,8 @@ The operation returns configuration information for all tunnels in the single sp
   public async getLocalPeeringConnection(
     getLocalPeeringConnectionRequest: requests.GetLocalPeeringConnectionRequest
   ): Promise<responses.GetLocalPeeringConnectionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getLocalPeeringConnection.");
     const pathParams = {
       "{localPeeringConnectionId}": getLocalPeeringConnectionRequest.localPeeringConnectionId
     };
@@ -15828,6 +16259,8 @@ The operation returns configuration information for all tunnels in the single sp
   public async getLocalPeeringGateway(
     getLocalPeeringGatewayRequest: requests.GetLocalPeeringGatewayRequest
   ): Promise<responses.GetLocalPeeringGatewayResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getLocalPeeringGateway.");
     const pathParams = {
       "{localPeeringGatewayId}": getLocalPeeringGatewayRequest.localPeeringGatewayId
     };
@@ -15883,6 +16316,7 @@ The operation returns configuration information for all tunnels in the single sp
   public async getNatGateway(
     getNatGatewayRequest: requests.GetNatGatewayRequest
   ): Promise<responses.GetNatGatewayResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getNatGateway.");
     const pathParams = {
       "{natGatewayId}": getNatGatewayRequest.natGatewayId
     };
@@ -15945,6 +16379,8 @@ To list the security rules in an NSG, see
   public async getNetworkSecurityGroup(
     getNetworkSecurityGroupRequest: requests.GetNetworkSecurityGroupRequest
   ): Promise<responses.GetNetworkSecurityGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getNetworkSecurityGroup.");
     const pathParams = {
       "{networkSecurityGroupId}": getNetworkSecurityGroupRequest.networkSecurityGroupId
     };
@@ -16004,6 +16440,7 @@ To list the security rules in an NSG, see
   public async getPrivateIp(
     getPrivateIpRequest: requests.GetPrivateIpRequest
   ): Promise<responses.GetPrivateIpResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getPrivateIp.");
     const pathParams = {
       "{privateIpId}": getPrivateIpRequest.privateIpId
     };
@@ -16070,6 +16507,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   public async getPublicIp(
     getPublicIpRequest: requests.GetPublicIpRequest
   ): Promise<responses.GetPublicIpResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getPublicIp.");
     const pathParams = {
       "{publicIpId}": getPublicIpRequest.publicIpId
     };
@@ -16130,6 +16568,8 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   public async getPublicIpByIpAddress(
     getPublicIpByIpAddressRequest: requests.GetPublicIpByIpAddressRequest
   ): Promise<responses.GetPublicIpByIpAddressResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getPublicIpByIpAddress.");
     const pathParams = {};
 
     const queryParams = {};
@@ -16199,6 +16639,8 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   public async getPublicIpByPrivateIpId(
     getPublicIpByPrivateIpIdRequest: requests.GetPublicIpByPrivateIpIdRequest
   ): Promise<responses.GetPublicIpByPrivateIpIdResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getPublicIpByPrivateIpId.");
     const pathParams = {};
 
     const queryParams = {};
@@ -16258,6 +16700,8 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   public async getRemotePeeringConnection(
     getRemotePeeringConnectionRequest: requests.GetRemotePeeringConnectionRequest
   ): Promise<responses.GetRemotePeeringConnectionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getRemotePeeringConnection.");
     const pathParams = {
       "{remotePeeringConnectionId}": getRemotePeeringConnectionRequest.remotePeeringConnectionId
     };
@@ -16313,6 +16757,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   public async getRouteTable(
     getRouteTableRequest: requests.GetRouteTableRequest
   ): Promise<responses.GetRouteTableResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getRouteTable.");
     const pathParams = {
       "{rtId}": getRouteTableRequest.rtId
     };
@@ -16368,6 +16813,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   public async getSecurityList(
     getSecurityListRequest: requests.GetSecurityListRequest
   ): Promise<responses.GetSecurityListResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getSecurityList.");
     const pathParams = {
       "{securityListId}": getSecurityListRequest.securityListId
     };
@@ -16424,6 +16870,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   public async getService(
     getServiceRequest: requests.GetServiceRequest
   ): Promise<responses.GetServiceResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getService.");
     const pathParams = {
       "{serviceId}": getServiceRequest.serviceId
     };
@@ -16479,6 +16926,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   public async getServiceGateway(
     getServiceGatewayRequest: requests.GetServiceGatewayRequest
   ): Promise<responses.GetServiceGatewayResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getServiceGateway.");
     const pathParams = {
       "{serviceGatewayId}": getServiceGatewayRequest.serviceGatewayId
     };
@@ -16534,6 +16982,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   public async getSubnet(
     getSubnetRequest: requests.GetSubnetRequest
   ): Promise<responses.GetSubnetResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getSubnet.");
     const pathParams = {
       "{subnetId}": getSubnetRequest.subnetId
     };
@@ -16594,6 +17043,8 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   public async getTunnelCpeDeviceConfig(
     getTunnelCpeDeviceConfigRequest: requests.GetTunnelCpeDeviceConfigRequest
   ): Promise<responses.GetTunnelCpeDeviceConfigResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getTunnelCpeDeviceConfig.");
     const pathParams = {
       "{ipscId}": getTunnelCpeDeviceConfigRequest.ipscId,
       "{tunnelId}": getTunnelCpeDeviceConfigRequest.tunnelId
@@ -16670,6 +17121,8 @@ The operation returns configuration information for only the specified IPSec tun
   public async getTunnelCpeDeviceConfigContent(
     getTunnelCpeDeviceConfigContentRequest: requests.GetTunnelCpeDeviceConfigContentRequest
   ): Promise<responses.GetTunnelCpeDeviceConfigContentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getTunnelCpeDeviceConfigContent.");
     const pathParams = {
       "{ipscId}": getTunnelCpeDeviceConfigContentRequest.ipscId,
       "{tunnelId}": getTunnelCpeDeviceConfigContentRequest.tunnelId
@@ -16722,6 +17175,7 @@ The operation returns configuration information for only the specified IPSec tun
    * @throws OciError when an error occurs
    */
   public async getVcn(getVcnRequest: requests.GetVcnRequest): Promise<responses.GetVcnResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getVcn.");
     const pathParams = {
       "{vcnId}": getVcnRequest.vcnId
     };
@@ -16777,6 +17231,7 @@ The operation returns configuration information for only the specified IPSec tun
   public async getVirtualCircuit(
     getVirtualCircuitRequest: requests.GetVirtualCircuitRequest
   ): Promise<responses.GetVirtualCircuitResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getVirtualCircuit.");
     const pathParams = {
       "{virtualCircuitId}": getVirtualCircuitRequest.virtualCircuitId
     };
@@ -16836,6 +17291,7 @@ The operation returns configuration information for only the specified IPSec tun
   public async getVnic(
     getVnicRequest: requests.GetVnicRequest
   ): Promise<responses.GetVnicResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getVnic.");
     const pathParams = {
       "{vnicId}": getVnicRequest.vnicId
     };
@@ -16893,6 +17349,10 @@ The operation returns configuration information for only the specified IPSec tun
   public async listAllowedPeerRegionsForRemotePeering(
     listAllowedPeerRegionsForRemotePeeringRequest: requests.ListAllowedPeerRegionsForRemotePeeringRequest
   ): Promise<responses.ListAllowedPeerRegionsForRemotePeeringResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#listAllowedPeerRegionsForRemotePeering."
+      );
     const pathParams = {};
 
     const queryParams = {};
@@ -16954,6 +17414,8 @@ For information about generating CPE configuration content, see these operations
   public async listCpeDeviceShapes(
     listCpeDeviceShapesRequest: requests.ListCpeDeviceShapesRequest
   ): Promise<responses.ListCpeDeviceShapesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listCpeDeviceShapes.");
     const pathParams = {};
 
     const queryParams = {
@@ -17038,6 +17500,7 @@ For information about generating CPE configuration content, see these operations
   public async listCpes(
     listCpesRequest: requests.ListCpesRequest
   ): Promise<responses.ListCpesResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listCpes.");
     const pathParams = {};
 
     const queryParams = {
@@ -17119,6 +17582,8 @@ For information about generating CPE configuration content, see these operations
   public async listCrossConnectGroups(
     listCrossConnectGroupsRequest: requests.ListCrossConnectGroupsRequest
   ): Promise<responses.ListCrossConnectGroupsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listCrossConnectGroups.");
     const pathParams = {};
 
     const queryParams = {
@@ -17207,6 +17672,8 @@ For information about generating CPE configuration content, see these operations
   public async listCrossConnectLocations(
     listCrossConnectLocationsRequest: requests.ListCrossConnectLocationsRequest
   ): Promise<responses.ListCrossConnectLocationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listCrossConnectLocations.");
     const pathParams = {};
 
     const queryParams = {
@@ -17291,6 +17758,7 @@ For information about generating CPE configuration content, see these operations
   public async listCrossConnects(
     listCrossConnectsRequest: requests.ListCrossConnectsRequest
   ): Promise<responses.ListCrossConnectsResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listCrossConnects.");
     const pathParams = {};
 
     const queryParams = {
@@ -17381,6 +17849,8 @@ For information about generating CPE configuration content, see these operations
   public async listCrossconnectPortSpeedShapes(
     listCrossconnectPortSpeedShapesRequest: requests.ListCrossconnectPortSpeedShapesRequest
   ): Promise<responses.ListCrossconnectPortSpeedShapesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listCrossconnectPortSpeedShapes.");
     const pathParams = {};
 
     const queryParams = {
@@ -17466,6 +17936,7 @@ For information about generating CPE configuration content, see these operations
   public async listDhcpOptions(
     listDhcpOptionsRequest: requests.ListDhcpOptionsRequest
   ): Promise<responses.ListDhcpOptionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listDhcpOptions.");
     const pathParams = {};
 
     const queryParams = {
@@ -17555,6 +18026,8 @@ For information about generating CPE configuration content, see these operations
   public async listDrgAttachments(
     listDrgAttachmentsRequest: requests.ListDrgAttachmentsRequest
   ): Promise<responses.ListDrgAttachmentsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listDrgAttachments.");
     const pathParams = {};
 
     const queryParams = {
@@ -17640,6 +18113,7 @@ For information about generating CPE configuration content, see these operations
   public async listDrgs(
     listDrgsRequest: requests.ListDrgsRequest
   ): Promise<responses.ListDrgsResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listDrgs.");
     const pathParams = {};
 
     const queryParams = {
@@ -17727,6 +18201,8 @@ For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/C
   public async listFastConnectProviderServices(
     listFastConnectProviderServicesRequest: requests.ListFastConnectProviderServicesRequest
   ): Promise<responses.ListFastConnectProviderServicesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listFastConnectProviderServices.");
     const pathParams = {};
 
     const queryParams = {
@@ -17813,6 +18289,10 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listFastConnectProviderVirtualCircuitBandwidthShapes(
     listFastConnectProviderVirtualCircuitBandwidthShapesRequest: requests.ListFastConnectProviderVirtualCircuitBandwidthShapesRequest
   ): Promise<responses.ListFastConnectProviderVirtualCircuitBandwidthShapesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#listFastConnectProviderVirtualCircuitBandwidthShapes."
+      );
     const pathParams = {
       "{providerServiceId}":
         listFastConnectProviderVirtualCircuitBandwidthShapesRequest.providerServiceId
@@ -17903,6 +18383,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listFlowLogConfigAttachments(
     listFlowLogConfigAttachmentsRequest: requests.ListFlowLogConfigAttachmentsRequest
   ): Promise<responses.ListFlowLogConfigAttachmentsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listFlowLogConfigAttachments.");
     const pathParams = {};
 
     const queryParams = {
@@ -17988,6 +18470,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listFlowLogConfigs(
     listFlowLogConfigsRequest: requests.ListFlowLogConfigsRequest
   ): Promise<responses.ListFlowLogConfigsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listFlowLogConfigs.");
     const pathParams = {};
 
     const queryParams = {
@@ -18074,6 +18558,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listIPSecConnectionTunnels(
     listIPSecConnectionTunnelsRequest: requests.ListIPSecConnectionTunnelsRequest
   ): Promise<responses.ListIPSecConnectionTunnelsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listIPSecConnectionTunnels.");
     const pathParams = {
       "{ipscId}": listIPSecConnectionTunnelsRequest.ipscId
     };
@@ -18159,6 +18645,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listIPSecConnections(
     listIPSecConnectionsRequest: requests.ListIPSecConnectionsRequest
   ): Promise<responses.ListIPSecConnectionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listIPSecConnections.");
     const pathParams = {};
 
     const queryParams = {
@@ -18244,6 +18732,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listInternetGateways(
     listInternetGatewaysRequest: requests.ListInternetGatewaysRequest
   ): Promise<responses.ListInternetGatewaysResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listInternetGateways.");
     const pathParams = {};
 
     const queryParams = {
@@ -18339,6 +18829,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listIpv6s(
     listIpv6sRequest: requests.ListIpv6sRequest
   ): Promise<responses.ListIpv6sResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listIpv6s.");
     const pathParams = {};
 
     const queryParams = {
@@ -18424,6 +18915,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listLocalPeeringConnections(
     listLocalPeeringConnectionsRequest: requests.ListLocalPeeringConnectionsRequest
   ): Promise<responses.ListLocalPeeringConnectionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listLocalPeeringConnections.");
     const pathParams = {};
 
     const queryParams = {
@@ -18509,6 +19002,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listLocalPeeringGateways(
     listLocalPeeringGatewaysRequest: requests.ListLocalPeeringGatewaysRequest
   ): Promise<responses.ListLocalPeeringGatewaysResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listLocalPeeringGateways.");
     const pathParams = {};
 
     const queryParams = {
@@ -18594,6 +19089,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listNatGateways(
     listNatGatewaysRequest: requests.ListNatGatewaysRequest
   ): Promise<responses.ListNatGatewaysResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listNatGateways.");
     const pathParams = {};
 
     const queryParams = {
@@ -18682,6 +19178,10 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listNetworkSecurityGroupSecurityRules(
     listNetworkSecurityGroupSecurityRulesRequest: requests.ListNetworkSecurityGroupSecurityRulesRequest
   ): Promise<responses.ListNetworkSecurityGroupSecurityRulesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#listNetworkSecurityGroupSecurityRules."
+      );
     const pathParams = {
       "{networkSecurityGroupId}":
         listNetworkSecurityGroupSecurityRulesRequest.networkSecurityGroupId
@@ -18770,6 +19270,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listNetworkSecurityGroupVnics(
     listNetworkSecurityGroupVnicsRequest: requests.ListNetworkSecurityGroupVnicsRequest
   ): Promise<responses.ListNetworkSecurityGroupVnicsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listNetworkSecurityGroupVnics.");
     const pathParams = {
       "{networkSecurityGroupId}": listNetworkSecurityGroupVnicsRequest.networkSecurityGroupId
     };
@@ -18856,6 +19358,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listNetworkSecurityGroups(
     listNetworkSecurityGroupsRequest: requests.ListNetworkSecurityGroupsRequest
   ): Promise<responses.ListNetworkSecurityGroupsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listNetworkSecurityGroups.");
     const pathParams = {};
 
     const queryParams = {
@@ -18956,6 +19460,7 @@ If you're listing all the private IPs associated with a given subnet
   public async listPrivateIps(
     listPrivateIpsRequest: requests.ListPrivateIpsRequest
   ): Promise<responses.ListPrivateIpsResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listPrivateIps.");
     const pathParams = {};
 
     const queryParams = {
@@ -19060,6 +19565,7 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listPublicIps(
     listPublicIpsRequest: requests.ListPublicIpsRequest
   ): Promise<responses.ListPublicIpsResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listPublicIps.");
     const pathParams = {};
 
     const queryParams = {
@@ -19147,6 +19653,8 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listRemotePeeringConnections(
     listRemotePeeringConnectionsRequest: requests.ListRemotePeeringConnectionsRequest
   ): Promise<responses.ListRemotePeeringConnectionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listRemotePeeringConnections.");
     const pathParams = {};
 
     const queryParams = {
@@ -19233,6 +19741,7 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listRouteTables(
     listRouteTablesRequest: requests.ListRouteTablesRequest
   ): Promise<responses.ListRouteTablesResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listRouteTables.");
     const pathParams = {};
 
     const queryParams = {
@@ -19321,6 +19830,7 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listSecurityLists(
     listSecurityListsRequest: requests.ListSecurityListsRequest
   ): Promise<responses.ListSecurityListsResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listSecurityLists.");
     const pathParams = {};
 
     const queryParams = {
@@ -19410,6 +19920,8 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listServiceGateways(
     listServiceGatewaysRequest: requests.ListServiceGatewaysRequest
   ): Promise<responses.ListServiceGatewaysResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listServiceGateways.");
     const pathParams = {};
 
     const queryParams = {
@@ -19498,6 +20010,7 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listServices(
     listServicesRequest: requests.ListServicesRequest
   ): Promise<responses.ListServicesResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listServices.");
     const pathParams = {};
 
     const queryParams = {
@@ -19580,6 +20093,7 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listSubnets(
     listSubnetsRequest: requests.ListSubnetsRequest
   ): Promise<responses.ListSubnetsResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listSubnets.");
     const pathParams = {};
 
     const queryParams = {
@@ -19668,6 +20182,7 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listVcns(
     listVcnsRequest: requests.ListVcnsRequest
   ): Promise<responses.ListVcnsResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listVcns.");
     const pathParams = {};
 
     const queryParams = {
@@ -19753,6 +20268,10 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listVirtualCircuitBandwidthShapes(
     listVirtualCircuitBandwidthShapesRequest: requests.ListVirtualCircuitBandwidthShapesRequest
   ): Promise<responses.ListVirtualCircuitBandwidthShapesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#listVirtualCircuitBandwidthShapes."
+      );
     const pathParams = {};
 
     const queryParams = {
@@ -19837,6 +20356,8 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listVirtualCircuitPublicPrefixes(
     listVirtualCircuitPublicPrefixesRequest: requests.ListVirtualCircuitPublicPrefixesRequest
   ): Promise<responses.ListVirtualCircuitPublicPrefixesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listVirtualCircuitPublicPrefixes.");
     const pathParams = {
       "{virtualCircuitId}": listVirtualCircuitPublicPrefixesRequest.virtualCircuitId
     };
@@ -19890,6 +20411,8 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listVirtualCircuits(
     listVirtualCircuitsRequest: requests.ListVirtualCircuitsRequest
   ): Promise<responses.ListVirtualCircuitsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listVirtualCircuits.");
     const pathParams = {};
 
     const queryParams = {
@@ -19977,6 +20500,10 @@ To list the ephemeral public IPs assigned to private IPs:
   public async removeNetworkSecurityGroupSecurityRules(
     removeNetworkSecurityGroupSecurityRulesRequest: requests.RemoveNetworkSecurityGroupSecurityRulesRequest
   ): Promise<responses.RemoveNetworkSecurityGroupSecurityRulesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#removeNetworkSecurityGroupSecurityRules."
+      );
     const pathParams = {
       "{networkSecurityGroupId}":
         removeNetworkSecurityGroupSecurityRulesRequest.networkSecurityGroupId
@@ -20032,6 +20559,7 @@ To list the ephemeral public IPs assigned to private IPs:
   public async updateCpe(
     updateCpeRequest: requests.UpdateCpeRequest
   ): Promise<responses.UpdateCpeResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateCpe.");
     const pathParams = {
       "{cpeId}": updateCpeRequest.cpeId
     };
@@ -20094,6 +20622,8 @@ To list the ephemeral public IPs assigned to private IPs:
   public async updateCrossConnect(
     updateCrossConnectRequest: requests.UpdateCrossConnectRequest
   ): Promise<responses.UpdateCrossConnectResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateCrossConnect.");
     const pathParams = {
       "{crossConnectId}": updateCrossConnectRequest.crossConnectId
     };
@@ -20158,6 +20688,8 @@ To list the ephemeral public IPs assigned to private IPs:
   public async updateCrossConnectGroup(
     updateCrossConnectGroupRequest: requests.UpdateCrossConnectGroupRequest
   ): Promise<responses.UpdateCrossConnectGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateCrossConnectGroup.");
     const pathParams = {
       "{crossConnectGroupId}": updateCrossConnectGroupRequest.crossConnectGroupId
     };
@@ -20224,6 +20756,7 @@ Note that the `options` object you provide replaces the entire existing set of o
   public async updateDhcpOptions(
     updateDhcpOptionsRequest: requests.UpdateDhcpOptionsRequest
   ): Promise<responses.UpdateDhcpOptionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateDhcpOptions.");
     const pathParams = {
       "{dhcpId}": updateDhcpOptionsRequest.dhcpId
     };
@@ -20287,6 +20820,7 @@ Note that the `options` object you provide replaces the entire existing set of o
   public async updateDrg(
     updateDrgRequest: requests.UpdateDrgRequest
   ): Promise<responses.UpdateDrgResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateDrg.");
     const pathParams = {
       "{drgId}": updateDrgRequest.drgId
     };
@@ -20351,6 +20885,8 @@ Note that the `options` object you provide replaces the entire existing set of o
   public async updateDrgAttachment(
     updateDrgAttachmentRequest: requests.UpdateDrgAttachmentRequest
   ): Promise<responses.UpdateDrgAttachmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateDrgAttachment.");
     const pathParams = {
       "{drgAttachmentId}": updateDrgAttachmentRequest.drgAttachmentId
     };
@@ -20414,6 +20950,8 @@ Note that the `options` object you provide replaces the entire existing set of o
   public async updateFlowLogConfig(
     updateFlowLogConfigRequest: requests.UpdateFlowLogConfigRequest
   ): Promise<responses.UpdateFlowLogConfigResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateFlowLogConfig.");
     const pathParams = {
       "{flowLogConfigId}": updateFlowLogConfigRequest.flowLogConfigId
     };
@@ -20477,6 +21015,8 @@ Note that the `options` object you provide replaces the entire existing set of o
   public async updateFlowLogConfigAttachment(
     updateFlowLogConfigAttachmentRequest: requests.UpdateFlowLogConfigAttachmentRequest
   ): Promise<responses.UpdateFlowLogConfigAttachmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateFlowLogConfigAttachment.");
     const pathParams = {
       "{flowLogConfigAttachmentId}": updateFlowLogConfigAttachmentRequest.flowLogConfigAttachmentId
     };
@@ -20543,6 +21083,8 @@ To update an individual IPSec tunnel's attributes, use
   public async updateIPSecConnection(
     updateIPSecConnectionRequest: requests.UpdateIPSecConnectionRequest
   ): Promise<responses.UpdateIPSecConnectionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateIPSecConnection.");
     const pathParams = {
       "{ipscId}": updateIPSecConnectionRequest.ipscId
     };
@@ -20617,6 +21159,8 @@ To update an individual IPSec tunnel's attributes, use
   public async updateIPSecConnectionTunnel(
     updateIPSecConnectionTunnelRequest: requests.UpdateIPSecConnectionTunnelRequest
   ): Promise<responses.UpdateIPSecConnectionTunnelResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateIPSecConnectionTunnel.");
     const pathParams = {
       "{ipscId}": updateIPSecConnectionTunnelRequest.ipscId,
       "{tunnelId}": updateIPSecConnectionTunnelRequest.tunnelId
@@ -20684,6 +21228,10 @@ To update an individual IPSec tunnel's attributes, use
   public async updateIPSecConnectionTunnelSharedSecret(
     updateIPSecConnectionTunnelSharedSecretRequest: requests.UpdateIPSecConnectionTunnelSharedSecretRequest
   ): Promise<responses.UpdateIPSecConnectionTunnelSharedSecretResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#updateIPSecConnectionTunnelSharedSecret."
+      );
     const pathParams = {
       "{ipscId}": updateIPSecConnectionTunnelSharedSecretRequest.ipscId,
       "{tunnelId}": updateIPSecConnectionTunnelSharedSecretRequest.tunnelId
@@ -20752,6 +21300,8 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
   public async updateInternetGateway(
     updateInternetGatewayRequest: requests.UpdateInternetGatewayRequest
   ): Promise<responses.UpdateInternetGatewayResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateInternetGateway.");
     const pathParams = {
       "{igId}": updateInternetGatewayRequest.igId
     };
@@ -20821,6 +21371,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
   public async updateIpv6(
     updateIpv6Request: requests.UpdateIpv6Request
   ): Promise<responses.UpdateIpv6Response> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateIpv6.");
     const pathParams = {
       "{ipv6Id}": updateIpv6Request.ipv6Id
     };
@@ -20885,6 +21436,8 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
   public async updateLocalPeeringConnection(
     updateLocalPeeringConnectionRequest: requests.UpdateLocalPeeringConnectionRequest
   ): Promise<responses.UpdateLocalPeeringConnectionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateLocalPeeringConnection.");
     const pathParams = {
       "{localPeeringConnectionId}": updateLocalPeeringConnectionRequest.localPeeringConnectionId
     };
@@ -20948,6 +21501,8 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
   public async updateLocalPeeringGateway(
     updateLocalPeeringGatewayRequest: requests.UpdateLocalPeeringGatewayRequest
   ): Promise<responses.UpdateLocalPeeringGatewayResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateLocalPeeringGateway.");
     const pathParams = {
       "{localPeeringGatewayId}": updateLocalPeeringGatewayRequest.localPeeringGatewayId
     };
@@ -21011,6 +21566,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
   public async updateNatGateway(
     updateNatGatewayRequest: requests.UpdateNatGatewayRequest
   ): Promise<responses.UpdateNatGatewayResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateNatGateway.");
     const pathParams = {
       "{natGatewayId}": updateNatGatewayRequest.natGatewayId
     };
@@ -21088,6 +21644,8 @@ To edit the contents of existing security rules in the group, use
   public async updateNetworkSecurityGroup(
     updateNetworkSecurityGroupRequest: requests.UpdateNetworkSecurityGroupRequest
   ): Promise<responses.UpdateNetworkSecurityGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateNetworkSecurityGroup.");
     const pathParams = {
       "{networkSecurityGroupId}": updateNetworkSecurityGroupRequest.networkSecurityGroupId
     };
@@ -21151,6 +21709,10 @@ To edit the contents of existing security rules in the group, use
   public async updateNetworkSecurityGroupSecurityRules(
     updateNetworkSecurityGroupSecurityRulesRequest: requests.UpdateNetworkSecurityGroupSecurityRulesRequest
   ): Promise<responses.UpdateNetworkSecurityGroupSecurityRulesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#updateNetworkSecurityGroupSecurityRules."
+      );
     const pathParams = {
       "{networkSecurityGroupId}":
         updateNetworkSecurityGroupSecurityRulesRequest.networkSecurityGroupId
@@ -21217,6 +21779,7 @@ This operation cannot be used with primary private IPs.
   public async updatePrivateIp(
     updatePrivateIpRequest: requests.UpdatePrivateIpRequest
   ): Promise<responses.UpdatePrivateIpResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updatePrivateIp.");
     const pathParams = {
       "{privateIpId}": updatePrivateIpRequest.privateIpId
     };
@@ -21318,6 +21881,7 @@ Regarding ephemeral public IPs:
   public async updatePublicIp(
     updatePublicIpRequest: requests.UpdatePublicIpRequest
   ): Promise<responses.UpdatePublicIpResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updatePublicIp.");
     const pathParams = {
       "{publicIpId}": updatePublicIpRequest.publicIpId
     };
@@ -21381,6 +21945,8 @@ Regarding ephemeral public IPs:
   public async updateRemotePeeringConnection(
     updateRemotePeeringConnectionRequest: requests.UpdateRemotePeeringConnectionRequest
   ): Promise<responses.UpdateRemotePeeringConnectionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateRemotePeeringConnection.");
     const pathParams = {
       "{remotePeeringConnectionId}": updateRemotePeeringConnectionRequest.remotePeeringConnectionId
     };
@@ -21447,6 +22013,7 @@ Note that the `routeRules` object you provide replaces the entire existing set o
   public async updateRouteTable(
     updateRouteTableRequest: requests.UpdateRouteTableRequest
   ): Promise<responses.UpdateRouteTableResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateRouteTable.");
     const pathParams = {
       "{rtId}": updateRouteTableRequest.rtId
     };
@@ -21514,6 +22081,8 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
   public async updateSecurityList(
     updateSecurityListRequest: requests.UpdateSecurityListRequest
   ): Promise<responses.UpdateSecurityListResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateSecurityList.");
     const pathParams = {
       "{securityListId}": updateSecurityListRequest.securityListId
     };
@@ -21578,6 +22147,8 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
   public async updateServiceGateway(
     updateServiceGatewayRequest: requests.UpdateServiceGatewayRequest
   ): Promise<responses.UpdateServiceGatewayResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateServiceGateway.");
     const pathParams = {
       "{serviceGatewayId}": updateServiceGatewayRequest.serviceGatewayId
     };
@@ -21641,6 +22212,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
   public async updateSubnet(
     updateSubnetRequest: requests.UpdateSubnetRequest
   ): Promise<responses.UpdateSubnetResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateSubnet.");
     const pathParams = {
       "{subnetId}": updateSubnetRequest.subnetId
     };
@@ -21706,6 +22278,8 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
   public async updateTunnelCpeDeviceConfig(
     updateTunnelCpeDeviceConfigRequest: requests.UpdateTunnelCpeDeviceConfigRequest
   ): Promise<responses.UpdateTunnelCpeDeviceConfigResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateTunnelCpeDeviceConfig.");
     const pathParams = {
       "{ipscId}": updateTunnelCpeDeviceConfigRequest.ipscId,
       "{tunnelId}": updateTunnelCpeDeviceConfigRequest.tunnelId
@@ -21772,6 +22346,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
   public async updateVcn(
     updateVcnRequest: requests.UpdateVcnRequest
   ): Promise<responses.UpdateVcnResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateVcn.");
     const pathParams = {
       "{vcnId}": updateVcnRequest.vcnId
     };
@@ -21858,6 +22433,8 @@ To change the list of public IP prefixes for a public virtual circuit,
   public async updateVirtualCircuit(
     updateVirtualCircuitRequest: requests.UpdateVirtualCircuitRequest
   ): Promise<responses.UpdateVirtualCircuitResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateVirtualCircuit.");
     const pathParams = {
       "{virtualCircuitId}": updateVirtualCircuitRequest.virtualCircuitId
     };
@@ -21921,6 +22498,7 @@ To change the list of public IP prefixes for a public virtual circuit,
   public async updateVnic(
     updateVnicRequest: requests.UpdateVnicRequest
   ): Promise<responses.UpdateVnicResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateVnic.");
     const pathParams = {
       "{vnicId}": updateVnicRequest.vnicId
     };

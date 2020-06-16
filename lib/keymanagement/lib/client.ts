@@ -46,6 +46,11 @@ export class KmsCryptoClient {
    */
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
+    if (this.logger) this.logger.info(`KmsCryptoClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -58,6 +63,7 @@ export class KmsCryptoClient {
   public async decrypt(
     decryptRequest: requests.DecryptRequest
   ): Promise<responses.DecryptResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsCryptoClient#decrypt.");
     const pathParams = {};
 
     const queryParams = {};
@@ -115,6 +121,7 @@ export class KmsCryptoClient {
   public async encrypt(
     encryptRequest: requests.EncryptRequest
   ): Promise<responses.EncryptResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsCryptoClient#encrypt.");
     const pathParams = {};
 
     const queryParams = {};
@@ -171,6 +178,8 @@ export class KmsCryptoClient {
   public async generateDataEncryptionKey(
     generateDataEncryptionKeyRequest: requests.GenerateDataEncryptionKeyRequest
   ): Promise<responses.GenerateDataEncryptionKeyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation KmsCryptoClient#generateDataEncryptionKey.");
     const pathParams = {};
 
     const queryParams = {};
@@ -240,6 +249,11 @@ export class KmsManagementClient {
    */
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
+    if (this.logger) this.logger.info(`KmsManagementClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -276,6 +290,7 @@ export class KmsManagementClient {
   public async backupKey(
     backupKeyRequest: requests.BackupKeyRequest
   ): Promise<responses.BackupKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#backupKey.");
     const pathParams = {
       "{keyId}": backupKeyRequest.keyId
     };
@@ -353,6 +368,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async cancelKeyDeletion(
     cancelKeyDeletionRequest: requests.CancelKeyDeletionRequest
   ): Promise<responses.CancelKeyDeletionResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#cancelKeyDeletion.");
     const pathParams = {
       "{keyId}": cancelKeyDeletionRequest.keyId
     };
@@ -420,6 +436,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async cancelKeyVersionDeletion(
     cancelKeyVersionDeletionRequest: requests.CancelKeyVersionDeletionRequest
   ): Promise<responses.CancelKeyVersionDeletionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation KmsManagementClient#cancelKeyVersionDeletion.");
     const pathParams = {
       "{keyId}": cancelKeyVersionDeletionRequest.keyId,
       "{keyVersionId}": cancelKeyVersionDeletionRequest.keyVersionId
@@ -489,6 +507,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async changeKeyCompartment(
     changeKeyCompartmentRequest: requests.ChangeKeyCompartmentRequest
   ): Promise<responses.ChangeKeyCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation KmsManagementClient#changeKeyCompartment.");
     const pathParams = {
       "{keyId}": changeKeyCompartmentRequest.keyId
     };
@@ -556,6 +576,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async createKey(
     createKeyRequest: requests.CreateKeyRequest
   ): Promise<responses.CreateKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#createKey.");
     const pathParams = {};
 
     const queryParams = {};
@@ -624,6 +645,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async createKeyVersion(
     createKeyVersionRequest: requests.CreateKeyVersionRequest
   ): Promise<responses.CreateKeyVersionResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#createKeyVersion.");
     const pathParams = {
       "{keyId}": createKeyVersionRequest.keyId
     };
@@ -689,6 +711,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async disableKey(
     disableKeyRequest: requests.DisableKeyRequest
   ): Promise<responses.DisableKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#disableKey.");
     const pathParams = {
       "{keyId}": disableKeyRequest.keyId
     };
@@ -755,6 +778,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async enableKey(
     enableKeyRequest: requests.EnableKeyRequest
   ): Promise<responses.EnableKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#enableKey.");
     const pathParams = {
       "{keyId}": enableKeyRequest.keyId
     };
@@ -818,6 +842,7 @@ As a management operation, this call is subject to a Key Management limit that a
      * @throws OciError when an error occurs
      */
   public async getKey(getKeyRequest: requests.GetKeyRequest): Promise<responses.GetKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#getKey.");
     const pathParams = {
       "{keyId}": getKeyRequest.keyId
     };
@@ -881,6 +906,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async getKeyVersion(
     getKeyVersionRequest: requests.GetKeyVersionRequest
   ): Promise<responses.GetKeyVersionResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#getKeyVersion.");
     const pathParams = {
       "{keyId}": getKeyVersionRequest.keyId,
       "{keyVersionId}": getKeyVersionRequest.keyVersionId
@@ -941,6 +967,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async getWrappingKey(
     getWrappingKeyRequest: requests.GetWrappingKeyRequest
   ): Promise<responses.GetWrappingKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#getWrappingKey.");
     const pathParams = {};
 
     const queryParams = {};
@@ -999,6 +1026,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async importKey(
     importKeyRequest: requests.ImportKeyRequest
   ): Promise<responses.ImportKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#importKey.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1065,6 +1093,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async importKeyVersion(
     importKeyVersionRequest: requests.ImportKeyVersionRequest
   ): Promise<responses.ImportKeyVersionResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#importKeyVersion.");
     const pathParams = {
       "{keyId}": importKeyVersionRequest.keyId
     };
@@ -1135,6 +1164,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async listKeyVersions(
     listKeyVersionsRequest: requests.ListKeyVersionsRequest
   ): Promise<responses.ListKeyVersionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#listKeyVersions.");
     const pathParams = {
       "{keyId}": listKeyVersionsRequest.keyId
     };
@@ -1228,6 +1258,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async listKeys(
     listKeysRequest: requests.ListKeysRequest
   ): Promise<responses.ListKeysResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#listKeys.");
     const pathParams = {};
 
     const queryParams = {
@@ -1315,6 +1346,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async restoreKeyFromFile(
     restoreKeyFromFileRequest: requests.RestoreKeyFromFileRequest
   ): Promise<responses.RestoreKeyFromFileResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#restoreKeyFromFile.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1388,6 +1420,8 @@ As a management operation, this call is subject to a Key Management limit that a
   public async restoreKeyFromObjectStore(
     restoreKeyFromObjectStoreRequest: requests.RestoreKeyFromObjectStoreRequest
   ): Promise<responses.RestoreKeyFromObjectStoreResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation KmsManagementClient#restoreKeyFromObjectStore.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1462,6 +1496,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async scheduleKeyDeletion(
     scheduleKeyDeletionRequest: requests.ScheduleKeyDeletionRequest
   ): Promise<responses.ScheduleKeyDeletionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation KmsManagementClient#scheduleKeyDeletion.");
     const pathParams = {
       "{keyId}": scheduleKeyDeletionRequest.keyId
     };
@@ -1533,6 +1569,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async scheduleKeyVersionDeletion(
     scheduleKeyVersionDeletionRequest: requests.ScheduleKeyVersionDeletionRequest
   ): Promise<responses.ScheduleKeyVersionDeletionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation KmsManagementClient#scheduleKeyVersionDeletion.");
     const pathParams = {
       "{keyId}": scheduleKeyVersionDeletionRequest.keyId,
       "{keyVersionId}": scheduleKeyVersionDeletionRequest.keyVersionId
@@ -1606,6 +1644,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async updateKey(
     updateKeyRequest: requests.UpdateKeyRequest
   ): Promise<responses.UpdateKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#updateKey.");
     const pathParams = {
       "{keyId}": updateKeyRequest.keyId
     };
@@ -1693,6 +1732,11 @@ export class KmsVaultClient {
    */
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
+    if (this.logger) this.logger.info(`KmsVaultClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -1757,6 +1801,7 @@ export class KmsVaultClient {
   public async backupVault(
     backupVaultRequest: requests.BackupVaultRequest
   ): Promise<responses.BackupVaultResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsVaultClient#backupVault.");
     const pathParams = {
       "{vaultId}": backupVaultRequest.vaultId
     };
@@ -1835,6 +1880,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async cancelVaultDeletion(
     cancelVaultDeletionRequest: requests.CancelVaultDeletionRequest
   ): Promise<responses.CancelVaultDeletionResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsVaultClient#cancelVaultDeletion.");
     const pathParams = {
       "{vaultId}": cancelVaultDeletionRequest.vaultId
     };
@@ -1903,6 +1949,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async changeVaultCompartment(
     changeVaultCompartmentRequest: requests.ChangeVaultCompartmentRequest
   ): Promise<responses.ChangeVaultCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsVaultClient#changeVaultCompartment.");
     const pathParams = {
       "{vaultId}": changeVaultCompartmentRequest.vaultId
     };
@@ -1973,6 +2020,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async createVault(
     createVaultRequest: requests.CreateVaultRequest
   ): Promise<responses.CreateVaultResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsVaultClient#createVault.");
     const pathParams = {};
 
     const queryParams = {};
@@ -2040,6 +2088,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async getVault(
     getVaultRequest: requests.GetVaultRequest
   ): Promise<responses.GetVaultResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsVaultClient#getVault.");
     const pathParams = {
       "{vaultId}": getVaultRequest.vaultId
     };
@@ -2098,6 +2147,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async getVaultUsage(
     getVaultUsageRequest: requests.GetVaultUsageRequest
   ): Promise<responses.GetVaultUsageResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsVaultClient#getVaultUsage.");
     const pathParams = {
       "{vaultId}": getVaultUsageRequest.vaultId
     };
@@ -2156,6 +2206,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async listVaults(
     listVaultsRequest: requests.ListVaultsRequest
   ): Promise<responses.ListVaultsResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsVaultClient#listVaults.");
     const pathParams = {};
 
     const queryParams = {
@@ -2245,6 +2296,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async restoreVaultFromFile(
     restoreVaultFromFileRequest: requests.RestoreVaultFromFileRequest
   ): Promise<responses.RestoreVaultFromFileResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsVaultClient#restoreVaultFromFile.");
     const pathParams = {};
 
     const queryParams = {
@@ -2320,6 +2372,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async restoreVaultFromObjectStore(
     restoreVaultFromObjectStoreRequest: requests.RestoreVaultFromObjectStoreRequest
   ): Promise<responses.RestoreVaultFromObjectStoreResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation KmsVaultClient#restoreVaultFromObjectStore.");
     const pathParams = {};
 
     const queryParams = {
@@ -2399,6 +2453,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async scheduleVaultDeletion(
     scheduleVaultDeletionRequest: requests.ScheduleVaultDeletionRequest
   ): Promise<responses.ScheduleVaultDeletionResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsVaultClient#scheduleVaultDeletion.");
     const pathParams = {
       "{vaultId}": scheduleVaultDeletionRequest.vaultId
     };
@@ -2471,6 +2526,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async updateVault(
     updateVaultRequest: requests.UpdateVaultRequest
   ): Promise<responses.UpdateVaultResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsVaultClient#updateVault.");
     const pathParams = {
       "{vaultId}": updateVaultRequest.vaultId
     };

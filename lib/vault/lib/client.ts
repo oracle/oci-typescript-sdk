@@ -57,6 +57,11 @@ export class VaultsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180608";
+    if (this.logger) this.logger.info(`VaultsClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -121,6 +126,7 @@ export class VaultsClient {
   public async cancelSecretDeletion(
     cancelSecretDeletionRequest: requests.CancelSecretDeletionRequest
   ): Promise<responses.CancelSecretDeletionResponse> {
+    if (this.logger) this.logger.debug("Calling operation VaultsClient#cancelSecretDeletion.");
     const pathParams = {
       "{secretId}": cancelSecretDeletionRequest.secretId
     };
@@ -176,6 +182,8 @@ export class VaultsClient {
   public async cancelSecretVersionDeletion(
     cancelSecretVersionDeletionRequest: requests.CancelSecretVersionDeletionRequest
   ): Promise<responses.CancelSecretVersionDeletionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VaultsClient#cancelSecretVersionDeletion.");
     const pathParams = {
       "{secretId}": cancelSecretVersionDeletionRequest.secretId,
       "{secretVersionNumber}": cancelSecretVersionDeletionRequest.secretVersionNumber
@@ -236,6 +244,7 @@ When provided, if-match is checked against the ETag values of the secret.
   public async changeSecretCompartment(
     changeSecretCompartmentRequest: requests.ChangeSecretCompartmentRequest
   ): Promise<responses.ChangeSecretCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation VaultsClient#changeSecretCompartment.");
     const pathParams = {
       "{secretId}": changeSecretCompartmentRequest.secretId
     };
@@ -300,6 +309,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   public async createSecret(
     createSecretRequest: requests.CreateSecretRequest
   ): Promise<responses.CreateSecretResponse> {
+    if (this.logger) this.logger.debug("Calling operation VaultsClient#createSecret.");
     const pathParams = {};
 
     const queryParams = {};
@@ -361,6 +371,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   public async getSecret(
     getSecretRequest: requests.GetSecretRequest
   ): Promise<responses.GetSecretResponse> {
+    if (this.logger) this.logger.debug("Calling operation VaultsClient#getSecret.");
     const pathParams = {
       "{secretId}": getSecretRequest.secretId
     };
@@ -419,6 +430,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   public async getSecretVersion(
     getSecretVersionRequest: requests.GetSecretVersionRequest
   ): Promise<responses.GetSecretVersionResponse> {
+    if (this.logger) this.logger.debug("Calling operation VaultsClient#getSecretVersion.");
     const pathParams = {
       "{secretId}": getSecretVersionRequest.secretId,
       "{secretVersionNumber}": getSecretVersionRequest.secretVersionNumber
@@ -477,6 +489,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   public async listSecretVersions(
     listSecretVersionsRequest: requests.ListSecretVersionsRequest
   ): Promise<responses.ListSecretVersionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation VaultsClient#listSecretVersions.");
     const pathParams = {
       "{secretId}": listSecretVersionsRequest.secretId
     };
@@ -564,6 +577,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   public async listSecrets(
     listSecretsRequest: requests.ListSecretsRequest
   ): Promise<responses.ListSecretsResponse> {
+    if (this.logger) this.logger.debug("Calling operation VaultsClient#listSecrets.");
     const pathParams = {};
 
     const queryParams = {
@@ -655,6 +669,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   public async scheduleSecretDeletion(
     scheduleSecretDeletionRequest: requests.ScheduleSecretDeletionRequest
   ): Promise<responses.ScheduleSecretDeletionResponse> {
+    if (this.logger) this.logger.debug("Calling operation VaultsClient#scheduleSecretDeletion.");
     const pathParams = {
       "{secretId}": scheduleSecretDeletionRequest.secretId
     };
@@ -717,6 +732,8 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   public async scheduleSecretVersionDeletion(
     scheduleSecretVersionDeletionRequest: requests.ScheduleSecretVersionDeletionRequest
   ): Promise<responses.ScheduleSecretVersionDeletionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VaultsClient#scheduleSecretVersionDeletion.");
     const pathParams = {
       "{secretId}": scheduleSecretVersionDeletionRequest.secretId,
       "{secretVersionNumber}": scheduleSecretVersionDeletionRequest.secretVersionNumber
@@ -784,6 +801,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   public async updateSecret(
     updateSecretRequest: requests.UpdateSecretRequest
   ): Promise<responses.UpdateSecretResponse> {
+    if (this.logger) this.logger.debug("Calling operation VaultsClient#updateSecret.");
     const pathParams = {
       "{secretId}": updateSecretRequest.secretId
     };

@@ -59,6 +59,11 @@ export class HealthChecksClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180501";
+    if (this.logger) this.logger.info(`HealthChecksClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -99,6 +104,8 @@ export class HealthChecksClient {
   public async changeHttpMonitorCompartment(
     changeHttpMonitorCompartmentRequest: requests.ChangeHttpMonitorCompartmentRequest
   ): Promise<responses.ChangeHttpMonitorCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation HealthChecksClient#changeHttpMonitorCompartment.");
     const pathParams = {
       "{monitorId}": changeHttpMonitorCompartmentRequest.monitorId
     };
@@ -157,6 +164,8 @@ export class HealthChecksClient {
   public async changePingMonitorCompartment(
     changePingMonitorCompartmentRequest: requests.ChangePingMonitorCompartmentRequest
   ): Promise<responses.ChangePingMonitorCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation HealthChecksClient#changePingMonitorCompartment.");
     const pathParams = {
       "{monitorId}": changePingMonitorCompartmentRequest.monitorId
     };
@@ -216,6 +225,7 @@ export class HealthChecksClient {
   public async createHttpMonitor(
     createHttpMonitorRequest: requests.CreateHttpMonitorRequest
   ): Promise<responses.CreateHttpMonitorResponse> {
+    if (this.logger) this.logger.debug("Calling operation HealthChecksClient#createHttpMonitor.");
     const pathParams = {};
 
     const queryParams = {};
@@ -286,6 +296,8 @@ export class HealthChecksClient {
   public async createOnDemandHttpProbe(
     createOnDemandHttpProbeRequest: requests.CreateOnDemandHttpProbeRequest
   ): Promise<responses.CreateOnDemandHttpProbeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation HealthChecksClient#createOnDemandHttpProbe.");
     const pathParams = {};
 
     const queryParams = {};
@@ -350,6 +362,8 @@ export class HealthChecksClient {
   public async createOnDemandPingProbe(
     createOnDemandPingProbeRequest: requests.CreateOnDemandPingProbeRequest
   ): Promise<responses.CreateOnDemandPingProbeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation HealthChecksClient#createOnDemandPingProbe.");
     const pathParams = {};
 
     const queryParams = {};
@@ -413,6 +427,7 @@ export class HealthChecksClient {
   public async createPingMonitor(
     createPingMonitorRequest: requests.CreatePingMonitorRequest
   ): Promise<responses.CreatePingMonitorResponse> {
+    if (this.logger) this.logger.debug("Calling operation HealthChecksClient#createPingMonitor.");
     const pathParams = {};
 
     const queryParams = {};
@@ -481,6 +496,7 @@ export class HealthChecksClient {
   public async deleteHttpMonitor(
     deleteHttpMonitorRequest: requests.DeleteHttpMonitorRequest
   ): Promise<responses.DeleteHttpMonitorResponse> {
+    if (this.logger) this.logger.debug("Calling operation HealthChecksClient#deleteHttpMonitor.");
     const pathParams = {
       "{monitorId}": deleteHttpMonitorRequest.monitorId
     };
@@ -533,6 +549,7 @@ export class HealthChecksClient {
   public async deletePingMonitor(
     deletePingMonitorRequest: requests.DeletePingMonitorRequest
   ): Promise<responses.DeletePingMonitorResponse> {
+    if (this.logger) this.logger.debug("Calling operation HealthChecksClient#deletePingMonitor.");
     const pathParams = {
       "{monitorId}": deletePingMonitorRequest.monitorId
     };
@@ -584,6 +601,7 @@ export class HealthChecksClient {
   public async getHttpMonitor(
     getHttpMonitorRequest: requests.GetHttpMonitorRequest
   ): Promise<responses.GetHttpMonitorResponse> {
+    if (this.logger) this.logger.debug("Calling operation HealthChecksClient#getHttpMonitor.");
     const pathParams = {
       "{monitorId}": getHttpMonitorRequest.monitorId
     };
@@ -643,6 +661,7 @@ export class HealthChecksClient {
   public async getPingMonitor(
     getPingMonitorRequest: requests.GetPingMonitorRequest
   ): Promise<responses.GetPingMonitorResponse> {
+    if (this.logger) this.logger.debug("Calling operation HealthChecksClient#getPingMonitor.");
     const pathParams = {
       "{monitorId}": getPingMonitorRequest.monitorId
     };
@@ -702,6 +721,8 @@ export class HealthChecksClient {
   public async listHealthChecksVantagePoints(
     listHealthChecksVantagePointsRequest: requests.ListHealthChecksVantagePointsRequest
   ): Promise<responses.ListHealthChecksVantagePointsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation HealthChecksClient#listHealthChecksVantagePoints.");
     const pathParams = {};
 
     const queryParams = {
@@ -790,6 +811,7 @@ export class HealthChecksClient {
   public async listHttpMonitors(
     listHttpMonitorsRequest: requests.ListHttpMonitorsRequest
   ): Promise<responses.ListHttpMonitorsResponse> {
+    if (this.logger) this.logger.debug("Calling operation HealthChecksClient#listHttpMonitors.");
     const pathParams = {};
 
     const queryParams = {
@@ -881,6 +903,8 @@ export class HealthChecksClient {
   public async listHttpProbeResults(
     listHttpProbeResultsRequest: requests.ListHttpProbeResultsRequest
   ): Promise<responses.ListHttpProbeResultsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation HealthChecksClient#listHttpProbeResults.");
     const pathParams = {
       "{probeConfigurationId}": listHttpProbeResultsRequest.probeConfigurationId
     };
@@ -974,6 +998,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
   public async listPingMonitors(
     listPingMonitorsRequest: requests.ListPingMonitorsRequest
   ): Promise<responses.ListPingMonitorsResponse> {
+    if (this.logger) this.logger.debug("Calling operation HealthChecksClient#listPingMonitors.");
     const pathParams = {};
 
     const queryParams = {
@@ -1069,6 +1094,8 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
   public async listPingProbeResults(
     listPingProbeResultsRequest: requests.ListPingProbeResultsRequest
   ): Promise<responses.ListPingProbeResultsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation HealthChecksClient#listPingProbeResults.");
     const pathParams = {
       "{probeConfigurationId}": listPingProbeResultsRequest.probeConfigurationId
     };
@@ -1161,6 +1188,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
   public async updateHttpMonitor(
     updateHttpMonitorRequest: requests.UpdateHttpMonitorRequest
   ): Promise<responses.UpdateHttpMonitorResponse> {
+    if (this.logger) this.logger.debug("Calling operation HealthChecksClient#updateHttpMonitor.");
     const pathParams = {
       "{monitorId}": updateHttpMonitorRequest.monitorId
     };
@@ -1227,6 +1255,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
   public async updatePingMonitor(
     updatePingMonitorRequest: requests.UpdatePingMonitorRequest
   ): Promise<responses.UpdatePingMonitorResponse> {
+    if (this.logger) this.logger.debug("Calling operation HealthChecksClient#updatePingMonitor.");
     const pathParams = {
       "{monitorId}": updatePingMonitorRequest.monitorId
     };

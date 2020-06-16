@@ -57,6 +57,12 @@ export class IntegrationInstanceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190131";
+    if (this.logger)
+      this.logger.info(`IntegrationInstanceClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -119,6 +125,10 @@ export class IntegrationInstanceClient {
   public async changeIntegrationInstanceCompartment(
     changeIntegrationInstanceCompartmentRequest: requests.ChangeIntegrationInstanceCompartmentRequest
   ): Promise<responses.ChangeIntegrationInstanceCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation IntegrationInstanceClient#changeIntegrationInstanceCompartment."
+      );
     const pathParams = {
       "{integrationInstanceId}": changeIntegrationInstanceCompartmentRequest.integrationInstanceId
     };
@@ -181,6 +191,8 @@ export class IntegrationInstanceClient {
   public async createIntegrationInstance(
     createIntegrationInstanceRequest: requests.CreateIntegrationInstanceRequest
   ): Promise<responses.CreateIntegrationInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IntegrationInstanceClient#createIntegrationInstance.");
     const pathParams = {};
 
     const queryParams = {};
@@ -239,6 +251,8 @@ export class IntegrationInstanceClient {
   public async deleteIntegrationInstance(
     deleteIntegrationInstanceRequest: requests.DeleteIntegrationInstanceRequest
   ): Promise<responses.DeleteIntegrationInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IntegrationInstanceClient#deleteIntegrationInstance.");
     const pathParams = {
       "{integrationInstanceId}": deleteIntegrationInstanceRequest.integrationInstanceId
     };
@@ -294,6 +308,8 @@ export class IntegrationInstanceClient {
   public async getIntegrationInstance(
     getIntegrationInstanceRequest: requests.GetIntegrationInstanceRequest
   ): Promise<responses.GetIntegrationInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IntegrationInstanceClient#getIntegrationInstance.");
     const pathParams = {
       "{integrationInstanceId}": getIntegrationInstanceRequest.integrationInstanceId
     };
@@ -351,6 +367,8 @@ export class IntegrationInstanceClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IntegrationInstanceClient#getWorkRequest.");
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -414,6 +432,8 @@ export class IntegrationInstanceClient {
   public async listIntegrationInstances(
     listIntegrationInstancesRequest: requests.ListIntegrationInstancesRequest
   ): Promise<responses.ListIntegrationInstancesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IntegrationInstanceClient#listIntegrationInstances.");
     const pathParams = {};
 
     const queryParams = {
@@ -507,6 +527,8 @@ export class IntegrationInstanceClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IntegrationInstanceClient#listWorkRequestErrors.");
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -598,6 +620,8 @@ export class IntegrationInstanceClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IntegrationInstanceClient#listWorkRequestLogs.");
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -690,6 +714,8 @@ export class IntegrationInstanceClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IntegrationInstanceClient#listWorkRequests.");
     const pathParams = {};
 
     const queryParams = {
@@ -781,6 +807,8 @@ export class IntegrationInstanceClient {
   public async startIntegrationInstance(
     startIntegrationInstanceRequest: requests.StartIntegrationInstanceRequest
   ): Promise<responses.StartIntegrationInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IntegrationInstanceClient#startIntegrationInstance.");
     const pathParams = {
       "{integrationInstanceId}": startIntegrationInstanceRequest.integrationInstanceId
     };
@@ -838,6 +866,8 @@ export class IntegrationInstanceClient {
   public async stopIntegrationInstance(
     stopIntegrationInstanceRequest: requests.StopIntegrationInstanceRequest
   ): Promise<responses.StopIntegrationInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IntegrationInstanceClient#stopIntegrationInstance.");
     const pathParams = {
       "{integrationInstanceId}": stopIntegrationInstanceRequest.integrationInstanceId
     };
@@ -894,6 +924,8 @@ export class IntegrationInstanceClient {
   public async updateIntegrationInstance(
     updateIntegrationInstanceRequest: requests.UpdateIntegrationInstanceRequest
   ): Promise<responses.UpdateIntegrationInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IntegrationInstanceClient#updateIntegrationInstance.");
     const pathParams = {
       "{integrationInstanceId}": updateIntegrationInstanceRequest.integrationInstanceId
     };

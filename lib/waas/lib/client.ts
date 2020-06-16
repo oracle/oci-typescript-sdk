@@ -60,6 +60,11 @@ export class RedirectClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181116";
+    if (this.logger) this.logger.info(`RedirectClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -121,6 +126,8 @@ export class RedirectClient {
   public async changeHttpRedirectCompartment(
     changeHttpRedirectCompartmentRequest: requests.ChangeHttpRedirectCompartmentRequest
   ): Promise<responses.ChangeHttpRedirectCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation RedirectClient#changeHttpRedirectCompartment.");
     const pathParams = {
       "{httpRedirectId}": changeHttpRedirectCompartmentRequest.httpRedirectId
     };
@@ -177,6 +184,7 @@ export class RedirectClient {
   public async createHttpRedirect(
     createHttpRedirectRequest: requests.CreateHttpRedirectRequest
   ): Promise<responses.CreateHttpRedirectResponse> {
+    if (this.logger) this.logger.debug("Calling operation RedirectClient#createHttpRedirect.");
     const pathParams = {};
 
     const queryParams = {};
@@ -235,6 +243,7 @@ export class RedirectClient {
   public async deleteHttpRedirect(
     deleteHttpRedirectRequest: requests.DeleteHttpRedirectRequest
   ): Promise<responses.DeleteHttpRedirectResponse> {
+    if (this.logger) this.logger.debug("Calling operation RedirectClient#deleteHttpRedirect.");
     const pathParams = {
       "{httpRedirectId}": deleteHttpRedirectRequest.httpRedirectId
     };
@@ -291,6 +300,7 @@ export class RedirectClient {
   public async getHttpRedirect(
     getHttpRedirectRequest: requests.GetHttpRedirectRequest
   ): Promise<responses.GetHttpRedirectResponse> {
+    if (this.logger) this.logger.debug("Calling operation RedirectClient#getHttpRedirect.");
     const pathParams = {
       "{httpRedirectId}": getHttpRedirectRequest.httpRedirectId
     };
@@ -348,6 +358,7 @@ export class RedirectClient {
   public async listHttpRedirects(
     listHttpRedirectsRequest: requests.ListHttpRedirectsRequest
   ): Promise<responses.ListHttpRedirectsResponse> {
+    if (this.logger) this.logger.debug("Calling operation RedirectClient#listHttpRedirects.");
     const pathParams = {};
 
     const queryParams = {
@@ -439,6 +450,7 @@ export class RedirectClient {
   public async updateHttpRedirect(
     updateHttpRedirectRequest: requests.UpdateHttpRedirectRequest
   ): Promise<responses.UpdateHttpRedirectResponse> {
+    if (this.logger) this.logger.debug("Calling operation RedirectClient#updateHttpRedirect.");
     const pathParams = {
       "{httpRedirectId}": updateHttpRedirectRequest.httpRedirectId
     };
@@ -527,6 +539,11 @@ export class WaasClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181116";
+    if (this.logger) this.logger.info(`WaasClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -590,6 +607,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
   public async acceptRecommendations(
     acceptRecommendationsRequest: requests.AcceptRecommendationsRequest
   ): Promise<responses.AcceptRecommendationsResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#acceptRecommendations.");
     const pathParams = {
       "{waasPolicyId}": acceptRecommendationsRequest.waasPolicyId
     };
@@ -649,6 +667,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#cancelWorkRequest.");
     const pathParams = {
       "{workRequestId}": cancelWorkRequestRequest.workRequestId
     };
@@ -703,6 +722,8 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
   public async changeAddressListCompartment(
     changeAddressListCompartmentRequest: requests.ChangeAddressListCompartmentRequest
   ): Promise<responses.ChangeAddressListCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation WaasClient#changeAddressListCompartment.");
     const pathParams = {
       "{addressListId}": changeAddressListCompartmentRequest.addressListId
     };
@@ -761,6 +782,8 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
   public async changeCertificateCompartment(
     changeCertificateCompartmentRequest: requests.ChangeCertificateCompartmentRequest
   ): Promise<responses.ChangeCertificateCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation WaasClient#changeCertificateCompartment.");
     const pathParams = {
       "{certificateId}": changeCertificateCompartmentRequest.certificateId
     };
@@ -817,6 +840,8 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
   public async changeCustomProtectionRuleCompartment(
     changeCustomProtectionRuleCompartmentRequest: requests.ChangeCustomProtectionRuleCompartmentRequest
   ): Promise<responses.ChangeCustomProtectionRuleCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation WaasClient#changeCustomProtectionRuleCompartment.");
     const pathParams = {
       "{customProtectionRuleId}":
         changeCustomProtectionRuleCompartmentRequest.customProtectionRuleId
@@ -876,6 +901,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
   public async changeWaasPolicyCompartment(
     changeWaasPolicyCompartmentRequest: requests.ChangeWaasPolicyCompartmentRequest
   ): Promise<responses.ChangeWaasPolicyCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#changeWaasPolicyCompartment.");
     const pathParams = {
       "{waasPolicyId}": changeWaasPolicyCompartmentRequest.waasPolicyId
     };
@@ -932,6 +958,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
   public async createAddressList(
     createAddressListRequest: requests.CreateAddressListRequest
   ): Promise<responses.CreateAddressListResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#createAddressList.");
     const pathParams = {};
 
     const queryParams = {};
@@ -995,6 +1022,7 @@ For more information, see [WAF Settings](https://docs.cloud.oracle.com/iaas/Cont
   public async createCertificate(
     createCertificateRequest: requests.CreateCertificateRequest
   ): Promise<responses.CreateCertificateResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#createCertificate.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1058,6 +1086,7 @@ Custom protection rules allow you to create rules in addition to the rulesets pr
   public async createCustomProtectionRule(
     createCustomProtectionRuleRequest: requests.CreateCustomProtectionRuleRequest
   ): Promise<responses.CreateCustomProtectionRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#createCustomProtectionRule.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1131,6 +1160,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async createWaasPolicy(
     createWaasPolicyRequest: requests.CreateWaasPolicyRequest
   ): Promise<responses.CreateWaasPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#createWaasPolicy.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1194,6 +1224,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async deleteAddressList(
     deleteAddressListRequest: requests.DeleteAddressListRequest
   ): Promise<responses.DeleteAddressListResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#deleteAddressList.");
     const pathParams = {
       "{addressListId}": deleteAddressListRequest.addressListId
     };
@@ -1245,6 +1276,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async deleteCertificate(
     deleteCertificateRequest: requests.DeleteCertificateRequest
   ): Promise<responses.DeleteCertificateResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#deleteCertificate.");
     const pathParams = {
       "{certificateId}": deleteCertificateRequest.certificateId
     };
@@ -1296,6 +1328,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async deleteCustomProtectionRule(
     deleteCustomProtectionRuleRequest: requests.DeleteCustomProtectionRuleRequest
   ): Promise<responses.DeleteCustomProtectionRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#deleteCustomProtectionRule.");
     const pathParams = {
       "{customProtectionRuleId}": deleteCustomProtectionRuleRequest.customProtectionRuleId
     };
@@ -1347,6 +1380,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async deleteWaasPolicy(
     deleteWaasPolicyRequest: requests.DeleteWaasPolicyRequest
   ): Promise<responses.DeleteWaasPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#deleteWaasPolicy.");
     const pathParams = {
       "{waasPolicyId}": deleteWaasPolicyRequest.waasPolicyId
     };
@@ -1403,6 +1437,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getAddressList(
     getAddressListRequest: requests.GetAddressListRequest
   ): Promise<responses.GetAddressListResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#getAddressList.");
     const pathParams = {
       "{addressListId}": getAddressListRequest.addressListId
     };
@@ -1460,6 +1495,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getCertificate(
     getCertificateRequest: requests.GetCertificateRequest
   ): Promise<responses.GetCertificateResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#getCertificate.");
     const pathParams = {
       "{certificateId}": getCertificateRequest.certificateId
     };
@@ -1517,6 +1553,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getCustomProtectionRule(
     getCustomProtectionRuleRequest: requests.GetCustomProtectionRuleRequest
   ): Promise<responses.GetCustomProtectionRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#getCustomProtectionRule.");
     const pathParams = {
       "{customProtectionRuleId}": getCustomProtectionRuleRequest.customProtectionRuleId
     };
@@ -1574,6 +1611,8 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getDeviceFingerprintChallenge(
     getDeviceFingerprintChallengeRequest: requests.GetDeviceFingerprintChallengeRequest
   ): Promise<responses.GetDeviceFingerprintChallengeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation WaasClient#getDeviceFingerprintChallenge.");
     const pathParams = {
       "{waasPolicyId}": getDeviceFingerprintChallengeRequest.waasPolicyId
     };
@@ -1631,6 +1670,8 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getHumanInteractionChallenge(
     getHumanInteractionChallengeRequest: requests.GetHumanInteractionChallengeRequest
   ): Promise<responses.GetHumanInteractionChallengeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation WaasClient#getHumanInteractionChallenge.");
     const pathParams = {
       "{waasPolicyId}": getHumanInteractionChallengeRequest.waasPolicyId
     };
@@ -1688,6 +1729,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getJsChallenge(
     getJsChallengeRequest: requests.GetJsChallengeRequest
   ): Promise<responses.GetJsChallengeResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#getJsChallenge.");
     const pathParams = {
       "{waasPolicyId}": getJsChallengeRequest.waasPolicyId
     };
@@ -1745,6 +1787,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getPolicyConfig(
     getPolicyConfigRequest: requests.GetPolicyConfigRequest
   ): Promise<responses.GetPolicyConfigResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#getPolicyConfig.");
     const pathParams = {
       "{waasPolicyId}": getPolicyConfigRequest.waasPolicyId
     };
@@ -1802,6 +1845,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getProtectionRule(
     getProtectionRuleRequest: requests.GetProtectionRuleRequest
   ): Promise<responses.GetProtectionRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#getProtectionRule.");
     const pathParams = {
       "{waasPolicyId}": getProtectionRuleRequest.waasPolicyId,
       "{protectionRuleKey}": getProtectionRuleRequest.protectionRuleKey
@@ -1860,6 +1904,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getProtectionSettings(
     getProtectionSettingsRequest: requests.GetProtectionSettingsRequest
   ): Promise<responses.GetProtectionSettingsResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#getProtectionSettings.");
     const pathParams = {
       "{waasPolicyId}": getProtectionSettingsRequest.waasPolicyId
     };
@@ -1917,6 +1962,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getWaasPolicy(
     getWaasPolicyRequest: requests.GetWaasPolicyRequest
   ): Promise<responses.GetWaasPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#getWaasPolicy.");
     const pathParams = {
       "{waasPolicyId}": getWaasPolicyRequest.waasPolicyId
     };
@@ -1974,6 +2020,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getWafAddressRateLimiting(
     getWafAddressRateLimitingRequest: requests.GetWafAddressRateLimitingRequest
   ): Promise<responses.GetWafAddressRateLimitingResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#getWafAddressRateLimiting.");
     const pathParams = {
       "{waasPolicyId}": getWafAddressRateLimitingRequest.waasPolicyId
     };
@@ -2031,6 +2078,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getWafConfig(
     getWafConfigRequest: requests.GetWafConfigRequest
   ): Promise<responses.GetWafConfigResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#getWafConfig.");
     const pathParams = {
       "{waasPolicyId}": getWafConfigRequest.waasPolicyId
     };
@@ -2088,6 +2136,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#getWorkRequest.");
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -2151,6 +2200,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async listAccessRules(
     listAccessRulesRequest: requests.ListAccessRulesRequest
   ): Promise<responses.ListAccessRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#listAccessRules.");
     const pathParams = {
       "{waasPolicyId}": listAccessRulesRequest.waasPolicyId
     };
@@ -2241,6 +2291,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async listAddressLists(
     listAddressListsRequest: requests.ListAddressListsRequest
   ): Promise<responses.ListAddressListsResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#listAddressLists.");
     const pathParams = {};
 
     const queryParams = {
@@ -2333,6 +2384,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async listCachingRules(
     listCachingRulesRequest: requests.ListCachingRulesRequest
   ): Promise<responses.ListCachingRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#listCachingRules.");
     const pathParams = {
       "{waasPolicyId}": listCachingRulesRequest.waasPolicyId
     };
@@ -2428,6 +2480,7 @@ The order of the CAPTCHA challenges is important. The URL for each
   public async listCaptchas(
     listCaptchasRequest: requests.ListCaptchasRequest
   ): Promise<responses.ListCaptchasResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#listCaptchas.");
     const pathParams = {
       "{waasPolicyId}": listCaptchasRequest.waasPolicyId
     };
@@ -2518,6 +2571,7 @@ The order of the CAPTCHA challenges is important. The URL for each
   public async listCertificates(
     listCertificatesRequest: requests.ListCertificatesRequest
   ): Promise<responses.ListCertificatesResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#listCertificates.");
     const pathParams = {};
 
     const queryParams = {
@@ -2609,6 +2663,7 @@ The order of the CAPTCHA challenges is important. The URL for each
   public async listCustomProtectionRules(
     listCustomProtectionRulesRequest: requests.ListCustomProtectionRulesRequest
   ): Promise<responses.ListCustomProtectionRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#listCustomProtectionRules.");
     const pathParams = {};
 
     const queryParams = {
@@ -2701,6 +2756,7 @@ The order of the CAPTCHA challenges is important. The URL for each
   public async listEdgeSubnets(
     listEdgeSubnetsRequest: requests.ListEdgeSubnetsRequest
   ): Promise<responses.ListEdgeSubnetsResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#listEdgeSubnets.");
     const pathParams = {};
 
     const queryParams = {
@@ -2789,6 +2845,7 @@ The list is sorted by `key`, in ascending order.
   public async listGoodBots(
     listGoodBotsRequest: requests.ListGoodBotsRequest
   ): Promise<responses.ListGoodBotsResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#listGoodBots.");
     const pathParams = {
       "{waasPolicyId}": listGoodBotsRequest.waasPolicyId
     };
@@ -2880,6 +2937,7 @@ The list is sorted by `key`, in ascending order.
   public async listProtectionRules(
     listProtectionRulesRequest: requests.ListProtectionRulesRequest
   ): Promise<responses.ListProtectionRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#listProtectionRules.");
     const pathParams = {
       "{waasPolicyId}": listProtectionRulesRequest.waasPolicyId
     };
@@ -2975,6 +3033,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   public async listRecommendations(
     listRecommendationsRequest: requests.ListRecommendationsRequest
   ): Promise<responses.ListRecommendationsResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#listRecommendations.");
     const pathParams = {
       "{waasPolicyId}": listRecommendationsRequest.waasPolicyId
     };
@@ -3069,6 +3128,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   public async listThreatFeeds(
     listThreatFeedsRequest: requests.ListThreatFeedsRequest
   ): Promise<responses.ListThreatFeedsResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#listThreatFeeds.");
     const pathParams = {
       "{waasPolicyId}": listThreatFeedsRequest.waasPolicyId
     };
@@ -3159,6 +3219,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   public async listWaasPolicies(
     listWaasPoliciesRequest: requests.ListWaasPoliciesRequest
   ): Promise<responses.ListWaasPoliciesResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#listWaasPolicies.");
     const pathParams = {};
 
     const queryParams = {
@@ -3250,6 +3311,8 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   public async listWaasPolicyCustomProtectionRules(
     listWaasPolicyCustomProtectionRulesRequest: requests.ListWaasPolicyCustomProtectionRulesRequest
   ): Promise<responses.ListWaasPolicyCustomProtectionRulesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation WaasClient#listWaasPolicyCustomProtectionRules.");
     const pathParams = {
       "{waasPolicyId}": listWaasPolicyCustomProtectionRulesRequest.waasPolicyId
     };
@@ -3342,6 +3405,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   public async listWafBlockedRequests(
     listWafBlockedRequestsRequest: requests.ListWafBlockedRequestsRequest
   ): Promise<responses.ListWafBlockedRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#listWafBlockedRequests.");
     const pathParams = {
       "{waasPolicyId}": listWafBlockedRequestsRequest.waasPolicyId
     };
@@ -3434,6 +3498,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   public async listWafLogs(
     listWafLogsRequest: requests.ListWafLogsRequest
   ): Promise<responses.ListWafLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#listWafLogs.");
     const pathParams = {
       "{waasPolicyId}": listWafLogsRequest.waasPolicyId
     };
@@ -3541,6 +3606,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   public async listWafRequests(
     listWafRequestsRequest: requests.ListWafRequestsRequest
   ): Promise<responses.ListWafRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#listWafRequests.");
     const pathParams = {
       "{waasPolicyId}": listWafRequestsRequest.waasPolicyId
     };
@@ -3630,6 +3696,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   public async listWafTraffic(
     listWafTrafficRequest: requests.ListWafTrafficRequest
   ): Promise<responses.ListWafTrafficResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#listWafTraffic.");
     const pathParams = {
       "{waasPolicyId}": listWafTrafficRequest.waasPolicyId
     };
@@ -3717,6 +3784,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   public async listWhitelists(
     listWhitelistsRequest: requests.ListWhitelistsRequest
   ): Promise<responses.ListWhitelistsResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#listWhitelists.");
     const pathParams = {
       "{waasPolicyId}": listWhitelistsRequest.waasPolicyId
     };
@@ -3807,6 +3875,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#listWorkRequests.");
     const pathParams = {};
 
     const queryParams = {
@@ -3895,6 +3964,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   public async purgeCache(
     purgeCacheRequest: requests.PurgeCacheRequest
   ): Promise<responses.PurgeCacheResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#purgeCache.");
     const pathParams = {
       "{waasPolicyId}": purgeCacheRequest.waasPolicyId
     };
@@ -3963,6 +4033,7 @@ Any existing access rules that are not specified with a `key` in the list of acc
   public async updateAccessRules(
     updateAccessRulesRequest: requests.UpdateAccessRulesRequest
   ): Promise<responses.UpdateAccessRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#updateAccessRules.");
     const pathParams = {
       "{waasPolicyId}": updateAccessRulesRequest.waasPolicyId
     };
@@ -4024,6 +4095,7 @@ Any existing access rules that are not specified with a `key` in the list of acc
   public async updateAddressList(
     updateAddressListRequest: requests.UpdateAddressListRequest
   ): Promise<responses.UpdateAddressListResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#updateAddressList.");
     const pathParams = {
       "{addressListId}": updateAddressListRequest.addressListId
     };
@@ -4093,6 +4165,7 @@ The order the caching rules are specified in is important. The rules are process
   public async updateCachingRules(
     updateCachingRulesRequest: requests.UpdateCachingRulesRequest
   ): Promise<responses.UpdateCachingRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#updateCachingRules.");
     const pathParams = {
       "{waasPolicyId}": updateCachingRulesRequest.waasPolicyId
     };
@@ -4162,6 +4235,7 @@ Query parameters are allowed in CAPTCHA URL.
   public async updateCaptchas(
     updateCaptchasRequest: requests.UpdateCaptchasRequest
   ): Promise<responses.UpdateCaptchasResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#updateCaptchas.");
     const pathParams = {
       "{waasPolicyId}": updateCaptchasRequest.waasPolicyId
     };
@@ -4223,6 +4297,7 @@ Query parameters are allowed in CAPTCHA URL.
   public async updateCertificate(
     updateCertificateRequest: requests.UpdateCertificateRequest
   ): Promise<responses.UpdateCertificateResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#updateCertificate.");
     const pathParams = {
       "{certificateId}": updateCertificateRequest.certificateId
     };
@@ -4286,6 +4361,7 @@ Query parameters are allowed in CAPTCHA URL.
   public async updateCustomProtectionRule(
     updateCustomProtectionRuleRequest: requests.UpdateCustomProtectionRuleRequest
   ): Promise<responses.UpdateCustomProtectionRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#updateCustomProtectionRule.");
     const pathParams = {
       "{customProtectionRuleId}": updateCustomProtectionRuleRequest.customProtectionRuleId
     };
@@ -4354,6 +4430,8 @@ DFC collects attributes to generate a hashed signature about a client - if a fin
   public async updateDeviceFingerprintChallenge(
     updateDeviceFingerprintChallengeRequest: requests.UpdateDeviceFingerprintChallengeRequest
   ): Promise<responses.UpdateDeviceFingerprintChallengeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation WaasClient#updateDeviceFingerprintChallenge.");
     const pathParams = {
       "{waasPolicyId}": updateDeviceFingerprintChallengeRequest.waasPolicyId
     };
@@ -4417,6 +4495,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
   public async updateGoodBots(
     updateGoodBotsRequest: requests.UpdateGoodBotsRequest
   ): Promise<responses.UpdateGoodBotsResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#updateGoodBots.");
     const pathParams = {
       "{waasPolicyId}": updateGoodBotsRequest.waasPolicyId
     };
@@ -4478,6 +4557,8 @@ Good bots allows you to manage access for bots from known providers, such as Goo
   public async updateHumanInteractionChallenge(
     updateHumanInteractionChallengeRequest: requests.UpdateHumanInteractionChallengeRequest
   ): Promise<responses.UpdateHumanInteractionChallengeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation WaasClient#updateHumanInteractionChallenge.");
     const pathParams = {
       "{waasPolicyId}": updateHumanInteractionChallengeRequest.waasPolicyId
     };
@@ -4539,6 +4620,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
   public async updateJsChallenge(
     updateJsChallengeRequest: requests.UpdateJsChallengeRequest
   ): Promise<responses.UpdateJsChallengeResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#updateJsChallenge.");
     const pathParams = {
       "{waasPolicyId}": updateJsChallengeRequest.waasPolicyId
     };
@@ -4600,6 +4682,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
   public async updatePolicyConfig(
     updatePolicyConfigRequest: requests.UpdatePolicyConfigRequest
   ): Promise<responses.UpdatePolicyConfigResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#updatePolicyConfig.");
     const pathParams = {
       "{waasPolicyId}": updatePolicyConfigRequest.waasPolicyId
     };
@@ -4663,6 +4746,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
   public async updateProtectionRules(
     updateProtectionRulesRequest: requests.UpdateProtectionRulesRequest
   ): Promise<responses.UpdateProtectionRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#updateProtectionRules.");
     const pathParams = {
       "{waasPolicyId}": updateProtectionRulesRequest.waasPolicyId
     };
@@ -4723,6 +4807,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
   public async updateProtectionSettings(
     updateProtectionSettingsRequest: requests.UpdateProtectionSettingsRequest
   ): Promise<responses.UpdateProtectionSettingsResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#updateProtectionSettings.");
     const pathParams = {
       "{waasPolicyId}": updateProtectionSettingsRequest.waasPolicyId
     };
@@ -4784,6 +4869,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
   public async updateThreatFeeds(
     updateThreatFeedsRequest: requests.UpdateThreatFeedsRequest
   ): Promise<responses.UpdateThreatFeedsResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#updateThreatFeeds.");
     const pathParams = {
       "{waasPolicyId}": updateThreatFeedsRequest.waasPolicyId
     };
@@ -4846,6 +4932,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
   public async updateWaasPolicy(
     updateWaasPolicyRequest: requests.UpdateWaasPolicyRequest
   ): Promise<responses.UpdateWaasPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#updateWaasPolicy.");
     const pathParams = {
       "{waasPolicyId}": updateWaasPolicyRequest.waasPolicyId
     };
@@ -4907,6 +4994,8 @@ Good bots allows you to manage access for bots from known providers, such as Goo
   public async updateWaasPolicyCustomProtectionRules(
     updateWaasPolicyCustomProtectionRulesRequest: requests.UpdateWaasPolicyCustomProtectionRulesRequest
   ): Promise<responses.UpdateWaasPolicyCustomProtectionRulesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation WaasClient#updateWaasPolicyCustomProtectionRules.");
     const pathParams = {
       "{waasPolicyId}": updateWaasPolicyCustomProtectionRulesRequest.waasPolicyId
     };
@@ -4968,6 +5057,8 @@ Good bots allows you to manage access for bots from known providers, such as Goo
   public async updateWafAddressRateLimiting(
     updateWafAddressRateLimitingRequest: requests.UpdateWafAddressRateLimitingRequest
   ): Promise<responses.UpdateWafAddressRateLimitingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation WaasClient#updateWafAddressRateLimiting.");
     const pathParams = {
       "{waasPolicyId}": updateWafAddressRateLimitingRequest.waasPolicyId
     };
@@ -5037,6 +5128,7 @@ The returned list will contain objects with `key` properties that can be used to
   public async updateWafConfig(
     updateWafConfigRequest: requests.UpdateWafConfigRequest
   ): Promise<responses.UpdateWafConfigResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#updateWafConfig.");
     const pathParams = {
       "{waasPolicyId}": updateWafConfigRequest.waasPolicyId
     };
@@ -5106,6 +5198,7 @@ Whitelists can be deleted by removing the existing whitelist object from the lis
   public async updateWhitelists(
     updateWhitelistsRequest: requests.UpdateWhitelistsRequest
   ): Promise<responses.UpdateWhitelistsResponse> {
+    if (this.logger) this.logger.debug("Calling operation WaasClient#updateWhitelists.");
     const pathParams = {
       "{waasPolicyId}": updateWhitelistsRequest.waasPolicyId
     };

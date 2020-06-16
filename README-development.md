@@ -1,4 +1,4 @@
-# Oracle Cloud Infrastructure SDK for TypeScript Development
+# Oracle Cloud Infrastructure SDK for TypeScript and JavaScript Development
 
 ## Getting Started
 

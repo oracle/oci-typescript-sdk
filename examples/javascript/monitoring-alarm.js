@@ -14,7 +14,7 @@ const provider = new common.ConfigFileAuthenticationDetailsProvider(
   configProfile
 );
 /**
- * This class demonstrates how to use the Monitoring api in the SDK for Typescript. This will cover:
+ * This class demonstrates how to use the Monitoring api in the SDK for TypeScript. This will cover:
  *
  * <ul>
  *   <li>Creating, updating, retrieving, listing and deleting alarms</li>
@@ -35,7 +35,7 @@ const provider = new common.ConfigFileAuthenticationDetailsProvider(
  * <ul>
  */
 
-const DISPLAY_NAME = "Alarm for SDK for Typescript sample";
+const DISPLAY_NAME = "Alarm for SDK for TypeScript sample";
 const NAME_SPACE = "oci_computeagent";
 const METRIC_QUERY = "CpuUtilization[1m].max() > 75";
 const RESOLUTION = "1m";

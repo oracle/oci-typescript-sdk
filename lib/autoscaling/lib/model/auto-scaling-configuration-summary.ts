@@ -1,7 +1,11 @@
 /**
  * Autoscaling API
- * APIs for dynamically scaling Compute resources to meet application requirements. 
-For information about the Compute service, see [Overview of the Compute Service](/Content/Compute/Concepts/computeoverview.htm).
+ * APIs for dynamically scaling Compute resources to meet application requirements. For more information about
+autoscaling, see [Autoscaling](/Content/Compute/Tasks/autoscalinginstancepools.htm). For information about the
+Compute service, see [Overview of the Compute Service](/Content/Compute/Concepts/computeoverview.htm).
+
+**Note:** Autoscaling is not available in US Government Cloud tenancies. For more information, see
+[Oracle Cloud Infrastructure US Government Cloud](/Content/General/Concepts/govoverview.htm).
 
  * OpenAPI spec version: 20181001
  * 
@@ -45,7 +49,7 @@ export interface AutoScalingConfigurationSummary {
    * Whether the autoscaling configuration is enabled.
    */
   "isEnabled"?: boolean;
-  "resource"?: model.InstancePoolResource;
+  "resource": model.InstancePoolResource;
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).

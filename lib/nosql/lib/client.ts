@@ -60,6 +60,11 @@ export class NosqlClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190828";
+    if (this.logger) this.logger.info(`NosqlClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -121,6 +126,7 @@ export class NosqlClient {
   public async changeTableCompartment(
     changeTableCompartmentRequest: requests.ChangeTableCompartmentRequest
   ): Promise<responses.ChangeTableCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#changeTableCompartment.");
     const pathParams = {
       "{tableNameOrId}": changeTableCompartmentRequest.tableNameOrId
     };
@@ -182,6 +188,7 @@ export class NosqlClient {
   public async createIndex(
     createIndexRequest: requests.CreateIndexRequest
   ): Promise<responses.CreateIndexResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#createIndex.");
     const pathParams = {
       "{tableNameOrId}": createIndexRequest.tableNameOrId
     };
@@ -242,6 +249,7 @@ export class NosqlClient {
   public async createTable(
     createTableRequest: requests.CreateTableRequest
   ): Promise<responses.CreateTableResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#createTable.");
     const pathParams = {};
 
     const queryParams = {};
@@ -300,6 +308,7 @@ export class NosqlClient {
   public async deleteIndex(
     deleteIndexRequest: requests.DeleteIndexRequest
   ): Promise<responses.DeleteIndexResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#deleteIndex.");
     const pathParams = {
       "{tableNameOrId}": deleteIndexRequest.tableNameOrId,
       "{indexName}": deleteIndexRequest.indexName
@@ -359,6 +368,7 @@ export class NosqlClient {
   public async deleteRow(
     deleteRowRequest: requests.DeleteRowRequest
   ): Promise<responses.DeleteRowResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#deleteRow.");
     const pathParams = {
       "{tableNameOrId}": deleteRowRequest.tableNameOrId
     };
@@ -417,6 +427,7 @@ export class NosqlClient {
   public async deleteTable(
     deleteTableRequest: requests.DeleteTableRequest
   ): Promise<responses.DeleteTableResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#deleteTable.");
     const pathParams = {
       "{tableNameOrId}": deleteTableRequest.tableNameOrId
     };
@@ -475,6 +486,7 @@ export class NosqlClient {
   public async deleteWorkRequest(
     deleteWorkRequestRequest: requests.DeleteWorkRequestRequest
   ): Promise<responses.DeleteWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#deleteWorkRequest.");
     const pathParams = {
       "{workRequestId}": deleteWorkRequestRequest.workRequestId
     };
@@ -530,6 +542,7 @@ export class NosqlClient {
   public async getIndex(
     getIndexRequest: requests.GetIndexRequest
   ): Promise<responses.GetIndexResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#getIndex.");
     const pathParams = {
       "{tableNameOrId}": getIndexRequest.tableNameOrId,
       "{indexName}": getIndexRequest.indexName
@@ -588,6 +601,7 @@ export class NosqlClient {
    * @throws OciError when an error occurs
    */
   public async getRow(getRowRequest: requests.GetRowRequest): Promise<responses.GetRowResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#getRow.");
     const pathParams = {
       "{tableNameOrId}": getRowRequest.tableNameOrId
     };
@@ -650,6 +664,7 @@ export class NosqlClient {
   public async getTable(
     getTableRequest: requests.GetTableRequest
   ): Promise<responses.GetTableResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#getTable.");
     const pathParams = {
       "{tableNameOrId}": getTableRequest.tableNameOrId
     };
@@ -709,6 +724,7 @@ export class NosqlClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#getWorkRequest.");
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -771,6 +787,7 @@ export class NosqlClient {
   public async listIndexes(
     listIndexesRequest: requests.ListIndexesRequest
   ): Promise<responses.ListIndexesResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#listIndexes.");
     const pathParams = {
       "{tableNameOrId}": listIndexesRequest.tableNameOrId
     };
@@ -836,6 +853,7 @@ export class NosqlClient {
   public async listTableUsage(
     listTableUsageRequest: requests.ListTableUsageRequest
   ): Promise<responses.ListTableUsageResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#listTableUsage.");
     const pathParams = {
       "{tableNameOrId}": listTableUsageRequest.tableNameOrId
     };
@@ -899,6 +917,7 @@ export class NosqlClient {
   public async listTables(
     listTablesRequest: requests.ListTablesRequest
   ): Promise<responses.ListTablesResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#listTables.");
     const pathParams = {};
 
     const queryParams = {
@@ -963,6 +982,7 @@ export class NosqlClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#listWorkRequestErrors.");
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1024,6 +1044,7 @@ export class NosqlClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#listWorkRequestLogs.");
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1084,6 +1105,7 @@ export class NosqlClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#listWorkRequests.");
     const pathParams = {};
 
     const queryParams = {
@@ -1144,6 +1166,7 @@ export class NosqlClient {
   public async prepareStatement(
     prepareStatementRequest: requests.PrepareStatementRequest
   ): Promise<responses.PrepareStatementResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#prepareStatement.");
     const pathParams = {};
 
     const queryParams = {
@@ -1195,6 +1218,7 @@ export class NosqlClient {
    * @throws OciError when an error occurs
    */
   public async query(queryRequest: requests.QueryRequest): Promise<responses.QueryResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#query.");
     const pathParams = {};
 
     const queryParams = {
@@ -1259,6 +1283,7 @@ export class NosqlClient {
   public async summarizeStatement(
     summarizeStatementRequest: requests.SummarizeStatementRequest
   ): Promise<responses.SummarizeStatementResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#summarizeStatement.");
     const pathParams = {};
 
     const queryParams = {
@@ -1312,6 +1337,7 @@ export class NosqlClient {
   public async updateRow(
     updateRowRequest: requests.UpdateRowRequest
   ): Promise<responses.UpdateRowResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#updateRow.");
     const pathParams = {
       "{tableNameOrId}": updateRowRequest.tableNameOrId
     };
@@ -1377,6 +1403,7 @@ export class NosqlClient {
   public async updateTable(
     updateTableRequest: requests.UpdateTableRequest
   ): Promise<responses.UpdateTableResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#updateTable.");
     const pathParams = {
       "{tableNameOrId}": updateTableRequest.tableNameOrId
     };

@@ -47,6 +47,11 @@ export class FunctionsInvokeClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181201";
+    if (this.logger) this.logger.info(`FunctionsInvokeClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -58,6 +63,7 @@ export class FunctionsInvokeClient {
   public async invokeFunction(
     invokeFunctionRequest: requests.InvokeFunctionRequest
   ): Promise<responses.InvokeFunctionResponse> {
+    if (this.logger) this.logger.debug("Calling operation FunctionsInvokeClient#invokeFunction.");
     const pathParams = {
       "{functionId}": invokeFunctionRequest.functionId
     };
@@ -139,6 +145,12 @@ export class FunctionsManagementClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181201";
+    if (this.logger)
+      this.logger.info(`FunctionsManagementClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -202,6 +214,10 @@ export class FunctionsManagementClient {
   public async changeApplicationCompartment(
     changeApplicationCompartmentRequest: requests.ChangeApplicationCompartmentRequest
   ): Promise<responses.ChangeApplicationCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FunctionsManagementClient#changeApplicationCompartment."
+      );
     const pathParams = {
       "{applicationId}": changeApplicationCompartmentRequest.applicationId
     };
@@ -257,6 +273,8 @@ export class FunctionsManagementClient {
   public async createApplication(
     createApplicationRequest: requests.CreateApplicationRequest
   ): Promise<responses.CreateApplicationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#createApplication.");
     const pathParams = {};
 
     const queryParams = {};
@@ -317,6 +335,8 @@ export class FunctionsManagementClient {
   public async createFunction(
     createFunctionRequest: requests.CreateFunctionRequest
   ): Promise<responses.CreateFunctionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#createFunction.");
     const pathParams = {};
 
     const queryParams = {};
@@ -377,6 +397,8 @@ export class FunctionsManagementClient {
   public async deleteApplication(
     deleteApplicationRequest: requests.DeleteApplicationRequest
   ): Promise<responses.DeleteApplicationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#deleteApplication.");
     const pathParams = {
       "{applicationId}": deleteApplicationRequest.applicationId
     };
@@ -427,6 +449,8 @@ export class FunctionsManagementClient {
   public async deleteFunction(
     deleteFunctionRequest: requests.DeleteFunctionRequest
   ): Promise<responses.DeleteFunctionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#deleteFunction.");
     const pathParams = {
       "{functionId}": deleteFunctionRequest.functionId
     };
@@ -477,6 +501,8 @@ export class FunctionsManagementClient {
   public async getApplication(
     getApplicationRequest: requests.GetApplicationRequest
   ): Promise<responses.GetApplicationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#getApplication.");
     const pathParams = {
       "{applicationId}": getApplicationRequest.applicationId
     };
@@ -534,6 +560,7 @@ export class FunctionsManagementClient {
   public async getFunction(
     getFunctionRequest: requests.GetFunctionRequest
   ): Promise<responses.GetFunctionResponse> {
+    if (this.logger) this.logger.debug("Calling operation FunctionsManagementClient#getFunction.");
     const pathParams = {
       "{functionId}": getFunctionRequest.functionId
     };
@@ -591,6 +618,8 @@ export class FunctionsManagementClient {
   public async listApplications(
     listApplicationsRequest: requests.ListApplicationsRequest
   ): Promise<responses.ListApplicationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#listApplications.");
     const pathParams = {};
 
     const queryParams = {
@@ -680,6 +709,8 @@ export class FunctionsManagementClient {
   public async listFunctions(
     listFunctionsRequest: requests.ListFunctionsRequest
   ): Promise<responses.ListFunctionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#listFunctions.");
     const pathParams = {};
 
     const queryParams = {
@@ -769,6 +800,8 @@ export class FunctionsManagementClient {
   public async updateApplication(
     updateApplicationRequest: requests.UpdateApplicationRequest
   ): Promise<responses.UpdateApplicationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#updateApplication.");
     const pathParams = {
       "{applicationId}": updateApplicationRequest.applicationId
     };
@@ -832,6 +865,8 @@ export class FunctionsManagementClient {
   public async updateFunction(
     updateFunctionRequest: requests.UpdateFunctionRequest
   ): Promise<responses.UpdateFunctionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#updateFunction.");
     const pathParams = {
       "{functionId}": updateFunctionRequest.functionId
     };

@@ -58,6 +58,11 @@ export class DataScienceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190101";
+    if (this.logger) this.logger.info(`DataScienceClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -119,6 +124,7 @@ export class DataScienceClient {
   public async activateModel(
     activateModelRequest: requests.ActivateModelRequest
   ): Promise<responses.ActivateModelResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#activateModel.");
     const pathParams = {
       "{modelId}": activateModelRequest.modelId
     };
@@ -177,6 +183,8 @@ export class DataScienceClient {
   public async activateNotebookSession(
     activateNotebookSessionRequest: requests.ActivateNotebookSessionRequest
   ): Promise<responses.ActivateNotebookSessionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#activateNotebookSession.");
     const pathParams = {
       "{notebookSessionId}": activateNotebookSessionRequest.notebookSessionId
     };
@@ -232,6 +240,7 @@ export class DataScienceClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#cancelWorkRequest.");
     const pathParams = {
       "{workRequestId}": cancelWorkRequestRequest.workRequestId
     };
@@ -282,6 +291,8 @@ export class DataScienceClient {
   public async changeModelCompartment(
     changeModelCompartmentRequest: requests.ChangeModelCompartmentRequest
   ): Promise<responses.ChangeModelCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#changeModelCompartment.");
     const pathParams = {
       "{modelId}": changeModelCompartmentRequest.modelId
     };
@@ -338,6 +349,8 @@ export class DataScienceClient {
   public async changeNotebookSessionCompartment(
     changeNotebookSessionCompartmentRequest: requests.ChangeNotebookSessionCompartmentRequest
   ): Promise<responses.ChangeNotebookSessionCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#changeNotebookSessionCompartment.");
     const pathParams = {
       "{notebookSessionId}": changeNotebookSessionCompartmentRequest.notebookSessionId
     };
@@ -394,6 +407,8 @@ export class DataScienceClient {
   public async changeProjectCompartment(
     changeProjectCompartmentRequest: requests.ChangeProjectCompartmentRequest
   ): Promise<responses.ChangeProjectCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#changeProjectCompartment.");
     const pathParams = {
       "{projectId}": changeProjectCompartmentRequest.projectId
     };
@@ -450,6 +465,7 @@ export class DataScienceClient {
   public async createModel(
     createModelRequest: requests.CreateModelRequest
   ): Promise<responses.CreateModelResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#createModel.");
     const pathParams = {};
 
     const queryParams = {};
@@ -511,6 +527,7 @@ export class DataScienceClient {
   public async createModelArtifact(
     createModelArtifactRequest: requests.CreateModelArtifactRequest
   ): Promise<responses.CreateModelArtifactResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#createModelArtifact.");
     const pathParams = {
       "{modelId}": createModelArtifactRequest.modelId
     };
@@ -569,6 +586,8 @@ export class DataScienceClient {
   public async createModelProvenance(
     createModelProvenanceRequest: requests.CreateModelProvenanceRequest
   ): Promise<responses.CreateModelProvenanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#createModelProvenance.");
     const pathParams = {
       "{modelId}": createModelProvenanceRequest.modelId
     };
@@ -632,6 +651,8 @@ export class DataScienceClient {
   public async createNotebookSession(
     createNotebookSessionRequest: requests.CreateNotebookSessionRequest
   ): Promise<responses.CreateNotebookSessionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#createNotebookSession.");
     const pathParams = {};
 
     const queryParams = {};
@@ -703,6 +724,7 @@ export class DataScienceClient {
   public async createProject(
     createProjectRequest: requests.CreateProjectRequest
   ): Promise<responses.CreateProjectResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#createProject.");
     const pathParams = {};
 
     const queryParams = {};
@@ -764,6 +786,7 @@ export class DataScienceClient {
   public async deactivateModel(
     deactivateModelRequest: requests.DeactivateModelRequest
   ): Promise<responses.DeactivateModelResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#deactivateModel.");
     const pathParams = {
       "{modelId}": deactivateModelRequest.modelId
     };
@@ -822,6 +845,8 @@ export class DataScienceClient {
   public async deactivateNotebookSession(
     deactivateNotebookSessionRequest: requests.DeactivateNotebookSessionRequest
   ): Promise<responses.DeactivateNotebookSessionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#deactivateNotebookSession.");
     const pathParams = {
       "{notebookSessionId}": deactivateNotebookSessionRequest.notebookSessionId
     };
@@ -877,6 +902,7 @@ export class DataScienceClient {
   public async deleteModel(
     deleteModelRequest: requests.DeleteModelRequest
   ): Promise<responses.DeleteModelResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#deleteModel.");
     const pathParams = {
       "{modelId}": deleteModelRequest.modelId
     };
@@ -927,6 +953,8 @@ export class DataScienceClient {
   public async deleteNotebookSession(
     deleteNotebookSessionRequest: requests.DeleteNotebookSessionRequest
   ): Promise<responses.DeleteNotebookSessionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#deleteNotebookSession.");
     const pathParams = {
       "{notebookSessionId}": deleteNotebookSessionRequest.notebookSessionId
     };
@@ -982,6 +1010,7 @@ export class DataScienceClient {
   public async deleteProject(
     deleteProjectRequest: requests.DeleteProjectRequest
   ): Promise<responses.DeleteProjectResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#deleteProject.");
     const pathParams = {
       "{projectId}": deleteProjectRequest.projectId
     };
@@ -1037,6 +1066,7 @@ export class DataScienceClient {
   public async getModel(
     getModelRequest: requests.GetModelRequest
   ): Promise<responses.GetModelResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getModel.");
     const pathParams = {
       "{modelId}": getModelRequest.modelId
     };
@@ -1094,6 +1124,8 @@ export class DataScienceClient {
   public async getModelArtifactContent(
     getModelArtifactContentRequest: requests.GetModelArtifactContentRequest
   ): Promise<responses.GetModelArtifactContentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#getModelArtifactContent.");
     const pathParams = {
       "{modelId}": getModelArtifactContentRequest.modelId
     };
@@ -1173,6 +1205,7 @@ export class DataScienceClient {
   public async getModelProvenance(
     getModelProvenanceRequest: requests.GetModelProvenanceRequest
   ): Promise<responses.GetModelProvenanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getModelProvenance.");
     const pathParams = {
       "{modelId}": getModelProvenanceRequest.modelId
     };
@@ -1230,6 +1263,7 @@ export class DataScienceClient {
   public async getNotebookSession(
     getNotebookSessionRequest: requests.GetNotebookSessionRequest
   ): Promise<responses.GetNotebookSessionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getNotebookSession.");
     const pathParams = {
       "{notebookSessionId}": getNotebookSessionRequest.notebookSessionId
     };
@@ -1287,6 +1321,7 @@ export class DataScienceClient {
   public async getProject(
     getProjectRequest: requests.GetProjectRequest
   ): Promise<responses.GetProjectResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getProject.");
     const pathParams = {
       "{projectId}": getProjectRequest.projectId
     };
@@ -1344,6 +1379,7 @@ export class DataScienceClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getWorkRequest.");
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -1406,6 +1442,7 @@ export class DataScienceClient {
   public async headModelArtifact(
     headModelArtifactRequest: requests.HeadModelArtifactRequest
   ): Promise<responses.HeadModelArtifactResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#headModelArtifact.");
     const pathParams = {
       "{modelId}": headModelArtifactRequest.modelId
     };
@@ -1480,6 +1517,7 @@ export class DataScienceClient {
   public async listModels(
     listModelsRequest: requests.ListModelsRequest
   ): Promise<responses.ListModelsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listModels.");
     const pathParams = {};
 
     const queryParams = {
@@ -1576,6 +1614,8 @@ export class DataScienceClient {
   public async listNotebookSessionShapes(
     listNotebookSessionShapesRequest: requests.ListNotebookSessionShapesRequest
   ): Promise<responses.ListNotebookSessionShapesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#listNotebookSessionShapes.");
     const pathParams = {};
 
     const queryParams = {
@@ -1665,6 +1705,7 @@ export class DataScienceClient {
   public async listNotebookSessions(
     listNotebookSessionsRequest: requests.ListNotebookSessionsRequest
   ): Promise<responses.ListNotebookSessionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listNotebookSessions.");
     const pathParams = {};
 
     const queryParams = {
@@ -1761,6 +1802,7 @@ export class DataScienceClient {
   public async listProjects(
     listProjectsRequest: requests.ListProjectsRequest
   ): Promise<responses.ListProjectsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listProjects.");
     const pathParams = {};
 
     const queryParams = {
@@ -1856,6 +1898,8 @@ export class DataScienceClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#listWorkRequestErrors.");
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1908,6 +1952,7 @@ export class DataScienceClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listWorkRequestLogs.");
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1960,6 +2005,7 @@ export class DataScienceClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listWorkRequests.");
     const pathParams = {};
 
     const queryParams = {
@@ -2054,6 +2100,7 @@ export class DataScienceClient {
   public async updateModel(
     updateModelRequest: requests.UpdateModelRequest
   ): Promise<responses.UpdateModelResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#updateModel.");
     const pathParams = {
       "{modelId}": updateModelRequest.modelId
     };
@@ -2117,6 +2164,8 @@ export class DataScienceClient {
   public async updateModelProvenance(
     updateModelProvenanceRequest: requests.UpdateModelProvenanceRequest
   ): Promise<responses.UpdateModelProvenanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#updateModelProvenance.");
     const pathParams = {
       "{modelId}": updateModelProvenanceRequest.modelId
     };
@@ -2183,6 +2232,8 @@ export class DataScienceClient {
   public async updateNotebookSession(
     updateNotebookSessionRequest: requests.UpdateNotebookSessionRequest
   ): Promise<responses.UpdateNotebookSessionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#updateNotebookSession.");
     const pathParams = {
       "{notebookSessionId}": updateNotebookSessionRequest.notebookSessionId
     };
@@ -2246,6 +2297,7 @@ export class DataScienceClient {
   public async updateProject(
     updateProjectRequest: requests.UpdateProjectRequest
   ): Promise<responses.UpdateProjectResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#updateProject.");
     const pathParams = {
       "{projectId}": updateProjectRequest.projectId
     };

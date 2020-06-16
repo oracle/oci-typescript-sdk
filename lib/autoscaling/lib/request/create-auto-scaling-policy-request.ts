@@ -21,7 +21,9 @@ export interface CreateAutoScalingPolicyRequest {
   /**
    * Creation details for an autoscaling policy.
    */
-  "createAutoScalingPolicyDetails": model.CreateThresholdPolicyDetails;
+  "createAutoScalingPolicyDetails":
+    | model.CreateScheduledPolicyDetails
+    | model.CreateThresholdPolicyDetails;
   /**
    *
    */

@@ -55,6 +55,11 @@ export class MarketplaceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181001";
+    if (this.logger) this.logger.info(`MarketplaceClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -95,6 +100,8 @@ export class MarketplaceClient {
   public async createAcceptedAgreement(
     createAcceptedAgreementRequest: requests.CreateAcceptedAgreementRequest
   ): Promise<responses.CreateAcceptedAgreementResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MarketplaceClient#createAcceptedAgreement.");
     const pathParams = {};
 
     const queryParams = {};
@@ -159,6 +166,8 @@ export class MarketplaceClient {
   public async deleteAcceptedAgreement(
     deleteAcceptedAgreementRequest: requests.DeleteAcceptedAgreementRequest
   ): Promise<responses.DeleteAcceptedAgreementResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MarketplaceClient#deleteAcceptedAgreement.");
     const pathParams = {
       "{acceptedAgreementId}": deleteAcceptedAgreementRequest.acceptedAgreementId
     };
@@ -212,6 +221,7 @@ export class MarketplaceClient {
   public async getAcceptedAgreement(
     getAcceptedAgreementRequest: requests.GetAcceptedAgreementRequest
   ): Promise<responses.GetAcceptedAgreementResponse> {
+    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#getAcceptedAgreement.");
     const pathParams = {
       "{acceptedAgreementId}": getAcceptedAgreementRequest.acceptedAgreementId
     };
@@ -271,6 +281,7 @@ export class MarketplaceClient {
   public async getAgreement(
     getAgreementRequest: requests.GetAgreementRequest
   ): Promise<responses.GetAgreementResponse> {
+    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#getAgreement.");
     const pathParams = {
       "{listingId}": getAgreementRequest.listingId,
       "{packageVersion}": getAgreementRequest.packageVersion,
@@ -342,6 +353,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async getListing(
     getListingRequest: requests.GetListingRequest
   ): Promise<responses.GetListingResponse> {
+    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#getListing.");
     const pathParams = {
       "{listingId}": getListingRequest.listingId
     };
@@ -415,6 +427,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async getPackage(
     getPackageRequest: requests.GetPackageRequest
   ): Promise<responses.GetPackageResponse> {
+    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#getPackage.");
     const pathParams = {
       "{listingId}": getPackageRequest.listingId,
       "{packageVersion}": getPackageRequest.packageVersion
@@ -477,6 +490,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async listAcceptedAgreements(
     listAcceptedAgreementsRequest: requests.ListAcceptedAgreementsRequest
   ): Promise<responses.ListAcceptedAgreementsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MarketplaceClient#listAcceptedAgreements.");
     const pathParams = {};
 
     const queryParams = {
@@ -568,6 +583,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async listAgreements(
     listAgreementsRequest: requests.ListAgreementsRequest
   ): Promise<responses.ListAgreementsResponse> {
+    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listAgreements.");
     const pathParams = {
       "{listingId}": listAgreementsRequest.listingId,
       "{packageVersion}": listAgreementsRequest.packageVersion
@@ -657,6 +673,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async listCategories(
     listCategoriesRequest: requests.ListCategoriesRequest
   ): Promise<responses.ListCategoriesResponse> {
+    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listCategories.");
     const pathParams = {};
 
     const queryParams = {
@@ -756,6 +773,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async listListings(
     listListingsRequest: requests.ListListingsRequest
   ): Promise<responses.ListListingsResponse> {
+    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listListings.");
     const pathParams = {};
 
     const queryParams = {
@@ -863,6 +881,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async listPackages(
     listPackagesRequest: requests.ListPackagesRequest
   ): Promise<responses.ListPackagesResponse> {
+    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listPackages.");
     const pathParams = {
       "{listingId}": listPackagesRequest.listingId
     };
@@ -954,6 +973,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async listPublishers(
     listPublishersRequest: requests.ListPublishersRequest
   ): Promise<responses.ListPublishersResponse> {
+    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listPublishers.");
     const pathParams = {};
 
     const queryParams = {
@@ -1039,6 +1059,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async listReportTypes(
     listReportTypesRequest: requests.ListReportTypesRequest
   ): Promise<responses.ListReportTypesResponse> {
+    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listReportTypes.");
     const pathParams = {};
 
     const queryParams = {
@@ -1097,6 +1118,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async listReports(
     listReportsRequest: requests.ListReportsRequest
   ): Promise<responses.ListReportsResponse> {
+    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listReports.");
     const pathParams = {};
 
     const queryParams = {
@@ -1158,6 +1180,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async updateAcceptedAgreement(
     updateAcceptedAgreementRequest: requests.UpdateAcceptedAgreementRequest
   ): Promise<responses.UpdateAcceptedAgreementResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MarketplaceClient#updateAcceptedAgreement.");
     const pathParams = {
       "{acceptedAgreementId}": updateAcceptedAgreementRequest.acceptedAgreementId
     };

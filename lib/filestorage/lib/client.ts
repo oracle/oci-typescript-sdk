@@ -58,6 +58,11 @@ export class FileStorageClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20171215";
+    if (this.logger) this.logger.info(`FileStorageClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -120,6 +125,8 @@ export class FileStorageClient {
   public async changeFileSystemCompartment(
     changeFileSystemCompartmentRequest: requests.ChangeFileSystemCompartmentRequest
   ): Promise<responses.ChangeFileSystemCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#changeFileSystemCompartment.");
     const pathParams = {
       "{fileSystemId}": changeFileSystemCompartmentRequest.fileSystemId
     };
@@ -176,6 +183,8 @@ export class FileStorageClient {
   public async changeMountTargetCompartment(
     changeMountTargetCompartmentRequest: requests.ChangeMountTargetCompartmentRequest
   ): Promise<responses.ChangeMountTargetCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#changeMountTargetCompartment.");
     const pathParams = {
       "{mountTargetId}": changeMountTargetCompartmentRequest.mountTargetId
     };
@@ -233,6 +242,7 @@ export class FileStorageClient {
   public async createExport(
     createExportRequest: requests.CreateExportRequest
   ): Promise<responses.CreateExportResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#createExport.");
     const pathParams = {};
 
     const queryParams = {};
@@ -323,6 +333,7 @@ All Oracle Cloud Infrastructure resources, including
   public async createFileSystem(
     createFileSystemRequest: requests.CreateFileSystemRequest
   ): Promise<responses.CreateFileSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#createFileSystem.");
     const pathParams = {};
 
     const queryParams = {};
@@ -416,6 +427,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async createMountTarget(
     createMountTargetRequest: requests.CreateMountTargetRequest
   ): Promise<responses.CreateMountTargetResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#createMountTarget.");
     const pathParams = {};
 
     const queryParams = {};
@@ -479,6 +491,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async createSnapshot(
     createSnapshotRequest: requests.CreateSnapshotRequest
   ): Promise<responses.CreateSnapshotResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#createSnapshot.");
     const pathParams = {};
 
     const queryParams = {};
@@ -541,6 +554,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async deleteExport(
     deleteExportRequest: requests.DeleteExportRequest
   ): Promise<responses.DeleteExportResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#deleteExport.");
     const pathParams = {
       "{exportId}": deleteExportRequest.exportId
     };
@@ -594,6 +608,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async deleteFileSystem(
     deleteFileSystemRequest: requests.DeleteFileSystemRequest
   ): Promise<responses.DeleteFileSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#deleteFileSystem.");
     const pathParams = {
       "{fileSystemId}": deleteFileSystemRequest.fileSystemId
     };
@@ -646,6 +661,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async deleteMountTarget(
     deleteMountTargetRequest: requests.DeleteMountTargetRequest
   ): Promise<responses.DeleteMountTargetResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#deleteMountTarget.");
     const pathParams = {
       "{mountTargetId}": deleteMountTargetRequest.mountTargetId
     };
@@ -697,6 +713,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async deleteSnapshot(
     deleteSnapshotRequest: requests.DeleteSnapshotRequest
   ): Promise<responses.DeleteSnapshotResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#deleteSnapshot.");
     const pathParams = {
       "{snapshotId}": deleteSnapshotRequest.snapshotId
     };
@@ -747,6 +764,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async getExport(
     getExportRequest: requests.GetExportRequest
   ): Promise<responses.GetExportResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#getExport.");
     const pathParams = {
       "{exportId}": getExportRequest.exportId
     };
@@ -804,6 +822,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async getExportSet(
     getExportSetRequest: requests.GetExportSetRequest
   ): Promise<responses.GetExportSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#getExportSet.");
     const pathParams = {
       "{exportSetId}": getExportSetRequest.exportSetId
     };
@@ -861,6 +880,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async getFileSystem(
     getFileSystemRequest: requests.GetFileSystemRequest
   ): Promise<responses.GetFileSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#getFileSystem.");
     const pathParams = {
       "{fileSystemId}": getFileSystemRequest.fileSystemId
     };
@@ -918,6 +938,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async getMountTarget(
     getMountTargetRequest: requests.GetMountTargetRequest
   ): Promise<responses.GetMountTargetResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#getMountTarget.");
     const pathParams = {
       "{mountTargetId}": getMountTargetRequest.mountTargetId
     };
@@ -975,6 +996,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async getSnapshot(
     getSnapshotRequest: requests.GetSnapshotRequest
   ): Promise<responses.GetSnapshotResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#getSnapshot.");
     const pathParams = {
       "{snapshotId}": getSnapshotRequest.snapshotId
     };
@@ -1033,6 +1055,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async listExportSets(
     listExportSetsRequest: requests.ListExportSetsRequest
   ): Promise<responses.ListExportSetsResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#listExportSets.");
     const pathParams = {};
 
     const queryParams = {
@@ -1126,6 +1149,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async listExports(
     listExportsRequest: requests.ListExportsRequest
   ): Promise<responses.ListExportsResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#listExports.");
     const pathParams = {};
 
     const queryParams = {
@@ -1217,6 +1241,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async listFileSystems(
     listFileSystemsRequest: requests.ListFileSystemsRequest
   ): Promise<responses.ListFileSystemsResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#listFileSystems.");
     const pathParams = {};
 
     const queryParams = {
@@ -1308,6 +1333,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async listMountTargets(
     listMountTargetsRequest: requests.ListMountTargetsRequest
   ): Promise<responses.ListMountTargetsResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#listMountTargets.");
     const pathParams = {};
 
     const queryParams = {
@@ -1400,6 +1426,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async listSnapshots(
     listSnapshotsRequest: requests.ListSnapshotsRequest
   ): Promise<responses.ListSnapshotsResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#listSnapshots.");
     const pathParams = {};
 
     const queryParams = {
@@ -1487,6 +1514,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async updateExport(
     updateExportRequest: requests.UpdateExportRequest
   ): Promise<responses.UpdateExportResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#updateExport.");
     const pathParams = {
       "{exportId}": updateExportRequest.exportId
     };
@@ -1550,6 +1578,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async updateExportSet(
     updateExportSetRequest: requests.UpdateExportSetRequest
   ): Promise<responses.UpdateExportSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#updateExportSet.");
     const pathParams = {
       "{exportSetId}": updateExportSetRequest.exportSetId
     };
@@ -1615,6 +1644,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async updateFileSystem(
     updateFileSystemRequest: requests.UpdateFileSystemRequest
   ): Promise<responses.UpdateFileSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#updateFileSystem.");
     const pathParams = {
       "{fileSystemId}": updateFileSystemRequest.fileSystemId
     };
@@ -1678,6 +1708,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async updateMountTarget(
     updateMountTargetRequest: requests.UpdateMountTargetRequest
   ): Promise<responses.UpdateMountTargetResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#updateMountTarget.");
     const pathParams = {
       "{mountTargetId}": updateMountTargetRequest.mountTargetId
     };
@@ -1741,6 +1772,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async updateSnapshot(
     updateSnapshotRequest: requests.UpdateSnapshotRequest
   ): Promise<responses.UpdateSnapshotResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#updateSnapshot.");
     const pathParams = {
       "{snapshotId}": updateSnapshotRequest.snapshotId
     };

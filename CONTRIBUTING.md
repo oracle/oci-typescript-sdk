@@ -1,4 +1,4 @@
-# Contributing to the Oracle Cloud Infrastructure SDK for TypeScript
+# Contributing to the Oracle Cloud Infrastructure SDK for TypeScript and JavaScript
 
 _Copyright (c) 2020, Oracle and/or its affiliates. All rights reserved._
 

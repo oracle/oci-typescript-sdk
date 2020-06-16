@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -10,7 +10,7 @@
     "Joe Levy <joe.levy@oracle.com>",
     "Walt Tran <walt.tran@oracle.com>"
   ],
-  "description": "OCI SDK for TypeScript",
+  "description": "OCI SDK for TypeScript and JavaScript",
   "main": "./target/index.js",
   "typings": "./target/index.d.ts",
   "scripts": {
@@ -21,7 +21,7 @@
     "prettier:format-all": "npm run prettier:format -- \"**/*.ts\"",
     "cleanup": "rm -rf target"
   },
-  "license": "(Universal Permissive License (UPL) 1.0 or Apache-2.0)",
+  "license": "(UPL-1.0 OR Apache-2.0)",
   "dependencies": {
     "oci-analytics": "file:lib/analytics",
     "oci-announcementsservice": "file:lib/announcementsservice",

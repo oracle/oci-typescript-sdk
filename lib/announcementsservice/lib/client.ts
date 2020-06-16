@@ -54,6 +54,11 @@ export class AnnouncementClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180904";
+    if (this.logger) this.logger.info(`AnnouncementClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -93,6 +98,7 @@ export class AnnouncementClient {
   public async getAnnouncement(
     getAnnouncementRequest: requests.GetAnnouncementRequest
   ): Promise<responses.GetAnnouncementResponse> {
+    if (this.logger) this.logger.debug("Calling operation AnnouncementClient#getAnnouncement.");
     const pathParams = {
       "{announcementId}": getAnnouncementRequest.announcementId
     };
@@ -146,6 +152,8 @@ export class AnnouncementClient {
   public async getAnnouncementUserStatus(
     getAnnouncementUserStatusRequest: requests.GetAnnouncementUserStatusRequest
   ): Promise<responses.GetAnnouncementUserStatusResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AnnouncementClient#getAnnouncementUserStatus.");
     const pathParams = {
       "{announcementId}": getAnnouncementUserStatusRequest.announcementId
     };
@@ -199,6 +207,7 @@ export class AnnouncementClient {
   public async listAnnouncements(
     listAnnouncementsRequest: requests.ListAnnouncementsRequest
   ): Promise<responses.ListAnnouncementsResponse> {
+    if (this.logger) this.logger.debug("Calling operation AnnouncementClient#listAnnouncements.");
     const pathParams = {};
 
     const queryParams = {
@@ -266,6 +275,8 @@ export class AnnouncementClient {
   public async updateAnnouncementUserStatus(
     updateAnnouncementUserStatusRequest: requests.UpdateAnnouncementUserStatusRequest
   ): Promise<responses.UpdateAnnouncementUserStatusResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AnnouncementClient#updateAnnouncementUserStatus.");
     const pathParams = {
       "{announcementId}": updateAnnouncementUserStatusRequest.announcementId
     };

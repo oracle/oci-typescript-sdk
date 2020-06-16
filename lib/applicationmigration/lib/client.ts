@@ -59,6 +59,12 @@ export class ApplicationMigrationClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20191031";
+    if (this.logger)
+      this.logger.info(`ApplicationMigrationClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -120,6 +126,8 @@ export class ApplicationMigrationClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplicationMigrationClient#cancelWorkRequest.");
     const pathParams = {
       "{workRequestId}": cancelWorkRequestRequest.workRequestId
     };
@@ -170,6 +178,8 @@ export class ApplicationMigrationClient {
   public async changeMigrationCompartment(
     changeMigrationCompartmentRequest: requests.ChangeMigrationCompartmentRequest
   ): Promise<responses.ChangeMigrationCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplicationMigrationClient#changeMigrationCompartment.");
     const pathParams = {
       "{migrationId}": changeMigrationCompartmentRequest.migrationId
     };
@@ -231,6 +241,8 @@ export class ApplicationMigrationClient {
   public async changeSourceCompartment(
     changeSourceCompartmentRequest: requests.ChangeSourceCompartmentRequest
   ): Promise<responses.ChangeSourceCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplicationMigrationClient#changeSourceCompartment.");
     const pathParams = {
       "{sourceId}": changeSourceCompartmentRequest.sourceId
     };
@@ -294,6 +306,8 @@ export class ApplicationMigrationClient {
   public async createMigration(
     createMigrationRequest: requests.CreateMigrationRequest
   ): Promise<responses.CreateMigrationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplicationMigrationClient#createMigration.");
     const pathParams = {};
 
     const queryParams = {};
@@ -362,6 +376,8 @@ export class ApplicationMigrationClient {
   public async createSource(
     createSourceRequest: requests.CreateSourceRequest
   ): Promise<responses.CreateSourceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplicationMigrationClient#createSource.");
     const pathParams = {};
 
     const queryParams = {};
@@ -428,6 +444,8 @@ export class ApplicationMigrationClient {
   public async deleteMigration(
     deleteMigrationRequest: requests.DeleteMigrationRequest
   ): Promise<responses.DeleteMigrationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplicationMigrationClient#deleteMigration.");
     const pathParams = {
       "{migrationId}": deleteMigrationRequest.migrationId
     };
@@ -483,6 +501,8 @@ export class ApplicationMigrationClient {
   public async deleteSource(
     deleteSourceRequest: requests.DeleteSourceRequest
   ): Promise<responses.DeleteSourceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplicationMigrationClient#deleteSource.");
     const pathParams = {
       "{sourceId}": deleteSourceRequest.sourceId
     };
@@ -538,6 +558,8 @@ export class ApplicationMigrationClient {
   public async getMigration(
     getMigrationRequest: requests.GetMigrationRequest
   ): Promise<responses.GetMigrationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplicationMigrationClient#getMigration.");
     const pathParams = {
       "{migrationId}": getMigrationRequest.migrationId
     };
@@ -595,6 +617,7 @@ export class ApplicationMigrationClient {
   public async getSource(
     getSourceRequest: requests.GetSourceRequest
   ): Promise<responses.GetSourceResponse> {
+    if (this.logger) this.logger.debug("Calling operation ApplicationMigrationClient#getSource.");
     const pathParams = {
       "{sourceId}": getSourceRequest.sourceId
     };
@@ -652,6 +675,8 @@ export class ApplicationMigrationClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplicationMigrationClient#getWorkRequest.");
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -710,6 +735,8 @@ export class ApplicationMigrationClient {
   public async listMigrations(
     listMigrationsRequest: requests.ListMigrationsRequest
   ): Promise<responses.ListMigrationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplicationMigrationClient#listMigrations.");
     const pathParams = {};
 
     const queryParams = {
@@ -800,6 +827,8 @@ export class ApplicationMigrationClient {
   public async listSourceApplications(
     listSourceApplicationsRequest: requests.ListSourceApplicationsRequest
   ): Promise<responses.ListSourceApplicationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplicationMigrationClient#listSourceApplications.");
     const pathParams = {
       "{sourceId}": listSourceApplicationsRequest.sourceId
     };
@@ -890,6 +919,7 @@ export class ApplicationMigrationClient {
   public async listSources(
     listSourcesRequest: requests.ListSourcesRequest
   ): Promise<responses.ListSourcesResponse> {
+    if (this.logger) this.logger.debug("Calling operation ApplicationMigrationClient#listSources.");
     const pathParams = {};
 
     const queryParams = {
@@ -980,6 +1010,8 @@ export class ApplicationMigrationClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplicationMigrationClient#listWorkRequestErrors.");
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1067,6 +1099,8 @@ export class ApplicationMigrationClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplicationMigrationClient#listWorkRequestLogs.");
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1154,6 +1188,8 @@ export class ApplicationMigrationClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplicationMigrationClient#listWorkRequests.");
     const pathParams = {};
 
     const queryParams = {
@@ -1240,6 +1276,8 @@ export class ApplicationMigrationClient {
   public async migrateApplication(
     migrateApplicationRequest: requests.MigrateApplicationRequest
   ): Promise<responses.MigrateApplicationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplicationMigrationClient#migrateApplication.");
     const pathParams = {
       "{migrationId}": migrateApplicationRequest.migrationId
     };
@@ -1294,6 +1332,8 @@ export class ApplicationMigrationClient {
   public async updateMigration(
     updateMigrationRequest: requests.UpdateMigrationRequest
   ): Promise<responses.UpdateMigrationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplicationMigrationClient#updateMigration.");
     const pathParams = {
       "{migrationId}": updateMigrationRequest.migrationId
     };
@@ -1355,6 +1395,8 @@ export class ApplicationMigrationClient {
   public async updateSource(
     updateSourceRequest: requests.UpdateSourceRequest
   ): Promise<responses.UpdateSourceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplicationMigrationClient#updateSource.");
     const pathParams = {
       "{sourceId}": updateSourceRequest.sourceId
     };

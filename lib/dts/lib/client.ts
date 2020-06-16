@@ -31,7 +31,8 @@ import { composeResponse, composeRequest } from "oci-common";
 export enum ApplianceExportJobApiKeys {}
 
 export class ApplianceExportJobClient {
-  protected static serviceEndpointTemplate = "https://datatransfer.{region}.{secondLevelDomain}";
+  protected static serviceEndpointTemplate =
+    "https://datatransfer.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ApplianceExportJobWaiter;
@@ -62,6 +63,11 @@ export class ApplianceExportJobClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20171001";
+    if (this.logger) this.logger.info(`ApplianceExportJobClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -123,6 +129,10 @@ export class ApplianceExportJobClient {
   public async changeApplianceExportJobCompartment(
     changeApplianceExportJobCompartmentRequest: requests.ChangeApplianceExportJobCompartmentRequest
   ): Promise<responses.ChangeApplianceExportJobCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplianceExportJobClient#changeApplianceExportJobCompartment."
+      );
     const pathParams = {
       "{applianceExportJobId}": changeApplianceExportJobCompartmentRequest.applianceExportJobId
     };
@@ -179,6 +189,8 @@ export class ApplianceExportJobClient {
   public async createApplianceExportJob(
     createApplianceExportJobRequest: requests.CreateApplianceExportJobRequest
   ): Promise<responses.CreateApplianceExportJobResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplianceExportJobClient#createApplianceExportJob.");
     const pathParams = {};
 
     const queryParams = {};
@@ -240,6 +252,8 @@ export class ApplianceExportJobClient {
   public async deleteApplianceExportJob(
     deleteApplianceExportJobRequest: requests.DeleteApplianceExportJobRequest
   ): Promise<responses.DeleteApplianceExportJobResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplianceExportJobClient#deleteApplianceExportJob.");
     const pathParams = {
       "{applianceExportJobId}": deleteApplianceExportJobRequest.applianceExportJobId
     };
@@ -290,6 +304,8 @@ export class ApplianceExportJobClient {
   public async getApplianceExportJob(
     getApplianceExportJobRequest: requests.GetApplianceExportJobRequest
   ): Promise<responses.GetApplianceExportJobResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplianceExportJobClient#getApplianceExportJob.");
     const pathParams = {
       "{applianceExportJobId}": getApplianceExportJobRequest.applianceExportJobId
     };
@@ -347,6 +363,8 @@ export class ApplianceExportJobClient {
   public async listApplianceExportJobs(
     listApplianceExportJobsRequest: requests.ListApplianceExportJobsRequest
   ): Promise<responses.ListApplianceExportJobsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplianceExportJobClient#listApplianceExportJobs.");
     const pathParams = {};
 
     const queryParams = {
@@ -433,6 +451,8 @@ export class ApplianceExportJobClient {
   public async updateApplianceExportJob(
     updateApplianceExportJobRequest: requests.UpdateApplianceExportJobRequest
   ): Promise<responses.UpdateApplianceExportJobResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplianceExportJobClient#updateApplianceExportJob.");
     const pathParams = {
       "{applianceExportJobId}": updateApplianceExportJobRequest.applianceExportJobId
     };
@@ -490,7 +510,8 @@ export class ApplianceExportJobClient {
 export enum ShippingVendorsApiKeys {}
 
 export class ShippingVendorsClient {
-  protected static serviceEndpointTemplate = "https://datatransfer.{region}.{secondLevelDomain}";
+  protected static serviceEndpointTemplate =
+    "https://datatransfer.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
 
@@ -520,6 +541,11 @@ export class ShippingVendorsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20171001";
+    if (this.logger) this.logger.info(`ShippingVendorsClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -558,6 +584,8 @@ export class ShippingVendorsClient {
   public async listShippingVendors(
     listShippingVendorsRequest: requests.ListShippingVendorsRequest
   ): Promise<responses.ListShippingVendorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ShippingVendorsClient#listShippingVendors.");
     const pathParams = {};
 
     const queryParams = {};
@@ -600,7 +628,8 @@ export class ShippingVendorsClient {
 export enum TransferApplianceApiKeys {}
 
 export class TransferApplianceClient {
-  protected static serviceEndpointTemplate = "https://datatransfer.{region}.{secondLevelDomain}";
+  protected static serviceEndpointTemplate =
+    "https://datatransfer.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": TransferApplianceWaiter;
@@ -631,6 +660,11 @@ export class TransferApplianceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20171001";
+    if (this.logger) this.logger.info(`TransferApplianceClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -692,6 +726,8 @@ export class TransferApplianceClient {
   public async createTransferAppliance(
     createTransferApplianceRequest: requests.CreateTransferApplianceRequest
   ): Promise<responses.CreateTransferApplianceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation TransferApplianceClient#createTransferAppliance.");
     const pathParams = {
       "{id}": createTransferApplianceRequest.id
     };
@@ -754,6 +790,10 @@ export class TransferApplianceClient {
   public async createTransferApplianceAdminCredentials(
     createTransferApplianceAdminCredentialsRequest: requests.CreateTransferApplianceAdminCredentialsRequest
   ): Promise<responses.CreateTransferApplianceAdminCredentialsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation TransferApplianceClient#createTransferApplianceAdminCredentials."
+      );
     const pathParams = {
       "{id}": createTransferApplianceAdminCredentialsRequest.id,
       "{transferApplianceLabel}":
@@ -816,6 +856,8 @@ export class TransferApplianceClient {
   public async deleteTransferAppliance(
     deleteTransferApplianceRequest: requests.DeleteTransferApplianceRequest
   ): Promise<responses.DeleteTransferApplianceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation TransferApplianceClient#deleteTransferAppliance.");
     const pathParams = {
       "{id}": deleteTransferApplianceRequest.id,
       "{transferApplianceLabel}": deleteTransferApplianceRequest.transferApplianceLabel
@@ -864,6 +906,8 @@ export class TransferApplianceClient {
   public async getTransferAppliance(
     getTransferApplianceRequest: requests.GetTransferApplianceRequest
   ): Promise<responses.GetTransferApplianceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation TransferApplianceClient#getTransferAppliance.");
     const pathParams = {
       "{id}": getTransferApplianceRequest.id,
       "{transferApplianceLabel}": getTransferApplianceRequest.transferApplianceLabel
@@ -920,6 +964,10 @@ export class TransferApplianceClient {
   public async getTransferApplianceCertificateAuthorityCertificate(
     getTransferApplianceCertificateAuthorityCertificateRequest: requests.GetTransferApplianceCertificateAuthorityCertificateRequest
   ): Promise<responses.GetTransferApplianceCertificateAuthorityCertificateResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation TransferApplianceClient#getTransferApplianceCertificateAuthorityCertificate."
+      );
     const pathParams = {
       "{id}": getTransferApplianceCertificateAuthorityCertificateRequest.id,
       "{transferApplianceLabel}":
@@ -978,6 +1026,10 @@ export class TransferApplianceClient {
   public async getTransferApplianceEncryptionPassphrase(
     getTransferApplianceEncryptionPassphraseRequest: requests.GetTransferApplianceEncryptionPassphraseRequest
   ): Promise<responses.GetTransferApplianceEncryptionPassphraseResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation TransferApplianceClient#getTransferApplianceEncryptionPassphrase."
+      );
     const pathParams = {
       "{id}": getTransferApplianceEncryptionPassphraseRequest.id,
       "{transferApplianceLabel}":
@@ -1035,6 +1087,8 @@ export class TransferApplianceClient {
   public async listTransferAppliances(
     listTransferAppliancesRequest: requests.ListTransferAppliancesRequest
   ): Promise<responses.ListTransferAppliancesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation TransferApplianceClient#listTransferAppliances.");
     const pathParams = {
       "{id}": listTransferAppliancesRequest.id
     };
@@ -1087,6 +1141,8 @@ export class TransferApplianceClient {
   public async updateTransferAppliance(
     updateTransferApplianceRequest: requests.UpdateTransferApplianceRequest
   ): Promise<responses.UpdateTransferApplianceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation TransferApplianceClient#updateTransferAppliance.");
     const pathParams = {
       "{id}": updateTransferApplianceRequest.id,
       "{transferApplianceLabel}": updateTransferApplianceRequest.transferApplianceLabel
@@ -1144,7 +1200,8 @@ export class TransferApplianceClient {
 export enum TransferApplianceEntitlementApiKeys {}
 
 export class TransferApplianceEntitlementClient {
-  protected static serviceEndpointTemplate = "https://datatransfer.{region}.{secondLevelDomain}";
+  protected static serviceEndpointTemplate =
+    "https://datatransfer.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": TransferApplianceEntitlementWaiter;
@@ -1175,6 +1232,12 @@ export class TransferApplianceEntitlementClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20171001";
+    if (this.logger)
+      this.logger.info(`TransferApplianceEntitlementClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -1236,6 +1299,10 @@ export class TransferApplianceEntitlementClient {
   public async createTransferApplianceEntitlement(
     createTransferApplianceEntitlementRequest: requests.CreateTransferApplianceEntitlementRequest
   ): Promise<responses.CreateTransferApplianceEntitlementResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation TransferApplianceEntitlementClient#createTransferApplianceEntitlement."
+      );
     const pathParams = {};
 
     const queryParams = {};
@@ -1297,6 +1364,10 @@ export class TransferApplianceEntitlementClient {
   public async getTransferApplianceEntitlement(
     getTransferApplianceEntitlementRequest: requests.GetTransferApplianceEntitlementRequest
   ): Promise<responses.GetTransferApplianceEntitlementResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation TransferApplianceEntitlementClient#getTransferApplianceEntitlement."
+      );
     const pathParams = {
       "{id}": getTransferApplianceEntitlementRequest.id
     };
@@ -1350,6 +1421,10 @@ export class TransferApplianceEntitlementClient {
   public async listTransferApplianceEntitlement(
     listTransferApplianceEntitlementRequest: requests.ListTransferApplianceEntitlementRequest
   ): Promise<responses.ListTransferApplianceEntitlementResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation TransferApplianceEntitlementClient#listTransferApplianceEntitlement."
+      );
     const pathParams = {};
 
     const queryParams = {
@@ -1398,7 +1473,8 @@ export class TransferApplianceEntitlementClient {
 export enum TransferDeviceApiKeys {}
 
 export class TransferDeviceClient {
-  protected static serviceEndpointTemplate = "https://datatransfer.{region}.{secondLevelDomain}";
+  protected static serviceEndpointTemplate =
+    "https://datatransfer.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": TransferDeviceWaiter;
@@ -1429,6 +1505,11 @@ export class TransferDeviceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20171001";
+    if (this.logger) this.logger.info(`TransferDeviceClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -1490,6 +1571,8 @@ export class TransferDeviceClient {
   public async createTransferDevice(
     createTransferDeviceRequest: requests.CreateTransferDeviceRequest
   ): Promise<responses.CreateTransferDeviceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation TransferDeviceClient#createTransferDevice.");
     const pathParams = {
       "{id}": createTransferDeviceRequest.id
     };
@@ -1552,6 +1635,8 @@ export class TransferDeviceClient {
   public async deleteTransferDevice(
     deleteTransferDeviceRequest: requests.DeleteTransferDeviceRequest
   ): Promise<responses.DeleteTransferDeviceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation TransferDeviceClient#deleteTransferDevice.");
     const pathParams = {
       "{id}": deleteTransferDeviceRequest.id,
       "{transferDeviceLabel}": deleteTransferDeviceRequest.transferDeviceLabel
@@ -1600,6 +1685,7 @@ export class TransferDeviceClient {
   public async getTransferDevice(
     getTransferDeviceRequest: requests.GetTransferDeviceRequest
   ): Promise<responses.GetTransferDeviceResponse> {
+    if (this.logger) this.logger.debug("Calling operation TransferDeviceClient#getTransferDevice.");
     const pathParams = {
       "{id}": getTransferDeviceRequest.id,
       "{transferDeviceLabel}": getTransferDeviceRequest.transferDeviceLabel
@@ -1656,6 +1742,8 @@ export class TransferDeviceClient {
   public async listTransferDevices(
     listTransferDevicesRequest: requests.ListTransferDevicesRequest
   ): Promise<responses.ListTransferDevicesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation TransferDeviceClient#listTransferDevices.");
     const pathParams = {
       "{id}": listTransferDevicesRequest.id
     };
@@ -1709,6 +1797,8 @@ export class TransferDeviceClient {
   public async updateTransferDevice(
     updateTransferDeviceRequest: requests.UpdateTransferDeviceRequest
   ): Promise<responses.UpdateTransferDeviceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation TransferDeviceClient#updateTransferDevice.");
     const pathParams = {
       "{id}": updateTransferDeviceRequest.id,
       "{transferDeviceLabel}": updateTransferDeviceRequest.transferDeviceLabel
@@ -1766,7 +1856,8 @@ export class TransferDeviceClient {
 export enum TransferJobApiKeys {}
 
 export class TransferJobClient {
-  protected static serviceEndpointTemplate = "https://datatransfer.{region}.{secondLevelDomain}";
+  protected static serviceEndpointTemplate =
+    "https://datatransfer.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": TransferJobWaiter;
@@ -1797,6 +1888,11 @@ export class TransferJobClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20171001";
+    if (this.logger) this.logger.info(`TransferJobClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -1858,6 +1954,8 @@ export class TransferJobClient {
   public async changeTransferJobCompartment(
     changeTransferJobCompartmentRequest: requests.ChangeTransferJobCompartmentRequest
   ): Promise<responses.ChangeTransferJobCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation TransferJobClient#changeTransferJobCompartment.");
     const pathParams = {
       "{transferJobId}": changeTransferJobCompartmentRequest.transferJobId
     };
@@ -1919,6 +2017,7 @@ export class TransferJobClient {
   public async createTransferJob(
     createTransferJobRequest: requests.CreateTransferJobRequest
   ): Promise<responses.CreateTransferJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation TransferJobClient#createTransferJob.");
     const pathParams = {};
 
     const queryParams = {};
@@ -1980,6 +2079,7 @@ export class TransferJobClient {
   public async deleteTransferJob(
     deleteTransferJobRequest: requests.DeleteTransferJobRequest
   ): Promise<responses.DeleteTransferJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation TransferJobClient#deleteTransferJob.");
     const pathParams = {
       "{id}": deleteTransferJobRequest.id
     };
@@ -2029,6 +2129,7 @@ export class TransferJobClient {
   public async getTransferJob(
     getTransferJobRequest: requests.GetTransferJobRequest
   ): Promise<responses.GetTransferJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation TransferJobClient#getTransferJob.");
     const pathParams = {
       "{id}": getTransferJobRequest.id
     };
@@ -2086,6 +2187,7 @@ export class TransferJobClient {
   public async listTransferJobs(
     listTransferJobsRequest: requests.ListTransferJobsRequest
   ): Promise<responses.ListTransferJobsResponse> {
+    if (this.logger) this.logger.debug("Calling operation TransferJobClient#listTransferJobs.");
     const pathParams = {};
 
     const queryParams = {
@@ -2172,6 +2274,7 @@ export class TransferJobClient {
   public async updateTransferJob(
     updateTransferJobRequest: requests.UpdateTransferJobRequest
   ): Promise<responses.UpdateTransferJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation TransferJobClient#updateTransferJob.");
     const pathParams = {
       "{id}": updateTransferJobRequest.id
     };
@@ -2229,7 +2332,8 @@ export class TransferJobClient {
 export enum TransferPackageApiKeys {}
 
 export class TransferPackageClient {
-  protected static serviceEndpointTemplate = "https://datatransfer.{region}.{secondLevelDomain}";
+  protected static serviceEndpointTemplate =
+    "https://datatransfer.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": TransferPackageWaiter;
@@ -2260,6 +2364,11 @@ export class TransferPackageClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20171001";
+    if (this.logger) this.logger.info(`TransferPackageClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -2321,6 +2430,8 @@ export class TransferPackageClient {
   public async attachDevicesToTransferPackage(
     attachDevicesToTransferPackageRequest: requests.AttachDevicesToTransferPackageRequest
   ): Promise<responses.AttachDevicesToTransferPackageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation TransferPackageClient#attachDevicesToTransferPackage.");
     const pathParams = {
       "{id}": attachDevicesToTransferPackageRequest.id,
       "{transferPackageLabel}": attachDevicesToTransferPackageRequest.transferPackageLabel
@@ -2379,6 +2490,8 @@ export class TransferPackageClient {
   public async createTransferPackage(
     createTransferPackageRequest: requests.CreateTransferPackageRequest
   ): Promise<responses.CreateTransferPackageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation TransferPackageClient#createTransferPackage.");
     const pathParams = {
       "{id}": createTransferPackageRequest.id
     };
@@ -2441,6 +2554,8 @@ export class TransferPackageClient {
   public async deleteTransferPackage(
     deleteTransferPackageRequest: requests.DeleteTransferPackageRequest
   ): Promise<responses.DeleteTransferPackageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation TransferPackageClient#deleteTransferPackage.");
     const pathParams = {
       "{id}": deleteTransferPackageRequest.id,
       "{transferPackageLabel}": deleteTransferPackageRequest.transferPackageLabel
@@ -2489,6 +2604,10 @@ export class TransferPackageClient {
   public async detachDevicesFromTransferPackage(
     detachDevicesFromTransferPackageRequest: requests.DetachDevicesFromTransferPackageRequest
   ): Promise<responses.DetachDevicesFromTransferPackageResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation TransferPackageClient#detachDevicesFromTransferPackage."
+      );
     const pathParams = {
       "{id}": detachDevicesFromTransferPackageRequest.id,
       "{transferPackageLabel}": detachDevicesFromTransferPackageRequest.transferPackageLabel
@@ -2547,6 +2666,8 @@ export class TransferPackageClient {
   public async getTransferPackage(
     getTransferPackageRequest: requests.GetTransferPackageRequest
   ): Promise<responses.GetTransferPackageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation TransferPackageClient#getTransferPackage.");
     const pathParams = {
       "{id}": getTransferPackageRequest.id,
       "{transferPackageLabel}": getTransferPackageRequest.transferPackageLabel
@@ -2603,6 +2724,8 @@ export class TransferPackageClient {
   public async listTransferPackages(
     listTransferPackagesRequest: requests.ListTransferPackagesRequest
   ): Promise<responses.ListTransferPackagesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation TransferPackageClient#listTransferPackages.");
     const pathParams = {
       "{id}": listTransferPackagesRequest.id
     };
@@ -2656,6 +2779,8 @@ export class TransferPackageClient {
   public async updateTransferPackage(
     updateTransferPackageRequest: requests.UpdateTransferPackageRequest
   ): Promise<responses.UpdateTransferPackageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation TransferPackageClient#updateTransferPackage.");
     const pathParams = {
       "{id}": updateTransferPackageRequest.id,
       "{transferPackageLabel}": updateTransferPackageRequest.transferPackageLabel

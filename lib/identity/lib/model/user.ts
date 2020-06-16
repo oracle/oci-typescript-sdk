@@ -63,6 +63,10 @@ export interface User {
    */
   "email"?: string;
   /**
+   * Whether the email address has been validated.
+   */
+  "emailVerified"?: boolean;
+  /**
    * The OCID of the `IdentityProvider` this user belongs to.
    */
   "identityProviderId"?: string;

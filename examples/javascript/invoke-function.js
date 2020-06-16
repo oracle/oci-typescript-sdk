@@ -17,7 +17,7 @@ const provider = new common.ConfigFileAuthenticationDetailsProvider(
 );
 /**
  * This is a basic example of how to register and invoke a serverless Function
- * on OCI using the SDK for Typescript.
+ * on OCI using the SDK for TypeScript.
  *
  * The example has some pre-requisites. In particular you will need to create a
  * Function and publish it to OCIR. The best way to do this is with the 'Fn

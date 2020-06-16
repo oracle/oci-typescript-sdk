@@ -25,7 +25,7 @@ const provider = new common.ConfigFileAuthenticationDetailsProvider(
   const namespace = {
     compartmentId: compartmentId,
     name: `typeScriptExample_namespace${Math.floor(Math.random() * Math.floor(1000000))}`,
-    description: "SDK for Typescript example tag namespace"
+    description: "SDK for TypeScript example tag namespace"
   };
   const namespaceReq = {
     createTagNamespaceDetails: namespace
@@ -37,7 +37,7 @@ const provider = new common.ConfigFileAuthenticationDetailsProvider(
   // Create a tag one
   const tagOneName = {
     name: "typeScriptExample_tagOne",
-    description: "SDK for Typescript example tag one"
+    description: "SDK for TypeScript example tag one"
   };
 
   const createTagOneReq = {
@@ -50,7 +50,7 @@ const provider = new common.ConfigFileAuthenticationDetailsProvider(
   // Create another tag
   const tagTwoName = {
     name: "typeScriptExample_tagTwo",
-    description: "SDK for Typescript example tag two"
+    description: "SDK for TypeScript example tag two"
   };
 
   const createTagTwoReq = {
@@ -124,7 +124,7 @@ const provider = new common.ConfigFileAuthenticationDetailsProvider(
       const createVCNDetails = {
         cidrBlock: "10.0.0.0/16",
         compartmentId: compartmentId,
-        displayName: "SDK for Typescript tagging example VCN",
+        displayName: "SDK for TypeScript tagging example VCN",
         dnsLabel: `vcn${Math.floor(Math.random() * Math.floor(1000000))}`,
         freeformTags: { "free": "form", "another": "item" },
         definedTags: {

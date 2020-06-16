@@ -83,6 +83,10 @@ Example: `{\"Department\": \"Finance\"}`
    * The availability domain of the Autonomous Container Database.
    */
   "availabilityDomain"?: string;
+  /**
+   * Oracle Database version of the Autonomous Container Database
+   */
+  "dbVersion"?: string;
   "backupConfig"?: model.AutonomousContainerDatabaseBackupConfig;
 }
 

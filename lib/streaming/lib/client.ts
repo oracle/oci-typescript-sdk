@@ -46,6 +46,11 @@ export class StreamClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180418";
+    if (this.logger) this.logger.info(`StreamClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -59,6 +64,7 @@ export class StreamClient {
   public async consumerCommit(
     consumerCommitRequest: requests.ConsumerCommitRequest
   ): Promise<responses.ConsumerCommitResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamClient#consumerCommit.");
     const pathParams = {
       "{streamId}": consumerCommitRequest.streamId
     };
@@ -114,6 +120,7 @@ export class StreamClient {
   public async consumerHeartbeat(
     consumerHeartbeatRequest: requests.ConsumerHeartbeatRequest
   ): Promise<responses.ConsumerHeartbeatResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamClient#consumerHeartbeat.");
     const pathParams = {
       "{streamId}": consumerHeartbeatRequest.streamId
     };
@@ -173,6 +180,7 @@ export class StreamClient {
   public async createCursor(
     createCursorRequest: requests.CreateCursorRequest
   ): Promise<responses.CreateCursorResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamClient#createCursor.");
     const pathParams = {
       "{streamId}": createCursorRequest.streamId
     };
@@ -231,6 +239,7 @@ export class StreamClient {
   public async createGroupCursor(
     createGroupCursorRequest: requests.CreateGroupCursorRequest
   ): Promise<responses.CreateGroupCursorResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamClient#createGroupCursor.");
     const pathParams = {
       "{streamId}": createGroupCursorRequest.streamId
     };
@@ -289,6 +298,7 @@ export class StreamClient {
   public async getGroup(
     getGroupRequest: requests.GetGroupRequest
   ): Promise<responses.GetGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamClient#getGroup.");
     const pathParams = {
       "{streamId}": getGroupRequest.streamId,
       "{groupName}": getGroupRequest.groupName
@@ -345,6 +355,7 @@ export class StreamClient {
   public async getMessages(
     getMessagesRequest: requests.GetMessagesRequest
   ): Promise<responses.GetMessagesResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamClient#getMessages.");
     const pathParams = {
       "{streamId}": getMessagesRequest.streamId
     };
@@ -409,6 +420,7 @@ export class StreamClient {
   public async putMessages(
     putMessagesRequest: requests.PutMessagesRequest
   ): Promise<responses.PutMessagesResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamClient#putMessages.");
     const pathParams = {
       "{streamId}": putMessagesRequest.streamId
     };
@@ -467,6 +479,7 @@ export class StreamClient {
   public async updateGroup(
     updateGroupRequest: requests.UpdateGroupRequest
   ): Promise<responses.UpdateGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamClient#updateGroup.");
     const pathParams = {
       "{streamId}": updateGroupRequest.streamId,
       "{groupName}": updateGroupRequest.groupName
@@ -547,6 +560,11 @@ export class StreamAdminClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180418";
+    if (this.logger) this.logger.info(`StreamAdminClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -608,6 +626,8 @@ export class StreamAdminClient {
   public async changeConnectHarnessCompartment(
     changeConnectHarnessCompartmentRequest: requests.ChangeConnectHarnessCompartmentRequest
   ): Promise<responses.ChangeConnectHarnessCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StreamAdminClient#changeConnectHarnessCompartment.");
     const pathParams = {
       "{connectHarnessId}": changeConnectHarnessCompartmentRequest.connectHarnessId
     };
@@ -666,6 +686,8 @@ export class StreamAdminClient {
   public async changeStreamCompartment(
     changeStreamCompartmentRequest: requests.ChangeStreamCompartmentRequest
   ): Promise<responses.ChangeStreamCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StreamAdminClient#changeStreamCompartment.");
     const pathParams = {
       "{streamId}": changeStreamCompartmentRequest.streamId
     };
@@ -721,6 +743,8 @@ export class StreamAdminClient {
   public async changeStreamPoolCompartment(
     changeStreamPoolCompartmentRequest: requests.ChangeStreamPoolCompartmentRequest
   ): Promise<responses.ChangeStreamPoolCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StreamAdminClient#changeStreamPoolCompartment.");
     const pathParams = {
       "{streamPoolId}": changeStreamPoolCompartmentRequest.streamPoolId
     };
@@ -778,6 +802,7 @@ export class StreamAdminClient {
   public async createConnectHarness(
     createConnectHarnessRequest: requests.CreateConnectHarnessRequest
   ): Promise<responses.CreateConnectHarnessResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#createConnectHarness.");
     const pathParams = {};
 
     const queryParams = {};
@@ -844,6 +869,7 @@ export class StreamAdminClient {
   public async createStream(
     createStreamRequest: requests.CreateStreamRequest
   ): Promise<responses.CreateStreamResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#createStream.");
     const pathParams = {};
 
     const queryParams = {};
@@ -907,6 +933,7 @@ export class StreamAdminClient {
   public async createStreamPool(
     createStreamPoolRequest: requests.CreateStreamPoolRequest
   ): Promise<responses.CreateStreamPoolResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#createStreamPool.");
     const pathParams = {};
 
     const queryParams = {};
@@ -973,6 +1000,7 @@ export class StreamAdminClient {
   public async deleteConnectHarness(
     deleteConnectHarnessRequest: requests.DeleteConnectHarnessRequest
   ): Promise<responses.DeleteConnectHarnessResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#deleteConnectHarness.");
     const pathParams = {
       "{connectHarnessId}": deleteConnectHarnessRequest.connectHarnessId
     };
@@ -1028,6 +1056,7 @@ export class StreamAdminClient {
   public async deleteStream(
     deleteStreamRequest: requests.DeleteStreamRequest
   ): Promise<responses.DeleteStreamResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#deleteStream.");
     const pathParams = {
       "{streamId}": deleteStreamRequest.streamId
     };
@@ -1080,6 +1109,7 @@ export class StreamAdminClient {
   public async deleteStreamPool(
     deleteStreamPoolRequest: requests.DeleteStreamPoolRequest
   ): Promise<responses.DeleteStreamPoolResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#deleteStreamPool.");
     const pathParams = {
       "{streamPoolId}": deleteStreamPoolRequest.streamPoolId
     };
@@ -1130,6 +1160,7 @@ export class StreamAdminClient {
   public async getConnectHarness(
     getConnectHarnessRequest: requests.GetConnectHarnessRequest
   ): Promise<responses.GetConnectHarnessResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#getConnectHarness.");
     const pathParams = {
       "{connectHarnessId}": getConnectHarnessRequest.connectHarnessId
     };
@@ -1187,6 +1218,7 @@ export class StreamAdminClient {
   public async getStream(
     getStreamRequest: requests.GetStreamRequest
   ): Promise<responses.GetStreamResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#getStream.");
     const pathParams = {
       "{streamId}": getStreamRequest.streamId
     };
@@ -1244,6 +1276,7 @@ export class StreamAdminClient {
   public async getStreamPool(
     getStreamPoolRequest: requests.GetStreamPoolRequest
   ): Promise<responses.GetStreamPoolResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#getStreamPool.");
     const pathParams = {
       "{streamPoolId}": getStreamPoolRequest.streamPoolId
     };
@@ -1301,6 +1334,7 @@ export class StreamAdminClient {
   public async listConnectHarnesses(
     listConnectHarnessesRequest: requests.ListConnectHarnessesRequest
   ): Promise<responses.ListConnectHarnessesResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#listConnectHarnesses.");
     const pathParams = {};
 
     const queryParams = {
@@ -1395,6 +1429,7 @@ export class StreamAdminClient {
   public async listStreamPools(
     listStreamPoolsRequest: requests.ListStreamPoolsRequest
   ): Promise<responses.ListStreamPoolsResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#listStreamPools.");
     const pathParams = {};
 
     const queryParams = {
@@ -1493,6 +1528,7 @@ export class StreamAdminClient {
   public async listStreams(
     listStreamsRequest: requests.ListStreamsRequest
   ): Promise<responses.ListStreamsResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#listStreams.");
     const pathParams = {};
 
     const queryParams = {
@@ -1589,6 +1625,7 @@ export class StreamAdminClient {
   public async updateConnectHarness(
     updateConnectHarnessRequest: requests.UpdateConnectHarnessRequest
   ): Promise<responses.UpdateConnectHarnessResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#updateConnectHarness.");
     const pathParams = {
       "{connectHarnessId}": updateConnectHarnessRequest.connectHarnessId
     };
@@ -1653,6 +1690,7 @@ export class StreamAdminClient {
   public async updateStream(
     updateStreamRequest: requests.UpdateStreamRequest
   ): Promise<responses.UpdateStreamResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#updateStream.");
     const pathParams = {
       "{streamId}": updateStreamRequest.streamId
     };
@@ -1717,6 +1755,7 @@ export class StreamAdminClient {
   public async updateStreamPool(
     updateStreamPoolRequest: requests.UpdateStreamPoolRequest
   ): Promise<responses.UpdateStreamPoolResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#updateStreamPool.");
     const pathParams = {
       "{streamPoolId}": updateStreamPoolRequest.streamPoolId
     };

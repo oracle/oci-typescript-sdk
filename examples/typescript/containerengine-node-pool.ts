@@ -17,7 +17,7 @@ const provider: common.ConfigFileAuthenticationDetailsProvider = new common.Conf
   configProfile
 );
 /**
- * This class provides an example of how to create a Container Engine node pool in the SDK for Typescript.
+ * This class provides an example of how to create a Container Engine node pool in the SDK for TypeScript.
  * It will create a VCN and three subnets, one Container Engine cluster and add one node pool in the cluster.
  * These will be deleted at the end. The class also makes some assumptions about
  * the resources it will create:

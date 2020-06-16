@@ -25,7 +25,9 @@ export interface UpdateAutoScalingPolicyRequest {
   /**
    * Update details for an autoscaling policy.
    */
-  "updateAutoScalingPolicyDetails": model.UpdateThresholdPolicyDetails;
+  "updateAutoScalingPolicyDetails":
+    | model.UpdateThresholdPolicyDetails
+    | model.UpdateScheduledPolicyDetails;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match`
    * parameter to the value of the etag from a previous GET or POST response for that resource.  The resource

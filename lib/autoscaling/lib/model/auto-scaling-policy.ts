@@ -1,7 +1,11 @@
 /**
  * Autoscaling API
- * APIs for dynamically scaling Compute resources to meet application requirements. 
-For information about the Compute service, see [Overview of the Compute Service](/Content/Compute/Concepts/computeoverview.htm).
+ * APIs for dynamically scaling Compute resources to meet application requirements. For more information about
+autoscaling, see [Autoscaling](/Content/Compute/Tasks/autoscalinginstancepools.htm). For information about the
+Compute service, see [Overview of the Compute Service](/Content/Compute/Concepts/computeoverview.htm).
+
+**Note:** Autoscaling is not available in US Government Cloud tenancies. For more information, see
+[Oracle Cloud Infrastructure US Government Cloud](/Content/General/Concepts/govoverview.htm).
 
  * OpenAPI spec version: 20181001
  * 
@@ -44,6 +48,10 @@ Example: `2016-08-25T21:10:29.600Z`
 * 
     */
   "timeCreated": Date;
+  /**
+   * Boolean field indicating whether this policy is enabled or not.
+   */
+  "isEnabled"?: boolean;
 
   "policyType": string;
 }
@@ -59,6 +67,8 @@ export namespace AutoScalingPolicy {
 
     if ("policyType" in obj && obj.policyType) {
       switch (obj.policyType) {
+        case "scheduled":
+          return model.ScheduledPolicy.getJsonObj(<model.ScheduledPolicy>(<object>jsonObj), true);
         case "threshold":
           return model.ThresholdPolicy.getJsonObj(<model.ThresholdPolicy>(<object>jsonObj), true);
         default:

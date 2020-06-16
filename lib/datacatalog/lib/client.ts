@@ -57,6 +57,11 @@ export class DataCatalogClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190325";
+    if (this.logger) this.logger.info(`DataCatalogClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -118,6 +123,8 @@ export class DataCatalogClient {
   public async changeCatalogCompartment(
     changeCatalogCompartmentRequest: requests.ChangeCatalogCompartmentRequest
   ): Promise<responses.ChangeCatalogCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#changeCatalogCompartment.");
     const pathParams = {
       "{catalogId}": changeCatalogCompartmentRequest.catalogId
     };
@@ -178,6 +185,7 @@ export class DataCatalogClient {
   public async createAttribute(
     createAttributeRequest: requests.CreateAttributeRequest
   ): Promise<responses.CreateAttributeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createAttribute.");
     const pathParams = {
       "{catalogId}": createAttributeRequest.catalogId,
       "{dataAssetKey}": createAttributeRequest.dataAssetKey,
@@ -243,6 +251,7 @@ export class DataCatalogClient {
   public async createAttributeTag(
     createAttributeTagRequest: requests.CreateAttributeTagRequest
   ): Promise<responses.CreateAttributeTagResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createAttributeTag.");
     const pathParams = {
       "{catalogId}": createAttributeTagRequest.catalogId,
       "{dataAssetKey}": createAttributeTagRequest.dataAssetKey,
@@ -312,6 +321,7 @@ export class DataCatalogClient {
   public async createCatalog(
     createCatalogRequest: requests.CreateCatalogRequest
   ): Promise<responses.CreateCatalogResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createCatalog.");
     const pathParams = {};
 
     const queryParams = {};
@@ -370,6 +380,7 @@ export class DataCatalogClient {
   public async createConnection(
     createConnectionRequest: requests.CreateConnectionRequest
   ): Promise<responses.CreateConnectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createConnection.");
     const pathParams = {
       "{catalogId}": createConnectionRequest.catalogId,
       "{dataAssetKey}": createConnectionRequest.dataAssetKey
@@ -434,6 +445,7 @@ export class DataCatalogClient {
   public async createDataAsset(
     createDataAssetRequest: requests.CreateDataAssetRequest
   ): Promise<responses.CreateDataAssetResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createDataAsset.");
     const pathParams = {
       "{catalogId}": createDataAssetRequest.catalogId
     };
@@ -497,6 +509,7 @@ export class DataCatalogClient {
   public async createDataAssetTag(
     createDataAssetTagRequest: requests.CreateDataAssetTagRequest
   ): Promise<responses.CreateDataAssetTagResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createDataAssetTag.");
     const pathParams = {
       "{catalogId}": createDataAssetTagRequest.catalogId,
       "{dataAssetKey}": createDataAssetTagRequest.dataAssetKey
@@ -561,6 +574,7 @@ export class DataCatalogClient {
   public async createEntity(
     createEntityRequest: requests.CreateEntityRequest
   ): Promise<responses.CreateEntityResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createEntity.");
     const pathParams = {
       "{catalogId}": createEntityRequest.catalogId,
       "{dataAssetKey}": createEntityRequest.dataAssetKey
@@ -625,6 +639,7 @@ export class DataCatalogClient {
   public async createEntityTag(
     createEntityTagRequest: requests.CreateEntityTagRequest
   ): Promise<responses.CreateEntityTagResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createEntityTag.");
     const pathParams = {
       "{catalogId}": createEntityTagRequest.catalogId,
       "{dataAssetKey}": createEntityTagRequest.dataAssetKey,
@@ -690,6 +705,7 @@ export class DataCatalogClient {
   public async createFolder(
     createFolderRequest: requests.CreateFolderRequest
   ): Promise<responses.CreateFolderResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createFolder.");
     const pathParams = {
       "{catalogId}": createFolderRequest.catalogId,
       "{dataAssetKey}": createFolderRequest.dataAssetKey
@@ -754,6 +770,7 @@ export class DataCatalogClient {
   public async createFolderTag(
     createFolderTagRequest: requests.CreateFolderTagRequest
   ): Promise<responses.CreateFolderTagResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createFolderTag.");
     const pathParams = {
       "{catalogId}": createFolderTagRequest.catalogId,
       "{dataAssetKey}": createFolderTagRequest.dataAssetKey,
@@ -819,6 +836,7 @@ export class DataCatalogClient {
   public async createGlossary(
     createGlossaryRequest: requests.CreateGlossaryRequest
   ): Promise<responses.CreateGlossaryResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createGlossary.");
     const pathParams = {
       "{catalogId}": createGlossaryRequest.catalogId
     };
@@ -882,6 +900,7 @@ export class DataCatalogClient {
   public async createJob(
     createJobRequest: requests.CreateJobRequest
   ): Promise<responses.CreateJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createJob.");
     const pathParams = {
       "{catalogId}": createJobRequest.catalogId
     };
@@ -945,6 +964,7 @@ export class DataCatalogClient {
   public async createJobDefinition(
     createJobDefinitionRequest: requests.CreateJobDefinitionRequest
   ): Promise<responses.CreateJobDefinitionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createJobDefinition.");
     const pathParams = {
       "{catalogId}": createJobDefinitionRequest.catalogId
     };
@@ -1008,6 +1028,7 @@ export class DataCatalogClient {
   public async createJobExecution(
     createJobExecutionRequest: requests.CreateJobExecutionRequest
   ): Promise<responses.CreateJobExecutionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createJobExecution.");
     const pathParams = {
       "{catalogId}": createJobExecutionRequest.catalogId,
       "{jobKey}": createJobExecutionRequest.jobKey
@@ -1072,6 +1093,7 @@ export class DataCatalogClient {
   public async createTerm(
     createTermRequest: requests.CreateTermRequest
   ): Promise<responses.CreateTermResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createTerm.");
     const pathParams = {
       "{catalogId}": createTermRequest.catalogId,
       "{glossaryKey}": createTermRequest.glossaryKey
@@ -1136,6 +1158,8 @@ export class DataCatalogClient {
   public async createTermRelationship(
     createTermRelationshipRequest: requests.CreateTermRelationshipRequest
   ): Promise<responses.CreateTermRelationshipResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#createTermRelationship.");
     const pathParams = {
       "{catalogId}": createTermRelationshipRequest.catalogId,
       "{glossaryKey}": createTermRelationshipRequest.glossaryKey,
@@ -1201,6 +1225,7 @@ export class DataCatalogClient {
   public async deleteAttribute(
     deleteAttributeRequest: requests.DeleteAttributeRequest
   ): Promise<responses.DeleteAttributeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteAttribute.");
     const pathParams = {
       "{catalogId}": deleteAttributeRequest.catalogId,
       "{dataAssetKey}": deleteAttributeRequest.dataAssetKey,
@@ -1255,6 +1280,7 @@ export class DataCatalogClient {
   public async deleteAttributeTag(
     deleteAttributeTagRequest: requests.DeleteAttributeTagRequest
   ): Promise<responses.DeleteAttributeTagResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteAttributeTag.");
     const pathParams = {
       "{catalogId}": deleteAttributeTagRequest.catalogId,
       "{dataAssetKey}": deleteAttributeTagRequest.dataAssetKey,
@@ -1310,6 +1336,7 @@ export class DataCatalogClient {
   public async deleteCatalog(
     deleteCatalogRequest: requests.DeleteCatalogRequest
   ): Promise<responses.DeleteCatalogResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteCatalog.");
     const pathParams = {
       "{catalogId}": deleteCatalogRequest.catalogId
     };
@@ -1365,6 +1392,7 @@ export class DataCatalogClient {
   public async deleteConnection(
     deleteConnectionRequest: requests.DeleteConnectionRequest
   ): Promise<responses.DeleteConnectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteConnection.");
     const pathParams = {
       "{catalogId}": deleteConnectionRequest.catalogId,
       "{dataAssetKey}": deleteConnectionRequest.dataAssetKey,
@@ -1417,6 +1445,7 @@ export class DataCatalogClient {
   public async deleteDataAsset(
     deleteDataAssetRequest: requests.DeleteDataAssetRequest
   ): Promise<responses.DeleteDataAssetResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteDataAsset.");
     const pathParams = {
       "{catalogId}": deleteDataAssetRequest.catalogId,
       "{dataAssetKey}": deleteDataAssetRequest.dataAssetKey
@@ -1468,6 +1497,7 @@ export class DataCatalogClient {
   public async deleteDataAssetTag(
     deleteDataAssetTagRequest: requests.DeleteDataAssetTagRequest
   ): Promise<responses.DeleteDataAssetTagResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteDataAssetTag.");
     const pathParams = {
       "{catalogId}": deleteDataAssetTagRequest.catalogId,
       "{dataAssetKey}": deleteDataAssetTagRequest.dataAssetKey,
@@ -1520,6 +1550,7 @@ export class DataCatalogClient {
   public async deleteEntity(
     deleteEntityRequest: requests.DeleteEntityRequest
   ): Promise<responses.DeleteEntityResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteEntity.");
     const pathParams = {
       "{catalogId}": deleteEntityRequest.catalogId,
       "{dataAssetKey}": deleteEntityRequest.dataAssetKey,
@@ -1572,6 +1603,7 @@ export class DataCatalogClient {
   public async deleteEntityTag(
     deleteEntityTagRequest: requests.DeleteEntityTagRequest
   ): Promise<responses.DeleteEntityTagResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteEntityTag.");
     const pathParams = {
       "{catalogId}": deleteEntityTagRequest.catalogId,
       "{dataAssetKey}": deleteEntityTagRequest.dataAssetKey,
@@ -1625,6 +1657,7 @@ export class DataCatalogClient {
   public async deleteFolder(
     deleteFolderRequest: requests.DeleteFolderRequest
   ): Promise<responses.DeleteFolderResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteFolder.");
     const pathParams = {
       "{catalogId}": deleteFolderRequest.catalogId,
       "{dataAssetKey}": deleteFolderRequest.dataAssetKey,
@@ -1677,6 +1710,7 @@ export class DataCatalogClient {
   public async deleteFolderTag(
     deleteFolderTagRequest: requests.DeleteFolderTagRequest
   ): Promise<responses.DeleteFolderTagResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteFolderTag.");
     const pathParams = {
       "{catalogId}": deleteFolderTagRequest.catalogId,
       "{dataAssetKey}": deleteFolderTagRequest.dataAssetKey,
@@ -1730,6 +1764,7 @@ export class DataCatalogClient {
   public async deleteGlossary(
     deleteGlossaryRequest: requests.DeleteGlossaryRequest
   ): Promise<responses.DeleteGlossaryResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteGlossary.");
     const pathParams = {
       "{catalogId}": deleteGlossaryRequest.catalogId,
       "{glossaryKey}": deleteGlossaryRequest.glossaryKey
@@ -1781,6 +1816,7 @@ export class DataCatalogClient {
   public async deleteJob(
     deleteJobRequest: requests.DeleteJobRequest
   ): Promise<responses.DeleteJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteJob.");
     const pathParams = {
       "{catalogId}": deleteJobRequest.catalogId,
       "{jobKey}": deleteJobRequest.jobKey
@@ -1832,6 +1868,7 @@ export class DataCatalogClient {
   public async deleteJobDefinition(
     deleteJobDefinitionRequest: requests.DeleteJobDefinitionRequest
   ): Promise<responses.DeleteJobDefinitionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteJobDefinition.");
     const pathParams = {
       "{catalogId}": deleteJobDefinitionRequest.catalogId,
       "{jobDefinitionKey}": deleteJobDefinitionRequest.jobDefinitionKey
@@ -1883,6 +1920,7 @@ export class DataCatalogClient {
   public async deleteTerm(
     deleteTermRequest: requests.DeleteTermRequest
   ): Promise<responses.DeleteTermResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteTerm.");
     const pathParams = {
       "{catalogId}": deleteTermRequest.catalogId,
       "{glossaryKey}": deleteTermRequest.glossaryKey,
@@ -1935,6 +1973,8 @@ export class DataCatalogClient {
   public async deleteTermRelationship(
     deleteTermRelationshipRequest: requests.DeleteTermRelationshipRequest
   ): Promise<responses.DeleteTermRelationshipResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#deleteTermRelationship.");
     const pathParams = {
       "{catalogId}": deleteTermRelationshipRequest.catalogId,
       "{glossaryKey}": deleteTermRelationshipRequest.glossaryKey,
@@ -1989,6 +2029,8 @@ export class DataCatalogClient {
   public async expandTreeForGlossary(
     expandTreeForGlossaryRequest: requests.ExpandTreeForGlossaryRequest
   ): Promise<responses.ExpandTreeForGlossaryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#expandTreeForGlossary.");
     const pathParams = {
       "{catalogId}": expandTreeForGlossaryRequest.catalogId,
       "{glossaryKey}": expandTreeForGlossaryRequest.glossaryKey
@@ -2048,6 +2090,7 @@ export class DataCatalogClient {
   public async exportGlossary(
     exportGlossaryRequest: requests.ExportGlossaryRequest
   ): Promise<responses.ExportGlossaryResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#exportGlossary.");
     const pathParams = {
       "{catalogId}": exportGlossaryRequest.catalogId,
       "{glossaryKey}": exportGlossaryRequest.glossaryKey
@@ -2109,6 +2152,7 @@ export class DataCatalogClient {
   public async getAttribute(
     getAttributeRequest: requests.GetAttributeRequest
   ): Promise<responses.GetAttributeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getAttribute.");
     const pathParams = {
       "{catalogId}": getAttributeRequest.catalogId,
       "{dataAssetKey}": getAttributeRequest.dataAssetKey,
@@ -2172,6 +2216,7 @@ export class DataCatalogClient {
   public async getAttributeTag(
     getAttributeTagRequest: requests.GetAttributeTagRequest
   ): Promise<responses.GetAttributeTagResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getAttributeTag.");
     const pathParams = {
       "{catalogId}": getAttributeTagRequest.catalogId,
       "{dataAssetKey}": getAttributeTagRequest.dataAssetKey,
@@ -2236,6 +2281,7 @@ export class DataCatalogClient {
   public async getCatalog(
     getCatalogRequest: requests.GetCatalogRequest
   ): Promise<responses.GetCatalogResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getCatalog.");
     const pathParams = {
       "{catalogId}": getCatalogRequest.catalogId
     };
@@ -2293,6 +2339,7 @@ export class DataCatalogClient {
   public async getConnection(
     getConnectionRequest: requests.GetConnectionRequest
   ): Promise<responses.GetConnectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getConnection.");
     const pathParams = {
       "{catalogId}": getConnectionRequest.catalogId,
       "{dataAssetKey}": getConnectionRequest.dataAssetKey,
@@ -2354,6 +2401,7 @@ export class DataCatalogClient {
   public async getDataAsset(
     getDataAssetRequest: requests.GetDataAssetRequest
   ): Promise<responses.GetDataAssetResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getDataAsset.");
     const pathParams = {
       "{catalogId}": getDataAssetRequest.catalogId,
       "{dataAssetKey}": getDataAssetRequest.dataAssetKey
@@ -2414,6 +2462,7 @@ export class DataCatalogClient {
   public async getDataAssetTag(
     getDataAssetTagRequest: requests.GetDataAssetTagRequest
   ): Promise<responses.GetDataAssetTagResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getDataAssetTag.");
     const pathParams = {
       "{catalogId}": getDataAssetTagRequest.catalogId,
       "{dataAssetKey}": getDataAssetTagRequest.dataAssetKey,
@@ -2475,6 +2524,7 @@ export class DataCatalogClient {
   public async getEntity(
     getEntityRequest: requests.GetEntityRequest
   ): Promise<responses.GetEntityResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getEntity.");
     const pathParams = {
       "{catalogId}": getEntityRequest.catalogId,
       "{dataAssetKey}": getEntityRequest.dataAssetKey,
@@ -2536,6 +2586,7 @@ export class DataCatalogClient {
   public async getEntityTag(
     getEntityTagRequest: requests.GetEntityTagRequest
   ): Promise<responses.GetEntityTagResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getEntityTag.");
     const pathParams = {
       "{catalogId}": getEntityTagRequest.catalogId,
       "{dataAssetKey}": getEntityTagRequest.dataAssetKey,
@@ -2598,6 +2649,7 @@ export class DataCatalogClient {
   public async getFolder(
     getFolderRequest: requests.GetFolderRequest
   ): Promise<responses.GetFolderResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getFolder.");
     const pathParams = {
       "{catalogId}": getFolderRequest.catalogId,
       "{dataAssetKey}": getFolderRequest.dataAssetKey,
@@ -2659,6 +2711,7 @@ export class DataCatalogClient {
   public async getFolderTag(
     getFolderTagRequest: requests.GetFolderTagRequest
   ): Promise<responses.GetFolderTagResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getFolderTag.");
     const pathParams = {
       "{catalogId}": getFolderTagRequest.catalogId,
       "{dataAssetKey}": getFolderTagRequest.dataAssetKey,
@@ -2721,6 +2774,7 @@ export class DataCatalogClient {
   public async getGlossary(
     getGlossaryRequest: requests.GetGlossaryRequest
   ): Promise<responses.GetGlossaryResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getGlossary.");
     const pathParams = {
       "{catalogId}": getGlossaryRequest.catalogId,
       "{glossaryKey}": getGlossaryRequest.glossaryKey
@@ -2779,6 +2833,7 @@ export class DataCatalogClient {
    * @throws OciError when an error occurs
    */
   public async getJob(getJobRequest: requests.GetJobRequest): Promise<responses.GetJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getJob.");
     const pathParams = {
       "{catalogId}": getJobRequest.catalogId,
       "{jobKey}": getJobRequest.jobKey
@@ -2839,6 +2894,7 @@ export class DataCatalogClient {
   public async getJobDefinition(
     getJobDefinitionRequest: requests.GetJobDefinitionRequest
   ): Promise<responses.GetJobDefinitionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getJobDefinition.");
     const pathParams = {
       "{catalogId}": getJobDefinitionRequest.catalogId,
       "{jobDefinitionKey}": getJobDefinitionRequest.jobDefinitionKey
@@ -2899,6 +2955,7 @@ export class DataCatalogClient {
   public async getJobExecution(
     getJobExecutionRequest: requests.GetJobExecutionRequest
   ): Promise<responses.GetJobExecutionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getJobExecution.");
     const pathParams = {
       "{catalogId}": getJobExecutionRequest.catalogId,
       "{jobKey}": getJobExecutionRequest.jobKey,
@@ -2960,6 +3017,7 @@ export class DataCatalogClient {
   public async getJobLog(
     getJobLogRequest: requests.GetJobLogRequest
   ): Promise<responses.GetJobLogResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getJobLog.");
     const pathParams = {
       "{catalogId}": getJobLogRequest.catalogId,
       "{jobKey}": getJobLogRequest.jobKey,
@@ -3022,6 +3080,7 @@ export class DataCatalogClient {
   public async getJobMetrics(
     getJobMetricsRequest: requests.GetJobMetricsRequest
   ): Promise<responses.GetJobMetricsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getJobMetrics.");
     const pathParams = {
       "{catalogId}": getJobMetricsRequest.catalogId,
       "{jobKey}": getJobMetricsRequest.jobKey,
@@ -3085,6 +3144,7 @@ export class DataCatalogClient {
   public async getTerm(
     getTermRequest: requests.GetTermRequest
   ): Promise<responses.GetTermResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getTerm.");
     const pathParams = {
       "{catalogId}": getTermRequest.catalogId,
       "{glossaryKey}": getTermRequest.glossaryKey,
@@ -3146,6 +3206,7 @@ export class DataCatalogClient {
   public async getTermRelationship(
     getTermRelationshipRequest: requests.GetTermRelationshipRequest
   ): Promise<responses.GetTermRelationshipResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getTermRelationship.");
     const pathParams = {
       "{catalogId}": getTermRelationshipRequest.catalogId,
       "{glossaryKey}": getTermRelationshipRequest.glossaryKey,
@@ -3209,6 +3270,7 @@ export class DataCatalogClient {
   public async getType(
     getTypeRequest: requests.GetTypeRequest
   ): Promise<responses.GetTypeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getType.");
     const pathParams = {
       "{catalogId}": getTypeRequest.catalogId,
       "{typeKey}": getTypeRequest.typeKey
@@ -3269,6 +3331,7 @@ export class DataCatalogClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getWorkRequest.");
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -3331,6 +3394,7 @@ export class DataCatalogClient {
   public async importConnection(
     importConnectionRequest: requests.ImportConnectionRequest
   ): Promise<responses.ImportConnectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#importConnection.");
     const pathParams = {
       "{catalogId}": importConnectionRequest.catalogId,
       "{dataAssetKey}": importConnectionRequest.dataAssetKey
@@ -3396,6 +3460,7 @@ export class DataCatalogClient {
   public async importGlossary(
     importGlossaryRequest: requests.ImportGlossaryRequest
   ): Promise<responses.ImportGlossaryResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#importGlossary.");
     const pathParams = {
       "{catalogId}": importGlossaryRequest.catalogId,
       "{glossaryKey}": importGlossaryRequest.glossaryKey
@@ -3459,6 +3524,7 @@ export class DataCatalogClient {
   public async listAttributeTags(
     listAttributeTagsRequest: requests.ListAttributeTagsRequest
   ): Promise<responses.ListAttributeTagsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listAttributeTags.");
     const pathParams = {
       "{catalogId}": listAttributeTagsRequest.catalogId,
       "{dataAssetKey}": listAttributeTagsRequest.dataAssetKey,
@@ -3532,6 +3598,7 @@ export class DataCatalogClient {
   public async listAttributes(
     listAttributesRequest: requests.ListAttributesRequest
   ): Promise<responses.ListAttributesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listAttributes.");
     const pathParams = {
       "{catalogId}": listAttributesRequest.catalogId,
       "{dataAssetKey}": listAttributesRequest.dataAssetKey,
@@ -3613,6 +3680,7 @@ export class DataCatalogClient {
   public async listCatalogs(
     listCatalogsRequest: requests.ListCatalogsRequest
   ): Promise<responses.ListCatalogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listCatalogs.");
     const pathParams = {};
 
     const queryParams = {
@@ -3701,6 +3769,7 @@ export class DataCatalogClient {
   public async listConnections(
     listConnectionsRequest: requests.ListConnectionsRequest
   ): Promise<responses.ListConnectionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listConnections.");
     const pathParams = {
       "{catalogId}": listConnectionsRequest.catalogId,
       "{dataAssetKey}": listConnectionsRequest.dataAssetKey
@@ -3774,6 +3843,7 @@ export class DataCatalogClient {
   public async listDataAssetTags(
     listDataAssetTagsRequest: requests.ListDataAssetTagsRequest
   ): Promise<responses.ListDataAssetTagsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listDataAssetTags.");
     const pathParams = {
       "{catalogId}": listDataAssetTagsRequest.catalogId,
       "{dataAssetKey}": listDataAssetTagsRequest.dataAssetKey
@@ -3844,6 +3914,7 @@ export class DataCatalogClient {
   public async listDataAssets(
     listDataAssetsRequest: requests.ListDataAssetsRequest
   ): Promise<responses.ListDataAssetsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listDataAssets.");
     const pathParams = {
       "{catalogId}": listDataAssetsRequest.catalogId
     };
@@ -3915,6 +3986,7 @@ export class DataCatalogClient {
   public async listEntities(
     listEntitiesRequest: requests.ListEntitiesRequest
   ): Promise<responses.ListEntitiesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listEntities.");
     const pathParams = {
       "{catalogId}": listEntitiesRequest.catalogId,
       "{dataAssetKey}": listEntitiesRequest.dataAssetKey
@@ -3994,6 +4066,7 @@ export class DataCatalogClient {
   public async listEntityTags(
     listEntityTagsRequest: requests.ListEntityTagsRequest
   ): Promise<responses.ListEntityTagsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listEntityTags.");
     const pathParams = {
       "{catalogId}": listEntityTagsRequest.catalogId,
       "{dataAssetKey}": listEntityTagsRequest.dataAssetKey,
@@ -4065,6 +4138,7 @@ export class DataCatalogClient {
   public async listFolderTags(
     listFolderTagsRequest: requests.ListFolderTagsRequest
   ): Promise<responses.ListFolderTagsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listFolderTags.");
     const pathParams = {
       "{catalogId}": listFolderTagsRequest.catalogId,
       "{dataAssetKey}": listFolderTagsRequest.dataAssetKey,
@@ -4136,6 +4210,7 @@ export class DataCatalogClient {
   public async listFolders(
     listFoldersRequest: requests.ListFoldersRequest
   ): Promise<responses.ListFoldersResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listFolders.");
     const pathParams = {
       "{catalogId}": listFoldersRequest.catalogId,
       "{dataAssetKey}": listFoldersRequest.dataAssetKey
@@ -4211,6 +4286,7 @@ export class DataCatalogClient {
   public async listGlossaries(
     listGlossariesRequest: requests.ListGlossariesRequest
   ): Promise<responses.ListGlossariesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listGlossaries.");
     const pathParams = {
       "{catalogId}": listGlossariesRequest.catalogId
     };
@@ -4280,6 +4356,7 @@ export class DataCatalogClient {
   public async listJobDefinitions(
     listJobDefinitionsRequest: requests.ListJobDefinitionsRequest
   ): Promise<responses.ListJobDefinitionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listJobDefinitions.");
     const pathParams = {
       "{catalogId}": listJobDefinitionsRequest.catalogId
     };
@@ -4354,6 +4431,7 @@ export class DataCatalogClient {
   public async listJobExecutions(
     listJobExecutionsRequest: requests.ListJobExecutionsRequest
   ): Promise<responses.ListJobExecutionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listJobExecutions.");
     const pathParams = {
       "{catalogId}": listJobExecutionsRequest.catalogId,
       "{jobKey}": listJobExecutionsRequest.jobKey
@@ -4434,6 +4512,7 @@ export class DataCatalogClient {
   public async listJobLogs(
     listJobLogsRequest: requests.ListJobLogsRequest
   ): Promise<responses.ListJobLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listJobLogs.");
     const pathParams = {
       "{catalogId}": listJobLogsRequest.catalogId,
       "{jobKey}": listJobLogsRequest.jobKey,
@@ -4505,6 +4584,7 @@ export class DataCatalogClient {
   public async listJobMetrics(
     listJobMetricsRequest: requests.ListJobMetricsRequest
   ): Promise<responses.ListJobMetricsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listJobMetrics.");
     const pathParams = {
       "{catalogId}": listJobMetricsRequest.catalogId,
       "{jobKey}": listJobMetricsRequest.jobKey,
@@ -4581,6 +4661,7 @@ export class DataCatalogClient {
   public async listJobs(
     listJobsRequest: requests.ListJobsRequest
   ): Promise<responses.ListJobsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listJobs.");
     const pathParams = {
       "{catalogId}": listJobsRequest.catalogId
     };
@@ -4659,6 +4740,7 @@ export class DataCatalogClient {
   public async listTags(
     listTagsRequest: requests.ListTagsRequest
   ): Promise<responses.ListTagsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listTags.");
     const pathParams = {
       "{catalogId}": listTagsRequest.catalogId
     };
@@ -4724,6 +4806,8 @@ export class DataCatalogClient {
   public async listTermRelationships(
     listTermRelationshipsRequest: requests.ListTermRelationshipsRequest
   ): Promise<responses.ListTermRelationshipsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#listTermRelationships.");
     const pathParams = {
       "{catalogId}": listTermRelationshipsRequest.catalogId,
       "{glossaryKey}": listTermRelationshipsRequest.glossaryKey,
@@ -4791,6 +4875,7 @@ export class DataCatalogClient {
   public async listTerms(
     listTermsRequest: requests.ListTermsRequest
   ): Promise<responses.ListTermsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listTerms.");
     const pathParams = {
       "{catalogId}": listTermsRequest.catalogId,
       "{glossaryKey}": listTermsRequest.glossaryKey
@@ -4861,6 +4946,7 @@ export class DataCatalogClient {
   public async listTypes(
     listTypesRequest: requests.ListTypesRequest
   ): Promise<responses.ListTypesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listTypes.");
     const pathParams = {
       "{catalogId}": listTypesRequest.catalogId
     };
@@ -4932,6 +5018,8 @@ export class DataCatalogClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#listWorkRequestErrors.");
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -5020,6 +5108,7 @@ export class DataCatalogClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listWorkRequestLogs.");
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -5108,6 +5197,7 @@ export class DataCatalogClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listWorkRequests.");
     const pathParams = {};
 
     const queryParams = {
@@ -5192,6 +5282,7 @@ export class DataCatalogClient {
   public async objectStats(
     objectStatsRequest: requests.ObjectStatsRequest
   ): Promise<responses.ObjectStatsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#objectStats.");
     const pathParams = {
       "{catalogId}": objectStatsRequest.catalogId
     };
@@ -5254,6 +5345,7 @@ export class DataCatalogClient {
   public async parseConnection(
     parseConnectionRequest: requests.ParseConnectionRequest
   ): Promise<responses.ParseConnectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#parseConnection.");
     const pathParams = {
       "{catalogId}": parseConnectionRequest.catalogId,
       "{dataAssetKey}": parseConnectionRequest.dataAssetKey
@@ -5320,6 +5412,7 @@ export class DataCatalogClient {
   public async searchCriteria(
     searchCriteriaRequest: requests.SearchCriteriaRequest
   ): Promise<responses.SearchCriteriaResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#searchCriteria.");
     const pathParams = {
       "{catalogId}": searchCriteriaRequest.catalogId
     };
@@ -5391,6 +5484,7 @@ export class DataCatalogClient {
   public async testConnection(
     testConnectionRequest: requests.TestConnectionRequest
   ): Promise<responses.TestConnectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#testConnection.");
     const pathParams = {
       "{catalogId}": testConnectionRequest.catalogId,
       "{dataAssetKey}": testConnectionRequest.dataAssetKey,
@@ -5452,6 +5546,7 @@ export class DataCatalogClient {
   public async updateAttribute(
     updateAttributeRequest: requests.UpdateAttributeRequest
   ): Promise<responses.UpdateAttributeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateAttribute.");
     const pathParams = {
       "{catalogId}": updateAttributeRequest.catalogId,
       "{dataAssetKey}": updateAttributeRequest.dataAssetKey,
@@ -5519,6 +5614,7 @@ export class DataCatalogClient {
   public async updateCatalog(
     updateCatalogRequest: requests.UpdateCatalogRequest
   ): Promise<responses.UpdateCatalogResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateCatalog.");
     const pathParams = {
       "{catalogId}": updateCatalogRequest.catalogId
     };
@@ -5582,6 +5678,7 @@ export class DataCatalogClient {
   public async updateConnection(
     updateConnectionRequest: requests.UpdateConnectionRequest
   ): Promise<responses.UpdateConnectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateConnection.");
     const pathParams = {
       "{catalogId}": updateConnectionRequest.catalogId,
       "{dataAssetKey}": updateConnectionRequest.dataAssetKey,
@@ -5647,6 +5744,7 @@ export class DataCatalogClient {
   public async updateDataAsset(
     updateDataAssetRequest: requests.UpdateDataAssetRequest
   ): Promise<responses.UpdateDataAssetResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateDataAsset.");
     const pathParams = {
       "{catalogId}": updateDataAssetRequest.catalogId,
       "{dataAssetKey}": updateDataAssetRequest.dataAssetKey
@@ -5711,6 +5809,7 @@ export class DataCatalogClient {
   public async updateEntity(
     updateEntityRequest: requests.UpdateEntityRequest
   ): Promise<responses.UpdateEntityResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateEntity.");
     const pathParams = {
       "{catalogId}": updateEntityRequest.catalogId,
       "{dataAssetKey}": updateEntityRequest.dataAssetKey,
@@ -5776,6 +5875,7 @@ export class DataCatalogClient {
   public async updateFolder(
     updateFolderRequest: requests.UpdateFolderRequest
   ): Promise<responses.UpdateFolderResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateFolder.");
     const pathParams = {
       "{catalogId}": updateFolderRequest.catalogId,
       "{dataAssetKey}": updateFolderRequest.dataAssetKey,
@@ -5841,6 +5941,7 @@ export class DataCatalogClient {
   public async updateGlossary(
     updateGlossaryRequest: requests.UpdateGlossaryRequest
   ): Promise<responses.UpdateGlossaryResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateGlossary.");
     const pathParams = {
       "{catalogId}": updateGlossaryRequest.catalogId,
       "{glossaryKey}": updateGlossaryRequest.glossaryKey
@@ -5905,6 +6006,7 @@ export class DataCatalogClient {
   public async updateJob(
     updateJobRequest: requests.UpdateJobRequest
   ): Promise<responses.UpdateJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateJob.");
     const pathParams = {
       "{catalogId}": updateJobRequest.catalogId,
       "{jobKey}": updateJobRequest.jobKey
@@ -5969,6 +6071,7 @@ export class DataCatalogClient {
   public async updateJobDefinition(
     updateJobDefinitionRequest: requests.UpdateJobDefinitionRequest
   ): Promise<responses.UpdateJobDefinitionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateJobDefinition.");
     const pathParams = {
       "{catalogId}": updateJobDefinitionRequest.catalogId,
       "{jobDefinitionKey}": updateJobDefinitionRequest.jobDefinitionKey
@@ -6033,6 +6136,7 @@ export class DataCatalogClient {
   public async updateTerm(
     updateTermRequest: requests.UpdateTermRequest
   ): Promise<responses.UpdateTermResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateTerm.");
     const pathParams = {
       "{catalogId}": updateTermRequest.catalogId,
       "{glossaryKey}": updateTermRequest.glossaryKey,
@@ -6098,6 +6202,8 @@ export class DataCatalogClient {
   public async updateTermRelationship(
     updateTermRelationshipRequest: requests.UpdateTermRelationshipRequest
   ): Promise<responses.UpdateTermRelationshipResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#updateTermRelationship.");
     const pathParams = {
       "{catalogId}": updateTermRelationshipRequest.catalogId,
       "{glossaryKey}": updateTermRelationshipRequest.glossaryKey,
@@ -6165,6 +6271,7 @@ export class DataCatalogClient {
   public async uploadCredentials(
     uploadCredentialsRequest: requests.UploadCredentialsRequest
   ): Promise<responses.UploadCredentialsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#uploadCredentials.");
     const pathParams = {
       "{catalogId}": uploadCredentialsRequest.catalogId,
       "{dataAssetKey}": uploadCredentialsRequest.dataAssetKey,
@@ -6230,6 +6337,7 @@ export class DataCatalogClient {
    * @throws OciError when an error occurs
    */
   public async users(usersRequest: requests.UsersRequest): Promise<responses.UsersResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#users.");
     const pathParams = {
       "{catalogId}": usersRequest.catalogId
     };
@@ -6292,6 +6400,7 @@ export class DataCatalogClient {
   public async validateConnection(
     validateConnectionRequest: requests.ValidateConnectionRequest
   ): Promise<responses.ValidateConnectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#validateConnection.");
     const pathParams = {
       "{catalogId}": validateConnectionRequest.catalogId,
       "{dataAssetKey}": validateConnectionRequest.dataAssetKey

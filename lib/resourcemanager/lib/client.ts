@@ -57,6 +57,11 @@ export class ResourceManagerClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180917";
+    if (this.logger) this.logger.info(`ResourceManagerClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -121,6 +126,7 @@ export class ResourceManagerClient {
   public async cancelJob(
     cancelJobRequest: requests.CancelJobRequest
   ): Promise<responses.CancelJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#cancelJob.");
     const pathParams = {
       "{jobId}": cancelJobRequest.jobId
     };
@@ -171,6 +177,8 @@ export class ResourceManagerClient {
   public async changeStackCompartment(
     changeStackCompartmentRequest: requests.ChangeStackCompartmentRequest
   ): Promise<responses.ChangeStackCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#changeStackCompartment.");
     const pathParams = {
       "{stackId}": changeStackCompartmentRequest.stackId
     };
@@ -232,6 +240,7 @@ export class ResourceManagerClient {
   public async createJob(
     createJobRequest: requests.CreateJobRequest
   ): Promise<responses.CreateJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#createJob.");
     const pathParams = {};
 
     const queryParams = {};
@@ -296,6 +305,7 @@ export class ResourceManagerClient {
   public async createStack(
     createStackRequest: requests.CreateStackRequest
   ): Promise<responses.CreateStackResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#createStack.");
     const pathParams = {};
 
     const queryParams = {};
@@ -357,6 +367,7 @@ export class ResourceManagerClient {
   public async deleteStack(
     deleteStackRequest: requests.DeleteStackRequest
   ): Promise<responses.DeleteStackResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#deleteStack.");
     const pathParams = {
       "{stackId}": deleteStackRequest.stackId
     };
@@ -407,6 +418,7 @@ export class ResourceManagerClient {
   public async detectStackDrift(
     detectStackDriftRequest: requests.DetectStackDriftRequest
   ): Promise<responses.DetectStackDriftResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#detectStackDrift.");
     const pathParams = {
       "{stackId}": detectStackDriftRequest.stackId
     };
@@ -461,6 +473,7 @@ export class ResourceManagerClient {
    * @throws OciError when an error occurs
    */
   public async getJob(getJobRequest: requests.GetJobRequest): Promise<responses.GetJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getJob.");
     const pathParams = {
       "{jobId}": getJobRequest.jobId
     };
@@ -519,6 +532,7 @@ export class ResourceManagerClient {
   public async getJobLogs(
     getJobLogsRequest: requests.GetJobLogsRequest
   ): Promise<responses.GetJobLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getJobLogs.");
     const pathParams = {
       "{jobId}": getJobLogsRequest.jobId
     };
@@ -611,6 +625,8 @@ export class ResourceManagerClient {
   public async getJobLogsContent(
     getJobLogsContentRequest: requests.GetJobLogsContentRequest
   ): Promise<responses.GetJobLogsContentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#getJobLogsContent.");
     const pathParams = {
       "{jobId}": getJobLogsContentRequest.jobId
     };
@@ -666,6 +682,7 @@ export class ResourceManagerClient {
   public async getJobTfConfig(
     getJobTfConfigRequest: requests.GetJobTfConfigRequest
   ): Promise<responses.GetJobTfConfigResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getJobTfConfig.");
     const pathParams = {
       "{jobId}": getJobTfConfigRequest.jobId
     };
@@ -719,6 +736,7 @@ export class ResourceManagerClient {
   public async getJobTfState(
     getJobTfStateRequest: requests.GetJobTfStateRequest
   ): Promise<responses.GetJobTfStateResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getJobTfState.");
     const pathParams = {
       "{jobId}": getJobTfStateRequest.jobId
     };
@@ -772,6 +790,7 @@ export class ResourceManagerClient {
   public async getStack(
     getStackRequest: requests.GetStackRequest
   ): Promise<responses.GetStackResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getStack.");
     const pathParams = {
       "{stackId}": getStackRequest.stackId
     };
@@ -831,6 +850,7 @@ export class ResourceManagerClient {
   public async getStackTfConfig(
     getStackTfConfigRequest: requests.GetStackTfConfigRequest
   ): Promise<responses.GetStackTfConfigResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getStackTfConfig.");
     const pathParams = {
       "{stackId}": getStackTfConfigRequest.stackId
     };
@@ -884,6 +904,7 @@ export class ResourceManagerClient {
   public async getStackTfState(
     getStackTfStateRequest: requests.GetStackTfStateRequest
   ): Promise<responses.GetStackTfStateResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getStackTfState.");
     const pathParams = {
       "{stackId}": getStackTfStateRequest.stackId
     };
@@ -937,6 +958,7 @@ export class ResourceManagerClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getWorkRequest.");
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -994,6 +1016,7 @@ export class ResourceManagerClient {
   public async listJobs(
     listJobsRequest: requests.ListJobsRequest
   ): Promise<responses.ListJobsResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#listJobs.");
     const pathParams = {};
 
     const queryParams = {
@@ -1085,6 +1108,8 @@ export class ResourceManagerClient {
   public async listStackResourceDriftDetails(
     listStackResourceDriftDetailsRequest: requests.ListStackResourceDriftDetailsRequest
   ): Promise<responses.ListStackResourceDriftDetailsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#listStackResourceDriftDetails.");
     const pathParams = {
       "{stackId}": listStackResourceDriftDetailsRequest.stackId
     };
@@ -1149,6 +1174,7 @@ export class ResourceManagerClient {
   public async listStacks(
     listStacksRequest: requests.ListStacksRequest
   ): Promise<responses.ListStacksResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#listStacks.");
     const pathParams = {};
 
     const queryParams = {
@@ -1239,6 +1265,8 @@ export class ResourceManagerClient {
   public async listTerraformVersions(
     listTerraformVersionsRequest: requests.ListTerraformVersionsRequest
   ): Promise<responses.ListTerraformVersionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#listTerraformVersions.");
     const pathParams = {};
 
     const queryParams = {
@@ -1292,6 +1320,8 @@ export class ResourceManagerClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#listWorkRequestErrors.");
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1380,6 +1410,8 @@ export class ResourceManagerClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#listWorkRequestLogs.");
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1468,6 +1500,7 @@ export class ResourceManagerClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#listWorkRequests.");
     const pathParams = {};
 
     const queryParams = {
@@ -1553,6 +1586,7 @@ export class ResourceManagerClient {
   public async updateJob(
     updateJobRequest: requests.UpdateJobRequest
   ): Promise<responses.UpdateJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#updateJob.");
     const pathParams = {
       "{jobId}": updateJobRequest.jobId
     };
@@ -1621,6 +1655,7 @@ export class ResourceManagerClient {
   public async updateStack(
     updateStackRequest: requests.UpdateStackRequest
   ): Promise<responses.UpdateStackResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#updateStack.");
     const pathParams = {
       "{stackId}": updateStackRequest.stackId
     };

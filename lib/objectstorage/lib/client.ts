@@ -64,6 +64,11 @@ export class ObjectStorageClient {
    */
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
+    if (this.logger) this.logger.info(`ObjectStorageClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -126,6 +131,8 @@ export class ObjectStorageClient {
   public async abortMultipartUpload(
     abortMultipartUploadRequest: requests.AbortMultipartUploadRequest
   ): Promise<responses.AbortMultipartUploadResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#abortMultipartUpload.");
     const pathParams = {
       "{namespaceName}": abortMultipartUploadRequest.namespaceName,
       "{bucketName}": abortMultipartUploadRequest.bucketName,
@@ -185,6 +192,7 @@ export class ObjectStorageClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#cancelWorkRequest.");
     const pathParams = {
       "{workRequestId}": cancelWorkRequestRequest.workRequestId
     };
@@ -240,6 +248,8 @@ export class ObjectStorageClient {
   public async commitMultipartUpload(
     commitMultipartUploadRequest: requests.CommitMultipartUploadRequest
   ): Promise<responses.CommitMultipartUploadResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#commitMultipartUpload.");
     const pathParams = {
       "{namespaceName}": commitMultipartUploadRequest.namespaceName,
       "{bucketName}": commitMultipartUploadRequest.bucketName,
@@ -326,6 +336,7 @@ export class ObjectStorageClient {
   public async copyObject(
     copyObjectRequest: requests.CopyObjectRequest
   ): Promise<responses.CopyObjectResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#copyObject.");
     const pathParams = {
       "{namespaceName}": copyObjectRequest.namespaceName,
       "{bucketName}": copyObjectRequest.bucketName
@@ -399,6 +410,7 @@ export class ObjectStorageClient {
   public async createBucket(
     createBucketRequest: requests.CreateBucketRequest
   ): Promise<responses.CreateBucketResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#createBucket.");
     const pathParams = {
       "{namespaceName}": createBucketRequest.namespaceName
     };
@@ -472,6 +484,8 @@ export class ObjectStorageClient {
   public async createMultipartUpload(
     createMultipartUploadRequest: requests.CreateMultipartUploadRequest
   ): Promise<responses.CreateMultipartUploadResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#createMultipartUpload.");
     const pathParams = {
       "{namespaceName}": createMultipartUploadRequest.namespaceName,
       "{bucketName}": createMultipartUploadRequest.bucketName
@@ -546,6 +560,8 @@ export class ObjectStorageClient {
   public async createPreauthenticatedRequest(
     createPreauthenticatedRequestRequest: requests.CreatePreauthenticatedRequestRequest
   ): Promise<responses.CreatePreauthenticatedRequestResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#createPreauthenticatedRequest.");
     const pathParams = {
       "{namespaceName}": createPreauthenticatedRequestRequest.namespaceName,
       "{bucketName}": createPreauthenticatedRequestRequest.bucketName
@@ -610,6 +626,8 @@ export class ObjectStorageClient {
   public async createReplicationPolicy(
     createReplicationPolicyRequest: requests.CreateReplicationPolicyRequest
   ): Promise<responses.CreateReplicationPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#createReplicationPolicy.");
     const pathParams = {
       "{namespaceName}": createReplicationPolicyRequest.namespaceName,
       "{bucketName}": createReplicationPolicyRequest.bucketName
@@ -675,6 +693,8 @@ export class ObjectStorageClient {
   public async createRetentionRule(
     createRetentionRuleRequest: requests.CreateRetentionRuleRequest
   ): Promise<responses.CreateRetentionRuleResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#createRetentionRule.");
     const pathParams = {
       "{namespaceName}": createRetentionRuleRequest.namespaceName,
       "{bucketName}": createRetentionRuleRequest.bucketName
@@ -747,6 +767,7 @@ export class ObjectStorageClient {
   public async deleteBucket(
     deleteBucketRequest: requests.DeleteBucketRequest
   ): Promise<responses.DeleteBucketResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#deleteBucket.");
     const pathParams = {
       "{namespaceName}": deleteBucketRequest.namespaceName,
       "{bucketName}": deleteBucketRequest.bucketName
@@ -804,6 +825,7 @@ export class ObjectStorageClient {
   public async deleteObject(
     deleteObjectRequest: requests.DeleteObjectRequest
   ): Promise<responses.DeleteObjectResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#deleteObject.");
     const pathParams = {
       "{namespaceName}": deleteObjectRequest.namespaceName,
       "{bucketName}": deleteObjectRequest.bucketName,
@@ -879,6 +901,8 @@ export class ObjectStorageClient {
   public async deleteObjectLifecyclePolicy(
     deleteObjectLifecyclePolicyRequest: requests.DeleteObjectLifecyclePolicyRequest
   ): Promise<responses.DeleteObjectLifecyclePolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#deleteObjectLifecyclePolicy.");
     const pathParams = {
       "{namespaceName}": deleteObjectLifecyclePolicyRequest.namespaceName,
       "{bucketName}": deleteObjectLifecyclePolicyRequest.bucketName
@@ -935,6 +959,8 @@ export class ObjectStorageClient {
   public async deletePreauthenticatedRequest(
     deletePreauthenticatedRequestRequest: requests.DeletePreauthenticatedRequestRequest
   ): Promise<responses.DeletePreauthenticatedRequestResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#deletePreauthenticatedRequest.");
     const pathParams = {
       "{namespaceName}": deletePreauthenticatedRequestRequest.namespaceName,
       "{bucketName}": deletePreauthenticatedRequestRequest.bucketName,
@@ -992,6 +1018,8 @@ export class ObjectStorageClient {
   public async deleteReplicationPolicy(
     deleteReplicationPolicyRequest: requests.DeleteReplicationPolicyRequest
   ): Promise<responses.DeleteReplicationPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#deleteReplicationPolicy.");
     const pathParams = {
       "{namespaceName}": deleteReplicationPolicyRequest.namespaceName,
       "{bucketName}": deleteReplicationPolicyRequest.bucketName,
@@ -1048,6 +1076,8 @@ export class ObjectStorageClient {
   public async deleteRetentionRule(
     deleteRetentionRuleRequest: requests.DeleteRetentionRuleRequest
   ): Promise<responses.DeleteRetentionRuleResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#deleteRetentionRule.");
     const pathParams = {
       "{namespaceName}": deleteRetentionRuleRequest.namespaceName,
       "{bucketName}": deleteRetentionRuleRequest.bucketName,
@@ -1106,6 +1136,7 @@ export class ObjectStorageClient {
   public async getBucket(
     getBucketRequest: requests.GetBucketRequest
   ): Promise<responses.GetBucketResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#getBucket.");
     const pathParams = {
       "{namespaceName}": getBucketRequest.namespaceName,
       "{bucketName}": getBucketRequest.bucketName
@@ -1180,6 +1211,7 @@ GetNamespace returns the name of the Object Storage namespace for the user makin
   public async getNamespace(
     getNamespaceRequest: requests.GetNamespaceRequest
   ): Promise<responses.GetNamespaceResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#getNamespace.");
     const pathParams = {};
 
     const queryParams = {
@@ -1233,6 +1265,8 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   public async getNamespaceMetadata(
     getNamespaceMetadataRequest: requests.GetNamespaceMetadataRequest
   ): Promise<responses.GetNamespaceMetadataResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#getNamespaceMetadata.");
     const pathParams = {
       "{namespaceName}": getNamespaceMetadataRequest.namespaceName
     };
@@ -1291,6 +1325,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   public async getObject(
     getObjectRequest: requests.GetObjectRequest
   ): Promise<responses.GetObjectResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#getObject.");
     const pathParams = {
       "{namespaceName}": getObjectRequest.namespaceName,
       "{bucketName}": getObjectRequest.bucketName,
@@ -1438,6 +1473,8 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   public async getObjectLifecyclePolicy(
     getObjectLifecyclePolicyRequest: requests.GetObjectLifecyclePolicyRequest
   ): Promise<responses.GetObjectLifecyclePolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#getObjectLifecyclePolicy.");
     const pathParams = {
       "{namespaceName}": getObjectLifecyclePolicyRequest.namespaceName,
       "{bucketName}": getObjectLifecyclePolicyRequest.bucketName
@@ -1501,6 +1538,8 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   public async getPreauthenticatedRequest(
     getPreauthenticatedRequestRequest: requests.GetPreauthenticatedRequestRequest
   ): Promise<responses.GetPreauthenticatedRequestResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#getPreauthenticatedRequest.");
     const pathParams = {
       "{namespaceName}": getPreauthenticatedRequestRequest.namespaceName,
       "{bucketName}": getPreauthenticatedRequestRequest.bucketName,
@@ -1561,6 +1600,8 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   public async getReplicationPolicy(
     getReplicationPolicyRequest: requests.GetReplicationPolicyRequest
   ): Promise<responses.GetReplicationPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#getReplicationPolicy.");
     const pathParams = {
       "{namespaceName}": getReplicationPolicyRequest.namespaceName,
       "{bucketName}": getReplicationPolicyRequest.bucketName,
@@ -1620,6 +1661,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   public async getRetentionRule(
     getRetentionRuleRequest: requests.GetRetentionRuleRequest
   ): Promise<responses.GetRetentionRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#getRetentionRule.");
     const pathParams = {
       "{namespaceName}": getRetentionRuleRequest.namespaceName,
       "{bucketName}": getRetentionRuleRequest.bucketName,
@@ -1689,6 +1731,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#getWorkRequest.");
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -1752,6 +1795,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   public async headBucket(
     headBucketRequest: requests.HeadBucketRequest
   ): Promise<responses.HeadBucketResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#headBucket.");
     const pathParams = {
       "{namespaceName}": headBucketRequest.namespaceName,
       "{bucketName}": headBucketRequest.bucketName
@@ -1815,6 +1859,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   public async headObject(
     headObjectRequest: requests.HeadObjectRequest
   ): Promise<responses.HeadObjectResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#headObject.");
     const pathParams = {
       "{namespaceName}": headObjectRequest.namespaceName,
       "{bucketName}": headObjectRequest.bucketName,
@@ -1957,6 +2002,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listBuckets(
     listBucketsRequest: requests.ListBucketsRequest
   ): Promise<responses.ListBucketsResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#listBuckets.");
     const pathParams = {
       "{namespaceName}": listBucketsRequest.namespaceName
     };
@@ -2050,6 +2096,8 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listMultipartUploadParts(
     listMultipartUploadPartsRequest: requests.ListMultipartUploadPartsRequest
   ): Promise<responses.ListMultipartUploadPartsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#listMultipartUploadParts.");
     const pathParams = {
       "{namespaceName}": listMultipartUploadPartsRequest.namespaceName,
       "{bucketName}": listMultipartUploadPartsRequest.bucketName,
@@ -2144,6 +2192,8 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listMultipartUploads(
     listMultipartUploadsRequest: requests.ListMultipartUploadsRequest
   ): Promise<responses.ListMultipartUploadsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#listMultipartUploads.");
     const pathParams = {
       "{namespaceName}": listMultipartUploadsRequest.namespaceName,
       "{bucketName}": listMultipartUploadsRequest.bucketName
@@ -2240,6 +2290,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listObjectVersions(
     listObjectVersionsRequest: requests.ListObjectVersionsRequest
   ): Promise<responses.ListObjectVersionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#listObjectVersions.");
     const pathParams = {
       "{namespaceName}": listObjectVersionsRequest.namespaceName,
       "{bucketName}": listObjectVersionsRequest.bucketName
@@ -2317,6 +2368,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listObjects(
     listObjectsRequest: requests.ListObjectsRequest
   ): Promise<responses.ListObjectsResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#listObjects.");
     const pathParams = {
       "{namespaceName}": listObjectsRequest.namespaceName,
       "{bucketName}": listObjectsRequest.bucketName
@@ -2420,6 +2472,8 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listPreauthenticatedRequests(
     listPreauthenticatedRequestsRequest: requests.ListPreauthenticatedRequestsRequest
   ): Promise<responses.ListPreauthenticatedRequestsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#listPreauthenticatedRequests.");
     const pathParams = {
       "{namespaceName}": listPreauthenticatedRequestsRequest.namespaceName,
       "{bucketName}": listPreauthenticatedRequestsRequest.bucketName
@@ -2513,6 +2567,8 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listReplicationPolicies(
     listReplicationPoliciesRequest: requests.ListReplicationPoliciesRequest
   ): Promise<responses.ListReplicationPoliciesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#listReplicationPolicies.");
     const pathParams = {
       "{namespaceName}": listReplicationPoliciesRequest.namespaceName,
       "{bucketName}": listReplicationPoliciesRequest.bucketName
@@ -2605,6 +2661,8 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listReplicationSources(
     listReplicationSourcesRequest: requests.ListReplicationSourcesRequest
   ): Promise<responses.ListReplicationSourcesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#listReplicationSources.");
     const pathParams = {
       "{namespaceName}": listReplicationSourcesRequest.namespaceName,
       "{bucketName}": listReplicationSourcesRequest.bucketName
@@ -2698,6 +2756,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listRetentionRules(
     listRetentionRulesRequest: requests.ListRetentionRulesRequest
   ): Promise<responses.ListRetentionRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#listRetentionRules.");
     const pathParams = {
       "{namespaceName}": listRetentionRulesRequest.namespaceName,
       "{bucketName}": listRetentionRulesRequest.bucketName
@@ -2761,6 +2820,8 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#listWorkRequestErrors.");
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -2851,6 +2912,8 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#listWorkRequestLogs.");
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -2942,6 +3005,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#listWorkRequests.");
     const pathParams = {};
 
     const queryParams = {
@@ -3035,6 +3099,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async makeBucketWritable(
     makeBucketWritableRequest: requests.MakeBucketWritableRequest
   ): Promise<responses.MakeBucketWritableResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#makeBucketWritable.");
     const pathParams = {
       "{namespaceName}": makeBucketWritableRequest.namespaceName,
       "{bucketName}": makeBucketWritableRequest.bucketName
@@ -3095,6 +3160,7 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
   public async putObject(
     putObjectRequest: requests.PutObjectRequest
   ): Promise<responses.PutObjectResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#putObject.");
     const pathParams = {
       "{namespaceName}": putObjectRequest.namespaceName,
       "{bucketName}": putObjectRequest.bucketName,
@@ -3191,6 +3257,8 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
   public async putObjectLifecyclePolicy(
     putObjectLifecyclePolicyRequest: requests.PutObjectLifecyclePolicyRequest
   ): Promise<responses.PutObjectLifecyclePolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#putObjectLifecyclePolicy.");
     const pathParams = {
       "{namespaceName}": putObjectLifecyclePolicyRequest.namespaceName,
       "{bucketName}": putObjectLifecyclePolicyRequest.bucketName
@@ -3276,6 +3344,7 @@ Calling this API starts a work request task to re-encrypt the data encryption ke
   public async reencryptBucket(
     reencryptBucketRequest: requests.ReencryptBucketRequest
   ): Promise<responses.ReencryptBucketResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#reencryptBucket.");
     const pathParams = {
       "{namespaceName}": reencryptBucketRequest.namespaceName,
       "{bucketName}": reencryptBucketRequest.bucketName
@@ -3337,6 +3406,7 @@ Calling this API starts a work request task to re-encrypt the data encryption ke
   public async renameObject(
     renameObjectRequest: requests.RenameObjectRequest
   ): Promise<responses.RenameObjectResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#renameObject.");
     const pathParams = {
       "{namespaceName}": renameObjectRequest.namespaceName,
       "{bucketName}": renameObjectRequest.bucketName
@@ -3414,6 +3484,7 @@ Calling this API starts a work request task to re-encrypt the data encryption ke
   public async restoreObjects(
     restoreObjectsRequest: requests.RestoreObjectsRequest
   ): Promise<responses.RestoreObjectsResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#restoreObjects.");
     const pathParams = {
       "{namespaceName}": restoreObjectsRequest.namespaceName,
       "{bucketName}": restoreObjectsRequest.bucketName
@@ -3479,6 +3550,7 @@ Use UpdateBucket to move a bucket from one compartment to another within the sam
   public async updateBucket(
     updateBucketRequest: requests.UpdateBucketRequest
   ): Promise<responses.UpdateBucketResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#updateBucket.");
     const pathParams = {
       "{namespaceName}": updateBucketRequest.namespaceName,
       "{bucketName}": updateBucketRequest.bucketName
@@ -3555,6 +3627,8 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
   public async updateNamespaceMetadata(
     updateNamespaceMetadataRequest: requests.UpdateNamespaceMetadataRequest
   ): Promise<responses.UpdateNamespaceMetadataResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#updateNamespaceMetadata.");
     const pathParams = {
       "{namespaceName}": updateNamespaceMetadataRequest.namespaceName
     };
@@ -3618,6 +3692,8 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
   public async updateRetentionRule(
     updateRetentionRuleRequest: requests.UpdateRetentionRuleRequest
   ): Promise<responses.UpdateRetentionRuleResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#updateRetentionRule.");
     const pathParams = {
       "{namespaceName}": updateRetentionRuleRequest.namespaceName,
       "{bucketName}": updateRetentionRuleRequest.bucketName,
@@ -3689,6 +3765,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
   public async uploadPart(
     uploadPartRequest: requests.UploadPartRequest
   ): Promise<responses.UploadPartResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#uploadPart.");
     const pathParams = {
       "{namespaceName}": uploadPartRequest.namespaceName,
       "{bucketName}": uploadPartRequest.bucketName,
