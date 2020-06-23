@@ -24,7 +24,13 @@ import common = require("oci-common");
 export enum JobLifecycleState {
   ACTIVE = "ACTIVE",
   INACTIVE = "INACTIVE",
-  EXPIRED = "EXPIRED"
+  EXPIRED = "EXPIRED",
+
+  /**
+   * This value is used if a service returns a value for this enum that is not recognized by this
+   * version of the SDK.
+   */
+  UNKNOWN_VALUE = "UNKNOWN_VALUE"
 }
 
 export namespace JobLifecycleState {

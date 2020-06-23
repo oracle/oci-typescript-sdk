@@ -33,7 +33,7 @@ export interface SearchCriteriaRequest {
   /**
    * A filter to return only resources that match the specified lifecycle state. The value is case insensitive.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.LifecycleState;
   /**
    * A search timeout string (for example, timeout=4000ms), bounding the search request to be executed within the
    * specified time value and bail with the hits accumulated up to that point when expired.

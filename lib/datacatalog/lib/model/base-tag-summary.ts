@@ -55,7 +55,7 @@ export interface BaseTagSummary {
   /**
    * State of the Tag.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.LifecycleState;
 }
 
 export namespace BaseTagSummary {

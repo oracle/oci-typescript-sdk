@@ -8,10 +8,6 @@
 import * as identity from "oci-identity";
 import common = require("oci-common");
 
-import { ConfigFileReader } from "oci-common/lib/config-file-reader";
-
-const config = ConfigFileReader.parseDefault(null);
-
 const configurationFilePath = "~/.oci/config";
 const configProfile = "DEFAULT";
 

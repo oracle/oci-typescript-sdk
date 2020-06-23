@@ -44,11 +44,11 @@ export interface JobSummary {
   /**
    * Lifecycle state of the job, such as running, paused, or completed.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.JobLifecycleState;
   /**
    * Type of the job.
    */
-  "jobType"?: string;
+  "jobType"?: model.JobType;
   /**
    * Type of job schedule that is inferred from the scheduling properties.
    */

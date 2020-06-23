@@ -29,13 +29,25 @@ export interface AutonomousContainerDatabase {
    */
   "displayName": string;
   /**
+   * The `DB_UNIQUE_NAME` of the Oracle Database being backed up.
+   */
+  "dbUniqueName"?: string;
+  /**
    * The service level agreement type of the container database. The default is STANDARD.
    */
   "serviceLevelAgreementType": AutonomousContainerDatabase.ServiceLevelAgreementType;
   /**
    * The OCID of the Autonomous Exadata Infrastructure.
    */
-  "autonomousExadataInfrastructureId": string;
+  "autonomousExadataInfrastructureId"?: string;
+  /**
+   * The OCID of the Autonomous VM Cluster.
+   */
+  "autonomousVmClusterId"?: string;
+  /**
+   * The infrastructure type this resource belongs to.
+   */
+  "infrastructureType"?: AutonomousContainerDatabase.InfrastructureType;
   /**
    * The current state of the Autonomous Container Database.
    */
@@ -90,6 +102,17 @@ export namespace AutonomousContainerDatabase {
   export enum ServiceLevelAgreementType {
     STANDARD = "STANDARD",
     MISSIONCRITICAL = "MISSION_CRITICAL",
+
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  }
+
+  export enum InfrastructureType {
+    CLOUD = "CLOUD",
+    CLOUDATCUSTOMER = "CLOUD_AT_CUSTOMER",
 
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

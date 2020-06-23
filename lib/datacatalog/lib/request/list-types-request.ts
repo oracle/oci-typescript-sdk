@@ -25,7 +25,7 @@ export interface ListTypesRequest {
   /**
    * A filter to return only resources that match the specified lifecycle state. The value is case insensitive.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.LifecycleState;
   /**
    * Indicates whether the type is internal, making it unavailable for use by metadata elements.
    */

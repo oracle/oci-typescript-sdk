@@ -23,6 +23,14 @@ export interface ListAutonomousContainerDatabasesRequest {
    */
   "autonomousExadataInfrastructureId"?: string;
   /**
+   * The Autonomous VM Cluster [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   */
+  "autonomousVmClusterId"?: string;
+  /**
+   * A filter to return only resources that match the given Infrastructure Type.
+   */
+  "infrastructureType"?: string;
+  /**
    * The maximum number of items to return per page.
    */
   "limit"?: number;

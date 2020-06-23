@@ -20,6 +20,8 @@ import * as ChangeAutonomousDatabaseCompartmentResponse from "./change-autonomou
 export import ChangeAutonomousDatabaseCompartmentResponse = ChangeAutonomousDatabaseCompartmentResponse.ChangeAutonomousDatabaseCompartmentResponse;
 import * as ChangeAutonomousExadataInfrastructureCompartmentResponse from "./change-autonomous-exadata-infrastructure-compartment-response";
 export import ChangeAutonomousExadataInfrastructureCompartmentResponse = ChangeAutonomousExadataInfrastructureCompartmentResponse.ChangeAutonomousExadataInfrastructureCompartmentResponse;
+import * as ChangeAutonomousVmClusterCompartmentResponse from "./change-autonomous-vm-cluster-compartment-response";
+export import ChangeAutonomousVmClusterCompartmentResponse = ChangeAutonomousVmClusterCompartmentResponse.ChangeAutonomousVmClusterCompartmentResponse;
 import * as ChangeBackupDestinationCompartmentResponse from "./change-backup-destination-compartment-response";
 export import ChangeBackupDestinationCompartmentResponse = ChangeBackupDestinationCompartmentResponse.ChangeBackupDestinationCompartmentResponse;
 import * as ChangeDbSystemCompartmentResponse from "./change-db-system-compartment-response";
@@ -40,6 +42,8 @@ import * as CreateAutonomousDatabaseResponse from "./create-autonomous-database-
 export import CreateAutonomousDatabaseResponse = CreateAutonomousDatabaseResponse.CreateAutonomousDatabaseResponse;
 import * as CreateAutonomousDatabaseBackupResponse from "./create-autonomous-database-backup-response";
 export import CreateAutonomousDatabaseBackupResponse = CreateAutonomousDatabaseBackupResponse.CreateAutonomousDatabaseBackupResponse;
+import * as CreateAutonomousVmClusterResponse from "./create-autonomous-vm-cluster-response";
+export import CreateAutonomousVmClusterResponse = CreateAutonomousVmClusterResponse.CreateAutonomousVmClusterResponse;
 import * as CreateBackupResponse from "./create-backup-response";
 export import CreateBackupResponse = CreateBackupResponse.CreateBackupResponse;
 import * as CreateBackupDestinationResponse from "./create-backup-destination-response";
@@ -66,6 +70,8 @@ import * as DeleteAutonomousDataWarehouseResponse from "./delete-autonomous-data
 export import DeleteAutonomousDataWarehouseResponse = DeleteAutonomousDataWarehouseResponse.DeleteAutonomousDataWarehouseResponse;
 import * as DeleteAutonomousDatabaseResponse from "./delete-autonomous-database-response";
 export import DeleteAutonomousDatabaseResponse = DeleteAutonomousDatabaseResponse.DeleteAutonomousDatabaseResponse;
+import * as DeleteAutonomousVmClusterResponse from "./delete-autonomous-vm-cluster-response";
+export import DeleteAutonomousVmClusterResponse = DeleteAutonomousVmClusterResponse.DeleteAutonomousVmClusterResponse;
 import * as DeleteBackupResponse from "./delete-backup-response";
 export import DeleteBackupResponse = DeleteBackupResponse.DeleteBackupResponse;
 import * as DeleteBackupDestinationResponse from "./delete-backup-destination-response";
@@ -112,6 +118,8 @@ import * as GetAutonomousDatabaseWalletResponse from "./get-autonomous-database-
 export import GetAutonomousDatabaseWalletResponse = GetAutonomousDatabaseWalletResponse.GetAutonomousDatabaseWalletResponse;
 import * as GetAutonomousExadataInfrastructureResponse from "./get-autonomous-exadata-infrastructure-response";
 export import GetAutonomousExadataInfrastructureResponse = GetAutonomousExadataInfrastructureResponse.GetAutonomousExadataInfrastructureResponse;
+import * as GetAutonomousVmClusterResponse from "./get-autonomous-vm-cluster-response";
+export import GetAutonomousVmClusterResponse = GetAutonomousVmClusterResponse.GetAutonomousVmClusterResponse;
 import * as GetBackupResponse from "./get-backup-response";
 export import GetBackupResponse = GetBackupResponse.GetBackupResponse;
 import * as GetBackupDestinationResponse from "./get-backup-destination-response";
@@ -176,6 +184,8 @@ import * as ListAutonomousExadataInfrastructureShapesResponse from "./list-auton
 export import ListAutonomousExadataInfrastructureShapesResponse = ListAutonomousExadataInfrastructureShapesResponse.ListAutonomousExadataInfrastructureShapesResponse;
 import * as ListAutonomousExadataInfrastructuresResponse from "./list-autonomous-exadata-infrastructures-response";
 export import ListAutonomousExadataInfrastructuresResponse = ListAutonomousExadataInfrastructuresResponse.ListAutonomousExadataInfrastructuresResponse;
+import * as ListAutonomousVmClustersResponse from "./list-autonomous-vm-clusters-response";
+export import ListAutonomousVmClustersResponse = ListAutonomousVmClustersResponse.ListAutonomousVmClustersResponse;
 import * as ListBackupDestinationResponse from "./list-backup-destination-response";
 export import ListBackupDestinationResponse = ListBackupDestinationResponse.ListBackupDestinationResponse;
 import * as ListBackupsResponse from "./list-backups-response";
@@ -260,6 +270,8 @@ import * as UpdateAutonomousDatabaseWalletResponse from "./update-autonomous-dat
 export import UpdateAutonomousDatabaseWalletResponse = UpdateAutonomousDatabaseWalletResponse.UpdateAutonomousDatabaseWalletResponse;
 import * as UpdateAutonomousExadataInfrastructureResponse from "./update-autonomous-exadata-infrastructure-response";
 export import UpdateAutonomousExadataInfrastructureResponse = UpdateAutonomousExadataInfrastructureResponse.UpdateAutonomousExadataInfrastructureResponse;
+import * as UpdateAutonomousVmClusterResponse from "./update-autonomous-vm-cluster-response";
+export import UpdateAutonomousVmClusterResponse = UpdateAutonomousVmClusterResponse.UpdateAutonomousVmClusterResponse;
 import * as UpdateBackupDestinationResponse from "./update-backup-destination-response";
 export import UpdateBackupDestinationResponse = UpdateBackupDestinationResponse.UpdateBackupDestinationResponse;
 import * as UpdateDatabaseResponse from "./update-database-response";

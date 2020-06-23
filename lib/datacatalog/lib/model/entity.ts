@@ -57,7 +57,7 @@ export interface Entity {
   /**
    * The current state of the data entity.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.LifecycleState;
   /**
    * Unique external key of this object in the source system.
    */
@@ -95,7 +95,7 @@ export interface Entity {
   /**
    * Status of the object as updated by the harvest process.
    */
-  "harvestStatus"?: string;
+  "harvestStatus"?: model.HarvestStatus;
   /**
    * Key of the last harvest process to update this object.
    */

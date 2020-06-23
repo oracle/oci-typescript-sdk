@@ -28,13 +28,21 @@ export class ConfigFileReader {
    * @throws Error, if the file could not be read.
    */
   static parseDefault(profile: string | null): ConfigFile {
+    const envVarConfigFile: string | undefined = process.env.OCI_CONFIG_FILE;
+
     // Check if file exists in the location
     const defaultExists = ConfigFileReader.fileExists(ConfigFileReader.DEFAULT_FILE_PATH);
     const fallbackExists = ConfigFileReader.fileExists(ConfigFileReader.FALLBACK_DEFAULT_FILE_PATH);
+    let configFileFromEnvVarExists = false;
+    if (envVarConfigFile) {
+      configFileFromEnvVarExists = ConfigFileReader.fileExists(envVarConfigFile);
+    }
 
     // If default file exists, assign effecive file as default file, else fallback as effective file
     if (defaultExists) {
       return ConfigFileReader.parseFileFromPath(ConfigFileReader.DEFAULT_FILE_PATH, profile);
+    } else if (configFileFromEnvVarExists) {
+      return ConfigFileReader.parseFileFromPath(envVarConfigFile!, profile);
     } else if (fallbackExists) {
       return ConfigFileReader.parseFileFromPath(
         ConfigFileReader.FALLBACK_DEFAULT_FILE_PATH,

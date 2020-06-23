@@ -61,7 +61,7 @@ export interface DataAssetSummary {
   /**
    * State of the data asset.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.LifecycleState;
 }
 
 export namespace DataAssetSummary {

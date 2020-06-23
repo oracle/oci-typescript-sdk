@@ -25,7 +25,7 @@ export interface CreateJobExecutionDetails {
   /**
    * Type of the job execution.
    */
-  "jobType"?: string;
+  "jobType"?: model.JobType;
   /**
    * The unique key of the parent execution or null if this job execution has no parent.
    */
@@ -43,7 +43,7 @@ export interface CreateJobExecutionDetails {
   /**
    * Status of the job execution, such as running, paused, or completed.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.JobExecutionState;
   /**
    * Error code returned from the job execution or null if job is still running or didn't return an error.
    *

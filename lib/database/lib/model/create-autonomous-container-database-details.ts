@@ -25,13 +25,21 @@ export interface CreateAutonomousContainerDatabaseDetails {
    */
   "displayName": string;
   /**
+   * The `DB_UNIQUE_NAME` of the Oracle Database being backed up.
+   */
+  "dbUniqueName"?: string;
+  /**
    * The service level agreement type of the Autonomous Container Database. The default is STANDARD. For a mission critical Autonomous Container Database, the specified Autonomous Exadata Infrastructure must be associated with a remote Autonomous Exadata Infrastructure.
    */
   "serviceLevelAgreementType"?: CreateAutonomousContainerDatabaseDetails.ServiceLevelAgreementType;
   /**
    * The OCID of the Autonomous Exadata Infrastructure.
    */
-  "autonomousExadataInfrastructureId": string;
+  "autonomousExadataInfrastructureId"?: string;
+  /**
+   * The OCID of the Autonomous VM Cluster.
+   */
+  "autonomousVmClusterId"?: string;
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment containing the Autonomous Container Database.
    */

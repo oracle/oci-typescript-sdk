@@ -115,6 +115,69 @@ export class DataCatalogClient {
   }
 
   /**
+   * Attaches a private reverse connection endpoint resource to a data catalog resource. When provided, 'If-Match' is checked against 'ETag' values of the resource.
+   * @param AttachCatalogPrivateEndpointRequest
+   * @return AttachCatalogPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   */
+  public async attachCatalogPrivateEndpoint(
+    attachCatalogPrivateEndpointRequest: requests.AttachCatalogPrivateEndpointRequest
+  ): Promise<responses.AttachCatalogPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#attachCatalogPrivateEndpoint.");
+    const pathParams = {
+      "{catalogId}": attachCatalogPrivateEndpointRequest.catalogId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "if-match": attachCatalogPrivateEndpointRequest.ifMatch,
+      "opc-request-id": attachCatalogPrivateEndpointRequest.opcRequestId,
+      "opc-retry-token": attachCatalogPrivateEndpointRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/actions/attachCatalogPrivateEndpoint",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        attachCatalogPrivateEndpointRequest.attachCatalogPrivateEndpointDetails,
+        "AttachCatalogPrivateEndpointDetails",
+        models.AttachCatalogPrivateEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AttachCatalogPrivateEndpointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
    * Moves a resource into a different compartment. When provided, 'If-Match' is checked against 'ETag' values of the resource.
    * @param ChangeCatalogCompartmentRequest
    * @return ChangeCatalogCompartmentResponse
@@ -157,13 +220,78 @@ export class DataCatalogClient {
         responseObject: <responses.ChangeCatalogCompartmentResponse>{},
         responseHeaders: [
           {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Moves a resource into a different compartment. When provided, 'If-Match' is checked against 'ETag' values of the resource.
+   * @param ChangeCatalogPrivateEndpointCompartmentRequest
+   * @return ChangeCatalogPrivateEndpointCompartmentResponse
+   * @throws OciError when an error occurs
+   */
+  public async changeCatalogPrivateEndpointCompartment(
+    changeCatalogPrivateEndpointCompartmentRequest: requests.ChangeCatalogPrivateEndpointCompartmentRequest
+  ): Promise<responses.ChangeCatalogPrivateEndpointCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataCatalogClient#changeCatalogPrivateEndpointCompartment."
+      );
+    const pathParams = {
+      "{catalogPrivateEndpointId}":
+        changeCatalogPrivateEndpointCompartmentRequest.catalogPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "if-match": changeCatalogPrivateEndpointCompartmentRequest.ifMatch,
+      "opc-request-id": changeCatalogPrivateEndpointCompartmentRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogPrivateEndpoints/{catalogPrivateEndpointId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeCatalogPrivateEndpointCompartmentRequest.changeCatalogPrivateEndpointCompartmentDetails,
+        "ChangeCatalogPrivateEndpointCompartmentDetails",
+        models.ChangeCatalogPrivateEndpointCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeCatalogPrivateEndpointCompartmentResponse>{},
+        responseHeaders: [
+          {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -359,6 +487,66 @@ export class DataCatalogClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Create a new private reverse connection endpoint.
+   * @param CreateCatalogPrivateEndpointRequest
+   * @return CreateCatalogPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   */
+  public async createCatalogPrivateEndpoint(
+    createCatalogPrivateEndpointRequest: requests.CreateCatalogPrivateEndpointRequest
+  ): Promise<responses.CreateCatalogPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#createCatalogPrivateEndpoint.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-request-id": createCatalogPrivateEndpointRequest.opcRequestId,
+      "opc-retry-token": createCatalogPrivateEndpointRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogPrivateEndpoints",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createCatalogPrivateEndpointRequest.createCatalogPrivateEndpointDetails,
+        "CreateCatalogPrivateEndpointDetails",
+        models.CreateCatalogPrivateEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateCatalogPrivateEndpointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -1384,6 +1572,63 @@ export class DataCatalogClient {
   }
 
   /**
+   * Deletes a private reverse connection endpoint by identifier.
+   * @param DeleteCatalogPrivateEndpointRequest
+   * @return DeleteCatalogPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   */
+  public async deleteCatalogPrivateEndpoint(
+    deleteCatalogPrivateEndpointRequest: requests.DeleteCatalogPrivateEndpointRequest
+  ): Promise<responses.DeleteCatalogPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#deleteCatalogPrivateEndpoint.");
+    const pathParams = {
+      "{catalogPrivateEndpointId}": deleteCatalogPrivateEndpointRequest.catalogPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "if-match": deleteCatalogPrivateEndpointRequest.ifMatch,
+      "opc-request-id": deleteCatalogPrivateEndpointRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogPrivateEndpoints/{catalogPrivateEndpointId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteCatalogPrivateEndpointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
    * Deletes a specific connection of a data asset.
    * @param DeleteConnectionRequest
    * @return DeleteConnectionResponse
@@ -2021,6 +2266,68 @@ export class DataCatalogClient {
   }
 
   /**
+   * Detaches a private reverse connection endpoint resource to a data catalog resource. When provided, 'If-Match' is checked against 'ETag' values of the resource.
+   * @param DetachCatalogPrivateEndpointRequest
+   * @return DetachCatalogPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   */
+  public async detachCatalogPrivateEndpoint(
+    detachCatalogPrivateEndpointRequest: requests.DetachCatalogPrivateEndpointRequest
+  ): Promise<responses.DetachCatalogPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#detachCatalogPrivateEndpoint.");
+    const pathParams = {
+      "{catalogId}": detachCatalogPrivateEndpointRequest.catalogId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "if-match": detachCatalogPrivateEndpointRequest.ifMatch,
+      "opc-request-id": detachCatalogPrivateEndpointRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/actions/detachCatalogPrivateEndpoint",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        detachCatalogPrivateEndpointRequest.detachCatalogPrivateEndpointDetails,
+        "DetachCatalogPrivateEndpointDetails",
+        models.DetachCatalogPrivateEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DetachCatalogPrivateEndpointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
    * Returns the fully expanded tree hierarchy of parent and child terms in this glossary.
    * @param ExpandTreeForGlossaryRequest
    * @return ExpandTreeForGlossaryResponse
@@ -2318,6 +2625,65 @@ export class DataCatalogClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Gets a specific private reverse connection by identifier.
+   * @param GetCatalogPrivateEndpointRequest
+   * @return GetCatalogPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   */
+  public async getCatalogPrivateEndpoint(
+    getCatalogPrivateEndpointRequest: requests.GetCatalogPrivateEndpointRequest
+  ): Promise<responses.GetCatalogPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#getCatalogPrivateEndpoint.");
+    const pathParams = {
+      "{catalogPrivateEndpointId}": getCatalogPrivateEndpointRequest.catalogPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-request-id": getCatalogPrivateEndpointRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogPrivateEndpoints/{catalogPrivateEndpointId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCatalogPrivateEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "catalogPrivateEndpoint",
+        bodyModel: "model.CatalogPrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -3668,6 +4034,97 @@ export class DataCatalogClient {
       const errBody = await common.handleErrorBody(response);
       throw common.handleErrorResponse(response, errBody);
     }
+  }
+
+  /**
+   * Returns a list of all the catalog private endpoints in the specified compartment.
+   *
+   * @param ListCatalogPrivateEndpointsRequest
+   * @return ListCatalogPrivateEndpointsResponse
+   * @throws OciError when an error occurs
+   */
+  public async listCatalogPrivateEndpoints(
+    listCatalogPrivateEndpointsRequest: requests.ListCatalogPrivateEndpointsRequest
+  ): Promise<responses.ListCatalogPrivateEndpointsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#listCatalogPrivateEndpoints.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCatalogPrivateEndpointsRequest.compartmentId,
+      "displayName": listCatalogPrivateEndpointsRequest.displayName,
+      "limit": listCatalogPrivateEndpointsRequest.limit,
+      "page": listCatalogPrivateEndpointsRequest.page,
+      "lifecycleState": listCatalogPrivateEndpointsRequest.lifecycleState,
+      "sortOrder": listCatalogPrivateEndpointsRequest.sortOrder,
+      "sortBy": listCatalogPrivateEndpointsRequest.sortBy
+    };
+
+    let headerParams = {
+      "opc-request-id": listCatalogPrivateEndpointsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogPrivateEndpoints",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCatalogPrivateEndpointsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "CatalogPrivateEndpointSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.CatalogPrivateEndpointSummary objects
+   * contained in responses from the listCatalogPrivateEndpoints operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllCatalogPrivateEndpoints(
+    request: requests.ListCatalogPrivateEndpointsRequest
+  ): AsyncIterableIterator<models.CatalogPrivateEndpointSummary> {
+    return paginateRecords(request, req => this.listCatalogPrivateEndpoints(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCatalogPrivateEndpoints operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllCatalogPrivateEndpointsResponses(
+    request: requests.ListCatalogPrivateEndpointsRequest
+  ): AsyncIterableIterator<responses.ListCatalogPrivateEndpointsResponse> {
+    return paginateResponses(request, req => this.listCatalogPrivateEndpoints(req));
   }
 
   /**
@@ -5657,6 +6114,68 @@ export class DataCatalogClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Updates the private reverse connection endpoint.
+   * @param UpdateCatalogPrivateEndpointRequest
+   * @return UpdateCatalogPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   */
+  public async updateCatalogPrivateEndpoint(
+    updateCatalogPrivateEndpointRequest: requests.UpdateCatalogPrivateEndpointRequest
+  ): Promise<responses.UpdateCatalogPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#updateCatalogPrivateEndpoint.");
+    const pathParams = {
+      "{catalogPrivateEndpointId}": updateCatalogPrivateEndpointRequest.catalogPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "if-match": updateCatalogPrivateEndpointRequest.ifMatch,
+      "opc-request-id": updateCatalogPrivateEndpointRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogPrivateEndpoints/{catalogPrivateEndpointId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCatalogPrivateEndpointRequest.updateCatalogPrivateEndpointDetails,
+        "UpdateCatalogPrivateEndpointDetails",
+        models.UpdateCatalogPrivateEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCatalogPrivateEndpointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]

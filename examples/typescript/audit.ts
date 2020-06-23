@@ -9,7 +9,6 @@
 */
 
 import * as identity from "oci-identity";
-import { ConfigFileReader } from "oci-common/lib/config-file-reader";
 import * as audit from "oci-audit";
 import common = require("oci-common");
 
@@ -20,14 +19,8 @@ const provider: common.ConfigFileAuthenticationDetailsProvider = new common.Conf
   configurationFilePath,
   configProfile
 );
-const config = ConfigFileReader.parseDefault(null);
-const profile = config.accumulator.configurationsByProfile.get("DEFAULT");
-let compartmentId = "";
-if (profile) {
-  compartmentId = profile.get("tenancy") as string;
-} else {
-  compartmentId = "";
-}
+
+const compartmentId = provider.getTenantId();
 
 let identityClient: identity.IdentityClient;
 let auditClient: audit.AuditClient;

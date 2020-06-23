@@ -20,6 +20,8 @@ import * as ChangeAutonomousDatabaseCompartmentRequest from "./change-autonomous
 export import ChangeAutonomousDatabaseCompartmentRequest = ChangeAutonomousDatabaseCompartmentRequest.ChangeAutonomousDatabaseCompartmentRequest;
 import * as ChangeAutonomousExadataInfrastructureCompartmentRequest from "./change-autonomous-exadata-infrastructure-compartment-request";
 export import ChangeAutonomousExadataInfrastructureCompartmentRequest = ChangeAutonomousExadataInfrastructureCompartmentRequest.ChangeAutonomousExadataInfrastructureCompartmentRequest;
+import * as ChangeAutonomousVmClusterCompartmentRequest from "./change-autonomous-vm-cluster-compartment-request";
+export import ChangeAutonomousVmClusterCompartmentRequest = ChangeAutonomousVmClusterCompartmentRequest.ChangeAutonomousVmClusterCompartmentRequest;
 import * as ChangeBackupDestinationCompartmentRequest from "./change-backup-destination-compartment-request";
 export import ChangeBackupDestinationCompartmentRequest = ChangeBackupDestinationCompartmentRequest.ChangeBackupDestinationCompartmentRequest;
 import * as ChangeDbSystemCompartmentRequest from "./change-db-system-compartment-request";
@@ -40,6 +42,8 @@ import * as CreateAutonomousDatabaseRequest from "./create-autonomous-database-r
 export import CreateAutonomousDatabaseRequest = CreateAutonomousDatabaseRequest.CreateAutonomousDatabaseRequest;
 import * as CreateAutonomousDatabaseBackupRequest from "./create-autonomous-database-backup-request";
 export import CreateAutonomousDatabaseBackupRequest = CreateAutonomousDatabaseBackupRequest.CreateAutonomousDatabaseBackupRequest;
+import * as CreateAutonomousVmClusterRequest from "./create-autonomous-vm-cluster-request";
+export import CreateAutonomousVmClusterRequest = CreateAutonomousVmClusterRequest.CreateAutonomousVmClusterRequest;
 import * as CreateBackupRequest from "./create-backup-request";
 export import CreateBackupRequest = CreateBackupRequest.CreateBackupRequest;
 import * as CreateBackupDestinationRequest from "./create-backup-destination-request";
@@ -66,6 +70,8 @@ import * as DeleteAutonomousDataWarehouseRequest from "./delete-autonomous-data-
 export import DeleteAutonomousDataWarehouseRequest = DeleteAutonomousDataWarehouseRequest.DeleteAutonomousDataWarehouseRequest;
 import * as DeleteAutonomousDatabaseRequest from "./delete-autonomous-database-request";
 export import DeleteAutonomousDatabaseRequest = DeleteAutonomousDatabaseRequest.DeleteAutonomousDatabaseRequest;
+import * as DeleteAutonomousVmClusterRequest from "./delete-autonomous-vm-cluster-request";
+export import DeleteAutonomousVmClusterRequest = DeleteAutonomousVmClusterRequest.DeleteAutonomousVmClusterRequest;
 import * as DeleteBackupRequest from "./delete-backup-request";
 export import DeleteBackupRequest = DeleteBackupRequest.DeleteBackupRequest;
 import * as DeleteBackupDestinationRequest from "./delete-backup-destination-request";
@@ -112,6 +118,8 @@ import * as GetAutonomousDatabaseWalletRequest from "./get-autonomous-database-w
 export import GetAutonomousDatabaseWalletRequest = GetAutonomousDatabaseWalletRequest.GetAutonomousDatabaseWalletRequest;
 import * as GetAutonomousExadataInfrastructureRequest from "./get-autonomous-exadata-infrastructure-request";
 export import GetAutonomousExadataInfrastructureRequest = GetAutonomousExadataInfrastructureRequest.GetAutonomousExadataInfrastructureRequest;
+import * as GetAutonomousVmClusterRequest from "./get-autonomous-vm-cluster-request";
+export import GetAutonomousVmClusterRequest = GetAutonomousVmClusterRequest.GetAutonomousVmClusterRequest;
 import * as GetBackupRequest from "./get-backup-request";
 export import GetBackupRequest = GetBackupRequest.GetBackupRequest;
 import * as GetBackupDestinationRequest from "./get-backup-destination-request";
@@ -176,6 +184,8 @@ import * as ListAutonomousExadataInfrastructureShapesRequest from "./list-autono
 export import ListAutonomousExadataInfrastructureShapesRequest = ListAutonomousExadataInfrastructureShapesRequest.ListAutonomousExadataInfrastructureShapesRequest;
 import * as ListAutonomousExadataInfrastructuresRequest from "./list-autonomous-exadata-infrastructures-request";
 export import ListAutonomousExadataInfrastructuresRequest = ListAutonomousExadataInfrastructuresRequest.ListAutonomousExadataInfrastructuresRequest;
+import * as ListAutonomousVmClustersRequest from "./list-autonomous-vm-clusters-request";
+export import ListAutonomousVmClustersRequest = ListAutonomousVmClustersRequest.ListAutonomousVmClustersRequest;
 import * as ListBackupDestinationRequest from "./list-backup-destination-request";
 export import ListBackupDestinationRequest = ListBackupDestinationRequest.ListBackupDestinationRequest;
 import * as ListBackupsRequest from "./list-backups-request";
@@ -260,6 +270,8 @@ import * as UpdateAutonomousDatabaseWalletRequest from "./update-autonomous-data
 export import UpdateAutonomousDatabaseWalletRequest = UpdateAutonomousDatabaseWalletRequest.UpdateAutonomousDatabaseWalletRequest;
 import * as UpdateAutonomousExadataInfrastructureRequest from "./update-autonomous-exadata-infrastructure-request";
 export import UpdateAutonomousExadataInfrastructureRequest = UpdateAutonomousExadataInfrastructureRequest.UpdateAutonomousExadataInfrastructureRequest;
+import * as UpdateAutonomousVmClusterRequest from "./update-autonomous-vm-cluster-request";
+export import UpdateAutonomousVmClusterRequest = UpdateAutonomousVmClusterRequest.UpdateAutonomousVmClusterRequest;
 import * as UpdateBackupDestinationRequest from "./update-backup-destination-request";
 export import UpdateBackupDestinationRequest = UpdateBackupDestinationRequest.UpdateBackupDestinationRequest;
 import * as UpdateDatabaseRequest from "./update-database-request";

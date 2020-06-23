@@ -87,11 +87,11 @@ export interface Folder {
   /**
    * The current state of the folder.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.LifecycleState;
   /**
    * Status of the object as updated by the harvest process.
    */
-  "harvestStatus"?: string;
+  "harvestStatus"?: model.HarvestStatus;
   /**
    * The key of the last harvest process to update the metadata of this object.
    */

@@ -39,7 +39,7 @@ export interface UpdateTermDetails {
   /**
    * Status of the approval process workflow for this business term in the glossary
    */
-  "workflowStatus"?: string;
+  "workflowStatus"?: model.TermWorkflowStatus;
 }
 
 export namespace UpdateTermDetails {

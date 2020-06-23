@@ -73,7 +73,7 @@ export interface EntitySummary {
   /**
    * State of the data entity.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.LifecycleState;
 }
 
 export namespace EntitySummary {

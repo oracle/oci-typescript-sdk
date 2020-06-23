@@ -29,7 +29,7 @@ export interface ListConnectionsRequest {
   /**
    * A filter to return only resources that match the specified lifecycle state. The value is case insensitive.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.LifecycleState;
   /**
    * Time that the resource was created. An [RFC3339](https://tools.ietf.org/html/rfc3339) formatted datetime string.
    */

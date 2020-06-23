@@ -35,6 +35,10 @@ export interface BackupDestinationDetails {
    * For a RECOVERY_APPLIANCE backup destination, the password for the VPC user that is used to access the Recovery Appliance.
    */
   "vpcPassword"?: string;
+  /**
+   * Proxy URL to connect to object store.
+   */
+  "internetProxy"?: string;
 }
 
 export namespace BackupDestinationDetails {

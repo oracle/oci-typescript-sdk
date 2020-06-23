@@ -62,7 +62,7 @@ export interface Type {
   /**
    * The current state of the type.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.LifecycleState;
   /**
    * Indicates whether the type is internal, making it unavailable for use by metadata elements.
    */

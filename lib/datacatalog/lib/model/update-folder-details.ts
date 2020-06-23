@@ -51,7 +51,7 @@ export interface UpdateFolderDetails {
   /**
    * Harvest status of the folder.
    */
-  "harvestStatus"?: string;
+  "harvestStatus"?: model.HarvestStatus;
   /**
    * The key of the last harvest process to update the metadata of this object.
    */

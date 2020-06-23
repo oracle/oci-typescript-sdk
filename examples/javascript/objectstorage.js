@@ -13,7 +13,7 @@
 
 const os = require("oci-objectstorage");
 const common = require("oci-common");
-const st = require("stream");
+const fs = require("fs");
 
 const configurationFilePath = "~/.oci/config";
 const configProfile = "DEFAULT";
@@ -69,21 +69,17 @@ client.region = common.Region.US_PHOENIX_1;
     console.log("Get bucket executed successfully." + getBucketResponse.bucket);
 
     // Create stream to upload
-    const ObjectData =
-      "Test Data, Test Data, Test Data, Test Data, Test Data, Test Data, Test Data, Test Data, Test Data";
-    const putObjectStream = new st.Readable();
-    putObjectStream._read = function() {};
-    putObjectStream.push(ObjectData);
-    putObjectStream.push(null); // null defines end of the stream
+    const fileLocation = "/Users/File/location";
+    const stats = fs.statSync(fileLocation);
+    const objectData = fs.createReadStream(fileLocation);
 
     console.log("Bucket is created. Now adding object to the Bucket.");
     const putObjectRequest = {
       namespaceName: namespace,
       bucketName: bucket,
-      putObjectBody: putObjectStream,
+      putObjectBody: objectData,
       objectName: object,
-      contentLength: ObjectData.length,
-      contentType: "application/octet-stream"
+      contentLength: stats.size
     };
     const putObjectResponse = await client.putObject(putObjectRequest);
     console.log("Put Object executed successfully" + putObjectResponse);
@@ -97,10 +93,9 @@ client.region = common.Region.US_PHOENIX_1;
     const getObjectResponse = await client.getObject(getObjectRequest);
     console.log("Get Object executed successfully.");
 
-    console.log(
-      "Upload stream and downloaded stream are same? ",
-      await compareStreams(putObjectStream, getObjectResponse.value)
-    );
+    const isSameStream = compareStreams(objectData, getObjectResponse.value);
+    console.log(`Upload stream and downloaded stream are same? ${isSameStream}`);
+
     console.log("Delete Object");
     const deleteObjectRequest = {
       namespaceName: namespace,
@@ -122,17 +117,16 @@ client.region = common.Region.US_PHOENIX_1;
   }
 })();
 
-async function compareStreams(stream1, stream2) {
-  const dataforStream1 = await streamToString(stream1);
-  const dataforStream2 = await streamToString(stream2);
-  return dataforStream1 === dataforStream2;
+function compareStreams(stream1, stream2) {
+  return streamToString(stream1) === streamToString(stream2);
 }
 
 function streamToString(stream) {
-  const chunks = [];
-  return new Promise((resolve, reject) => {
-    stream.on("data", chunk => chunks.push(chunk));
-    stream.on("error", reject);
-    stream.on("end", () => resolve(Buffer.concat(chunks).toString("utf8")));
+  let output = "";
+  stream.on("data", function(data) {
+    output += data.toString();
+  });
+  stream.on("end", function() {
+    return output;
   });
 }

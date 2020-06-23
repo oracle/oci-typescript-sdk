@@ -25,7 +25,7 @@ export interface ValidateConnectionResult {
   /**
    * The status returned from the connection validation.
    */
-  "status": string;
+  "status": model.ConnectionResult;
 }
 
 export namespace ValidateConnectionResult {

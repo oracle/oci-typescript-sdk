@@ -57,11 +57,11 @@ export interface GlossarySummary {
   /**
    * Status of the approval process workflow for this business glossary.
    */
-  "workflowStatus"?: string;
+  "workflowStatus"?: model.TermWorkflowStatus;
   /**
    * State of the Glossary.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.LifecycleState;
 }
 
 export namespace GlossarySummary {

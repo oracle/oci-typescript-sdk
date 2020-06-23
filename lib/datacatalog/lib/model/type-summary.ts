@@ -47,7 +47,7 @@ export interface TypeSummary {
   /**
    * State of the folder.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.LifecycleState;
 }
 
 export namespace TypeSummary {

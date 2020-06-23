@@ -29,7 +29,7 @@ export interface ListTermsRequest {
   /**
    * A filter to return only resources that match the specified lifecycle state. The value is case insensitive.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.LifecycleState;
   /**
    * Unique key of the parent term.
    */
@@ -41,7 +41,7 @@ export interface ListTermsRequest {
   /**
    * Status of the approval workflow for this business term in the glossary.
    */
-  "workflowStatus"?: string;
+  "workflowStatus"?: model.TermWorkflowStatus;
   /**
    * Full path of the resource for resources that support paths.
    */

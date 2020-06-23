@@ -46,11 +46,11 @@ export interface JobDefinitionSummary {
   /**
    * Type of the job definition.
    */
-  "jobType"?: string;
+  "jobType"?: model.JobType;
   /**
    * Lifecycle state of the job definition.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.LifecycleState;
   /**
    * Specify if sample data to be extracted as part of this harvest.
    */

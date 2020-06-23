@@ -37,7 +37,13 @@ export enum JobType {
   SCHEDULED = "SCHEDULED",
   IMMEDIATE_EXECUTION = "IMMEDIATE_EXECUTION",
   SCHEDULED_EXECUTION = "SCHEDULED_EXECUTION",
-  SCHEDULED_EXECUTION_INSTANCE = "SCHEDULED_EXECUTION_INSTANCE"
+  SCHEDULED_EXECUTION_INSTANCE = "SCHEDULED_EXECUTION_INSTANCE",
+
+  /**
+   * This value is used if a service returns a value for this enum that is not recognized by this
+   * version of the SDK.
+   */
+  UNKNOWN_VALUE = "UNKNOWN_VALUE"
 }
 
 export namespace JobType {

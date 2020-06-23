@@ -51,7 +51,7 @@ export interface CreateEntityDetails {
    * This requires a harvest status indicator for catalog objects.
    *
    */
-  "harvestStatus"?: string;
+  "harvestStatus"?: model.HarvestStatus;
   /**
    * Key of the last harvest process to update this object.
    */

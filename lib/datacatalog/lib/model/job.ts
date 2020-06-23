@@ -39,7 +39,7 @@ export interface Job {
   /**
    * Lifecycle state for job.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.JobLifecycleState;
   /**
    * The date and time the job was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    * Example: `2019-03-25T21:10:29.600Z`
@@ -53,7 +53,7 @@ export interface Job {
   /**
    * Type of the job.
    */
-  "jobType"?: string;
+  "jobType"?: model.JobType;
   /**
    * Schedule specified in the cron expression format that has seven fields for second, minute, hour, day-of-month, month, day-of-week, year.
    * It can also include special characters like * for all and ? for any. There are also pre-defined schedules that can be specified using
@@ -72,7 +72,7 @@ export interface Job {
   /**
    * Type of job schedule that is inferred from the scheduling properties.
    */
-  "scheduleType"?: string;
+  "scheduleType"?: model.JobScheduleType;
   /**
    * The key of the connection used by the job. This connection will override the default connection specified in
    * the associated job definition. All executions will use this connection.
