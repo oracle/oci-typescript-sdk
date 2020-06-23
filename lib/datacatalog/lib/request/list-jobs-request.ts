@@ -25,7 +25,7 @@ export interface ListJobsRequest {
   /**
    * Job lifecycle state.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.JobLifecycleState;
   /**
    * Time that the resource was created. An [RFC3339](https://tools.ietf.org/html/rfc3339) formatted datetime string.
    */
@@ -45,7 +45,7 @@ export interface ListJobsRequest {
   /**
    * Job type.
    */
-  "jobType"?: string;
+  "jobType"?: model.JobType;
   /**
    * Unique job definition key.
    */
@@ -68,7 +68,7 @@ export interface ListJobsRequest {
   /**
    * Type of the job schedule.
    */
-  "scheduleType"?: string;
+  "scheduleType"?: model.JobScheduleType;
   /**
    * Unique connection key.
    */

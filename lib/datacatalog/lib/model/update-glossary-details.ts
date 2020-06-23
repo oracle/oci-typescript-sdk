@@ -35,7 +35,7 @@ export interface UpdateGlossaryDetails {
   /**
    * Status of the approval process workflow for this business glossary.
    */
-  "workflowStatus"?: string;
+  "workflowStatus"?: model.TermWorkflowStatus;
 }
 
 export namespace UpdateGlossaryDetails {

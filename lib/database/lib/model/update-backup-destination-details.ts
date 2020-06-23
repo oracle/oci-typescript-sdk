@@ -35,6 +35,18 @@ export interface UpdateBackupDestinationDetails {
    */
   "localMountPointPath"?: string;
   /**
+   * NFS Mount type for backup destination.
+   */
+  "nfsMountType"?: UpdateBackupDestinationDetails.NfsMountType;
+  /**
+   * IP addresses for NFS Auto mount.
+   */
+  "nfsServer"?: Array<string>;
+  /**
+   * Specifies the directory on which to mount the file system
+   */
+  "nfsServerExport"?: string;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
@@ -51,6 +63,11 @@ Example: `{\"Department\": \"Finance\"}`
 }
 
 export namespace UpdateBackupDestinationDetails {
+  export enum NfsMountType {
+    SELFMOUNT = "SELF_MOUNT",
+    AUTOMATEDMOUNT = "AUTOMATED_MOUNT"
+  }
+
   export function getJsonObj(obj: UpdateBackupDestinationDetails): object {
     const jsonObj = { ...obj, ...{} };
 

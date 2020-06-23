@@ -53,6 +53,18 @@ export interface BackupDestinationSummary {
    */
   "localMountPointPath"?: string;
   /**
+   * NFS Mount type for backup destination.
+   */
+  "nfsMountType"?: BackupDestinationSummary.NfsMountType;
+  /**
+   * Host names or IP addresses for NFS Auto mount.
+   */
+  "nfsServer"?: Array<string>;
+  /**
+   * Specifies the directory on which to mount the file system
+   */
+  "nfsServerExport"?: string;
+  /**
    * The current lifecycle state of the backup destination.
    */
   "lifecycleState"?: BackupDestinationSummary.LifecycleState;
@@ -86,6 +98,17 @@ export namespace BackupDestinationSummary {
   export enum Type {
     NFS = "NFS",
     RECOVERYAPPLIANCE = "RECOVERY_APPLIANCE",
+
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  }
+
+  export enum NfsMountType {
+    SELFMOUNT = "SELF_MOUNT",
+    AUTOMATEDMOUNT = "AUTOMATED_MOUNT",
 
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

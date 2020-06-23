@@ -14,6 +14,9 @@
 import * as model from "../model";
 import common = require("oci-common");
 
+/**
+ * Information about the change compartment
+ */
 export interface ChangeCatalogCompartmentDetails {
   /**
    * The identifier of the compartment where the resource should be moved.

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information to be updated.
+ * The information to be updated for catalog resource.
  */
 export interface UpdateCatalogDetails {
   /**

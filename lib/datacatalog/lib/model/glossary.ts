@@ -47,7 +47,7 @@ export interface Glossary {
   /**
    * The current state of the glossary.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.LifecycleState;
   /**
    * The date and time the glossary was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    * Example: `2019-03-25T21:10:29.600Z`
@@ -74,7 +74,7 @@ export interface Glossary {
   /**
    * Status of the approval process workflow for this business glossary.
    */
-  "workflowStatus"?: string;
+  "workflowStatus"?: model.TermWorkflowStatus;
   /**
    * URI to the tag instance in the API.
    */

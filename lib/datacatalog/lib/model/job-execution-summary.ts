@@ -29,7 +29,7 @@ export interface JobExecutionSummary {
   /**
    * Type of the job execution.
    */
-  "jobType"?: string;
+  "jobType"?: model.JobType;
   /**
    * The unique key of the parent execution or null if this job execution has no parent.
    */
@@ -41,7 +41,7 @@ export interface JobExecutionSummary {
   /**
    * Status of the job execution, such as running, paused, or completed.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.JobExecutionState;
   /**
    * The date and time the job execution was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    * Example: `2019-03-25T21:10:29.600Z`

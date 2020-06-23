@@ -25,7 +25,7 @@ export interface ListJobExecutionsRequest {
   /**
    * Job execution lifecycle state.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.JobExecutionState;
   /**
    * Time that the resource was created. An [RFC3339](https://tools.ietf.org/html/rfc3339) formatted datetime string.
    */
@@ -45,7 +45,7 @@ export interface ListJobExecutionsRequest {
   /**
    * Job type.
    */
-  "jobType"?: string;
+  "jobType"?: model.JobType;
   /**
    * Sub-type of this job execution.
    */

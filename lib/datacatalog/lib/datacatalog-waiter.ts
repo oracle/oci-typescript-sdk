@@ -24,6 +24,346 @@ export class DataCatalogWaiter {
   ) {}
 
   /**
+   * Waits forAttribute till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetAttributeResponse | null (null in case of 404 response)
+   */
+  public async forAttribute(
+    request: serviceRequests.GetAttributeRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetAttributeResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getAttribute(request),
+      response => targetStates.exists(response.attribute.lifecycleState),
+      targetStates.includes(models.LifecycleState.DELETED)
+    );
+  }
+
+  /**
+   * Waits forAttributeTag till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetAttributeTagResponse | null (null in case of 404 response)
+   */
+  public async forAttributeTag(
+    request: serviceRequests.GetAttributeTagRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetAttributeTagResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getAttributeTag(request),
+      response => targetStates.exists(response.attributeTag.lifecycleState),
+      targetStates.includes(models.LifecycleState.DELETED)
+    );
+  }
+
+  /**
+   * Waits forCatalog till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetCatalogResponse | null (null in case of 404 response)
+   */
+  public async forCatalog(
+    request: serviceRequests.GetCatalogRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetCatalogResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getCatalog(request),
+      response => targetStates.exists(response.catalog.lifecycleState),
+      targetStates.includes(models.LifecycleState.DELETED)
+    );
+  }
+
+  /**
+   * Waits forCatalogPrivateEndpoint till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetCatalogPrivateEndpointResponse | null (null in case of 404 response)
+   */
+  public async forCatalogPrivateEndpoint(
+    request: serviceRequests.GetCatalogPrivateEndpointRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetCatalogPrivateEndpointResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getCatalogPrivateEndpoint(request),
+      response => targetStates.exists(response.catalogPrivateEndpoint.lifecycleState),
+      targetStates.includes(models.LifecycleState.DELETED)
+    );
+  }
+
+  /**
+   * Waits forConnection till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetConnectionResponse | null (null in case of 404 response)
+   */
+  public async forConnection(
+    request: serviceRequests.GetConnectionRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetConnectionResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getConnection(request),
+      response => targetStates.exists(response.connection.lifecycleState),
+      targetStates.includes(models.LifecycleState.DELETED)
+    );
+  }
+
+  /**
+   * Waits forDataAsset till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDataAssetResponse | null (null in case of 404 response)
+   */
+  public async forDataAsset(
+    request: serviceRequests.GetDataAssetRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetDataAssetResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getDataAsset(request),
+      response => targetStates.exists(response.dataAsset.lifecycleState),
+      targetStates.includes(models.LifecycleState.DELETED)
+    );
+  }
+
+  /**
+   * Waits forDataAssetTag till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDataAssetTagResponse | null (null in case of 404 response)
+   */
+  public async forDataAssetTag(
+    request: serviceRequests.GetDataAssetTagRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetDataAssetTagResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getDataAssetTag(request),
+      response => targetStates.exists(response.dataAssetTag.lifecycleState),
+      targetStates.includes(models.LifecycleState.DELETED)
+    );
+  }
+
+  /**
+   * Waits forEntity till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetEntityResponse | null (null in case of 404 response)
+   */
+  public async forEntity(
+    request: serviceRequests.GetEntityRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetEntityResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getEntity(request),
+      response => targetStates.exists(response.entity.lifecycleState),
+      targetStates.includes(models.LifecycleState.DELETED)
+    );
+  }
+
+  /**
+   * Waits forEntityTag till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetEntityTagResponse | null (null in case of 404 response)
+   */
+  public async forEntityTag(
+    request: serviceRequests.GetEntityTagRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetEntityTagResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getEntityTag(request),
+      response => targetStates.exists(response.entityTag.lifecycleState),
+      targetStates.includes(models.LifecycleState.DELETED)
+    );
+  }
+
+  /**
+   * Waits forFolder till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetFolderResponse | null (null in case of 404 response)
+   */
+  public async forFolder(
+    request: serviceRequests.GetFolderRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetFolderResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getFolder(request),
+      response => targetStates.exists(response.folder.lifecycleState),
+      targetStates.includes(models.LifecycleState.DELETED)
+    );
+  }
+
+  /**
+   * Waits forFolderTag till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetFolderTagResponse | null (null in case of 404 response)
+   */
+  public async forFolderTag(
+    request: serviceRequests.GetFolderTagRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetFolderTagResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getFolderTag(request),
+      response => targetStates.exists(response.folderTag.lifecycleState),
+      targetStates.includes(models.LifecycleState.DELETED)
+    );
+  }
+
+  /**
+   * Waits forGlossary till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetGlossaryResponse | null (null in case of 404 response)
+   */
+  public async forGlossary(
+    request: serviceRequests.GetGlossaryRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetGlossaryResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getGlossary(request),
+      response => targetStates.exists(response.glossary.lifecycleState),
+      targetStates.includes(models.LifecycleState.DELETED)
+    );
+  }
+
+  /**
+   * Waits forJob till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetJobResponse
+   */
+  public async forJob(
+    request: serviceRequests.GetJobRequest,
+    ...targetStates: models.JobLifecycleState[]
+  ): Promise<serviceResponses.GetJobResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getJob(request),
+      response => targetStates.exists(response.job.lifecycleState)
+    );
+  }
+
+  /**
+   * Waits forJobDefinition till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetJobDefinitionResponse | null (null in case of 404 response)
+   */
+  public async forJobDefinition(
+    request: serviceRequests.GetJobDefinitionRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetJobDefinitionResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getJobDefinition(request),
+      response => targetStates.exists(response.jobDefinition.lifecycleState),
+      targetStates.includes(models.LifecycleState.DELETED)
+    );
+  }
+
+  /**
+   * Waits forJobExecution till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetJobExecutionResponse
+   */
+  public async forJobExecution(
+    request: serviceRequests.GetJobExecutionRequest,
+    ...targetStates: models.JobExecutionState[]
+  ): Promise<serviceResponses.GetJobExecutionResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getJobExecution(request),
+      response => targetStates.exists(response.jobExecution.lifecycleState)
+    );
+  }
+
+  /**
+   * Waits forTerm till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetTermResponse | null (null in case of 404 response)
+   */
+  public async forTerm(
+    request: serviceRequests.GetTermRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetTermResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getTerm(request),
+      response => targetStates.exists(response.term.lifecycleState),
+      targetStates.includes(models.LifecycleState.DELETED)
+    );
+  }
+
+  /**
+   * Waits forTermRelationship till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetTermRelationshipResponse | null (null in case of 404 response)
+   */
+  public async forTermRelationship(
+    request: serviceRequests.GetTermRelationshipRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetTermRelationshipResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getTermRelationship(request),
+      response => targetStates.exists(response.termRelationship.lifecycleState),
+      targetStates.includes(models.LifecycleState.DELETED)
+    );
+  }
+
+  /**
+   * Waits forType till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetTypeResponse | null (null in case of 404 response)
+   */
+  public async forType(
+    request: serviceRequests.GetTypeRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetTypeResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getType(request),
+      response => targetStates.exists(response.type.lifecycleState),
+      targetStates.includes(models.LifecycleState.DELETED)
+    );
+  }
+
+  /**
    * Waits forWorkRequest
    *
    * @param request the request to send

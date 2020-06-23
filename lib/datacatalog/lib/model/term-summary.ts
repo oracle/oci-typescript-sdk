@@ -64,7 +64,7 @@ export interface TermSummary {
   /**
    * Status of the approval process workflow for this business term in the glossary.
    */
-  "workflowStatus"?: string;
+  "workflowStatus"?: model.TermWorkflowStatus;
   /**
    * The number of objects tagged with this term.
    */
@@ -72,7 +72,7 @@ export interface TermSummary {
   /**
    * State of the term.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.LifecycleState;
 }
 
 export namespace TermSummary {

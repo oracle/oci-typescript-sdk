@@ -407,6 +407,71 @@ export class DatabaseClient {
   }
 
   /**
+   * To move an Autonomous VM cluster and its dependent resources to another compartment, use the
+   * {@link #changeAutonomousVmClusterCompartment(ChangeAutonomousVmClusterCompartmentRequest) changeAutonomousVmClusterCompartment} operation.
+   *
+   * @param ChangeAutonomousVmClusterCompartmentRequest
+   * @return ChangeAutonomousVmClusterCompartmentResponse
+   * @throws OciError when an error occurs
+   */
+  public async changeAutonomousVmClusterCompartment(
+    changeAutonomousVmClusterCompartmentRequest: requests.ChangeAutonomousVmClusterCompartmentRequest
+  ): Promise<responses.ChangeAutonomousVmClusterCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeAutonomousVmClusterCompartment.");
+    const pathParams = {
+      "{autonomousVmClusterId}": changeAutonomousVmClusterCompartmentRequest.autonomousVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-retry-token": changeAutonomousVmClusterCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeAutonomousVmClusterCompartmentRequest.opcRequestId,
+      "if-match": changeAutonomousVmClusterCompartmentRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousVmClusters/{autonomousVmClusterId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeAutonomousVmClusterCompartmentRequest.changeAutonomousVmClusterCompartmentDetails,
+        "ChangeAutonomousVmClusterCompartmentDetails",
+        models.ChangeAutonomousVmClusterCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeAutonomousVmClusterCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
    * Move the backup destination and its dependent resources to the specified compartment.
    * For more information about moving backup destinations, see
    * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
@@ -1072,6 +1137,75 @@ export class DatabaseClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Creates an Autonomous VM cluster.
+   *
+   * @param CreateAutonomousVmClusterRequest
+   * @return CreateAutonomousVmClusterResponse
+   * @throws OciError when an error occurs
+   */
+  public async createAutonomousVmCluster(
+    createAutonomousVmClusterRequest: requests.CreateAutonomousVmClusterRequest
+  ): Promise<responses.CreateAutonomousVmClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createAutonomousVmCluster.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-retry-token": createAutonomousVmClusterRequest.opcRetryToken,
+      "opc-request-id": createAutonomousVmClusterRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousVmClusters",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createAutonomousVmClusterRequest.createAutonomousVmClusterDetails,
+        "CreateAutonomousVmClusterDetails",
+        models.CreateAutonomousVmClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateAutonomousVmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousVmCluster",
+        bodyModel: "model.AutonomousVmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -1944,6 +2078,64 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Deletes the specified Autonomous VM cluster.
+   *
+   * @param DeleteAutonomousVmClusterRequest
+   * @return DeleteAutonomousVmClusterResponse
+   * @throws OciError when an error occurs
+   */
+  public async deleteAutonomousVmCluster(
+    deleteAutonomousVmClusterRequest: requests.DeleteAutonomousVmClusterRequest
+  ): Promise<responses.DeleteAutonomousVmClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteAutonomousVmCluster.");
+    const pathParams = {
+      "{autonomousVmClusterId}": deleteAutonomousVmClusterRequest.autonomousVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "if-match": deleteAutonomousVmClusterRequest.ifMatch,
+      "opc-request-id": deleteAutonomousVmClusterRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousVmClusters/{autonomousVmClusterId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteAutonomousVmClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -3370,6 +3562,64 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
+   * Gets information about the specified Autonomous VM cluster.
+   * @param GetAutonomousVmClusterRequest
+   * @return GetAutonomousVmClusterResponse
+   * @throws OciError when an error occurs
+   */
+  public async getAutonomousVmCluster(
+    getAutonomousVmClusterRequest: requests.GetAutonomousVmClusterRequest
+  ): Promise<responses.GetAutonomousVmClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getAutonomousVmCluster.");
+    const pathParams = {
+      "{autonomousVmClusterId}": getAutonomousVmClusterRequest.autonomousVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-request-id": getAutonomousVmClusterRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousVmClusters/{autonomousVmClusterId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAutonomousVmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousVmCluster",
+        bodyModel: "model.AutonomousVmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
    * Gets information about the specified backup.
    * @param GetBackupRequest
    * @return GetBackupResponse
@@ -4722,6 +4972,8 @@ An initial database is created on the DB system based on the request parameters 
       "compartmentId": listAutonomousContainerDatabasesRequest.compartmentId,
       "autonomousExadataInfrastructureId":
         listAutonomousContainerDatabasesRequest.autonomousExadataInfrastructureId,
+      "autonomousVmClusterId": listAutonomousContainerDatabasesRequest.autonomousVmClusterId,
+      "infrastructureType": listAutonomousContainerDatabasesRequest.infrastructureType,
       "limit": listAutonomousContainerDatabasesRequest.limit,
       "page": listAutonomousContainerDatabasesRequest.page,
       "sortBy": listAutonomousContainerDatabasesRequest.sortBy,
@@ -5088,6 +5340,7 @@ An initial database is created on the DB system based on the request parameters 
       "page": listAutonomousDatabasesRequest.page,
       "sortBy": listAutonomousDatabasesRequest.sortBy,
       "sortOrder": listAutonomousDatabasesRequest.sortOrder,
+      "infrastructureType": listAutonomousDatabasesRequest.infrastructureType,
       "lifecycleState": listAutonomousDatabasesRequest.lifecycleState,
       "dbWorkload": listAutonomousDatabasesRequest.dbWorkload,
       "dbVersion": listAutonomousDatabasesRequest.dbVersion,
@@ -5517,6 +5770,98 @@ An initial database is created on the DB system based on the request parameters 
     request: requests.ListAutonomousExadataInfrastructuresRequest
   ): AsyncIterableIterator<responses.ListAutonomousExadataInfrastructuresResponse> {
     return paginateResponses(request, req => this.listAutonomousExadataInfrastructures(req));
+  }
+
+  /**
+   * Gets a list of Autonomous VM clusters in the specified compartment.
+   *
+   * @param ListAutonomousVmClustersRequest
+   * @return ListAutonomousVmClustersResponse
+   * @throws OciError when an error occurs
+   */
+  public async listAutonomousVmClusters(
+    listAutonomousVmClustersRequest: requests.ListAutonomousVmClustersRequest
+  ): Promise<responses.ListAutonomousVmClustersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listAutonomousVmClusters.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAutonomousVmClustersRequest.compartmentId,
+      "exadataInfrastructureId": listAutonomousVmClustersRequest.exadataInfrastructureId,
+      "limit": listAutonomousVmClustersRequest.limit,
+      "page": listAutonomousVmClustersRequest.page,
+      "sortBy": listAutonomousVmClustersRequest.sortBy,
+      "sortOrder": listAutonomousVmClustersRequest.sortOrder,
+      "lifecycleState": listAutonomousVmClustersRequest.lifecycleState,
+      "displayName": listAutonomousVmClustersRequest.displayName
+    };
+
+    let headerParams = {
+      "opc-request-id": listAutonomousVmClustersRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousVmClusters",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAutonomousVmClustersResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "AutonomousVmClusterSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AutonomousVmClusterSummary objects
+   * contained in responses from the listAutonomousVmClusters operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllAutonomousVmClusters(
+    request: requests.ListAutonomousVmClustersRequest
+  ): AsyncIterableIterator<models.AutonomousVmClusterSummary> {
+    return paginateRecords(request, req => this.listAutonomousVmClusters(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAutonomousVmClusters operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllAutonomousVmClustersResponses(
+    request: requests.ListAutonomousVmClustersRequest
+  ): AsyncIterableIterator<responses.ListAutonomousVmClustersResponse> {
+    return paginateResponses(request, req => this.listAutonomousVmClusters(req));
   }
 
   /**
@@ -8678,6 +9023,77 @@ A switchover guarantees no data loss.
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Updates the specified Autonomous VM cluster.
+   *
+   * @param UpdateAutonomousVmClusterRequest
+   * @return UpdateAutonomousVmClusterResponse
+   * @throws OciError when an error occurs
+   */
+  public async updateAutonomousVmCluster(
+    updateAutonomousVmClusterRequest: requests.UpdateAutonomousVmClusterRequest
+  ): Promise<responses.UpdateAutonomousVmClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateAutonomousVmCluster.");
+    const pathParams = {
+      "{autonomousVmClusterId}": updateAutonomousVmClusterRequest.autonomousVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "if-match": updateAutonomousVmClusterRequest.ifMatch,
+      "opc-request-id": updateAutonomousVmClusterRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousVmClusters/{autonomousVmClusterId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAutonomousVmClusterRequest.updateAutonomousVmClusterDetails,
+        "UpdateAutonomousVmClusterDetails",
+        models.UpdateAutonomousVmClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAutonomousVmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousVmCluster",
+        bodyModel: "model.AutonomousVmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

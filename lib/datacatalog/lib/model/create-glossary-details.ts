@@ -31,7 +31,7 @@ export interface CreateGlossaryDetails {
   /**
    * Status of the approval process workflow for this business glossary.
    */
-  "workflowStatus"?: string;
+  "workflowStatus"?: model.TermWorkflowStatus;
   /**
    * OCID of the user who is the owner of the glossary.
    */

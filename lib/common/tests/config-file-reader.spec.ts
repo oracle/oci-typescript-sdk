@@ -2,9 +2,10 @@
  * Copyright (c) 2020, Oracle and/or its affiliates.  All rights reserved.
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
-
+import { renameSync } from "fs";
 import { expect } from "chai";
 import { ConfigFileReader, ConfigFile } from "../lib/config-file-reader";
+import common = require("oci-common");
 
 describe("Config File reader Test", () => {
   // Commenting this as this test does not work on TC
@@ -93,5 +94,61 @@ describe("Config File reader Test", () => {
 
     expect(profile2.get("key")).equals("value=foobar");
     expect(profile2.get("key2")).equals("nota#comment");
+  });
+
+  it("should use environmental variable for config file path", () => {
+    const envVarConfigValue = process.env.OCI_CONFIG_FILE;
+    const tmpDefaultFilePath = ConfigFileReader.expandUserHome("~/.oci/config-tmp");
+    const tmpFallbackDefaultFilePath = ConfigFileReader.expandUserHome("~/.oraclebmc/config-tmp");
+    const defaultExists = ConfigFileReader.fileExists(ConfigFileReader.DEFAULT_FILE_PATH);
+    const fallbackExists = ConfigFileReader.fileExists(ConfigFileReader.FALLBACK_DEFAULT_FILE_PATH);
+    fileNameAndEnvVarChanges(false);
+
+    // If things go wrong, we want to at least put this in a try/catch block and revert back the file renaming on catch block
+    try {
+      const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider();
+      expect(provider.getFingerprint()).equals("20:3b:97:13:55:1c:5b:0d:d3:37:d8:50:4e:c5:3a:34");
+      expect(provider.getTenantId()).equals(
+        "ocidv1:tenancy:oc1:phx:1460406592660:aaaaaaaab4faofrfkxecohhjuivjq262pu"
+      );
+      fileNameAndEnvVarChanges(true);
+    } catch (e) {
+      console.log(`Failed to run this unit test due to: ${e}`);
+      fileNameAndEnvVarChanges(true);
+    }
+
+    /* Helper function change file name and OCI_CONFIG_FILE environmental variable
+     * @param revert: boolean, to tell the function to revert back to its original file name and environment variable
+     */
+    function fileNameAndEnvVarChanges(revert: boolean) {
+      // Check if file exists in the location, temporary change it so we can resort to using environmental variable,
+      // if revert is true, change it back to its original name.
+      if (defaultExists) {
+        revert
+          ? renameSync(
+              tmpDefaultFilePath,
+              ConfigFileReader.expandUserHome(ConfigFileReader.DEFAULT_FILE_PATH)
+            )
+          : renameSync(
+              ConfigFileReader.expandUserHome(ConfigFileReader.DEFAULT_FILE_PATH),
+              tmpDefaultFilePath
+            );
+      } else if (fallbackExists) {
+        revert
+          ? renameSync(
+              tmpFallbackDefaultFilePath,
+              ConfigFileReader.expandUserHome(ConfigFileReader.DEFAULT_FILE_PATH)
+            )
+          : renameSync(
+              ConfigFileReader.expandUserHome(ConfigFileReader.DEFAULT_FILE_PATH),
+              tmpFallbackDefaultFilePath
+            );
+      }
+
+      // Set OCI_CONFIG_FILE environment variable to our test config file or original value if revert is true
+      process.env.OCI_CONFIG_FILE = revert
+        ? envVarConfigValue
+        : "./lib/common/tests/resources/unit-test-environment-config";
+    }
   });
 });

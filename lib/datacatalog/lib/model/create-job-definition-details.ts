@@ -34,7 +34,7 @@ export interface CreateJobDefinitionDetails {
   /**
    * Type of the job definition.
    */
-  "jobType": string;
+  "jobType": model.JobType;
   /**
    * Specifies if the job definition is incremental or full.
    */

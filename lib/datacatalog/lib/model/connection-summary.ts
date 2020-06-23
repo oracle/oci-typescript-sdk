@@ -51,7 +51,7 @@ export interface ConnectionSummary {
   /**
    * The current state of the connection.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.LifecycleState;
   /**
    * Indicates whether this connection is the default connection.
    */

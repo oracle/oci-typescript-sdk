@@ -70,7 +70,7 @@ export interface FolderSummary {
   /**
    * State of the folder.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.LifecycleState;
 }
 
 export namespace FolderSummary {

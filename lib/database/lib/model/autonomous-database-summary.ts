@@ -72,6 +72,10 @@ export interface AutonomousDatabaseSummary {
    */
   "dataStorageSizeInTBs": number;
   /**
+   * The infrastructure type this resource belongs to.
+   */
+  "infrastructureType"?: AutonomousDatabaseSummary.InfrastructureType;
+  /**
    * True if the database uses [dedicated Exadata infrastructure](https://docs.cloud.oracle.com/Content/Database/Concepts/adbddoverview.htm).
    *
    */
@@ -221,6 +225,17 @@ export namespace AutonomousDatabaseSummary {
     MAINTENANCEINPROGRESS = "MAINTENANCE_IN_PROGRESS",
     RESTARTING = "RESTARTING",
     UPGRADING = "UPGRADING",
+
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  }
+
+  export enum InfrastructureType {
+    CLOUD = "CLOUD",
+    CLOUDATCUSTOMER = "CLOUD_AT_CUSTOMER",
 
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

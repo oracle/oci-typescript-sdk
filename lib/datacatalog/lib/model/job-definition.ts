@@ -38,7 +38,7 @@ export interface JobDefinition {
   /**
    * Type of the job definition.
    */
-  "jobType"?: string;
+  "jobType"?: model.JobType;
   /**
    * Specifies if the job definition is incremental or full.
    */
@@ -64,7 +64,7 @@ export interface JobDefinition {
   /**
    * Lifecycle state of the job definition.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.LifecycleState;
   /**
    * The date and time the job definition was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    * Example: `2019-03-25T21:10:29.600Z`

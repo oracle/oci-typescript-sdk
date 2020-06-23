@@ -55,7 +55,7 @@ export interface Catalog {
   /**
    * The current state of the data catalog resource.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.LifecycleState;
   /**
    * An message describing the current state in more detail.
    * For example, it can be used to provide actionable information for a resource in 'Failed' state.
@@ -74,6 +74,10 @@ export interface Catalog {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The list of private reverse connection endpoints attached to the catalog
+   */
+  "attachedCatalogPrivateEndpoints"?: Array<string>;
 }
 
 export namespace Catalog {

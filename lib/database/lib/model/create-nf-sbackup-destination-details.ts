@@ -20,10 +20,12 @@ import common = require("oci-common");
  */
 export interface CreateNFSBackupDestinationDetails extends model.CreateBackupDestinationDetails {
   /**
-   * The local directory path on each VM cluster node where the NFS server location is mounted. The local directory path and the NFS server location must each be the same across all of the VM cluster nodes. Ensure that the NFS mount is maintained continuously on all of the VM cluster nodes.
+   * **Deprecated.** The local directory path on each VM cluster node where the NFS server location is mounted. The local directory path and the NFS server location must each be the same across all of the VM cluster nodes. Ensure that the NFS mount is maintained continuously on all of the VM cluster nodes.
+   * This field is deprecated. Use the mountTypeDetails field instead to specify the mount type for NFS.
    *
    */
-  "localMountPointPath": string;
+  "localMountPointPath"?: string;
+  "mountTypeDetails"?: model.SelfMountDetails | model.AutomatedMountDetails;
 
   "type": string;
 }
@@ -39,7 +41,11 @@ export namespace CreateNFSBackupDestinationDetails {
         : (model.CreateBackupDestinationDetails.getJsonObj(
             obj
           ) as CreateNFSBackupDestinationDetails)),
-      ...{}
+      ...{
+        "mountTypeDetails": obj.mountTypeDetails
+          ? model.MountTypeDetails.getJsonObj(obj.mountTypeDetails)
+          : undefined
+      }
     };
 
     return jsonObj;

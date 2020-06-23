@@ -24,6 +24,7 @@ import common = require("oci-common");
  *            administrative reasons.
  * DELETED  - The resource has been deleted and isn't available.
  * FAILED   - The resource is in a failed state due to validation or other errors.
+ * MOVING   - The resource is being moved to another compartment (action changeCompartment)
  *
  **/
 export enum LifecycleState {

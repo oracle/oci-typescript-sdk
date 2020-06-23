@@ -70,7 +70,7 @@ export interface TermRelationship {
   /**
    * State of the term relationship.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.LifecycleState;
 }
 
 export namespace TermRelationship {

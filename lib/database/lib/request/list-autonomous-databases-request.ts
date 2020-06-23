@@ -42,6 +42,10 @@ export interface ListAutonomousDatabasesRequest {
    */
   "sortOrder"?: ListAutonomousDatabasesRequest.SortOrder;
   /**
+   * A filter to return only resources that match the given Infrastructure Type.
+   */
+  "infrastructureType"?: string;
+  /**
    * A filter to return only resources that match the given lifecycle state exactly.
    */
   "lifecycleState"?: string;

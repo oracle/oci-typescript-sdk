@@ -25,11 +25,11 @@ export interface ListJobDefinitionsRequest {
   /**
    * A filter to return only resources that match the specified lifecycle state. The value is case insensitive.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.LifecycleState;
   /**
    * Job type.
    */
-  "jobType"?: string;
+  "jobType"?: model.JobType;
   /**
    * Whether job definition is an incremental harvest (true) or a full harvest (false).
    */

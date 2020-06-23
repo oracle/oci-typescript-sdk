@@ -55,7 +55,7 @@ export interface CreateFolderDetails {
   /**
    * Folder harvesting status.
    */
-  "harvestStatus"?: string;
+  "harvestStatus"?: model.HarvestStatus;
 }
 
 export namespace CreateFolderDetails {
