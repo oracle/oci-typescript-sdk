@@ -98,24 +98,34 @@ Example: `bminstance-1`
     */
   "hostnameLabel"?: string;
   /**
-   * A list of the OCIDs of the network security groups (NSGs) to add the VNIC to. For more
-   * information about NSGs, see
-   * {@link NetworkSecurityGroup}.
-   *
-   */
+    * A list of the OCIDs of the network security groups (NSGs) to add the VNIC to. For more
+* information about NSGs, see
+* {@link NetworkSecurityGroup}.
+* <p>
+If a `vlanId` is specified, the `nsgIds` is ignored. The `vlanId`
+* indicates that the VNIC will belong to a VLAN instead of a subnet. With VLANs,
+* all VNICs in the VLAN belong to the NSGs that are associated with the VLAN.
+* See {@link Vlan}.
+* 
+    */
   "nsgIds"?: Array<string>;
   /**
-   * A private IP address of your choice to assign to the VNIC. Must be an
-   * available IP address within the subnet's CIDR. If you don't specify a
-   * value, Oracle automatically assigns a private IP address from the subnet.
-   * This is the VNIC's *primary* private IP address. The value appears in
-   * the {@link Vnic} object and also the
-   * {@link PrivateIp} object returned by
-   * {@link #listPrivateIps(ListPrivateIpsRequest) listPrivateIps} and
-   * {@link #getPrivateIp(GetPrivateIpRequest) getPrivateIp}.
-   * Example: `10.0.3.3`
-   *
-   */
+    * A private IP address of your choice to assign to the VNIC. Must be an
+* available IP address within the subnet's CIDR. If you don't specify a
+* value, Oracle automatically assigns a private IP address from the subnet.
+* This is the VNIC's *primary* private IP address. The value appears in
+* the {@link Vnic} object and also the
+* {@link PrivateIp} object returned by
+* {@link #listPrivateIps(ListPrivateIpsRequest) listPrivateIps} and
+* {@link #getPrivateIp(GetPrivateIpRequest) getPrivateIp}.
+* <p>
+
+* If you specify a `vlanId`, the `privateIp` is ignored.
+* See {@link Vlan}.
+* <p>
+Example: `10.0.3.3`
+* 
+    */
   "privateIp"?: string;
   /**
     * Whether the source/destination check is disabled on the VNIC.
@@ -123,18 +133,37 @@ Example: `bminstance-1`
 * about why you would skip the source/destination check, see
 * [Using a Private IP as a Route Target](https://docs.cloud.oracle.com/Content/Network/Tasks/managingroutetables.htm#privateip).
 * <p>
+
+* If you specify a `vlanId`, the `skipSourceDestCheck` is ignored because the
+* source/destination check is always disabled for VNICs in a VLAN. See
+* {@link Vlan}.
+* <p>
 Example: `true`
 * 
     */
   "skipSourceDestCheck"?: boolean;
   /**
-   * The OCID of the subnet to create the VNIC in. When launching an instance,
-   * use this `subnetId` instead of the deprecated `subnetId` in
-   * {@link #launchInstanceDetails(LaunchInstanceDetailsRequest) launchInstanceDetails}.
-   * At least one of them is required; if you provide both, the values must match.
-   *
-   */
-  "subnetId": string;
+    * The OCID of the subnet to create the VNIC in. When launching an instance,
+* use this `subnetId` instead of the deprecated `subnetId` in
+* {@link #launchInstanceDetails(LaunchInstanceDetailsRequest) launchInstanceDetails}.
+* At least one of them is required; if you provide both, the values must match.
+* <p>
+If you are an Oracle Cloud VMware Solution customer and creating a secondary
+* VNIC in a VLAN instead of a subnet, provide a `vlanId` instead of a `subnetId`.
+* If you provide both a `vlanId` and `subnetId`, the request fails.
+* 
+    */
+  "subnetId"?: string;
+  /**
+    * Provide this attribute only if you are an Oracle Cloud VMware Solution
+* customer and creating a secondary VNIC in a VLAN. The value is the OCID of the VLAN.
+* See {@link Vlan}.
+* <p>
+Provide a `vlanId` instead of a `subnetId`. If you provide both a
+* `vlanId` and `subnetId`, the request fails.
+* 
+    */
+  "vlanId"?: string;
 }
 
 export namespace CreateVnicDetails {

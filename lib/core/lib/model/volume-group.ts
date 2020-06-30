@@ -82,7 +82,7 @@ Example: `{\"Department\": \"Finance\"}`
     | model.VolumeGroupSourceFromVolumesDetails
     | model.VolumeGroupSourceFromVolumeGroupBackupDetails;
   /**
-   * The date and time the volume group was created. Format defined by RFC3339.
+   * The date and time the volume group was created. Format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    */
   "timeCreated": Date;
   /**

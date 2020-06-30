@@ -44,12 +44,13 @@ export interface VolumeBackupPolicy {
    */
   "schedules": Array<model.VolumeBackupSchedule>;
   /**
-   * The paired destination region (pre-defined by oracle) for scheduled cross region backup calls. Example `us-ashburn-1`
+   * The paired destination region for copying scheduled backups to. Example `us-ashburn-1`.
+   * See [Region Pairs](https://docs.cloud.oracle.com/iaas/Content/Block/Tasks/schedulingvolumebackups.htm#RegionPairs) for details about paired regions.
    *
    */
   "destinationRegion"?: string;
   /**
-   * The date and time the volume backup policy was created. Format defined by RFC3339.
+   * The date and time the volume backup policy was created. Format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    *
    */
   "timeCreated": Date;

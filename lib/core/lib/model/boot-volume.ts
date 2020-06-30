@@ -119,7 +119,9 @@ Allowed values:
     | model.BootVolumeSourceFromBootVolumeBackupDetails
     | model.BootVolumeSourceFromBootVolumeDetails;
   /**
-   * The date and time the boot volume was created. Format defined by RFC3339.
+   * The date and time the boot volume was created. Format defined
+   * by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   *
    */
   "timeCreated": Date;
   /**

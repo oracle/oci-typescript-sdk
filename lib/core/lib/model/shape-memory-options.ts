@@ -20,11 +20,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The possible configurations for the amount of memory available to an instance of this shape.
- * If this field is null, then all instances of this shape have a fixed
- * amount of memory equivalent to `memoryInGBs`.
- *
- */
+* For a flexible shape, the amount of memory available for instances that use this shape.
+* <p>
+If this field is null, then this shape has a fixed amount of memory equivalent to `memoryInGBs`.
+* 
+*/
 export interface ShapeMemoryOptions {
   /**
    * The minimum amount of memory, in gigabytes.
@@ -37,8 +37,7 @@ export interface ShapeMemoryOptions {
    */
   "maxInGBs"?: number;
   /**
-   * The default amount of memory, in gigabytes, per OCPU available to an instance
-   * of this shape.
+   * The default amount of memory per OCPU available for this shape, in gigabytes.
    *
    */
   "defaultPerOcpuInGBs"?: number;

@@ -30,19 +30,17 @@ export interface TunnelConfig {
   /**
     * The IP address of Oracle's VPN headend.
 * <p>
-Example: `129.146.17.50`
+Example: `203.0.113.50 `
 * 
     */
   "ipAddress": string;
   /**
-    * The shared secret of the IPSec tunnel.
-* <p>
-Example: `EXAMPLEToUis6j1cp8GdVQxcmdfMO0yXMLilZTbYCMDGu4V8o`
-* 
-    */
+   * The shared secret of the IPSec tunnel.
+   *
+   */
   "sharedSecret": string;
   /**
-    * The date and time the IPSec connection was created, in the format defined by RFC3339.
+    * The date and time the IPSec connection was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: `2016-08-25T21:10:29.600Z`
 * 

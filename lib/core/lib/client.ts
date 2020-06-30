@@ -6769,7 +6769,7 @@ You can limit the list by specifying a dedicated virtual machine host display na
   }
 
   /**
-   * Lists the shape compatibilities for the image.
+   * Lists the compatible shapes for the specified image.
    * @param ListImageShapeCompatibilityEntriesRequest
    * @return ListImageShapeCompatibilityEntriesResponse
    * @throws OciError when an error occurs
@@ -11444,6 +11444,72 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   }
 
   /**
+   * Moves a VLAN into a different compartment within the same tenancy.
+   * For information about moving resources between compartments, see
+   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * @param ChangeVlanCompartmentRequest
+   * @return ChangeVlanCompartmentResponse
+   * @throws OciError when an error occurs
+   */
+  public async changeVlanCompartment(
+    changeVlanCompartmentRequest: requests.ChangeVlanCompartmentRequest
+  ): Promise<responses.ChangeVlanCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeVlanCompartment.");
+    const pathParams = {
+      "{vlanId}": changeVlanCompartmentRequest.vlanId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "if-match": changeVlanCompartmentRequest.ifMatch,
+      "opc-request-id": changeVlanCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeVlanCompartmentRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vlans/{vlanId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeVlanCompartmentRequest.changeVlanCompartmentDetails,
+        "ChangeVlanCompartmentDetails",
+        models.ChangeVlanCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeVlanCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
    * Connects this local peering connection to another local peering connection in the same region.
    *
    * @param ConnectLocalPeeringConnectionsRequest
@@ -13391,6 +13457,69 @@ You may optionally specify a *display name* for the virtual circuit.
   }
 
   /**
+   * Creates a VLAN in the specified VCN and the specified compartment.
+   *
+   * @param CreateVlanRequest
+   * @return CreateVlanResponse
+   * @throws OciError when an error occurs
+   */
+  public async createVlan(
+    createVlanRequest: requests.CreateVlanRequest
+  ): Promise<responses.CreateVlanResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createVlan.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-retry-token": createVlanRequest.opcRetryToken,
+      "opc-request-id": createVlanRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vlans",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createVlanRequest.createVlanDetails,
+        "CreateVlanDetails",
+        models.CreateVlanDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateVlanResponse>{},
+        body: await response.json(),
+        bodyKey: "vlan",
+        bodyModel: "model.Vlan",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
    * Deletes the specified CPE object. The CPE must not be connected to a DRG. This is an asynchronous
    * operation. The CPE's `lifecycleState` will change to TERMINATING temporarily until the CPE is completely
    * removed.
@@ -14700,6 +14829,58 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
     if (response.status && response.status >= 200 && response.status <= 299) {
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteVirtualCircuitResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Deletes the specified VLAN, but only if there are no VNICs in the VLAN.
+   *
+   * @param DeleteVlanRequest
+   * @return DeleteVlanResponse
+   * @throws OciError when an error occurs
+   */
+  public async deleteVlan(
+    deleteVlanRequest: requests.DeleteVlanRequest
+  ): Promise<responses.DeleteVlanResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteVlan.");
+    const pathParams = {
+      "{vlanId}": deleteVlanRequest.vlanId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "if-match": deleteVlanRequest.ifMatch,
+      "opc-request-id": deleteVlanRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vlans/{vlanId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteVlanResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -16491,7 +16672,7 @@ To list the security rules in an NSG, see
      * Gets the specified public IP. You must specify the object's OCID.
 * <p>
 Alternatively, you can get the object by using {@link #getPublicIpByIpAddress(GetPublicIpByIpAddressRequest) getPublicIpByIpAddress}
-* with the public IP address (for example, 129.146.2.1).
+* with the public IP address (for example, 203.0.113.2).
 * <p>
 Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest) getPublicIpByPrivateIpId}
 * with the OCID of the private IP that the public IP is assigned to.
@@ -16555,7 +16736,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   }
 
   /**
-   * Gets the public IP based on the public IP address (for example, 129.146.2.1).
+   * Gets the public IP based on the public IP address (for example, 203.0.113.2).
    * <p>
    **Note:** If you're fetching a reserved public IP that is in the process of being
    * moved to a different private IP, the service returns the public IP object with
@@ -17257,6 +17438,64 @@ The operation returns configuration information for only the specified IPSec tun
         body: await response.json(),
         bodyKey: "virtualCircuit",
         bodyModel: "model.VirtualCircuit",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Gets the specified VLAN's information.
+   * @param GetVlanRequest
+   * @return GetVlanResponse
+   * @throws OciError when an error occurs
+   */
+  public async getVlan(
+    getVlanRequest: requests.GetVlanRequest
+  ): Promise<responses.GetVlanResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getVlan.");
+    const pathParams = {
+      "{vlanId}": getVlanRequest.vlanId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-request-id": getVlanRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vlans/{vlanId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetVlanResponse>{},
+        body: await response.json(),
+        bodyKey: "vlan",
+        bodyModel: "model.Vlan",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -19452,6 +19691,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
 * <p>
 If you're listing all the private IPs associated with a given subnet
 * or VNIC, the response includes both primary and secondary private IPs.
+* <p>
+If you are an Oracle Cloud VMware Solution customer and have VLANs
+* in your VCN, you can filter the list by VLAN OCID. See {@link Vlan}.
 * 
      * @param ListPrivateIpsRequest
      * @return ListPrivateIpsResponse
@@ -19468,7 +19710,8 @@ If you're listing all the private IPs associated with a given subnet
       "page": listPrivateIpsRequest.page,
       "ipAddress": listPrivateIpsRequest.ipAddress,
       "subnetId": listPrivateIpsRequest.subnetId,
-      "vnicId": listPrivateIpsRequest.vnicId
+      "vnicId": listPrivateIpsRequest.vnicId,
+      "vlanId": listPrivateIpsRequest.vlanId
     };
 
     let headerParams = {};
@@ -20488,6 +20731,95 @@ To list the ephemeral public IPs assigned to private IPs:
     request: requests.ListVirtualCircuitsRequest
   ): AsyncIterableIterator<responses.ListVirtualCircuitsResponse> {
     return paginateResponses(request, req => this.listVirtualCircuits(req));
+  }
+
+  /**
+   * Lists the VLANs in the specified VCN and the specified compartment.
+   *
+   * @param ListVlansRequest
+   * @return ListVlansResponse
+   * @throws OciError when an error occurs
+   */
+  public async listVlans(
+    listVlansRequest: requests.ListVlansRequest
+  ): Promise<responses.ListVlansResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listVlans.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listVlansRequest.compartmentId,
+      "limit": listVlansRequest.limit,
+      "page": listVlansRequest.page,
+      "vcnId": listVlansRequest.vcnId,
+      "displayName": listVlansRequest.displayName,
+      "sortBy": listVlansRequest.sortBy,
+      "sortOrder": listVlansRequest.sortOrder,
+      "lifecycleState": listVlansRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "opc-request-id": listVlansRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vlans",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListVlansResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "Vlan[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Vlan objects
+   * contained in responses from the listVlans operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllVlans(request: requests.ListVlansRequest): AsyncIterableIterator<models.Vlan> {
+    return paginateRecords(request, req => this.listVlans(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVlans operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllVlansResponses(
+    request: requests.ListVlansRequest
+  ): AsyncIterableIterator<responses.ListVlansResponse> {
+    return paginateResponses(request, req => this.listVlans(req));
   }
 
   /**
@@ -22467,6 +22799,73 @@ To change the list of public IP prefixes for a public virtual circuit,
         body: await response.json(),
         bodyKey: "virtualCircuit",
         bodyModel: "model.VirtualCircuit",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Updates the specified VLAN. This could result in changes to all
+   * the VNICs in the VLAN, which can take time. During that transition
+   * period, the VLAN will be in the UPDATING state.
+   *
+   * @param UpdateVlanRequest
+   * @return UpdateVlanResponse
+   * @throws OciError when an error occurs
+   */
+  public async updateVlan(
+    updateVlanRequest: requests.UpdateVlanRequest
+  ): Promise<responses.UpdateVlanResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateVlan.");
+    const pathParams = {
+      "{vlanId}": updateVlanRequest.vlanId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "if-match": updateVlanRequest.ifMatch,
+      "opc-request-id": updateVlanRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vlans/{vlanId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateVlanRequest.updateVlanDetails,
+        "UpdateVlanDetails",
+        models.UpdateVlanDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateVlanResponse>{},
+        body: await response.json(),
+        bodyKey: "vlan",
+        bodyModel: "model.Vlan",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

@@ -37,14 +37,12 @@ export interface CreateIPSecConnectionTunnelDetails {
    */
   "ikeVersion"?: CreateIPSecConnectionTunnelDetails.IkeVersion;
   /**
-    * The shared secret (pre-shared key) to use for the IPSec tunnel. Only numbers, letters, and
-* spaces are allowed. If you don't provide a value,
-* Oracle generates a value for you. You can specify your own shared secret later if
-* you like with {@link #updateIPSecConnectionTunnelSharedSecret(UpdateIPSecConnectionTunnelSharedSecretRequest) updateIPSecConnectionTunnelSharedSecret}.
-* <p>
-Example: `EXAMPLEToUis6j1cp8GdVQxcmdfMO0yXMLilZTbYCMDGu4V8o`
-* 
-    */
+   * The shared secret (pre-shared key) to use for the IPSec tunnel. Only numbers, letters, and
+   * spaces are allowed. If you don't provide a value,
+   * Oracle generates a value for you. You can specify your own shared secret later if
+   * you like with {@link #updateIPSecConnectionTunnelSharedSecret(UpdateIPSecConnectionTunnelSharedSecretRequest) updateIPSecConnectionTunnelSharedSecret}.
+   *
+   */
   "sharedSecret"?: string;
   /**
     * Information for establishing a BGP session for the IPSec tunnel. Required if the tunnel uses

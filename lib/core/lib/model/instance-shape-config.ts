@@ -31,17 +31,17 @@ export interface InstanceShapeConfig {
    */
   "ocpus"?: number;
   /**
-   * The total amount of memory, in gigabytes, available to the instance.
+   * The total amount of memory available to the instance, in gigabytes.
    *
    */
   "memoryInGBs"?: number;
   /**
-   * A short description of the processors available to the instance.
+   * A short description of the instance's processor (CPU).
    *
    */
   "processorDescription"?: string;
   /**
-   * The networking bandwidth, in gigabits per second, available to the instance.
+   * The networking bandwidth available to the instance, in gigabits per second.
    *
    */
   "networkingBandwidthInGbps"?: number;
@@ -51,15 +51,16 @@ export interface InstanceShapeConfig {
    */
   "maxVnicAttachments"?: number;
   /**
-   * The number of GPUs available to this instance.
+   * The number of GPUs available to the instance.
    *
    */
   "gpus"?: number;
   /**
-   * A short description of the GPUs available to this instance.
-   * This field is `null` if `gpus` is `0`.
-   *
-   */
+    * A short description of the instance's graphics processing unit (GPU).
+* <p>
+If the instance does not have any GPUs, this field is `null`.
+* 
+    */
   "gpuDescription"?: string;
   /**
    * The number of local disks available to the instance.
@@ -67,16 +68,18 @@ export interface InstanceShapeConfig {
    */
   "localDisks"?: number;
   /**
-   * The size of the local disks, aggregated, in gigabytes.
-   * This field is `null` if `localDisks` is equal to `0`.
-   *
-   */
+    * The aggregate size of all local disks, in gigabytes.
+* <p>
+If the instance does not have any local disks, this field is `null`.
+* 
+    */
   "localDisksTotalSizeInGBs"?: number;
   /**
-   * A short description of the local disks available to this instance.
-   * This field is `null` if `localDisks` is equal to `0`.
-   *
-   */
+    * A short description of the local disks available to this instance.
+* <p>
+If the instance does not have any local disks, this field is `null`.
+* 
+    */
   "localDiskDescription"?: string;
 }
 

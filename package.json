@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -68,7 +68,9 @@
     "oci-workrequests": "file:lib/workrequests",
     "oci-vault": "file:lib/vault",
     "oci-secrets": "file:lib/secrets",
-    "oci-dataintegration": "file:lib/dataintegration"
+    "oci-dataintegration": "file:lib/dataintegration",
+    "oci-ocvp": "file:lib/ocvp",
+    "oci-usageapi": "file:lib/usageapi"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

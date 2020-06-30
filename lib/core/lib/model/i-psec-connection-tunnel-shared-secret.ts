@@ -24,11 +24,9 @@ import common = require("oci-common");
  */
 export interface IPSecConnectionTunnelSharedSecret {
   /**
-    * The tunnel's shared secret (pre-shared key).
-* <p>
-Example: `EXAMPLEToUis6j1cp8GdVQxcmdfMO0yXMLilZTbYCMDGu4V8o`
-* 
-    */
+   * The tunnel's shared secret (pre-shared key).
+   *
+   */
   "sharedSecret": string;
 }
 

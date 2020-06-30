@@ -42,6 +42,10 @@ Example: `CreateListener`
     */
   "type": string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment containing the load balancer.
+   */
+  "compartmentId"?: string;
+  /**
    * The current state of the work request.
    *
    */

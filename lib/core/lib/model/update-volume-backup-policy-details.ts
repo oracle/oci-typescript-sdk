@@ -34,7 +34,9 @@ export interface UpdateVolumeBackupPolicyDetails {
    */
   "displayName"?: string;
   /**
-   * The paired destination region (pre-defined by oracle) for scheduled cross region backup calls. Example: `us-ashburn-1`
+   * The paired destination region for copying scheduled backups to. Example: `us-ashburn-1`.
+   * Specify `none` to reset the `destinationRegion` parameter.
+   * See [Region Pairs](https://docs.cloud.oracle.com/iaas/Content/Block/Tasks/schedulingvolumebackups.htm#RegionPairs) for details about paired regions.
    *
    */
   "destinationRegion"?: string;

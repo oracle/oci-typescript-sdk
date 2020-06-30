@@ -97,6 +97,27 @@ export class VirtualNetworkWaiter {
   }
 
   /**
+   * Waits forChangeVlanCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeVlanCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeVlanCompartment(
+    request: serviceRequests.ChangeVlanCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeVlanCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeVlanCompartmentResponse = await this.client.changeVlanCompartment(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeVlanCompartmentResponse.opcWorkRequestId
+    );
+    return { response: changeVlanCompartmentResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forCrossConnect till it reaches any of the provided states
    *
    * @param request the request to send
@@ -586,6 +607,25 @@ export class VirtualNetworkWaiter {
       () => this.client.getVirtualCircuit(request),
       response => targetStates.exists(response.virtualCircuit.lifecycleState),
       targetStates.includes(models.VirtualCircuit.LifecycleState.TERMINATED)
+    );
+  }
+
+  /**
+   * Waits forVlan till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetVlanResponse | null (null in case of 404 response)
+   */
+  public async forVlan(
+    request: serviceRequests.GetVlanRequest,
+    ...targetStates: models.Vlan.LifecycleState[]
+  ): Promise<serviceResponses.GetVlanResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getVlan(request),
+      response => targetStates.exists(response.vlan.lifecycleState),
+      targetStates.includes(models.Vlan.LifecycleState.TERMINATED)
     );
   }
 

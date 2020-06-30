@@ -71,9 +71,18 @@ Example: `Uocm:PHX-AD-1`
   /**
    * The OCID of the subnet to create the VNIC in.
    */
-  "subnetId": string;
+  "subnetId"?: string;
   /**
-    * The date and time the VNIC attachment was created, in the format defined by RFC3339.
+    * The OCID of the VLAN to create the VNIC in. Creating the VNIC in a VLAN (instead
+* of a subnet) is possible only if you are an Oracle Cloud VMware Solution customer.
+* See {@link Vlan}.
+* <p>
+An error is returned if the instance already has a VNIC attached to it from this VLAN.
+* 
+    */
+  "vlanId"?: string;
+  /**
+    * The date and time the VNIC attachment was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: `2016-08-25T21:10:29.600Z`
 * 
@@ -82,6 +91,10 @@ Example: `2016-08-25T21:10:29.600Z`
   /**
     * The Oracle-assigned VLAN tag of the attached VNIC. Available after the
 * attachment process is complete.
+* <p>
+However, if the VNIC belongs to a VLAN as part of the Oracle Cloud VMware Solution,
+* the `vlanTag` value is instead the value of the `vlanTag` attribute for the VLAN.
+* See {@link Vlan}.
 * <p>
 Example: `0`
 * 

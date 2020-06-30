@@ -1,6 +1,6 @@
 {
   "name": "oci-containerengine",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "OCI NodeJS client for Container Engine",
   "repository": {
     "type": "git",

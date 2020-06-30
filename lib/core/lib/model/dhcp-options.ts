@@ -80,7 +80,7 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "options": Array<model.DhcpOption>;
   /**
-    * Date and time the set of DHCP options was created, in the format defined by RFC3339.
+    * Date and time the set of DHCP options was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: `2016-08-25T21:10:29.600Z`
 * 

@@ -140,6 +140,8 @@ import * as ExtendHttpRequestHeaderValueRule from "./extend-http-request-header-
 export import ExtendHttpRequestHeaderValueRule = ExtendHttpRequestHeaderValueRule.ExtendHttpRequestHeaderValueRule;
 import * as ExtendHttpResponseHeaderValueRule from "./extend-http-response-header-value-rule";
 export import ExtendHttpResponseHeaderValueRule = ExtendHttpResponseHeaderValueRule.ExtendHttpResponseHeaderValueRule;
+import * as HttpHeaderRule from "./http-header-rule";
+export import HttpHeaderRule = HttpHeaderRule.HttpHeaderRule;
 import * as PathMatchCondition from "./path-match-condition";
 export import PathMatchCondition = PathMatchCondition.PathMatchCondition;
 import * as RedirectRule from "./redirect-rule";

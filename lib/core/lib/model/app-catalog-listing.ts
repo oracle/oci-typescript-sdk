@@ -40,7 +40,7 @@ export interface AppCatalogListing {
    */
   "displayName"?: string;
   /**
-   * Date and time the listing was published, in RFC3339 format.
+   * Date and time the listing was published, in [RFC3339](https://tools.ietf.org/html/rfc3339) format.
    * Example: `2018-03-20T12:32:53.532Z`
    *
    */

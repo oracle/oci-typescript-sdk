@@ -118,7 +118,7 @@ Allowed values:
    */
   "sourceDetails"?: model.VolumeSourceFromVolumeDetails | model.VolumeSourceFromVolumeBackupDetails;
   /**
-   * The date and time the volume was created. Format defined by RFC3339.
+   * The date and time the volume was created. Format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    */
   "timeCreated": Date;
   /**

@@ -27,7 +27,7 @@ export interface TunnelStatus {
   /**
     * The IP address of Oracle's VPN headend.
 * <p>
-Example: `129.146.17.50`
+Example: `203.0.113.50`
 * 
     */
   "ipAddress": string;
@@ -36,14 +36,14 @@ Example: `129.146.17.50`
    */
   "lifecycleState"?: TunnelStatus.LifecycleState;
   /**
-    * The date and time the IPSec connection was created, in the format defined by RFC3339.
+    * The date and time the IPSec connection was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: `2016-08-25T21:10:29.600Z`
 * 
     */
   "timeCreated"?: Date;
   /**
-    * When the state of the tunnel last changed, in the format defined by RFC3339.
+    * When the state of the tunnel last changed, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: `2016-08-25T21:10:29.600Z`
 * 

@@ -40,7 +40,7 @@ export interface VolumeBackupPolicyAssignment {
    */
   "policyId": string;
   /**
-   * The date and time the volume backup policy was assigned to the volume. The format is defined by RFC3339.
+   * The date and time the volume backup policy was assigned to the volume. The format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    *
    */
   "timeCreated": Date;

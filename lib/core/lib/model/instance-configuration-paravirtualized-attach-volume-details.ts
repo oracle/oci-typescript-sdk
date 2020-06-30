@@ -21,6 +21,11 @@ import common = require("oci-common");
 
 export interface InstanceConfigurationParavirtualizedAttachVolumeDetails
   extends model.InstanceConfigurationAttachVolumeDetails {
+  /**
+   * Whether to enable in-transit encryption for the data volume's paravirtualized attachment. The default value is false.
+   */
+  "isPvEncryptionInTransitEnabled"?: boolean;
+
   "type": string;
 }
 
