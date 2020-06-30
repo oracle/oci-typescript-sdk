@@ -44,4 +44,8 @@ Example: `50`
    * The OCID of the VNIC.
    */
   "vnicId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VLAN.
+   */
+  "vlanId"?: string;
 }

@@ -47,7 +47,7 @@ Example: `{\"Department\": \"Finance\"}`
   /**
     * The public IP address of the on-premises router.
 * <p>
-Example: `143.19.23.16`
+Example: `203.0.113.2`
 * 
     */
   "ipAddress": string;

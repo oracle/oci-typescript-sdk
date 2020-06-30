@@ -21,12 +21,10 @@ import common = require("oci-common");
 
 export interface UpdateIPSecConnectionTunnelSharedSecretDetails {
   /**
-    * The shared secret (pre-shared key) to use for the tunnel. Only numbers, letters, and spaces
-* are allowed.
-* <p>
-Example: `EXAMPLEToUis6j1cp8GdVQxcmdfMO0yXMLilZTbYCMDGu4V8o`
-* 
-    */
+   * The shared secret (pre-shared key) to use for the tunnel. Only numbers, letters, and spaces
+   * are allowed.
+   *
+   */
   "sharedSecret"?: string;
 }
 

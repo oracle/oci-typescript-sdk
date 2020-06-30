@@ -38,14 +38,14 @@ export interface IPSecConnectionTunnel {
   /**
     * The IP address of Oracle's VPN headend.
 * <p>
-Example: `192.0.2.5`
+Example: `203.0.113.21`
 * 
     */
   "vpnIp"?: string;
   /**
     * The IP address of the CPE's VPN headend.
 * <p>
-Example: `192.0.2.157`
+Example: `203.0.113.22`
 * 
     */
   "cpeIp"?: string;
@@ -79,14 +79,14 @@ Example: `192.0.2.157`
    */
   "routing"?: IPSecConnectionTunnel.Routing;
   /**
-    * The date and time the IPSec connection tunnel was created, in the format defined by RFC3339.
+    * The date and time the IPSec connection tunnel was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: `2016-08-25T21:10:29.600Z`
 * 
     */
   "timeCreated"?: Date;
   /**
-    * When the status of the tunnel last changed, in the format defined by RFC3339.
+    * When the status of the tunnel last changed, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: `2016-08-25T21:10:29.600Z`
 * 

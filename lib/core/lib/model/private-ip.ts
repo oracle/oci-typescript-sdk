@@ -46,6 +46,11 @@ You can add *secondary private IPs* to a VNIC after it's created. For more
 * {@link #attachVnic(AttachVnicRequest) attachVnic}. To update the hostname
 * for a primary private IP, you use {@link #updateVnic(UpdateVnicRequest) updateVnic}.
 * <p>
+`PrivateIp` objects that are created for use with the Oracle Cloud VMware Solution are
+* assigned to a VLAN and not a VNIC in a subnet. See the
+* descriptions of the relevant attributes in the `PrivateIp` object. Also see
+* {@link Vlan}.
+* <p>
 To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized,
 * talk to an administrator. If you're an administrator who needs to write policies to give users access, see
 * [Getting Started with Policies](https://docs.cloud.oracle.com/Content/Identity/Concepts/policygetstarted.htm).
@@ -112,6 +117,10 @@ Example: `bminstance-1`
     * The private IP address of the `privateIp` object. The address is within the CIDR
 * of the VNIC's subnet.
 * <p>
+However, if the `PrivateIp` object is being used with a VLAN as part of
+* the Oracle Cloud VMware Solution, the address is from the range specified by the
+* `cidrBlock` attribute for the VLAN. See {@link Vlan}.
+* <p>
 Example: `10.0.3.3`
 * 
     */
@@ -125,21 +134,35 @@ Example: `true`
     */
   "isPrimary"?: boolean;
   /**
-   * The OCID of the subnet the VNIC is in.
+   * Applicable only if the `PrivateIp` object is being used with a VLAN as part of
+   * the Oracle Cloud VMware Solution. The `vlanId` is the OCID of the VLAN. See
+   * {@link Vlan}.
+   *
    */
+  "vlanId"?: string;
+  /**
+    * The OCID of the subnet the VNIC is in.
+* <p>
+However, if the `PrivateIp` object is being used with a VLAN as part of
+* the Oracle Cloud VMware Solution, the `subnetId` is null.
+* 
+    */
   "subnetId"?: string;
   /**
-    * The date and time the private IP was created, in the format defined by RFC3339.
+    * The date and time the private IP was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: `2016-08-25T21:10:29.600Z`
 * 
     */
   "timeCreated"?: Date;
   /**
-   * The OCID of the VNIC the private IP is assigned to. The VNIC and private IP
-   * must be in the same subnet.
-   *
-   */
+    * The OCID of the VNIC the private IP is assigned to. The VNIC and private IP
+* must be in the same subnet.
+* <p>
+However, if the `PrivateIp` object is being used with a VLAN as part of
+* the Oracle Cloud VMware Solution, the `vnicId` is null.
+* 
+    */
   "vnicId"?: string;
 }
 

@@ -158,7 +158,7 @@ Allowed values:
    */
   "tcpOptions"?: model.TcpOptions;
   /**
-   * The date and time the security rule was created. Format defined by RFC3339.
+   * The date and time the security rule was created. Format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    */
   "timeCreated"?: Date;
   /**

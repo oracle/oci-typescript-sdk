@@ -58,6 +58,8 @@ export namespace Rule {
           );
         case "ALLOW":
           return model.AllowRule.getJsonObj(<model.AllowRule>(<object>jsonObj), true);
+        case "HTTP_HEADER":
+          return model.HttpHeaderRule.getJsonObj(<model.HttpHeaderRule>(<object>jsonObj), true);
         case "ADD_HTTP_RESPONSE_HEADER":
           return model.AddHttpResponseHeaderRule.getJsonObj(
             <model.AddHttpResponseHeaderRule>(<object>jsonObj),

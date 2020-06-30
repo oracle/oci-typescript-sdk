@@ -40,7 +40,7 @@ Example: `Uocm:PHX-AD-1`
   /**
     * The CIDR IP address range of the subnet.
 * <p>
-Example: `172.16.1.0/24`
+Example: `10.0.1.0/24`
 * 
     */
   "cidrBlock": string;

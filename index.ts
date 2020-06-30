@@ -133,3 +133,5 @@ export import nosql = require("oci-nosql");
 export import vault = require("oci-vault");
 export import secrets = require("oci-secrets");
 export import dataintegration = require("oci-dataintegration");
+export import ocvp = require("oci-ocvp");
+export import usageapi = require("oci-usageapi");

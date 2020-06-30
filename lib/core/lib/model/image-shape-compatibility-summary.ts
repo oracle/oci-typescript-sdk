@@ -20,11 +20,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary information for an image shape compatibility entry.
+ * Summary information for a compatible image and shape.
  */
 export interface ImageShapeCompatibilitySummary {
   /**
-   * The image OCID.
+   * The image [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    */
   "imageId": string;
   /**

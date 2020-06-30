@@ -21,7 +21,8 @@ import common = require("oci-common");
 
 /**
  * A compute instance shape that can be used in {@link #launchInstance(LaunchInstanceRequest) launchInstance}.
- * For more information, see [Overview of the Compute Service](https://docs.cloud.oracle.com/Content/Compute/Concepts/computeoverview.htm).
+ * For more information, see [Overview of the Compute Service](https://docs.cloud.oracle.com/Content/Compute/Concepts/computeoverview.htm) and
+ * [Compute Shapes](https://docs.cloud.oracle.com/Content/Compute/References/computeshapes.htm).
  *
  */
 export interface Shape {
@@ -36,57 +37,60 @@ export interface Shape {
    */
   "shape": string;
   /**
-   * A short description of the processors available to an instance of this shape.
+   * A short description of the shape's processor (CPU).
    *
    */
   "processorDescription"?: string;
   /**
-   * The default number of OCPUs available to an instance of this shape.
+   * The default number of OCPUs available for this shape.
    *
    */
   "ocpus"?: number;
   /**
-   * The default amount of memory, in gigabytes, available to an instance of this shape.
+   * The default amount of memory available for this shape, in gigabytes.
    *
    */
   "memoryInGBs"?: number;
   /**
-   * The networking bandwidth, in gigabits per second, available to an instance of this shape.
+   * The networking bandwidth available for this shape, in gigabits per second.
    *
    */
   "networkingBandwidthInGbps"?: number;
   /**
-   * The maximum number of VNIC attachments available to an instance of this shape.
+   * The maximum number of VNIC attachments available for this shape.
    *
    */
   "maxVnicAttachments"?: number;
   /**
-   * The number of GPUs available to an instance of this shape.
+   * The number of GPUs available for this shape.
    *
    */
   "gpus"?: number;
   /**
-   * A short description of the GPUs available to instances of this shape.
-   * This field is `null` if `gpus` is `0`.
-   *
-   */
+    * A short description of the graphics processing unit (GPU) available for this shape.
+* <p>
+If the shape does not have any GPUs, this field is `null`.
+* 
+    */
   "gpuDescription"?: string;
   /**
-   * The number of local disks available to the instance.
+   * The number of local disks available for this shape.
    *
    */
   "localDisks"?: number;
   /**
-   * The size of the local disks, aggregated, in gigabytes.
-   * This field is `null` if `localDisks` is equal to `0`.
-   *
-   */
+    * The aggregate size of the local disks available for this shape, in gigabytes.
+* <p>
+If the shape does not have any local disks, this field is `null`.
+* 
+    */
   "localDisksTotalSizeInGBs"?: number;
   /**
-   * A short description of the local disks available to instances of this shape.
-   * This field is `null` if `localDisks` is equal to `0`.
-   *
-   */
+    * A short description of the local disks available for this shape.
+* <p>
+If the shape does not have any local disks, this field is `null`.
+* 
+    */
   "localDiskDescription"?: string;
   "ocpuOptions"?: model.ShapeOcpuOptions;
   "memoryOptions"?: model.ShapeMemoryOptions;

@@ -93,7 +93,7 @@ Example: `{\"Department\": \"Finance\"}`
   /**
     * The public IP address of the `publicIp` object.
 * <p>
-Example: `129.146.2.1`
+Example: `203.0.113.2`
 * 
     */
   "ipAddress"?: string;
@@ -145,7 +145,7 @@ The OCID of the private IP that the public IP is currently assigned to, or in th
    */
   "scope"?: PublicIp.Scope;
   /**
-    * The date and time the public IP was created, in the format defined by RFC3339.
+    * The date and time the public IP was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: `2016-08-25T21:10:29.600Z`
 * 

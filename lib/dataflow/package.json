@@ -1,6 +1,6 @@
 {
   "name": "oci-dataflow",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "OCI NodeJS client for Dataflow service",
   "repository": {
     "type": "git",

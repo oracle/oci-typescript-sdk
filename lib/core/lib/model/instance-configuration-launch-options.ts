@@ -26,13 +26,13 @@ import common = require("oci-common");
 export interface InstanceConfigurationLaunchOptions {
   /**
    * Emulation type for volume.
-   * * `ISCSI` - ISCSI attached block storage device. This is the default for Boot Volumes and Remote Block
-   * Storage volumes on Oracle provided images.
+   * * `ISCSI` - ISCSI attached block storage device.
    * * `SCSI` - Emulated SCSI disk.
    * * `IDE` - Emulated IDE disk.
    * * `VFIO` - Direct attached Virtual Function storage.  This is the default option for Local data
    * volumes on Oracle provided images.
-   * * `PARAVIRTUALIZED` - Paravirtualized disk.
+   * * `PARAVIRTUALIZED` - Paravirtualized disk. This is the default for Boot Volumes and Remote Block
+   * Storage volumes on Oracle provided images.
    *
    */
   "bootVolumeType"?: InstanceConfigurationLaunchOptions.BootVolumeType;
@@ -56,13 +56,13 @@ export interface InstanceConfigurationLaunchOptions {
   "networkType"?: InstanceConfigurationLaunchOptions.NetworkType;
   /**
    * Emulation type for volume.
-   * * `ISCSI` - ISCSI attached block storage device. This is the default for Boot Volumes and Remote Block
-   * Storage volumes on Oracle provided images.
+   * * `ISCSI` - ISCSI attached block storage device.
    * * `SCSI` - Emulated SCSI disk.
    * * `IDE` - Emulated IDE disk.
    * * `VFIO` - Direct attached Virtual Function storage.  This is the default option for Local data
    * volumes on Oracle provided images.
-   * * `PARAVIRTUALIZED` - Paravirtualized disk.
+   * * `PARAVIRTUALIZED` - Paravirtualized disk. This is the default for Boot Volumes and Remote Block
+   * Storage volumes on Oracle provided images.
    *
    */
   "remoteDataVolumeType"?: InstanceConfigurationLaunchOptions.RemoteDataVolumeType;

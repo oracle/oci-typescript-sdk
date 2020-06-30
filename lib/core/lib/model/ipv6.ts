@@ -110,7 +110,7 @@ Example: `2001:0db8:0123:1111:abcd:ef01:2345:6789`
    */
   "subnetId": string;
   /**
-    * The date and time the IPv6 was created, in the format defined by RFC3339.
+    * The date and time the IPv6 was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: `2016-08-25T21:10:29.600Z`
 * 

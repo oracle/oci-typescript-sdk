@@ -46,7 +46,7 @@ Example: `Uocm:PHX-AD-1`
   /**
     * The subnet's CIDR block.
 * <p>
-Example: `172.16.1.0/24`
+Example: `10.0.1.0/24`
 * 
     */
   "cidrBlock": string;
@@ -189,7 +189,7 @@ Example: `subnet123.vcn1.oraclevcn.com`
     */
   "subnetDomainName"?: string;
   /**
-    * The date and time the subnet was created, in the format defined by RFC3339.
+    * The date and time the subnet was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: `2016-08-25T21:10:29.600Z`
 * 
@@ -209,7 +209,7 @@ Example: `10.0.14.1`
   /**
     * The MAC address of the virtual router.
 * <p>
-Example: `00:00:17:B6:4D:DD`
+Example: `00:00:00:00:00:01`
 * 
     */
   "virtualRouterMac": string;

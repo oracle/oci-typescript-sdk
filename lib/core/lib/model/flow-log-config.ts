@@ -32,9 +32,9 @@ A *flow log configuration* (`FlowLogConfig`) contains information about where to
 * put objects in that bucket. Otherwise, no flow logs can be written to the bucket.
 * Here's the required policy (which consists of three separate statements):
 * <p>
-`define tenancy VcnFlowLogs as ocid1.tenancy.oc1..aaaaaaaacaswototo7jx2hx24wyanauiyzreowh2cmsbmrkakeaabdyk6c6q`
+`define tenancy VcnFlowLogs as ocid1.tenancy.oc1..<var>&lt;unique_ID&gt;</var>`
 * <p>
-`define dynamic-group FlowLogsDynamicGroup as ocid1.dynamicgroup.oc1..aaaaaaaalzalw7g5jf5ujqlzuho3adrrhlioekcjigrcbv44gim5euyuostq`
+`define dynamic-group FlowLogsDynamicGroup as ocid1.dynamicgroup.oc1..<var>&lt;unique_ID&gt;</var>`
 * <p>
 `admit dynamic-group FlowLogsDynamicGroup of tenancy VcnFlowLogs to manage objects in tenancy where target.bucket.name='yourbucketname'`
 * <p>
@@ -96,7 +96,7 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "destination": model.FlowLogObjectStorageDestination;
   /**
-    * The date and time the flow log configuration was created, in the format defined by RFC3339.
+    * The date and time the flow log configuration was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: `2016-08-25T21:10:29.600Z`
 * 

@@ -46,12 +46,12 @@ export interface LetterOfAuthority {
    */
   "portName"?: string;
   /**
-   * The date and time when the Letter of Authority expires, in the format defined by RFC3339.
+   * The date and time when the Letter of Authority expires, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    *
    */
   "timeExpires"?: Date;
   /**
-    * The date and time the Letter of Authority was created, in the format defined by RFC3339.
+    * The date and time the Letter of Authority was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: `2016-08-25T21:10:29.600Z`
 * 

@@ -33,6 +33,7 @@ export interface ListenerRuleSummary {
     | model.RemoveHttpResponseHeaderRule
     | model.ControlAccessUsingHttpMethodsRule
     | model.AllowRule
+    | model.HttpHeaderRule
     | model.AddHttpResponseHeaderRule
     | model.ExtendHttpResponseHeaderValueRule;
   /**

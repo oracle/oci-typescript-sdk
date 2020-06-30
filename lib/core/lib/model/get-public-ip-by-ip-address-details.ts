@@ -26,7 +26,7 @@ import common = require("oci-common");
 export interface GetPublicIpByIpAddressDetails {
   /**
    * The public IP address.
-   * Example: 129.146.2.1
+   * Example: 203.0.113.2
    *
    */
   "ipAddress": string;
