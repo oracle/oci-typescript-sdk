@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface ListBulkActionResourceTypesRequest {
   /**
-   * The type of the bulk action.
+   * The type of bulk action.
    *
    */
   "bulkActionType": ListBulkActionResourceTypesRequest.BulkActionType;

@@ -98,6 +98,8 @@ import * as PutObjectLifecyclePolicyRequest from "./put-object-lifecycle-policy-
 export import PutObjectLifecyclePolicyRequest = PutObjectLifecyclePolicyRequest.PutObjectLifecyclePolicyRequest;
 import * as ReencryptBucketRequest from "./reencrypt-bucket-request";
 export import ReencryptBucketRequest = ReencryptBucketRequest.ReencryptBucketRequest;
+import * as ReencryptObjectRequest from "./reencrypt-object-request";
+export import ReencryptObjectRequest = ReencryptObjectRequest.ReencryptObjectRequest;
 import * as RenameObjectRequest from "./rename-object-request";
 export import RenameObjectRequest = RenameObjectRequest.RenameObjectRequest;
 import * as RestoreObjectsRequest from "./restore-objects-request";

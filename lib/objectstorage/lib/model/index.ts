@@ -64,6 +64,8 @@ import * as PreauthenticatedRequestSummary from "./preauthenticated-request-summ
 export import PreauthenticatedRequestSummary = PreauthenticatedRequestSummary.PreauthenticatedRequestSummary;
 import * as PutObjectLifecyclePolicyDetails from "./put-object-lifecycle-policy-details";
 export import PutObjectLifecyclePolicyDetails = PutObjectLifecyclePolicyDetails.PutObjectLifecyclePolicyDetails;
+import * as ReencryptObjectDetails from "./reencrypt-object-details";
+export import ReencryptObjectDetails = ReencryptObjectDetails.ReencryptObjectDetails;
 import * as RenameObjectDetails from "./rename-object-details";
 export import RenameObjectDetails = RenameObjectDetails.RenameObjectDetails;
 import * as ReplicationPolicy from "./replication-policy";
@@ -82,6 +84,8 @@ import * as RetentionRuleDetails from "./retention-rule-details";
 export import RetentionRuleDetails = RetentionRuleDetails.RetentionRuleDetails;
 import * as RetentionRuleSummary from "./retention-rule-summary";
 export import RetentionRuleSummary = RetentionRuleSummary.RetentionRuleSummary;
+import * as SSECustomerKeyDetails from "./s-se-customer-key-details";
+export import SSECustomerKeyDetails = SSECustomerKeyDetails.SSECustomerKeyDetails;
 import * as UpdateBucketDetails from "./update-bucket-details";
 export import UpdateBucketDetails = UpdateBucketDetails.UpdateBucketDetails;
 import * as UpdateNamespaceMetadataDetails from "./update-namespace-metadata-details";

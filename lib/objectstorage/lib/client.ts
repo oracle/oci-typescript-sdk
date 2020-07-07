@@ -3397,6 +3397,79 @@ Calling this API starts a work request task to re-encrypt the data encryption ke
   }
 
   /**
+     * Re-encrypts the data encryption keys that encrypt the object and its chunks. By default, when you create a bucket, the Object Storage 
+* service manages the master encryption key used to encrypt each object's data encryption keys. The encryption mechanism that you specify for 
+* the bucket applies to the objects it contains.
+* <p>
+You can alternatively employ one of these encryption strategies for an object:
+* <p>
+- You can assign a key that you created and control through the Oracle Cloud Infrastructure Vault service.
+* <p>
+- You can encrypt an object using your own encryption key. The key you supply is known as a customer-provided encryption key (SSE-C).
+* 
+     * @param ReencryptObjectRequest
+     * @return ReencryptObjectResponse
+     * @throws OciError when an error occurs
+     */
+  public async reencryptObject(
+    reencryptObjectRequest: requests.ReencryptObjectRequest
+  ): Promise<responses.ReencryptObjectResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#reencryptObject.");
+    const pathParams = {
+      "{namespaceName}": reencryptObjectRequest.namespaceName,
+      "{bucketName}": reencryptObjectRequest.bucketName,
+      "{objectName}": reencryptObjectRequest.objectName
+    };
+
+    const queryParams = {
+      "versionId": reencryptObjectRequest.versionId
+    };
+
+    let headerParams = {
+      "opc-client-request-id": reencryptObjectRequest.opcClientRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/n/{namespaceName}/b/{bucketName}/actions/reencrypt/{objectName}",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        reencryptObjectRequest.reencryptObjectDetails,
+        "ReencryptObjectDetails",
+        models.ReencryptObjectDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ReencryptObjectResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-client-request-id"),
+            key: "opcClientRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
    * Rename an object in the given Object Storage namespace.
    *
    * @param RenameObjectRequest

@@ -14,20 +14,15 @@
 import * as model from "../model";
 import common = require("oci-common");
 
-export interface CreateLocalPeeringConnectionResponse {
+export interface ReencryptObjectResponse {
   /**
-   * For optimistic concurrency control. See `if-match`.
-   *
+   * Echoes back the value passed in the opc-client-request-id header, for use by clients when debugging.
    */
-  "etag": string;
+  "opcClientRequestId": string;
   /**
-   * Unique Oracle-assigned identifier for the request. If you need to contact
-   * Oracle about a particular request, please provide the request ID.
+   * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular
+   * request, provide this request ID.
    *
    */
   "opcRequestId": string;
-  /**
-   * The returned model.LocalPeeringConnection instance.
-   */
-  "localPeeringConnection": model.LocalPeeringConnection;
 }

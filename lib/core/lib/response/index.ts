@@ -298,8 +298,6 @@ import * as UpdateInstanceConfigurationResponse from "./update-instance-configur
 export import UpdateInstanceConfigurationResponse = UpdateInstanceConfigurationResponse.UpdateInstanceConfigurationResponse;
 import * as UpdateInstancePoolResponse from "./update-instance-pool-response";
 export import UpdateInstancePoolResponse = UpdateInstancePoolResponse.UpdateInstancePoolResponse;
-import * as AcceptLocalPeeringTokenResponse from "./accept-local-peering-token-response";
-export import AcceptLocalPeeringTokenResponse = AcceptLocalPeeringTokenResponse.AcceptLocalPeeringTokenResponse;
 import * as AddNetworkSecurityGroupSecurityRulesResponse from "./add-network-security-group-security-rules-response";
 export import AddNetworkSecurityGroupSecurityRulesResponse = AddNetworkSecurityGroupSecurityRulesResponse.AddNetworkSecurityGroupSecurityRulesResponse;
 import * as AttachServiceIdResponse from "./attach-service-id-response";
@@ -346,8 +344,6 @@ import * as ChangeVirtualCircuitCompartmentResponse from "./change-virtual-circu
 export import ChangeVirtualCircuitCompartmentResponse = ChangeVirtualCircuitCompartmentResponse.ChangeVirtualCircuitCompartmentResponse;
 import * as ChangeVlanCompartmentResponse from "./change-vlan-compartment-response";
 export import ChangeVlanCompartmentResponse = ChangeVlanCompartmentResponse.ChangeVlanCompartmentResponse;
-import * as ConnectLocalPeeringConnectionsResponse from "./connect-local-peering-connections-response";
-export import ConnectLocalPeeringConnectionsResponse = ConnectLocalPeeringConnectionsResponse.ConnectLocalPeeringConnectionsResponse;
 import * as ConnectLocalPeeringGatewaysResponse from "./connect-local-peering-gateways-response";
 export import ConnectLocalPeeringGatewaysResponse = ConnectLocalPeeringGatewaysResponse.ConnectLocalPeeringGatewaysResponse;
 import * as ConnectRemotePeeringConnectionsResponse from "./connect-remote-peering-connections-response";
@@ -374,8 +370,6 @@ import * as CreateInternetGatewayResponse from "./create-internet-gateway-respon
 export import CreateInternetGatewayResponse = CreateInternetGatewayResponse.CreateInternetGatewayResponse;
 import * as CreateIpv6Response from "./create-ipv6-response";
 export import CreateIpv6Response = CreateIpv6Response.CreateIpv6Response;
-import * as CreateLocalPeeringConnectionResponse from "./create-local-peering-connection-response";
-export import CreateLocalPeeringConnectionResponse = CreateLocalPeeringConnectionResponse.CreateLocalPeeringConnectionResponse;
 import * as CreateLocalPeeringGatewayResponse from "./create-local-peering-gateway-response";
 export import CreateLocalPeeringGatewayResponse = CreateLocalPeeringGatewayResponse.CreateLocalPeeringGatewayResponse;
 import * as CreateNatGatewayResponse from "./create-nat-gateway-response";
@@ -424,8 +418,6 @@ import * as DeleteInternetGatewayResponse from "./delete-internet-gateway-respon
 export import DeleteInternetGatewayResponse = DeleteInternetGatewayResponse.DeleteInternetGatewayResponse;
 import * as DeleteIpv6Response from "./delete-ipv6-response";
 export import DeleteIpv6Response = DeleteIpv6Response.DeleteIpv6Response;
-import * as DeleteLocalPeeringConnectionResponse from "./delete-local-peering-connection-response";
-export import DeleteLocalPeeringConnectionResponse = DeleteLocalPeeringConnectionResponse.DeleteLocalPeeringConnectionResponse;
 import * as DeleteLocalPeeringGatewayResponse from "./delete-local-peering-gateway-response";
 export import DeleteLocalPeeringGatewayResponse = DeleteLocalPeeringGatewayResponse.DeleteLocalPeeringGatewayResponse;
 import * as DeleteNatGatewayResponse from "./delete-nat-gateway-response";
@@ -454,8 +446,6 @@ import * as DeleteVlanResponse from "./delete-vlan-response";
 export import DeleteVlanResponse = DeleteVlanResponse.DeleteVlanResponse;
 import * as DetachServiceIdResponse from "./detach-service-id-response";
 export import DetachServiceIdResponse = DetachServiceIdResponse.DetachServiceIdResponse;
-import * as GenerateLocalPeeringTokenResponse from "./generate-local-peering-token-response";
-export import GenerateLocalPeeringTokenResponse = GenerateLocalPeeringTokenResponse.GenerateLocalPeeringTokenResponse;
 import * as GetCpeResponse from "./get-cpe-response";
 export import GetCpeResponse = GetCpeResponse.GetCpeResponse;
 import * as GetCpeDeviceConfigContentResponse from "./get-cpe-device-config-content-response";
@@ -502,8 +492,6 @@ import * as GetIpsecCpeDeviceConfigContentResponse from "./get-ipsec-cpe-device-
 export import GetIpsecCpeDeviceConfigContentResponse = GetIpsecCpeDeviceConfigContentResponse.GetIpsecCpeDeviceConfigContentResponse;
 import * as GetIpv6Response from "./get-ipv6-response";
 export import GetIpv6Response = GetIpv6Response.GetIpv6Response;
-import * as GetLocalPeeringConnectionResponse from "./get-local-peering-connection-response";
-export import GetLocalPeeringConnectionResponse = GetLocalPeeringConnectionResponse.GetLocalPeeringConnectionResponse;
 import * as GetLocalPeeringGatewayResponse from "./get-local-peering-gateway-response";
 export import GetLocalPeeringGatewayResponse = GetLocalPeeringGatewayResponse.GetLocalPeeringGatewayResponse;
 import * as GetNatGatewayResponse from "./get-nat-gateway-response";
@@ -578,8 +566,6 @@ import * as ListInternetGatewaysResponse from "./list-internet-gateways-response
 export import ListInternetGatewaysResponse = ListInternetGatewaysResponse.ListInternetGatewaysResponse;
 import * as ListIpv6sResponse from "./list-ipv6s-response";
 export import ListIpv6sResponse = ListIpv6sResponse.ListIpv6sResponse;
-import * as ListLocalPeeringConnectionsResponse from "./list-local-peering-connections-response";
-export import ListLocalPeeringConnectionsResponse = ListLocalPeeringConnectionsResponse.ListLocalPeeringConnectionsResponse;
 import * as ListLocalPeeringGatewaysResponse from "./list-local-peering-gateways-response";
 export import ListLocalPeeringGatewaysResponse = ListLocalPeeringGatewaysResponse.ListLocalPeeringGatewaysResponse;
 import * as ListNatGatewaysResponse from "./list-nat-gateways-response";
@@ -644,8 +630,6 @@ import * as UpdateInternetGatewayResponse from "./update-internet-gateway-respon
 export import UpdateInternetGatewayResponse = UpdateInternetGatewayResponse.UpdateInternetGatewayResponse;
 import * as UpdateIpv6Response from "./update-ipv6-response";
 export import UpdateIpv6Response = UpdateIpv6Response.UpdateIpv6Response;
-import * as UpdateLocalPeeringConnectionResponse from "./update-local-peering-connection-response";
-export import UpdateLocalPeeringConnectionResponse = UpdateLocalPeeringConnectionResponse.UpdateLocalPeeringConnectionResponse;
 import * as UpdateLocalPeeringGatewayResponse from "./update-local-peering-gateway-response";
 export import UpdateLocalPeeringGatewayResponse = UpdateLocalPeeringGatewayResponse.UpdateLocalPeeringGatewayResponse;
 import * as UpdateNatGatewayResponse from "./update-nat-gateway-response";

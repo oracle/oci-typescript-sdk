@@ -2628,6 +2628,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       defaultHeaders: this._defaultHeaders,
       path: "/autonomousDatabases/{autonomousDatabaseId}/actions/deregisterDataSafe",
       method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        deregisterAutonomousDatabaseDataSafeRequest.deregisterAutonomousDatabaseDataSafeDetails,
+        "DeregisterAutonomousDatabaseDataSafeDetails",
+        models.DeregisterAutonomousDatabaseDataSafeDetails.getJsonObj
+      ),
       pathParams: pathParams,
       headerParams: headerParams,
       queryParams: queryParams
@@ -7704,6 +7709,11 @@ An initial database is created on the DB system based on the request parameters 
       defaultHeaders: this._defaultHeaders,
       path: "/autonomousDatabases/{autonomousDatabaseId}/actions/registerDataSafe",
       method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        registerAutonomousDatabaseDataSafeRequest.registerAutonomousDatabaseDataSafeDetails,
+        "RegisterAutonomousDatabaseDataSafeDetails",
+        models.RegisterAutonomousDatabaseDataSafeDetails.getJsonObj
+      ),
       pathParams: pathParams,
       headerParams: headerParams,
       queryParams: queryParams

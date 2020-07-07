@@ -61,6 +61,7 @@ export interface AnalyticsInstance {
    *
    */
   "emailNotification"?: string;
+  "networkEndpointDetails": model.PrivateEndpointDetails | model.PublicEndpointDetails;
   /**
    * URL of the Analytics service.
    *
@@ -103,7 +104,11 @@ export namespace AnalyticsInstance {
     const jsonObj = {
       ...obj,
       ...{
-        "capacity": obj.capacity ? model.Capacity.getJsonObj(obj.capacity) : undefined
+        "capacity": obj.capacity ? model.Capacity.getJsonObj(obj.capacity) : undefined,
+
+        "networkEndpointDetails": obj.networkEndpointDetails
+          ? model.NetworkEndpointDetails.getJsonObj(obj.networkEndpointDetails)
+          : undefined
       }
     };
 

@@ -14,6 +14,8 @@
 
 import * as ChangeAnalyticsInstanceCompartmentRequest from "./change-analytics-instance-compartment-request";
 export import ChangeAnalyticsInstanceCompartmentRequest = ChangeAnalyticsInstanceCompartmentRequest.ChangeAnalyticsInstanceCompartmentRequest;
+import * as ChangeAnalyticsInstanceNetworkEndpointRequest from "./change-analytics-instance-network-endpoint-request";
+export import ChangeAnalyticsInstanceNetworkEndpointRequest = ChangeAnalyticsInstanceNetworkEndpointRequest.ChangeAnalyticsInstanceNetworkEndpointRequest;
 import * as CreateAnalyticsInstanceRequest from "./create-analytics-instance-request";
 export import CreateAnalyticsInstanceRequest = CreateAnalyticsInstanceRequest.CreateAnalyticsInstanceRequest;
 import * as DeleteAnalyticsInstanceRequest from "./delete-analytics-instance-request";

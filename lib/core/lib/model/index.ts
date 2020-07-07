@@ -16,8 +16,6 @@ block storage volumes.
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
-import * as AcceptLocalPeeringTokenDetails from "./accept-local-peering-token-details";
-export import AcceptLocalPeeringTokenDetails = AcceptLocalPeeringTokenDetails.AcceptLocalPeeringTokenDetails;
 import * as AddImageShapeCompatibilityEntryDetails from "./add-image-shape-compatibility-entry-details";
 export import AddImageShapeCompatibilityEntryDetails = AddImageShapeCompatibilityEntryDetails.AddImageShapeCompatibilityEntryDetails;
 import * as AddNetworkSecurityGroupSecurityRulesDetails from "./add-network-security-group-security-rules-details";
@@ -134,8 +132,6 @@ import * as ClusterNetworkPlacementConfigurationDetails from "./cluster-network-
 export import ClusterNetworkPlacementConfigurationDetails = ClusterNetworkPlacementConfigurationDetails.ClusterNetworkPlacementConfigurationDetails;
 import * as ClusterNetworkSummary from "./cluster-network-summary";
 export import ClusterNetworkSummary = ClusterNetworkSummary.ClusterNetworkSummary;
-import * as ConnectLocalPeeringConnectionsDetails from "./connect-local-peering-connections-details";
-export import ConnectLocalPeeringConnectionsDetails = ConnectLocalPeeringConnectionsDetails.ConnectLocalPeeringConnectionsDetails;
 import * as ConnectLocalPeeringGatewaysDetails from "./connect-local-peering-gateways-details";
 export import ConnectLocalPeeringGatewaysDetails = ConnectLocalPeeringGatewaysDetails.ConnectLocalPeeringGatewaysDetails;
 import * as ConnectRemotePeeringConnectionsDetails from "./connect-remote-peering-connections-details";
@@ -206,8 +202,6 @@ import * as CreateInternetGatewayDetails from "./create-internet-gateway-details
 export import CreateInternetGatewayDetails = CreateInternetGatewayDetails.CreateInternetGatewayDetails;
 import * as CreateIpv6Details from "./create-ipv6-details";
 export import CreateIpv6Details = CreateIpv6Details.CreateIpv6Details;
-import * as CreateLocalPeeringConnectionDetails from "./create-local-peering-connection-details";
-export import CreateLocalPeeringConnectionDetails = CreateLocalPeeringConnectionDetails.CreateLocalPeeringConnectionDetails;
 import * as CreateLocalPeeringGatewayDetails from "./create-local-peering-gateway-details";
 export import CreateLocalPeeringGatewayDetails = CreateLocalPeeringGatewayDetails.CreateLocalPeeringGatewayDetails;
 import * as CreateNatGatewayDetails from "./create-nat-gateway-details";
@@ -400,12 +394,8 @@ import * as LaunchOptions from "./launch-options";
 export import LaunchOptions = LaunchOptions.LaunchOptions;
 import * as LetterOfAuthority from "./letter-of-authority";
 export import LetterOfAuthority = LetterOfAuthority.LetterOfAuthority;
-import * as LocalPeeringConnection from "./local-peering-connection";
-export import LocalPeeringConnection = LocalPeeringConnection.LocalPeeringConnection;
 import * as LocalPeeringGateway from "./local-peering-gateway";
 export import LocalPeeringGateway = LocalPeeringGateway.LocalPeeringGateway;
-import * as LocalPeeringTokenDetails from "./local-peering-token-details";
-export import LocalPeeringTokenDetails = LocalPeeringTokenDetails.LocalPeeringTokenDetails;
 import * as NatGateway from "./nat-gateway";
 export import NatGateway = NatGateway.NatGateway;
 import * as NetworkSecurityGroup from "./network-security-group";
@@ -516,8 +506,6 @@ import * as UpdateInternetGatewayDetails from "./update-internet-gateway-details
 export import UpdateInternetGatewayDetails = UpdateInternetGatewayDetails.UpdateInternetGatewayDetails;
 import * as UpdateIpv6Details from "./update-ipv6-details";
 export import UpdateIpv6Details = UpdateIpv6Details.UpdateIpv6Details;
-import * as UpdateLocalPeeringConnectionDetails from "./update-local-peering-connection-details";
-export import UpdateLocalPeeringConnectionDetails = UpdateLocalPeeringConnectionDetails.UpdateLocalPeeringConnectionDetails;
 import * as UpdateLocalPeeringGatewayDetails from "./update-local-peering-gateway-details";
 export import UpdateLocalPeeringGatewayDetails = UpdateLocalPeeringGatewayDetails.UpdateLocalPeeringGatewayDetails;
 import * as UpdateNatGatewayDetails from "./update-nat-gateway-details";

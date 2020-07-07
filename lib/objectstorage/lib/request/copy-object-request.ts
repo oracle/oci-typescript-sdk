@@ -34,35 +34,35 @@ export interface CopyObjectRequest {
   "opcClientRequestId"?: string;
   /**
    * The optional header that specifies \"AES256\" as the encryption algorithm. For more information, see
-   * [Using Your Own Keys for Server-Side Encryption](https://docs.cloud.oracle.com/Content/Object/Tasks/usingyourecryptionkeys.htm).
+   * [Using Your Own Keys for Server-Side Encryption](https://docs.cloud.oracle.com/Content/Object/Tasks/usingyourencryptionkeys.htm).
    *
    */
   "opcSseCustomerAlgorithm"?: string;
   /**
    * The optional header that specifies the base64-encoded 256-bit encryption key to use to encrypt or
    * decrypt the data. For more information, see
-   * [Using Your Own Keys for Server-Side Encryption](https://docs.cloud.oracle.com/Content/Object/Tasks/usingyourecryptionkeys.htm).
+   * [Using Your Own Keys for Server-Side Encryption](https://docs.cloud.oracle.com/Content/Object/Tasks/usingyourencryptionkeys.htm).
    *
    */
   "opcSseCustomerKey"?: string;
   /**
    * The optional header that specifies the base64-encoded SHA256 hash of the encryption key. This
    * value is used to check the integrity of the encryption key. For more information, see
-   * [Using Your Own Keys for Server-Side Encryption](https://docs.cloud.oracle.com/Content/Object/Tasks/usingyourecryptionkeys.htm).
+   * [Using Your Own Keys for Server-Side Encryption](https://docs.cloud.oracle.com/Content/Object/Tasks/usingyourencryptionkeys.htm).
    *
    */
   "opcSseCustomerKeySha256"?: string;
   /**
    * The optional header that specifies \"AES256\" as the encryption algorithm to use to decrypt the source
    * object. For more information, see
-   * [Using Your Own Keys for Server-Side Encryption](https://docs.cloud.oracle.com/Content/Object/Tasks/usingyourecryptionkeys.htm).
+   * [Using Your Own Keys for Server-Side Encryption](https://docs.cloud.oracle.com/Content/Object/Tasks/usingyourencryptionkeys.htm).
    *
    */
   "opcSourceSseCustomerAlgorithm"?: string;
   /**
    * The optional header that specifies the base64-encoded 256-bit encryption key to use to decrypt
    * the source object. For more information, see
-   * [Using Your Own Keys for Server-Side Encryption](https://docs.cloud.oracle.com/Content/Object/Tasks/usingyourecryptionkeys.htm).
+   * [Using Your Own Keys for Server-Side Encryption](https://docs.cloud.oracle.com/Content/Object/Tasks/usingyourencryptionkeys.htm).
    *
    */
   "opcSourceSseCustomerKey"?: string;
@@ -70,7 +70,7 @@ export interface CopyObjectRequest {
    * The optional header that specifies the base64-encoded SHA256 hash of the encryption key used to
    * decrypt the source object. This value is used to check the integrity of the encryption key. For
    * more information, see
-   * [Using Your Own Keys for Server-Side Encryption](https://docs.cloud.oracle.com/Content/Object/Tasks/usingyourecryptionkeys.htm).
+   * [Using Your Own Keys for Server-Side Encryption](https://docs.cloud.oracle.com/Content/Object/Tasks/usingyourencryptionkeys.htm).
    *
    */
   "opcSourceSseCustomerKeySha256"?: string;

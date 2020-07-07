@@ -32,6 +32,10 @@ export interface IdentityProviderGroupSummary {
    */
   "displayName"?: string;
   /**
+   * Display name of the group
+   */
+  "name"?: string;
+  /**
    * Identifier of the group in the identity provider
    */
   "externalIdentifier"?: string;

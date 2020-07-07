@@ -1,24 +1,25 @@
-/**
+/*
  * Copyright (c) 2020, Oracle and/or its affiliates.  All rights reserved.
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
-/**
+/*
  * This is an example shows how to integrate a logger with the SDK
  */
 
-var oci = require("oci-sdk");
+var identity = require("oci-identity");
+var common = require("oci-common");
 var bunyan = require("bunyan");
 
 // Integrate bunyan logger with the SDK. Make sure bunyan logger in installed.
 // You can integrate with log4js, winston or any other logger as well.
 var bunLog = bunyan.createLogger({ name: "LoggingExample", level: "debug" });
-oci.LOG.logger = bunLog;
+common.LOG.logger = bunLog;
 
 const configurationFilePath = "~/.oci/config";
 const configProfile = "DEFAULT";
 
-const provider = new oci.ConfigFileAuthenticationDetailsProvider(
+const provider = new common.ConfigFileAuthenticationDetailsProvider(
   configurationFilePath,
   configProfile
 );
@@ -28,7 +29,7 @@ const tenancyId = {
 };
 
 (async () => {
-  const identityClient = new oci.identity.IdentityClient({
+  const identityClient = new identity.IdentityClient({
     authenticationDetailsProvider: provider
   });
   const regions = await identityClient.listRegionSubscriptions(tenancyId);
