@@ -27,9 +27,4 @@ export interface LaunchInstanceRequest {
    *
    */
   "opcRetryToken"?: string;
-  /**
-   * Name of the pool in which to launch an instance.
-   *
-   */
-  "opcPoolName"?: string;
 }

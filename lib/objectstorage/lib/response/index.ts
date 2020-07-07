@@ -98,6 +98,8 @@ import * as PutObjectLifecyclePolicyResponse from "./put-object-lifecycle-policy
 export import PutObjectLifecyclePolicyResponse = PutObjectLifecyclePolicyResponse.PutObjectLifecyclePolicyResponse;
 import * as ReencryptBucketResponse from "./reencrypt-bucket-response";
 export import ReencryptBucketResponse = ReencryptBucketResponse.ReencryptBucketResponse;
+import * as ReencryptObjectResponse from "./reencrypt-object-response";
+export import ReencryptObjectResponse = ReencryptObjectResponse.ReencryptObjectResponse;
 import * as RenameObjectResponse from "./rename-object-response";
 export import RenameObjectResponse = RenameObjectResponse.RenameObjectResponse;
 import * as RestoreObjectsResponse from "./restore-objects-response";

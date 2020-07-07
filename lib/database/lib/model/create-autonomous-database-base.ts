@@ -115,7 +115,7 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    */
   "nsgIds"?: Array<string>;
   /**
-   * The private endpoint label for the resource.
+   * The private endpoint label for the resource. Setting this to an empty string, after the private endpoint database gets created, will change the same private endpoint database to the public endpoint database.
    */
   "privateEndpointLabel"?: string;
   /**

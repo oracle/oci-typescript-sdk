@@ -181,6 +181,73 @@ export class AnalyticsClient {
   }
 
   /**
+   * Change an Analytics instance network endpoint. The operation is long-running
+   * and creates a new WorkRequest.
+   *
+   * @param ChangeAnalyticsInstanceNetworkEndpointRequest
+   * @return ChangeAnalyticsInstanceNetworkEndpointResponse
+   * @throws OciError when an error occurs
+   */
+  public async changeAnalyticsInstanceNetworkEndpoint(
+    changeAnalyticsInstanceNetworkEndpointRequest: requests.ChangeAnalyticsInstanceNetworkEndpointRequest
+  ): Promise<responses.ChangeAnalyticsInstanceNetworkEndpointResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnalyticsClient#changeAnalyticsInstanceNetworkEndpoint."
+      );
+    const pathParams = {
+      "{analyticsInstanceId}": changeAnalyticsInstanceNetworkEndpointRequest.analyticsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "if-match": changeAnalyticsInstanceNetworkEndpointRequest.ifMatch,
+      "opc-request-id": changeAnalyticsInstanceNetworkEndpointRequest.opcRequestId,
+      "opc-retry-token": changeAnalyticsInstanceNetworkEndpointRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/analyticsInstances/{analyticsInstanceId}/actions/changeNetworkEndpoint",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeAnalyticsInstanceNetworkEndpointRequest.changeAnalyticsInstanceNetworkEndpointDetails,
+        "ChangeAnalyticsInstanceNetworkEndpointDetails",
+        models.ChangeAnalyticsInstanceNetworkEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeAnalyticsInstanceNetworkEndpointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
    * Create a new AnalyticsInstance in the specified compartment. The operation is long-running
    * and creates a new WorkRequest.
    *

@@ -26,6 +26,7 @@ export enum WorkRequestActionResult {
   STARTED = "STARTED",
   STOPPED = "STOPPED",
   SCALED = "SCALED",
+  NETWORK_ENDPOINT_CHANGED = "NETWORK_ENDPOINT_CHANGED",
   NONE = "NONE",
 
   /**

@@ -326,44 +326,6 @@ export class VirtualNetworkWaiter {
   }
 
   /**
-   * Waits forLocalPeeringConnectiononLifecycleState till it reaches any of the provided states
-   *
-   * @param request the request to send
-   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
-   * @return response returns GetLocalPeeringConnectionResponse | null (null in case of 404 response)
-   */
-  public async forLocalPeeringConnectiononLifecycleState(
-    request: serviceRequests.GetLocalPeeringConnectionRequest,
-    ...targetStates: models.LocalPeeringConnection.LifecycleState[]
-  ): Promise<serviceResponses.GetLocalPeeringConnectionResponse | null> {
-    return genericTerminalConditionWaiter(
-      this.config,
-      () => this.client.getLocalPeeringConnection(request),
-      response => targetStates.exists(response.localPeeringConnection.lifecycleState),
-      targetStates.includes(models.LocalPeeringConnection.LifecycleState.TERMINATED)
-    );
-  }
-
-  /**
-   * Waits forLocalPeeringConnectiononPeeringStatus till it reaches any of the provided states
-   *
-   * @param request the request to send
-   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
-   * @return response returns GetLocalPeeringConnectionResponse | null (null in case of 404 response)
-   */
-  public async forLocalPeeringConnectiononPeeringStatus(
-    request: serviceRequests.GetLocalPeeringConnectionRequest,
-    ...targetStates: models.LocalPeeringConnection.PeeringStatus[]
-  ): Promise<serviceResponses.GetLocalPeeringConnectionResponse | null> {
-    return genericTerminalConditionWaiter(
-      this.config,
-      () => this.client.getLocalPeeringConnection(request),
-      response => targetStates.exists(response.localPeeringConnection.peeringStatus),
-      targetStates.includes(models.LocalPeeringConnection.PeeringStatus.REVOKED)
-    );
-  }
-
-  /**
    * Waits forLocalPeeringGatewayonPeeringStatus till it reaches any of the provided states
    *
    * @param request the request to send

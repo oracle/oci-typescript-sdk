@@ -23,4 +23,8 @@ export interface RegisterAutonomousDatabaseDataSafeRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Request to register an Autonomous Database with Data Safe.
+   */
+  "registerAutonomousDatabaseDataSafeDetails"?: model.RegisterAutonomousDatabaseDataSafeDetails;
 }

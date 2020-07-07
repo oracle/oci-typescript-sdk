@@ -3,13 +3,13 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
-/*
-  This script provides an example on how to move a compartment to a different compartment
-  This script will:
-     * create cp_source_TSSDK under tenancy
-     * create cp_target_TSSDK under tenancy
-     * move cp_source_TSSDK under cp_target_TSSDK
-*/
+/**
+ * This script provides an example on how to move a compartment to a different compartment
+ * This script will:
+ * create cp_source_TSSDK under tenancy
+ * create cp_target_TSSDK under tenancy
+ * move cp_source_TSSDK under cp_target_TSSDK
+ */
 
 import * as identity from "oci-identity";
 import common = require("oci-common");

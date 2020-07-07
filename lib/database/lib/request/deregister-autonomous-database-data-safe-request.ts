@@ -23,4 +23,8 @@ export interface DeregisterAutonomousDatabaseDataSafeRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Details for deregistering an Autonomous Database with Data Safe.
+   */
+  "deregisterAutonomousDatabaseDataSafeDetails"?: model.DeregisterAutonomousDatabaseDataSafeDetails;
 }

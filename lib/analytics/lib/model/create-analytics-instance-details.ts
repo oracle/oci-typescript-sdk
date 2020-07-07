@@ -51,6 +51,7 @@ export interface CreateAnalyticsInstanceDetails {
    *
    */
   "emailNotification"?: string;
+  "networkEndpointDetails"?: model.PrivateEndpointDetails | model.PublicEndpointDetails;
   /**
    * IDCS access token identifying a stripe and service administrator user.
    *
@@ -79,7 +80,11 @@ export namespace CreateAnalyticsInstanceDetails {
     const jsonObj = {
       ...obj,
       ...{
-        "capacity": obj.capacity ? model.Capacity.getJsonObj(obj.capacity) : undefined
+        "capacity": obj.capacity ? model.Capacity.getJsonObj(obj.capacity) : undefined,
+
+        "networkEndpointDetails": obj.networkEndpointDetails
+          ? model.NetworkEndpointDetails.getJsonObj(obj.networkEndpointDetails)
+          : undefined
       }
     };
 

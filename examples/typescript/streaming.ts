@@ -4,7 +4,7 @@
  */
 
 /**
- * This example provides an example of basic streaming usage.
+ *  This example provides an example of basic streaming usage.
  * - List streams
  * - Get a stream
  * - Create a stream

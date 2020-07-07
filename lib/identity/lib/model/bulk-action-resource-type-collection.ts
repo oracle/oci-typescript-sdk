@@ -15,12 +15,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Collection of resource types supported by bulk action.
+ * Collection of resource-types supported by a compartment bulk action.
  *
  */
 export interface BulkActionResourceTypeCollection {
   /**
-   * Collection of resource types supported by bulk action.
+   * Collection of the resource-types supported by a compartment bulk action.
    */
   "items": Array<model.BulkActionResourceType>;
 }

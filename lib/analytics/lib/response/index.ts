@@ -14,6 +14,8 @@
 
 import * as ChangeAnalyticsInstanceCompartmentResponse from "./change-analytics-instance-compartment-response";
 export import ChangeAnalyticsInstanceCompartmentResponse = ChangeAnalyticsInstanceCompartmentResponse.ChangeAnalyticsInstanceCompartmentResponse;
+import * as ChangeAnalyticsInstanceNetworkEndpointResponse from "./change-analytics-instance-network-endpoint-response";
+export import ChangeAnalyticsInstanceNetworkEndpointResponse = ChangeAnalyticsInstanceNetworkEndpointResponse.ChangeAnalyticsInstanceNetworkEndpointResponse;
 import * as CreateAnalyticsInstanceResponse from "./create-analytics-instance-response";
 export import CreateAnalyticsInstanceResponse = CreateAnalyticsInstanceResponse.CreateAnalyticsInstanceResponse;
 import * as DeleteAnalyticsInstanceResponse from "./delete-analytics-instance-response";
