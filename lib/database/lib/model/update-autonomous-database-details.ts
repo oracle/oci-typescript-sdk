@@ -87,6 +87,10 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "isAutoScalingEnabled"?: boolean;
   /**
+   * Indicates whether the Autonomous Database has Data Guard enabled.
+   */
+  "isDataGuardEnabled"?: boolean;
+  /**
    * A valid Oracle Database version for Autonomous Database.
    */
   "dbVersion"?: string;

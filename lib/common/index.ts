@@ -25,7 +25,7 @@ import {
 } from "./lib/waiter";
 import { RequireOnlyOne, AuthParams } from "./lib/types";
 import { HttpRequest } from "./lib/http-request";
-
+import InstancePrincipalsAuthenticationDetailsProviderBuilder from "./lib/auth/instance-principals-authentication-detail-provider";
 import {
   paginateRecords,
   genericPaginateRecords,
@@ -84,5 +84,6 @@ export {
   HttpRequest,
   ConfigFileAuthenticationDetailsProvider,
   ConfigFileReader,
+  InstancePrincipalsAuthenticationDetailsProviderBuilder,
   LOG
 };

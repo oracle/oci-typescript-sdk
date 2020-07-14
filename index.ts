@@ -135,3 +135,4 @@ export import secrets = require("oci-secrets");
 export import dataintegration = require("oci-dataintegration");
 export import ocvp = require("oci-ocvp");
 export import usageapi = require("oci-usageapi");
+export import blockchain = require("oci-blockchain");

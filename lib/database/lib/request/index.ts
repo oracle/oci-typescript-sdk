@@ -94,6 +94,8 @@ import * as DownloadExadataInfrastructureConfigFileRequest from "./download-exad
 export import DownloadExadataInfrastructureConfigFileRequest = DownloadExadataInfrastructureConfigFileRequest.DownloadExadataInfrastructureConfigFileRequest;
 import * as DownloadVmClusterNetworkConfigFileRequest from "./download-vm-cluster-network-config-file-request";
 export import DownloadVmClusterNetworkConfigFileRequest = DownloadVmClusterNetworkConfigFileRequest.DownloadVmClusterNetworkConfigFileRequest;
+import * as FailOverAutonomousDatabaseRequest from "./fail-over-autonomous-database-request";
+export import FailOverAutonomousDatabaseRequest = FailOverAutonomousDatabaseRequest.FailOverAutonomousDatabaseRequest;
 import * as FailoverDataGuardAssociationRequest from "./failover-data-guard-association-request";
 export import FailoverDataGuardAssociationRequest = FailoverDataGuardAssociationRequest.FailoverDataGuardAssociationRequest;
 import * as GenerateAutonomousDataWarehouseWalletRequest from "./generate-autonomous-data-warehouse-wallet-request";
@@ -250,6 +252,8 @@ import * as StopAutonomousDataWarehouseRequest from "./stop-autonomous-data-ware
 export import StopAutonomousDataWarehouseRequest = StopAutonomousDataWarehouseRequest.StopAutonomousDataWarehouseRequest;
 import * as StopAutonomousDatabaseRequest from "./stop-autonomous-database-request";
 export import StopAutonomousDatabaseRequest = StopAutonomousDatabaseRequest.StopAutonomousDatabaseRequest;
+import * as SwitchoverAutonomousDatabaseRequest from "./switchover-autonomous-database-request";
+export import SwitchoverAutonomousDatabaseRequest = SwitchoverAutonomousDatabaseRequest.SwitchoverAutonomousDatabaseRequest;
 import * as SwitchoverDataGuardAssociationRequest from "./switchover-data-guard-association-request";
 export import SwitchoverDataGuardAssociationRequest = SwitchoverDataGuardAssociationRequest.SwitchoverDataGuardAssociationRequest;
 import * as TerminateAutonomousContainerDatabaseRequest from "./terminate-autonomous-container-database-request";

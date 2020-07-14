@@ -43,7 +43,7 @@ Example: `Uocm:PHX-AD-1`
    */
   "createVnicDetails"?: model.CreateVnicDetails;
   /**
-   * The OCID of dedicated VM host.
+   * The OCID of the dedicated VM host.
    *
    */
   "dedicatedVmHostId"?: string;
@@ -137,6 +137,11 @@ For more information about iPXE, see http://ipxe.org.
 * 
     */
   "ipxeScript"?: string;
+  /**
+   * Options for tuning the compatibility and performance of VM shapes. The values that you specify override any
+   * default values.
+   *
+   */
   "launchOptions"?: model.LaunchOptions;
   /**
     * Custom metadata key/value pairs that you provide, such as the SSH public key

@@ -29,7 +29,7 @@ export interface CreateAutonomousContainerDatabaseDetails {
    */
   "dbUniqueName"?: string;
   /**
-   * The service level agreement type of the Autonomous Container Database. The default is STANDARD. For a mission critical Autonomous Container Database, the specified Autonomous Exadata Infrastructure must be associated with a remote Autonomous Exadata Infrastructure.
+   * The service level agreement type of the Autonomous Container Database. The default is STANDARD. For an autonomous dataguard Autonomous Container Database, the specified Autonomous Exadata Infrastructure must be associated with a remote Autonomous Exadata Infrastructure.
    */
   "serviceLevelAgreementType"?: CreateAutonomousContainerDatabaseDetails.ServiceLevelAgreementType;
   /**

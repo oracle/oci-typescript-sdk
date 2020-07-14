@@ -141,6 +141,10 @@ For more information about iPXE, see http://ipxe.org.
    *
    */
   "launchMode"?: Instance.LaunchMode;
+  /**
+   * Options for tuning the compatibility and performance of VM shapes. The values that you specify override any default values.
+   *
+   */
   "launchOptions"?: model.LaunchOptions;
   /**
    * The current state of the instance.

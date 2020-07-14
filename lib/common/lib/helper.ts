@@ -56,6 +56,26 @@ export function convertStringToType(str: string | null, expectedType: string): a
       return Range.parse(str);
   }
 }
+// get string content from response body
+export async function getStringFromResponseBody(body: any): Promise<string> {
+  if (typeof body === "string") {
+    return body as string;
+  }
+
+  if (body instanceof Readable) {
+    // body is a stream type
+    return readStringFromReadable(body);
+  } else if (body instanceof Blob) {
+    // body is a blob type
+    return readStringFromBlob(body);
+  } else if (body instanceof ReadableStream) {
+    // body is a fetch readableStream type
+    return readStringFromFetchReadableStream(body);
+  } else {
+    // unknown type, unable to read body content for signing, reject it
+    throw new Error("Unable to read body content to sign the request");
+  }
+}
 
 // read string from Readable asynchronously, return a string content of it
 export async function readStringFromReadable(readable: Readable): Promise<string> {
@@ -191,4 +211,25 @@ export function formatDateToRFC3339(date: Date): string {
     ("0" + date.getSeconds()).slice(-2) +
     "Z"
   );
+}
+
+// get string content from body
+export async function getStringFromRequestBody(body: any): Promise<string> {
+  if (typeof body === "string") {
+    return body as string;
+  }
+
+  if (body instanceof Readable) {
+    // body is a stream type
+    return readStringFromReadable(body);
+  } else if (body instanceof Blob) {
+    // body is a blob type
+    return readStringFromBlob(body);
+  } else if (body instanceof ReadableStream) {
+    // body is a fetch readableStream type
+    return readStringFromFetchReadableStream(body);
+  } else {
+    // unknown type, unable to read body content for signing, reject it
+    throw new Error("Unable to read body content to sign the request");
+  }
 }

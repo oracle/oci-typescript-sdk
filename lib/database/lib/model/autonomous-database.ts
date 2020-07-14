@@ -199,6 +199,23 @@ To add the whitelist VCN specific subnet or IP, use a semicoln ';' as a delimina
    */
   "timeMaintenanceEnd"?: Date;
   /**
+   * The timestamp of the last switchover operation for the Autonomous Database.
+   */
+  "timeOfLastSwitchover"?: Date;
+  /**
+   * The timestamp of the last failover operation.
+   */
+  "timeOfLastFailover"?: Date;
+  /**
+   * Indicates whether the Autonomous Database has Data Guard enabled.
+   */
+  "isDataGuardEnabled"?: boolean;
+  /**
+   * Indicates the number of seconds of data loss for a Data Guard failover.
+   */
+  "failedDataRecoveryInSeconds"?: number;
+  "standbyDb"?: model.AutonomousDatabaseStandbySummary;
+  /**
    * List of Oracle Database versions available for a database upgrade. If there are no version upgrades available, this list is empty.
    */
   "availableUpgradeVersions"?: Array<string>;
@@ -222,6 +239,8 @@ export namespace AutonomousDatabase {
     UPDATING = "UPDATING",
     MAINTENANCEINPROGRESS = "MAINTENANCE_IN_PROGRESS",
     RESTARTING = "RESTARTING",
+    RECREATING = "RECREATING",
+    ROLECHANGEINPROGRESS = "ROLE_CHANGE_IN_PROGRESS",
     UPGRADING = "UPGRADING",
 
     /**
@@ -287,6 +306,10 @@ export namespace AutonomousDatabase {
           : undefined,
         "connectionUrls": obj.connectionUrls
           ? model.AutonomousDatabaseConnectionUrls.getJsonObj(obj.connectionUrls)
+          : undefined,
+
+        "standbyDb": obj.standbyDb
+          ? model.AutonomousDatabaseStandbySummary.getJsonObj(obj.standbyDb)
           : undefined
       }
     };

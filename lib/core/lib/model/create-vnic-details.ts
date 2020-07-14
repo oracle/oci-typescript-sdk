@@ -48,6 +48,9 @@ export interface CreateVnicDetails {
 * [Public IP Addresses](https://docs.cloud.oracle.com/Content/Network/Tasks/managingpublicIPs.htm).
 * <p>
 Example: `false`
+* <p>
+If you specify a `vlanId`, the `assignPublicIp` is required to be set to false. See
+* {@link Vlan}.
 * 
     */
   "assignPublicIp"?: boolean;
@@ -94,6 +97,9 @@ When launching an instance, use this `hostnameLabel` instead
 * If you provide both, the values must match.
 * <p>
 Example: `bminstance-1`
+* <p>
+If you specify a `vlanId`, the `hostnameLabel` cannot be specified. vnics on a Vlan
+* can not be assigned a hostname  See {@link Vlan}.
 * 
     */
   "hostnameLabel"?: string;
@@ -102,7 +108,7 @@ Example: `bminstance-1`
 * information about NSGs, see
 * {@link NetworkSecurityGroup}.
 * <p>
-If a `vlanId` is specified, the `nsgIds` is ignored. The `vlanId`
+If a `vlanId` is specified, the `nsgIds` cannot be specified. The `vlanId`
 * indicates that the VNIC will belong to a VLAN instead of a subnet. With VLANs,
 * all VNICs in the VLAN belong to the NSGs that are associated with the VLAN.
 * See {@link Vlan}.
@@ -120,7 +126,7 @@ If a `vlanId` is specified, the `nsgIds` is ignored. The `vlanId`
 * {@link #getPrivateIp(GetPrivateIpRequest) getPrivateIp}.
 * <p>
 
-* If you specify a `vlanId`, the `privateIp` is ignored.
+* If you specify a `vlanId`, the `privateIp` cannot be specified.
 * See {@link Vlan}.
 * <p>
 Example: `10.0.3.3`
@@ -134,7 +140,7 @@ Example: `10.0.3.3`
 * [Using a Private IP as a Route Target](https://docs.cloud.oracle.com/Content/Network/Tasks/managingroutetables.htm#privateip).
 * <p>
 
-* If you specify a `vlanId`, the `skipSourceDestCheck` is ignored because the
+* If you specify a `vlanId`, the `skipSourceDestCheck` cannot be specified because the
 * source/destination check is always disabled for VNICs in a VLAN. See
 * {@link Vlan}.
 * <p>

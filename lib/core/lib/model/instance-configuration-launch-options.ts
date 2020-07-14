@@ -20,7 +20,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Options for tuning compatibility and performance of VM shapes.
+ * Options for tuning the compatibility and performance of VM shapes. The values that you specify override any
+ * default values.
  *
  */
 export interface InstanceConfigurationLaunchOptions {
@@ -67,7 +68,9 @@ export interface InstanceConfigurationLaunchOptions {
    */
   "remoteDataVolumeType"?: InstanceConfigurationLaunchOptions.RemoteDataVolumeType;
   /**
-   * Whether to enable in-transit encryption for the boot volume's paravirtualized attachment. The default value is false.
+   * Deprecated. Instead use `isPvEncryptionInTransitEnabled` in
+   * {@link #instanceConfigurationLaunchInstanceDetails(InstanceConfigurationLaunchInstanceDetailsRequest) instanceConfigurationLaunchInstanceDetails}.
+   *
    */
   "isPvEncryptionInTransitEnabled"?: boolean;
   /**

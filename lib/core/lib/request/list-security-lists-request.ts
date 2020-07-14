@@ -19,10 +19,6 @@ export interface ListSecurityListsRequest {
    */
   "compartmentId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VCN.
-   */
-  "vcnId": string;
-  /**
  * For list pagination. The maximum number of results per page, or items to return in a paginated
 * \"List\" call. For important details about how pagination works, see
 * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
@@ -38,6 +34,10 @@ Example: `50`
    *
    */
   "page"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VCN.
+   */
+  "vcnId"?: string;
   /**
    * A filter to return only resources that match the given display name exactly.
    *

@@ -2814,6 +2814,73 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
+   * Initiates a failover the specified Autonomous Database to a standby.
+   *
+   * @param FailOverAutonomousDatabaseRequest
+   * @return FailOverAutonomousDatabaseResponse
+   * @throws OciError when an error occurs
+   */
+  public async failOverAutonomousDatabase(
+    failOverAutonomousDatabaseRequest: requests.FailOverAutonomousDatabaseRequest
+  ): Promise<responses.FailOverAutonomousDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#failOverAutonomousDatabase.");
+    const pathParams = {
+      "{autonomousDatabaseId}": failOverAutonomousDatabaseRequest.autonomousDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "if-match": failOverAutonomousDatabaseRequest.ifMatch,
+      "opc-retry-token": failOverAutonomousDatabaseRequest.opcRetryToken,
+      "opc-request-id": failOverAutonomousDatabaseRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabases/{autonomousDatabaseId}/actions/failover",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.FailOverAutonomousDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousDatabase",
+        bodyModel: "model.AutonomousDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
      * Performs a failover to transition the standby database identified by the `databaseId` parameter into the
 * specified Data Guard association's primary role after the existing primary database fails or becomes unreachable.
 * <p>
@@ -5350,7 +5417,8 @@ An initial database is created on the DB system based on the request parameters 
       "dbWorkload": listAutonomousDatabasesRequest.dbWorkload,
       "dbVersion": listAutonomousDatabasesRequest.dbVersion,
       "isFreeTier": listAutonomousDatabasesRequest.isFreeTier,
-      "displayName": listAutonomousDatabasesRequest.displayName
+      "displayName": listAutonomousDatabasesRequest.displayName,
+      "isDataGuardEnabled": listAutonomousDatabasesRequest.isDataGuardEnabled
     };
 
     let headerParams = {
@@ -8372,6 +8440,73 @@ An initial database is created on the DB system based on the request parameters 
     if (response.status && response.status >= 200 && response.status <= 299) {
       const sdkResponse = composeResponse({
         responseObject: <responses.StopAutonomousDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousDatabase",
+        bodyModel: "model.AutonomousDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Initiates a switchover of the specified Autonomous Database to the associated standby database. Applicable only to databases with Autonomous Data Guard enabled.
+   *
+   * @param SwitchoverAutonomousDatabaseRequest
+   * @return SwitchoverAutonomousDatabaseResponse
+   * @throws OciError when an error occurs
+   */
+  public async switchoverAutonomousDatabase(
+    switchoverAutonomousDatabaseRequest: requests.SwitchoverAutonomousDatabaseRequest
+  ): Promise<responses.SwitchoverAutonomousDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#switchoverAutonomousDatabase.");
+    const pathParams = {
+      "{autonomousDatabaseId}": switchoverAutonomousDatabaseRequest.autonomousDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "if-match": switchoverAutonomousDatabaseRequest.ifMatch,
+      "opc-retry-token": switchoverAutonomousDatabaseRequest.opcRetryToken,
+      "opc-request-id": switchoverAutonomousDatabaseRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabases/{autonomousDatabaseId}/actions/switchover",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SwitchoverAutonomousDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "autonomousDatabase",
         bodyModel: "model.AutonomousDatabase",

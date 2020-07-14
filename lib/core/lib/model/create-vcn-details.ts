@@ -21,11 +21,10 @@ import common = require("oci-common");
 
 export interface CreateVcnDetails {
   /**
-    * The CIDR IP address block of the VCN.
-* <p>
-Example: `10.0.0.0/16`
-* 
-    */
+   * The CIDR IP address block of the VCN.
+   * Example: `10.0.0.0/16`
+   *
+   */
   "cidrBlock": string;
   /**
    * The OCID of the compartment to contain the VCN.

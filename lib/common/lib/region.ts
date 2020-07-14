@@ -23,6 +23,33 @@ export class Region {
     return this._regionId;
   }
 
+  private static REGIONS_SHORT_NAMES: { [key: string]: string } = {
+    "phx": "us-phoenix-1",
+    "iad": "us-ashburn-1",
+    "fra": "eu-frankfurt-1",
+    "lhr": "uk-london-1",
+    "yyz": "ca-toronto-1",
+    "gru": "sa-saopaulo-1",
+    "ams": "eu-amsterdam-1",
+    "jed": "me-jeddah-1",
+    "kix": "ap-osaka-1",
+    "ltn": "uk-gov-london-1",
+    "nrt": "ap-tokyo-1",
+    "icn": "ap-seoul-1",
+    "hyd": "ap-hyderabad-1",
+    "bom": "ap-mumbai-1",
+    "yny": "ap-chuncheon-1",
+    "syd": "ap-sydney-1",
+    "mel": "ap-melbourne-1",
+    "yul": "ca-montreal-1",
+    "zrh": "eu-zurich-1",
+    "lfi": "us-langley-1",
+    "luf": "us-luke-1",
+    "ric": "us-gov-ashburn-1",
+    "pia": "us-gov-chicago-1",
+    "tus": "us-gov-phoenix-1"
+  };
+
   private static KNOWN_REGIONS: Map<string, Region> = new Map();
 
   private constructor(regionId: string, realm: Realm) {
@@ -71,7 +98,6 @@ export class Region {
 
   public static register(regionId: string, realm: Realm): Region {
     if (!regionId) throw Error("RegionId can not be empty or undefined");
-
     regionId = (regionId.trim() as any).toLocaleLowerCase("en-US");
     const region = Region.KNOWN_REGIONS.get(regionId);
     if (region) {
@@ -87,5 +113,18 @@ export class Region {
       return region;
     }
     return new Region(regionId, realm);
+  }
+
+  /**
+   * Function to get regionId based regionStr: regionStr can be a short code or regionId
+   * if it is a regionStr then we want to return the corresponding regionId
+   * @param regionStr
+   * @return regionId
+   */
+  public static getRegionIdFromShortCode(regionStr: string): string {
+    regionStr = regionStr.toLocaleLowerCase();
+    return Region.REGIONS_SHORT_NAMES[regionStr]
+      ? Region.REGIONS_SHORT_NAMES[regionStr]
+      : regionStr;
   }
 }

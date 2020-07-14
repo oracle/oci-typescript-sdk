@@ -1,18 +1,19 @@
-import { Region } from "../region";
-
 /**
  * Copyright (c) 2020, Oracle and/or its affiliates.  All rights reserved.
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import { Region } from "../region";
+import AbstractAuthenticationDetailsProvider from "./models/abstract-authentication-details-provider";
+
 /**
  * An interface provides the authentication details.
  */
-export interface AuthenticationDetailsProvider {
+export interface AuthenticationDetailsProvider extends AbstractAuthenticationDetailsProvider {
   /**
    * Get the key id to sign the http request.
    */
-  getKeyId(): string;
+  getKeyId(): Promise<string>;
 
   /**
    * Get the private key to sign the http request.
@@ -70,7 +71,7 @@ export class SimpleAuthenticationDetailsProvider
   /**
    * Get the key id to sign the http request.
    */
-  public getKeyId(): string {
+  public async getKeyId(): Promise<string> {
     return this.tenancy + "/" + this.user + "/" + this.fingerprint;
   }
 
