@@ -72,6 +72,10 @@ export interface ListAutonomousDatabasesRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * A filter to return only resources that have Data Guard enabled.
+   */
+  "isDataGuardEnabled"?: boolean;
 }
 
 export namespace ListAutonomousDatabasesRequest {

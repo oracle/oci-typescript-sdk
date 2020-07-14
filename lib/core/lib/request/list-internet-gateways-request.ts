@@ -21,7 +21,7 @@ export interface ListInternetGatewaysRequest {
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VCN.
    */
-  "vcnId": string;
+  "vcnId"?: string;
   /**
  * For list pagination. The maximum number of results per page, or items to return in a paginated
 * \"List\" call. For important details about how pagination works, see

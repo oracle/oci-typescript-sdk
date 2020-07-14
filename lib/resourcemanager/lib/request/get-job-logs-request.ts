@@ -53,11 +53,15 @@ export interface GetJobLogsRequest {
   "page"?: string;
   /**
    * Time stamp specifying the lower time limit for which logs are returned in a query.
+   * Format is defined by RFC3339.
+   * Example: `2020-01-01T12:00:00.000Z`
    *
    */
   "timestampGreaterThanOrEqualTo"?: Date;
   /**
    * Time stamp specifying the upper time limit for which logs are returned in a query.
+   * Format is defined by RFC3339.
+   * Example: `2020-02-01T12:00:00.000Z`
    *
    */
   "timestampLessThanOrEqualTo"?: Date;

@@ -82,8 +82,8 @@ export class ConfigFileAuthenticationDetailsProvider
   /**
    * Get the key id to sign the http request.
    */
-  public getKeyId(): string {
-    return this.delegate.getKeyId();
+  public async getKeyId(): Promise<string> {
+    return await this.delegate.getKeyId();
   }
 
   /**

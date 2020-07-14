@@ -94,6 +94,10 @@ export interface CreateAutonomousDatabaseBase {
    */
   "whitelistedIps"?: Array<string>;
   /**
+   * Indicates whether the Autonomous Database has Data Guard enabled.
+   */
+  "isDataGuardEnabled"?: boolean;
+  /**
     * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with.
 * <p>
 **Subnet Restrictions:**

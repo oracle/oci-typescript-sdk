@@ -5893,6 +5893,14 @@ When you launch an instance, it is automatically attached to a virtual
 * <p>
 You can later add secondary VNICs to an instance. For more information, see
 * [Virtual Network Interface Cards (VNICs)](https://docs.cloud.oracle.com/Content/Network/Tasks/managingVNICs.htm).
+* <p>
+To launch an instance from a Marketplace image listing, you must provide the image ID of the 
+* listing resource version that you want, but you also must subscribe to the listing before you try 
+* to launch the instance. To subscribe to the listing, use the {@link #getAppCatalogListingAgreements(GetAppCatalogListingAgreementsRequest) getAppCatalogListingAgreements} 
+* operation to get the signature for the terms of use agreement for the desired listing resource version.  
+* Then, call {@link #createAppCatalogSubscription(CreateAppCatalogSubscriptionRequest) createAppCatalogSubscription} 
+* with the signature. To get the image ID for the LaunchInstance operation, call 
+* {@link #getAppCatalogListingResourceVersion(GetAppCatalogListingResourceVersionRequest) getAppCatalogListingResourceVersion}.
 * 
      * @param LaunchInstanceRequest
      * @return LaunchInstanceResponse
@@ -9609,11 +9617,19 @@ When you delete a cluster network, all of its resources are permanently deleted,
   }
 
   /**
-   * Terminate the specified instance pool.
-   * @param TerminateInstancePoolRequest
-   * @return TerminateInstancePoolResponse
-   * @throws OciError when an error occurs
-   */
+     * Terminate the specified instance pool.
+* <p>
+**Warning:** When you delete an instance pool, the resources that were created by the pool are permanently
+* deleted, including associated instances, attached boot volumes, and block volumes.
+* <p>
+If an autoscaling configuration applies to the instance pool, the autoscaling configuration will be deleted
+* asynchronously after the pool is deleted. You can also manually delete the autoscaling configuration using
+* the `DeleteAutoScalingConfiguration` operation in the Autoscaling API.
+* 
+     * @param TerminateInstancePoolRequest
+     * @return TerminateInstancePoolResponse
+     * @throws OciError when an error occurs
+     */
   public async terminateInstancePool(
     terminateInstancePoolRequest: requests.TerminateInstancePoolRequest
   ): Promise<responses.TerminateInstancePoolResponse> {
@@ -17819,6 +17835,7 @@ For information about generating CPE configuration content, see these operations
 
   /**
    * Lists the sets of DHCP options in the specified VCN and specified compartment.
+   * If the VCN ID is not provided, then the list includes the sets of DHCP options from all VCNs in the specified compartment.
    * The response includes the default set of options that automatically comes with each VCN,
    * plus any other sets you've created.
    *
@@ -18617,6 +18634,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
 
   /**
    * Lists the internet gateways in the specified VCN and the specified compartment.
+   * If the VCN ID is not provided, then the list includes the internet gateways from all VCNs in the specified compartment.
    *
    * @param ListInternetGatewaysRequest
    * @return ListInternetGatewaysResponse
@@ -18799,8 +18817,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   }
 
   /**
-   * Lists the local peering gateways (LPGs) for the specified VCN and compartment
-   * (the LPG's compartment).
+   * Lists the local peering gateways (LPGs) for the specified VCN and specified compartment.
+   * If the VCN ID is not provided, then the list includes the LPGs from all VCNs in the specified compartment.
    *
    * @param ListLocalPeeringGatewaysRequest
    * @return ListLocalPeeringGatewaysResponse
@@ -19541,9 +19559,10 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
-   * Lists the route tables in the specified VCN and specified compartment. The response
-   * includes the default route table that automatically comes with each VCN, plus any route tables
-   * you've created.
+   * Lists the route tables in the specified VCN and specified compartment.
+   * If the VCN ID is not provided, then the list includes the route tables from all VCNs in the specified compartment.
+   * The response includes the default route table that automatically comes with
+   * each VCN in the specified compartment, plus any route tables you've created.
    *
    * @param ListRouteTablesRequest
    * @return ListRouteTablesResponse
@@ -19633,6 +19652,7 @@ To list the ephemeral public IPs assigned to private IPs:
 
   /**
    * Lists the security lists in the specified VCN and compartment.
+   * If the VCN ID is not provided, then the list includes the security lists from all VCNs in the specified compartment.
    *
    * @param ListSecurityListsRequest
    * @return ListSecurityListsResponse
@@ -19896,6 +19916,7 @@ To list the ephemeral public IPs assigned to private IPs:
 
   /**
    * Lists the subnets in the specified VCN and the specified compartment.
+   * If the VCN ID is not provided, then the list includes the subnets from all VCNs in the specified compartment.
    *
    * @param ListSubnetsRequest
    * @return ListSubnetsResponse

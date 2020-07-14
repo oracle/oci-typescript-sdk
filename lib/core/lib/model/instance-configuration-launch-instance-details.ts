@@ -20,9 +20,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * See Instance launch details - {@link LaunchInstanceDetails}
- *
- */
+* Instance launch details for creating an instance from an instance configuration. Use the `sourceDetails`
+* parameter to specify whether a boot volume or an image should be used to launch a new instance.
+* <p>
+See {@link LaunchInstanceDetails} for more information.
+* 
+*/
 export interface InstanceConfigurationLaunchInstanceDetails {
   /**
     * The availability domain of the instance.
@@ -202,6 +205,10 @@ Dedicated VM hosts can be used when launching individual instances from an insta
    *
    */
   "launchMode"?: InstanceConfigurationLaunchInstanceDetails.LaunchMode;
+  /**
+   * Options for tuning the compatibility and performance of VM shapes. The values that you specify override any default values.
+   *
+   */
   "launchOptions"?: model.InstanceConfigurationLaunchOptions;
   "agentConfig"?: model.InstanceConfigurationLaunchInstanceAgentConfigDetails;
   /**

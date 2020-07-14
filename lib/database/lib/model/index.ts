@@ -46,6 +46,8 @@ import * as AutonomousDatabaseConnectionUrls from "./autonomous-database-connect
 export import AutonomousDatabaseConnectionUrls = AutonomousDatabaseConnectionUrls.AutonomousDatabaseConnectionUrls;
 import * as AutonomousDatabaseConsoleTokenDetails from "./autonomous-database-console-token-details";
 export import AutonomousDatabaseConsoleTokenDetails = AutonomousDatabaseConsoleTokenDetails.AutonomousDatabaseConsoleTokenDetails;
+import * as AutonomousDatabaseStandbySummary from "./autonomous-database-standby-summary";
+export import AutonomousDatabaseStandbySummary = AutonomousDatabaseStandbySummary.AutonomousDatabaseStandbySummary;
 import * as AutonomousDatabaseSummary from "./autonomous-database-summary";
 export import AutonomousDatabaseSummary = AutonomousDatabaseSummary.AutonomousDatabaseSummary;
 import * as AutonomousDatabaseWallet from "./autonomous-database-wallet";

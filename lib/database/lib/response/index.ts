@@ -94,6 +94,8 @@ import * as DownloadExadataInfrastructureConfigFileResponse from "./download-exa
 export import DownloadExadataInfrastructureConfigFileResponse = DownloadExadataInfrastructureConfigFileResponse.DownloadExadataInfrastructureConfigFileResponse;
 import * as DownloadVmClusterNetworkConfigFileResponse from "./download-vm-cluster-network-config-file-response";
 export import DownloadVmClusterNetworkConfigFileResponse = DownloadVmClusterNetworkConfigFileResponse.DownloadVmClusterNetworkConfigFileResponse;
+import * as FailOverAutonomousDatabaseResponse from "./fail-over-autonomous-database-response";
+export import FailOverAutonomousDatabaseResponse = FailOverAutonomousDatabaseResponse.FailOverAutonomousDatabaseResponse;
 import * as FailoverDataGuardAssociationResponse from "./failover-data-guard-association-response";
 export import FailoverDataGuardAssociationResponse = FailoverDataGuardAssociationResponse.FailoverDataGuardAssociationResponse;
 import * as GenerateAutonomousDataWarehouseWalletResponse from "./generate-autonomous-data-warehouse-wallet-response";
@@ -250,6 +252,8 @@ import * as StopAutonomousDataWarehouseResponse from "./stop-autonomous-data-war
 export import StopAutonomousDataWarehouseResponse = StopAutonomousDataWarehouseResponse.StopAutonomousDataWarehouseResponse;
 import * as StopAutonomousDatabaseResponse from "./stop-autonomous-database-response";
 export import StopAutonomousDatabaseResponse = StopAutonomousDatabaseResponse.StopAutonomousDatabaseResponse;
+import * as SwitchoverAutonomousDatabaseResponse from "./switchover-autonomous-database-response";
+export import SwitchoverAutonomousDatabaseResponse = SwitchoverAutonomousDatabaseResponse.SwitchoverAutonomousDatabaseResponse;
 import * as SwitchoverDataGuardAssociationResponse from "./switchover-data-guard-association-response";
 export import SwitchoverDataGuardAssociationResponse = SwitchoverDataGuardAssociationResponse.SwitchoverDataGuardAssociationResponse;
 import * as TerminateAutonomousContainerDatabaseResponse from "./terminate-autonomous-container-database-response";
