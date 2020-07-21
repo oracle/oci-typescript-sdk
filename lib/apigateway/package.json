@@ -1,6 +1,6 @@
 {
   "name": "oci-apigateway",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "OCI NodeJS client for API gateway service",
   "repository": {
     "type": "git",

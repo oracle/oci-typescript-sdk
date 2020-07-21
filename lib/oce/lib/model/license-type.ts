@@ -15,27 +15,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of the identity stripe used for OceInstance
- */
-export interface IdentityStripeDetails {
+ * license types can be NEW for new oracle content and experience cloud license,
+ * or BYOL for bring your own license
+ *
+ **/
+export enum LicenseType {
+  NEW = "NEW",
+  BYOL = "BYOL",
+
   /**
-   * Name of the Identity Cloud Service instance in My Services to be used.
-   * Example: `secondstripe`
-   *
+   * This value is used if a service returns a value for this enum that is not recognized by this
+   * version of the SDK.
    */
-  "serviceName": string;
-  /**
-   * Value of the Identity Cloud Service tenancy.
-   * Example: `idcs-8416ebdd0d674f84803f4193cce026e9`
-   *
-   */
-  "tenancy": string;
+  UNKNOWN_VALUE = "UNKNOWN_VALUE"
 }
 
-export namespace IdentityStripeDetails {
-  export function getJsonObj(obj: IdentityStripeDetails): object {
-    const jsonObj = { ...obj, ...{} };
-
-    return jsonObj;
+export namespace LicenseType {
+  export function getJsonObj(obj: LicenseType): object {
+    return { obj };
   }
 }
