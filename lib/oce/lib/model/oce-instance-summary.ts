@@ -77,6 +77,10 @@ export interface OceInstanceSummary {
    */
   "instanceAccessType"?: OceInstanceSummary.InstanceAccessType;
   /**
+   * Flag indicating whether the instance license is new cloud or bring your own license
+   */
+  "instanceLicenseType"?: model.LicenseType;
+  /**
    * The time the the OceInstance was created. An RFC3339 formatted datetime string
    */
   "timeCreated"?: Date;

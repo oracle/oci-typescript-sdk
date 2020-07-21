@@ -1,6 +1,6 @@
 {
   "name": "oci-objectstorage",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "OCI NodeJS client for ObjectStorage",
   "repository": {
     "type": "git",

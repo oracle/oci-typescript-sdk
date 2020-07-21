@@ -17,6 +17,8 @@ import * as CreateOceInstanceDetails from "./create-oce-instance-details";
 export import CreateOceInstanceDetails = CreateOceInstanceDetails.CreateOceInstanceDetails;
 import * as IdentityStripeDetails from "./identity-stripe-details";
 export import IdentityStripeDetails = IdentityStripeDetails.IdentityStripeDetails;
+import * as LicenseType from "./license-type";
+export import LicenseType = LicenseType.LicenseType;
 import * as OceInstance from "./oce-instance";
 export import OceInstance = OceInstance.OceInstance;
 import * as OceInstanceSummary from "./oce-instance-summary";
