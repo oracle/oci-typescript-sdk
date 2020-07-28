@@ -27,7 +27,7 @@ export interface UpdateGitlabAccessTokenConfigurationSourceProviderDetails
   extends model.UpdateConfigurationSourceProviderDetails {
   /**
    * The Git service API endpoint.
-   * Example: `https://gitlab.com/api/v3/`
+   * Example: `https://gitlab.com/api/v4/`
    *
    */
   "apiEndpoint"?: string;

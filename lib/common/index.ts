@@ -26,6 +26,7 @@ import {
 import { RequireOnlyOne, AuthParams } from "./lib/types";
 import { HttpRequest } from "./lib/http-request";
 import InstancePrincipalsAuthenticationDetailsProviderBuilder from "./lib/auth/instance-principals-authentication-detail-provider";
+import ResourcePrincipalAuthenticationDetailsProvider from "./lib/auth/resource-principal-authentication-details-provider";
 import {
   paginateRecords,
   genericPaginateRecords,
@@ -85,5 +86,6 @@ export {
   ConfigFileAuthenticationDetailsProvider,
   ConfigFileReader,
   InstancePrincipalsAuthenticationDetailsProviderBuilder,
+  ResourcePrincipalAuthenticationDetailsProvider,
   LOG
 };

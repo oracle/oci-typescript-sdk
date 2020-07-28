@@ -3984,6 +3984,71 @@ The `CaptureConsoleHistory` operation works with the other console history opera
   }
 
   /**
+   * Moves a compute image capability schema into a different compartment within the same tenancy.
+   * For information about moving resources between compartments, see
+   *         [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * @param ChangeComputeImageCapabilitySchemaCompartmentRequest
+   * @return ChangeComputeImageCapabilitySchemaCompartmentResponse
+   * @throws OciError when an error occurs
+   */
+  public async changeComputeImageCapabilitySchemaCompartment(
+    changeComputeImageCapabilitySchemaCompartmentRequest: requests.ChangeComputeImageCapabilitySchemaCompartmentRequest
+  ): Promise<responses.ChangeComputeImageCapabilitySchemaCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeClient#changeComputeImageCapabilitySchemaCompartment."
+      );
+    const pathParams = {
+      "{computeImageCapabilitySchemaId}":
+        changeComputeImageCapabilitySchemaCompartmentRequest.computeImageCapabilitySchemaId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "if-match": changeComputeImageCapabilitySchemaCompartmentRequest.ifMatch,
+      "opc-request-id": changeComputeImageCapabilitySchemaCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeComputeImageCapabilitySchemaCompartmentRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/computeImageCapabilitySchemas/{computeImageCapabilitySchemaId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeComputeImageCapabilitySchemaCompartmentRequest.changeComputeImageCapabilitySchemaCompartmentDetails,
+        "ChangeComputeImageCapabilitySchemaCompartmentDetails",
+        models.ChangeComputeImageCapabilitySchemaCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeComputeImageCapabilitySchemaCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
    * Moves a dedicated virtual machine host from one compartment to another.
    * @param ChangeDedicatedVmHostCompartmentRequest
    * @return ChangeDedicatedVmHostCompartmentResponse
@@ -4232,6 +4297,69 @@ When you move an instance to a different compartment, associated resources such 
         body: await response.json(),
         bodyKey: "appCatalogSubscription",
         bodyModel: "model.AppCatalogSubscription",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Creates compute image capability schema.
+   *
+   * @param CreateComputeImageCapabilitySchemaRequest
+   * @return CreateComputeImageCapabilitySchemaResponse
+   * @throws OciError when an error occurs
+   */
+  public async createComputeImageCapabilitySchema(
+    createComputeImageCapabilitySchemaRequest: requests.CreateComputeImageCapabilitySchemaRequest
+  ): Promise<responses.CreateComputeImageCapabilitySchemaResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#createComputeImageCapabilitySchema.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-retry-token": createComputeImageCapabilitySchemaRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeImageCapabilitySchemas",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createComputeImageCapabilitySchemaRequest.createComputeImageCapabilitySchemaDetails,
+        "CreateComputeImageCapabilitySchemaDetails",
+        models.CreateComputeImageCapabilitySchemaDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateComputeImageCapabilitySchemaResponse>{},
+        body: await response.json(),
+        bodyKey: "computeImageCapabilitySchema",
+        bodyModel: "model.ComputeImageCapabilitySchema",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4515,6 +4643,59 @@ For more information about console access, see [Accessing the Console](https://d
     if (response.status && response.status >= 200 && response.status <= 299) {
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAppCatalogSubscriptionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Deletes the specified Compute Image Capability Schema
+   *
+   * @param DeleteComputeImageCapabilitySchemaRequest
+   * @return DeleteComputeImageCapabilitySchemaResponse
+   * @throws OciError when an error occurs
+   */
+  public async deleteComputeImageCapabilitySchema(
+    deleteComputeImageCapabilitySchemaRequest: requests.DeleteComputeImageCapabilitySchemaRequest
+  ): Promise<responses.DeleteComputeImageCapabilitySchemaResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#deleteComputeImageCapabilitySchema.");
+    const pathParams = {
+      "{computeImageCapabilitySchemaId}":
+        deleteComputeImageCapabilitySchemaRequest.computeImageCapabilitySchemaId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "if-match": deleteComputeImageCapabilitySchemaRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeImageCapabilitySchemas/{computeImageCapabilitySchemaId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteComputeImageCapabilitySchemaResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5218,6 +5399,188 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
   }
 
   /**
+   * Gets the specified Compute Global Image Capability Schema
+   * @param GetComputeGlobalImageCapabilitySchemaRequest
+   * @return GetComputeGlobalImageCapabilitySchemaResponse
+   * @throws OciError when an error occurs
+   */
+  public async getComputeGlobalImageCapabilitySchema(
+    getComputeGlobalImageCapabilitySchemaRequest: requests.GetComputeGlobalImageCapabilitySchemaRequest
+  ): Promise<responses.GetComputeGlobalImageCapabilitySchemaResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#getComputeGlobalImageCapabilitySchema.");
+    const pathParams = {
+      "{computeGlobalImageCapabilitySchemaId}":
+        getComputeGlobalImageCapabilitySchemaRequest.computeGlobalImageCapabilitySchemaId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {};
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeGlobalImageCapabilitySchemas/{computeGlobalImageCapabilitySchemaId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetComputeGlobalImageCapabilitySchemaResponse>{},
+        body: await response.json(),
+        bodyKey: "computeGlobalImageCapabilitySchema",
+        bodyModel: "model.ComputeGlobalImageCapabilitySchema",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Gets the specified Compute Global Image Capability Schema Version
+   * @param GetComputeGlobalImageCapabilitySchemaVersionRequest
+   * @return GetComputeGlobalImageCapabilitySchemaVersionResponse
+   * @throws OciError when an error occurs
+   */
+  public async getComputeGlobalImageCapabilitySchemaVersion(
+    getComputeGlobalImageCapabilitySchemaVersionRequest: requests.GetComputeGlobalImageCapabilitySchemaVersionRequest
+  ): Promise<responses.GetComputeGlobalImageCapabilitySchemaVersionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeClient#getComputeGlobalImageCapabilitySchemaVersion."
+      );
+    const pathParams = {
+      "{computeGlobalImageCapabilitySchemaId}":
+        getComputeGlobalImageCapabilitySchemaVersionRequest.computeGlobalImageCapabilitySchemaId,
+      "{computeGlobalImageCapabilitySchemaVersionName}":
+        getComputeGlobalImageCapabilitySchemaVersionRequest.computeGlobalImageCapabilitySchemaVersionName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {};
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/computeGlobalImageCapabilitySchemas/{computeGlobalImageCapabilitySchemaId}/versions/{computeGlobalImageCapabilitySchemaVersionName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetComputeGlobalImageCapabilitySchemaVersionResponse>{},
+        body: await response.json(),
+        bodyKey: "computeGlobalImageCapabilitySchemaVersion",
+        bodyModel: "model.ComputeGlobalImageCapabilitySchemaVersion",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Gets the specified Compute Image Capability Schema
+   *
+   * @param GetComputeImageCapabilitySchemaRequest
+   * @return GetComputeImageCapabilitySchemaResponse
+   * @throws OciError when an error occurs
+   */
+  public async getComputeImageCapabilitySchema(
+    getComputeImageCapabilitySchemaRequest: requests.GetComputeImageCapabilitySchemaRequest
+  ): Promise<responses.GetComputeImageCapabilitySchemaResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#getComputeImageCapabilitySchema.");
+    const pathParams = {
+      "{computeImageCapabilitySchemaId}":
+        getComputeImageCapabilitySchemaRequest.computeImageCapabilitySchemaId
+    };
+
+    const queryParams = {
+      "isMergeEnabled": getComputeImageCapabilitySchemaRequest.isMergeEnabled
+    };
+
+    let headerParams = {};
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeImageCapabilitySchemas/{computeImageCapabilitySchemaId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetComputeImageCapabilitySchemaResponse>{},
+        body: await response.json(),
+        bodyKey: "computeImageCapabilitySchema",
+        bodyModel: "model.ComputeImageCapabilitySchema",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
    * Shows the metadata for the specified console history.
    * See {@link #captureConsoleHistory(CaptureConsoleHistoryRequest) captureConsoleHistory}
    * for details about using the console history operations.
@@ -5894,12 +6257,12 @@ When you launch an instance, it is automatically attached to a virtual
 You can later add secondary VNICs to an instance. For more information, see
 * [Virtual Network Interface Cards (VNICs)](https://docs.cloud.oracle.com/Content/Network/Tasks/managingVNICs.htm).
 * <p>
-To launch an instance from a Marketplace image listing, you must provide the image ID of the 
-* listing resource version that you want, but you also must subscribe to the listing before you try 
-* to launch the instance. To subscribe to the listing, use the {@link #getAppCatalogListingAgreements(GetAppCatalogListingAgreementsRequest) getAppCatalogListingAgreements} 
-* operation to get the signature for the terms of use agreement for the desired listing resource version.  
-* Then, call {@link #createAppCatalogSubscription(CreateAppCatalogSubscriptionRequest) createAppCatalogSubscription} 
-* with the signature. To get the image ID for the LaunchInstance operation, call 
+To launch an instance from a Marketplace image listing, you must provide the image ID of the
+* listing resource version that you want, but you also must subscribe to the listing before you try
+* to launch the instance. To subscribe to the listing, use the {@link #getAppCatalogListingAgreements(GetAppCatalogListingAgreementsRequest) getAppCatalogListingAgreements}
+* operation to get the signature for the terms of use agreement for the desired listing resource version.
+* Then, call {@link #createAppCatalogSubscription(CreateAppCatalogSubscriptionRequest) createAppCatalogSubscription}
+* with the signature. To get the image ID for the LaunchInstance operation, call
 * {@link #getAppCatalogListingResourceVersion(GetAppCatalogListingResourceVersionRequest) getAppCatalogListingResourceVersion}.
 * 
      * @param LaunchInstanceRequest
@@ -6317,6 +6680,279 @@ To launch an instance from a Marketplace image listing, you must provide the ima
     request: requests.ListBootVolumeAttachmentsRequest
   ): AsyncIterableIterator<responses.ListBootVolumeAttachmentsResponse> {
     return paginateResponses(request, req => this.listBootVolumeAttachments(req));
+  }
+
+  /**
+   * Lists Compute Global Image Capability Schema versions in the specified compartment.
+   *
+   * @param ListComputeGlobalImageCapabilitySchemaVersionsRequest
+   * @return ListComputeGlobalImageCapabilitySchemaVersionsResponse
+   * @throws OciError when an error occurs
+   */
+  public async listComputeGlobalImageCapabilitySchemaVersions(
+    listComputeGlobalImageCapabilitySchemaVersionsRequest: requests.ListComputeGlobalImageCapabilitySchemaVersionsRequest
+  ): Promise<responses.ListComputeGlobalImageCapabilitySchemaVersionsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeClient#listComputeGlobalImageCapabilitySchemaVersions."
+      );
+    const pathParams = {
+      "{computeGlobalImageCapabilitySchemaId}":
+        listComputeGlobalImageCapabilitySchemaVersionsRequest.computeGlobalImageCapabilitySchemaId
+    };
+
+    const queryParams = {
+      "displayName": listComputeGlobalImageCapabilitySchemaVersionsRequest.displayName,
+      "limit": listComputeGlobalImageCapabilitySchemaVersionsRequest.limit,
+      "page": listComputeGlobalImageCapabilitySchemaVersionsRequest.page,
+      "sortBy": listComputeGlobalImageCapabilitySchemaVersionsRequest.sortBy,
+      "sortOrder": listComputeGlobalImageCapabilitySchemaVersionsRequest.sortOrder
+    };
+
+    let headerParams = {};
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeGlobalImageCapabilitySchemas/{computeGlobalImageCapabilitySchemaId}/versions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListComputeGlobalImageCapabilitySchemaVersionsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "ComputeGlobalImageCapabilitySchemaVersionSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ComputeGlobalImageCapabilitySchemaVersionSummary objects
+   * contained in responses from the listComputeGlobalImageCapabilitySchemaVersions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllComputeGlobalImageCapabilitySchemaVersions(
+    request: requests.ListComputeGlobalImageCapabilitySchemaVersionsRequest
+  ): AsyncIterableIterator<models.ComputeGlobalImageCapabilitySchemaVersionSummary> {
+    return paginateRecords(request, req =>
+      this.listComputeGlobalImageCapabilitySchemaVersions(req)
+    );
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listComputeGlobalImageCapabilitySchemaVersions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllComputeGlobalImageCapabilitySchemaVersionsResponses(
+    request: requests.ListComputeGlobalImageCapabilitySchemaVersionsRequest
+  ): AsyncIterableIterator<responses.ListComputeGlobalImageCapabilitySchemaVersionsResponse> {
+    return paginateResponses(request, req =>
+      this.listComputeGlobalImageCapabilitySchemaVersions(req)
+    );
+  }
+
+  /**
+   * Lists Compute Global Image Capability Schema in the specified compartment.
+   *
+   * @param ListComputeGlobalImageCapabilitySchemasRequest
+   * @return ListComputeGlobalImageCapabilitySchemasResponse
+   * @throws OciError when an error occurs
+   */
+  public async listComputeGlobalImageCapabilitySchemas(
+    listComputeGlobalImageCapabilitySchemasRequest: requests.ListComputeGlobalImageCapabilitySchemasRequest
+  ): Promise<responses.ListComputeGlobalImageCapabilitySchemasResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listComputeGlobalImageCapabilitySchemas.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listComputeGlobalImageCapabilitySchemasRequest.compartmentId,
+      "displayName": listComputeGlobalImageCapabilitySchemasRequest.displayName,
+      "limit": listComputeGlobalImageCapabilitySchemasRequest.limit,
+      "page": listComputeGlobalImageCapabilitySchemasRequest.page,
+      "sortBy": listComputeGlobalImageCapabilitySchemasRequest.sortBy,
+      "sortOrder": listComputeGlobalImageCapabilitySchemasRequest.sortOrder
+    };
+
+    let headerParams = {};
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeGlobalImageCapabilitySchemas",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListComputeGlobalImageCapabilitySchemasResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "ComputeGlobalImageCapabilitySchemaSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ComputeGlobalImageCapabilitySchemaSummary objects
+   * contained in responses from the listComputeGlobalImageCapabilitySchemas operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllComputeGlobalImageCapabilitySchemas(
+    request: requests.ListComputeGlobalImageCapabilitySchemasRequest
+  ): AsyncIterableIterator<models.ComputeGlobalImageCapabilitySchemaSummary> {
+    return paginateRecords(request, req => this.listComputeGlobalImageCapabilitySchemas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listComputeGlobalImageCapabilitySchemas operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllComputeGlobalImageCapabilitySchemasResponses(
+    request: requests.ListComputeGlobalImageCapabilitySchemasRequest
+  ): AsyncIterableIterator<responses.ListComputeGlobalImageCapabilitySchemasResponse> {
+    return paginateResponses(request, req => this.listComputeGlobalImageCapabilitySchemas(req));
+  }
+
+  /**
+   * Lists Compute Image Capability Schema in the specified compartment. You can also query by a specific imageId.
+   *
+   * @param ListComputeImageCapabilitySchemasRequest
+   * @return ListComputeImageCapabilitySchemasResponse
+   * @throws OciError when an error occurs
+   */
+  public async listComputeImageCapabilitySchemas(
+    listComputeImageCapabilitySchemasRequest: requests.ListComputeImageCapabilitySchemasRequest
+  ): Promise<responses.ListComputeImageCapabilitySchemasResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listComputeImageCapabilitySchemas.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listComputeImageCapabilitySchemasRequest.compartmentId,
+      "imageId": listComputeImageCapabilitySchemasRequest.imageId,
+      "displayName": listComputeImageCapabilitySchemasRequest.displayName,
+      "limit": listComputeImageCapabilitySchemasRequest.limit,
+      "page": listComputeImageCapabilitySchemasRequest.page,
+      "sortBy": listComputeImageCapabilitySchemasRequest.sortBy,
+      "sortOrder": listComputeImageCapabilitySchemasRequest.sortOrder
+    };
+
+    let headerParams = {};
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeImageCapabilitySchemas",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListComputeImageCapabilitySchemasResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "ComputeImageCapabilitySchemaSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ComputeImageCapabilitySchemaSummary objects
+   * contained in responses from the listComputeImageCapabilitySchemas operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllComputeImageCapabilitySchemas(
+    request: requests.ListComputeImageCapabilitySchemasRequest
+  ): AsyncIterableIterator<models.ComputeImageCapabilitySchemaSummary> {
+    return paginateRecords(request, req => this.listComputeImageCapabilitySchemas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listComputeImageCapabilitySchemas operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllComputeImageCapabilitySchemasResponses(
+    request: requests.ListComputeImageCapabilitySchemasRequest
+  ): AsyncIterableIterator<responses.ListComputeImageCapabilitySchemasResponse> {
+    return paginateResponses(request, req => this.listComputeImageCapabilitySchemas(req));
   }
 
   /**
@@ -7585,6 +8221,72 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
       const sdkResponse = composeResponse({
         responseObject: <responses.TerminateInstanceResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+
+  /**
+   * Updates the specified Compute Image Capability Schema
+   *
+   * @param UpdateComputeImageCapabilitySchemaRequest
+   * @return UpdateComputeImageCapabilitySchemaResponse
+   * @throws OciError when an error occurs
+   */
+  public async updateComputeImageCapabilitySchema(
+    updateComputeImageCapabilitySchemaRequest: requests.UpdateComputeImageCapabilitySchemaRequest
+  ): Promise<responses.UpdateComputeImageCapabilitySchemaResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#updateComputeImageCapabilitySchema.");
+    const pathParams = {
+      "{computeImageCapabilitySchemaId}":
+        updateComputeImageCapabilitySchemaRequest.computeImageCapabilitySchemaId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "if-match": updateComputeImageCapabilitySchemaRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeImageCapabilitySchemas/{computeImageCapabilitySchemaId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateComputeImageCapabilitySchemaRequest.updateComputeImageCapabilitySchemaDetails,
+        "UpdateComputeImageCapabilitySchemaDetails",
+        models.UpdateComputeImageCapabilitySchemaDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const response = await this._httpClient.send(request);
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateComputeImageCapabilitySchemaResponse>{},
+        body: await response.json(),
+        bodyKey: "computeImageCapabilitySchema",
+        bodyModel: "model.ComputeImageCapabilitySchema",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",

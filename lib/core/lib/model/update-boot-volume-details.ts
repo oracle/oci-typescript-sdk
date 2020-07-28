@@ -59,6 +59,11 @@ Allowed values:
 * 
     */
   "vpusPerGB"?: number;
+  /**
+   * Specifies whether the auto-tune performance is enabled for this boot volume.
+   *
+   */
+  "isAutoTuneEnabled"?: boolean;
 }
 
 export namespace UpdateBootVolumeDetails {

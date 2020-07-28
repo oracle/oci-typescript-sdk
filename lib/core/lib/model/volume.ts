@@ -125,6 +125,16 @@ Allowed values:
    * The OCID of the source volume group.
    */
   "volumeGroupId"?: string;
+  /**
+   * Specifies whether the auto-tune performance is enabled for this volume.
+   *
+   */
+  "isAutoTuneEnabled"?: boolean;
+  /**
+   * The number of Volume Performance Units per GB that this volume is effectively tuned to when it's idle.
+   *
+   */
+  "autoTunedVpusPerGB"?: number;
 }
 
 export namespace Volume {

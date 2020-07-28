@@ -132,6 +132,16 @@ Allowed values:
    * The OCID of the Key Management master encryption key assigned to the boot volume.
    */
   "kmsKeyId"?: string;
+  /**
+   * Specifies whether the auto-tune performance is enabled for this boot volume.
+   *
+   */
+  "isAutoTuneEnabled"?: boolean;
+  /**
+   * The number of Volume Performance Units per GB that this boot volume is effectively tuned to when it's idle.
+   *
+   */
+  "autoTunedVpusPerGB"?: number;
 }
 
 export namespace BootVolume {

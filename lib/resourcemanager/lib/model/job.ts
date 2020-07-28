@@ -86,12 +86,14 @@ export interface Job {
   "lifecycleState"?: Job.LifecycleState;
   "failureDetails"?: model.FailureDetails;
   /**
-   * The file path to the directory within the configuration from which the job runs.
+   * File path to the directory from which Terraform runs.
+   * If not specified, the root directory is used.
+   *
    */
   "workingDirectory"?: string;
   /**
    * Terraform variables associated with this resource.
-   * Maximum number of variables supported is 100.
+   * Maximum number of variables supported is 250.
    * The maximum size of each variable, including both name and value, is 4096 bytes.
    * Example: `{\"CompartmentId\": \"compartment-id-value\"}`
    *

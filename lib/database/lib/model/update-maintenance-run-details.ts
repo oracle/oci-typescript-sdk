@@ -28,6 +28,10 @@ export interface UpdateMaintenanceRunDetails {
    * The scheduled date and time of the Maintenance Run to update.
    */
   "timeScheduled"?: Date;
+  /**
+   * If set to `TRUE`, starts patching immediately.
+   */
+  "isPatchNowEnabled"?: boolean;
 }
 
 export namespace UpdateMaintenanceRunDetails {

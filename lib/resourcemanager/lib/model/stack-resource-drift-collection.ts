@@ -26,7 +26,7 @@ export interface StackResourceDriftCollection {
   /**
    * Collection of drift status details for all resources defined in the stack.
    */
-  "items"?: Array<model.StackResourceDriftSummary>;
+  "items": Array<model.StackResourceDriftSummary>;
 }
 
 export namespace StackResourceDriftCollection {
