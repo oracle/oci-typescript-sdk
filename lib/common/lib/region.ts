@@ -47,7 +47,8 @@ export class Region {
     "luf": "us-luke-1",
     "ric": "us-gov-ashburn-1",
     "pia": "us-gov-chicago-1",
-    "tus": "us-gov-phoenix-1"
+    "tus": "us-gov-phoenix-1",
+    "sjc": "us-sanjose-1"
   };
 
   private static KNOWN_REGIONS: Map<string, Region> = new Map();
@@ -77,6 +78,7 @@ export class Region {
   public static US_PHOENIX_1: Region = Region.register("us-phoenix-1", Realm.OC1);
   public static EU_AMSTERDAM_1: Region = Region.register("eu-amsterdam-1", Realm.OC1);
   public static ME_JEDDAH_1: Region = Region.register("me-jeddah-1", Realm.OC1);
+  public static US_SANJOSE_1: Region = Region.register("us-sanjose-1", Realm.OC1);
 
   // OC2
   public static US_LANGLEY_1: Region = Region.register("us-langley-1", Realm.OC2);
@@ -117,7 +119,7 @@ export class Region {
 
   /**
    * Function to get regionId based regionStr: regionStr can be a short code or regionId
-   * if it is a regionStr then we want to return the corresponding regionId
+   * if it is a shortCode then we want to return the corresponding regionId
    * @param regionStr
    * @return regionId
    */

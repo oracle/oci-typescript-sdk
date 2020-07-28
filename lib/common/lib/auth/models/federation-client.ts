@@ -6,6 +6,8 @@
 /**
  * Defines a basic interface for a federation endpoint that provides
  * a security token for authentication.
+ * NOTE: Some class that implements this interface may not be async in nature. But
+ * since some class's method are async, keep it consistent by making it async.
  */
 
 export default interface FederationClient {

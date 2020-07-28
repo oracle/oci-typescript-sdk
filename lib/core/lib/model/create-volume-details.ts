@@ -104,6 +104,11 @@ Allowed values:
    *
    */
   "volumeBackupId"?: string;
+  /**
+   * Specifies whether the auto-tune performance is enabled for this volume.
+   *
+   */
+  "isAutoTuneEnabled"?: boolean;
 }
 
 export namespace CreateVolumeDetails {

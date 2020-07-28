@@ -61,6 +61,11 @@ Allowed values:
    * The size to resize the volume to in GBs. Has to be larger than the current size.
    */
   "sizeInGBs"?: number;
+  /**
+   * Specifies whether the auto-tune performance is enabled for this volume.
+   *
+   */
+  "isAutoTuneEnabled"?: boolean;
 }
 
 export namespace UpdateVolumeDetails {

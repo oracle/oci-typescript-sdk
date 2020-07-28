@@ -8,7 +8,6 @@ import { getStringFromRequestBody } from "./helper";
 import jssha = require("jssha");
 import { parsePrivateKey } from "sshpk";
 import UrlParser = require("url");
-import { Readable } from "stream";
 import { Method } from "./request-generator";
 import { HttpRequest } from "./http-request";
 

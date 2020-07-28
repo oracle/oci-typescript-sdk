@@ -19,7 +19,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Properties provided for creating a stack.
+ * The configuration details for creating a stack.
+ *
  */
 export interface CreateStackDetails {
   /**
@@ -37,7 +38,7 @@ export interface CreateStackDetails {
   "configSource": model.CreateZipUploadConfigSourceDetails | model.CreateGitConfigSourceDetails;
   /**
    * Terraform variables associated with this resource.
-   * Maximum number of variables supported is 100.
+   * Maximum number of variables supported is 250.
    * The maximum size of each variable, including both name and value, is 4096 bytes.
    * Example: `{\"CompartmentId\": \"compartment-id-value\"}`
    *

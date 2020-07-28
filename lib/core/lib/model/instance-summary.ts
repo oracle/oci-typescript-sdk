@@ -40,7 +40,7 @@ export interface InstanceSummary {
    */
   "displayName"?: string;
   /**
-   * The name of the Fault Domain the instance is running in.
+   * The fault domain the instance is running in.
    */
   "faultDomain"?: string;
   /**
