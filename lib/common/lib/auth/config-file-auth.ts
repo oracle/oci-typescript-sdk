@@ -17,7 +17,6 @@ import { Realm } from "../realm";
 export class ConfigFileAuthenticationDetailsProvider
   implements AuthenticationDetailsProvider, RegionProvider {
   private delegate: SimpleAuthenticationDetailsProvider;
-
   /**
    * Creates a new instance using the config file at the default location,
    * see {@link ConfigFileReader#DEFAULT_FILE_PATH}.
@@ -40,28 +39,44 @@ export class ConfigFileAuthenticationDetailsProvider
     }
   }
 
+  /**
+   * Get a region based on regionId, if corresponding region is not found from regionId,
+   * create a new region by registering regionId with Realm.OC1
+   *
+   * @param regionId: string
+   * @param region: any
+   * @return: Region
+   */
+  retrieveRegionFromRegionId(regionId: string): Region {
+    let region: Region;
+    try {
+      return (region = Region.fromRegionId(regionId));
+    } catch (e) {
+      console.warn(
+        `Found regionId ${regionId} in config file, but not supported by this version of the SDK`
+      );
+      // Proceed by assuming the region id in the config file belongs to OC1 realm.
+      return (region = Region.register(regionId, Realm.OC1));
+    }
+  }
+
   createConfigFileAuth(file: ConfigFile): SimpleAuthenticationDetailsProvider {
     const fingerprint = checkNotNull(file.get("fingerprint"), "missing fingerprint in config");
     const tenantId = checkNotNull(file.get("tenancy"), "missing tenancy in config");
     const user = checkNotNull(file.get("user"), "missing user in config");
     const pemFilePath = checkNotNull(file.get("key_file"), "missing key_file in config");
     const passPhrase = file.get("pass_phrase");
-
     const privateKey = this.getPvtKey(ConfigFileReader.expandUserHome(pemFilePath));
     let region = null;
-    const regionId = file.get("region");
-    if (regionId !== null) {
-      try {
-        region = Region.fromRegionId(regionId);
-      } catch (e) {
-        console.warn(
-          `Found regionId ${regionId} in config file, but not supported by this version of the SDK`
-        );
-        // Proceed by assuming the region id in the config file belongs to OC1 realm.
-        region = Region.register(regionId, Realm.OC1);
-      }
+    const regionEnvVar = process.env.OCI_REGION;
+    let regionId = file.get("region") || regionEnvVar;
+
+    if (regionId) {
+      region = this.retrieveRegionFromRegionId(regionId!);
     } else {
-      throw Error("Region not specified in Config file. Can not proceed without setting a region.");
+      throw Error(
+        "Region not specified in Config file or OCI_REGION env variable. Can not proceed without setting a region."
+      );
     }
 
     return new SimpleAuthenticationDetailsProvider(

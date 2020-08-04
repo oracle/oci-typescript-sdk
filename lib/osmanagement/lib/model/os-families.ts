@@ -20,15 +20,15 @@ import common = require("oci-common");
  * Operating System types
  **/
 export enum OsFamilies {
-  LINUX = "LINUX",
-  WINDOWS = "WINDOWS",
-  ALL = "ALL",
+  Linux = "LINUX",
+  Windows = "WINDOWS",
+  All = "ALL",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace OsFamilies {

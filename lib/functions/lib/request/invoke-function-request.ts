@@ -14,7 +14,7 @@
 import * as model from "../model";
 import common = require("oci-common");
 import stream = require("stream");
-export interface InvokeFunctionRequest {
+export interface InvokeFunctionRequest extends common.BaseRequest {
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of this function.
    *

@@ -42,17 +42,16 @@ export interface WorkRequestResource {
 
 export namespace WorkRequestResource {
   export enum ActionType {
-    CREATED = "CREATED",
-    UPDATED = "UPDATED",
-    DELETED = "DELETED",
-    INPROGRESS = "IN_PROGRESS",
-    FAILED = "FAILED",
-
+    Created = "CREATED",
+    Updated = "UPDATED",
+    Deleted = "DELETED",
+    InProgress = "IN_PROGRESS",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: WorkRequestResource): object {

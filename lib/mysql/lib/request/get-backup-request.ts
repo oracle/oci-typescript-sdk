@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetBackupRequest {
+export interface GetBackupRequest extends common.BaseRequest {
   /**
    * The OCID of the Backup
    */

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListRulesRequest {
+export interface ListRulesRequest extends common.BaseRequest {
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to which this rule belongs.
    *
@@ -76,13 +76,13 @@ Default: `timeCreated`
 
 export namespace ListRulesRequest {
   export enum SortBy {
-    TIMECREATED = "TIME_CREATED",
-    ID = "ID",
-    DISPLAYNAME = "DISPLAY_NAME"
+    TimeCreated = "TIME_CREATED",
+    Id = "ID",
+    DisplayName = "DISPLAY_NAME"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

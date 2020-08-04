@@ -154,31 +154,29 @@ export interface SteeringPolicy {
 
 export namespace SteeringPolicy {
   export enum Template {
-    FAILOVER = "FAILOVER",
-    LOADBALANCE = "LOAD_BALANCE",
-    ROUTEBYGEO = "ROUTE_BY_GEO",
-    ROUTEBYASN = "ROUTE_BY_ASN",
-    ROUTEBYIP = "ROUTE_BY_IP",
-    CUSTOM = "CUSTOM",
-
+    Failover = "FAILOVER",
+    LoadBalance = "LOAD_BALANCE",
+    RouteByGeo = "ROUTE_BY_GEO",
+    RouteByAsn = "ROUTE_BY_ASN",
+    RouteByIp = "ROUTE_BY_IP",
+    Custom = "CUSTOM",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LifecycleState {
-    ACTIVE = "ACTIVE",
-    CREATING = "CREATING",
-    DELETED = "DELETED",
-    DELETING = "DELETING",
-
+    Active = "ACTIVE",
+    Creating = "CREATING",
+    Deleted = "DELETED",
+    Deleting = "DELETING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: SteeringPolicy): object {

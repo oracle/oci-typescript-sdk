@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface DeleteTagDefaultRequest {
+export interface DeleteTagDefaultRequest extends common.BaseRequest {
   /**
    * The OCID of the tag default.
    */

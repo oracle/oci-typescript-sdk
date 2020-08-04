@@ -15,30 +15,30 @@ import * as model from "../model";
 import common = require("oci-common");
 
 export enum ErrorCode {
-  CONTENT_EMPTY = "CONTENT_EMPTY",
-  CLIENT_EXCEPTION = "CLIENT_EXCEPTION",
-  INVALID_FORMAT = "INVALID_FORMAT",
-  INVALID_JSON_INPUT = "INVALID_JSON_INPUT",
-  SSL_AUTHORIZATION = "SSL_AUTHORIZATION",
-  AUTH_FAILED = "AUTH_FAILED",
-  CSI_NOT_AUTHORIZED = "CSI_NOT_AUTHORIZED",
-  USER_POLICY_NOT_AUTHORIZED = "USER_POLICY_NOT_AUTHORIZED",
-  EMAIL_NOT_VERIFIED = "EMAIL_NOT_VERIFIED",
-  EMAIL_NOT_FOUND = "EMAIL_NOT_FOUND",
-  IDCS_EMAIL_NOT_VALID = "IDCS_EMAIL_NOT_VALID",
-  INVALID_PATH = "INVALID_PATH",
-  METHOD_NOT_ALLOWED = "METHOD_NOT_ALLOWED",
-  JSON_PROCESSING = "JSON_PROCESSING",
-  GENERIC_EXCEPTION = "GENERIC_EXCEPTION",
-  EXTERNAL_SERVICE_PROVIDER_UNAVAILABLE = "EXTERNAL_SERVICE_PROVIDER_UNAVAILABLE",
-  EXTERNAL_SERVICE_PROVIDER_TIMEOUT = "EXTERNAL_SERVICE_PROVIDER_TIMEOUT",
-  TOO_MANY_REQUESTS = "TOO_MANY_REQUESTS",
+  ContentEmpty = "CONTENT_EMPTY",
+  ClientException = "CLIENT_EXCEPTION",
+  InvalidFormat = "INVALID_FORMAT",
+  InvalidJsonInput = "INVALID_JSON_INPUT",
+  SslAuthorization = "SSL_AUTHORIZATION",
+  AuthFailed = "AUTH_FAILED",
+  CsiNotAuthorized = "CSI_NOT_AUTHORIZED",
+  UserPolicyNotAuthorized = "USER_POLICY_NOT_AUTHORIZED",
+  EmailNotVerified = "EMAIL_NOT_VERIFIED",
+  EmailNotFound = "EMAIL_NOT_FOUND",
+  IdcsEmailNotValid = "IDCS_EMAIL_NOT_VALID",
+  InvalidPath = "INVALID_PATH",
+  MethodNotAllowed = "METHOD_NOT_ALLOWED",
+  JsonProcessing = "JSON_PROCESSING",
+  GenericException = "GENERIC_EXCEPTION",
+  ExternalServiceProviderUnavailable = "EXTERNAL_SERVICE_PROVIDER_UNAVAILABLE",
+  ExternalServiceProviderTimeout = "EXTERNAL_SERVICE_PROVIDER_TIMEOUT",
+  TooManyRequests = "TOO_MANY_REQUESTS",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace ErrorCode {

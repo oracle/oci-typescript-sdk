@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetCpeRequest {
+export interface GetCpeRequest extends common.BaseRequest {
   /**
    * The OCID of the CPE.
    */

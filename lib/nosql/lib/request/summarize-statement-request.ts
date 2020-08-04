@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface SummarizeStatementRequest {
+export interface SummarizeStatementRequest extends common.BaseRequest {
   /**
    * The ID of a table's compartment.
    */

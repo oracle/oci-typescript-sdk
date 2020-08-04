@@ -50,20 +50,19 @@ Example: `2017-06-02T18:28:11+00:00`
 
 export namespace HealthCheckResult {
   export enum HealthCheckStatus {
-    OK = "OK",
-    INVALIDSTATUSCODE = "INVALID_STATUS_CODE",
-    TIMEDOUT = "TIMED_OUT",
-    REGEXMISMATCH = "REGEX_MISMATCH",
-    CONNECTFAILED = "CONNECT_FAILED",
-    IOERROR = "IO_ERROR",
-    OFFLINE = "OFFLINE",
-    UNKNOWN = "UNKNOWN",
-
+    Ok = "OK",
+    InvalidStatusCode = "INVALID_STATUS_CODE",
+    TimedOut = "TIMED_OUT",
+    RegexMismatch = "REGEX_MISMATCH",
+    ConnectFailed = "CONNECT_FAILED",
+    IoError = "IO_ERROR",
+    Offline = "OFFLINE",
+    Unknown = "UNKNOWN",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: HealthCheckResult): object {

@@ -62,17 +62,16 @@ export interface SecretBundle {
 
 export namespace SecretBundle {
   export enum Stages {
-    CURRENT = "CURRENT",
-    PENDING = "PENDING",
-    LATEST = "LATEST",
-    PREVIOUS = "PREVIOUS",
-    DEPRECATED = "DEPRECATED",
-
+    Current = "CURRENT",
+    Pending = "PENDING",
+    Latest = "LATEST",
+    Previous = "PREVIOUS",
+    Deprecated = "DEPRECATED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: SecretBundle): object {

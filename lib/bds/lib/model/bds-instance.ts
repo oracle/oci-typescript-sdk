@@ -101,32 +101,31 @@ export interface BdsInstance {
 
 export namespace BdsInstance {
   export enum LifecycleState {
-    CREATING = "CREATING",
-    ACTIVE = "ACTIVE",
-    UPDATING = "UPDATING",
-    SUSPENDING = "SUSPENDING",
-    SUSPENDED = "SUSPENDED",
-    RESUMING = "RESUMING",
-    DELETING = "DELETING",
-    DELETED = "DELETED",
-    FAILED = "FAILED",
-
+    Creating = "CREATING",
+    Active = "ACTIVE",
+    Updating = "UPDATING",
+    UpdatingInfra = "UPDATING_INFRA",
+    Suspending = "SUSPENDING",
+    Suspended = "SUSPENDED",
+    Resuming = "RESUMING",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum ClusterVersion {
-    CDH5 = "CDH5",
-    CDH6 = "CDH6",
-
+    Cdh5 = "CDH5",
+    Cdh6 = "CDH6",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: BdsInstance): object {

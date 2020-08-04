@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface AttachParentSoftwareSourceToManagedInstanceRequest {
+export interface AttachParentSoftwareSourceToManagedInstanceRequest extends common.BaseRequest {
   /**
    * OCID for the managed instance
    */

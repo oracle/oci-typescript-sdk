@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListConnectHarnessesRequest {
+export interface ListConnectHarnessesRequest extends common.BaseRequest {
   /**
    * The OCID of the compartment.
    */
@@ -61,12 +61,12 @@ export interface ListConnectHarnessesRequest {
 
 export namespace ListConnectHarnessesRequest {
   export enum SortBy {
-    NAME = "NAME",
-    TIMECREATED = "TIMECREATED"
+    Name = "NAME",
+    Timecreated = "TIMECREATED"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

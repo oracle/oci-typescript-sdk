@@ -41,7 +41,7 @@ export class MonitoringWaiter {
       this.config,
       () => this.client.getAlarm(request),
       response => targetStates.exists(response.alarm.lifecycleState),
-      targetStates.includes(models.Alarm.LifecycleState.DELETED)
+      targetStates.includes(models.Alarm.LifecycleState.Deleted)
     );
   }
 }

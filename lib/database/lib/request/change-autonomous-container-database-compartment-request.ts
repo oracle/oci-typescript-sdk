@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ChangeAutonomousContainerDatabaseCompartmentRequest {
+export interface ChangeAutonomousContainerDatabaseCompartmentRequest extends common.BaseRequest {
   /**
    * Request to move Autonomous Container Database to a different compartment
    */

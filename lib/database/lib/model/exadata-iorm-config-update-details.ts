@@ -36,11 +36,11 @@ export interface ExadataIormConfigUpdateDetails {
 
 export namespace ExadataIormConfigUpdateDetails {
   export enum Objective {
-    LOWLATENCY = "LOW_LATENCY",
-    HIGHTHROUGHPUT = "HIGH_THROUGHPUT",
-    BALANCED = "BALANCED",
-    AUTO = "AUTO",
-    BASIC = "BASIC"
+    LowLatency = "LOW_LATENCY",
+    HighThroughput = "HIGH_THROUGHPUT",
+    Balanced = "BALANCED",
+    Auto = "AUTO",
+    Basic = "BASIC"
   }
 
   export function getJsonObj(obj: ExadataIormConfigUpdateDetails): object {

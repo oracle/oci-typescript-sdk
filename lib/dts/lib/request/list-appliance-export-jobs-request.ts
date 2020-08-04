@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListApplianceExportJobsRequest {
+export interface ListApplianceExportJobsRequest extends common.BaseRequest {
   /**
    * compartment id
    */
@@ -52,12 +52,12 @@ Example: `50`
 
 export namespace ListApplianceExportJobsRequest {
   export enum LifecycleState {
-    CREATING = "CREATING",
-    ACTIVE = "ACTIVE",
-    INPROGRESS = "INPROGRESS",
-    SUCCEEDED = "SUCCEEDED",
-    FAILED = "FAILED",
-    CANCELLED = "CANCELLED",
-    DELETED = "DELETED"
+    Creating = "CREATING",
+    Active = "ACTIVE",
+    Inprogress = "INPROGRESS",
+    Succeeded = "SUCCEEDED",
+    Failed = "FAILED",
+    Cancelled = "CANCELLED",
+    Deleted = "DELETED"
   }
 }

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface LaunchDbSystemRequest {
+export interface LaunchDbSystemRequest extends common.BaseRequest {
   /**
    * Request to launch a DB system.
    */

@@ -38,7 +38,7 @@ export class TransferApplianceWaiter {
       this.config,
       () => this.client.getTransferAppliance(request),
       response => targetStates.exists(response.transferAppliance.lifecycleState),
-      targetStates.includes(models.TransferAppliance.LifecycleState.DELETED)
+      targetStates.includes(models.TransferAppliance.LifecycleState.Deleted)
     );
   }
 }

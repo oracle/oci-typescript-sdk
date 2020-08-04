@@ -62,15 +62,15 @@ export interface RequestSummarizedUsagesDetails {
 
 export namespace RequestSummarizedUsagesDetails {
   export enum Granularity {
-    HOURLY = "HOURLY",
-    DAILY = "DAILY",
-    MONTHLY = "MONTHLY",
-    TOTAL = "TOTAL"
+    Hourly = "HOURLY",
+    Daily = "DAILY",
+    Monthly = "MONTHLY",
+    Total = "TOTAL"
   }
 
   export enum QueryType {
-    USAGE = "USAGE",
-    COST = "COST"
+    Usage = "USAGE",
+    Cost = "COST"
   }
 
   export function getJsonObj(obj: RequestSummarizedUsagesDetails): object {

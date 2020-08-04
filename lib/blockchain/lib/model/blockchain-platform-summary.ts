@@ -1,6 +1,6 @@
 /**
  * Blockchain Platform Control Plane API
- * Blockchain Platform Plane API
+ * Blockchain Platform Control Plane API
  * OpenAPI spec version: 20191010
  *
  *
@@ -61,7 +61,7 @@ export interface BlockchainPlatformSummary {
   /**
    * An message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
    */
-  "lifeCycleDetails"?: string;
+  "lifecycleDetails"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`

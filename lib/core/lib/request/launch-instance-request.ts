@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface LaunchInstanceRequest {
+export interface LaunchInstanceRequest extends common.BaseRequest {
   /**
    * Instance details
    */

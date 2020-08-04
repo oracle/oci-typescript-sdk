@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetSteeringPolicyRequest {
+export interface GetSteeringPolicyRequest extends common.BaseRequest {
   /**
    * The OCID of the target steering policy.
    */

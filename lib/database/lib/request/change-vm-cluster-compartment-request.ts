@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ChangeVmClusterCompartmentRequest {
+export interface ChangeVmClusterCompartmentRequest extends common.BaseRequest {
   /**
    * Request to move VM cluster to a different compartment
    */

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateStreamRequest {
+export interface CreateStreamRequest extends common.BaseRequest {
   /**
    * The stream to create.
    */

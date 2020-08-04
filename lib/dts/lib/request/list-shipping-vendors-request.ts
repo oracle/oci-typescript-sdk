@@ -13,4 +13,4 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListShippingVendorsRequest {}
+export interface ListShippingVendorsRequest extends common.BaseRequest {}

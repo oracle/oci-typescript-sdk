@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListNetworkSecurityGroupVnicsRequest {
+export interface ListNetworkSecurityGroupVnicsRequest extends common.BaseRequest {
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the network security group.
    */
@@ -48,11 +48,11 @@ Example: `50`
 
 export namespace ListNetworkSecurityGroupVnicsRequest {
   export enum SortBy {
-    TIMEASSOCIATED = "TIMEASSOCIATED"
+    Timeassociated = "TIMEASSOCIATED"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

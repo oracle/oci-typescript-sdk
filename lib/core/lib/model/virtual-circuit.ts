@@ -204,77 +204,71 @@ Example: `2016-08-25T21:10:29.600Z`
 
 export namespace VirtualCircuit {
   export enum BgpManagement {
-    CUSTOMERMANAGED = "CUSTOMER_MANAGED",
-    PROVIDERMANAGED = "PROVIDER_MANAGED",
-    ORACLEMANAGED = "ORACLE_MANAGED",
-
+    CustomerManaged = "CUSTOMER_MANAGED",
+    ProviderManaged = "PROVIDER_MANAGED",
+    OracleManaged = "ORACLE_MANAGED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum BgpSessionState {
-    UP = "UP",
-    DOWN = "DOWN",
-
+    Up = "UP",
+    Down = "DOWN",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LifecycleState {
-    PENDINGPROVIDER = "PENDING_PROVIDER",
-    VERIFYING = "VERIFYING",
-    PROVISIONING = "PROVISIONING",
-    PROVISIONED = "PROVISIONED",
-    FAILED = "FAILED",
-    INACTIVE = "INACTIVE",
-    TERMINATING = "TERMINATING",
-    TERMINATED = "TERMINATED",
-
+    PendingProvider = "PENDING_PROVIDER",
+    Verifying = "VERIFYING",
+    Provisioning = "PROVISIONING",
+    Provisioned = "PROVISIONED",
+    Failed = "FAILED",
+    Inactive = "INACTIVE",
+    Terminating = "TERMINATING",
+    Terminated = "TERMINATED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum ProviderState {
-    ACTIVE = "ACTIVE",
-    INACTIVE = "INACTIVE",
-
+    Active = "ACTIVE",
+    Inactive = "INACTIVE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum ServiceType {
-    COLOCATED = "COLOCATED",
-    LAYER2 = "LAYER2",
-    LAYER3 = "LAYER3",
-
+    Colocated = "COLOCATED",
+    Layer2 = "LAYER2",
+    Layer3 = "LAYER3",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Type {
-    PUBLIC = "PUBLIC",
-    PRIVATE = "PRIVATE",
-
+    Public = "PUBLIC",
+    Private = "PRIVATE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: VirtualCircuit): object {

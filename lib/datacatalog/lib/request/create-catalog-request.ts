@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateCatalogRequest {
+export interface CreateCatalogRequest extends common.BaseRequest {
   /**
    * Details for the new data catalog.
    */

@@ -72,19 +72,18 @@ Example: `[\"VM.Standard1.1\", \"VM.Standard1.2\"]`
 
 export namespace AppCatalogListingResourceVersion {
   export enum AllowedActions {
-    SNAPSHOT = "SNAPSHOT",
-    BOOTVOLUMEDETACH = "BOOT_VOLUME_DETACH",
-    PRESERVEBOOTVOLUME = "PRESERVE_BOOT_VOLUME",
-    SERIALCONSOLEACCESS = "SERIAL_CONSOLE_ACCESS",
-    BOOTRECOVERY = "BOOT_RECOVERY",
-    BACKUPBOOTVOLUME = "BACKUP_BOOT_VOLUME",
-    CAPTURECONSOLEHISTORY = "CAPTURE_CONSOLE_HISTORY",
-
+    Snapshot = "SNAPSHOT",
+    BootVolumeDetach = "BOOT_VOLUME_DETACH",
+    PreserveBootVolume = "PRESERVE_BOOT_VOLUME",
+    SerialConsoleAccess = "SERIAL_CONSOLE_ACCESS",
+    BootRecovery = "BOOT_RECOVERY",
+    BackupBootVolume = "BACKUP_BOOT_VOLUME",
+    CaptureConsoleHistory = "CAPTURE_CONSOLE_HISTORY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: AppCatalogListingResourceVersion): object {

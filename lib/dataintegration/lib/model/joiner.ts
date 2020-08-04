@@ -29,16 +29,15 @@ export interface Joiner extends model.Operator {
 
 export namespace Joiner {
   export enum JoinType {
-    INNER = "INNER",
-    FULL = "FULL",
-    LEFT = "LEFT",
-    RIGHT = "RIGHT",
-
+    Inner = "INNER",
+    Full = "FULL",
+    Left = "LEFT",
+    Right = "RIGHT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Joiner, isParentJsonObj?: boolean): object {

@@ -15,6 +15,7 @@ const provider = new common.ConfigFileAuthenticationDetailsProvider(
   configurationFilePath,
   configProfile
 );
+
 /**
  * This is a basic example of how to register and invoke a serverless Function
  * on OCI using the SDK for TypeScript.
@@ -65,7 +66,7 @@ commands.add(args[2]);
 const name = "oci-ts-sdk-function-example";
 
 // The default region to use.
-const region = "us-phoenix-1";
+const region = "Sample-region";
 
 // We need a target compartment.
 const compartmentId = process.env.COMPARTMENT_ID;
@@ -189,8 +190,7 @@ async function setupResources(region, compartmentId, name, image) {
     );
     console.log("Created Function" + fn.displayName);
   } catch (error) {
-    console.log("error in creating function: ", error);
-    console.log("Error in function");
+    console.log("Error in function: ", JSON.stringify(error));
   }
 }
 
@@ -217,6 +217,8 @@ async function invokeFunction(region, compartmentId, name, payload) {
       fnName
     );
     const response = await invokeFunctionHelper(fnInvokeClient, fnSummary, payload);
+    // invokeFunction returns a readableStream. parse the stream to view payload.
+    console.log(await common.getStringFromResponseBody(response.value));
   } catch (error) {
     console.log("Error invoking function " + error);
   }
@@ -314,7 +316,7 @@ async function createApplicaiton(client, compartmentId, displayName, subnetIds) 
   };
   const createAppResponse = await client.createApplication(createAppRequest);
   // Wait for Application to be in 'Active' state.
-  await delay(600);
+  await delay(15);
   return createAppResponse.application;
 }
 
@@ -330,7 +332,7 @@ async function deleteApplication(client, applicationId) {
   const delAppRequest = { applicationId: applicationId };
   await client.deleteApplication(delAppRequest);
   // Wait for the 'Deleted' status.
-  await delay(300);
+  await delay(15);
 }
 
 // === OCI Identity Helpers ===
@@ -368,7 +370,7 @@ async function createVcn(client, compartmentId, vcnDisplayName, cidrBlock) {
   const createVcnRequest = { createVcnDetails: createVcnDetails };
   const createVcnResponse = await client.createVcn(createVcnRequest);
   // Wait for VCn to become available
-  await delay(300);
+  await delay(15);
   return createVcnResponse.vcn;
 }
 
@@ -388,7 +390,7 @@ async function getUniqueVcnByName(client, compartmentId, vcnDisplayName) {
   };
   const listVcnResponse = await client.listVcns(listVcnsRequest);
   if (listVcnResponse.items.length !== 1) {
-    throw "could not find unique VCN with the name " +
+    throw "could not find unique VCN with the name" +
       vcnDisplayName +
       " in compartment" +
       compartmentId;
@@ -406,7 +408,7 @@ async function deleteVcn(client, vcn) {
   const deleteVcnRequest = { vcnId: vcn.id };
   await client.deleteVcn(deleteVcnRequest);
   // Wait for VCN to be deleted.
-  await delay(600);
+  await delay(15);
 }
 
 // === OCI Internet Gateway Helpers ===
@@ -422,7 +424,7 @@ async function createInternetGateway(client, compartmentId, displayName, vcnId) 
   };
   const createIGResponse = await client.createInternetGateway(createIGRequest);
   // Wait for sometime for internet gateway to become avaialble.
-  await delay(300);
+  await delay(15);
   return createIGResponse.internetGateway;
 }
 
@@ -465,7 +467,7 @@ async function deleteInternetGateway(client, igID) {
   const deleteIgRequest = { igId: igID };
   await client.deleteInternetGateway(deleteIgRequest);
   // Wait for internet gateway to be dleted
-  await delay(300);
+  await delay(15);
 }
 
 // === OCI Route Table Helpers ===
@@ -496,7 +498,7 @@ async function configureInternetGateway(client, compartmentId, vcnId, igId, drtD
   const rr = {
     cidrBlock: destinationCidr,
     destination: destinationCidr,
-    destinationType: core.models.RouteRule.DestinationType.CIDRBLOCK,
+    destinationType: core.models.RouteRule.DestinationType.CidrBlock,
     networkEntityId: igId
   };
   routeRules.push(rr);
@@ -587,7 +589,7 @@ async function createSubnet(
   };
   const createSubnetResponse = await client.createSubnet(createSubnetRequest);
   // Wait for subnet to become abvailable
-  await delay(300);
+  await delay(15);
   return createSubnetResponse.subnet;
 }
 
@@ -635,7 +637,8 @@ async function deleteSubnet(client, subnetId) {
   while (true) {
     try {
       const deleteSubnetRequest = { subnetId: subnetId };
-      client.deleteSubnet(deleteSubnetRequest);
+      await client.deleteSubnet(deleteSubnetRequest);
+      break;
     } catch (error) {
       numAttempts++;
       if (error.statusCode === 409 && numAttempts < DELETE_SUBNET_ATTEMPTS) await delay(10);
@@ -643,7 +646,7 @@ async function deleteSubnet(client, subnetId) {
     }
   }
   //Wait for subnet to be in Terminated state
-  await delay(300);
+  await delay(15);
 }
 
 // === OCI Function Helpers ===
@@ -679,7 +682,7 @@ async function CreateFunctionDetails(
   };
   const createFnResponse = await client.createFunction(createFnRequest);
   // Wait for Function to be in 'Active' state.
-  delay(600);
+  await delay(15);
   return createFnResponse.function;
 }
 
@@ -698,7 +701,7 @@ async function getUniqueFunctionByName(
   applicationDisplayName,
   functionDisplayName
 ) {
-  const applicationSummary = await getUniqueApplicationByName(
+  const application = await getUniqueApplicationByName(
     fnManagementClient,
     compartmentId,
     applicationDisplayName
@@ -766,7 +769,7 @@ async function deleteFunction(client, fnId) {
   const delFunctionRequest = { functionId: fnId };
   await client.deleteFunction(delFunctionRequest);
   // Wait for the 'Deleted' status.
-  await delay(300);
+  await delay(15);
 }
 
 /**
@@ -778,14 +781,18 @@ async function deleteFunction(client, fnId) {
  *
  * @throws Exception if there is an error when invoking the function.
  */
-async function invokeFunctionHelper(client, fnSummarySummary, payload) {
+async function invokeFunctionHelper(client, fnSummary, payload) {
   console.log("Invoking function endpoint - " + fnSummary.invokeEndpoint);
 
   // Configure the client to use the assigned function endpoint.
   client.endpoint = fnSummary.invokeEndpoint;
-  // TODO :: invokeFunction has an issue with the response type parsing. (returns text not json)
-  // Fix it after JIRA: DEX-6464 (https://jira.oci.oraclecorp.com/browse/DEX-6464)
-  return "";
+  const functionId = fnSummary.id || "";
+
+  const request = {
+    functionId: functionId
+  };
+  const response = await client.invokeFunction(request);
+  return response;
 }
 
 // === Utility Helpers ===

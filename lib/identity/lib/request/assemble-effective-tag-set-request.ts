@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface AssembleEffectiveTagSetRequest {
+export interface AssembleEffectiveTagSetRequest extends common.BaseRequest {
   /**
    * The OCID of the compartment (remember that the tenancy is simply the root compartment).
    *

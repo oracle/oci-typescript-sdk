@@ -108,16 +108,15 @@ Example: `0`
 
 export namespace VnicAttachment {
   export enum LifecycleState {
-    ATTACHING = "ATTACHING",
-    ATTACHED = "ATTACHED",
-    DETACHING = "DETACHING",
-    DETACHED = "DETACHED",
-
+    Attaching = "ATTACHING",
+    Attached = "ATTACHED",
+    Detaching = "DETACHING",
+    Detached = "DETACHED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: VnicAttachment): object {

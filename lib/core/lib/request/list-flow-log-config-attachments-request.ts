@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListFlowLogConfigAttachmentsRequest {
+export interface ListFlowLogConfigAttachmentsRequest extends common.BaseRequest {
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
    */
@@ -47,6 +47,6 @@ Example: `50`
 
 export namespace ListFlowLogConfigAttachmentsRequest {
   export enum TargetEntityType {
-    SUBNET = "SUBNET"
+    Subnet = "SUBNET"
   }
 }

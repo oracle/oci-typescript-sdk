@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListDataGuardAssociationsRequest {
+export interface ListDataGuardAssociationsRequest extends common.BaseRequest {
   /**
    * The database [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    */

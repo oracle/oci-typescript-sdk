@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetListingRequest {
+export interface GetListingRequest extends common.BaseRequest {
   /**
    * The unique identifier for the listing.
    */

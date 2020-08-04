@@ -94,85 +94,78 @@ Example: `https://example.com`
 
 export namespace FastConnectProviderService {
   export enum PrivatePeeringBgpManagement {
-    CUSTOMERMANAGED = "CUSTOMER_MANAGED",
-    PROVIDERMANAGED = "PROVIDER_MANAGED",
-    ORACLEMANAGED = "ORACLE_MANAGED",
-
+    CustomerManaged = "CUSTOMER_MANAGED",
+    ProviderManaged = "PROVIDER_MANAGED",
+    OracleManaged = "ORACLE_MANAGED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum PublicPeeringBgpManagement {
-    CUSTOMERMANAGED = "CUSTOMER_MANAGED",
-    PROVIDERMANAGED = "PROVIDER_MANAGED",
-    ORACLEMANAGED = "ORACLE_MANAGED",
-
+    CustomerManaged = "CUSTOMER_MANAGED",
+    ProviderManaged = "PROVIDER_MANAGED",
+    OracleManaged = "ORACLE_MANAGED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum SupportedVirtualCircuitTypes {
-    PUBLIC = "PUBLIC",
-    PRIVATE = "PRIVATE",
-
+    Public = "PUBLIC",
+    Private = "PRIVATE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum CustomerAsnManagement {
-    CUSTOMERMANAGED = "CUSTOMER_MANAGED",
-    PROVIDERMANAGED = "PROVIDER_MANAGED",
-    ORACLEMANAGED = "ORACLE_MANAGED",
-
+    CustomerManaged = "CUSTOMER_MANAGED",
+    ProviderManaged = "PROVIDER_MANAGED",
+    OracleManaged = "ORACLE_MANAGED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum ProviderServiceKeyManagement {
-    CUSTOMERMANAGED = "CUSTOMER_MANAGED",
-    PROVIDERMANAGED = "PROVIDER_MANAGED",
-    ORACLEMANAGED = "ORACLE_MANAGED",
-
+    CustomerManaged = "CUSTOMER_MANAGED",
+    ProviderManaged = "PROVIDER_MANAGED",
+    OracleManaged = "ORACLE_MANAGED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum BandwithShapeManagement {
-    CUSTOMERMANAGED = "CUSTOMER_MANAGED",
-    PROVIDERMANAGED = "PROVIDER_MANAGED",
-    ORACLEMANAGED = "ORACLE_MANAGED",
-
+    CustomerManaged = "CUSTOMER_MANAGED",
+    ProviderManaged = "PROVIDER_MANAGED",
+    OracleManaged = "ORACLE_MANAGED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Type {
-    LAYER2 = "LAYER2",
-    LAYER3 = "LAYER3",
-
+    Layer2 = "LAYER2",
+    Layer3 = "LAYER3",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: FastConnectProviderService): object {

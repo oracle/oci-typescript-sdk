@@ -35,7 +35,7 @@ export class WaasWaiter {
       this.config,
       () => this.client.getAddressList(request),
       response => targetStates.exists(response.addressList.lifecycleState),
-      targetStates.includes(models.LifecycleStates.DELETED)
+      targetStates.includes(models.LifecycleStates.Deleted)
     );
   }
 
@@ -54,7 +54,7 @@ export class WaasWaiter {
       this.config,
       () => this.client.getCertificate(request),
       response => targetStates.exists(response.certificate.lifecycleState),
-      targetStates.includes(models.LifecycleStates.DELETED)
+      targetStates.includes(models.LifecycleStates.Deleted)
     );
   }
 
@@ -73,7 +73,7 @@ export class WaasWaiter {
       this.config,
       () => this.client.getCustomProtectionRule(request),
       response => targetStates.exists(response.customProtectionRule.lifecycleState),
-      targetStates.includes(models.LifecycleStates.DELETED)
+      targetStates.includes(models.LifecycleStates.Deleted)
     );
   }
 
@@ -92,7 +92,7 @@ export class WaasWaiter {
       this.config,
       () => this.client.getWaasPolicy(request),
       response => targetStates.exists(response.waasPolicy.lifecycleState),
-      targetStates.includes(models.LifecycleStates.DELETED)
+      targetStates.includes(models.LifecycleStates.Deleted)
     );
   }
 

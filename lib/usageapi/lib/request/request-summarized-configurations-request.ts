@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface RequestSummarizedConfigurationsRequest {
+export interface RequestSummarizedConfigurationsRequest extends common.BaseRequest {
   /**
    * tenant id
    */

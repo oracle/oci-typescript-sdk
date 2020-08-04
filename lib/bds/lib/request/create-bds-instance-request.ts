@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateBdsInstanceRequest {
+export interface CreateBdsInstanceRequest extends common.BaseRequest {
   /**
    * Details for the new BDS instace.
    */

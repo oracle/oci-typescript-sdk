@@ -31,20 +31,19 @@ export interface FailureDetails {
 
 export namespace FailureDetails {
   export enum Code {
-    INTERNALSERVICEERROR = "INTERNAL_SERVICE_ERROR",
-    TERRAFORMEXECUTIONERROR = "TERRAFORM_EXECUTION_ERROR",
-    TERRAFORMCONFIGUNZIPFAILED = "TERRAFORM_CONFIG_UNZIP_FAILED",
-    INVALIDWORKINGDIRECTORY = "INVALID_WORKING_DIRECTORY",
-    JOBTIMEOUT = "JOB_TIMEOUT",
-    TERRAFORMCONFIGVIRUSFOUND = "TERRAFORM_CONFIG_VIRUS_FOUND",
-    TERRAFORMGITCLONEFAILURE = "TERRAFORM_GIT_CLONE_FAILURE",
-    TERRAFORMGITCHECKOUTFAILURE = "TERRAFORM_GIT_CHECKOUT_FAILURE",
-
+    InternalServiceError = "INTERNAL_SERVICE_ERROR",
+    TerraformExecutionError = "TERRAFORM_EXECUTION_ERROR",
+    TerraformConfigUnzipFailed = "TERRAFORM_CONFIG_UNZIP_FAILED",
+    InvalidWorkingDirectory = "INVALID_WORKING_DIRECTORY",
+    JobTimeout = "JOB_TIMEOUT",
+    TerraformConfigVirusFound = "TERRAFORM_CONFIG_VIRUS_FOUND",
+    TerraformGitCloneFailure = "TERRAFORM_GIT_CLONE_FAILURE",
+    TerraformGitCheckoutFailure = "TERRAFORM_GIT_CHECKOUT_FAILURE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: FailureDetails): object {

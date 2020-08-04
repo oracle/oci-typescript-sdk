@@ -133,12 +133,12 @@ export interface UpdateSteeringPolicyDetails {
 
 export namespace UpdateSteeringPolicyDetails {
   export enum Template {
-    FAILOVER = "FAILOVER",
-    LOADBALANCE = "LOAD_BALANCE",
-    ROUTEBYGEO = "ROUTE_BY_GEO",
-    ROUTEBYASN = "ROUTE_BY_ASN",
-    ROUTEBYIP = "ROUTE_BY_IP",
-    CUSTOM = "CUSTOM"
+    Failover = "FAILOVER",
+    LoadBalance = "LOAD_BALANCE",
+    RouteByGeo = "ROUTE_BY_GEO",
+    RouteByAsn = "ROUTE_BY_ASN",
+    RouteByIp = "ROUTE_BY_IP",
+    Custom = "CUSTOM"
   }
 
   export function getJsonObj(obj: UpdateSteeringPolicyDetails): object {

@@ -85,43 +85,40 @@ export interface BackupSummary {
 
 export namespace BackupSummary {
   export enum Type {
-    INCREMENTAL = "INCREMENTAL",
-    FULL = "FULL",
-    VIRTUALFULL = "VIRTUAL_FULL",
-
+    Incremental = "INCREMENTAL",
+    Full = "FULL",
+    VirtualFull = "VIRTUAL_FULL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LifecycleState {
-    CREATING = "CREATING",
-    ACTIVE = "ACTIVE",
-    DELETING = "DELETING",
-    DELETED = "DELETED",
-    FAILED = "FAILED",
-    RESTORING = "RESTORING",
-
+    Creating = "CREATING",
+    Active = "ACTIVE",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
+    Failed = "FAILED",
+    Restoring = "RESTORING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum DatabaseEdition {
-    STANDARDEDITION = "STANDARD_EDITION",
-    ENTERPRISEEDITION = "ENTERPRISE_EDITION",
-    ENTERPRISEEDITIONHIGHPERFORMANCE = "ENTERPRISE_EDITION_HIGH_PERFORMANCE",
-    ENTERPRISEEDITIONEXTREMEPERFORMANCE = "ENTERPRISE_EDITION_EXTREME_PERFORMANCE",
-
+    StandardEdition = "STANDARD_EDITION",
+    EnterpriseEdition = "ENTERPRISE_EDITION",
+    EnterpriseEditionHighPerformance = "ENTERPRISE_EDITION_HIGH_PERFORMANCE",
+    EnterpriseEditionExtremePerformance = "ENTERPRISE_EDITION_EXTREME_PERFORMANCE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: BackupSummary): object {

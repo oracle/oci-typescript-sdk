@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListStacksRequest {
+export interface ListStacksRequest extends common.BaseRequest {
   /**
    * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a
    * particular request, please provide the request ID.
@@ -41,6 +41,7 @@ Allowable values:
 * - ACTIVE
 * - DELETING
 * - DELETED
+* - FAILED
 * 
  */
   "lifecycleState"?: string;
@@ -77,12 +78,12 @@ Allowable values:
 
 export namespace ListStacksRequest {
   export enum SortBy {
-    TIMECREATED = "TIMECREATED",
-    DISPLAYNAME = "DISPLAYNAME"
+    Timecreated = "TIMECREATED",
+    Displayname = "DISPLAYNAME"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

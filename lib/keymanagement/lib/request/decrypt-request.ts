@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface DecryptRequest {
+export interface DecryptRequest extends common.BaseRequest {
   /**
    * DecryptDataDetails
    */

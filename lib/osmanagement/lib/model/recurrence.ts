@@ -32,10 +32,10 @@ export interface Recurrence {
 
 export namespace Recurrence {
   export enum IntervalType {
-    MINUTES = "MINUTES",
-    HOURS = "HOURS",
-    DAYS = "DAYS",
-    WEEKS = "WEEKS"
+    Minutes = "MINUTES",
+    Hours = "HOURS",
+    Days = "DAYS",
+    Weeks = "WEEKS"
   }
 
   export function getJsonObj(obj: Recurrence): object {

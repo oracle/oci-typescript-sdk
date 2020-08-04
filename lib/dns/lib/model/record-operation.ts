@@ -91,10 +91,10 @@ export interface RecordOperation {
 
 export namespace RecordOperation {
   export enum Operation {
-    REQUIRE = "REQUIRE",
-    PROHIBIT = "PROHIBIT",
-    ADD = "ADD",
-    REMOVE = "REMOVE"
+    Require = "REQUIRE",
+    Prohibit = "PROHIBIT",
+    Add = "ADD",
+    Remove = "REMOVE"
   }
 
   export function getJsonObj(obj: RecordOperation): object {

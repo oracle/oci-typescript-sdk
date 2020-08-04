@@ -28,7 +28,7 @@ const DEFAULT_KEY_LENGTH = 32;
 const TRANSIENT_STATE_WAIT_TIME_MS = 1000 * 30;
 
 let KEY_SHAPE = {
-  algorithm: kms.models.KeyShape.Algorithm.AES,
+  algorithm: kms.models.KeyShape.Algorithm.Aes,
   length: DEFAULT_KEY_LENGTH
 };
 
@@ -142,7 +142,7 @@ async function createVaultTest(client, compartmentId) {
   const createVaultDetails = {
     compartmentId: compartmentId,
     displayName: " Test-Vault-V1",
-    vaultType: kms.models.CreateVaultDetails.VaultType.VIRTUALPRIVATE,
+    vaultType: kms.models.CreateVaultDetails.VaultType.VirtualPrivate,
     freeformTags: await getSampleFreeformTagData()
   };
   const request = { createVaultDetails: createVaultDetails };

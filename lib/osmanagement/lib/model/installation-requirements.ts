@@ -20,9 +20,9 @@ import common = require("oci-common");
  * A reason why an update may not be installable.
  **/
 export enum InstallationRequirements {
-  EULA_ACCEPTANCE_REQUIRED = "EULA_ACCEPTANCE_REQUIRED",
-  SOFTWARE_MEDIA_REQUIRED = "SOFTWARE_MEDIA_REQUIRED",
-  USER_INTERACTION_REQUIRED = "USER_INTERACTION_REQUIRED"
+  EulaAcceptanceRequired = "EULA_ACCEPTANCE_REQUIRED",
+  SoftwareMediaRequired = "SOFTWARE_MEDIA_REQUIRED",
+  UserInteractionRequired = "USER_INTERACTION_REQUIRED"
 }
 
 export namespace InstallationRequirements {

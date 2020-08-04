@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListVaultsRequest {
+export interface ListVaultsRequest extends common.BaseRequest {
   /**
    * The OCID of the compartment.
    */
@@ -52,12 +52,12 @@ export interface ListVaultsRequest {
 
 export namespace ListVaultsRequest {
   export enum SortBy {
-    TIMECREATED = "TIMECREATED",
-    DISPLAYNAME = "DISPLAYNAME"
+    Timecreated = "TIMECREATED",
+    Displayname = "DISPLAYNAME"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

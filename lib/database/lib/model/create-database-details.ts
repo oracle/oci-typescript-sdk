@@ -74,8 +74,8 @@ Example: `{\"Department\": \"Finance\"}`
 
 export namespace CreateDatabaseDetails {
   export enum DbWorkload {
-    OLTP = "OLTP",
-    DSS = "DSS"
+    Oltp = "OLTP",
+    Dss = "DSS"
   }
 
   export function getJsonObj(obj: CreateDatabaseDetails): object {

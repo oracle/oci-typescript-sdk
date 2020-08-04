@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateNetworkSecurityGroupRequest {
+export interface CreateNetworkSecurityGroupRequest extends common.BaseRequest {
   /**
    * Details for creating a network security group.
    */

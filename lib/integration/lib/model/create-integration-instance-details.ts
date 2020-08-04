@@ -64,8 +64,8 @@ export interface CreateIntegrationInstanceDetails {
 
 export namespace CreateIntegrationInstanceDetails {
   export enum IntegrationInstanceType {
-    STANDARD = "STANDARD",
-    ENTERPRISE = "ENTERPRISE"
+    Standard = "STANDARD",
+    Enterprise = "ENTERPRISE"
   }
 
   export function getJsonObj(obj: CreateIntegrationInstanceDetails): object {

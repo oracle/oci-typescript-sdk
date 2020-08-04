@@ -96,50 +96,46 @@ Example: `2016-08-25T21:10:29.600Z`
 
 export namespace IPSecConnectionTunnel {
   export enum Status {
-    UP = "UP",
-    DOWN = "DOWN",
-    DOWNFORMAINTENANCE = "DOWN_FOR_MAINTENANCE",
-
+    Up = "UP",
+    Down = "DOWN",
+    DownForMaintenance = "DOWN_FOR_MAINTENANCE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum IkeVersion {
     V1 = "V1",
     V2 = "V2",
-
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LifecycleState {
-    PROVISIONING = "PROVISIONING",
-    AVAILABLE = "AVAILABLE",
-    TERMINATING = "TERMINATING",
-    TERMINATED = "TERMINATED",
-
+    Provisioning = "PROVISIONING",
+    Available = "AVAILABLE",
+    Terminating = "TERMINATING",
+    Terminated = "TERMINATED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Routing {
-    BGP = "BGP",
-    STATIC = "STATIC",
-
+    Bgp = "BGP",
+    Static = "STATIC",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: IPSecConnectionTunnel): object {

@@ -203,34 +203,32 @@ Example: `2016-08-25T21:10:29.600Z`
 
 export namespace Instance {
   export enum LaunchMode {
-    NATIVE = "NATIVE",
-    EMULATED = "EMULATED",
-    PARAVIRTUALIZED = "PARAVIRTUALIZED",
-    CUSTOM = "CUSTOM",
-
+    Native = "NATIVE",
+    Emulated = "EMULATED",
+    Paravirtualized = "PARAVIRTUALIZED",
+    Custom = "CUSTOM",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LifecycleState {
-    MOVING = "MOVING",
-    PROVISIONING = "PROVISIONING",
-    RUNNING = "RUNNING",
-    STARTING = "STARTING",
-    STOPPING = "STOPPING",
-    STOPPED = "STOPPED",
-    CREATINGIMAGE = "CREATING_IMAGE",
-    TERMINATING = "TERMINATING",
-    TERMINATED = "TERMINATED",
-
+    Moving = "MOVING",
+    Provisioning = "PROVISIONING",
+    Running = "RUNNING",
+    Starting = "STARTING",
+    Stopping = "STOPPING",
+    Stopped = "STOPPED",
+    CreatingImage = "CREATING_IMAGE",
+    Terminating = "TERMINATING",
+    Terminated = "TERMINATED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Instance): object {

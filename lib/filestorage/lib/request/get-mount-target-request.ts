@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetMountTargetRequest {
+export interface GetMountTargetRequest extends common.BaseRequest {
   /**
    * The OCID of the mount target.
    */

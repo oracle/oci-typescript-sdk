@@ -48,8 +48,8 @@ Example: `{\"Department\": \"Finance\"}`
 
 export namespace UpdateAutonomousContainerDatabaseDetails {
   export enum PatchModel {
-    UPDATES = "RELEASE_UPDATES",
-    UPDATEREVISIONS = "RELEASE_UPDATE_REVISIONS"
+    ReleaseUpdates = "RELEASE_UPDATES",
+    ReleaseUpdateRevisions = "RELEASE_UPDATE_REVISIONS"
   }
 
   export function getJsonObj(obj: UpdateAutonomousContainerDatabaseDetails): object {

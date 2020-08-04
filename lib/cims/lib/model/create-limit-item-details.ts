@@ -40,9 +40,9 @@ export interface CreateLimitItemDetails extends model.CreateItemDetails {
 
 export namespace CreateLimitItemDetails {
   export enum LimitStatus {
-    APPROVED = "APPROVED",
-    PARTIALLYAPPROVED = "PARTIALLY_APPROVED",
-    NOTAPPROVED = "NOT_APPROVED"
+    Approved = "APPROVED",
+    PartiallyApproved = "PARTIALLY_APPROVED",
+    NotApproved = "NOT_APPROVED"
   }
 
   export function getJsonObj(obj: CreateLimitItemDetails, isParentJsonObj?: boolean): object {

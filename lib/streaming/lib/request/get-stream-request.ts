@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetStreamRequest {
+export interface GetStreamRequest extends common.BaseRequest {
   /**
    * The OCID of the stream.
    *

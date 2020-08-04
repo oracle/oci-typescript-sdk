@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetTunnelCpeDeviceConfigContentRequest {
+export interface GetTunnelCpeDeviceConfigContentRequest extends common.BaseRequest {
   /**
    * The OCID of the IPSec connection.
    */

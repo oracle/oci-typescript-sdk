@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListOdaInstancesRequest {
+export interface ListOdaInstancesRequest extends common.BaseRequest {
   /**
    * List the Digital Assistant instances that belong to this compartment.
    */
@@ -62,22 +62,22 @@ The default sort order for `TIMECREATED` is descending, and the default sort ord
 
 export namespace ListOdaInstancesRequest {
   export enum LifecycleState {
-    CREATING = "CREATING",
-    UPDATING = "UPDATING",
-    ACTIVE = "ACTIVE",
-    INACTIVE = "INACTIVE",
-    DELETING = "DELETING",
-    DELETED = "DELETED",
-    FAILED = "FAILED"
+    Creating = "CREATING",
+    Updating = "UPDATING",
+    Active = "ACTIVE",
+    Inactive = "INACTIVE",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
+    Failed = "FAILED"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 
   export enum SortBy {
-    TIMECREATED = "TIMECREATED",
-    DISPLAYNAME = "DISPLAYNAME"
+    Timecreated = "TIMECREATED",
+    Displayname = "DISPLAYNAME"
   }
 }

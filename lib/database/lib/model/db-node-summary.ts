@@ -81,31 +81,29 @@ export interface DbNodeSummary {
 
 export namespace DbNodeSummary {
   export enum LifecycleState {
-    PROVISIONING = "PROVISIONING",
-    AVAILABLE = "AVAILABLE",
-    UPDATING = "UPDATING",
-    STOPPING = "STOPPING",
-    STOPPED = "STOPPED",
-    STARTING = "STARTING",
-    TERMINATING = "TERMINATING",
-    TERMINATED = "TERMINATED",
-    FAILED = "FAILED",
-
+    Provisioning = "PROVISIONING",
+    Available = "AVAILABLE",
+    Updating = "UPDATING",
+    Stopping = "STOPPING",
+    Stopped = "STOPPED",
+    Starting = "STARTING",
+    Terminating = "TERMINATING",
+    Terminated = "TERMINATED",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum MaintenanceType {
-    MIGRATION = "VMDB_REBOOT_MIGRATION",
-
+    VmdbRebootMigration = "VMDB_REBOOT_MIGRATION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: DbNodeSummary): object {

@@ -20,19 +20,19 @@ import common = require("oci-common");
  *
  **/
 export enum WorkRequestOperationType {
-  CREATE_ANALYTICS_INSTANCE = "CREATE_ANALYTICS_INSTANCE",
-  DELETE_ANALYTICS_INSTANCE = "DELETE_ANALYTICS_INSTANCE",
-  START_ANALYTICS_INSTANCE = "START_ANALYTICS_INSTANCE",
-  STOP_ANALYTICS_INSTANCE = "STOP_ANALYTICS_INSTANCE",
-  SCALE_ANALYTICS_INSTANCE = "SCALE_ANALYTICS_INSTANCE",
-  CHANGE_ANALYTICS_INSTANCE_COMPARTMENT = "CHANGE_ANALYTICS_INSTANCE_COMPARTMENT",
-  CHANGE_ANALYTICS_INSTANCE_NETWORK_ENDPOINT = "CHANGE_ANALYTICS_INSTANCE_NETWORK_ENDPOINT",
+  CreateAnalyticsInstance = "CREATE_ANALYTICS_INSTANCE",
+  DeleteAnalyticsInstance = "DELETE_ANALYTICS_INSTANCE",
+  StartAnalyticsInstance = "START_ANALYTICS_INSTANCE",
+  StopAnalyticsInstance = "STOP_ANALYTICS_INSTANCE",
+  ScaleAnalyticsInstance = "SCALE_ANALYTICS_INSTANCE",
+  ChangeAnalyticsInstanceCompartment = "CHANGE_ANALYTICS_INSTANCE_COMPARTMENT",
+  ChangeAnalyticsInstanceNetworkEndpoint = "CHANGE_ANALYTICS_INSTANCE_NETWORK_ENDPOINT",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace WorkRequestOperationType {

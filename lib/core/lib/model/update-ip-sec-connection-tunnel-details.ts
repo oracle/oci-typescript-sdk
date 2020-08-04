@@ -45,8 +45,8 @@ export interface UpdateIPSecConnectionTunnelDetails {
 
 export namespace UpdateIPSecConnectionTunnelDetails {
   export enum Routing {
-    BGP = "BGP",
-    STATIC = "STATIC"
+    Bgp = "BGP",
+    Static = "STATIC"
   }
 
   export enum IkeVersion {

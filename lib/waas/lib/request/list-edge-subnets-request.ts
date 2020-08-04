@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListEdgeSubnetsRequest {
+export interface ListEdgeSubnetsRequest extends common.BaseRequest {
   /**
    * The unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
    */
@@ -44,7 +44,7 @@ export namespace ListEdgeSubnetsRequest {
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

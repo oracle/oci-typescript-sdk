@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListAutonomousExadataInfrastructureShapesRequest {
+export interface ListAutonomousExadataInfrastructureShapesRequest extends common.BaseRequest {
   /**
    * The name of the Availability Domain.
    */

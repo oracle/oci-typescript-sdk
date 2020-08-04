@@ -1,6 +1,6 @@
 /**
  * Blockchain Platform Control Plane API
- * Blockchain Platform Plane API
+ * Blockchain Platform Control Plane API
  * OpenAPI spec version: 20191010
  *
  *
@@ -26,8 +26,8 @@ export interface PeerRole {
 
 export namespace PeerRole {
   export enum Role {
-    MEMBER = "MEMBER",
-    ADMIN = "ADMIN"
+    Member = "MEMBER",
+    Admin = "ADMIN"
   }
 
   export function getJsonObj(obj: PeerRole): object {

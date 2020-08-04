@@ -19,13 +19,13 @@ import common = require("oci-common");
  * Resource lifecycle state
  **/
 export enum MigrationLifecycleStates {
-  CREATING = "CREATING",
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-  UPDATING = "UPDATING",
-  SUCCEEDED = "SUCCEEDED",
-  DELETING = "DELETING",
-  DELETED = "DELETED"
+  Creating = "CREATING",
+  Active = "ACTIVE",
+  Inactive = "INACTIVE",
+  Updating = "UPDATING",
+  Succeeded = "SUCCEEDED",
+  Deleting = "DELETING",
+  Deleted = "DELETED"
 }
 
 export namespace MigrationLifecycleStates {

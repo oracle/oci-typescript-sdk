@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateExternalBackupJobRequest {
+export interface CreateExternalBackupJobRequest extends common.BaseRequest {
   /**
    * Request to create a cloud backup resource for a database running outside the cloud.
    */

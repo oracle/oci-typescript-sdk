@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListWorkRequestsRequest {
+export interface ListWorkRequestsRequest extends common.BaseRequest {
   /**
    * <b>Filter</b> results by the [OCID](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/identifiers.htm) of the compartment.
    */
@@ -68,26 +68,26 @@ See [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/us
 
 export namespace ListWorkRequestsRequest {
   export enum OperationType {
-    NOTEBOOKSESSIONCREATE = "NOTEBOOK_SESSION_CREATE",
-    NOTEBOOKSESSIONDELETE = "NOTEBOOK_SESSION_DELETE",
-    NOTEBOOKSESSIONACTIVATE = "NOTEBOOK_SESSION_ACTIVATE",
-    NOTEBOOKSESSIONDEACTIVATE = "NOTEBOOK_SESSION_DEACTIVATE",
-    PROJECTDELETE = "PROJECT_DELETE",
-    WORKREQUESTCANCEL = "WORKREQUEST_CANCEL"
+    NotebookSessionCreate = "NOTEBOOK_SESSION_CREATE",
+    NotebookSessionDelete = "NOTEBOOK_SESSION_DELETE",
+    NotebookSessionActivate = "NOTEBOOK_SESSION_ACTIVATE",
+    NotebookSessionDeactivate = "NOTEBOOK_SESSION_DEACTIVATE",
+    ProjectDelete = "PROJECT_DELETE",
+    WorkrequestCancel = "WORKREQUEST_CANCEL"
   }
 
   export enum Status {
-    ACCEPTED = "ACCEPTED",
-    INPROGRESS = "IN_PROGRESS",
-    FAILED = "FAILED",
-    SUCCEEDED = "SUCCEEDED",
-    CANCELING = "CANCELING",
-    CANCELED = "CANCELED"
+    Accepted = "ACCEPTED",
+    InProgress = "IN_PROGRESS",
+    Failed = "FAILED",
+    Succeeded = "SUCCEEDED",
+    Canceling = "CANCELING",
+    Canceled = "CANCELED"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 
   export enum SortBy {

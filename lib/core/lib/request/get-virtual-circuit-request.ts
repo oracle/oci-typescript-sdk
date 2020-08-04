@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetVirtualCircuitRequest {
+export interface GetVirtualCircuitRequest extends common.BaseRequest {
   /**
    * The OCID of the virtual circuit.
    */

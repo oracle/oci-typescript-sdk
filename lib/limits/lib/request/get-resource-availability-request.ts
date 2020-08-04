@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetResourceAvailabilityRequest {
+export interface GetResourceAvailabilityRequest extends common.BaseRequest {
   /**
    * The service name of the target quota.
    */

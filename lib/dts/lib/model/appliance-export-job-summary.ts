@@ -44,19 +44,18 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 
 export namespace ApplianceExportJobSummary {
   export enum LifecycleState {
-    CREATING = "CREATING",
-    ACTIVE = "ACTIVE",
-    INPROGRESS = "INPROGRESS",
-    SUCCEEDED = "SUCCEEDED",
-    FAILED = "FAILED",
-    CANCELLED = "CANCELLED",
-    DELETED = "DELETED",
-
+    Creating = "CREATING",
+    Active = "ACTIVE",
+    Inprogress = "INPROGRESS",
+    Succeeded = "SUCCEEDED",
+    Failed = "FAILED",
+    Cancelled = "CANCELLED",
+    Deleted = "DELETED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: ApplianceExportJobSummary): object {

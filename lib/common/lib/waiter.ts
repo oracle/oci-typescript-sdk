@@ -25,12 +25,12 @@ export interface TerminationStrategy {
   shouldTerminate(context: WaitContext): boolean;
 }
 
-interface WaitContext {
+export interface WaitContext {
   readonly startTime: Date;
   readonly attemptCount: number;
 }
 
-class WaitContextImpl implements WaitContext {
+export class WaitContextImpl implements WaitContext {
   public readonly startTime: Date = new Date();
   public attemptCount: number = 0;
 }
@@ -51,12 +51,31 @@ export class ExponentialBackoffDelayStrategy implements DelayStrategy {
   }
 }
 
+export class FixedTimeDelayStrategy implements DelayStrategy {
+  public constructor(private timeBetweenAttempsInSeconds: number) {}
+
+  delay(context: WaitContext): number {
+    return this.timeBetweenAttempsInSeconds;
+  }
+}
+
+export class MaxAttemptsTerminationStrategy implements TerminationStrategy {
+  private maxAttempts: number;
+  public constructor(maxAttempts: number) {
+    this.maxAttempts = maxAttempts - 1;
+  }
+
+  public shouldTerminate(context: WaitContext): boolean {
+    return context.attemptCount >= this.maxAttempts;
+  }
+}
+
 export class MaxTimeTerminationStrategy implements TerminationStrategy {
   public constructor(private maxTimeInSeconds: number) {}
 
   public shouldTerminate(context: WaitContext): boolean {
-    const endTime = context.startTime;
-    endTime.setSeconds(endTime.getSeconds() + this.maxTimeInSeconds);
+    const endTime = new Date();
+    endTime.setTime(context.startTime.getTime() + this.maxTimeInSeconds * 1000);
 
     return new Date() >= endTime;
   }
@@ -74,7 +93,7 @@ const DefaultWaiterConfigurationDetails: WaiterConfigurationDetails = {
   delayStrategy: new ExponentialBackoffDelayStrategy(30)
 };
 
-async function delay(second: number) {
+export async function delay(second: number) {
   return new Promise(resolve => setTimeout(resolve, second * 1000));
 }
 

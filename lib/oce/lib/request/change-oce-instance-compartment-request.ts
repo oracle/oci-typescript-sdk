@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ChangeOceInstanceCompartmentRequest {
+export interface ChangeOceInstanceCompartmentRequest extends common.BaseRequest {
   /**
    * unique OceInstance identifier
    */

@@ -38,7 +38,7 @@ export class TransferJobWaiter {
       this.config,
       () => this.client.getTransferJob(request),
       response => targetStates.exists(response.transferJob.lifecycleState),
-      targetStates.includes(models.TransferJob.LifecycleState.DELETED)
+      targetStates.includes(models.TransferJob.LifecycleState.Deleted)
     );
   }
 }

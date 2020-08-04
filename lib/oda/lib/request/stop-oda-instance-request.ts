@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface StopOdaInstanceRequest {
+export interface StopOdaInstanceRequest extends common.BaseRequest {
   /**
    * Unique Digital Assistant instance identifier.
    */

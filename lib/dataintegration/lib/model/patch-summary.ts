@@ -88,27 +88,25 @@ export interface PatchSummary {
 
 export namespace PatchSummary {
   export enum PatchType {
-    PUBLISH = "PUBLISH",
-    UNPUBLISH = "UNPUBLISH",
-
+    Publish = "PUBLISH",
+    Unpublish = "UNPUBLISH",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum PatchStatus {
-    QUEUED = "QUEUED",
-    SUCCESSFUL = "SUCCESSFUL",
-    FAILED = "FAILED",
-    INPROGRESS = "IN_PROGRESS",
-
+    Queued = "QUEUED",
+    Successful = "SUCCESSFUL",
+    Failed = "FAILED",
+    InProgress = "IN_PROGRESS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: PatchSummary): object {

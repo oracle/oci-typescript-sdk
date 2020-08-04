@@ -38,7 +38,7 @@ export class IntegrationInstanceWaiter {
       this.config,
       () => this.client.getIntegrationInstance(request),
       response => targetStates.exists(response.integrationInstance.lifecycleState),
-      targetStates.includes(models.IntegrationInstance.LifecycleState.DELETED)
+      targetStates.includes(models.IntegrationInstance.LifecycleState.Deleted)
     );
   }
 

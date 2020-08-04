@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetResourceTypeRequest {
+export interface GetResourceTypeRequest extends common.BaseRequest {
   /**
    * The name of the resource type.
    */

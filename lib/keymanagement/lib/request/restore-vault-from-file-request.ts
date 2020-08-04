@@ -14,7 +14,7 @@
 import * as model from "../model";
 import common = require("oci-common");
 import stream = require("stream");
-export interface RestoreVaultFromFileRequest {
+export interface RestoreVaultFromFileRequest extends common.BaseRequest {
   /**
    * The OCID of the compartment.
    */

@@ -68,12 +68,12 @@ Example: `{\"Department\": \"Finance\"}`
 
 export namespace CreateAutonomousContainerDatabaseDetails {
   export enum ServiceLevelAgreementType {
-    STANDARD = "STANDARD"
+    Standard = "STANDARD"
   }
 
   export enum PatchModel {
-    UPDATES = "RELEASE_UPDATES",
-    UPDATEREVISIONS = "RELEASE_UPDATE_REVISIONS"
+    ReleaseUpdates = "RELEASE_UPDATES",
+    ReleaseUpdateRevisions = "RELEASE_UPDATE_REVISIONS"
   }
 
   export function getJsonObj(obj: CreateAutonomousContainerDatabaseDetails): object {

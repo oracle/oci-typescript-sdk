@@ -38,9 +38,9 @@ export interface Filter {
 
 export namespace Filter {
   export enum Operator {
-    AND = "AND",
-    NOT = "NOT",
-    OR = "OR"
+    And = "AND",
+    Not = "NOT",
+    Or = "OR"
   }
 
   export function getJsonObj(obj: Filter): object {

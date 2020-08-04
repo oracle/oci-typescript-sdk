@@ -112,18 +112,17 @@ Example: `2016-08-25T21:10:29.600Z`
 
 export namespace CrossConnect {
   export enum LifecycleState {
-    PENDINGCUSTOMER = "PENDING_CUSTOMER",
-    PROVISIONING = "PROVISIONING",
-    PROVISIONED = "PROVISIONED",
-    INACTIVE = "INACTIVE",
-    TERMINATING = "TERMINATING",
-    TERMINATED = "TERMINATED",
-
+    PendingCustomer = "PENDING_CUSTOMER",
+    Provisioning = "PROVISIONING",
+    Provisioned = "PROVISIONED",
+    Inactive = "INACTIVE",
+    Terminating = "TERMINATING",
+    Terminated = "TERMINATED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: CrossConnect): object {

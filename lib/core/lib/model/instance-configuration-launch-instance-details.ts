@@ -233,27 +233,25 @@ Dedicated VM hosts can be used when launching individual instances from an insta
 
 export namespace InstanceConfigurationLaunchInstanceDetails {
   export enum LaunchMode {
-    NATIVE = "NATIVE",
-    EMULATED = "EMULATED",
-    PARAVIRTUALIZED = "PARAVIRTUALIZED",
-    CUSTOM = "CUSTOM",
-
+    Native = "NATIVE",
+    Emulated = "EMULATED",
+    Paravirtualized = "PARAVIRTUALIZED",
+    Custom = "CUSTOM",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum PreferredMaintenanceAction {
-    LIVEMIGRATE = "LIVE_MIGRATE",
-    REBOOT = "REBOOT",
-
+    LiveMigrate = "LIVE_MIGRATE",
+    Reboot = "REBOOT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: InstanceConfigurationLaunchInstanceDetails): object {

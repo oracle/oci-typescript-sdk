@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateRuleRequest {
+export interface CreateRuleRequest extends common.BaseRequest {
   /**
    * Specification of the rule to create
    */

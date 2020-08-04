@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface DeletePreauthenticatedRequestRequest {
+export interface DeletePreauthenticatedRequestRequest extends common.BaseRequest {
   /**
    * The Object Storage namespace used for the request.
    */

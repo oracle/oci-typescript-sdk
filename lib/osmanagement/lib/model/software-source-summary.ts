@@ -76,16 +76,15 @@ export interface SoftwareSourceSummary {
 
 export namespace SoftwareSourceSummary {
   export enum Status {
-    NORMAL = "NORMAL",
-    UNREACHABLE = "UNREACHABLE",
-    ERROR = "ERROR",
-    WARNING = "WARNING",
-
+    Normal = "NORMAL",
+    Unreachable = "UNREACHABLE",
+    Error = "ERROR",
+    Warning = "WARNING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: SoftwareSourceSummary): object {

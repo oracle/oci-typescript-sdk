@@ -61,8 +61,8 @@ Example: `IDCS`
 
 export namespace CreateIdentityProviderDetails {
   export enum ProductType {
-    IDCS = "IDCS",
-    ADFS = "ADFS"
+    Idcs = "IDCS",
+    Adfs = "ADFS"
   }
 
   export function getJsonObj(obj: CreateIdentityProviderDetails): object {

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface DeleteDataSafePrivateEndpointRequest {
+export interface DeleteDataSafePrivateEndpointRequest extends common.BaseRequest {
   /**
    * The OCID of the private endpoint.
    */

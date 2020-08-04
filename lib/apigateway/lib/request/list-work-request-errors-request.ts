@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListWorkRequestErrorsRequest {
+export interface ListWorkRequestErrorsRequest extends common.BaseRequest {
   /**
    * The ocid of the asynchronous request.
    */
@@ -46,8 +46,8 @@ export interface ListWorkRequestErrorsRequest {
 
 export namespace ListWorkRequestErrorsRequest {
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 
   export enum SortBy {

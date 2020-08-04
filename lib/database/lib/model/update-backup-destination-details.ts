@@ -64,8 +64,8 @@ Example: `{\"Department\": \"Finance\"}`
 
 export namespace UpdateBackupDestinationDetails {
   export enum NfsMountType {
-    SELFMOUNT = "SELF_MOUNT",
-    AUTOMATEDMOUNT = "AUTOMATED_MOUNT"
+    SelfMount = "SELF_MOUNT",
+    AutomatedMount = "AUTOMATED_MOUNT"
   }
 
   export function getJsonObj(obj: UpdateBackupDestinationDetails): object {

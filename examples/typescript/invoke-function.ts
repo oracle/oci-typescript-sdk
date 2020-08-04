@@ -232,8 +232,10 @@ async function invokeFunction(
       fnName
     );
     const response = await invokeFunctionHelper(fnInvokeClient, fnSummary, payload);
+    // invokeFunction returns a readableStream. parse the stream to view payload.
+    console.log(await common.getStringFromResponseBody(response.value));
   } catch (error) {
-    console.log("Error invoing function " + error);
+    console.log("Error invoking function " + error);
   }
 }
 
@@ -334,7 +336,7 @@ async function createApplicaiton(
   };
   const createAppResponse = await client.createApplication(createAppRequest);
   // Wait for Application to be in 'Active' state.
-  await delay(600);
+  await delay(15);
   return createAppResponse.application;
 }
 
@@ -350,7 +352,7 @@ async function deleteApplication(client: fn.FunctionsManagementClient, applicati
   const delAppRequest: fn.requests.DeleteApplicationRequest = { applicationId: applicationId };
   await client.deleteApplication(delAppRequest);
   // Wait for the 'Deleted' status.
-  await delay(300);
+  await delay(15);
 }
 
 // === OCI Identity Helpers ===
@@ -396,7 +398,7 @@ async function createVcn(
   const createVcnRequest: core.requests.CreateVcnRequest = { createVcnDetails: createVcnDetails };
   const createVcnResponse = await client.createVcn(createVcnRequest);
   // Wait for VCn to become available
-  await delay(300);
+  await delay(15);
   return createVcnResponse.vcn;
 }
 
@@ -438,7 +440,7 @@ async function deleteVcn(client: core.VirtualNetworkClient, vcn: core.models.Vcn
   const deleteVcnRequest: core.requests.DeleteVcnRequest = { vcnId: vcn.id };
   await client.deleteVcn(deleteVcnRequest);
   // Wait for VCN to be deleted.
-  await delay(600);
+  await delay(15);
 }
 
 // === OCI Internet Gateway Helpers ===
@@ -459,7 +461,7 @@ async function createInternetGateway(
   };
   const createIGResponse = await client.createInternetGateway(createIGRequest);
   // Wait for sometime for internet gateway to become avaialble.
-  await delay(300);
+  await delay(15);
   return createIGResponse.internetGateway;
 }
 
@@ -507,7 +509,7 @@ async function deleteInternetGateway(client: core.VirtualNetworkClient, igID: st
   const deleteIgRequest: core.requests.DeleteInternetGatewayRequest = { igId: igID };
   await client.deleteInternetGateway(deleteIgRequest);
   // Wait for internet gateway to be dleted
-  await delay(300);
+  await delay(15);
 }
 
 // === OCI Route Table Helpers ===
@@ -544,7 +546,7 @@ async function configureInternetGateway(
   const rr: core.models.RouteRule = {
     cidrBlock: destinationCidr,
     destination: destinationCidr,
-    destinationType: core.models.RouteRule.DestinationType.CIDRBLOCK,
+    destinationType: core.models.RouteRule.DestinationType.CidrBlock,
     networkEntityId: igId
   };
   routeRules.push(rr);
@@ -640,7 +642,7 @@ async function createSubnet(
   };
   const createSubnetResponse = await client.createSubnet(createSubnetRequest);
   // Wait for subnet to become abvailable
-  await delay(300);
+  await delay(15);
   return createSubnetResponse.subnet;
 }
 
@@ -702,7 +704,7 @@ async function deleteSubnet(client: core.VirtualNetworkClient, subnetId: string)
     }
   }
   //Wait for subnet to be in Terminated state
-  await delay(300);
+  await delay(15);
 }
 
 // === OCI Function Helpers ===
@@ -738,7 +740,7 @@ async function CreateFunctionDetails(
   };
   const createFnResponse = await client.createFunction(createFnRequest);
   // Wait for Function to be in 'Active' state.
-  await delay(600);
+  await delay(15);
   return createFnResponse.function;
 }
 
@@ -833,7 +835,7 @@ async function deleteFunction(client: fn.FunctionsManagementClient, fnId: string
   const delFunctionRequest: fn.requests.DeleteFunctionRequest = { functionId: fnId };
   await client.deleteFunction(delFunctionRequest);
   // Wait for the 'Deleted' status.
-  await delay(300);
+  await delay(15);
 }
 
 /**

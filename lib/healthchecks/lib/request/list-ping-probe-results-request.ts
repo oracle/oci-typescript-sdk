@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListPingProbeResultsRequest {
+export interface ListPingProbeResultsRequest extends common.BaseRequest {
   /**
    * The OCID of a monitor or on-demand probe.
    */
@@ -55,7 +55,7 @@ export interface ListPingProbeResultsRequest {
 
 export namespace ListPingProbeResultsRequest {
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

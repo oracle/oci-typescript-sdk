@@ -19,14 +19,14 @@ import common = require("oci-common");
  * Possible source environment types.
  **/
 export enum SourceTypes {
-  OCIC = "OCIC",
-  INTERNAL_COMPUTE = "INTERNAL_COMPUTE",
+  Ocic = "OCIC",
+  InternalCompute = "INTERNAL_COMPUTE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace SourceTypes {

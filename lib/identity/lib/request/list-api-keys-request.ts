@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListApiKeysRequest {
+export interface ListApiKeysRequest extends common.BaseRequest {
   /**
    * The OCID of the user.
    */

@@ -63,7 +63,7 @@ Example: `{\"Department\": \"Finance\"}`
 
 export namespace CreateFlowLogConfigDetails {
   export enum FlowLogType {
-    ALL = "ALL"
+    All = "ALL"
   }
 
   export function getJsonObj(obj: CreateFlowLogConfigDetails): object {

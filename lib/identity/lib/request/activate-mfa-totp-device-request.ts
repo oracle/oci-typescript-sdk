@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ActivateMfaTotpDeviceRequest {
+export interface ActivateMfaTotpDeviceRequest extends common.BaseRequest {
   /**
    * The OCID of the user.
    */

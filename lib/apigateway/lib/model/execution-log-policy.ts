@@ -36,15 +36,14 @@ export interface ExecutionLogPolicy {
 
 export namespace ExecutionLogPolicy {
   export enum LogLevel {
-    INFO = "INFO",
-    WARN = "WARN",
-    ERROR = "ERROR",
-
+    Info = "INFO",
+    Warn = "WARN",
+    Error = "ERROR",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: ExecutionLogPolicy): object {

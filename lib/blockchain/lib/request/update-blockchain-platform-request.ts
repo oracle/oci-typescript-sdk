@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface UpdateBlockchainPlatformRequest {
+export interface UpdateBlockchainPlatformRequest extends common.BaseRequest {
   /**
    * The Blockchain Platform fields to update. Fields that are not provided will not be updated.
    */

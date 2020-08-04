@@ -38,7 +38,7 @@ export class DataSafeWaiter {
       this.config,
       () => this.client.getDataSafeConfiguration(request),
       response => targetStates.exists(response.dataSafeConfiguration.lifecycleState),
-      targetStates.includes(models.LifecycleState.DELETED)
+      targetStates.includes(models.LifecycleState.Deleted)
     );
   }
 
@@ -57,7 +57,7 @@ export class DataSafeWaiter {
       this.config,
       () => this.client.getDataSafePrivateEndpoint(request),
       response => targetStates.exists(response.dataSafePrivateEndpoint.lifecycleState),
-      targetStates.includes(models.LifecycleState.DELETED)
+      targetStates.includes(models.LifecycleState.Deleted)
     );
   }
 

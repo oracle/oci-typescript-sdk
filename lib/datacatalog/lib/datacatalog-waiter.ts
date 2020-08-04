@@ -38,7 +38,7 @@ export class DataCatalogWaiter {
       this.config,
       () => this.client.getAttribute(request),
       response => targetStates.exists(response.attribute.lifecycleState),
-      targetStates.includes(models.LifecycleState.DELETED)
+      targetStates.includes(models.LifecycleState.Deleted)
     );
   }
 
@@ -57,7 +57,7 @@ export class DataCatalogWaiter {
       this.config,
       () => this.client.getAttributeTag(request),
       response => targetStates.exists(response.attributeTag.lifecycleState),
-      targetStates.includes(models.LifecycleState.DELETED)
+      targetStates.includes(models.LifecycleState.Deleted)
     );
   }
 
@@ -76,7 +76,7 @@ export class DataCatalogWaiter {
       this.config,
       () => this.client.getCatalog(request),
       response => targetStates.exists(response.catalog.lifecycleState),
-      targetStates.includes(models.LifecycleState.DELETED)
+      targetStates.includes(models.LifecycleState.Deleted)
     );
   }
 
@@ -95,7 +95,7 @@ export class DataCatalogWaiter {
       this.config,
       () => this.client.getCatalogPrivateEndpoint(request),
       response => targetStates.exists(response.catalogPrivateEndpoint.lifecycleState),
-      targetStates.includes(models.LifecycleState.DELETED)
+      targetStates.includes(models.LifecycleState.Deleted)
     );
   }
 
@@ -114,7 +114,7 @@ export class DataCatalogWaiter {
       this.config,
       () => this.client.getConnection(request),
       response => targetStates.exists(response.connection.lifecycleState),
-      targetStates.includes(models.LifecycleState.DELETED)
+      targetStates.includes(models.LifecycleState.Deleted)
     );
   }
 
@@ -133,7 +133,7 @@ export class DataCatalogWaiter {
       this.config,
       () => this.client.getDataAsset(request),
       response => targetStates.exists(response.dataAsset.lifecycleState),
-      targetStates.includes(models.LifecycleState.DELETED)
+      targetStates.includes(models.LifecycleState.Deleted)
     );
   }
 
@@ -152,7 +152,7 @@ export class DataCatalogWaiter {
       this.config,
       () => this.client.getDataAssetTag(request),
       response => targetStates.exists(response.dataAssetTag.lifecycleState),
-      targetStates.includes(models.LifecycleState.DELETED)
+      targetStates.includes(models.LifecycleState.Deleted)
     );
   }
 
@@ -171,7 +171,7 @@ export class DataCatalogWaiter {
       this.config,
       () => this.client.getEntity(request),
       response => targetStates.exists(response.entity.lifecycleState),
-      targetStates.includes(models.LifecycleState.DELETED)
+      targetStates.includes(models.LifecycleState.Deleted)
     );
   }
 
@@ -190,7 +190,7 @@ export class DataCatalogWaiter {
       this.config,
       () => this.client.getEntityTag(request),
       response => targetStates.exists(response.entityTag.lifecycleState),
-      targetStates.includes(models.LifecycleState.DELETED)
+      targetStates.includes(models.LifecycleState.Deleted)
     );
   }
 
@@ -209,7 +209,7 @@ export class DataCatalogWaiter {
       this.config,
       () => this.client.getFolder(request),
       response => targetStates.exists(response.folder.lifecycleState),
-      targetStates.includes(models.LifecycleState.DELETED)
+      targetStates.includes(models.LifecycleState.Deleted)
     );
   }
 
@@ -228,7 +228,7 @@ export class DataCatalogWaiter {
       this.config,
       () => this.client.getFolderTag(request),
       response => targetStates.exists(response.folderTag.lifecycleState),
-      targetStates.includes(models.LifecycleState.DELETED)
+      targetStates.includes(models.LifecycleState.Deleted)
     );
   }
 
@@ -247,7 +247,7 @@ export class DataCatalogWaiter {
       this.config,
       () => this.client.getGlossary(request),
       response => targetStates.exists(response.glossary.lifecycleState),
-      targetStates.includes(models.LifecycleState.DELETED)
+      targetStates.includes(models.LifecycleState.Deleted)
     );
   }
 
@@ -284,7 +284,7 @@ export class DataCatalogWaiter {
       this.config,
       () => this.client.getJobDefinition(request),
       response => targetStates.exists(response.jobDefinition.lifecycleState),
-      targetStates.includes(models.LifecycleState.DELETED)
+      targetStates.includes(models.LifecycleState.Deleted)
     );
   }
 
@@ -321,7 +321,7 @@ export class DataCatalogWaiter {
       this.config,
       () => this.client.getTerm(request),
       response => targetStates.exists(response.term.lifecycleState),
-      targetStates.includes(models.LifecycleState.DELETED)
+      targetStates.includes(models.LifecycleState.Deleted)
     );
   }
 
@@ -340,7 +340,7 @@ export class DataCatalogWaiter {
       this.config,
       () => this.client.getTermRelationship(request),
       response => targetStates.exists(response.termRelationship.lifecycleState),
-      targetStates.includes(models.LifecycleState.DELETED)
+      targetStates.includes(models.LifecycleState.Deleted)
     );
   }
 
@@ -359,7 +359,7 @@ export class DataCatalogWaiter {
       this.config,
       () => this.client.getType(request),
       response => targetStates.exists(response.type.lifecycleState),
-      targetStates.includes(models.LifecycleState.DELETED)
+      targetStates.includes(models.LifecycleState.Deleted)
     );
   }
 

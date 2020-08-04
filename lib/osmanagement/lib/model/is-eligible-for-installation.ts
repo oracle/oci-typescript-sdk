@@ -20,15 +20,15 @@ import common = require("oci-common");
  * Indicates whether the update can be installed using OSMS.
  **/
 export enum IsEligibleForInstallation {
-  INSTALLABLE = "INSTALLABLE",
-  NOT_INSTALLABLE = "NOT_INSTALLABLE",
-  UNKNOWN = "UNKNOWN",
+  Installable = "INSTALLABLE",
+  NotInstallable = "NOT_INSTALLABLE",
+  Unknown = "UNKNOWN",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace IsEligibleForInstallation {

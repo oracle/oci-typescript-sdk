@@ -38,7 +38,7 @@ export class TransferDeviceWaiter {
       this.config,
       () => this.client.getTransferDevice(request),
       response => targetStates.exists(response.transferDevice.lifecycleState),
-      targetStates.includes(models.TransferDevice.LifecycleState.DELETED)
+      targetStates.includes(models.TransferDevice.LifecycleState.Deleted)
     );
   }
 }

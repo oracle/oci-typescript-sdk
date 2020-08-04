@@ -153,7 +153,7 @@ async function createVcn(client, compartmentId) {
   const getVcnRequest = { vcnId: response.vcn.id };
   const getVcnResponse = await VirtualNetworkWaiter.forVcn(
     getVcnRequest,
-    core.models.Vcn.LifecycleState.AVAILABLE
+    core.models.Vcn.LifecycleState.Available
   );
   return getVcnResponse.vcn;
 }
@@ -228,7 +228,7 @@ async function waitForWorkRequestFinished(client, workRequestId) {
 async function isWorkRequestInSuccessState(workRequestResponse) {
   let inSuccessState = false;
   const workRequestStatus = workRequestResponse.workRequest.status;
-  if (workRequestStatus === oke.models.WorkRequestStatus.SUCCEEDED) {
+  if (workRequestStatus === oke.models.WorkRequestStatus.Succeeded) {
     inSuccessState = true;
   }
   return inSuccessState;
@@ -284,7 +284,7 @@ async function deleteSubnet(client, subnet) {
   // // Wait for some time for subnet lifecycle staus changed to terminated.
   // await VirtualNetworkWaiter.forSubnet(
   //   getSubnetRequest,
-  //   core.models.Subnet.LifecycleState.TERMINATED
+  //   core.models.Subnet.LifecycleState.Terminated
   // );
 }
 
@@ -293,7 +293,7 @@ async function deleteVcn(client, vcn) {
   await client.deleteVcn(request);
   const getVcnRequest = { vcnId: vcn.id };
   // Wait for some time for VCN lifecycle staus changed to terminated.
-  // await VirtualNetworkWaiter.forVcn(getVcnRequest, core.models.Vcn.LifecycleState.TERMINATED);
+  // await VirtualNetworkWaiter.forVcn(getVcnRequest, core.models.Vcn.LifecycleState.Terminated);
 }
 
 const run = main();

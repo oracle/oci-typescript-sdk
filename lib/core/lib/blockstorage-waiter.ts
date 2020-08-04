@@ -45,7 +45,7 @@ export class BlockstorageWaiter {
       this.config,
       () => this.client.getBootVolume(request),
       response => targetStates.exists(response.bootVolume.lifecycleState),
-      targetStates.includes(models.BootVolume.LifecycleState.TERMINATED)
+      targetStates.includes(models.BootVolume.LifecycleState.Terminated)
     );
   }
 
@@ -64,7 +64,7 @@ export class BlockstorageWaiter {
       this.config,
       () => this.client.getBootVolumeBackup(request),
       response => targetStates.exists(response.bootVolumeBackup.lifecycleState),
-      targetStates.includes(models.BootVolumeBackup.LifecycleState.TERMINATED)
+      targetStates.includes(models.BootVolumeBackup.LifecycleState.Terminated)
     );
   }
 
@@ -83,7 +83,7 @@ export class BlockstorageWaiter {
       this.config,
       () => this.client.getVolume(request),
       response => targetStates.exists(response.volume.lifecycleState),
-      targetStates.includes(models.Volume.LifecycleState.TERMINATED)
+      targetStates.includes(models.Volume.LifecycleState.Terminated)
     );
   }
 
@@ -102,7 +102,7 @@ export class BlockstorageWaiter {
       this.config,
       () => this.client.getVolumeBackup(request),
       response => targetStates.exists(response.volumeBackup.lifecycleState),
-      targetStates.includes(models.VolumeBackup.LifecycleState.TERMINATED)
+      targetStates.includes(models.VolumeBackup.LifecycleState.Terminated)
     );
   }
 
@@ -121,7 +121,7 @@ export class BlockstorageWaiter {
       this.config,
       () => this.client.getVolumeGroup(request),
       response => targetStates.exists(response.volumeGroup.lifecycleState),
-      targetStates.includes(models.VolumeGroup.LifecycleState.TERMINATED)
+      targetStates.includes(models.VolumeGroup.LifecycleState.Terminated)
     );
   }
 
@@ -140,7 +140,7 @@ export class BlockstorageWaiter {
       this.config,
       () => this.client.getVolumeGroupBackup(request),
       response => targetStates.exists(response.volumeGroupBackup.lifecycleState),
-      targetStates.includes(models.VolumeGroupBackup.LifecycleState.TERMINATED)
+      targetStates.includes(models.VolumeGroupBackup.LifecycleState.Terminated)
     );
   }
 }

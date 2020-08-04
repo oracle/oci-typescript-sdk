@@ -48,14 +48,13 @@ export interface AutonomousDbPreviewVersionSummary {
 
 export namespace AutonomousDbPreviewVersionSummary {
   export enum DbWorkload {
-    OLTP = "OLTP",
-    DW = "DW",
-
+    Oltp = "OLTP",
+    Dw = "DW",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: AutonomousDbPreviewVersionSummary): object {

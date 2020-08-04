@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CancelKeyDeletionRequest {
+export interface CancelKeyDeletionRequest extends common.BaseRequest {
   /**
    * The OCID of the key.
    */

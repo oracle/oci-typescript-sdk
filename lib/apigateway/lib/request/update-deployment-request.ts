@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface UpdateDeploymentRequest {
+export interface UpdateDeploymentRequest extends common.BaseRequest {
   /**
    * The ocid of the deployment.
    */

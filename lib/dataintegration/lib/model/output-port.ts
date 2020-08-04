@@ -32,15 +32,14 @@ export interface OutputPort extends model.TypedObject {
 
 export namespace OutputPort {
   export enum PortType {
-    DATA = "DATA",
-    CONTROL = "CONTROL",
-    MODEL = "MODEL",
-
+    Data = "DATA",
+    Control = "CONTROL",
+    Model = "MODEL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: OutputPort, isParentJsonObj?: boolean): object {

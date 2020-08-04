@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ChangeInternetGatewayCompartmentRequest {
+export interface ChangeInternetGatewayCompartmentRequest extends common.BaseRequest {
   /**
    * The OCID of the internet gateway.
    */

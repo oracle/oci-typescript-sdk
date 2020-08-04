@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListTablesRequest {
+export interface ListTablesRequest extends common.BaseRequest {
   /**
    * The ID of a table's compartment.
    */
@@ -57,8 +57,8 @@ export interface ListTablesRequest {
 
 export namespace ListTablesRequest {
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 
   export enum SortBy {
@@ -67,12 +67,12 @@ export namespace ListTablesRequest {
   }
 
   export enum LifecycleState {
-    ALL = "ALL",
-    CREATING = "CREATING",
-    UPDATING = "UPDATING",
-    ACTIVE = "ACTIVE",
-    DELETING = "DELETING",
-    DELETED = "DELETED",
-    FAILED = "FAILED"
+    All = "ALL",
+    Creating = "CREATING",
+    Updating = "UPDATING",
+    Active = "ACTIVE",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
+    Failed = "FAILED"
   }
 }

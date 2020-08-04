@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface UpdateDhcpOptionsRequest {
+export interface UpdateDhcpOptionsRequest extends common.BaseRequest {
   /**
    * The OCID for the set of DHCP options.
    */

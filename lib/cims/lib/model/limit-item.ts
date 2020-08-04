@@ -40,15 +40,14 @@ export interface LimitItem extends model.Item {
 
 export namespace LimitItem {
   export enum LimitStatus {
-    APPROVED = "APPROVED",
-    PARTIALLYAPPROVED = "PARTIALLY_APPROVED",
-    NOTAPPROVED = "NOT_APPROVED",
-
+    Approved = "APPROVED",
+    PartiallyApproved = "PARTIALLY_APPROVED",
+    NotApproved = "NOT_APPROVED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: LimitItem, isParentJsonObj?: boolean): object {

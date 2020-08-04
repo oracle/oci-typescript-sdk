@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface StartAnalyticsInstanceRequest {
+export interface StartAnalyticsInstanceRequest extends common.BaseRequest {
   /**
    * The OCID of the AnalyticsInstance.
    *

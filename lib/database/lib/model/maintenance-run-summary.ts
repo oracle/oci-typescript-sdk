@@ -76,55 +76,51 @@ export interface MaintenanceRunSummary {
 
 export namespace MaintenanceRunSummary {
   export enum LifecycleState {
-    SCHEDULED = "SCHEDULED",
-    INPROGRESS = "IN_PROGRESS",
-    SUCCEEDED = "SUCCEEDED",
-    SKIPPED = "SKIPPED",
-    FAILED = "FAILED",
-    UPDATING = "UPDATING",
-    DELETING = "DELETING",
-    DELETED = "DELETED",
-
+    Scheduled = "SCHEDULED",
+    InProgress = "IN_PROGRESS",
+    Succeeded = "SUCCEEDED",
+    Skipped = "SKIPPED",
+    Failed = "FAILED",
+    Updating = "UPDATING",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum TargetResourceType {
-    AUTONOMOUSEXADATAINFRASTRUCTURE = "AUTONOMOUS_EXADATA_INFRASTRUCTURE",
-    AUTONOMOUSCONTAINERDATABASE = "AUTONOMOUS_CONTAINER_DATABASE",
-    EXADATADBSYSTEM = "EXADATA_DB_SYSTEM",
-
+    AutonomousExadataInfrastructure = "AUTONOMOUS_EXADATA_INFRASTRUCTURE",
+    AutonomousContainerDatabase = "AUTONOMOUS_CONTAINER_DATABASE",
+    ExadataDbSystem = "EXADATA_DB_SYSTEM",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum MaintenanceType {
-    PLANNED = "PLANNED",
-    UNPLANNED = "UNPLANNED",
-
+    Planned = "PLANNED",
+    Unplanned = "UNPLANNED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum MaintenanceSubtype {
-    QUARTERLY = "QUARTERLY",
-    HARDWARE = "HARDWARE",
-    CRITICAL = "CRITICAL",
-
+    Quarterly = "QUARTERLY",
+    Hardware = "HARDWARE",
+    Critical = "CRITICAL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: MaintenanceRunSummary): object {

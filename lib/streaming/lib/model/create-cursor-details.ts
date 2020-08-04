@@ -46,11 +46,11 @@ export interface CreateCursorDetails {
 
 export namespace CreateCursorDetails {
   export enum Type {
-    AFTEROFFSET = "AFTER_OFFSET",
-    ATOFFSET = "AT_OFFSET",
-    ATTIME = "AT_TIME",
-    LATEST = "LATEST",
-    TRIMHORIZON = "TRIM_HORIZON"
+    AfterOffset = "AFTER_OFFSET",
+    AtOffset = "AT_OFFSET",
+    AtTime = "AT_TIME",
+    Latest = "LATEST",
+    TrimHorizon = "TRIM_HORIZON"
   }
 
   export function getJsonObj(obj: CreateCursorDetails): object {

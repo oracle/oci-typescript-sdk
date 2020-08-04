@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListSteeringPoliciesRequest {
+export interface ListSteeringPoliciesRequest extends common.BaseRequest {
   /**
    * The OCID of the compartment the resource belongs to.
    */

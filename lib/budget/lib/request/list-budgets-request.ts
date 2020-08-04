@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListBudgetsRequest {
+export interface ListBudgetsRequest extends common.BaseRequest {
   /**
    * The ID of the compartment in which to list resources.
    */
@@ -64,8 +64,8 @@ Example: `My new resource`
 
 export namespace ListBudgetsRequest {
   export enum TargetType {
-    ALL = "ALL",
-    COMPARTMENT = "COMPARTMENT",
-    TAG = "TAG"
+    All = "ALL",
+    Compartment = "COMPARTMENT",
+    Tag = "TAG"
   }
 }

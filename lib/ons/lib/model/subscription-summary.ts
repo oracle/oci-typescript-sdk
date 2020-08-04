@@ -82,15 +82,14 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 
 export namespace SubscriptionSummary {
   export enum LifecycleState {
-    PENDING = "PENDING",
-    ACTIVE = "ACTIVE",
-    DELETED = "DELETED",
-
+    Pending = "PENDING",
+    Active = "ACTIVE",
+    Deleted = "DELETED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: SubscriptionSummary): object {

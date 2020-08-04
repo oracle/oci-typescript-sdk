@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ChangeTsigKeyCompartmentRequest {
+export interface ChangeTsigKeyCompartmentRequest extends common.BaseRequest {
   /**
    * The OCID of the target TSIG key.
    */

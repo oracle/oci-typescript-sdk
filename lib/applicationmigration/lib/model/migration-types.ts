@@ -19,18 +19,18 @@ import common = require("oci-common");
  * The type of application service to be migrated.
  **/
 export enum MigrationTypes {
-  JCS = "JCS",
-  SOACS = "SOACS",
-  OIC = "OIC",
-  OAC = "OAC",
-  ICS = "ICS",
-  PCS = "PCS",
+  Jcs = "JCS",
+  Soacs = "SOACS",
+  Oic = "OIC",
+  Oac = "OAC",
+  Ics = "ICS",
+  Pcs = "PCS",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace MigrationTypes {

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface UpdateRemotePeeringConnectionRequest {
+export interface UpdateRemotePeeringConnectionRequest extends common.BaseRequest {
   /**
    * The OCID of the remote peering connection (RPC).
    */

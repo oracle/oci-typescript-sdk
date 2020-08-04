@@ -78,8 +78,8 @@ Example: `2001:db8::/32`
 
 export namespace UpdateIPSecConnectionDetails {
   export enum CpeLocalIdentifierType {
-    IPADDRESS = "IP_ADDRESS",
-    HOSTNAME = "HOSTNAME"
+    IpAddress = "IP_ADDRESS",
+    Hostname = "HOSTNAME"
   }
 
   export function getJsonObj(obj: UpdateIPSecConnectionDetails): object {

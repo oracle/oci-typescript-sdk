@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface AddBlockStorageRequest {
+export interface AddBlockStorageRequest extends common.BaseRequest {
   /**
    * The OCID of the BDS instance
    */

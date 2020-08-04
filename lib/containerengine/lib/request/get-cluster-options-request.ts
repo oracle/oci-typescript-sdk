@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetClusterOptionsRequest {
+export interface GetClusterOptionsRequest extends common.BaseRequest {
   /**
    * The id of the option set to retrieve. Only \"all\" is supported.
    */

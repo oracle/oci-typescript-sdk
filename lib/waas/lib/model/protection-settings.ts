@@ -103,33 +103,31 @@ Use `GET /waasPolicies/{waasPolicyId}/wafRecommendations` to view WAF recommenda
 
 export namespace ProtectionSettings {
   export enum BlockAction {
-    SHOWERRORPAGE = "SHOW_ERROR_PAGE",
-    SETRESPONSECODE = "SET_RESPONSE_CODE",
-
+    ShowErrorPage = "SHOW_ERROR_PAGE",
+    SetResponseCode = "SET_RESPONSE_CODE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum AllowedHttpMethods {
-    OPTIONS = "OPTIONS",
-    GET = "GET",
-    HEAD = "HEAD",
-    POST = "POST",
-    PUT = "PUT",
-    DELETE = "DELETE",
-    TRACE = "TRACE",
-    CONNECT = "CONNECT",
-    PATCH = "PATCH",
-    PROPFIND = "PROPFIND",
-
+    Options = "OPTIONS",
+    Get = "GET",
+    Head = "HEAD",
+    Post = "POST",
+    Put = "PUT",
+    Delete = "DELETE",
+    Trace = "TRACE",
+    Connect = "CONNECT",
+    Patch = "PATCH",
+    Propfind = "PROPFIND",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: ProtectionSettings): object {

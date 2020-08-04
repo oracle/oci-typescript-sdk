@@ -69,15 +69,15 @@ For more information, see
 
 export namespace CreateDataGuardAssociationDetails {
   export enum ProtectionMode {
-    AVAILABILITY = "MAXIMUM_AVAILABILITY",
-    PERFORMANCE = "MAXIMUM_PERFORMANCE",
-    PROTECTION = "MAXIMUM_PROTECTION"
+    MaximumAvailability = "MAXIMUM_AVAILABILITY",
+    MaximumPerformance = "MAXIMUM_PERFORMANCE",
+    MaximumProtection = "MAXIMUM_PROTECTION"
   }
 
   export enum TransportType {
-    SYNC = "SYNC",
-    ASYNC = "ASYNC",
-    FASTSYNC = "FASTSYNC"
+    Sync = "SYNC",
+    Async = "ASYNC",
+    Fastsync = "FASTSYNC"
   }
 
   export function getJsonObj(obj: CreateDataGuardAssociationDetails): object {

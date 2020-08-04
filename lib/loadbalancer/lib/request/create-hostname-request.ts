@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateHostnameRequest {
+export interface CreateHostnameRequest extends common.BaseRequest {
   /**
    * The details of the hostname resource to add to the specified load balancer.
    */

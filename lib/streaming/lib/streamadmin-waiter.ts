@@ -38,7 +38,7 @@ export class StreamAdminWaiter {
       this.config,
       () => this.client.getConnectHarness(request),
       response => targetStates.exists(response.connectHarness.lifecycleState),
-      targetStates.includes(models.ConnectHarness.LifecycleState.DELETED)
+      targetStates.includes(models.ConnectHarness.LifecycleState.Deleted)
     );
   }
 
@@ -57,7 +57,7 @@ export class StreamAdminWaiter {
       this.config,
       () => this.client.getStream(request),
       response => targetStates.exists(response.stream.lifecycleState),
-      targetStates.includes(models.Stream.LifecycleState.DELETED)
+      targetStates.includes(models.Stream.LifecycleState.Deleted)
     );
   }
 
@@ -76,7 +76,7 @@ export class StreamAdminWaiter {
       this.config,
       () => this.client.getStreamPool(request),
       response => targetStates.exists(response.streamPool.lifecycleState),
-      targetStates.includes(models.StreamPool.LifecycleState.DELETED)
+      targetStates.includes(models.StreamPool.LifecycleState.Deleted)
     );
   }
 }

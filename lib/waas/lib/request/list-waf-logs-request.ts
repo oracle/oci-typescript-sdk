@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListWafLogsRequest {
+export interface ListWafLogsRequest extends common.BaseRequest {
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the WAAS policy.
    */
@@ -110,33 +110,33 @@ export interface ListWafLogsRequest {
 
 export namespace ListWafLogsRequest {
   export enum Action {
-    BLOCK = "BLOCK",
-    DETECT = "DETECT",
-    BYPASS = "BYPASS",
-    LOG = "LOG",
-    REDIRECTED = "REDIRECTED"
+    Block = "BLOCK",
+    Detect = "DETECT",
+    Bypass = "BYPASS",
+    Log = "LOG",
+    Redirected = "REDIRECTED"
   }
 
   export enum HttpMethod {
-    OPTIONS = "OPTIONS",
-    GET = "GET",
-    HEAD = "HEAD",
-    POST = "POST",
-    PUT = "PUT",
-    DELETE = "DELETE",
-    TRACE = "TRACE",
-    CONNECT = "CONNECT"
+    Options = "OPTIONS",
+    Get = "GET",
+    Head = "HEAD",
+    Post = "POST",
+    Put = "PUT",
+    Delete = "DELETE",
+    Trace = "TRACE",
+    Connect = "CONNECT"
   }
 
   export enum LogType {
-    ACCESS = "ACCESS",
-    PROTECTIONRULES = "PROTECTION_RULES",
-    JSCHALLENGE = "JS_CHALLENGE",
-    CAPTCHA = "CAPTCHA",
-    ACCESSRULES = "ACCESS_RULES",
-    THREATFEEDS = "THREAT_FEEDS",
-    HUMANINTERACTIONCHALLENGE = "HUMAN_INTERACTION_CHALLENGE",
-    DEVICEFINGERPRINTCHALLENGE = "DEVICE_FINGERPRINT_CHALLENGE",
-    ADDRESSRATELIMITING = "ADDRESS_RATE_LIMITING"
+    Access = "ACCESS",
+    ProtectionRules = "PROTECTION_RULES",
+    JsChallenge = "JS_CHALLENGE",
+    Captcha = "CAPTCHA",
+    AccessRules = "ACCESS_RULES",
+    ThreatFeeds = "THREAT_FEEDS",
+    HumanInteractionChallenge = "HUMAN_INTERACTION_CHALLENGE",
+    DeviceFingerprintChallenge = "DEVICE_FINGERPRINT_CHALLENGE",
+    AddressRateLimiting = "ADDRESS_RATE_LIMITING"
   }
 }

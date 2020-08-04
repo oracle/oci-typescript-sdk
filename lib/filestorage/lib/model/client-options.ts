@@ -75,26 +75,24 @@ export interface ClientOptions {
 
 export namespace ClientOptions {
   export enum Access {
-    WRITE = "READ_WRITE",
-    ONLY = "READ_ONLY",
-
+    ReadWrite = "READ_WRITE",
+    ReadOnly = "READ_ONLY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum IdentitySquash {
-    NONE = "NONE",
-    ROOT = "ROOT",
-    ALL = "ALL",
-
+    None = "NONE",
+    Root = "ROOT",
+    All = "ALL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: ClientOptions): object {

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface DeleteEntityRequest {
+export interface DeleteEntityRequest extends common.BaseRequest {
   /**
    * Unique catalog identifier.
    */

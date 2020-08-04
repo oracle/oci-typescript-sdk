@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListPackagesRequest {
+export interface ListPackagesRequest extends common.BaseRequest {
   /**
    * The unique identifier for the listing.
    */
@@ -61,11 +61,11 @@ export interface ListPackagesRequest {
 
 export namespace ListPackagesRequest {
   export enum SortBy {
-    TIMERELEASED = "TIMERELEASED"
+    Timereleased = "TIMERELEASED"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

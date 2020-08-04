@@ -27,7 +27,7 @@ export interface WrappedImportKey {
 
 export namespace WrappedImportKey {
   export enum WrappingAlgorithm {
-    SHA256 = "RSA_OAEP_SHA256"
+    RsaOaepSha256 = "RSA_OAEP_SHA256"
   }
 
   export function getJsonObj(obj: WrappedImportKey): object {

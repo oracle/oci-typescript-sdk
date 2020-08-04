@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateSwiftPasswordRequest {
+export interface CreateSwiftPasswordRequest extends common.BaseRequest {
   /**
    * Request object for creating a new swift password.
    */

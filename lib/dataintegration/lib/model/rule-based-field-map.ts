@@ -56,15 +56,14 @@ export interface RuleBasedFieldMap extends model.FieldMap {
 
 export namespace RuleBasedFieldMap {
   export enum MapType {
-    MAPBYNAME = "MAPBYNAME",
-    MAPBYPOSITION = "MAPBYPOSITION",
-    MAPBYPATTERN = "MAPBYPATTERN",
-
+    Mapbyname = "MAPBYNAME",
+    Mapbyposition = "MAPBYPOSITION",
+    Mapbypattern = "MAPBYPATTERN",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: RuleBasedFieldMap, isParentJsonObj?: boolean): object {

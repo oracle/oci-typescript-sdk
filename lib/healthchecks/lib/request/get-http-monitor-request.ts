@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetHttpMonitorRequest {
+export interface GetHttpMonitorRequest extends common.BaseRequest {
   /**
    * The OCID of a monitor.
    */

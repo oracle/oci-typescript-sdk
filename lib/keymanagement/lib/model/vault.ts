@@ -96,33 +96,31 @@ Example: `2018-04-03T21:10:29.600Z`
 
 export namespace Vault {
   export enum LifecycleState {
-    CREATING = "CREATING",
-    ACTIVE = "ACTIVE",
-    DELETING = "DELETING",
-    DELETED = "DELETED",
-    PENDINGDELETION = "PENDING_DELETION",
-    SCHEDULINGDELETION = "SCHEDULING_DELETION",
-    CANCELLINGDELETION = "CANCELLING_DELETION",
-    UPDATING = "UPDATING",
-    BACKUPINPROGRESS = "BACKUP_IN_PROGRESS",
-    RESTORING = "RESTORING",
-
+    Creating = "CREATING",
+    Active = "ACTIVE",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
+    PendingDeletion = "PENDING_DELETION",
+    SchedulingDeletion = "SCHEDULING_DELETION",
+    CancellingDeletion = "CANCELLING_DELETION",
+    Updating = "UPDATING",
+    BackupInProgress = "BACKUP_IN_PROGRESS",
+    Restoring = "RESTORING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum VaultType {
-    VIRTUALPRIVATE = "VIRTUAL_PRIVATE",
-    DEFAULT = "DEFAULT",
-
+    VirtualPrivate = "VIRTUAL_PRIVATE",
+    Default = "DEFAULT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Vault): object {

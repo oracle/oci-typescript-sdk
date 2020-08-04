@@ -79,25 +79,23 @@ export interface Configuration {
 
 export namespace Configuration {
   export enum Type {
-    DEFAULT = "DEFAULT",
-    CUSTOM = "CUSTOM",
-
+    Default = "DEFAULT",
+    Custom = "CUSTOM",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LifecycleState {
-    ACTIVE = "ACTIVE",
-    DELETED = "DELETED",
-
+    Active = "ACTIVE",
+    Deleted = "DELETED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Configuration): object {

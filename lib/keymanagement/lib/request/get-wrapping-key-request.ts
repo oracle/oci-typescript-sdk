@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetWrappingKeyRequest {
+export interface GetWrappingKeyRequest extends common.BaseRequest {
   /**
    * Unique identifier for the request. If provided, the returned request ID
    * will include this value. Otherwise, a random request ID will be

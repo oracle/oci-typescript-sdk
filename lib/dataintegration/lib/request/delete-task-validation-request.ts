@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface DeleteTaskValidationRequest {
+export interface DeleteTaskValidationRequest extends common.BaseRequest {
   /**
    * DIS workspace id
    */

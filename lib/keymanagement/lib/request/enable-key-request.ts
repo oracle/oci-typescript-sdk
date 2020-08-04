@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface EnableKeyRequest {
+export interface EnableKeyRequest extends common.BaseRequest {
   /**
    * The OCID of the key.
    */

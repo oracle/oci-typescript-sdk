@@ -52,26 +52,24 @@ export interface NamePatternRule extends model.ProjectionRule {
 
 export namespace NamePatternRule {
   export enum MatchingStrategy {
-    NAMEORTAGS = "NAME_OR_TAGS",
-    TAGSONLY = "TAGS_ONLY",
-    NAMEONLY = "NAME_ONLY",
-
+    NameOrTags = "NAME_OR_TAGS",
+    TagsOnly = "TAGS_ONLY",
+    NameOnly = "NAME_ONLY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum RuleType {
-    INCLUDE = "INCLUDE",
-    EXCLUDE = "EXCLUDE",
-
+    Include = "INCLUDE",
+    Exclude = "EXCLUDE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: NamePatternRule, isParentJsonObj?: boolean): object {

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetPublicIpByPrivateIpIdRequest {
+export interface GetPublicIpByPrivateIpIdRequest extends common.BaseRequest {
   /**
    * Private IP details for fetching the public IP.
    */

@@ -105,40 +105,37 @@ In the case of multiple headers with the same name, only the first header will b
 
 export namespace PolicyConfig {
   export enum TlsProtocols {
-    V1 = "TLS_V1",
-    V11 = "TLS_V1_1",
-    V12 = "TLS_V1_2",
-    V13 = "TLS_V1_3",
-
+    TlsV1 = "TLS_V1",
+    TlsV11 = "TLS_V1_1",
+    TlsV12 = "TLS_V1_2",
+    TlsV13 = "TLS_V1_3",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum ClientAddressHeader {
-    XFORWARDEDFOR = "X_FORWARDED_FOR",
-    XCLIENTIP = "X_CLIENT_IP",
-    XREALIP = "X_REAL_IP",
-    CLIENTIP = "CLIENT_IP",
-    TRUECLIENTIP = "TRUE_CLIENT_IP",
-
+    XForwardedFor = "X_FORWARDED_FOR",
+    XClientIp = "X_CLIENT_IP",
+    XRealIp = "X_REAL_IP",
+    ClientIp = "CLIENT_IP",
+    TrueClientIp = "TRUE_CLIENT_IP",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum CipherGroup {
-    DEFAULT = "DEFAULT",
-
+    Default = "DEFAULT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: PolicyConfig): object {

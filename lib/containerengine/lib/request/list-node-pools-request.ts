@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListNodePoolsRequest {
+export interface ListNodePoolsRequest extends common.BaseRequest {
   /**
    * The OCID of the compartment.
    */
@@ -57,8 +57,8 @@ export interface ListNodePoolsRequest {
 
 export namespace ListNodePoolsRequest {
   export enum SortBy {
-    ID = "ID",
-    NAME = "NAME",
-    TIMECREATED = "TIME_CREATED"
+    Id = "ID",
+    Name = "NAME",
+    TimeCreated = "TIME_CREATED"
   }
 }

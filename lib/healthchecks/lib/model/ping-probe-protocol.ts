@@ -21,14 +21,14 @@ import common = require("oci-common");
  * The protocols for ping probes.
  **/
 export enum PingProbeProtocol {
-  ICMP = "ICMP",
-  TCP = "TCP",
+  Icmp = "ICMP",
+  Tcp = "TCP",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace PingProbeProtocol {

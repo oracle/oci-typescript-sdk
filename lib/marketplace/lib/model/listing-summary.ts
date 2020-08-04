@@ -60,15 +60,14 @@ export interface ListingSummary {
 
 export namespace ListingSummary {
   export enum PricingTypes {
-    FREE = "FREE",
-    BYOL = "BYOL",
-    PAYGO = "PAYGO",
-
+    Free = "FREE",
+    Byol = "BYOL",
+    Paygo = "PAYGO",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: ListingSummary): object {

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateFlowLogConfigRequest {
+export interface CreateFlowLogConfigRequest extends common.BaseRequest {
   /**
    * Details of a flow log configuration to be created.
    */

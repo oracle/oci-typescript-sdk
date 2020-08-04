@@ -1,6 +1,6 @@
 /**
  * Blockchain Platform Control Plane API
- * Blockchain Platform Plane API
+ * Blockchain Platform Control Plane API
  * OpenAPI spec version: 20191010
  *
  *
@@ -42,17 +42,16 @@ export interface WorkRequestResource {
 
 export namespace WorkRequestResource {
   export enum ActionType {
-    CREATED = "CREATED",
-    UPDATED = "UPDATED",
-    DELETED = "DELETED",
-    INPROGRESS = "IN_PROGRESS",
-    RELATED = "RELATED",
-
+    Created = "CREATED",
+    Updated = "UPDATED",
+    Deleted = "DELETED",
+    InProgress = "IN_PROGRESS",
+    Related = "RELATED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: WorkRequestResource): object {

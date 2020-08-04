@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListServicesRequest {
+export interface ListServicesRequest extends common.BaseRequest {
   /**
    * The OCID of the parent compartment (remember that the tenancy is simply the root compartment).
    *
@@ -54,7 +54,7 @@ export namespace ListServicesRequest {
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListNotebookSessionsRequest {
+export interface ListNotebookSessionsRequest extends common.BaseRequest {
   /**
    * <b>Filter</b> results by the [OCID](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/identifiers.htm) of the compartment.
    */
@@ -81,8 +81,8 @@ See [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/us
 
 export namespace ListNotebookSessionsRequest {
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 
   export enum SortBy {

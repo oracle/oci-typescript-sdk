@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListDeploymentsRequest {
+export interface ListDeploymentsRequest extends common.BaseRequest {
   /**
    * The ocid of the compartment in which to list resources.
    */
@@ -64,8 +64,8 @@ Example: `SUCCEEDED`
 
 export namespace ListDeploymentsRequest {
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 
   export enum SortBy {

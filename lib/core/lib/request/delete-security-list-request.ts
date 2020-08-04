@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface DeleteSecurityListRequest {
+export interface DeleteSecurityListRequest extends common.BaseRequest {
   /**
    * The OCID of the security list.
    */

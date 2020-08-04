@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetConfigurationRequest {
+export interface GetConfigurationRequest extends common.BaseRequest {
   /**
    * ID of the root compartment (tenancy)
    */

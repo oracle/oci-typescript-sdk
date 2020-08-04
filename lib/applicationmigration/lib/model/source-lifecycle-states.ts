@@ -19,12 +19,12 @@ import common = require("oci-common");
  * Resource lifecycle state
  **/
 export enum SourceLifecycleStates {
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-  DELETED = "DELETED"
+  Creating = "CREATING",
+  Deleting = "DELETING",
+  Updating = "UPDATING",
+  Active = "ACTIVE",
+  Inactive = "INACTIVE",
+  Deleted = "DELETED"
 }
 
 export namespace SourceLifecycleStates {

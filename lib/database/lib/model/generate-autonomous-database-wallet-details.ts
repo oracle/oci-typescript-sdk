@@ -33,8 +33,8 @@ export interface GenerateAutonomousDatabaseWalletDetails {
 
 export namespace GenerateAutonomousDatabaseWalletDetails {
   export enum GenerateType {
-    ALL = "ALL",
-    SINGLE = "SINGLE"
+    All = "ALL",
+    Single = "SINGLE"
   }
 
   export function getJsonObj(obj: GenerateAutonomousDatabaseWalletDetails): object {

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateInstancePoolRequest {
+export interface CreateInstancePoolRequest extends common.BaseRequest {
   /**
    * Instance pool creation details
    */

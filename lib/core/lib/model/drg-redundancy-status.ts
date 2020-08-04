@@ -37,20 +37,19 @@ export interface DrgRedundancyStatus {
 
 export namespace DrgRedundancyStatus {
   export enum Status {
-    NOTAVAILABLE = "NOT_AVAILABLE",
-    REDUNDANT = "REDUNDANT",
-    NOTREDUNDANTSINGLEIPSEC = "NOT_REDUNDANT_SINGLE_IPSEC",
-    NOTREDUNDANTSINGLEVIRTUALCIRCUIT = "NOT_REDUNDANT_SINGLE_VIRTUALCIRCUIT",
-    NOTREDUNDANTMULTIPLEIPSECS = "NOT_REDUNDANT_MULTIPLE_IPSECS",
-    NOTREDUNDANTMULTIPLEVIRTUALCIRCUITS = "NOT_REDUNDANT_MULTIPLE_VIRTUALCIRCUITS",
-    NOTREDUNDANTMIXCONNECTIONS = "NOT_REDUNDANT_MIX_CONNECTIONS",
-    NOTREDUNDANTNOCONNECTION = "NOT_REDUNDANT_NO_CONNECTION",
-
+    NotAvailable = "NOT_AVAILABLE",
+    Redundant = "REDUNDANT",
+    NotRedundantSingleIpsec = "NOT_REDUNDANT_SINGLE_IPSEC",
+    NotRedundantSingleVirtualcircuit = "NOT_REDUNDANT_SINGLE_VIRTUALCIRCUIT",
+    NotRedundantMultipleIpsecs = "NOT_REDUNDANT_MULTIPLE_IPSECS",
+    NotRedundantMultipleVirtualcircuits = "NOT_REDUNDANT_MULTIPLE_VIRTUALCIRCUITS",
+    NotRedundantMixConnections = "NOT_REDUNDANT_MIX_CONNECTIONS",
+    NotRedundantNoConnection = "NOT_REDUNDANT_NO_CONNECTION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: DrgRedundancyStatus): object {

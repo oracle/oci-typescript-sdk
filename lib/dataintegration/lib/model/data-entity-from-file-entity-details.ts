@@ -84,12 +84,12 @@ export interface DataEntityFromFileEntityDetails extends model.DataEntityDetails
 
 export namespace DataEntityFromFileEntityDetails {
   export enum EntityType {
-    TABLE = "TABLE",
-    VIEW = "VIEW",
-    FILE = "FILE",
-    QUEUE = "QUEUE",
-    STREAM = "STREAM",
-    OTHER = "OTHER"
+    Table = "TABLE",
+    View = "VIEW",
+    File = "FILE",
+    Queue = "QUEUE",
+    Stream = "STREAM",
+    Other = "OTHER"
   }
 
   export function getJsonObj(

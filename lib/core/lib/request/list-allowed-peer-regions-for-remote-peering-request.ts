@@ -13,4 +13,4 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListAllowedPeerRegionsForRemotePeeringRequest {}
+export interface ListAllowedPeerRegionsForRemotePeeringRequest extends common.BaseRequest {}

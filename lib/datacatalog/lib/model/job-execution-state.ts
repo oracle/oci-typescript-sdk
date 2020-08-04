@@ -25,18 +25,18 @@ import common = require("oci-common");
  *
  **/
 export enum JobExecutionState {
-  CREATED = "CREATED",
-  IN_PROGRESS = "IN_PROGRESS",
-  INACTIVE = "INACTIVE",
-  FAILED = "FAILED",
-  SUCCEEDED = "SUCCEEDED",
-  CANCELED = "CANCELED",
+  Created = "CREATED",
+  InProgress = "IN_PROGRESS",
+  Inactive = "INACTIVE",
+  Failed = "FAILED",
+  Succeeded = "SUCCEEDED",
+  Canceled = "CANCELED",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace JobExecutionState {

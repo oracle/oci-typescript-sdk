@@ -60,8 +60,8 @@ export interface QueryDetails {
 
 export namespace QueryDetails {
   export enum Consistency {
-    EVENTUAL = "EVENTUAL",
-    ABSOLUTE = "ABSOLUTE"
+    Eventual = "EVENTUAL",
+    Absolute = "ABSOLUTE"
   }
 
   export function getJsonObj(obj: QueryDetails): object {

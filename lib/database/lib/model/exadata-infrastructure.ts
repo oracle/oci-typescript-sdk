@@ -139,22 +139,21 @@ Example: `{\"Department\": \"Finance\"}`
 
 export namespace ExadataInfrastructure {
   export enum LifecycleState {
-    CREATING = "CREATING",
-    REQUIRESACTIVATION = "REQUIRES_ACTIVATION",
-    ACTIVATING = "ACTIVATING",
-    ACTIVE = "ACTIVE",
-    ACTIVATIONFAILED = "ACTIVATION_FAILED",
-    FAILED = "FAILED",
-    UPDATING = "UPDATING",
-    DELETING = "DELETING",
-    DELETED = "DELETED",
-    DISCONNECTED = "DISCONNECTED",
-
+    Creating = "CREATING",
+    RequiresActivation = "REQUIRES_ACTIVATION",
+    Activating = "ACTIVATING",
+    Active = "ACTIVE",
+    ActivationFailed = "ACTIVATION_FAILED",
+    Failed = "FAILED",
+    Updating = "UPDATING",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
+    Disconnected = "DISCONNECTED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: ExadataInfrastructure): object {

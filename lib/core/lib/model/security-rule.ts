@@ -171,38 +171,35 @@ Allowed values:
 
 export namespace SecurityRule {
   export enum DestinationType {
-    CIDRBLOCK = "CIDR_BLOCK",
-    SERVICECIDRBLOCK = "SERVICE_CIDR_BLOCK",
-    NETWORKSECURITYGROUP = "NETWORK_SECURITY_GROUP",
-
+    CidrBlock = "CIDR_BLOCK",
+    ServiceCidrBlock = "SERVICE_CIDR_BLOCK",
+    NetworkSecurityGroup = "NETWORK_SECURITY_GROUP",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Direction {
-    EGRESS = "EGRESS",
-    INGRESS = "INGRESS",
-
+    Egress = "EGRESS",
+    Ingress = "INGRESS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum SourceType {
-    CIDRBLOCK = "CIDR_BLOCK",
-    SERVICECIDRBLOCK = "SERVICE_CIDR_BLOCK",
-    NETWORKSECURITYGROUP = "NETWORK_SECURITY_GROUP",
-
+    CidrBlock = "CIDR_BLOCK",
+    ServiceCidrBlock = "SERVICE_CIDR_BLOCK",
+    NetworkSecurityGroup = "NETWORK_SECURITY_GROUP",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: SecurityRule): object {

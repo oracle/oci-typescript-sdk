@@ -21,8 +21,8 @@ import common = require("oci-common");
  *
  **/
 export enum SortBy {
-  TIME_CREATED = "timeCreated",
-  DISPLAY_NAME = "displayName"
+  TimeCreated = "timeCreated",
+  DisplayName = "displayName"
 }
 
 export namespace SortBy {

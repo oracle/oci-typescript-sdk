@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface SearchCriteriaRequest {
+export interface SearchCriteriaRequest extends common.BaseRequest {
   /**
    * Unique catalog identifier.
    */
@@ -66,12 +66,12 @@ export interface SearchCriteriaRequest {
 
 export namespace SearchCriteriaRequest {
   export enum SortBy {
-    TIMECREATED = "TIMECREATED",
-    DISPLAYNAME = "DISPLAYNAME"
+    Timecreated = "TIMECREATED",
+    Displayname = "DISPLAYNAME"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

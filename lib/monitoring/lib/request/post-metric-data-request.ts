@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface PostMetricDataRequest {
+export interface PostMetricDataRequest extends common.BaseRequest {
   /**
    * An array of metric objects containing raw metric data points to be posted to the Monitoring service.
    *

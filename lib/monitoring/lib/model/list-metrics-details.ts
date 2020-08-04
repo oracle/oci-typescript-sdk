@@ -84,14 +84,14 @@ Example: `ASC`
 
 export namespace ListMetricsDetails {
   export enum SortBy {
-    NAMESPACE = "NAMESPACE",
-    NAME = "NAME",
-    RESOURCEGROUP = "RESOURCEGROUP"
+    Namespace = "NAMESPACE",
+    Name = "NAME",
+    Resourcegroup = "RESOURCEGROUP"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 
   export function getJsonObj(obj: ListMetricsDetails): object {

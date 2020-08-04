@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface SearchResourcesRequest {
+export interface SearchResourcesRequest extends common.BaseRequest {
   /**
    * Request parameters that describe query criteria.
    */

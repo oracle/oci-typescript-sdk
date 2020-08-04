@@ -27,24 +27,23 @@ export interface Month {
 
 export namespace Month {
   export enum Name {
-    JANUARY = "JANUARY",
-    FEBRUARY = "FEBRUARY",
-    MARCH = "MARCH",
-    APRIL = "APRIL",
-    MAY = "MAY",
-    JUNE = "JUNE",
-    JULY = "JULY",
-    AUGUST = "AUGUST",
-    SEPTEMBER = "SEPTEMBER",
-    OCTOBER = "OCTOBER",
-    NOVEMBER = "NOVEMBER",
-    DECEMBER = "DECEMBER",
-
+    January = "JANUARY",
+    February = "FEBRUARY",
+    March = "MARCH",
+    April = "APRIL",
+    May = "MAY",
+    June = "JUNE",
+    July = "JULY",
+    August = "AUGUST",
+    September = "SEPTEMBER",
+    October = "OCTOBER",
+    November = "NOVEMBER",
+    December = "DECEMBER",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Month): object {

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateDataSafePrivateEndpointRequest {
+export interface CreateDataSafePrivateEndpointRequest extends common.BaseRequest {
   /**
    * Details to create a new private endpoint.
    */

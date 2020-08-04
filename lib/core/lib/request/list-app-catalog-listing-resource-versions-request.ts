@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListAppCatalogListingResourceVersionsRequest {
+export interface ListAppCatalogListingResourceVersionsRequest extends common.BaseRequest {
   /**
    * The OCID of the listing.
    */
@@ -44,7 +44,7 @@ Example: `50`
 
 export namespace ListAppCatalogListingResourceVersionsRequest {
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

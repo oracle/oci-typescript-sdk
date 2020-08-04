@@ -51,8 +51,8 @@ export interface CreateOdaInstanceDetails {
 
 export namespace CreateOdaInstanceDetails {
   export enum ShapeName {
-    DEVELOPMENT = "DEVELOPMENT",
-    PRODUCTION = "PRODUCTION"
+    Development = "DEVELOPMENT",
+    Production = "PRODUCTION"
   }
 
   export function getJsonObj(obj: CreateOdaInstanceDetails): object {

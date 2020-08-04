@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateVolumeBackupPolicyAssignmentRequest {
+export interface CreateVolumeBackupPolicyAssignmentRequest extends common.BaseRequest {
   /**
    * Request to assign a specified policy to a particular volume.
    */

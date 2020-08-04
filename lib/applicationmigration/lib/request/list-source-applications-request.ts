@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListSourceApplicationsRequest {
+export interface ListSourceApplicationsRequest extends common.BaseRequest {
   /**
    * The source OCID
    */
@@ -60,7 +60,7 @@ export interface ListSourceApplicationsRequest {
 
 export namespace ListSourceApplicationsRequest {
   export enum SortBy {
-    TIMECREATED = "TIMECREATED",
-    DISPLAYNAME = "DISPLAYNAME"
+    Timecreated = "TIMECREATED",
+    Displayname = "DISPLAYNAME"
   }
 }

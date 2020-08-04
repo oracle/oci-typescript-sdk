@@ -32,16 +32,15 @@ export interface Threshold {
 
 export namespace Threshold {
   export enum Operator {
-    GT = "GT",
-    GTE = "GTE",
-    LT = "LT",
-    LTE = "LTE",
-
+    Gt = "GT",
+    Gte = "GTE",
+    Lt = "LT",
+    Lte = "LTE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Threshold): object {

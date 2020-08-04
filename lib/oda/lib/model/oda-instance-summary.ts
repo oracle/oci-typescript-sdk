@@ -76,48 +76,45 @@ export interface OdaInstanceSummary {
 
 export namespace OdaInstanceSummary {
   export enum ShapeName {
-    DEVELOPMENT = "DEVELOPMENT",
-    PRODUCTION = "PRODUCTION",
-
+    Development = "DEVELOPMENT",
+    Production = "PRODUCTION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LifecycleState {
-    CREATING = "CREATING",
-    UPDATING = "UPDATING",
-    ACTIVE = "ACTIVE",
-    INACTIVE = "INACTIVE",
-    DELETING = "DELETING",
-    DELETED = "DELETED",
-    FAILED = "FAILED",
-
+    Creating = "CREATING",
+    Updating = "UPDATING",
+    Active = "ACTIVE",
+    Inactive = "INACTIVE",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LifecycleSubState {
-    CREATING = "CREATING",
-    STARTING = "STARTING",
-    STOPPING = "STOPPING",
-    CHANGINGCOMPARTMENT = "CHANGING_COMPARTMENT",
-    DELETING = "DELETING",
-    DELETEPENDING = "DELETE_PENDING",
-    RECOVERING = "RECOVERING",
-    PURGING = "PURGING",
-    QUEUED = "QUEUED",
-
+    Creating = "CREATING",
+    Starting = "STARTING",
+    Stopping = "STOPPING",
+    ChangingCompartment = "CHANGING_COMPARTMENT",
+    Deleting = "DELETING",
+    DeletePending = "DELETE_PENDING",
+    Recovering = "RECOVERING",
+    Purging = "PURGING",
+    Queued = "QUEUED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: OdaInstanceSummary): object {

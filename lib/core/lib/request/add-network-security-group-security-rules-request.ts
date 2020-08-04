@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface AddNetworkSecurityGroupSecurityRulesRequest {
+export interface AddNetworkSecurityGroupSecurityRulesRequest extends common.BaseRequest {
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the network security group.
    */

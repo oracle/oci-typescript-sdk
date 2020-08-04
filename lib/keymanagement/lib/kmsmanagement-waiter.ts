@@ -38,7 +38,7 @@ export class KmsManagementWaiter {
       this.config,
       () => this.client.getKey(request),
       response => targetStates.exists(response.key.lifecycleState),
-      targetStates.includes(models.Key.LifecycleState.DELETED)
+      targetStates.includes(models.Key.LifecycleState.Deleted)
     );
   }
 
@@ -57,7 +57,7 @@ export class KmsManagementWaiter {
       this.config,
       () => this.client.getKeyVersion(request),
       response => targetStates.exists(response.keyVersion.lifecycleState),
-      targetStates.includes(models.KeyVersion.LifecycleState.DELETED)
+      targetStates.includes(models.KeyVersion.LifecycleState.Deleted)
     );
   }
 
@@ -76,7 +76,7 @@ export class KmsManagementWaiter {
       this.config,
       () => this.client.getWrappingKey(request),
       response => targetStates.exists(response.wrappingKey.lifecycleState),
-      targetStates.includes(models.WrappingKey.LifecycleState.DELETED)
+      targetStates.includes(models.WrappingKey.LifecycleState.Deleted)
     );
   }
 }

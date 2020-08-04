@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListTaskValidationsRequest {
+export interface ListTaskValidationsRequest extends common.BaseRequest {
   /**
    * DIS workspace id
    */
@@ -61,12 +61,12 @@ export interface ListTaskValidationsRequest {
 
 export namespace ListTaskValidationsRequest {
   export enum SortBy {
-    TIMECREATED = "TIME_CREATED",
-    DISPLAYNAME = "DISPLAY_NAME"
+    TimeCreated = "TIME_CREATED",
+    DisplayName = "DISPLAY_NAME"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

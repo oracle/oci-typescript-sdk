@@ -83,13 +83,13 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 
 export namespace UpdateApplianceExportJobDetails {
   export enum LifecycleState {
-    CREATING = "CREATING",
-    ACTIVE = "ACTIVE",
-    INPROGRESS = "INPROGRESS",
-    SUCCEEDED = "SUCCEEDED",
-    FAILED = "FAILED",
-    CANCELLED = "CANCELLED",
-    DELETED = "DELETED"
+    Creating = "CREATING",
+    Active = "ACTIVE",
+    Inprogress = "INPROGRESS",
+    Succeeded = "SUCCEEDED",
+    Failed = "FAILED",
+    Cancelled = "CANCELLED",
+    Deleted = "DELETED"
   }
 
   export function getJsonObj(obj: UpdateApplianceExportJobDetails): object {

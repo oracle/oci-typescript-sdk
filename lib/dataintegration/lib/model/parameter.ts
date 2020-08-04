@@ -55,16 +55,15 @@ export interface Parameter extends model.TypedObject {
 
 export namespace Parameter {
   export enum OutputAggregationType {
-    MIN = "MIN",
-    MAX = "MAX",
-    COUNT = "COUNT",
-    SUM = "SUM",
-
+    Min = "MIN",
+    Max = "MAX",
+    Count = "COUNT",
+    Sum = "SUM",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Parameter, isParentJsonObj?: boolean): object {

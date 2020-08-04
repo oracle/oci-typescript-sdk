@@ -18,18 +18,18 @@ import common = require("oci-common");
  * Possible operation types.
  **/
 export enum WorkRequestOperationType {
-  CREATE_DBSYSTEM = "CREATE_DBSYSTEM",
-  UPDATE_DBSYSTEM = "UPDATE_DBSYSTEM",
-  DELETE_DBSYSTEM = "DELETE_DBSYSTEM",
-  START_DBSYSTEM = "START_DBSYSTEM",
-  STOP_DBSYSTEM = "STOP_DBSYSTEM",
-  RESTART_DBSYSTEM = "RESTART_DBSYSTEM",
+  CreateDbsystem = "CREATE_DBSYSTEM",
+  UpdateDbsystem = "UPDATE_DBSYSTEM",
+  DeleteDbsystem = "DELETE_DBSYSTEM",
+  StartDbsystem = "START_DBSYSTEM",
+  StopDbsystem = "STOP_DBSYSTEM",
+  RestartDbsystem = "RESTART_DBSYSTEM",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace WorkRequestOperationType {

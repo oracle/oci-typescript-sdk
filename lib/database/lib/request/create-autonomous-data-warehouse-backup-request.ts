@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateAutonomousDataWarehouseBackupRequest {
+export interface CreateAutonomousDataWarehouseBackupRequest extends common.BaseRequest {
   /**
    * Request to create a new Autonomous Data Warehouse backup.
    */

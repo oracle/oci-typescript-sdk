@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListPublicIpsRequest {
+export interface ListPublicIpsRequest extends common.BaseRequest {
   /**
    * Whether the public IP is regional or specific to a particular availability domain.
    * <p>
@@ -64,12 +64,12 @@ Example: `Uocm:PHX-AD-1`
 
 export namespace ListPublicIpsRequest {
   export enum Scope {
-    REGION = "REGION",
-    AVAILABILITYDOMAIN = "AVAILABILITY_DOMAIN"
+    Region = "REGION",
+    AvailabilityDomain = "AVAILABILITY_DOMAIN"
   }
 
   export enum Lifetime {
-    EPHEMERAL = "EPHEMERAL",
-    RESERVED = "RESERVED"
+    Ephemeral = "EPHEMERAL",
+    Reserved = "RESERVED"
   }
 }

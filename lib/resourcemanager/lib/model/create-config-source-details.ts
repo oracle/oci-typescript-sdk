@@ -26,6 +26,7 @@ export interface CreateConfigSourceDetails {
   /**
    * File path to the directory from which Terraform runs.
    * If not specified, the root directory is used.
+   * This parameter is ignored for the `configSourceType` value of `COMPARTMENT_CONFIG_SOURCE`.
    *
    */
   "workingDirectory"?: string;
@@ -47,6 +48,11 @@ export namespace CreateConfigSourceDetails {
         case "GIT_CONFIG_SOURCE":
           return model.CreateGitConfigSourceDetails.getJsonObj(
             <model.CreateGitConfigSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "COMPARTMENT_CONFIG_SOURCE":
+          return model.CreateCompartmentConfigSourceDetails.getJsonObj(
+            <model.CreateCompartmentConfigSourceDetails>(<object>jsonObj),
             true
           );
         default:

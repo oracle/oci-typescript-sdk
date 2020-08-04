@@ -148,16 +148,15 @@ Example: `vcn1.oraclevcn.com`
 
 export namespace Vcn {
   export enum LifecycleState {
-    PROVISIONING = "PROVISIONING",
-    AVAILABLE = "AVAILABLE",
-    TERMINATING = "TERMINATING",
-    TERMINATED = "TERMINATED",
-
+    Provisioning = "PROVISIONING",
+    Available = "AVAILABLE",
+    Terminating = "TERMINATING",
+    Terminated = "TERMINATED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Vcn): object {

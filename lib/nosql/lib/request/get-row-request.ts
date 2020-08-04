@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetRowRequest {
+export interface GetRowRequest extends common.BaseRequest {
   /**
    * A table name within the compartment, or a table OCID.
    */
@@ -47,7 +47,7 @@ export interface GetRowRequest {
 
 export namespace GetRowRequest {
   export enum Consistency {
-    EVENTUAL = "EVENTUAL",
-    ABSOLUTE = "ABSOLUTE"
+    Eventual = "EVENTUAL",
+    Absolute = "ABSOLUTE"
   }
 }

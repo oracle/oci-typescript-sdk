@@ -69,33 +69,31 @@ export interface WorkRequest {
 
 export namespace WorkRequest {
   export enum OperationType {
-    CREATEGATEWAY = "CREATE_GATEWAY",
-    UPDATEGATEWAY = "UPDATE_GATEWAY",
-    DELETEGATEWAY = "DELETE_GATEWAY",
-    CREATEDEPLOYMENT = "CREATE_DEPLOYMENT",
-    UPDATEDEPLOYMENT = "UPDATE_DEPLOYMENT",
-    DELETEDEPLOYMENT = "DELETE_DEPLOYMENT",
-
+    CreateGateway = "CREATE_GATEWAY",
+    UpdateGateway = "UPDATE_GATEWAY",
+    DeleteGateway = "DELETE_GATEWAY",
+    CreateDeployment = "CREATE_DEPLOYMENT",
+    UpdateDeployment = "UPDATE_DEPLOYMENT",
+    DeleteDeployment = "DELETE_DEPLOYMENT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Status {
-    ACCEPTED = "ACCEPTED",
-    INPROGRESS = "IN_PROGRESS",
-    FAILED = "FAILED",
-    SUCCEEDED = "SUCCEEDED",
-    CANCELING = "CANCELING",
-    CANCELED = "CANCELED",
-
+    Accepted = "ACCEPTED",
+    InProgress = "IN_PROGRESS",
+    Failed = "FAILED",
+    Succeeded = "SUCCEEDED",
+    Canceling = "CANCELING",
+    Canceled = "CANCELED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: WorkRequest): object {

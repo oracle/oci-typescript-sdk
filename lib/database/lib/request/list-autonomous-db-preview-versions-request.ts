@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListAutonomousDbPreviewVersionsRequest {
+export interface ListAutonomousDbPreviewVersionsRequest extends common.BaseRequest {
   /**
    * The compartment [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    */
@@ -46,11 +46,11 @@ export interface ListAutonomousDbPreviewVersionsRequest {
 
 export namespace ListAutonomousDbPreviewVersionsRequest {
   export enum SortBy {
-    DBWORKLOAD = "DBWORKLOAD"
+    Dbworkload = "DBWORKLOAD"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

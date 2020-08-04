@@ -58,8 +58,8 @@ Example: `{\"Department\": \"Finance\"}`
 
 export namespace CreateVolumeGroupBackupDetails {
   export enum Type {
-    FULL = "FULL",
-    INCREMENTAL = "INCREMENTAL"
+    Full = "FULL",
+    Incremental = "INCREMENTAL"
   }
 
   export function getJsonObj(obj: CreateVolumeGroupBackupDetails): object {

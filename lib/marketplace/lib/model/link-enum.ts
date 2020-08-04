@@ -18,17 +18,17 @@ import common = require("oci-common");
  * Possible values for the link type.
  **/
 export enum LinkEnum {
-  SELF = "SELF",
-  CANONICAL = "CANONICAL",
-  NEXT = "NEXT",
-  TEMPLATE = "TEMPLATE",
-  PREV = "PREV",
+  Self = "SELF",
+  Canonical = "CANONICAL",
+  Next = "NEXT",
+  Template = "TEMPLATE",
+  Prev = "PREV",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace LinkEnum {

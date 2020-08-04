@@ -39,14 +39,13 @@ export interface HttpRedirectTarget {
 
 export namespace HttpRedirectTarget {
   export enum Protocol {
-    HTTP = "HTTP",
-    HTTPS = "HTTPS",
-
+    Http = "HTTP",
+    Https = "HTTPS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: HttpRedirectTarget): object {

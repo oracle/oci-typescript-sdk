@@ -54,7 +54,10 @@ export interface Stack {
    *
    */
   "lifecycleState"?: Stack.LifecycleState;
-  "configSource"?: model.GitConfigSource | model.ZipUploadConfigSource;
+  "configSource"?:
+    | model.GitConfigSource
+    | model.CompartmentConfigSource
+    | model.ZipUploadConfigSource;
   /**
    * Terraform variables associated with this resource.
    * Maximum number of variables supported is 250.
@@ -99,28 +102,27 @@ export interface Stack {
 
 export namespace Stack {
   export enum LifecycleState {
-    CREATING = "CREATING",
-    ACTIVE = "ACTIVE",
-    DELETING = "DELETING",
-    DELETED = "DELETED",
-
+    Creating = "CREATING",
+    Active = "ACTIVE",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum StackDriftStatus {
-    NOTCHECKED = "NOT_CHECKED",
-    INSYNC = "IN_SYNC",
-    DRIFTED = "DRIFTED",
-
+    NotChecked = "NOT_CHECKED",
+    InSync = "IN_SYNC",
+    Drifted = "DRIFTED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Stack): object {

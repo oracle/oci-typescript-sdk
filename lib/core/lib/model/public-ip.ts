@@ -155,53 +155,49 @@ Example: `2016-08-25T21:10:29.600Z`
 
 export namespace PublicIp {
   export enum AssignedEntityType {
-    PRIVATEIP = "PRIVATE_IP",
-    NATGATEWAY = "NAT_GATEWAY",
-
+    PrivateIp = "PRIVATE_IP",
+    NatGateway = "NAT_GATEWAY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LifecycleState {
-    PROVISIONING = "PROVISIONING",
-    AVAILABLE = "AVAILABLE",
-    ASSIGNING = "ASSIGNING",
-    ASSIGNED = "ASSIGNED",
-    UNASSIGNING = "UNASSIGNING",
-    UNASSIGNED = "UNASSIGNED",
-    TERMINATING = "TERMINATING",
-    TERMINATED = "TERMINATED",
-
+    Provisioning = "PROVISIONING",
+    Available = "AVAILABLE",
+    Assigning = "ASSIGNING",
+    Assigned = "ASSIGNED",
+    Unassigning = "UNASSIGNING",
+    Unassigned = "UNASSIGNED",
+    Terminating = "TERMINATING",
+    Terminated = "TERMINATED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Lifetime {
-    EPHEMERAL = "EPHEMERAL",
-    RESERVED = "RESERVED",
-
+    Ephemeral = "EPHEMERAL",
+    Reserved = "RESERVED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Scope {
-    REGION = "REGION",
-    AVAILABILITYDOMAIN = "AVAILABILITY_DOMAIN",
-
+    Region = "REGION",
+    AvailabilityDomain = "AVAILABILITY_DOMAIN",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: PublicIp): object {

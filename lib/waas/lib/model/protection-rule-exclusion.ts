@@ -42,16 +42,15 @@ export interface ProtectionRuleExclusion {
 
 export namespace ProtectionRuleExclusion {
   export enum Target {
-    REQUESTCOOKIES = "REQUEST_COOKIES",
-    REQUESTCOOKIENAMES = "REQUEST_COOKIE_NAMES",
-    ARGS = "ARGS",
-    ARGSNAMES = "ARGS_NAMES",
-
+    RequestCookies = "REQUEST_COOKIES",
+    RequestCookieNames = "REQUEST_COOKIE_NAMES",
+    Args = "ARGS",
+    ArgsNames = "ARGS_NAMES",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: ProtectionRuleExclusion): object {

@@ -123,29 +123,27 @@ Example: `{\"Department\": \"Finance\"}`
 
 export namespace VmCluster {
   export enum LifecycleState {
-    PROVISIONING = "PROVISIONING",
-    AVAILABLE = "AVAILABLE",
-    UPDATING = "UPDATING",
-    TERMINATING = "TERMINATING",
-    TERMINATED = "TERMINATED",
-    FAILED = "FAILED",
-
+    Provisioning = "PROVISIONING",
+    Available = "AVAILABLE",
+    Updating = "UPDATING",
+    Terminating = "TERMINATING",
+    Terminated = "TERMINATED",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LicenseModel {
-    LICENSEINCLUDED = "LICENSE_INCLUDED",
-    BRINGYOUROWNLICENSE = "BRING_YOUR_OWN_LICENSE",
-
+    LicenseIncluded = "LICENSE_INCLUDED",
+    BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: VmCluster): object {

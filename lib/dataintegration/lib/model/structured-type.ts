@@ -38,8 +38,8 @@ export interface StructuredType {
 
 export namespace StructuredType {
   export enum DtType {
-    PRIMITIVE = "PRIMITIVE",
-    STRUCTURED = "STRUCTURED"
+    Primitive = "PRIMITIVE",
+    Structured = "STRUCTURED"
   }
 
   export function getJsonObj(obj: StructuredType): object {

@@ -20,18 +20,18 @@ import common = require("oci-common");
  *
  **/
 export enum RunLifecycleState {
-  ACCEPTED = "ACCEPTED",
-  IN_PROGRESS = "IN_PROGRESS",
-  CANCELING = "CANCELING",
-  CANCELED = "CANCELED",
-  FAILED = "FAILED",
-  SUCCEEDED = "SUCCEEDED",
+  Accepted = "ACCEPTED",
+  InProgress = "IN_PROGRESS",
+  Canceling = "CANCELING",
+  Canceled = "CANCELED",
+  Failed = "FAILED",
+  Succeeded = "SUCCEEDED",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace RunLifecycleState {

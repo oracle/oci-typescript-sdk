@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetTransferJobRequest {
+export interface GetTransferJobRequest extends common.BaseRequest {
   /**
    * OCID of the Transfer Job
    */

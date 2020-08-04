@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateRemotePeeringConnectionRequest {
+export interface CreateRemotePeeringConnectionRequest extends common.BaseRequest {
   /**
    * Request to create peering connection to remote region
    */

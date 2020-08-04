@@ -132,7 +132,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getCrossConnect(request),
       response => targetStates.exists(response.crossConnect.lifecycleState),
-      targetStates.includes(models.CrossConnect.LifecycleState.TERMINATED)
+      targetStates.includes(models.CrossConnect.LifecycleState.Terminated)
     );
   }
 
@@ -151,7 +151,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getCrossConnectGroup(request),
       response => targetStates.exists(response.crossConnectGroup.lifecycleState),
-      targetStates.includes(models.CrossConnectGroup.LifecycleState.TERMINATED)
+      targetStates.includes(models.CrossConnectGroup.LifecycleState.Terminated)
     );
   }
 
@@ -170,7 +170,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getDhcpOptions(request),
       response => targetStates.exists(response.dhcpOptions.lifecycleState),
-      targetStates.includes(models.DhcpOptions.LifecycleState.TERMINATED)
+      targetStates.includes(models.DhcpOptions.LifecycleState.Terminated)
     );
   }
 
@@ -189,7 +189,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getDrg(request),
       response => targetStates.exists(response.drg.lifecycleState),
-      targetStates.includes(models.Drg.LifecycleState.TERMINATED)
+      targetStates.includes(models.Drg.LifecycleState.Terminated)
     );
   }
 
@@ -226,7 +226,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getFlowLogConfig(request),
       response => targetStates.exists(response.flowLogConfig.lifecycleState),
-      targetStates.includes(models.FlowLogConfig.LifecycleState.TERMINATED)
+      targetStates.includes(models.FlowLogConfig.LifecycleState.Terminated)
     );
   }
 
@@ -245,7 +245,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getFlowLogConfigAttachment(request),
       response => targetStates.exists(response.flowLogConfigAttachment.lifecycleState),
-      targetStates.includes(models.FlowLogConfigAttachment.LifecycleState.TERMINATED)
+      targetStates.includes(models.FlowLogConfigAttachment.LifecycleState.Terminated)
     );
   }
 
@@ -264,7 +264,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getIPSecConnection(request),
       response => targetStates.exists(response.iPSecConnection.lifecycleState),
-      targetStates.includes(models.IPSecConnection.LifecycleState.TERMINATED)
+      targetStates.includes(models.IPSecConnection.LifecycleState.Terminated)
     );
   }
 
@@ -283,7 +283,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getIPSecConnectionTunnel(request),
       response => targetStates.exists(response.iPSecConnectionTunnel.lifecycleState),
-      targetStates.includes(models.IPSecConnectionTunnel.LifecycleState.TERMINATED)
+      targetStates.includes(models.IPSecConnectionTunnel.LifecycleState.Terminated)
     );
   }
 
@@ -302,7 +302,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getInternetGateway(request),
       response => targetStates.exists(response.internetGateway.lifecycleState),
-      targetStates.includes(models.InternetGateway.LifecycleState.TERMINATED)
+      targetStates.includes(models.InternetGateway.LifecycleState.Terminated)
     );
   }
 
@@ -321,7 +321,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getIpv6(request),
       response => targetStates.exists(response.ipv6.lifecycleState),
-      targetStates.includes(models.Ipv6.LifecycleState.TERMINATED)
+      targetStates.includes(models.Ipv6.LifecycleState.Terminated)
     );
   }
 
@@ -340,7 +340,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getLocalPeeringGateway(request),
       response => targetStates.exists(response.localPeeringGateway.peeringStatus),
-      targetStates.includes(models.LocalPeeringGateway.PeeringStatus.REVOKED)
+      targetStates.includes(models.LocalPeeringGateway.PeeringStatus.Revoked)
     );
   }
 
@@ -359,7 +359,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getLocalPeeringGateway(request),
       response => targetStates.exists(response.localPeeringGateway.lifecycleState),
-      targetStates.includes(models.LocalPeeringGateway.LifecycleState.TERMINATED)
+      targetStates.includes(models.LocalPeeringGateway.LifecycleState.Terminated)
     );
   }
 
@@ -378,7 +378,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getNatGateway(request),
       response => targetStates.exists(response.natGateway.lifecycleState),
-      targetStates.includes(models.NatGateway.LifecycleState.TERMINATED)
+      targetStates.includes(models.NatGateway.LifecycleState.Terminated)
     );
   }
 
@@ -397,7 +397,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getNetworkSecurityGroup(request),
       response => targetStates.exists(response.networkSecurityGroup.lifecycleState),
-      targetStates.includes(models.NetworkSecurityGroup.LifecycleState.TERMINATED)
+      targetStates.includes(models.NetworkSecurityGroup.LifecycleState.Terminated)
     );
   }
 
@@ -416,7 +416,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getPublicIp(request),
       response => targetStates.exists(response.publicIp.lifecycleState),
-      targetStates.includes(models.PublicIp.LifecycleState.TERMINATED)
+      targetStates.includes(models.PublicIp.LifecycleState.Terminated)
     );
   }
 
@@ -435,7 +435,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getRemotePeeringConnection(request),
       response => targetStates.exists(response.remotePeeringConnection.lifecycleState),
-      targetStates.includes(models.RemotePeeringConnection.LifecycleState.TERMINATED)
+      targetStates.includes(models.RemotePeeringConnection.LifecycleState.Terminated)
     );
   }
 
@@ -454,7 +454,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getRemotePeeringConnection(request),
       response => targetStates.exists(response.remotePeeringConnection.peeringStatus),
-      targetStates.includes(models.RemotePeeringConnection.PeeringStatus.REVOKED)
+      targetStates.includes(models.RemotePeeringConnection.PeeringStatus.Revoked)
     );
   }
 
@@ -473,7 +473,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getRouteTable(request),
       response => targetStates.exists(response.routeTable.lifecycleState),
-      targetStates.includes(models.RouteTable.LifecycleState.TERMINATED)
+      targetStates.includes(models.RouteTable.LifecycleState.Terminated)
     );
   }
 
@@ -492,7 +492,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getSecurityList(request),
       response => targetStates.exists(response.securityList.lifecycleState),
-      targetStates.includes(models.SecurityList.LifecycleState.TERMINATED)
+      targetStates.includes(models.SecurityList.LifecycleState.Terminated)
     );
   }
 
@@ -511,7 +511,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getServiceGateway(request),
       response => targetStates.exists(response.serviceGateway.lifecycleState),
-      targetStates.includes(models.ServiceGateway.LifecycleState.TERMINATED)
+      targetStates.includes(models.ServiceGateway.LifecycleState.Terminated)
     );
   }
 
@@ -530,7 +530,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getSubnet(request),
       response => targetStates.exists(response.subnet.lifecycleState),
-      targetStates.includes(models.Subnet.LifecycleState.TERMINATED)
+      targetStates.includes(models.Subnet.LifecycleState.Terminated)
     );
   }
 
@@ -549,7 +549,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getVcn(request),
       response => targetStates.exists(response.vcn.lifecycleState),
-      targetStates.includes(models.Vcn.LifecycleState.TERMINATED)
+      targetStates.includes(models.Vcn.LifecycleState.Terminated)
     );
   }
 
@@ -568,7 +568,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getVirtualCircuit(request),
       response => targetStates.exists(response.virtualCircuit.lifecycleState),
-      targetStates.includes(models.VirtualCircuit.LifecycleState.TERMINATED)
+      targetStates.includes(models.VirtualCircuit.LifecycleState.Terminated)
     );
   }
 
@@ -587,7 +587,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getVlan(request),
       response => targetStates.exists(response.vlan.lifecycleState),
-      targetStates.includes(models.Vlan.LifecycleState.TERMINATED)
+      targetStates.includes(models.Vlan.LifecycleState.Terminated)
     );
   }
 
@@ -606,7 +606,7 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getVnic(request),
       response => targetStates.exists(response.vnic.lifecycleState),
-      targetStates.includes(models.Vnic.LifecycleState.TERMINATED)
+      targetStates.includes(models.Vnic.LifecycleState.Terminated)
     );
   }
 }

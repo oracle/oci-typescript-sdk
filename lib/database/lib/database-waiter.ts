@@ -39,7 +39,7 @@ export class DatabaseWaiter {
       this.config,
       () => this.client.getAutonomousContainerDatabase(request),
       response => targetStates.exists(response.autonomousContainerDatabase.lifecycleState),
-      targetStates.includes(models.AutonomousContainerDatabase.LifecycleState.TERMINATED)
+      targetStates.includes(models.AutonomousContainerDatabase.LifecycleState.Terminated)
     );
   }
 
@@ -58,7 +58,7 @@ export class DatabaseWaiter {
       this.config,
       () => this.client.getAutonomousDataWarehouse(request),
       response => targetStates.exists(response.autonomousDataWarehouse.lifecycleState),
-      targetStates.includes(models.AutonomousDataWarehouse.LifecycleState.TERMINATED)
+      targetStates.includes(models.AutonomousDataWarehouse.LifecycleState.Terminated)
     );
   }
 
@@ -77,7 +77,7 @@ export class DatabaseWaiter {
       this.config,
       () => this.client.getAutonomousDataWarehouseBackup(request),
       response => targetStates.exists(response.autonomousDataWarehouseBackup.lifecycleState),
-      targetStates.includes(models.AutonomousDataWarehouseBackup.LifecycleState.DELETED)
+      targetStates.includes(models.AutonomousDataWarehouseBackup.LifecycleState.Deleted)
     );
   }
 
@@ -96,7 +96,7 @@ export class DatabaseWaiter {
       this.config,
       () => this.client.getAutonomousDatabase(request),
       response => targetStates.exists(response.autonomousDatabase.lifecycleState),
-      targetStates.includes(models.AutonomousDatabase.LifecycleState.TERMINATED)
+      targetStates.includes(models.AutonomousDatabase.LifecycleState.Terminated)
     );
   }
 
@@ -115,7 +115,7 @@ export class DatabaseWaiter {
       this.config,
       () => this.client.getAutonomousDatabaseBackup(request),
       response => targetStates.exists(response.autonomousDatabaseBackup.lifecycleState),
-      targetStates.includes(models.AutonomousDatabaseBackup.LifecycleState.DELETED)
+      targetStates.includes(models.AutonomousDatabaseBackup.LifecycleState.Deleted)
     );
   }
 
@@ -152,7 +152,7 @@ export class DatabaseWaiter {
       this.config,
       () => this.client.getAutonomousExadataInfrastructure(request),
       response => targetStates.exists(response.autonomousExadataInfrastructure.lifecycleState),
-      targetStates.includes(models.AutonomousExadataInfrastructure.LifecycleState.TERMINATED)
+      targetStates.includes(models.AutonomousExadataInfrastructure.LifecycleState.Terminated)
     );
   }
 
@@ -171,7 +171,7 @@ export class DatabaseWaiter {
       this.config,
       () => this.client.getAutonomousVmCluster(request),
       response => targetStates.exists(response.autonomousVmCluster.lifecycleState),
-      targetStates.includes(models.AutonomousVmCluster.LifecycleState.TERMINATED)
+      targetStates.includes(models.AutonomousVmCluster.LifecycleState.Terminated)
     );
   }
 
@@ -190,7 +190,7 @@ export class DatabaseWaiter {
       this.config,
       () => this.client.getBackup(request),
       response => targetStates.exists(response.backup.lifecycleState),
-      targetStates.includes(models.Backup.LifecycleState.DELETED)
+      targetStates.includes(models.Backup.LifecycleState.Deleted)
     );
   }
 
@@ -209,7 +209,7 @@ export class DatabaseWaiter {
       this.config,
       () => this.client.getBackupDestination(request),
       response => targetStates.exists(response.backupDestination.lifecycleState),
-      targetStates.includes(models.BackupDestination.LifecycleState.DELETED)
+      targetStates.includes(models.BackupDestination.LifecycleState.Deleted)
     );
   }
 
@@ -228,7 +228,7 @@ export class DatabaseWaiter {
       this.config,
       () => this.client.getConsoleConnection(request),
       response => targetStates.exists(response.consoleConnection.lifecycleState),
-      targetStates.includes(models.ConsoleConnection.LifecycleState.DELETED)
+      targetStates.includes(models.ConsoleConnection.LifecycleState.Deleted)
     );
   }
 
@@ -247,7 +247,7 @@ export class DatabaseWaiter {
       this.config,
       () => this.client.getDataGuardAssociation(request),
       response => targetStates.exists(response.dataGuardAssociation.lifecycleState),
-      targetStates.includes(models.DataGuardAssociation.LifecycleState.TERMINATED)
+      targetStates.includes(models.DataGuardAssociation.LifecycleState.Terminated)
     );
   }
 
@@ -266,7 +266,7 @@ export class DatabaseWaiter {
       this.config,
       () => this.client.getDatabase(request),
       response => targetStates.exists(response.database.lifecycleState),
-      targetStates.includes(models.Database.LifecycleState.TERMINATED)
+      targetStates.includes(models.Database.LifecycleState.Terminated)
     );
   }
 
@@ -285,7 +285,7 @@ export class DatabaseWaiter {
       this.config,
       () => this.client.getDbHome(request),
       response => targetStates.exists(response.dbHome.lifecycleState),
-      targetStates.includes(models.DbHome.LifecycleState.TERMINATED)
+      targetStates.includes(models.DbHome.LifecycleState.Terminated)
     );
   }
 
@@ -304,7 +304,7 @@ export class DatabaseWaiter {
       this.config,
       () => this.client.getDbNode(request),
       response => targetStates.exists(response.dbNode.lifecycleState),
-      targetStates.includes(models.DbNode.LifecycleState.TERMINATED)
+      targetStates.includes(models.DbNode.LifecycleState.Terminated)
     );
   }
 
@@ -323,7 +323,7 @@ export class DatabaseWaiter {
       this.config,
       () => this.client.getDbSystem(request),
       response => targetStates.exists(response.dbSystem.lifecycleState),
-      targetStates.includes(models.DbSystem.LifecycleState.TERMINATED)
+      targetStates.includes(models.DbSystem.LifecycleState.Terminated)
     );
   }
 
@@ -342,7 +342,7 @@ export class DatabaseWaiter {
       this.config,
       () => this.client.getExadataInfrastructure(request),
       response => targetStates.exists(response.exadataInfrastructure.lifecycleState),
-      targetStates.includes(models.ExadataInfrastructure.LifecycleState.DELETED)
+      targetStates.includes(models.ExadataInfrastructure.LifecycleState.Deleted)
     );
   }
 
@@ -379,7 +379,7 @@ export class DatabaseWaiter {
       this.config,
       () => this.client.getMaintenanceRun(request),
       response => targetStates.exists(response.maintenanceRun.lifecycleState),
-      targetStates.includes(models.MaintenanceRun.LifecycleState.DELETED)
+      targetStates.includes(models.MaintenanceRun.LifecycleState.Deleted)
     );
   }
 
@@ -398,7 +398,7 @@ export class DatabaseWaiter {
       this.config,
       () => this.client.getVmCluster(request),
       response => targetStates.exists(response.vmCluster.lifecycleState),
-      targetStates.includes(models.VmCluster.LifecycleState.TERMINATED)
+      targetStates.includes(models.VmCluster.LifecycleState.Terminated)
     );
   }
 
@@ -417,7 +417,7 @@ export class DatabaseWaiter {
       this.config,
       () => this.client.getVmClusterNetwork(request),
       response => targetStates.exists(response.vmClusterNetwork.lifecycleState),
-      targetStates.includes(models.VmClusterNetwork.LifecycleState.TERMINATED)
+      targetStates.includes(models.VmClusterNetwork.LifecycleState.Terminated)
     );
   }
 }

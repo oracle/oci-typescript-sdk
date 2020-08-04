@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface UpdateAuthenticationPolicyRequest {
+export interface UpdateAuthenticationPolicyRequest extends common.BaseRequest {
   /**
    * The OCID of the compartment.
    */

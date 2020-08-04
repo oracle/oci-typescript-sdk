@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListCatalogPrivateEndpointsRequest {
+export interface ListCatalogPrivateEndpointsRequest extends common.BaseRequest {
   /**
    * The OCID of the compartment where you want to list resources.
    */
@@ -51,12 +51,12 @@ export interface ListCatalogPrivateEndpointsRequest {
 
 export namespace ListCatalogPrivateEndpointsRequest {
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 
   export enum SortBy {
-    TIMECREATED = "TIMECREATED",
-    DISPLAYNAME = "DISPLAYNAME"
+    Timecreated = "TIMECREATED",
+    Displayname = "DISPLAYNAME"
   }
 }

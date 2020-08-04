@@ -63,15 +63,14 @@ export interface WindowsUpdate {
 
 export namespace WindowsUpdate {
   export enum InstallationRequirements {
-    EULAACCEPTANCEREQUIRED = "EULA_ACCEPTANCE_REQUIRED",
-    SOFTWAREMEDIAREQUIRED = "SOFTWARE_MEDIA_REQUIRED",
-    USERINTERACTIONREQUIRED = "USER_INTERACTION_REQUIRED",
-
+    EulaAcceptanceRequired = "EULA_ACCEPTANCE_REQUIRED",
+    SoftwareMediaRequired = "SOFTWARE_MEDIA_REQUIRED",
+    UserInteractionRequired = "USER_INTERACTION_REQUIRED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: WindowsUpdate): object {

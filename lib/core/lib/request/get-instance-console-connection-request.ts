@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetInstanceConsoleConnectionRequest {
+export interface GetInstanceConsoleConnectionRequest extends common.BaseRequest {
   /**
    * The OCID of the instance console connection.
    */

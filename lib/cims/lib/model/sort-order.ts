@@ -18,8 +18,8 @@ import common = require("oci-common");
  * SortOrder query for Incident Lists
  **/
 export enum SortOrder {
-  ASC = "ASC",
-  DESC = "DESC"
+  Asc = "ASC",
+  Desc = "DESC"
 }
 
 export namespace SortOrder {

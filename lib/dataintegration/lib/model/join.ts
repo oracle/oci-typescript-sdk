@@ -32,16 +32,15 @@ export interface Join extends model.PushDownOperation {
 
 export namespace Join {
   export enum Policy {
-    INNERJOIN = "INNER_JOIN",
-    LEFTJOIN = "LEFT_JOIN",
-    RIGHTJOIN = "RIGHT_JOIN",
-    FULLJOIN = "FULL_JOIN",
-
+    InnerJoin = "INNER_JOIN",
+    LeftJoin = "LEFT_JOIN",
+    RightJoin = "RIGHT_JOIN",
+    FullJoin = "FULL_JOIN",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Join, isParentJsonObj?: boolean): object {

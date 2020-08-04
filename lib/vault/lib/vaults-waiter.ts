@@ -35,7 +35,7 @@ export class VaultsWaiter {
       this.config,
       () => this.client.getSecret(request),
       response => targetStates.exists(response.secret.lifecycleState),
-      targetStates.includes(models.Secret.LifecycleState.DELETED)
+      targetStates.includes(models.Secret.LifecycleState.Deleted)
     );
   }
 }

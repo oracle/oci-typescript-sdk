@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateSuppressionRequest {
+export interface CreateSuppressionRequest extends common.BaseRequest {
   /**
    * Adds a single email address to the suppression list for a compartment's tenancy.
    *

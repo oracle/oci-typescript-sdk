@@ -50,18 +50,17 @@ export interface SuppressionSummary {
 
 export namespace SuppressionSummary {
   export enum Reason {
-    UNKNOWN = "UNKNOWN",
-    HARDBOUNCE = "HARDBOUNCE",
-    COMPLAINT = "COMPLAINT",
-    MANUAL = "MANUAL",
-    SOFTBOUNCE = "SOFTBOUNCE",
-    UNSUBSCRIBE = "UNSUBSCRIBE",
-
+    Unknown = "UNKNOWN",
+    Hardbounce = "HARDBOUNCE",
+    Complaint = "COMPLAINT",
+    Manual = "MANUAL",
+    Softbounce = "SOFTBOUNCE",
+    Unsubscribe = "UNSUBSCRIBE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: SuppressionSummary): object {

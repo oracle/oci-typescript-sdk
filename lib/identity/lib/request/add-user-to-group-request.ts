@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface AddUserToGroupRequest {
+export interface AddUserToGroupRequest extends common.BaseRequest {
   /**
    * Request object for adding a user to a group.
    */

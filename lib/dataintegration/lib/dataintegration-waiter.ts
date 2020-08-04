@@ -54,7 +54,7 @@ export class DataIntegrationWaiter {
       this.config,
       () => this.client.getWorkspace(request),
       response => targetStates.exists(response.workspace.lifecycleState),
-      targetStates.includes(models.Workspace.LifecycleState.DELETED)
+      targetStates.includes(models.Workspace.LifecycleState.Deleted)
     );
   }
 }

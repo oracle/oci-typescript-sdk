@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ChangeVolumeGroupBackupCompartmentRequest {
+export interface ChangeVolumeGroupBackupCompartmentRequest extends common.BaseRequest {
   /**
    * The Oracle Cloud ID (OCID) that uniquely identifies the volume group backup.
    */

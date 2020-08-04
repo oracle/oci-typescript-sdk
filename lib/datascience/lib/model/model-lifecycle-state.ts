@@ -19,16 +19,16 @@ import common = require("oci-common");
  * The lifecycle state of a model.
  **/
 export enum ModelLifecycleState {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
+  Active = "ACTIVE",
+  Deleted = "DELETED",
+  Failed = "FAILED",
+  Inactive = "INACTIVE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace ModelLifecycleState {

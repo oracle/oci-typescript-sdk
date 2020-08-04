@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface DeleteLocalPeeringGatewayRequest {
+export interface DeleteLocalPeeringGatewayRequest extends common.BaseRequest {
   /**
    * The OCID of the local peering gateway.
    */

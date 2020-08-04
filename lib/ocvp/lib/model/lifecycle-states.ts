@@ -19,18 +19,18 @@ import common = require("oci-common");
  * Possible lifecycle states.
  **/
 export enum LifecycleStates {
-  CREATING = "CREATING",
-  UPDATING = "UPDATING",
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-  DELETED = "DELETED",
-  FAILED = "FAILED",
+  Creating = "CREATING",
+  Updating = "UPDATING",
+  Active = "ACTIVE",
+  Deleting = "DELETING",
+  Deleted = "DELETED",
+  Failed = "FAILED",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace LifecycleStates {

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetTransferApplianceEntitlementRequest {
+export interface GetTransferApplianceEntitlementRequest extends common.BaseRequest {
   /**
    * Id of the Transfer Appliance Entitlement
    */

@@ -19,18 +19,18 @@ import common = require("oci-common");
  * The types of work request operations.
  **/
 export enum WorkRequestOperationType {
-  NOTEBOOK_SESSION_CREATE = "NOTEBOOK_SESSION_CREATE",
-  NOTEBOOK_SESSION_DELETE = "NOTEBOOK_SESSION_DELETE",
-  NOTEBOOK_SESSION_ACTIVATE = "NOTEBOOK_SESSION_ACTIVATE",
-  NOTEBOOK_SESSION_DEACTIVATE = "NOTEBOOK_SESSION_DEACTIVATE",
-  PROJECT_DELETE = "PROJECT_DELETE",
-  WORKREQUEST_CANCEL = "WORKREQUEST_CANCEL",
+  NotebookSessionCreate = "NOTEBOOK_SESSION_CREATE",
+  NotebookSessionDelete = "NOTEBOOK_SESSION_DELETE",
+  NotebookSessionActivate = "NOTEBOOK_SESSION_ACTIVATE",
+  NotebookSessionDeactivate = "NOTEBOOK_SESSION_DEACTIVATE",
+  ProjectDelete = "PROJECT_DELETE",
+  WorkrequestCancel = "WORKREQUEST_CANCEL",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace WorkRequestOperationType {

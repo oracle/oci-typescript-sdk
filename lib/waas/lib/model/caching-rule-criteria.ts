@@ -39,16 +39,15 @@ URLs must start with a `/`. URLs can't contain restricted double slashes `//`. U
 
 export namespace CachingRuleCriteria {
   export enum Condition {
-    IS = "URL_IS",
-    STARTSWITH = "URL_STARTS_WITH",
-    PARTENDSWITH = "URL_PART_ENDS_WITH",
-    PARTCONTAINS = "URL_PART_CONTAINS",
-
+    UrlIs = "URL_IS",
+    UrlStartsWith = "URL_STARTS_WITH",
+    UrlPartEndsWith = "URL_PART_ENDS_WITH",
+    UrlPartContains = "URL_PART_CONTAINS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: CachingRuleCriteria): object {

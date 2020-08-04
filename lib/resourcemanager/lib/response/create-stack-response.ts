@@ -20,6 +20,10 @@ export interface CreateStackResponse {
    */
   "opcRequestId": string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
+   */
+  "opcWorkRequestId": string;
+  /**
    * For optimistic concurrency control. See `if-match`.
    */
   "etag": string;

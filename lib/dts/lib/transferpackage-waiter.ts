@@ -38,7 +38,7 @@ export class TransferPackageWaiter {
       this.config,
       () => this.client.getTransferPackage(request),
       response => targetStates.exists(response.transferPackage.lifecycleState),
-      targetStates.includes(models.TransferPackage.LifecycleState.DELETED)
+      targetStates.includes(models.TransferPackage.LifecycleState.Deleted)
     );
   }
 }

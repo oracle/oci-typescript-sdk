@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface UpdateDataSafePrivateEndpointRequest {
+export interface UpdateDataSafePrivateEndpointRequest extends common.BaseRequest {
   /**
    * The OCID of the private endpoint.
    */

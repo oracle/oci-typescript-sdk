@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface DbNodeActionRequest {
+export interface DbNodeActionRequest extends common.BaseRequest {
   /**
    * The database node [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    */
@@ -42,9 +42,9 @@ export interface DbNodeActionRequest {
 
 export namespace DbNodeActionRequest {
   export enum Action {
-    STOP = "STOP",
-    START = "START",
-    SOFTRESET = "SOFTRESET",
-    RESET = "RESET"
+    Stop = "STOP",
+    Start = "START",
+    Softreset = "SOFTRESET",
+    Reset = "RESET"
   }
 }

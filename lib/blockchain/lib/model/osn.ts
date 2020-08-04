@@ -1,6 +1,6 @@
 /**
  * Blockchain Platform Control Plane API
- * Blockchain Platform Plane API
+ * Blockchain Platform Control Plane API
  * OpenAPI spec version: 20191010
  *
  *
@@ -35,15 +35,14 @@ export interface Osn {
 
 export namespace Osn {
   export enum LifecycleState {
-    ACTIVE = "ACTIVE",
-    INACTIVE = "INACTIVE",
-    FAILED = "FAILED",
-
+    Active = "ACTIVE",
+    Inactive = "INACTIVE",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Osn): object {

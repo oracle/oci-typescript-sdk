@@ -19,15 +19,15 @@ import common = require("oci-common");
  * The lifecycle state of a project.
  **/
 export enum ProjectLifecycleState {
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-  DELETED = "DELETED",
+  Active = "ACTIVE",
+  Deleting = "DELETING",
+  Deleted = "DELETED",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace ProjectLifecycleState {

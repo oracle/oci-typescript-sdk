@@ -205,7 +205,7 @@ async function createVcn(client, compartmentId) {
   const getVcnRequest = { vcnId: response.vcn.id };
   const getVcnResponse = await vcnWaiter.forVcn(
     getVcnRequest,
-    core.models.Vcn.LifecycleState.AVAILABLE
+    core.models.Vcn.LifecycleState.Available
   );
   return getVcnResponse.vcn;
 }
@@ -234,7 +234,7 @@ async function createSubnet(client, compartmentId, availabilityDomain, vcnId) {
   const getSubnetRequest = { subnetId: response.subnet.id };
   const getSubnetResponse = await vcnWaiter.forSubnet(
     getSubnetRequest,
-    core.models.Subnet.LifecycleState.AVAILABLE
+    core.models.Subnet.LifecycleState.Available
   );
   return getSubnetResponse.subnet;
 }
@@ -275,7 +275,7 @@ async function createFileSystem(client, compartmentId, fileSystemDisplayName, ad
   };
   const getFileSystemResponse = await filestorageWaiter.forFileSystem(
     getFsSyetemRequest,
-    fs.models.FileSystem.LifecycleState.ACTIVE
+    fs.models.FileSystem.LifecycleState.Active
   );
   /*
    * If we try and send through the same request with the same retry token then this will not create a
@@ -350,7 +350,7 @@ async function createMountTarget(
   };
   const getMountTargetResponse = await filestorageWaiter.forMountTarget(
     getMtTargetRequest,
-    fs.models.MountTarget.LifecycleState.ACTIVE
+    fs.models.MountTarget.LifecycleState.Active
   );
 
   /*
@@ -445,7 +445,7 @@ async function createExport(client, fileSystemId, exportSetId) {
   const getExportRequest = { exportId: response.export.id };
   const getExportResponse = await filestorageWaiter.forExport(
     getExportRequest,
-    fs.models.Export.LifecycleState.ACTIVE
+    fs.models.Export.LifecycleState.Active
   );
   /*
    * If we try and send through the same request with the same retry token then this will not create a
@@ -551,7 +551,7 @@ async function createSnapshot(client, fileSystem) {
 
   const getSnapShotResponse = await filestorageWaiter.forSnapshot(
     getSnapShotRequest,
-    fs.models.Snapshot.LifecycleState.ACTIVE
+    fs.models.Snapshot.LifecycleState.Active
   );
 
   /*
@@ -587,7 +587,7 @@ async function deleteSnapshot(client, snapshot) {
   const getSnapshotRequest = { snapshotId: snapshot.id };
   await filestorageWaiter.forSnapshot(
     getSnapshotRequest,
-    fs.models.Snapshot.LifecycleState.DELETED
+    fs.models.Snapshot.LifecycleState.Deleted
   );
 }
 
@@ -602,7 +602,7 @@ async function deleteExport(client, exportModel) {
   await client.deleteExport(request);
   // Waiting for export to be deleted
   const getExportRequest = { exportId: exportModel.id };
-  await filestorageWaiter.forExport(getExportRequest, fs.models.Export.LifecycleState.DELETED);
+  await filestorageWaiter.forExport(getExportRequest, fs.models.Export.LifecycleState.Deleted);
 }
 
 /**
@@ -623,7 +623,7 @@ async function deleteMountTarget(client, mountTarget) {
   };
   await filestorageWaiter.forMountTarget(
     getMountTargetRequest,
-    fs.models.MountTarget.LifecycleState.DELETED
+    fs.models.MountTarget.LifecycleState.Deleted
   );
 }
 
@@ -640,7 +640,7 @@ async function deleteFileSystem(client, fileSystem) {
   const getFileSystemRequest = { fileSystemId: fileSystem.id };
   await filestorageWaiter.forFileSystem(
     getFileSystemRequest,
-    fs.models.FileSystem.LifecycleState.DELETED
+    fs.models.FileSystem.LifecycleState.Deleted
   );
 }
 
@@ -688,7 +688,7 @@ async function deleteVcn(client, vcn) {
   // wait for VCN to be deleted
   // NOTE: Not needed because VCN gets delete already. When getting the Request, it won't be found.
   // const getVcnRequest = { vcnId: vcn.id };
-  // await vcnWaiter.forVcn(getVcnRequest, core.models.Vcn.LifecycleState.TERMINATED);
+  // await vcnWaiter.forVcn(getVcnRequest, core.models.Vcn.LifecycleState.Terminated);
 }
 
 /**

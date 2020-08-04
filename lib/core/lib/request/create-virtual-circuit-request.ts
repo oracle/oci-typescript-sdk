@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateVirtualCircuitRequest {
+export interface CreateVirtualCircuitRequest extends common.BaseRequest {
   /**
    * Details to create a VirtualCircuit.
    */

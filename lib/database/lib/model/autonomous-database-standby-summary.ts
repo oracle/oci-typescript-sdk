@@ -36,31 +36,30 @@ export interface AutonomousDatabaseStandbySummary {
 
 export namespace AutonomousDatabaseStandbySummary {
   export enum LifecycleState {
-    PROVISIONING = "PROVISIONING",
-    AVAILABLE = "AVAILABLE",
-    STOPPING = "STOPPING",
-    STOPPED = "STOPPED",
-    STARTING = "STARTING",
-    TERMINATING = "TERMINATING",
-    TERMINATED = "TERMINATED",
-    UNAVAILABLE = "UNAVAILABLE",
-    RESTOREINPROGRESS = "RESTORE_IN_PROGRESS",
-    RESTOREFAILED = "RESTORE_FAILED",
-    BACKUPINPROGRESS = "BACKUP_IN_PROGRESS",
-    SCALEINPROGRESS = "SCALE_IN_PROGRESS",
-    AVAILABLENEEDSATTENTION = "AVAILABLE_NEEDS_ATTENTION",
-    UPDATING = "UPDATING",
-    MAINTENANCEINPROGRESS = "MAINTENANCE_IN_PROGRESS",
-    RESTARTING = "RESTARTING",
-    RECREATING = "RECREATING",
-    ROLECHANGEINPROGRESS = "ROLE_CHANGE_IN_PROGRESS",
-    UPGRADING = "UPGRADING",
-
+    Provisioning = "PROVISIONING",
+    Available = "AVAILABLE",
+    Stopping = "STOPPING",
+    Stopped = "STOPPED",
+    Starting = "STARTING",
+    Terminating = "TERMINATING",
+    Terminated = "TERMINATED",
+    Unavailable = "UNAVAILABLE",
+    RestoreInProgress = "RESTORE_IN_PROGRESS",
+    RestoreFailed = "RESTORE_FAILED",
+    BackupInProgress = "BACKUP_IN_PROGRESS",
+    ScaleInProgress = "SCALE_IN_PROGRESS",
+    AvailableNeedsAttention = "AVAILABLE_NEEDS_ATTENTION",
+    Updating = "UPDATING",
+    MaintenanceInProgress = "MAINTENANCE_IN_PROGRESS",
+    Restarting = "RESTARTING",
+    Recreating = "RECREATING",
+    RoleChangeInProgress = "ROLE_CHANGE_IN_PROGRESS",
+    Upgrading = "UPGRADING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: AutonomousDatabaseStandbySummary): object {

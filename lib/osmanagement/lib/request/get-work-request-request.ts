@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetWorkRequestRequest {
+export interface GetWorkRequestRequest extends common.BaseRequest {
   /**
    * The ID of the asynchronous request.
    */

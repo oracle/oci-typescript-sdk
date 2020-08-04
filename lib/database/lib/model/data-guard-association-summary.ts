@@ -109,66 +109,61 @@ Example: `180 Mb per second`
 
 export namespace DataGuardAssociationSummary {
   export enum Role {
-    PRIMARY = "PRIMARY",
-    STANDBY = "STANDBY",
-    DISABLEDSTANDBY = "DISABLED_STANDBY",
-
+    Primary = "PRIMARY",
+    Standby = "STANDBY",
+    DisabledStandby = "DISABLED_STANDBY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LifecycleState {
-    PROVISIONING = "PROVISIONING",
-    AVAILABLE = "AVAILABLE",
-    UPDATING = "UPDATING",
-    TERMINATING = "TERMINATING",
-    TERMINATED = "TERMINATED",
-    FAILED = "FAILED",
-
+    Provisioning = "PROVISIONING",
+    Available = "AVAILABLE",
+    Updating = "UPDATING",
+    Terminating = "TERMINATING",
+    Terminated = "TERMINATED",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum PeerRole {
-    PRIMARY = "PRIMARY",
-    STANDBY = "STANDBY",
-    DISABLEDSTANDBY = "DISABLED_STANDBY",
-
+    Primary = "PRIMARY",
+    Standby = "STANDBY",
+    DisabledStandby = "DISABLED_STANDBY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum ProtectionMode {
-    AVAILABILITY = "MAXIMUM_AVAILABILITY",
-    PERFORMANCE = "MAXIMUM_PERFORMANCE",
-    PROTECTION = "MAXIMUM_PROTECTION",
-
+    MaximumAvailability = "MAXIMUM_AVAILABILITY",
+    MaximumPerformance = "MAXIMUM_PERFORMANCE",
+    MaximumProtection = "MAXIMUM_PROTECTION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum TransportType {
-    SYNC = "SYNC",
-    ASYNC = "ASYNC",
-    FASTSYNC = "FASTSYNC",
-
+    Sync = "SYNC",
+    Async = "ASYNC",
+    Fastsync = "FASTSYNC",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: DataGuardAssociationSummary): object {

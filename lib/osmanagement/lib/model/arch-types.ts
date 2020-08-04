@@ -20,17 +20,17 @@ import common = require("oci-common");
  * Possible CPU architecture types
  **/
 export enum ArchTypes {
-  IA_32 = "IA_32",
-  X86_64 = "X86_64",
-  AARCH64 = "AARCH64",
-  SPARC = "SPARC",
-  AMD64_DEBIAN = "AMD64_DEBIAN",
+  Ia32 = "IA_32",
+  X8664 = "X86_64",
+  Aarch64 = "AARCH64",
+  Sparc = "SPARC",
+  Amd64Debian = "AMD64_DEBIAN",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace ArchTypes {

@@ -38,7 +38,7 @@ export class BdsWaiter {
       this.config,
       () => this.client.getBdsInstance(request),
       response => targetStates.exists(response.bdsInstance.lifecycleState),
-      targetStates.includes(models.BdsInstance.LifecycleState.DELETED)
+      targetStates.includes(models.BdsInstance.LifecycleState.Deleted)
     );
   }
 

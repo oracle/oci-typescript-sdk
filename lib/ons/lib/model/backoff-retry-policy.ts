@@ -35,13 +35,12 @@ export interface BackoffRetryPolicy {
 
 export namespace BackoffRetryPolicy {
   export enum PolicyType {
-    EXPONENTIAL = "EXPONENTIAL",
-
+    Exponential = "EXPONENTIAL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: BackoffRetryPolicy): object {

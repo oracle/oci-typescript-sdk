@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateDbHomeRequest {
+export interface CreateDbHomeRequest extends common.BaseRequest {
   /**
    * Request to create a new Database Home.
    */

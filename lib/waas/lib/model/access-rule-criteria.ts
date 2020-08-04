@@ -84,33 +84,32 @@ export interface AccessRuleCriteria {
 
 export namespace AccessRuleCriteria {
   export enum Condition {
-    URLIS = "URL_IS",
-    URLISNOT = "URL_IS_NOT",
-    URLSTARTSWITH = "URL_STARTS_WITH",
-    URLPARTENDSWITH = "URL_PART_ENDS_WITH",
-    URLPARTCONTAINS = "URL_PART_CONTAINS",
-    URLREGEX = "URL_REGEX",
-    URLDOESNOTMATCHREGEX = "URL_DOES_NOT_MATCH_REGEX",
-    URLDOESNOTSTARTWITH = "URL_DOES_NOT_START_WITH",
-    URLPARTDOESNOTCONTAIN = "URL_PART_DOES_NOT_CONTAIN",
-    URLPARTDOESNOTENDWITH = "URL_PART_DOES_NOT_END_WITH",
-    IPIS = "IP_IS",
-    IPISNOT = "IP_IS_NOT",
-    IPINLIST = "IP_IN_LIST",
-    IPNOTINLIST = "IP_NOT_IN_LIST",
-    HTTPHEADERCONTAINS = "HTTP_HEADER_CONTAINS",
-    HTTPMETHODIS = "HTTP_METHOD_IS",
-    HTTPMETHODISNOT = "HTTP_METHOD_IS_NOT",
-    COUNTRYIS = "COUNTRY_IS",
-    COUNTRYISNOT = "COUNTRY_IS_NOT",
-    USERAGENTIS = "USER_AGENT_IS",
-    USERAGENTISNOT = "USER_AGENT_IS_NOT",
-
+    UrlIs = "URL_IS",
+    UrlIsNot = "URL_IS_NOT",
+    UrlStartsWith = "URL_STARTS_WITH",
+    UrlPartEndsWith = "URL_PART_ENDS_WITH",
+    UrlPartContains = "URL_PART_CONTAINS",
+    UrlRegex = "URL_REGEX",
+    UrlDoesNotMatchRegex = "URL_DOES_NOT_MATCH_REGEX",
+    UrlDoesNotStartWith = "URL_DOES_NOT_START_WITH",
+    UrlPartDoesNotContain = "URL_PART_DOES_NOT_CONTAIN",
+    UrlPartDoesNotEndWith = "URL_PART_DOES_NOT_END_WITH",
+    IpIs = "IP_IS",
+    IpIsNot = "IP_IS_NOT",
+    IpInList = "IP_IN_LIST",
+    IpNotInList = "IP_NOT_IN_LIST",
+    HttpHeaderContains = "HTTP_HEADER_CONTAINS",
+    HttpMethodIs = "HTTP_METHOD_IS",
+    HttpMethodIsNot = "HTTP_METHOD_IS_NOT",
+    CountryIs = "COUNTRY_IS",
+    CountryIsNot = "COUNTRY_IS_NOT",
+    UserAgentIs = "USER_AGENT_IS",
+    UserAgentIsNot = "USER_AGENT_IS_NOT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: AccessRuleCriteria): object {

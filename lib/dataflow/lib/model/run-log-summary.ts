@@ -55,26 +55,24 @@ export interface RunLogSummary {
 
 export namespace RunLogSummary {
   export enum Source {
-    APPLICATION = "APPLICATION",
-    DRIVER = "DRIVER",
-    EXECUTOR = "EXECUTOR",
-
+    Application = "APPLICATION",
+    Driver = "DRIVER",
+    Executor = "EXECUTOR",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Type {
-    STDERR = "STDERR",
-    STDOUT = "STDOUT",
-
+    Stderr = "STDERR",
+    Stdout = "STDOUT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: RunLogSummary): object {

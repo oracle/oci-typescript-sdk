@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateDrgAttachmentRequest {
+export interface CreateDrgAttachmentRequest extends common.BaseRequest {
   /**
    * Details for creating a `DrgAttachment`.
    */

@@ -52,14 +52,13 @@ Example: `us-phoenix-1`
 
 export namespace RegionSubscription {
   export enum Status {
-    READY = "READY",
-    INPROGRESS = "IN_PROGRESS",
-
+    Ready = "READY",
+    InProgress = "IN_PROGRESS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: RegionSubscription): object {

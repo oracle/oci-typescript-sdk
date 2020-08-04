@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListJobDefinitionsRequest {
+export interface ListJobDefinitionsRequest extends common.BaseRequest {
   /**
    * Unique catalog identifier.
    */
@@ -104,12 +104,12 @@ export namespace ListJobDefinitionsRequest {
   }
 
   export enum SortBy {
-    TIMECREATED = "TIMECREATED",
-    DISPLAYNAME = "DISPLAYNAME"
+    Timecreated = "TIMECREATED",
+    Displayname = "DISPLAYNAME"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

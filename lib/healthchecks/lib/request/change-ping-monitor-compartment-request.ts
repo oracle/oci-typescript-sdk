@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ChangePingMonitorCompartmentRequest {
+export interface ChangePingMonitorCompartmentRequest extends common.BaseRequest {
   /**
    * The OCID of a monitor.
    */

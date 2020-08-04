@@ -38,7 +38,7 @@ export class KmsVaultWaiter {
       this.config,
       () => this.client.getVault(request),
       response => targetStates.exists(response.vault.lifecycleState),
-      targetStates.includes(models.Vault.LifecycleState.DELETED)
+      targetStates.includes(models.Vault.LifecycleState.Deleted)
     );
   }
 }

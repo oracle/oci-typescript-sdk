@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ChangeZoneCompartmentRequest {
+export interface ChangeZoneCompartmentRequest extends common.BaseRequest {
   /**
    * The OCID of the target zone.
    */

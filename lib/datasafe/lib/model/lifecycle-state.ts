@@ -18,19 +18,19 @@ import common = require("oci-common");
  * The current state of the resource.
  **/
 export enum LifecycleState {
-  CREATING = "CREATING",
-  UPDATING = "UPDATING",
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-  DELETED = "DELETED",
-  FAILED = "FAILED",
-  NA = "NA",
+  Creating = "CREATING",
+  Updating = "UPDATING",
+  Active = "ACTIVE",
+  Deleting = "DELETING",
+  Deleted = "DELETED",
+  Failed = "FAILED",
+  Na = "NA",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace LifecycleState {

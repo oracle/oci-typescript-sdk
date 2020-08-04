@@ -24,7 +24,7 @@ import common = require("oci-common");
  */
 export interface UpdateConfigSourceDetails {
   /**
-   * The path of the directory from which to run terraform. If not specified, the the root will be used.
+   * The path of the directory from which to run terraform. If not specified, the the root will be used. This parameter is ignored for the `configSourceType` value of `COMPARTMENT_CONFIG_SOURCE`.
    */
   "workingDirectory"?: string;
 

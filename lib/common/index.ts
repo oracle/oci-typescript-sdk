@@ -21,12 +21,17 @@ import {
   MaxTimeTerminationStrategy,
   genericWaiter,
   genericTerminalConditionWaiter,
-  WaiterConfiguration
+  WaiterConfiguration,
+  MaxAttemptsTerminationStrategy,
+  FixedTimeDelayStrategy
 } from "./lib/waiter";
+import { GenericRetrier, RetryConfiguration } from "./lib/retrier";
 import { RequireOnlyOne, AuthParams } from "./lib/types";
 import { HttpRequest } from "./lib/http-request";
 import InstancePrincipalsAuthenticationDetailsProviderBuilder from "./lib/auth/instance-principals-authentication-detail-provider";
 import ResourcePrincipalAuthenticationDetailsProvider from "./lib/auth/resource-principal-authentication-details-provider";
+import { BaseRequest } from "./lib/base-request";
+import { ClientConfiguration } from "./lib/client-configuration";
 import {
   paginateRecords,
   genericPaginateRecords,
@@ -53,6 +58,7 @@ export import OciError = error.OciError;
 export import RequestSigner = signer.RequestSigner;
 export import DefaultRequestSigner = signer.DefaultRequestSigner;
 
+export import getStringFromResponseBody = helper.getStringFromResponseBody;
 export import handleErrorResponse = helper.handleErrorResponse;
 export import mapContainer = helper.mapContainer;
 export import handleErrorBody = helper.handleErrorBody;
@@ -87,5 +93,11 @@ export {
   ConfigFileReader,
   InstancePrincipalsAuthenticationDetailsProviderBuilder,
   ResourcePrincipalAuthenticationDetailsProvider,
-  LOG
+  LOG,
+  GenericRetrier,
+  FixedTimeDelayStrategy,
+  MaxAttemptsTerminationStrategy,
+  RetryConfiguration,
+  BaseRequest,
+  ClientConfiguration
 };

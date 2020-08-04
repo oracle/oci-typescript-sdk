@@ -38,7 +38,7 @@ export class DbBackupsWaiter {
       this.config,
       () => this.client.getBackup(request),
       response => targetStates.exists(response.backup.lifecycleState),
-      targetStates.includes(models.Backup.LifecycleState.DELETED)
+      targetStates.includes(models.Backup.LifecycleState.Deleted)
     );
   }
 }

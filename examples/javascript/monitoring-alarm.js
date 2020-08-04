@@ -40,7 +40,7 @@ const NAME_SPACE = "oci_computeagent";
 const METRIC_QUERY = "CpuUtilization[1m].max() > 75";
 const RESOLUTION = "1m";
 const PENDING_DURATION = "PT10M";
-const ALERT_SEVERITY = mt.models.Alarm.Severity.ERROR;
+const ALERT_SEVERITY = mt.models.Alarm.Severity.Error;
 const BODY = "notification body";
 const REPEAT_DURATION = "PT4H";
 // Suppress from now.

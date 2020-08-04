@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface UpdateBackendRequest {
+export interface UpdateBackendRequest extends common.BaseRequest {
   /**
    * Details for updating a backend server.
    */

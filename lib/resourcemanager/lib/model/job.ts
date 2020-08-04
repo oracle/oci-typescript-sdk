@@ -88,6 +88,7 @@ export interface Job {
   /**
    * File path to the directory from which Terraform runs.
    * If not specified, the root directory is used.
+   * This parameter is ignored for the `configSourceType` value of `COMPARTMENT_CONFIG_SOURCE`.
    *
    */
   "workingDirectory"?: string;
@@ -118,31 +119,29 @@ export interface Job {
 
 export namespace Job {
   export enum Operation {
-    PLAN = "PLAN",
-    APPLY = "APPLY",
-    DESTROY = "DESTROY",
-    IMPORTTFSTATE = "IMPORT_TF_STATE",
-
+    Plan = "PLAN",
+    Apply = "APPLY",
+    Destroy = "DESTROY",
+    ImportTfState = "IMPORT_TF_STATE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LifecycleState {
-    ACCEPTED = "ACCEPTED",
-    INPROGRESS = "IN_PROGRESS",
-    FAILED = "FAILED",
-    SUCCEEDED = "SUCCEEDED",
-    CANCELING = "CANCELING",
-    CANCELED = "CANCELED",
-
+    Accepted = "ACCEPTED",
+    InProgress = "IN_PROGRESS",
+    Failed = "FAILED",
+    Succeeded = "SUCCEEDED",
+    Canceling = "CANCELING",
+    Canceled = "CANCELED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Job): object {

@@ -35,20 +35,19 @@ export interface WafBlockedRequest {
 
 export namespace WafBlockedRequest {
   export enum WafFeature {
-    PROTECTIONRULES = "PROTECTION_RULES",
-    JSCHALLENGE = "JS_CHALLENGE",
-    ACCESSRULES = "ACCESS_RULES",
-    THREATFEEDS = "THREAT_FEEDS",
-    HUMANINTERACTIONCHALLENGE = "HUMAN_INTERACTION_CHALLENGE",
-    DEVICEFINGERPRINTCHALLENGE = "DEVICE_FINGERPRINT_CHALLENGE",
-    CAPTCHA = "CAPTCHA",
-    ADDRESSRATELIMITING = "ADDRESS_RATE_LIMITING",
-
+    ProtectionRules = "PROTECTION_RULES",
+    JsChallenge = "JS_CHALLENGE",
+    AccessRules = "ACCESS_RULES",
+    ThreatFeeds = "THREAT_FEEDS",
+    HumanInteractionChallenge = "HUMAN_INTERACTION_CHALLENGE",
+    DeviceFingerprintChallenge = "DEVICE_FINGERPRINT_CHALLENGE",
+    Captcha = "CAPTCHA",
+    AddressRateLimiting = "ADDRESS_RATE_LIMITING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: WafBlockedRequest): object {

@@ -34,9 +34,9 @@ export interface ProtectionRuleAction {
 
 export namespace ProtectionRuleAction {
   export enum Action {
-    OFF = "OFF",
-    DETECT = "DETECT",
-    BLOCK = "BLOCK"
+    Off = "OFF",
+    Detect = "DETECT",
+    Block = "BLOCK"
   }
 
   export function getJsonObj(obj: ProtectionRuleAction): object {

@@ -27,17 +27,16 @@ export interface DataFormat {
 
 export namespace DataFormat {
   export enum Type {
-    XML = "XML",
-    JSON = "JSON",
-    CSV = "CSV",
-    ORC = "ORC",
-    PARQUET = "PARQUET",
-
+    Xml = "XML",
+    Json = "JSON",
+    Csv = "CSV",
+    Orc = "ORC",
+    Parquet = "PARQUET",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: DataFormat): object {

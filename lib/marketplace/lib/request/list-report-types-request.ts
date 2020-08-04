@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListReportTypesRequest {
+export interface ListReportTypesRequest extends common.BaseRequest {
   /**
    * The unique identifier for the compartment.
    */

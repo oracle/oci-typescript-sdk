@@ -21,18 +21,18 @@ import common = require("oci-common");
  * The lifecycle state of a cluster.
  **/
 export enum ClusterLifecycleState {
-  CREATING = "CREATING",
-  ACTIVE = "ACTIVE",
-  FAILED = "FAILED",
-  DELETING = "DELETING",
-  DELETED = "DELETED",
-  UPDATING = "UPDATING",
+  Creating = "CREATING",
+  Active = "ACTIVE",
+  Failed = "FAILED",
+  Deleting = "DELETING",
+  Deleted = "DELETED",
+  Updating = "UPDATING",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace ClusterLifecycleState {

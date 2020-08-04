@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ChangeApplicationCompartmentRequest {
+export interface ChangeApplicationCompartmentRequest extends common.BaseRequest {
   /**
    * The unique ID for an application.
    *

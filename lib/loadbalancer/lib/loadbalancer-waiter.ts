@@ -40,7 +40,7 @@ export class LoadBalancerWaiter {
       this.config,
       () => this.client.getLoadBalancer(request),
       response => targetStates.exists(response.loadBalancer.lifecycleState),
-      targetStates.includes(models.LoadBalancer.LifecycleState.DELETED)
+      targetStates.includes(models.LoadBalancer.LifecycleState.Deleted)
     );
   }
 

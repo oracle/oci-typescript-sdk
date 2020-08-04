@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateConfigurationSourceProviderRequest {
+export interface CreateConfigurationSourceProviderRequest extends common.BaseRequest {
   /**
    * The properties for creating a ConfigurationSourceProvider.
    */

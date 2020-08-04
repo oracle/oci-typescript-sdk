@@ -50,26 +50,24 @@ export interface PatchHistoryEntry {
 
 export namespace PatchHistoryEntry {
   export enum Action {
-    APPLY = "APPLY",
-    PRECHECK = "PRECHECK",
-
+    Apply = "APPLY",
+    Precheck = "PRECHECK",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LifecycleState {
-    INPROGRESS = "IN_PROGRESS",
-    SUCCEEDED = "SUCCEEDED",
-    FAILED = "FAILED",
-
+    InProgress = "IN_PROGRESS",
+    Succeeded = "SUCCEEDED",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: PatchHistoryEntry): object {

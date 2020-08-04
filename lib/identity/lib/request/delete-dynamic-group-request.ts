@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface DeleteDynamicGroupRequest {
+export interface DeleteDynamicGroupRequest extends common.BaseRequest {
   /**
    * The OCID of the dynamic group.
    */

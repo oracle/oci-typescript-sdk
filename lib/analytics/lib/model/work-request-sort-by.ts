@@ -20,12 +20,12 @@ import common = require("oci-common");
  *
  **/
 export enum WorkRequestSortBy {
-  ID = "id",
-  OPERATION_TYPE = "operationType",
-  STATUS = "status",
-  TIME_ACCEPTED = "timeAccepted",
-  TIME_STARTED = "timeStarted",
-  TIME_FINISHED = "timeFinished"
+  Id = "id",
+  OperationType = "operationType",
+  Status = "status",
+  TimeAccepted = "timeAccepted",
+  TimeStarted = "timeStarted",
+  TimeFinished = "timeFinished"
 }
 
 export namespace WorkRequestSortBy {

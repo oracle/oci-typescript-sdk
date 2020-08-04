@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateListenerRequest {
+export interface CreateListenerRequest extends common.BaseRequest {
   /**
    * Details to add a listener.
    */

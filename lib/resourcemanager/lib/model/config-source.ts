@@ -26,6 +26,7 @@ export interface ConfigSource {
   /**
    * File path to the directory to use for running Terraform.
    * If not specified, the root directory is used.
+   * This parameter is ignored for the `configSourceType` value of `COMPARTMENT_CONFIG_SOURCE`.
    *
    */
   "workingDirectory"?: string;
@@ -41,6 +42,11 @@ export namespace ConfigSource {
       switch (obj.configSourceType) {
         case "GIT_CONFIG_SOURCE":
           return model.GitConfigSource.getJsonObj(<model.GitConfigSource>(<object>jsonObj), true);
+        case "COMPARTMENT_CONFIG_SOURCE":
+          return model.CompartmentConfigSource.getJsonObj(
+            <model.CompartmentConfigSource>(<object>jsonObj),
+            true
+          );
         case "ZIP_UPLOAD":
           return model.ZipUploadConfigSource.getJsonObj(
             <model.ZipUploadConfigSource>(<object>jsonObj),

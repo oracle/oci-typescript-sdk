@@ -104,56 +104,52 @@ Example: `{\"Department\": \"Finance\"}`
 
 export namespace AutonomousContainerDatabaseSummary {
   export enum ServiceLevelAgreementType {
-    STANDARD = "STANDARD",
-    MISSIONCRITICAL = "MISSION_CRITICAL",
-
+    Standard = "STANDARD",
+    MissionCritical = "MISSION_CRITICAL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum InfrastructureType {
-    CLOUD = "CLOUD",
-    CLOUDATCUSTOMER = "CLOUD_AT_CUSTOMER",
-
+    Cloud = "CLOUD",
+    CloudAtCustomer = "CLOUD_AT_CUSTOMER",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LifecycleState {
-    PROVISIONING = "PROVISIONING",
-    AVAILABLE = "AVAILABLE",
-    UPDATING = "UPDATING",
-    TERMINATING = "TERMINATING",
-    TERMINATED = "TERMINATED",
-    FAILED = "FAILED",
-    BACKUPINPROGRESS = "BACKUP_IN_PROGRESS",
-    RESTORING = "RESTORING",
-    RESTOREFAILED = "RESTORE_FAILED",
-    RESTARTING = "RESTARTING",
-    MAINTENANCEINPROGRESS = "MAINTENANCE_IN_PROGRESS",
-
+    Provisioning = "PROVISIONING",
+    Available = "AVAILABLE",
+    Updating = "UPDATING",
+    Terminating = "TERMINATING",
+    Terminated = "TERMINATED",
+    Failed = "FAILED",
+    BackupInProgress = "BACKUP_IN_PROGRESS",
+    Restoring = "RESTORING",
+    RestoreFailed = "RESTORE_FAILED",
+    Restarting = "RESTARTING",
+    MaintenanceInProgress = "MAINTENANCE_IN_PROGRESS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum PatchModel {
-    UPDATES = "RELEASE_UPDATES",
-    UPDATEREVISIONS = "RELEASE_UPDATE_REVISIONS",
-
+    ReleaseUpdates = "RELEASE_UPDATES",
+    ReleaseUpdateRevisions = "RELEASE_UPDATE_REVISIONS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: AutonomousContainerDatabaseSummary): object {

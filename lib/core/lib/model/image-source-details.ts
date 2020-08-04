@@ -34,8 +34,8 @@ export interface ImageSourceDetails {
 
 export namespace ImageSourceDetails {
   export enum SourceImageType {
-    QCOW2 = "QCOW2",
-    VMDK = "VMDK"
+    Qcow2 = "QCOW2",
+    Vmdk = "VMDK"
   }
 
   export function getJsonObj(obj: ImageSourceDetails): object {

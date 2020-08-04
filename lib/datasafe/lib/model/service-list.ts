@@ -18,18 +18,18 @@ import common = require("oci-common");
  * List of (Oracle) Data Safe services, the only production service is DataSafe, the other services are used in devtest.
  **/
 export enum ServiceList {
-  DATA_SAFE = "DataSafe",
-  DATA_SAFE_DEV = "DataSafe-dev",
-  DATA_SAFE_DEV1 = "DataSafe-dev1",
-  DATA_SAFE_DEV2 = "DataSafe-dev2",
-  DATA_SAFE_DEV3 = "DataSafe-dev3",
-  DATA_SAFE_LRG1 = "DataSafe-lrg1",
-  DATA_SAFE_LRG2 = "DataSafe-lrg2",
-  DATA_SAFE_LRG3 = "DataSafe-lrg3",
-  DATA_SAFE_LRG4 = "DataSafe-lrg4",
-  DATA_SAFE_PTEST = "DataSafe-ptest",
-  DATA_SAFE_STEST = "DataSafe-stest",
-  DATA_SAFE_STAGE = "DataSafe-stage"
+  DataSafe = "DataSafe",
+  DataSafeDev = "DataSafe-dev",
+  DataSafeDev1 = "DataSafe-dev1",
+  DataSafeDev2 = "DataSafe-dev2",
+  DataSafeDev3 = "DataSafe-dev3",
+  DataSafeLrg1 = "DataSafe-lrg1",
+  DataSafeLrg2 = "DataSafe-lrg2",
+  DataSafeLrg3 = "DataSafe-lrg3",
+  DataSafeLrg4 = "DataSafe-lrg4",
+  DataSafePtest = "DataSafe-ptest",
+  DataSafeStest = "DataSafe-stest",
+  DataSafeStage = "DataSafe-stage"
 }
 
 export namespace ServiceList {

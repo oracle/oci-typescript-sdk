@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetVmClusterRequest {
+export interface GetVmClusterRequest extends common.BaseRequest {
   /**
    * The VM cluster [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    */

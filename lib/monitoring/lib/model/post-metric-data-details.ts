@@ -43,8 +43,8 @@ Example: `NON_ATOMIC`
 
 export namespace PostMetricDataDetails {
   export enum BatchAtomicity {
-    ATOMIC = "ATOMIC",
-    NONATOMIC = "NON_ATOMIC"
+    Atomic = "ATOMIC",
+    NonAtomic = "NON_ATOMIC"
   }
 
   export function getJsonObj(obj: PostMetricDataDetails): object {

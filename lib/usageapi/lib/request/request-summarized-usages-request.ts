@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface RequestSummarizedUsagesRequest {
+export interface RequestSummarizedUsagesRequest extends common.BaseRequest {
   /**
    * getUsageRequest contain query inforamtion
    *

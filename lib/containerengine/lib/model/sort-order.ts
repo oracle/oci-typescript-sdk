@@ -21,8 +21,8 @@ import common = require("oci-common");
  * The sort order for a list operation.
  **/
 export enum SortOrder {
-  ASC = "ASC",
-  DESC = "DESC"
+  Asc = "ASC",
+  Desc = "DESC"
 }
 
 export namespace SortOrder {

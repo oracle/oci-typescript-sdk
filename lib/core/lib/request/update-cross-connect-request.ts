@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface UpdateCrossConnectRequest {
+export interface UpdateCrossConnectRequest extends common.BaseRequest {
   /**
    * The OCID of the cross-connect.
    */

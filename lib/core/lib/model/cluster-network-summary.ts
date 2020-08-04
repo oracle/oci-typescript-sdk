@@ -80,20 +80,19 @@ Example: `2016-08-25T21:10:29.600Z`
 
 export namespace ClusterNetworkSummary {
   export enum LifecycleState {
-    PROVISIONING = "PROVISIONING",
-    SCALING = "SCALING",
-    STARTING = "STARTING",
-    STOPPING = "STOPPING",
-    TERMINATING = "TERMINATING",
-    STOPPED = "STOPPED",
-    TERMINATED = "TERMINATED",
-    RUNNING = "RUNNING",
-
+    Provisioning = "PROVISIONING",
+    Scaling = "SCALING",
+    Starting = "STARTING",
+    Stopping = "STOPPING",
+    Terminating = "TERMINATING",
+    Stopped = "STOPPED",
+    Terminated = "TERMINATED",
+    Running = "RUNNING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: ClusterNetworkSummary): object {

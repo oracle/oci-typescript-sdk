@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListDataSafePrivateEndpointsRequest {
+export interface ListDataSafePrivateEndpointsRequest extends common.BaseRequest {
   /**
    * A filter to return only resources that match the specified compartment OCID.
    */
@@ -56,12 +56,12 @@ export interface ListDataSafePrivateEndpointsRequest {
 
 export namespace ListDataSafePrivateEndpointsRequest {
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 
   export enum SortBy {
-    TIMECREATED = "TIMECREATED",
-    DISPLAYNAME = "DISPLAYNAME"
+    Timecreated = "TIMECREATED",
+    Displayname = "DISPLAYNAME"
   }
 }

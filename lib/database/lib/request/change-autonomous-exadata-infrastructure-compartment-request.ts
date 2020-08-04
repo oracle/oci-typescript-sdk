@@ -13,7 +13,8 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ChangeAutonomousExadataInfrastructureCompartmentRequest {
+export interface ChangeAutonomousExadataInfrastructureCompartmentRequest
+  extends common.BaseRequest {
   /**
    * Request to move Autonomous Exadata Infrastructure to a different compartment
    */

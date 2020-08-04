@@ -46,39 +46,37 @@ export interface WorkRequestSummary {
 
 export namespace WorkRequestSummary {
   export enum RequestAction {
-    CREATEODAINSTANCE = "CREATE_ODA_INSTANCE",
-    UPGRADEODAINSTANCE = "UPGRADE_ODA_INSTANCE",
-    DELETEODAINSTANCE = "DELETE_ODA_INSTANCE",
-    PURGEODAINSTANCE = "PURGE_ODA_INSTANCE",
-    RECOVERODAINSTANCE = "RECOVER_ODA_INSTANCE",
-    STOPODAINSTANCE = "STOP_ODA_INSTANCE",
-    STARTODAINSTANCE = "START_ODA_INSTANCE",
-    CHANGEODAINSTANCECOMPARTMENT = "CHANGE_ODA_INSTANCE_COMPARTMENT",
-    CREATEASSOCIATION = "CREATE_ASSOCIATION",
-    DELETEASSOCIATION = "DELETE_ASSOCIATION",
-    UPDATEENTITLEMENTSFORCACCT = "UPDATE_ENTITLEMENTS_FOR_CACCT",
-    LOOKUPODAINSTANCESFORCACCT = "LOOKUP_ODA_INSTANCES_FOR_CACCT",
-
+    CreateOdaInstance = "CREATE_ODA_INSTANCE",
+    UpgradeOdaInstance = "UPGRADE_ODA_INSTANCE",
+    DeleteOdaInstance = "DELETE_ODA_INSTANCE",
+    PurgeOdaInstance = "PURGE_ODA_INSTANCE",
+    RecoverOdaInstance = "RECOVER_ODA_INSTANCE",
+    StopOdaInstance = "STOP_ODA_INSTANCE",
+    StartOdaInstance = "START_ODA_INSTANCE",
+    ChangeOdaInstanceCompartment = "CHANGE_ODA_INSTANCE_COMPARTMENT",
+    CreateAssociation = "CREATE_ASSOCIATION",
+    DeleteAssociation = "DELETE_ASSOCIATION",
+    UpdateEntitlementsForCacct = "UPDATE_ENTITLEMENTS_FOR_CACCT",
+    LookupOdaInstancesForCacct = "LOOKUP_ODA_INSTANCES_FOR_CACCT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Status {
-    ACCEPTED = "ACCEPTED",
-    INPROGRESS = "IN_PROGRESS",
-    SUCCEEDED = "SUCCEEDED",
-    FAILED = "FAILED",
-    CANCELING = "CANCELING",
-    CANCELED = "CANCELED",
-
+    Accepted = "ACCEPTED",
+    InProgress = "IN_PROGRESS",
+    Succeeded = "SUCCEEDED",
+    Failed = "FAILED",
+    Canceling = "CANCELING",
+    Canceled = "CANCELED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: WorkRequestSummary): object {

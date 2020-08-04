@@ -92,7 +92,7 @@ const waiters = adminClient.createWaiters();
 
   // Stream deletion is an asynchronous operation, give it some time to complete.
   const getStreamRequest: st.requests.GetStreamRequest = { streamId: streamId };
-  await waiters.forStream(getStreamRequest, st.models.Stream.LifecycleState.DELETED);
+  await waiters.forStream(getStreamRequest, st.models.Stream.LifecycleState.Deleted);
 })();
 
 async function getOrCreateStream(
@@ -103,7 +103,7 @@ async function getOrCreateStream(
   const listStreamsRequest: st.requests.ListStreamsRequest = {
     compartmentId: compartmentId,
     name: exampleStreamName,
-    lifecycleState: st.models.Stream.LifecycleState.ACTIVE.toString()
+    lifecycleState: st.models.Stream.LifecycleState.Active.toString()
   };
   const listStreamsResponse = await adminClient.listStreams(listStreamsRequest);
 
@@ -133,7 +133,7 @@ async function getOrCreateStream(
   };
   const activeStream = await waiters.forStream(
     getStreamRequest,
-    st.models.Stream.LifecycleState.ACTIVE
+    st.models.Stream.LifecycleState.Active
   );
   console.log("Create Stream executed successfully.");
   // Give a little time for the stream to be ready.
@@ -171,7 +171,7 @@ async function getCursorByPartition(
   console.log("Creating a cursor for partition %s.", partition);
   let cursorDetails: st.models.CreateCursorDetails = {
     partition: partition,
-    type: st.models.CreateCursorDetails.Type.TRIMHORIZON
+    type: st.models.CreateCursorDetails.Type.TrimHorizon
   };
   const createCursorRequest: st.requests.CreateCursorRequest = {
     streamId: streamId,
@@ -215,7 +215,7 @@ async function getCursorByGroup(
   const cursorDetails: st.models.CreateGroupCursorDetails = {
     groupName: groupName,
     instanceName: instanceName,
-    type: st.models.CreateGroupCursorDetails.Type.TRIMHORIZON,
+    type: st.models.CreateGroupCursorDetails.Type.TrimHorizon,
     commitOnGet: true
   };
   const createCursorRequest: st.requests.CreateGroupCursorRequest = {

@@ -21,14 +21,14 @@ import common = require("oci-common");
  * The supported protocols available for HTTP probes.
  **/
 export enum HttpProbeProtocol {
-  HTTP = "HTTP",
-  HTTPS = "HTTPS",
+  Http = "HTTP",
+  Https = "HTTPS",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace HttpProbeProtocol {

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface PreviewScaleBlockchainPlatformRequest {
+export interface PreviewScaleBlockchainPlatformRequest extends common.BaseRequest {
   /**
    * Unique service identifier.
    */

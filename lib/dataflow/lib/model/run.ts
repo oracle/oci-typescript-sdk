@@ -21,8 +21,8 @@ import common = require("oci-common");
  */
 export interface Run {
   /**
-   * An Oracle Cloud Infrastructure URI of an archive (zip) file that may used to support the execution of the application.
-   * See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat
+   * An Oracle Cloud Infrastructure URI of an archive.zip file containing custom dependencies that may be used to support the execution a Python, Java, or Scala application.
+   * See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat.
    *
    */
   "archiveUri"?: string;
@@ -55,7 +55,7 @@ export interface Run {
   "compartmentId": string;
   /**
    * The Spark configuration passed to the running process.
-   * See https://spark.apache.org/docs/latest/configuration.html#available-properties
+   * See https://spark.apache.org/docs/latest/configuration.html#available-properties.
    * Example: { \"spark.app.name\" : \"My App Name\", \"spark.shuffle.io.maxRetries\" : \"4\" }
    * Note: Not all Spark properties are permitted to be set.  Attempting to set a property that is
    * not allowed to be overwritten will cause a 400 status to be returned.
@@ -95,7 +95,7 @@ export interface Run {
   "executorShape": string;
   /**
    * An Oracle Cloud Infrastructure URI of the file containing the application to execute.
-   * See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat
+   * See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat.
    *
    */
   "fileUri": string;
@@ -128,7 +128,7 @@ export interface Run {
   "lifecycleState": model.RunLifecycleState;
   /**
    * An Oracle Cloud Infrastructure URI of the bucket where the Spark job logs are to be uploaded.
-   * See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat
+   * See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat.
    *
    */
   "logsBucketUri"?: string;
@@ -138,7 +138,7 @@ export interface Run {
    */
   "numExecutors": number;
   /**
-   * Unique Oracle-assigned identifier for the request.
+   * Unique Oracle assigned identifier for the request.
    * If you need to contact Oracle about a particular request, please provide the request ID.
    *
    */
@@ -162,6 +162,35 @@ export interface Run {
    *
    */
   "parameters"?: Array<model.ApplicationParameter>;
+  /**
+   * An array of DNS zone names.
+   * Example: `[ \"app.examplecorp.com\", \"app.examplecorp2.com\" ]`
+   *
+   */
+  "privateEndpointDnsZones"?: Array<string>;
+  /**
+   * The maximum number of hosts to be accessed through the private endpoint. This value is used
+   * to calculate the relevant CIDR block and should be a multiple of 256.  If the value is not a
+   * multiple of 256, it is rounded up to the next multiple of 256. For example, 300 is rounded up
+   * to 512.
+   *
+   */
+  "privateEndpointMaxHostCount"?: number;
+  /**
+   * An array of network security group OCIDs.
+   *
+   */
+  "privateEndpointNsgIds"?: Array<string>;
+  /**
+   * The OCID of a private endpoint.
+   *
+   */
+  "privateEndpointId"?: string;
+  /**
+   * The OCID of a subnet.
+   *
+   */
+  "privateEndpointSubnetId"?: string;
   /**
    * The duration of the run in milliseconds.
    *
@@ -192,7 +221,7 @@ export interface Run {
   /**
    * An Oracle Cloud Infrastructure URI of the bucket to be used as default warehouse directory
    * for BATCH SQL runs.
-   * See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat
+   * See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat.
    *
    */
   "warehouseBucketUri"?: string;

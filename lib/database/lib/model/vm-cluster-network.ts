@@ -85,22 +85,21 @@ Example: `{\"Department\": \"Finance\"}`
 
 export namespace VmClusterNetwork {
   export enum LifecycleState {
-    CREATING = "CREATING",
-    REQUIRESVALIDATION = "REQUIRES_VALIDATION",
-    VALIDATING = "VALIDATING",
-    VALIDATED = "VALIDATED",
-    VALIDATIONFAILED = "VALIDATION_FAILED",
-    UPDATING = "UPDATING",
-    ALLOCATED = "ALLOCATED",
-    TERMINATING = "TERMINATING",
-    TERMINATED = "TERMINATED",
-    FAILED = "FAILED",
-
+    Creating = "CREATING",
+    RequiresValidation = "REQUIRES_VALIDATION",
+    Validating = "VALIDATING",
+    Validated = "VALIDATED",
+    ValidationFailed = "VALIDATION_FAILED",
+    Updating = "UPDATING",
+    Allocated = "ALLOCATED",
+    Terminating = "TERMINATING",
+    Terminated = "TERMINATED",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: VmClusterNetwork): object {

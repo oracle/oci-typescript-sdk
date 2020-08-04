@@ -20,9 +20,9 @@ export interface UpdateTransferDeviceDetails {
 
 export namespace UpdateTransferDeviceDetails {
   export enum LifecycleState {
-    PREPARING = "PREPARING",
-    READY = "READY",
-    CANCELLED = "CANCELLED"
+    Preparing = "PREPARING",
+    Ready = "READY",
+    Cancelled = "CANCELLED"
   }
 
   export function getJsonObj(obj: UpdateTransferDeviceDetails): object {

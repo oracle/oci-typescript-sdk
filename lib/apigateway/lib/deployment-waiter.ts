@@ -41,7 +41,7 @@ export class DeploymentWaiter {
       this.config,
       () => this.client.getDeployment(request),
       response => targetStates.exists(response.deployment.lifecycleState),
-      targetStates.includes(models.Deployment.LifecycleState.DELETED)
+      targetStates.includes(models.Deployment.LifecycleState.Deleted)
     );
   }
 }
