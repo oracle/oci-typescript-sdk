@@ -53,26 +53,24 @@ export interface DbSystemEndpoint {
 
 export namespace DbSystemEndpoint {
   export enum Modes {
-    READ = "READ",
-    WRITE = "WRITE",
-
+    Read = "READ",
+    Write = "WRITE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Status {
-    ACTIVE = "ACTIVE",
-    INACTIVE = "INACTIVE",
-    UPDATING = "UPDATING",
-
+    Active = "ACTIVE",
+    Inactive = "INACTIVE",
+    Updating = "UPDATING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: DbSystemEndpoint): object {

@@ -19,16 +19,16 @@ import common = require("oci-common");
  * Possible asynchronous operation types.
  **/
 export enum OperationTypes {
-  CREATE_SDDC = "CREATE_SDDC",
-  DELETE_SDDC = "DELETE_SDDC",
-  CREATE_ESXI_HOST = "CREATE_ESXI_HOST",
-  DELETE_ESXI_HOST = "DELETE_ESXI_HOST",
+  CreateSddc = "CREATE_SDDC",
+  DeleteSddc = "DELETE_SDDC",
+  CreateEsxiHost = "CREATE_ESXI_HOST",
+  DeleteEsxiHost = "DELETE_ESXI_HOST",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace OperationTypes {

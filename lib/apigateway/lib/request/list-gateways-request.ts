@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListGatewaysRequest {
+export interface ListGatewaysRequest extends common.BaseRequest {
   /**
    * The ocid of the compartment in which to list resources.
    */
@@ -60,8 +60,8 @@ Example: `SUCCEEDED`
 
 export namespace ListGatewaysRequest {
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 
   export enum SortBy {

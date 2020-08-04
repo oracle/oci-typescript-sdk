@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ChangeFileSystemCompartmentRequest {
+export interface ChangeFileSystemCompartmentRequest extends common.BaseRequest {
   /**
    * The OCID of the file system.
    */

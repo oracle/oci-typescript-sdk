@@ -70,15 +70,15 @@ export interface CreateExternalBackupJobDetails {
 
 export namespace CreateExternalBackupJobDetails {
   export enum DatabaseMode {
-    SI = "SI",
-    RAC = "RAC"
+    Si = "SI",
+    Rac = "RAC"
   }
 
   export enum DatabaseEdition {
-    STANDARDEDITION = "STANDARD_EDITION",
-    ENTERPRISEEDITION = "ENTERPRISE_EDITION",
-    ENTERPRISEEDITIONHIGHPERFORMANCE = "ENTERPRISE_EDITION_HIGH_PERFORMANCE",
-    ENTERPRISEEDITIONEXTREMEPERFORMANCE = "ENTERPRISE_EDITION_EXTREME_PERFORMANCE"
+    StandardEdition = "STANDARD_EDITION",
+    EnterpriseEdition = "ENTERPRISE_EDITION",
+    EnterpriseEditionHighPerformance = "ENTERPRISE_EDITION_HIGH_PERFORMANCE",
+    EnterpriseEditionExtremePerformance = "ENTERPRISE_EDITION_EXTREME_PERFORMANCE"
   }
 
   export function getJsonObj(obj: CreateExternalBackupJobDetails): object {

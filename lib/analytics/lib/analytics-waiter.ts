@@ -39,7 +39,7 @@ export class AnalyticsWaiter {
       this.config,
       () => this.client.getAnalyticsInstance(request),
       response => targetStates.exists(response.analyticsInstance.lifecycleState),
-      targetStates.includes(models.AnalyticsInstanceLifecycleState.DELETED)
+      targetStates.includes(models.AnalyticsInstanceLifecycleState.Deleted)
     );
   }
 

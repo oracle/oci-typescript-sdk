@@ -34,15 +34,14 @@ export interface Message {
 
 export namespace Message {
   export enum Type {
-    ERROR = "ERROR",
-    WARNING = "WARNING",
-    INFO = "INFO",
-
+    Error = "ERROR",
+    Warning = "WARNING",
+    Info = "INFO",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Message): object {

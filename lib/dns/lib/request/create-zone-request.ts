@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateZoneRequest {
+export interface CreateZoneRequest extends common.BaseRequest {
   /**
    * Details for creating a new zone.
    */

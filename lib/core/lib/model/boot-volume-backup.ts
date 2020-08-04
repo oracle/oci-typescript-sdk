@@ -136,40 +136,37 @@ Example: `{\"Department\": \"Finance\"}`
 
 export namespace BootVolumeBackup {
   export enum LifecycleState {
-    CREATING = "CREATING",
-    AVAILABLE = "AVAILABLE",
-    TERMINATING = "TERMINATING",
-    TERMINATED = "TERMINATED",
-    FAULTY = "FAULTY",
-    REQUESTRECEIVED = "REQUEST_RECEIVED",
-
+    Creating = "CREATING",
+    Available = "AVAILABLE",
+    Terminating = "TERMINATING",
+    Terminated = "TERMINATED",
+    Faulty = "FAULTY",
+    RequestReceived = "REQUEST_RECEIVED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum SourceType {
-    MANUAL = "MANUAL",
-    SCHEDULED = "SCHEDULED",
-
+    Manual = "MANUAL",
+    Scheduled = "SCHEDULED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Type {
-    FULL = "FULL",
-    INCREMENTAL = "INCREMENTAL",
-
+    Full = "FULL",
+    Incremental = "INCREMENTAL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: BootVolumeBackup): object {

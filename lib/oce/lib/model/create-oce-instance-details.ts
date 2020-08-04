@@ -89,13 +89,13 @@ export interface CreateOceInstanceDetails {
 
 export namespace CreateOceInstanceDetails {
   export enum InstanceUsageType {
-    PRIMARY = "PRIMARY",
-    NONPRIMARY = "NONPRIMARY"
+    Primary = "PRIMARY",
+    Nonprimary = "NONPRIMARY"
   }
 
   export enum InstanceAccessType {
-    PUBLIC = "PUBLIC",
-    PRIVATE = "PRIVATE"
+    Public = "PUBLIC",
+    Private = "PRIVATE"
   }
 
   export function getJsonObj(obj: CreateOceInstanceDetails): object {

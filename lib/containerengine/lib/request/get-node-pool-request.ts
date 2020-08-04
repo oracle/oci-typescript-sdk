@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetNodePoolRequest {
+export interface GetNodePoolRequest extends common.BaseRequest {
   /**
    * The OCID of the node pool.
    */

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface DeleteIndexRequest {
+export interface DeleteIndexRequest extends common.BaseRequest {
   /**
    * A table name within the compartment, or a table OCID.
    */

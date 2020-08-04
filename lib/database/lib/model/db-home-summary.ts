@@ -94,18 +94,17 @@ Example: `{\"Department\": \"Finance\"}`
 
 export namespace DbHomeSummary {
   export enum LifecycleState {
-    PROVISIONING = "PROVISIONING",
-    AVAILABLE = "AVAILABLE",
-    UPDATING = "UPDATING",
-    TERMINATING = "TERMINATING",
-    TERMINATED = "TERMINATED",
-    FAILED = "FAILED",
-
+    Provisioning = "PROVISIONING",
+    Available = "AVAILABLE",
+    Updating = "UPDATING",
+    Terminating = "TERMINATING",
+    Terminated = "TERMINATED",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: DbHomeSummary): object {

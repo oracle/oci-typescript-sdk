@@ -38,12 +38,12 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 
 export namespace UpdateTransferJobDetails {
   export enum LifecycleState {
-    CLOSED = "CLOSED"
+    Closed = "CLOSED"
   }
 
   export enum DeviceType {
-    DISK = "DISK",
-    APPLIANCE = "APPLIANCE"
+    Disk = "DISK",
+    Appliance = "APPLIANCE"
   }
 
   export function getJsonObj(obj: UpdateTransferJobDetails): object {

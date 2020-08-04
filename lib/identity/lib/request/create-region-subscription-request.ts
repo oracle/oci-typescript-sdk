@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateRegionSubscriptionRequest {
+export interface CreateRegionSubscriptionRequest extends common.BaseRequest {
   /**
    * Request object for activate a new region.
    */

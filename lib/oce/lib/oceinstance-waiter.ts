@@ -38,7 +38,7 @@ export class OceInstanceWaiter {
       this.config,
       () => this.client.getOceInstance(request),
       response => targetStates.exists(response.oceInstance.lifecycleState),
-      targetStates.includes(models.OceInstance.LifecycleState.DELETED)
+      targetStates.includes(models.OceInstance.LifecycleState.Deleted)
     );
   }
 

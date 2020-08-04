@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListAlarmsRequest {
+export interface ListAlarmsRequest extends common.BaseRequest {
   /**
  * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the
 * resources monitored by the metric that you are searching for. Use tenancyId to search in
@@ -88,7 +88,7 @@ export namespace ListAlarmsRequest {
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

@@ -73,28 +73,26 @@ Example: `FIRING`
 
 export namespace AlarmStatusSummary {
   export enum Severity {
-    CRITICAL = "CRITICAL",
-    ERROR = "ERROR",
-    WARNING = "WARNING",
-    INFO = "INFO",
-
+    Critical = "CRITICAL",
+    Error = "ERROR",
+    Warning = "WARNING",
+    Info = "INFO",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Status {
-    FIRING = "FIRING",
-    OK = "OK",
-    SUSPENDED = "SUSPENDED",
-
+    Firing = "FIRING",
+    Ok = "OK",
+    Suspended = "SUSPENDED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: AlarmStatusSummary): object {

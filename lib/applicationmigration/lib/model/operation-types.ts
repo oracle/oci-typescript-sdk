@@ -19,23 +19,23 @@ import common = require("oci-common");
  * Possible operation types.
  **/
 export enum OperationTypes {
-  CREATE_SOURCE = "CREATE_SOURCE",
-  UPDATE_SOURCE = "UPDATE_SOURCE",
-  DELETE_SOURCE = "DELETE_SOURCE",
-  CREATE_MIGRATION = "CREATE_MIGRATION",
-  UPDATE_MIGRATION = "UPDATE_MIGRATION",
-  DELETE_MIGRATION = "DELETE_MIGRATION",
-  AUTHORIZE_SOURCE = "AUTHORIZE_SOURCE",
-  DISCOVER_APPLICATION = "DISCOVER_APPLICATION",
-  MIGRATE_APPLICATION = "MIGRATE_APPLICATION",
-  CHANGE_SOURCE_COMPARTMENT = "CHANGE_SOURCE_COMPARTMENT",
-  CHANGE_MIGRATION_COMPARTMENT = "CHANGE_MIGRATION_COMPARTMENT",
+  CreateSource = "CREATE_SOURCE",
+  UpdateSource = "UPDATE_SOURCE",
+  DeleteSource = "DELETE_SOURCE",
+  CreateMigration = "CREATE_MIGRATION",
+  UpdateMigration = "UPDATE_MIGRATION",
+  DeleteMigration = "DELETE_MIGRATION",
+  AuthorizeSource = "AUTHORIZE_SOURCE",
+  DiscoverApplication = "DISCOVER_APPLICATION",
+  MigrateApplication = "MIGRATE_APPLICATION",
+  ChangeSourceCompartment = "CHANGE_SOURCE_COMPARTMENT",
+  ChangeMigrationCompartment = "CHANGE_MIGRATION_COMPARTMENT",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace OperationTypes {

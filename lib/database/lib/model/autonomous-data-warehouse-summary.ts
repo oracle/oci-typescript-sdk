@@ -93,36 +93,34 @@ Example: `{\"Department\": \"Finance\"}`
 
 export namespace AutonomousDataWarehouseSummary {
   export enum LifecycleState {
-    PROVISIONING = "PROVISIONING",
-    AVAILABLE = "AVAILABLE",
-    STOPPING = "STOPPING",
-    STOPPED = "STOPPED",
-    STARTING = "STARTING",
-    TERMINATING = "TERMINATING",
-    TERMINATED = "TERMINATED",
-    UNAVAILABLE = "UNAVAILABLE",
-    RESTOREINPROGRESS = "RESTORE_IN_PROGRESS",
-    BACKUPINPROGRESS = "BACKUP_IN_PROGRESS",
-    SCALEINPROGRESS = "SCALE_IN_PROGRESS",
-    AVAILABLENEEDSATTENTION = "AVAILABLE_NEEDS_ATTENTION",
-    UPDATING = "UPDATING",
-
+    Provisioning = "PROVISIONING",
+    Available = "AVAILABLE",
+    Stopping = "STOPPING",
+    Stopped = "STOPPED",
+    Starting = "STARTING",
+    Terminating = "TERMINATING",
+    Terminated = "TERMINATED",
+    Unavailable = "UNAVAILABLE",
+    RestoreInProgress = "RESTORE_IN_PROGRESS",
+    BackupInProgress = "BACKUP_IN_PROGRESS",
+    ScaleInProgress = "SCALE_IN_PROGRESS",
+    AvailableNeedsAttention = "AVAILABLE_NEEDS_ATTENTION",
+    Updating = "UPDATING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LicenseModel {
-    LICENSEINCLUDED = "LICENSE_INCLUDED",
-    BRINGYOUROWNLICENSE = "BRING_YOUR_OWN_LICENSE",
-
+    LicenseIncluded = "LICENSE_INCLUDED",
+    BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: AutonomousDataWarehouseSummary): object {

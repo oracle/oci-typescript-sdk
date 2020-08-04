@@ -37,7 +37,7 @@ export class EventsWaiter {
       this.config,
       () => this.client.getRule(request),
       response => targetStates.exists(response.rule.lifecycleState),
-      targetStates.includes(models.Rule.LifecycleState.DELETED)
+      targetStates.includes(models.Rule.LifecycleState.Deleted)
     );
   }
 }

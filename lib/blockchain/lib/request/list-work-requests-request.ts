@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListWorkRequestsRequest {
+export interface ListWorkRequestsRequest extends common.BaseRequest {
   /**
    * The ID of the compartment in which to list resources.
    */
@@ -47,8 +47,8 @@ export interface ListWorkRequestsRequest {
 
 export namespace ListWorkRequestsRequest {
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 
   export enum SortBy {

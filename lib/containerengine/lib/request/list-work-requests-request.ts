@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListWorkRequestsRequest {
+export interface ListWorkRequestsRequest extends common.BaseRequest {
   /**
    * The OCID of the compartment.
    */
@@ -65,16 +65,16 @@ export interface ListWorkRequestsRequest {
 
 export namespace ListWorkRequestsRequest {
   export enum ResourceType {
-    CLUSTER = "CLUSTER",
-    NODEPOOL = "NODEPOOL"
+    Cluster = "CLUSTER",
+    Nodepool = "NODEPOOL"
   }
 
   export enum SortBy {
-    ID = "ID",
-    OPERATIONTYPE = "OPERATION_TYPE",
-    STATUS = "STATUS",
-    TIMEACCEPTED = "TIME_ACCEPTED",
-    TIMESTARTED = "TIME_STARTED",
-    TIMEFINISHED = "TIME_FINISHED"
+    Id = "ID",
+    OperationType = "OPERATION_TYPE",
+    Status = "STATUS",
+    TimeAccepted = "TIME_ACCEPTED",
+    TimeStarted = "TIME_STARTED",
+    TimeFinished = "TIME_FINISHED"
   }
 }

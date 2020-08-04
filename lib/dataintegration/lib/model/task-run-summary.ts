@@ -84,30 +84,28 @@ export interface TaskRunSummary {
 
 export namespace TaskRunSummary {
   export enum Status {
-    NOTSTARTED = "NOT_STARTED",
-    QUEUED = "QUEUED",
-    RUNNING = "RUNNING",
-    TERMINATING = "TERMINATING",
-    TERMINATED = "TERMINATED",
-    SUCCESS = "SUCCESS",
-    ERROR = "ERROR",
-
+    NotStarted = "NOT_STARTED",
+    Queued = "QUEUED",
+    Running = "RUNNING",
+    Terminating = "TERMINATING",
+    Terminated = "TERMINATED",
+    Success = "SUCCESS",
+    Error = "ERROR",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum TaskType {
-    INTEGRATIONTASK = "INTEGRATION_TASK",
-    DATALOADERTASK = "DATA_LOADER_TASK",
-
+    IntegrationTask = "INTEGRATION_TASK",
+    DataLoaderTask = "DATA_LOADER_TASK",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: TaskRunSummary): object {

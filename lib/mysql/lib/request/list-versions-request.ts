@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListVersionsRequest {
+export interface ListVersionsRequest extends common.BaseRequest {
   /**
    * The compartment [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    */

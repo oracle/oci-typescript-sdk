@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ChangeCatalogPrivateEndpointCompartmentRequest {
+export interface ChangeCatalogPrivateEndpointCompartmentRequest extends common.BaseRequest {
   /**
    * Details for the target compartment.
    */

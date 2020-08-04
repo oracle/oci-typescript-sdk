@@ -41,7 +41,7 @@ export class ContainerEngineWaiter {
       this.config,
       () => this.client.getCluster(request),
       response => targetStates.exists(response.cluster.lifecycleState),
-      targetStates.includes(models.ClusterLifecycleState.DELETED)
+      targetStates.includes(models.ClusterLifecycleState.Deleted)
     );
   }
 

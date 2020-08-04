@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListOsnsRequest {
+export interface ListOsnsRequest extends common.BaseRequest {
   /**
    * Unique service identifier.
    */
@@ -58,8 +58,8 @@ export interface ListOsnsRequest {
 
 export namespace ListOsnsRequest {
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 
   export enum SortBy {

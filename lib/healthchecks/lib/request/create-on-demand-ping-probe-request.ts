@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateOnDemandPingProbeRequest {
+export interface CreateOnDemandPingProbeRequest extends common.BaseRequest {
   /**
    * Configuration details for creating an on-demand ping probe.
    */

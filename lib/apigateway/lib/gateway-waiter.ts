@@ -41,7 +41,7 @@ export class GatewayWaiter {
       this.config,
       () => this.client.getGateway(request),
       response => targetStates.exists(response.gateway.lifecycleState),
-      targetStates.includes(models.Gateway.LifecycleState.DELETED)
+      targetStates.includes(models.Gateway.LifecycleState.Deleted)
     );
   }
 }

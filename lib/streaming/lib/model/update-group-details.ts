@@ -31,9 +31,9 @@ export interface UpdateGroupDetails {
 
 export namespace UpdateGroupDetails {
   export enum Type {
-    ATTIME = "AT_TIME",
-    LATEST = "LATEST",
-    TRIMHORIZON = "TRIM_HORIZON"
+    AtTime = "AT_TIME",
+    Latest = "LATEST",
+    TrimHorizon = "TRIM_HORIZON"
   }
 
   export function getJsonObj(obj: UpdateGroupDetails): object {

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListAnnouncementsRequest {
+export interface ListAnnouncementsRequest extends common.BaseRequest {
   /**
    * The OCID of the compartment. Because announcements are specific to a tenancy, this is the
    * OCID of the root compartment.
@@ -68,8 +68,8 @@ export interface ListAnnouncementsRequest {
 
 export namespace ListAnnouncementsRequest {
   export enum LifecycleState {
-    ACTIVE = "ACTIVE",
-    INACTIVE = "INACTIVE"
+    Active = "ACTIVE",
+    Inactive = "INACTIVE"
   }
 
   export enum SortBy {
@@ -82,7 +82,7 @@ export namespace ListAnnouncementsRequest {
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

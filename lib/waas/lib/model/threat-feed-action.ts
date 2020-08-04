@@ -30,9 +30,9 @@ export interface ThreatFeedAction {
 
 export namespace ThreatFeedAction {
   export enum Action {
-    OFF = "OFF",
-    DETECT = "DETECT",
-    BLOCK = "BLOCK"
+    Off = "OFF",
+    Detect = "DETECT",
+    Block = "BLOCK"
   }
 
   export function getJsonObj(obj: ThreatFeedAction): object {

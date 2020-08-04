@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateWorkspaceRequest {
+export interface CreateWorkspaceRequest extends common.BaseRequest {
   /**
    * Details for the new Data Integration Workspace.
    */

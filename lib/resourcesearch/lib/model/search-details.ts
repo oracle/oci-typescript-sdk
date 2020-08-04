@@ -29,8 +29,8 @@ export interface SearchDetails {
 
 export namespace SearchDetails {
   export enum MatchingContextType {
-    NONE = "NONE",
-    HIGHLIGHTS = "HIGHLIGHTS"
+    None = "NONE",
+    Highlights = "HIGHLIGHTS"
   }
 
   export function getJsonObj(obj: SearchDetails): object {

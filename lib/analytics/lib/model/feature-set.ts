@@ -20,14 +20,14 @@ import common = require("oci-common");
  *
  **/
 export enum FeatureSet {
-  SELF_SERVICE_ANALYTICS = "SELF_SERVICE_ANALYTICS",
-  ENTERPRISE_ANALYTICS = "ENTERPRISE_ANALYTICS",
+  SelfServiceAnalytics = "SELF_SERVICE_ANALYTICS",
+  EnterpriseAnalytics = "ENTERPRISE_ANALYTICS",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace FeatureSet {

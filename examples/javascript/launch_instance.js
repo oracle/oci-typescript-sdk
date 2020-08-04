@@ -116,7 +116,7 @@ async function deleteSubnet() {
 
       await virtualNetworkWaiter.forSubnet(
         getSubnetRequest,
-        core.models.Subnet.LifecycleState.TERMINATED
+        core.models.Subnet.LifecycleState.Terminated
       );
 
       subnetId = null;
@@ -139,7 +139,7 @@ async function deleteVcn() {
         vcnId: vcnId
       };
 
-      await virtualNetworkWaiter.forVcn(getVcnRequest, core.models.Vcn.LifecycleState.TERMINATED);
+      await virtualNetworkWaiter.forVcn(getVcnRequest, core.models.Vcn.LifecycleState.Terminated);
 
       vcnId = null;
     }
@@ -164,7 +164,7 @@ async function terminateInstance() {
 
       await computeWaiter.forInstance(
         getInstanceRequest,
-        core.models.Instance.LifecycleState.TERMINATED
+        core.models.Instance.LifecycleState.Terminated
       );
 
       instanceId = null;
@@ -199,7 +199,7 @@ async function terminateInstance() {
 
     const getVcnResponse = await virtualNetworkWaiter.forVcn(
       getVcnRequest,
-      core.models.Vcn.LifecycleState.AVAILABLE
+      core.models.Vcn.LifecycleState.Available
     );
 
     vcnId = getVcnResponse.vcn.id;
@@ -221,7 +221,7 @@ async function terminateInstance() {
 
     await virtualNetworkWaiter.forSubnet(
       getSubnetRequest,
-      core.models.Subnet.LifecycleState.AVAILABLE
+      core.models.Subnet.LifecycleState.Available
     );
 
     subnetId = createSubnetResponse.subnet.id;
@@ -254,7 +254,7 @@ async function terminateInstance() {
 
     const getInstanceResponse = await computeWaiter.forInstance(
       getInstanceReqeust,
-      core.models.Instance.LifecycleState.RUNNING
+      core.models.Instance.LifecycleState.Running
     );
     instanceId = getInstanceResponse.instance.id;
 

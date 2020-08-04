@@ -40,7 +40,7 @@ export class NotificationDataPlaneWaiter {
       this.config,
       () => this.client.getSubscription(request),
       response => targetStates.exists(response.subscription.lifecycleState),
-      targetStates.includes(models.Subscription.LifecycleState.DELETED)
+      targetStates.includes(models.Subscription.LifecycleState.Deleted)
     );
   }
 }

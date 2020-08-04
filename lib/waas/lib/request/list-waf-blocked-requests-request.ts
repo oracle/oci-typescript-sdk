@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListWafBlockedRequestsRequest {
+export interface ListWafBlockedRequestsRequest extends common.BaseRequest {
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the WAAS policy.
    */
@@ -46,13 +46,13 @@ export interface ListWafBlockedRequestsRequest {
 
 export namespace ListWafBlockedRequestsRequest {
   export enum WafFeature {
-    PROTECTIONRULES = "PROTECTION_RULES",
-    JSCHALLENGE = "JS_CHALLENGE",
-    ACCESSRULES = "ACCESS_RULES",
-    THREATFEEDS = "THREAT_FEEDS",
-    HUMANINTERACTIONCHALLENGE = "HUMAN_INTERACTION_CHALLENGE",
-    DEVICEFINGERPRINTCHALLENGE = "DEVICE_FINGERPRINT_CHALLENGE",
-    CAPTCHA = "CAPTCHA",
-    ADDRESSRATELIMITING = "ADDRESS_RATE_LIMITING"
+    ProtectionRules = "PROTECTION_RULES",
+    JsChallenge = "JS_CHALLENGE",
+    AccessRules = "ACCESS_RULES",
+    ThreatFeeds = "THREAT_FEEDS",
+    HumanInteractionChallenge = "HUMAN_INTERACTION_CHALLENGE",
+    DeviceFingerprintChallenge = "DEVICE_FINGERPRINT_CHALLENGE",
+    Captcha = "CAPTCHA",
+    AddressRateLimiting = "ADDRESS_RATE_LIMITING"
   }
 }

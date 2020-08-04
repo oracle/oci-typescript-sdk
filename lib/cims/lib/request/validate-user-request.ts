@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ValidateUserRequest {
+export interface ValidateUserRequest extends common.BaseRequest {
   /**
    * Customer support identifier of the support account
    */

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface AttachVnicRequest {
+export interface AttachVnicRequest extends common.BaseRequest {
   /**
    * Attach VNIC details.
    */

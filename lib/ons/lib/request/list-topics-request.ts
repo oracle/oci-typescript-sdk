@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListTopicsRequest {
+export interface ListTopicsRequest extends common.BaseRequest {
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
    *
@@ -66,12 +66,12 @@ export interface ListTopicsRequest {
 
 export namespace ListTopicsRequest {
   export enum SortBy {
-    TIMECREATED = "TIMECREATED",
-    LIFECYCLESTATE = "LIFECYCLESTATE"
+    Timecreated = "TIMECREATED",
+    Lifecyclestate = "LIFECYCLESTATE"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

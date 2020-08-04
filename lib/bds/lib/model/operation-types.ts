@@ -21,20 +21,23 @@ import common = require("oci-common");
  * Possible operation types.
  **/
 export enum OperationTypes {
-  CREATE_BDS = "CREATE_BDS",
-  UPDATE_BDS = "UPDATE_BDS",
-  DELETE_BDS = "DELETE_BDS",
-  ADD_BLOCK_STORAGE = "ADD_BLOCK_STORAGE",
-  ADD_WORKER_NODES = "ADD_WORKER_NODES",
-  ADD_CLOUD_SQL = "ADD_CLOUD_SQL",
-  REMOVE_CLOUD_SQL = "REMOVE_CLOUD_SQL",
-  CHANGE_COMPARTMENT_FOR_BDS = "CHANGE_COMPARTMENT_FOR_BDS",
+  CreateBds = "CREATE_BDS",
+  UpdateBds = "UPDATE_BDS",
+  DeleteBds = "DELETE_BDS",
+  AddBlockStorage = "ADD_BLOCK_STORAGE",
+  AddWorkerNodes = "ADD_WORKER_NODES",
+  AddCloudSql = "ADD_CLOUD_SQL",
+  RemoveCloudSql = "REMOVE_CLOUD_SQL",
+  ChangeCompartmentForBds = "CHANGE_COMPARTMENT_FOR_BDS",
+  ChangeShape = "CHANGE_SHAPE",
+  UpdateInfra = "UPDATE_INFRA",
+  RestartNode = "RESTART_NODE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace OperationTypes {

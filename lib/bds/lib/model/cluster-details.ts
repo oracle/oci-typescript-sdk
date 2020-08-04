@@ -26,9 +26,29 @@ export interface ClusterDetails {
    */
   "bdaVersion"?: string;
   /**
-   * BDM version installed in the cluster
+   * Big Data Manager version installed in the cluster
    */
   "bdmVersion"?: string;
+  /**
+   * Big Data Service version installed in the cluster
+   */
+  "bdsVersion"?: string;
+  /**
+   * Oracle Linux version installed in the cluster
+   */
+  "osVersion"?: string;
+  /**
+   * Query Server Database version
+   */
+  "dbVersion"?: string;
+  /**
+   * Cloud SQL cell version
+   */
+  "bdCellVersion"?: string;
+  /**
+   * Big Data SQL version
+   */
+  "csqlCellVersion"?: string;
   /**
    * The time the cluster was created. An RFC3339 formatted datetime string
    */

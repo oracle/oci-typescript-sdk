@@ -120,8 +120,8 @@ To be updated only by the provider.
 
 export namespace UpdateVirtualCircuitDetails {
   export enum ProviderState {
-    ACTIVE = "ACTIVE",
-    INACTIVE = "INACTIVE"
+    Active = "ACTIVE",
+    Inactive = "INACTIVE"
   }
 
   export function getJsonObj(obj: UpdateVirtualCircuitDetails): object {

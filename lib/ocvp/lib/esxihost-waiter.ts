@@ -39,7 +39,7 @@ export class EsxiHostWaiter {
       this.config,
       () => this.client.getEsxiHost(request),
       response => targetStates.exists(response.esxiHost.lifecycleState),
-      targetStates.includes(models.LifecycleStates.DELETED)
+      targetStates.includes(models.LifecycleStates.Deleted)
     );
   }
 }

@@ -118,40 +118,37 @@ export interface OceInstanceSummary {
 
 export namespace OceInstanceSummary {
   export enum InstanceUsageType {
-    PRIMARY = "PRIMARY",
-    NONPRIMARY = "NONPRIMARY",
-
+    Primary = "PRIMARY",
+    Nonprimary = "NONPRIMARY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum InstanceAccessType {
-    PUBLIC = "PUBLIC",
-    PRIVATE = "PRIVATE",
-
+    Public = "PUBLIC",
+    Private = "PRIVATE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LifecycleState {
-    CREATING = "CREATING",
-    UPDATING = "UPDATING",
-    ACTIVE = "ACTIVE",
-    DELETING = "DELETING",
-    DELETED = "DELETED",
-    FAILED = "FAILED",
-
+    Creating = "CREATING",
+    Updating = "UPDATING",
+    Active = "ACTIVE",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: OceInstanceSummary): object {

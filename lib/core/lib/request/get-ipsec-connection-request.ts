@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetIPSecConnectionRequest {
+export interface GetIPSecConnectionRequest extends common.BaseRequest {
   /**
    * The OCID of the IPSec connection.
    */

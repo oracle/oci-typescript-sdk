@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListSecretsRequest {
+export interface ListSecretsRequest extends common.BaseRequest {
   /**
    * The OCID of the compartment.
    */
@@ -64,12 +64,12 @@ export interface ListSecretsRequest {
 
 export namespace ListSecretsRequest {
   export enum SortBy {
-    TIMECREATED = "TIMECREATED",
-    NAME = "NAME"
+    Timecreated = "TIMECREATED",
+    Name = "NAME"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

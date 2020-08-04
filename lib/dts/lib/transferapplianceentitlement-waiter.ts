@@ -38,7 +38,7 @@ export class TransferApplianceEntitlementWaiter {
       this.config,
       () => this.client.getTransferApplianceEntitlement(request),
       response => targetStates.exists(response.transferApplianceEntitlement.lifecycleState),
-      targetStates.includes(models.TransferApplianceEntitlement.LifecycleState.DELETED)
+      targetStates.includes(models.TransferApplianceEntitlement.LifecycleState.Deleted)
     );
   }
 }

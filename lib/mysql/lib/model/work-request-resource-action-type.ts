@@ -18,17 +18,17 @@ import common = require("oci-common");
  * Possible action types.
  **/
 export enum WorkRequestResourceActionType {
-  CREATED = "CREATED",
-  UPDATED = "UPDATED",
-  DELETED = "DELETED",
-  IN_PROGRESS = "IN_PROGRESS",
-  RELATED = "RELATED",
+  Created = "CREATED",
+  Updated = "UPDATED",
+  Deleted = "DELETED",
+  InProgress = "IN_PROGRESS",
+  Related = "RELATED",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace WorkRequestResourceActionType {

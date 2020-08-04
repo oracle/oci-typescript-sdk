@@ -35,7 +35,7 @@ export class OdaWaiter {
       this.config,
       () => this.client.getOdaInstance(request),
       response => targetStates.exists(response.odaInstance.lifecycleState),
-      targetStates.includes(models.OdaInstance.LifecycleState.DELETED)
+      targetStates.includes(models.OdaInstance.LifecycleState.Deleted)
     );
   }
 

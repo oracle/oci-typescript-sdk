@@ -81,54 +81,50 @@ export interface LaunchOptions {
 
 export namespace LaunchOptions {
   export enum BootVolumeType {
-    ISCSI = "ISCSI",
-    SCSI = "SCSI",
-    IDE = "IDE",
-    VFIO = "VFIO",
-    PARAVIRTUALIZED = "PARAVIRTUALIZED",
-
+    Iscsi = "ISCSI",
+    Scsi = "SCSI",
+    Ide = "IDE",
+    Vfio = "VFIO",
+    Paravirtualized = "PARAVIRTUALIZED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Firmware {
-    BIOS = "BIOS",
-    UEFI64 = "UEFI_64",
-
+    Bios = "BIOS",
+    Uefi64 = "UEFI_64",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum NetworkType {
     E1000 = "E1000",
-    VFIO = "VFIO",
-    PARAVIRTUALIZED = "PARAVIRTUALIZED",
-
+    Vfio = "VFIO",
+    Paravirtualized = "PARAVIRTUALIZED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum RemoteDataVolumeType {
-    ISCSI = "ISCSI",
-    SCSI = "SCSI",
-    IDE = "IDE",
-    VFIO = "VFIO",
-    PARAVIRTUALIZED = "PARAVIRTUALIZED",
-
+    Iscsi = "ISCSI",
+    Scsi = "SCSI",
+    Ide = "IDE",
+    Vfio = "VFIO",
+    Paravirtualized = "PARAVIRTUALIZED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: LaunchOptions): object {

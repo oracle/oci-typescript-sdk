@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListMfaTotpDevicesRequest {
+export interface ListMfaTotpDevicesRequest extends common.BaseRequest {
   /**
    * The OCID of the user.
    */
@@ -50,12 +50,12 @@ export interface ListMfaTotpDevicesRequest {
 
 export namespace ListMfaTotpDevicesRequest {
   export enum SortBy {
-    TIMECREATED = "TIMECREATED",
-    NAME = "NAME"
+    Timecreated = "TIMECREATED",
+    Name = "NAME"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

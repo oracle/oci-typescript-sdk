@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface UpdateAcceptedAgreementRequest {
+export interface UpdateAcceptedAgreementRequest extends common.BaseRequest {
   /**
    * The unique identifier for the accepted terms of use agreement.
    */

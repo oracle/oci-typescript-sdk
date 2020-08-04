@@ -3,6 +3,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 1.4.0 - 2020-08-04
+### Added
+- Support for calling Oracle Cloud Infrastructure services in the uk-gov-cardiff-1 region
+- Support for creating and managing private endpoints in the Data Flow service
+- Support for changing instance shapes and restarting nodes in the Big Data service
+- Support for additional versions (for example CSQL) in the Big Data service
+- Support for creating stacks from compartments in the Resource Manager service
+- Support for retry mechanism
+
+
+### Breaking
+- Updated the property of `LifeCycleDetails` to `LifecycleDetails` from the model of `BlockchainPlatformSummary` and `BlockchainPlatformByHostname` in the blockchain service
+- Change all enums to pascal case.
+
 ## 1.3.0 - 2020-07-28
 ### Added
 - Support for calling Oracle Cloud Infrastructure services in the us-sanjose-1 region

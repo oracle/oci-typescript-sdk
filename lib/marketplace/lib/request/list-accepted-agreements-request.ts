@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListAcceptedAgreementsRequest {
+export interface ListAcceptedAgreementsRequest extends common.BaseRequest {
   /**
    * The unique identifier for the compartment.
    */
@@ -64,11 +64,11 @@ export interface ListAcceptedAgreementsRequest {
 
 export namespace ListAcceptedAgreementsRequest {
   export enum SortBy {
-    TIMEACCEPTED = "TIMEACCEPTED"
+    Timeaccepted = "TIMEACCEPTED"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

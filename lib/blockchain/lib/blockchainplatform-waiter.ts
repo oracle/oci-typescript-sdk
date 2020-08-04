@@ -1,6 +1,6 @@
 /**
  * Blockchain Platform Control Plane API
- * Blockchain Platform Plane API
+ * Blockchain Platform Control Plane API
  * OpenAPI spec version: 20191010
  *
  *
@@ -38,7 +38,7 @@ export class BlockchainPlatformWaiter {
       this.config,
       () => this.client.getBlockchainPlatform(request),
       response => targetStates.exists(response.blockchainPlatform.lifecycleState),
-      targetStates.includes(models.BlockchainPlatform.LifecycleState.DELETED)
+      targetStates.includes(models.BlockchainPlatform.LifecycleState.Deleted)
     );
   }
 

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListExportsRequest {
+export interface ListExportsRequest extends common.BaseRequest {
   /**
    * The OCID of the compartment.
    */
@@ -84,20 +84,20 @@ For important details about how pagination works,
 
 export namespace ListExportsRequest {
   export enum LifecycleState {
-    CREATING = "CREATING",
-    ACTIVE = "ACTIVE",
-    DELETING = "DELETING",
-    DELETED = "DELETED",
-    FAILED = "FAILED"
+    Creating = "CREATING",
+    Active = "ACTIVE",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
+    Failed = "FAILED"
   }
 
   export enum SortBy {
-    TIMECREATED = "TIMECREATED",
-    PATH = "PATH"
+    Timecreated = "TIMECREATED",
+    Path = "PATH"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

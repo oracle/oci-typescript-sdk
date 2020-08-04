@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListWorkRequestsRequest {
+export interface ListWorkRequestsRequest extends common.BaseRequest {
   /**
    * The compartment OCID on which to filter.
    */

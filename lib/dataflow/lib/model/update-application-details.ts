@@ -27,7 +27,7 @@ export interface UpdateApplicationDetails {
   "className"?: string;
   /**
    * An Oracle Cloud Infrastructure URI of the file containing the application to execute.
-   * See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat
+   * See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat.
    *
    */
   "fileUri"?: string;
@@ -42,8 +42,8 @@ export interface UpdateApplicationDetails {
    */
   "language"?: model.ApplicationLanguage;
   /**
-   * An Oracle Cloud Infrastructure URI of an archive (zip) file that may used to support the execution of the application.
-   * See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat
+   * An Oracle Cloud Infrastructure URI of an archive.zip file containing custom dependencies that may be used to support the execution a Python, Java, or Scala application.
+   * See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat.
    *
    */
   "archiveUri"?: string;
@@ -61,7 +61,7 @@ export interface UpdateApplicationDetails {
   "arguments"?: Array<string>;
   /**
    * The Spark configuration passed to the running process.
-   * See https://spark.apache.org/docs/latest/configuration.html#available-properties
+   * See https://spark.apache.org/docs/latest/configuration.html#available-properties.
    * Example: { \"spark.app.name\" : \"My App Name\", \"spark.shuffle.io.maxRetries\" : \"4\" }
    * Note: Not all Spark properties are permitted to be set.  Attempting to set a property that is
    * not allowed to be overwritten will cause a 400 status to be returned.
@@ -103,7 +103,7 @@ export interface UpdateApplicationDetails {
   "freeformTags"?: { [key: string]: string };
   /**
    * An Oracle Cloud Infrastructure URI of the bucket where the Spark job logs are to be uploaded.
-   * See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat
+   * See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat.
    *
    */
   "logsBucketUri"?: string;
@@ -121,9 +121,14 @@ export interface UpdateApplicationDetails {
    */
   "parameters"?: Array<model.ApplicationParameter>;
   /**
+   * The OCID of a private endpoint.
+   *
+   */
+  "privateEndpointId"?: string;
+  /**
    * An Oracle Cloud Infrastructure URI of the bucket to be used as default warehouse directory
    * for BATCH SQL runs.
-   * See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat
+   * See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat.
    *
    */
   "warehouseBucketUri"?: string;

@@ -47,24 +47,23 @@ Example: `SLOT_TWO`
 
 export namespace DbBackupConfig {
   export enum AutoBackupWindow {
-    ONE = "SLOT_ONE",
-    TWO = "SLOT_TWO",
-    THREE = "SLOT_THREE",
-    FOUR = "SLOT_FOUR",
-    FIVE = "SLOT_FIVE",
-    SIX = "SLOT_SIX",
-    SEVEN = "SLOT_SEVEN",
-    EIGHT = "SLOT_EIGHT",
-    NINE = "SLOT_NINE",
-    TEN = "SLOT_TEN",
-    ELEVEN = "SLOT_ELEVEN",
-    TWELVE = "SLOT_TWELVE",
-
+    SlotOne = "SLOT_ONE",
+    SlotTwo = "SLOT_TWO",
+    SlotThree = "SLOT_THREE",
+    SlotFour = "SLOT_FOUR",
+    SlotFive = "SLOT_FIVE",
+    SlotSix = "SLOT_SIX",
+    SlotSeven = "SLOT_SEVEN",
+    SlotEight = "SLOT_EIGHT",
+    SlotNine = "SLOT_NINE",
+    SlotTen = "SLOT_TEN",
+    SlotEleven = "SLOT_ELEVEN",
+    SlotTwelve = "SLOT_TWELVE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: DbBackupConfig): object {

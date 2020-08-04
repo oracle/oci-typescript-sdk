@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetConnectHarnessRequest {
+export interface GetConnectHarnessRequest extends common.BaseRequest {
   /**
    * The OCID of the connect harness.
    *

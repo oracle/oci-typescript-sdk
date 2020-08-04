@@ -20,20 +20,20 @@ import common = require("oci-common");
  *
  **/
 export enum WorkRequestActionResult {
-  COMPARTMENT_CHANGED = "COMPARTMENT_CHANGED",
-  CREATED = "CREATED",
-  DELETED = "DELETED",
-  STARTED = "STARTED",
-  STOPPED = "STOPPED",
-  SCALED = "SCALED",
-  NETWORK_ENDPOINT_CHANGED = "NETWORK_ENDPOINT_CHANGED",
-  NONE = "NONE",
+  CompartmentChanged = "COMPARTMENT_CHANGED",
+  Created = "CREATED",
+  Deleted = "DELETED",
+  Started = "STARTED",
+  Stopped = "STOPPED",
+  Scaled = "SCALED",
+  NetworkEndpointChanged = "NETWORK_ENDPOINT_CHANGED",
+  None = "NONE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace WorkRequestActionResult {

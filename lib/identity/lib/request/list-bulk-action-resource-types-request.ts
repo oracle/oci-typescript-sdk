@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListBulkActionResourceTypesRequest {
+export interface ListBulkActionResourceTypesRequest extends common.BaseRequest {
   /**
    * The type of bulk action.
    *
@@ -33,7 +33,7 @@ export interface ListBulkActionResourceTypesRequest {
 
 export namespace ListBulkActionResourceTypesRequest {
   export enum BulkActionType {
-    MOVERESOURCES = "BULK_MOVE_RESOURCES",
-    DELETERESOURCES = "BULK_DELETE_RESOURCES"
+    BulkMoveResources = "BULK_MOVE_RESOURCES",
+    BulkDeleteResources = "BULK_DELETE_RESOURCES"
   }
 }

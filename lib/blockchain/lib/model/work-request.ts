@@ -1,6 +1,6 @@
 /**
  * Blockchain Platform Control Plane API
- * Blockchain Platform Plane API
+ * Blockchain Platform Control Plane API
  * OpenAPI spec version: 20191010
  *
  *
@@ -67,34 +67,32 @@ export interface WorkRequest {
 
 export namespace WorkRequest {
   export enum OperationType {
-    CREATEPLATFORM = "CREATE_PLATFORM",
-    UPDATEPLATFORM = "UPDATE_PLATFORM",
-    DELETEPLATFORM = "DELETE_PLATFORM",
-    SCALEPLATFORM = "SCALE_PLATFORM",
-    STARTPLATFORM = "START_PLATFORM",
-    STOPPLATFORM = "STOP_PLATFORM",
-    CUSTOMIZEPLATFORM = "CUSTOMIZE_PLATFORM",
-
+    CreatePlatform = "CREATE_PLATFORM",
+    UpdatePlatform = "UPDATE_PLATFORM",
+    DeletePlatform = "DELETE_PLATFORM",
+    ScalePlatform = "SCALE_PLATFORM",
+    StartPlatform = "START_PLATFORM",
+    StopPlatform = "STOP_PLATFORM",
+    CustomizePlatform = "CUSTOMIZE_PLATFORM",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Status {
-    ACCEPTED = "ACCEPTED",
-    INPROGRESS = "IN_PROGRESS",
-    FAILED = "FAILED",
-    SUCCEEDED = "SUCCEEDED",
-    CANCELING = "CANCELING",
-    CANCELED = "CANCELED",
-
+    Accepted = "ACCEPTED",
+    InProgress = "IN_PROGRESS",
+    Failed = "FAILED",
+    Succeeded = "SUCCEEDED",
+    Canceling = "CANCELING",
+    Canceled = "CANCELED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: WorkRequest): object {

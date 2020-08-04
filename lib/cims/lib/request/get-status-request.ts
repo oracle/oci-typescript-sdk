@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetStatusRequest {
+export interface GetStatusRequest extends common.BaseRequest {
   /**
    * Source is a downstream system. Eg: JIRA or MOS or any other source in future.
    */

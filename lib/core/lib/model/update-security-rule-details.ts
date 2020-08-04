@@ -159,20 +159,20 @@ Allowed values:
 
 export namespace UpdateSecurityRuleDetails {
   export enum DestinationType {
-    CIDRBLOCK = "CIDR_BLOCK",
-    SERVICECIDRBLOCK = "SERVICE_CIDR_BLOCK",
-    NETWORKSECURITYGROUP = "NETWORK_SECURITY_GROUP"
+    CidrBlock = "CIDR_BLOCK",
+    ServiceCidrBlock = "SERVICE_CIDR_BLOCK",
+    NetworkSecurityGroup = "NETWORK_SECURITY_GROUP"
   }
 
   export enum Direction {
-    EGRESS = "EGRESS",
-    INGRESS = "INGRESS"
+    Egress = "EGRESS",
+    Ingress = "INGRESS"
   }
 
   export enum SourceType {
-    CIDRBLOCK = "CIDR_BLOCK",
-    SERVICECIDRBLOCK = "SERVICE_CIDR_BLOCK",
-    NETWORKSECURITYGROUP = "NETWORK_SECURITY_GROUP"
+    CidrBlock = "CIDR_BLOCK",
+    ServiceCidrBlock = "SERVICE_CIDR_BLOCK",
+    NetworkSecurityGroup = "NETWORK_SECURITY_GROUP"
   }
 
   export function getJsonObj(obj: UpdateSecurityRuleDetails): object {

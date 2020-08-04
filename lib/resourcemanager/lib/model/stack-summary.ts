@@ -56,6 +56,7 @@ Allowable values:
 * - ACTIVE
 * - DELETING
 * - DELETED
+* - FAILED
 * 
     */
   "lifecycleState"?: string;

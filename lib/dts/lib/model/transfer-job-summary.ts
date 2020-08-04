@@ -42,28 +42,26 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 
 export namespace TransferJobSummary {
   export enum DeviceType {
-    DISK = "DISK",
-    APPLIANCE = "APPLIANCE",
-
+    Disk = "DISK",
+    Appliance = "APPLIANCE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LifecycleState {
-    INITIATED = "INITIATED",
-    PREPARING = "PREPARING",
-    ACTIVE = "ACTIVE",
-    DELETED = "DELETED",
-    CLOSED = "CLOSED",
-
+    Initiated = "INITIATED",
+    Preparing = "PREPARING",
+    Active = "ACTIVE",
+    Deleted = "DELETED",
+    Closed = "CLOSED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: TransferJobSummary): object {

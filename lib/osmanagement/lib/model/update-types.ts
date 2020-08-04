@@ -20,16 +20,16 @@ import common = require("oci-common");
  * Possible update types
  **/
 export enum UpdateTypes {
-  SECURITY = "SECURITY",
-  BUG = "BUG",
-  ENHANCEMENT = "ENHANCEMENT",
-  OTHER = "OTHER",
+  Security = "SECURITY",
+  Bug = "BUG",
+  Enhancement = "ENHANCEMENT",
+  Other = "OTHER",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace UpdateTypes {

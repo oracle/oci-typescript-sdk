@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetBucketRequest {
+export interface GetBucketRequest extends common.BaseRequest {
   /**
    * The Object Storage namespace used for the request.
    */

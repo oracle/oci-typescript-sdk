@@ -45,20 +45,20 @@ export interface LaunchDbSystemFromBackupDetails extends model.LaunchDbSystemBas
 
 export namespace LaunchDbSystemFromBackupDetails {
   export enum DatabaseEdition {
-    STANDARDEDITION = "STANDARD_EDITION",
-    ENTERPRISEEDITION = "ENTERPRISE_EDITION",
-    ENTERPRISEEDITIONHIGHPERFORMANCE = "ENTERPRISE_EDITION_HIGH_PERFORMANCE",
-    ENTERPRISEEDITIONEXTREMEPERFORMANCE = "ENTERPRISE_EDITION_EXTREME_PERFORMANCE"
+    StandardEdition = "STANDARD_EDITION",
+    EnterpriseEdition = "ENTERPRISE_EDITION",
+    EnterpriseEditionHighPerformance = "ENTERPRISE_EDITION_HIGH_PERFORMANCE",
+    EnterpriseEditionExtremePerformance = "ENTERPRISE_EDITION_EXTREME_PERFORMANCE"
   }
 
   export enum DiskRedundancy {
-    HIGH = "HIGH",
-    NORMAL = "NORMAL"
+    High = "HIGH",
+    Normal = "NORMAL"
   }
 
   export enum LicenseModel {
-    LICENSEINCLUDED = "LICENSE_INCLUDED",
-    BRINGYOUROWNLICENSE = "BRING_YOUR_OWN_LICENSE"
+    LicenseIncluded = "LICENSE_INCLUDED",
+    BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE"
   }
 
   export function getJsonObj(

@@ -54,8 +54,8 @@ export interface CreateBackupDetails {
 
 export namespace CreateBackupDetails {
   export enum BackupType {
-    FULL = "FULL",
-    INCREMENTAL = "INCREMENTAL"
+    Full = "FULL",
+    Incremental = "INCREMENTAL"
   }
 
   export function getJsonObj(obj: CreateBackupDetails): object {

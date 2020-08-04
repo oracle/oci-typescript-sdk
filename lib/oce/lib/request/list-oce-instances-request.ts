@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListOceInstancesRequest {
+export interface ListOceInstancesRequest extends common.BaseRequest {
   /**
    * The ID of the compartment in which to list resources.
    */
@@ -54,8 +54,8 @@ Example: `My new resource`
 
 export namespace ListOceInstancesRequest {
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 
   export enum SortBy {
@@ -64,11 +64,11 @@ export namespace ListOceInstancesRequest {
   }
 
   export enum LifecycleState {
-    CREATING = "CREATING",
-    UPDATING = "UPDATING",
-    ACTIVE = "ACTIVE",
-    DELETING = "DELETING",
-    DELETED = "DELETED",
-    FAILED = "FAILED"
+    Creating = "CREATING",
+    Updating = "UPDATING",
+    Active = "ACTIVE",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
+    Failed = "FAILED"
   }
 }

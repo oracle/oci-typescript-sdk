@@ -42,16 +42,15 @@ For a full description of how the system handles `matchType` in a path route set
 
 export namespace PathMatchType {
   export enum MatchType {
-    EXACTMATCH = "EXACT_MATCH",
-    FORCELONGESTPREFIXMATCH = "FORCE_LONGEST_PREFIX_MATCH",
-    PREFIXMATCH = "PREFIX_MATCH",
-    SUFFIXMATCH = "SUFFIX_MATCH",
-
+    ExactMatch = "EXACT_MATCH",
+    ForceLongestPrefixMatch = "FORCE_LONGEST_PREFIX_MATCH",
+    PrefixMatch = "PREFIX_MATCH",
+    SuffixMatch = "SUFFIX_MATCH",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: PathMatchType): object {

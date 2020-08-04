@@ -14,7 +14,7 @@
 import * as model from "../model";
 import common = require("oci-common");
 import stream = require("stream");
-export interface UploadPartRequest {
+export interface UploadPartRequest extends common.BaseRequest {
   /**
    * The Object Storage namespace used for the request.
    */

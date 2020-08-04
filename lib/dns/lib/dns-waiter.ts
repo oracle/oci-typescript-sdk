@@ -37,7 +37,7 @@ export class DnsWaiter {
       this.config,
       () => this.client.getSteeringPolicy(request),
       response => targetStates.exists(response.steeringPolicy.lifecycleState),
-      targetStates.includes(models.SteeringPolicy.LifecycleState.DELETED)
+      targetStates.includes(models.SteeringPolicy.LifecycleState.Deleted)
     );
   }
 
@@ -92,7 +92,7 @@ export class DnsWaiter {
       this.config,
       () => this.client.getZone(request),
       response => targetStates.exists(response.zone.lifecycleState),
-      targetStates.includes(models.Zone.LifecycleState.DELETED)
+      targetStates.includes(models.Zone.LifecycleState.Deleted)
     );
   }
 }

@@ -53,14 +53,13 @@ export interface MaintenanceWindow {
 
 export namespace MaintenanceWindow {
   export enum Preference {
-    NOPREFERENCE = "NO_PREFERENCE",
-    CUSTOMPREFERENCE = "CUSTOM_PREFERENCE",
-
+    NoPreference = "NO_PREFERENCE",
+    CustomPreference = "CUSTOM_PREFERENCE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: MaintenanceWindow): object {

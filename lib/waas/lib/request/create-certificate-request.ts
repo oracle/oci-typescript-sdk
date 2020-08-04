@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateCertificateRequest {
+export interface CreateCertificateRequest extends common.BaseRequest {
   /**
    * The details of the SSL certificate resource to create.
    */

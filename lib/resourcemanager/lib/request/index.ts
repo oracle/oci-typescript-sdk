@@ -57,6 +57,8 @@ import * as ListConfigurationSourceProvidersRequest from "./list-configuration-s
 export import ListConfigurationSourceProvidersRequest = ListConfigurationSourceProvidersRequest.ListConfigurationSourceProvidersRequest;
 import * as ListJobsRequest from "./list-jobs-request";
 export import ListJobsRequest = ListJobsRequest.ListJobsRequest;
+import * as ListResourceDiscoveryServicesRequest from "./list-resource-discovery-services-request";
+export import ListResourceDiscoveryServicesRequest = ListResourceDiscoveryServicesRequest.ListResourceDiscoveryServicesRequest;
 import * as ListStackResourceDriftDetailsRequest from "./list-stack-resource-drift-details-request";
 export import ListStackResourceDriftDetailsRequest = ListStackResourceDriftDetailsRequest.ListStackResourceDriftDetailsRequest;
 import * as ListStacksRequest from "./list-stacks-request";

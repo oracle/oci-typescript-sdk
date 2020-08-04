@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface BulkDeleteVirtualCircuitPublicPrefixesRequest {
+export interface BulkDeleteVirtualCircuitPublicPrefixesRequest extends common.BaseRequest {
   /**
    * The OCID of the virtual circuit.
    */

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface InstallWindowsUpdateOnManagedInstanceRequest {
+export interface InstallWindowsUpdateOnManagedInstanceRequest extends common.BaseRequest {
   /**
    * OCID for the managed instance
    */

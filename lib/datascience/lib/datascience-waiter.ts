@@ -39,7 +39,7 @@ export class DataScienceWaiter {
       this.config,
       () => this.client.getModel(request),
       response => targetStates.exists(response.model.lifecycleState),
-      targetStates.includes(models.ModelLifecycleState.DELETED)
+      targetStates.includes(models.ModelLifecycleState.Deleted)
     );
   }
 
@@ -58,7 +58,7 @@ export class DataScienceWaiter {
       this.config,
       () => this.client.getNotebookSession(request),
       response => targetStates.exists(response.notebookSession.lifecycleState),
-      targetStates.includes(models.NotebookSessionLifecycleState.DELETED)
+      targetStates.includes(models.NotebookSessionLifecycleState.Deleted)
     );
   }
 
@@ -77,7 +77,7 @@ export class DataScienceWaiter {
       this.config,
       () => this.client.getProject(request),
       response => targetStates.exists(response.project.lifecycleState),
-      targetStates.includes(models.ProjectLifecycleState.DELETED)
+      targetStates.includes(models.ProjectLifecycleState.Deleted)
     );
   }
 

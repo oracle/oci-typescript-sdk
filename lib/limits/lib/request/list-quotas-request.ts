@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListQuotasRequest {
+export interface ListQuotasRequest extends common.BaseRequest {
   /**
    * The OCID of the parent compartment (remember that the tenancy is simply the root compartment).
    *
@@ -57,16 +57,16 @@ export interface ListQuotasRequest {
 
 export namespace ListQuotasRequest {
   export enum LifecycleState {
-    ACTIVE = "ACTIVE"
+    Active = "ACTIVE"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 
   export enum SortBy {
-    NAME = "NAME",
-    TIMECREATED = "TIMECREATED"
+    Name = "NAME",
+    Timecreated = "TIMECREATED"
   }
 }

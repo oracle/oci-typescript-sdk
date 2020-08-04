@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface UpdateSnapshotRequest {
+export interface UpdateSnapshotRequest extends common.BaseRequest {
   /**
    * The OCID of the snapshot.
    */

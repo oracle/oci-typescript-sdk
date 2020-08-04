@@ -139,18 +139,17 @@ Allowed values:
 
 export namespace Volume {
   export enum LifecycleState {
-    PROVISIONING = "PROVISIONING",
-    RESTORING = "RESTORING",
-    AVAILABLE = "AVAILABLE",
-    TERMINATING = "TERMINATING",
-    TERMINATED = "TERMINATED",
-    FAULTY = "FAULTY",
-
+    Provisioning = "PROVISIONING",
+    Restoring = "RESTORING",
+    Available = "AVAILABLE",
+    Terminating = "TERMINATING",
+    Terminated = "TERMINATED",
+    Faulty = "FAULTY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Volume): object {

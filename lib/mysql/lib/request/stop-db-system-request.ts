@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface StopDbSystemRequest {
+export interface StopDbSystemRequest extends common.BaseRequest {
   /**
    * The DB System [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    */

@@ -43,16 +43,15 @@ export interface BackupDestinationDetails {
 
 export namespace BackupDestinationDetails {
   export enum Type {
-    NFS = "NFS",
-    RECOVERYAPPLIANCE = "RECOVERY_APPLIANCE",
-    OBJECTSTORE = "OBJECT_STORE",
-    LOCAL = "LOCAL",
-
+    Nfs = "NFS",
+    RecoveryAppliance = "RECOVERY_APPLIANCE",
+    ObjectStore = "OBJECT_STORE",
+    Local = "LOCAL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: BackupDestinationDetails): object {

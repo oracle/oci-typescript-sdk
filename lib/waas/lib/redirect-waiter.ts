@@ -38,7 +38,7 @@ export class RedirectWaiter {
       this.config,
       () => this.client.getHttpRedirect(request),
       response => targetStates.exists(response.httpRedirect.lifecycleState),
-      targetStates.includes(models.LifecycleStates.DELETED)
+      targetStates.includes(models.LifecycleStates.Deleted)
     );
   }
 }

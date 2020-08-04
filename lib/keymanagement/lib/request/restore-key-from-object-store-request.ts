@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface RestoreKeyFromObjectStoreRequest {
+export interface RestoreKeyFromObjectStoreRequest extends common.BaseRequest {
   /**
    * For optimistic concurrency control. In the PUT or DELETE call for a
    * resource, set the `if-match` parameter to the value of the etag from a

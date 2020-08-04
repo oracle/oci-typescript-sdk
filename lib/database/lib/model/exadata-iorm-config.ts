@@ -46,31 +46,29 @@ export interface ExadataIormConfig {
 
 export namespace ExadataIormConfig {
   export enum LifecycleState {
-    BOOTSTRAPPING = "BOOTSTRAPPING",
-    ENABLED = "ENABLED",
-    DISABLED = "DISABLED",
-    UPDATING = "UPDATING",
-    FAILED = "FAILED",
-
+    Bootstrapping = "BOOTSTRAPPING",
+    Enabled = "ENABLED",
+    Disabled = "DISABLED",
+    Updating = "UPDATING",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Objective {
-    LOWLATENCY = "LOW_LATENCY",
-    HIGHTHROUGHPUT = "HIGH_THROUGHPUT",
-    BALANCED = "BALANCED",
-    AUTO = "AUTO",
-    BASIC = "BASIC",
-
+    LowLatency = "LOW_LATENCY",
+    HighThroughput = "HIGH_THROUGHPUT",
+    Balanced = "BALANCED",
+    Auto = "AUTO",
+    Basic = "BASIC",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: ExadataIormConfig): object {

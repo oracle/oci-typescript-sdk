@@ -27,19 +27,18 @@ export interface DayOfWeek {
 
 export namespace DayOfWeek {
   export enum Name {
-    MONDAY = "MONDAY",
-    TUESDAY = "TUESDAY",
-    WEDNESDAY = "WEDNESDAY",
-    THURSDAY = "THURSDAY",
-    FRIDAY = "FRIDAY",
-    SATURDAY = "SATURDAY",
-    SUNDAY = "SUNDAY",
-
+    Monday = "MONDAY",
+    Tuesday = "TUESDAY",
+    Wednesday = "WEDNESDAY",
+    Thursday = "THURSDAY",
+    Friday = "FRIDAY",
+    Saturday = "SATURDAY",
+    Sunday = "SUNDAY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: DayOfWeek): object {

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListWindowsUpdatesRequest {
+export interface ListWindowsUpdatesRequest extends common.BaseRequest {
   /**
    * The ID of the compartment in which to list resources. This parameter is optional and in some cases may have no effect.
    */
@@ -50,12 +50,12 @@ Example: `My new resource`
 
 export namespace ListWindowsUpdatesRequest {
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 
   export enum SortBy {
-    TIMECREATED = "TIMECREATED",
-    DISPLAYNAME = "DISPLAYNAME"
+    Timecreated = "TIMECREATED",
+    Displayname = "DISPLAYNAME"
   }
 }

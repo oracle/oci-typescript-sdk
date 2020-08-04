@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetSecretBundleRequest {
+export interface GetSecretBundleRequest extends common.BaseRequest {
   /**
    * The OCID of the secret.
    */
@@ -38,10 +38,10 @@ export interface GetSecretBundleRequest {
 
 export namespace GetSecretBundleRequest {
   export enum Stage {
-    CURRENT = "CURRENT",
-    PENDING = "PENDING",
-    LATEST = "LATEST",
-    PREVIOUS = "PREVIOUS",
-    DEPRECATED = "DEPRECATED"
+    Current = "CURRENT",
+    Pending = "PENDING",
+    Latest = "LATEST",
+    Previous = "PREVIOUS",
+    Deprecated = "DEPRECATED"
   }
 }

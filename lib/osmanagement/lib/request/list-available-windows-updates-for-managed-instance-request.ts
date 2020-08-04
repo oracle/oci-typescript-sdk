@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListAvailableWindowsUpdatesForManagedInstanceRequest {
+export interface ListAvailableWindowsUpdatesForManagedInstanceRequest extends common.BaseRequest {
   /**
    * OCID for the managed instance
    */
@@ -58,12 +58,12 @@ Example: `My new resource`
 
 export namespace ListAvailableWindowsUpdatesForManagedInstanceRequest {
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 
   export enum SortBy {
-    TIMECREATED = "TIMECREATED",
-    DISPLAYNAME = "DISPLAYNAME"
+    Timecreated = "TIMECREATED",
+    Displayname = "DISPLAYNAME"
   }
 }

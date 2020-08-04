@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateIdpGroupMappingRequest {
+export interface CreateIdpGroupMappingRequest extends common.BaseRequest {
   /**
    * Add a mapping from an SAML2.0 identity provider group to a BMC group.
    */

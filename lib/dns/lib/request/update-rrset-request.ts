@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface UpdateRRSetRequest {
+export interface UpdateRRSetRequest extends common.BaseRequest {
   /**
    * The name or OCID of the target zone.
    */

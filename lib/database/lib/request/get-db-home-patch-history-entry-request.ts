@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetDbHomePatchHistoryEntryRequest {
+export interface GetDbHomePatchHistoryEntryRequest extends common.BaseRequest {
   /**
    * The Database Home [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    */

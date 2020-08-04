@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface UpdateDrgAttachmentRequest {
+export interface UpdateDrgAttachmentRequest extends common.BaseRequest {
   /**
    * The OCID of the DRG attachment.
    */

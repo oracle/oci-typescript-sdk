@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListTagDefaultsRequest {
+export interface ListTagDefaultsRequest extends common.BaseRequest {
   /**
    * The value of the `opc-next-page` response header from the previous \"List\" call.
    *

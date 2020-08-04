@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListAvailableUpdatesForManagedInstanceRequest {
+export interface ListAvailableUpdatesForManagedInstanceRequest extends common.BaseRequest {
   /**
    * OCID for the managed instance
    */
@@ -54,12 +54,12 @@ Example: `My new resource`
 
 export namespace ListAvailableUpdatesForManagedInstanceRequest {
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 
   export enum SortBy {
-    TIMECREATED = "TIMECREATED",
-    DISPLAYNAME = "DISPLAYNAME"
+    Timecreated = "TIMECREATED",
+    Displayname = "DISPLAYNAME"
   }
 }

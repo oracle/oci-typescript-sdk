@@ -21,17 +21,17 @@ import common = require("oci-common");
  * Possible types of actions.
  **/
 export enum ActionTypes {
-  CREATED = "CREATED",
-  UPDATED = "UPDATED",
-  DELETED = "DELETED",
-  IN_PROGRESS = "IN_PROGRESS",
-  FAILED = "FAILED",
+  Created = "CREATED",
+  Updated = "UPDATED",
+  Deleted = "DELETED",
+  InProgress = "IN_PROGRESS",
+  Failed = "FAILED",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace ActionTypes {

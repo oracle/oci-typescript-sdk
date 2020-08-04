@@ -70,29 +70,27 @@ If the work request affects multiple resources and those resources are not in th
 
 export namespace WorkRequest {
   export enum OperationType {
-    COPYOBJECT = "COPY_OBJECT",
-    REENCRYPT = "REENCRYPT",
-
+    CopyObject = "COPY_OBJECT",
+    Reencrypt = "REENCRYPT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Status {
-    ACCEPTED = "ACCEPTED",
-    INPROGRESS = "IN_PROGRESS",
-    FAILED = "FAILED",
-    COMPLETED = "COMPLETED",
-    CANCELING = "CANCELING",
-    CANCELED = "CANCELED",
-
+    Accepted = "ACCEPTED",
+    InProgress = "IN_PROGRESS",
+    Failed = "FAILED",
+    Completed = "COMPLETED",
+    Canceling = "CANCELING",
+    Canceled = "CANCELED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: WorkRequest): object {

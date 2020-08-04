@@ -37,32 +37,31 @@ export interface TransferAppliance {
 
 export namespace TransferAppliance {
   export enum LifecycleState {
-    REQUESTED = "REQUESTED",
-    ORACLEPREPARING = "ORACLE_PREPARING",
-    SHIPPING = "SHIPPING",
-    DELIVERED = "DELIVERED",
-    PREPARING = "PREPARING",
-    FINALIZED = "FINALIZED",
-    RETURNDELAYED = "RETURN_DELAYED",
-    RETURNSHIPPED = "RETURN_SHIPPED",
-    RETURNSHIPPEDCANCELLED = "RETURN_SHIPPED_CANCELLED",
-    ORACLERECEIVED = "ORACLE_RECEIVED",
-    ORACLERECEIVEDCANCELLED = "ORACLE_RECEIVED_CANCELLED",
-    PROCESSING = "PROCESSING",
-    COMPLETE = "COMPLETE",
-    CUSTOMERNEVERRECEIVED = "CUSTOMER_NEVER_RECEIVED",
-    ORACLENEVERRECEIVED = "ORACLE_NEVER_RECEIVED",
-    CUSTOMERLOST = "CUSTOMER_LOST",
-    CANCELLED = "CANCELLED",
-    DELETED = "DELETED",
-    REJECTED = "REJECTED",
-    ERROR = "ERROR",
-
+    Requested = "REQUESTED",
+    OraclePreparing = "ORACLE_PREPARING",
+    Shipping = "SHIPPING",
+    Delivered = "DELIVERED",
+    Preparing = "PREPARING",
+    Finalized = "FINALIZED",
+    ReturnDelayed = "RETURN_DELAYED",
+    ReturnShipped = "RETURN_SHIPPED",
+    ReturnShippedCancelled = "RETURN_SHIPPED_CANCELLED",
+    OracleReceived = "ORACLE_RECEIVED",
+    OracleReceivedCancelled = "ORACLE_RECEIVED_CANCELLED",
+    Processing = "PROCESSING",
+    Complete = "COMPLETE",
+    CustomerNeverReceived = "CUSTOMER_NEVER_RECEIVED",
+    OracleNeverReceived = "ORACLE_NEVER_RECEIVED",
+    CustomerLost = "CUSTOMER_LOST",
+    Cancelled = "CANCELLED",
+    Deleted = "DELETED",
+    Rejected = "REJECTED",
+    Error = "ERROR",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: TransferAppliance): object {

@@ -18,22 +18,22 @@ import common = require("oci-common");
  * An enum value indicating the operation being performed by the work request.
  **/
 export enum WorkRequestOperationTypes {
-  CREATE_WAAS_POLICY = "CREATE_WAAS_POLICY",
-  UPDATE_WAAS_POLICY = "UPDATE_WAAS_POLICY",
-  DELETE_WAAS_POLICY = "DELETE_WAAS_POLICY",
-  CREATE_HTTP_REDIRECT = "CREATE_HTTP_REDIRECT",
-  UPDATE_HTTP_REDIRECT = "UPDATE_HTTP_REDIRECT",
-  DELETE_HTTP_REDIRECT = "DELETE_HTTP_REDIRECT",
-  PURGE_WAAS_POLICY_CACHE = "PURGE_WAAS_POLICY_CACHE",
-  CREATE_CUSTOM_PROTECTION_RULE = "CREATE_CUSTOM_PROTECTION_RULE",
-  UPDATE_CUSTOM_PROTECTION_RULE = "UPDATE_CUSTOM_PROTECTION_RULE",
-  DELETE_CUSTOM_PROTECTION_RULE = "DELETE_CUSTOM_PROTECTION_RULE",
+  CreateWaasPolicy = "CREATE_WAAS_POLICY",
+  UpdateWaasPolicy = "UPDATE_WAAS_POLICY",
+  DeleteWaasPolicy = "DELETE_WAAS_POLICY",
+  CreateHttpRedirect = "CREATE_HTTP_REDIRECT",
+  UpdateHttpRedirect = "UPDATE_HTTP_REDIRECT",
+  DeleteHttpRedirect = "DELETE_HTTP_REDIRECT",
+  PurgeWaasPolicyCache = "PURGE_WAAS_POLICY_CACHE",
+  CreateCustomProtectionRule = "CREATE_CUSTOM_PROTECTION_RULE",
+  UpdateCustomProtectionRule = "UPDATE_CUSTOM_PROTECTION_RULE",
+  DeleteCustomProtectionRule = "DELETE_CUSTOM_PROTECTION_RULE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace WorkRequestOperationTypes {

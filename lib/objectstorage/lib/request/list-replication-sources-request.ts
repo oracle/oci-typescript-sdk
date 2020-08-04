@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListReplicationSourcesRequest {
+export interface ListReplicationSourcesRequest extends common.BaseRequest {
   /**
    * The Object Storage namespace used for the request.
    */

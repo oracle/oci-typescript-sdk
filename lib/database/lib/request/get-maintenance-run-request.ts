@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetMaintenanceRunRequest {
+export interface GetMaintenanceRunRequest extends common.BaseRequest {
   /**
    * The Maintenance Run OCID.
    */

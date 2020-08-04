@@ -38,7 +38,7 @@ export class IdentityWaiter {
       this.config,
       () => this.client.getCompartment(request),
       response => targetStates.exists(response.compartment.lifecycleState),
-      targetStates.includes(models.Compartment.LifecycleState.DELETED)
+      targetStates.includes(models.Compartment.LifecycleState.Deleted)
     );
   }
 
@@ -57,7 +57,7 @@ export class IdentityWaiter {
       this.config,
       () => this.client.getDynamicGroup(request),
       response => targetStates.exists(response.dynamicGroup.lifecycleState),
-      targetStates.includes(models.DynamicGroup.LifecycleState.DELETED)
+      targetStates.includes(models.DynamicGroup.LifecycleState.Deleted)
     );
   }
 
@@ -76,7 +76,7 @@ export class IdentityWaiter {
       this.config,
       () => this.client.getGroup(request),
       response => targetStates.exists(response.group.lifecycleState),
-      targetStates.includes(models.Group.LifecycleState.DELETED)
+      targetStates.includes(models.Group.LifecycleState.Deleted)
     );
   }
 
@@ -95,7 +95,7 @@ export class IdentityWaiter {
       this.config,
       () => this.client.getIdentityProvider(request),
       response => targetStates.exists(response.identityProvider.lifecycleState),
-      targetStates.includes(models.IdentityProvider.LifecycleState.DELETED)
+      targetStates.includes(models.IdentityProvider.LifecycleState.Deleted)
     );
   }
 
@@ -114,7 +114,7 @@ export class IdentityWaiter {
       this.config,
       () => this.client.getIdpGroupMapping(request),
       response => targetStates.exists(response.idpGroupMapping.lifecycleState),
-      targetStates.includes(models.IdpGroupMapping.LifecycleState.DELETED)
+      targetStates.includes(models.IdpGroupMapping.LifecycleState.Deleted)
     );
   }
 
@@ -133,7 +133,7 @@ export class IdentityWaiter {
       this.config,
       () => this.client.getPolicy(request),
       response => targetStates.exists(response.policy.lifecycleState),
-      targetStates.includes(models.Policy.LifecycleState.DELETED)
+      targetStates.includes(models.Policy.LifecycleState.Deleted)
     );
   }
 
@@ -152,7 +152,7 @@ export class IdentityWaiter {
       this.config,
       () => this.client.getTag(request),
       response => targetStates.exists(response.tag.lifecycleState),
-      targetStates.includes(models.Tag.LifecycleState.DELETED)
+      targetStates.includes(models.Tag.LifecycleState.Deleted)
     );
   }
 
@@ -189,7 +189,7 @@ export class IdentityWaiter {
       this.config,
       () => this.client.getTagNamespace(request),
       response => targetStates.exists(response.tagNamespace.lifecycleState),
-      targetStates.includes(models.TagNamespace.LifecycleState.DELETED)
+      targetStates.includes(models.TagNamespace.LifecycleState.Deleted)
     );
   }
 
@@ -208,7 +208,7 @@ export class IdentityWaiter {
       this.config,
       () => this.client.getUser(request),
       response => targetStates.exists(response.user.lifecycleState),
-      targetStates.includes(models.User.LifecycleState.DELETED)
+      targetStates.includes(models.User.LifecycleState.Deleted)
     );
   }
 
@@ -227,7 +227,7 @@ export class IdentityWaiter {
       this.config,
       () => this.client.getUserGroupMembership(request),
       response => targetStates.exists(response.userGroupMembership.lifecycleState),
-      targetStates.includes(models.UserGroupMembership.LifecycleState.DELETED)
+      targetStates.includes(models.UserGroupMembership.LifecycleState.Deleted)
     );
   }
 

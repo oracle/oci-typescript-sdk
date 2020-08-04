@@ -55,8 +55,8 @@ export interface CreatePatchDetails {
 
 export namespace CreatePatchDetails {
   export enum PatchType {
-    PUBLISH = "PUBLISH",
-    UNPUBLISH = "UNPUBLISH"
+    Publish = "PUBLISH",
+    Unpublish = "UNPUBLISH"
   }
 
   export function getJsonObj(obj: CreatePatchDetails): object {

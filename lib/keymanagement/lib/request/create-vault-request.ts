@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateVaultRequest {
+export interface CreateVaultRequest extends common.BaseRequest {
   /**
    * CreateVaultDetails
    */

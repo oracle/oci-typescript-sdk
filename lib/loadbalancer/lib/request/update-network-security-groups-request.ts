@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface UpdateNetworkSecurityGroupsRequest {
+export interface UpdateNetworkSecurityGroupsRequest extends common.BaseRequest {
   /**
    * The details for updating the NSGs associated with the specified load balancer.
    */

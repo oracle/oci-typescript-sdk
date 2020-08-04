@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface UpdatePublicIpRequest {
+export interface UpdatePublicIpRequest extends common.BaseRequest {
   /**
    * The OCID of the public IP.
    */

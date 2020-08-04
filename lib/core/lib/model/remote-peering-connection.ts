@@ -115,30 +115,28 @@ Example: `2016-08-25T21:10:29.600Z`
 
 export namespace RemotePeeringConnection {
   export enum LifecycleState {
-    AVAILABLE = "AVAILABLE",
-    PROVISIONING = "PROVISIONING",
-    TERMINATING = "TERMINATING",
-    TERMINATED = "TERMINATED",
-
+    Available = "AVAILABLE",
+    Provisioning = "PROVISIONING",
+    Terminating = "TERMINATING",
+    Terminated = "TERMINATED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum PeeringStatus {
-    INVALID = "INVALID",
-    NEW = "NEW",
-    PENDING = "PENDING",
-    PEERED = "PEERED",
-    REVOKED = "REVOKED",
-
+    Invalid = "INVALID",
+    New = "NEW",
+    Pending = "PENDING",
+    Peered = "PEERED",
+    Revoked = "REVOKED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: RemotePeeringConnection): object {

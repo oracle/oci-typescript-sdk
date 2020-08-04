@@ -18,15 +18,15 @@ import common = require("oci-common");
  * Unit to measure Service category/resource
  **/
 export enum Unit {
-  COUNT = "COUNT",
-  GB = "GB",
-  NONE = "NONE",
+  Count = "COUNT",
+  Gb = "GB",
+  None = "NONE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace Unit {

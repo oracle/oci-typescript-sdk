@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface TerminateAutonomousExadataInfrastructureRequest {
+export interface TerminateAutonomousExadataInfrastructureRequest extends common.BaseRequest {
   /**
    * The Autonomous Exadata Infrastructure  [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    */

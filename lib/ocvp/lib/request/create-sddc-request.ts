@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateSddcRequest {
+export interface CreateSddcRequest extends common.BaseRequest {
   /**
    * Details for the SDDC.
    */

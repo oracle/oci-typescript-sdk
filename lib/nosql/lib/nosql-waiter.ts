@@ -39,7 +39,7 @@ export class NosqlWaiter {
       this.config,
       () => this.client.getIndex(request),
       response => targetStates.exists(response.index.lifecycleState),
-      targetStates.includes(models.Index.LifecycleState.DELETED)
+      targetStates.includes(models.Index.LifecycleState.Deleted)
     );
   }
 
@@ -58,7 +58,7 @@ export class NosqlWaiter {
       this.config,
       () => this.client.getTable(request),
       response => targetStates.exists(response.table.lifecycleState),
-      targetStates.includes(models.Table.LifecycleState.DELETED)
+      targetStates.includes(models.Table.LifecycleState.Deleted)
     );
   }
 

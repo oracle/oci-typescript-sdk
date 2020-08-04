@@ -51,21 +51,20 @@ export interface StatementSummary {
 
 export namespace StatementSummary {
   export enum Operation {
-    CREATETABLE = "CREATE_TABLE",
-    ALTERTABLE = "ALTER_TABLE",
-    DROPTABLE = "DROP_TABLE",
-    CREATEINDEX = "CREATE_INDEX",
-    DROPINDEX = "DROP_INDEX",
-    SELECT = "SELECT",
-    UPDATE = "UPDATE",
-    INSERT = "INSERT",
-    DELETE = "DELETE",
-
+    CreateTable = "CREATE_TABLE",
+    AlterTable = "ALTER_TABLE",
+    DropTable = "DROP_TABLE",
+    CreateIndex = "CREATE_INDEX",
+    DropIndex = "DROP_INDEX",
+    Select = "SELECT",
+    Update = "UPDATE",
+    Insert = "INSERT",
+    Delete = "DELETE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: StatementSummary): object {

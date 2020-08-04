@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateClusterNetworkRequest {
+export interface CreateClusterNetworkRequest extends common.BaseRequest {
   /**
    * Cluster network creation details
    */

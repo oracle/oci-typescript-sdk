@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListIdentityProviderGroupsRequest {
+export interface ListIdentityProviderGroupsRequest extends common.BaseRequest {
   /**
    * The OCID of the identity provider.
    */

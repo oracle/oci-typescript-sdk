@@ -31,14 +31,13 @@ export interface Metric {
 
 export namespace Metric {
   export enum MetricType {
-    CPUUTILIZATION = "CPU_UTILIZATION",
-    MEMORYUTILIZATION = "MEMORY_UTILIZATION",
-
+    CpuUtilization = "CPU_UTILIZATION",
+    MemoryUtilization = "MEMORY_UTILIZATION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Metric): object {

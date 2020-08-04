@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetTaskRequest {
+export interface GetTaskRequest extends common.BaseRequest {
   /**
    * DIS workspace id
    */

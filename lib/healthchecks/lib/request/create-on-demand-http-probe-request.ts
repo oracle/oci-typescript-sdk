@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateOnDemandHttpProbeRequest {
+export interface CreateOnDemandHttpProbeRequest extends common.BaseRequest {
   /**
    * The configuration of the HTTP probe.
    */

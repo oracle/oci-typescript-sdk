@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface DeleteComputeImageCapabilitySchemaRequest {
+export interface DeleteComputeImageCapabilitySchemaRequest extends common.BaseRequest {
   /**
    * The id of the compute image capability schema or the image ocid
    */

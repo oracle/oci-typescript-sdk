@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface UpdateRunRequest {
+export interface UpdateRunRequest extends common.BaseRequest {
   /**
    * Details for updating a run.
    *

@@ -38,17 +38,16 @@ export interface Contact {
 
 export namespace Contact {
   export enum ContactType {
-    PRIMARY = "PRIMARY",
-    ALTERNATE = "ALTERNATE",
-    SECONDARY = "SECONDARY",
-    ADMIN = "ADMIN",
-    MANAGER = "MANAGER",
-
+    Primary = "PRIMARY",
+    Alternate = "ALTERNATE",
+    Secondary = "SECONDARY",
+    Admin = "ADMIN",
+    Manager = "MANAGER",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Contact): object {

@@ -66,7 +66,7 @@ export class ComputeManagementWaiter {
       this.config,
       () => this.client.getClusterNetwork(request),
       response => targetStates.exists(response.clusterNetwork.lifecycleState),
-      targetStates.includes(models.ClusterNetwork.LifecycleState.TERMINATED)
+      targetStates.includes(models.ClusterNetwork.LifecycleState.Terminated)
     );
   }
 
@@ -85,7 +85,7 @@ export class ComputeManagementWaiter {
       this.config,
       () => this.client.getInstancePool(request),
       response => targetStates.exists(response.instancePool.lifecycleState),
-      targetStates.includes(models.InstancePool.LifecycleState.TERMINATED)
+      targetStates.includes(models.InstancePool.LifecycleState.Terminated)
     );
   }
 

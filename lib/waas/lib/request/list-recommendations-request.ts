@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListRecommendationsRequest {
+export interface ListRecommendationsRequest extends common.BaseRequest {
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the WAAS policy.
    */
@@ -38,7 +38,7 @@ export interface ListRecommendationsRequest {
 
 export namespace ListRecommendationsRequest {
   export enum RecommendedAction {
-    DETECT = "DETECT",
-    BLOCK = "BLOCK"
+    Detect = "DETECT",
+    Block = "BLOCK"
   }
 }

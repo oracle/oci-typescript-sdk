@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreatePingMonitorRequest {
+export interface CreatePingMonitorRequest extends common.BaseRequest {
   /**
    * The configuration details for creating a ping monitor.
    */

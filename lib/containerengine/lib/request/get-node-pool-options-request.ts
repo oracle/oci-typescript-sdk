@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetNodePoolOptionsRequest {
+export interface GetNodePoolOptionsRequest extends common.BaseRequest {
   /**
    * The id of the option set to retrieve. Use \"all\" get all options, or use a cluster ID to get options specific to the provided cluster.
    */

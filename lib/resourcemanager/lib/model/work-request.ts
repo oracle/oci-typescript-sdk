@@ -71,27 +71,26 @@ export interface WorkRequest {
 
 export namespace WorkRequest {
   export enum OperationType {
-    CHANGESTACKCOMPARTMENT = "CHANGE_STACK_COMPARTMENT",
-    DRIFTDETECTION = "DRIFT_DETECTION",
-
+    ChangeStackCompartment = "CHANGE_STACK_COMPARTMENT",
+    CreateStackFromCompartment = "CREATE_STACK_FROM_COMPARTMENT",
+    DriftDetection = "DRIFT_DETECTION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Status {
-    ACCEPTED = "ACCEPTED",
-    INPROGRESS = "IN_PROGRESS",
-    FAILED = "FAILED",
-    SUCCEEDED = "SUCCEEDED",
-
+    Accepted = "ACCEPTED",
+    InProgress = "IN_PROGRESS",
+    Failed = "FAILED",
+    Succeeded = "SUCCEEDED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: WorkRequest): object {

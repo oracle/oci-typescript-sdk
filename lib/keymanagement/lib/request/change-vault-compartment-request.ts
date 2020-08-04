@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ChangeVaultCompartmentRequest {
+export interface ChangeVaultCompartmentRequest extends common.BaseRequest {
   /**
    * The OCID of the vault.
    */

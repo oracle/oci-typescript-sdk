@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateApplianceExportJobRequest {
+export interface CreateApplianceExportJobRequest extends common.BaseRequest {
   /**
    * Creates a new Appliance Export Job
    */

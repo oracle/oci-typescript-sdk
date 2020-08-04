@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetFastConnectProviderServiceRequest {
+export interface GetFastConnectProviderServiceRequest extends common.BaseRequest {
   /**
    * The OCID of the provider service.
    */

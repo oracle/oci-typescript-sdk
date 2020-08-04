@@ -48,8 +48,8 @@ export interface CreateVaultDetails {
 
 export namespace CreateVaultDetails {
   export enum VaultType {
-    VIRTUALPRIVATE = "VIRTUAL_PRIVATE",
-    DEFAULT = "DEFAULT"
+    VirtualPrivate = "VIRTUAL_PRIVATE",
+    Default = "DEFAULT"
   }
 
   export function getJsonObj(obj: CreateVaultDetails): object {

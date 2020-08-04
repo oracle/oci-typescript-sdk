@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListDbSystemsRequest {
+export interface ListDbSystemsRequest extends common.BaseRequest {
   /**
    * The compartment [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    */
@@ -78,7 +78,7 @@ export namespace ListDbSystemsRequest {
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

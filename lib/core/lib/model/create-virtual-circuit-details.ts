@@ -133,8 +133,8 @@ Example: `{\"Department\": \"Finance\"}`
 
 export namespace CreateVirtualCircuitDetails {
   export enum Type {
-    PUBLIC = "PUBLIC",
-    PRIVATE = "PRIVATE"
+    Public = "PUBLIC",
+    Private = "PRIVATE"
   }
 
   export function getJsonObj(obj: CreateVirtualCircuitDetails): object {

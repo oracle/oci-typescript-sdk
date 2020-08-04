@@ -101,21 +101,20 @@ export interface Secret {
 
 export namespace Secret {
   export enum LifecycleState {
-    CREATING = "CREATING",
-    ACTIVE = "ACTIVE",
-    UPDATING = "UPDATING",
-    DELETING = "DELETING",
-    DELETED = "DELETED",
-    SCHEDULINGDELETION = "SCHEDULING_DELETION",
-    PENDINGDELETION = "PENDING_DELETION",
-    CANCELLINGDELETION = "CANCELLING_DELETION",
-    FAILED = "FAILED",
-
+    Creating = "CREATING",
+    Active = "ACTIVE",
+    Updating = "UPDATING",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
+    SchedulingDeletion = "SCHEDULING_DELETION",
+    PendingDeletion = "PENDING_DELETION",
+    CancellingDeletion = "CANCELLING_DELETION",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Secret): object {

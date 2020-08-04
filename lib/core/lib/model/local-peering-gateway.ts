@@ -129,30 +129,28 @@ Example: `2016-08-25T21:10:29.600Z`
 
 export namespace LocalPeeringGateway {
   export enum LifecycleState {
-    PROVISIONING = "PROVISIONING",
-    AVAILABLE = "AVAILABLE",
-    TERMINATING = "TERMINATING",
-    TERMINATED = "TERMINATED",
-
+    Provisioning = "PROVISIONING",
+    Available = "AVAILABLE",
+    Terminating = "TERMINATING",
+    Terminated = "TERMINATED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum PeeringStatus {
-    INVALID = "INVALID",
-    NEW = "NEW",
-    PEERED = "PEERED",
-    PENDING = "PENDING",
-    REVOKED = "REVOKED",
-
+    Invalid = "INVALID",
+    New = "NEW",
+    Peered = "PEERED",
+    Pending = "PENDING",
+    Revoked = "REVOKED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: LocalPeeringGateway): object {

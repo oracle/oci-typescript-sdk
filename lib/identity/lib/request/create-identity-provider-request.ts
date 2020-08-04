@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateIdentityProviderRequest {
+export interface CreateIdentityProviderRequest extends common.BaseRequest {
   /**
    * Request object for creating a new SAML2 identity provider.
    */

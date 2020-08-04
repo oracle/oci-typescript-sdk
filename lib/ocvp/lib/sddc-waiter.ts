@@ -36,7 +36,7 @@ export class SddcWaiter {
       this.config,
       () => this.client.getSddc(request),
       response => targetStates.exists(response.sddc.lifecycleState),
-      targetStates.includes(models.LifecycleStates.DELETED)
+      targetStates.includes(models.LifecycleStates.Deleted)
     );
   }
 }

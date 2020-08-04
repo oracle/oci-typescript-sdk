@@ -37,8 +37,8 @@ export interface SecretContentDetails {
 
 export namespace SecretContentDetails {
   export enum Stage {
-    CURRENT = "CURRENT",
-    PENDING = "PENDING"
+    Current = "CURRENT",
+    Pending = "PENDING"
   }
 
   export function getJsonObj(obj: SecretContentDetails): object {

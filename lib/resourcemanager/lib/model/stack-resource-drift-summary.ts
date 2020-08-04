@@ -79,16 +79,15 @@ export interface StackResourceDriftSummary {
 
 export namespace StackResourceDriftSummary {
   export enum ResourceDriftStatus {
-    NOTCHECKED = "NOT_CHECKED",
-    INSYNC = "IN_SYNC",
-    MODIFIED = "MODIFIED",
-    DELETED = "DELETED",
-
+    NotChecked = "NOT_CHECKED",
+    InSync = "IN_SYNC",
+    Modified = "MODIFIED",
+    Deleted = "DELETED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: StackResourceDriftSummary): object {

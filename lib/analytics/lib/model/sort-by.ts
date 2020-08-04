@@ -21,12 +21,12 @@ import common = require("oci-common");
  *
  **/
 export enum SortBy {
-  CAPACITY_TYPE = "capacityType",
-  CAPACITY_VALUE = "capacityValue",
-  FEATURE_SET = "featureSet",
-  LIFECYCLE_STATE = "lifecycleState",
-  NAME = "name",
-  TIME_CREATED = "timeCreated"
+  CapacityType = "capacityType",
+  CapacityValue = "capacityValue",
+  FeatureSet = "featureSet",
+  LifecycleState = "lifecycleState",
+  Name = "name",
+  TimeCreated = "timeCreated"
 }
 
 export namespace SortBy {

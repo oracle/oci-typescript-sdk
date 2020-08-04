@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface SearchSoftwarePackagesRequest {
+export interface SearchSoftwarePackagesRequest extends common.BaseRequest {
   /**
    * the identifier for the software package (not an OCID)
    */
@@ -56,12 +56,12 @@ Example: `My new resource`
 
 export namespace SearchSoftwarePackagesRequest {
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 
   export enum SortBy {
-    TIMECREATED = "TIMECREATED",
-    DISPLAYNAME = "DISPLAYNAME"
+    Timecreated = "TIMECREATED",
+    Displayname = "DISPLAYNAME"
   }
 }

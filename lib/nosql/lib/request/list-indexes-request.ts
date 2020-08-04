@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListIndexesRequest {
+export interface ListIndexesRequest extends common.BaseRequest {
   /**
    * A table name within the compartment, or a table OCID.
    */
@@ -64,18 +64,18 @@ export interface ListIndexesRequest {
 
 export namespace ListIndexesRequest {
   export enum LifecycleState {
-    ALL = "ALL",
-    CREATING = "CREATING",
-    UPDATING = "UPDATING",
-    ACTIVE = "ACTIVE",
-    DELETING = "DELETING",
-    DELETED = "DELETED",
-    FAILED = "FAILED"
+    All = "ALL",
+    Creating = "CREATING",
+    Updating = "UPDATING",
+    Active = "ACTIVE",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
+    Failed = "FAILED"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 
   export enum SortBy {

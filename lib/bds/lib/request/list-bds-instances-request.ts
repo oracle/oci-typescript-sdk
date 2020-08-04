@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListBdsInstancesRequest {
+export interface ListBdsInstancesRequest extends common.BaseRequest {
   /**
    * The OCID of the compartment.
    */

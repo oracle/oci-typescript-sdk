@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListNetworkSecurityGroupSecurityRulesRequest {
+export interface ListNetworkSecurityGroupSecurityRulesRequest extends common.BaseRequest {
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the network security group.
    */
@@ -54,16 +54,16 @@ Example: `50`
 
 export namespace ListNetworkSecurityGroupSecurityRulesRequest {
   export enum Direction {
-    EGRESS = "EGRESS",
-    INGRESS = "INGRESS"
+    Egress = "EGRESS",
+    Ingress = "INGRESS"
   }
 
   export enum SortBy {
-    TIMECREATED = "TIMECREATED"
+    Timecreated = "TIMECREATED"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListNotebookSessionShapesRequest {
+export interface ListNotebookSessionShapesRequest extends common.BaseRequest {
   /**
    * <b>Filter</b> results by the [OCID](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/identifiers.htm) of the compartment.
    */

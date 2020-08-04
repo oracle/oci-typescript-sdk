@@ -79,13 +79,13 @@ For more information, see [Block Volume Encryption](https://docs.cloud.oracle.co
 
 export namespace UpdateLaunchOptions {
   export enum BootVolumeType {
-    ISCSI = "ISCSI",
-    PARAVIRTUALIZED = "PARAVIRTUALIZED"
+    Iscsi = "ISCSI",
+    Paravirtualized = "PARAVIRTUALIZED"
   }
 
   export enum NetworkType {
-    VFIO = "VFIO",
-    PARAVIRTUALIZED = "PARAVIRTUALIZED"
+    Vfio = "VFIO",
+    Paravirtualized = "PARAVIRTUALIZED"
   }
 
   export function getJsonObj(obj: UpdateLaunchOptions): object {

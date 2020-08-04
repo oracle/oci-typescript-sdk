@@ -93,18 +93,17 @@ Example: `2016-08-25T21:10:29.600Z`
 
 export namespace DedicatedVmHostSummary {
   export enum LifecycleState {
-    CREATING = "CREATING",
-    ACTIVE = "ACTIVE",
-    UPDATING = "UPDATING",
-    DELETING = "DELETING",
-    DELETED = "DELETED",
-    FAILED = "FAILED",
-
+    Creating = "CREATING",
+    Active = "ACTIVE",
+    Updating = "UPDATING",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: DedicatedVmHostSummary): object {

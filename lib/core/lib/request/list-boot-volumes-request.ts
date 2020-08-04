@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListBootVolumesRequest {
+export interface ListBootVolumesRequest extends common.BaseRequest {
   /**
  * The name of the availability domain.
 * <p>

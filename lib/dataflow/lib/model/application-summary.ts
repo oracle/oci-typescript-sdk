@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A data flow application object used in bulk listings.
+ * A Data Flow application object used in bulk listings.
  *
  */
 export interface ApplicationSummary {

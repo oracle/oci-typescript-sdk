@@ -18,16 +18,16 @@ import common = require("oci-common");
  * Problem Type of an Incident
  **/
 export enum ProblemType {
-  LIMIT = "LIMIT",
-  LEGACY_LIMIT = "LEGACY_LIMIT",
-  TECH = "TECH",
-  ACCOUNT = "ACCOUNT",
+  Limit = "LIMIT",
+  LegacyLimit = "LEGACY_LIMIT",
+  Tech = "TECH",
+  Account = "ACCOUNT",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace ProblemType {

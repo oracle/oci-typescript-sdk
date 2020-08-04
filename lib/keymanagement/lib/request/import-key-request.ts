@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ImportKeyRequest {
+export interface ImportKeyRequest extends common.BaseRequest {
   /**
    * ImportKeyDetails
    */

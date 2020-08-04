@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListIncidentResourceTypesRequest {
+export interface ListIncidentResourceTypesRequest extends common.BaseRequest {
   /**
    * Problem Type of Taxonomy - tech/limit
    */

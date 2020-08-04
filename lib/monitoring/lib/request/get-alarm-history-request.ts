@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetAlarmHistoryRequest {
+export interface GetAlarmHistoryRequest extends common.BaseRequest {
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of an alarm.
    *
@@ -67,7 +67,7 @@ Example: `2019-01-02T01:00:00.789Z`
 
 export namespace GetAlarmHistoryRequest {
   export enum AlarmHistorytype {
-    HISTORY = "STATE_HISTORY",
-    TRANSITIONHISTORY = "STATE_TRANSITION_HISTORY"
+    StateHistory = "STATE_HISTORY",
+    StateTransitionHistory = "STATE_TRANSITION_HISTORY"
   }
 }

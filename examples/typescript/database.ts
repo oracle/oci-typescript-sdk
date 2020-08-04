@@ -88,7 +88,7 @@ async function deleteSubnet() {
 
       await virtualNetworkWaiter.forSubnet(
         getSubnetRequest,
-        core.models.Subnet.LifecycleState.TERMINATED
+        core.models.Subnet.LifecycleState.Terminated
       );
 
       subnetId = null;
@@ -111,7 +111,7 @@ async function deleteVcn() {
         vcnId: vcnId
       };
 
-      await virtualNetworkWaiter.forVcn(getVcnRequest, core.models.Vcn.LifecycleState.TERMINATED);
+      await virtualNetworkWaiter.forVcn(getVcnRequest, core.models.Vcn.LifecycleState.Terminated);
 
       vcnId = null;
     }
@@ -135,7 +135,7 @@ async function terminateDbSystem() {
 
       await databaseWaiter.forDbSystem(
         getDbSystemRequest,
-        database.models.DbSystem.LifecycleState.TERMINATED
+        database.models.DbSystem.LifecycleState.Terminated
       );
 
       dbSystemId = null;
@@ -168,7 +168,7 @@ async function terminateDbSystem() {
 
     const getVcnResponse = await virtualNetworkWaiter.forVcn(
       getVcnRequest,
-      core.models.Vcn.LifecycleState.AVAILABLE
+      core.models.Vcn.LifecycleState.Available
     );
 
     vcnId = getVcnResponse!.vcn.id;
@@ -191,7 +191,7 @@ async function terminateDbSystem() {
 
     const getSubnetResponse = await virtualNetworkWaiter.forSubnet(
       getSubnetRequest,
-      core.models.Subnet.LifecycleState.AVAILABLE
+      core.models.Subnet.LifecycleState.Available
     );
 
     subnetId = getSubnetResponse!.subnet.id;
@@ -208,7 +208,7 @@ async function terminateDbSystem() {
       },
       compartmentId: compartmentId,
       cpuCoreCount: 4,
-      databaseEdition: database.models.LaunchDbSystemDetails.DatabaseEdition.ENTERPRISEEDITION,
+      databaseEdition: database.models.LaunchDbSystemDetails.DatabaseEdition.EnterpriseEdition,
       displayName: "typescript database",
       hostname: "typescript-sdk-example-db-host",
       shape: "BM.DenseIO1.36",
@@ -231,7 +231,7 @@ async function terminateDbSystem() {
 
     const getDbSystemResponse = await databaseWaiter.forDbSystem(
       getDbSystemRequest,
-      database.models.DbSystem.LifecycleState.AVAILABLE
+      database.models.DbSystem.LifecycleState.Available
     );
     dbSystemId = getDbSystemResponse!.dbSystem.id;
   } catch (error) {

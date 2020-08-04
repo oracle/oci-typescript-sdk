@@ -30,18 +30,17 @@ export interface CustomEncryptionKey {
 
 export namespace CustomEncryptionKey {
   export enum KeyState {
-    ACTIVE = "ACTIVE",
-    CREATING = "CREATING",
-    DELETING = "DELETING",
-    NONE = "NONE",
-    FAILED = "FAILED",
-    UPDATING = "UPDATING",
-
+    Active = "ACTIVE",
+    Creating = "CREATING",
+    Deleting = "DELETING",
+    None = "NONE",
+    Failed = "FAILED",
+    Updating = "UPDATING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: CustomEncryptionKey): object {

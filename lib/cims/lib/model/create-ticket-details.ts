@@ -38,9 +38,9 @@ export interface CreateTicketDetails {
 
 export namespace CreateTicketDetails {
   export enum Severity {
-    HIGHEST = "HIGHEST",
-    HIGH = "HIGH",
-    MEDIUM = "MEDIUM"
+    Highest = "HIGHEST",
+    High = "HIGH",
+    Medium = "MEDIUM"
   }
 
   export function getJsonObj(obj: CreateTicketDetails): object {

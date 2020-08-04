@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateVmClusterRequest {
+export interface CreateVmClusterRequest extends common.BaseRequest {
   /**
    * Request to create a VM cluster.
    */

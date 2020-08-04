@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ChangeIntegrationInstanceCompartmentRequest {
+export interface ChangeIntegrationInstanceCompartmentRequest extends common.BaseRequest {
   /**
    * Unique Integration Instance identifier.
    */

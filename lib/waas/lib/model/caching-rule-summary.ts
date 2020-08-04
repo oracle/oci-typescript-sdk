@@ -56,14 +56,13 @@ export interface CachingRuleSummary {
 
 export namespace CachingRuleSummary {
   export enum Action {
-    CACHE = "CACHE",
-    BYPASSCACHE = "BYPASS_CACHE",
-
+    Cache = "CACHE",
+    BypassCache = "BYPASS_CACHE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: CachingRuleSummary): object {

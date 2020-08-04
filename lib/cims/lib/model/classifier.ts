@@ -50,28 +50,26 @@ export interface Classifier {
 
 export namespace Classifier {
   export enum Scope {
-    AD = "AD",
-    REGION = "REGION",
-    TENANCY = "TENANCY",
-    NONE = "NONE",
-
+    Ad = "AD",
+    Region = "REGION",
+    Tenancy = "TENANCY",
+    None = "NONE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Unit {
-    COUNT = "COUNT",
-    GB = "GB",
-    NONE = "NONE",
-
+    Count = "COUNT",
+    Gb = "GB",
+    None = "NONE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Classifier): object {

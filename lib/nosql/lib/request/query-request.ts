@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface QueryRequest {
+export interface QueryRequest extends common.BaseRequest {
   /**
    * SQL query statement and ancillary information.
    */

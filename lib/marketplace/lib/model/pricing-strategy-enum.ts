@@ -18,16 +18,16 @@ import common = require("oci-common");
  * The possible values for a listing package's pricing strategy.
  **/
 export enum PricingStrategyEnum {
-  PER_OCPU_LINEAR = "PER_OCPU_LINEAR",
-  PER_OCPU_MIN_BILLING = "PER_OCPU_MIN_BILLING",
-  PER_INSTANCE = "PER_INSTANCE",
-  PER_INSTANCE_MONTHLY_INCLUSIVE = "PER_INSTANCE_MONTHLY_INCLUSIVE",
+  PerOcpuLinear = "PER_OCPU_LINEAR",
+  PerOcpuMinBilling = "PER_OCPU_MIN_BILLING",
+  PerInstance = "PER_INSTANCE",
+  PerInstanceMonthlyInclusive = "PER_INSTANCE_MONTHLY_INCLUSIVE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace PricingStrategyEnum {

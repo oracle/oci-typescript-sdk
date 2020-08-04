@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListKeyVersionsRequest {
+export interface ListKeyVersionsRequest extends common.BaseRequest {
   /**
    * The OCID of the key.
    */
@@ -52,12 +52,12 @@ export interface ListKeyVersionsRequest {
 
 export namespace ListKeyVersionsRequest {
   export enum SortBy {
-    TIMECREATED = "TIMECREATED",
-    DISPLAYNAME = "DISPLAYNAME"
+    Timecreated = "TIMECREATED",
+    Displayname = "DISPLAYNAME"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateIpv6Request {
+export interface CreateIpv6Request extends common.BaseRequest {
   /**
    * Create IPv6 details.
    */

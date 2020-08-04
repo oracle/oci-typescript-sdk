@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetAlertRuleRequest {
+export interface GetAlertRuleRequest extends common.BaseRequest {
   /**
    * The unique Budget OCID
    */

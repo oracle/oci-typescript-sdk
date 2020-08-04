@@ -21,11 +21,11 @@ export interface UpdateTransferApplianceDetails {
 
 export namespace UpdateTransferApplianceDetails {
   export enum LifecycleState {
-    PREPARING = "PREPARING",
-    FINALIZED = "FINALIZED",
-    DELETED = "DELETED",
-    CUSTOMERNEVERRECEIVED = "CUSTOMER_NEVER_RECEIVED",
-    CANCELLED = "CANCELLED"
+    Preparing = "PREPARING",
+    Finalized = "FINALIZED",
+    Deleted = "DELETED",
+    CustomerNeverReceived = "CUSTOMER_NEVER_RECEIVED",
+    Cancelled = "CANCELLED"
   }
 
   export function getJsonObj(obj: UpdateTransferApplianceDetails): object {

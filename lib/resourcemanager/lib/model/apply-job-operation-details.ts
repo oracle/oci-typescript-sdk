@@ -41,15 +41,14 @@ export interface ApplyJobOperationDetails extends model.JobOperationDetails {
 
 export namespace ApplyJobOperationDetails {
   export enum ExecutionPlanStrategy {
-    FROMPLANJOBID = "FROM_PLAN_JOB_ID",
-    FROMLATESTPLANJOB = "FROM_LATEST_PLAN_JOB",
-    AUTOAPPROVED = "AUTO_APPROVED",
-
+    FromPlanJobId = "FROM_PLAN_JOB_ID",
+    FromLatestPlanJob = "FROM_LATEST_PLAN_JOB",
+    AutoApproved = "AUTO_APPROVED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: ApplyJobOperationDetails, isParentJsonObj?: boolean): object {

@@ -67,37 +67,35 @@ export interface WorkRequest {
 
 export namespace WorkRequest {
   export enum OperationType {
-    CREATECATALOG = "CREATE_CATALOG",
-    UPDATECATALOG = "UPDATE_CATALOG",
-    DELETECATALOG = "DELETE_CATALOG",
-    MOVECATALOG = "MOVE_CATALOG",
-    CREATECATALOGPRIVATEENDPOINT = "CREATE_CATALOG_PRIVATE_ENDPOINT",
-    DELETECATALOGPRIVATEENDPOINT = "DELETE_CATALOG_PRIVATE_ENDPOINT",
-    UPDATECATALOGPRIVATEENDPOINT = "UPDATE_CATALOG_PRIVATE_ENDPOINT",
-    MOVECATALOGPRIVATEENDPOINT = "MOVE_CATALOG_PRIVATE_ENDPOINT",
-    ATTACHCATALOGPRIVATEENDPOINT = "ATTACH_CATALOG_PRIVATE_ENDPOINT",
-    DETACHCATALOGPRIVATEENDPOINT = "DETACH_CATALOG_PRIVATE_ENDPOINT",
-
+    CreateCatalog = "CREATE_CATALOG",
+    UpdateCatalog = "UPDATE_CATALOG",
+    DeleteCatalog = "DELETE_CATALOG",
+    MoveCatalog = "MOVE_CATALOG",
+    CreateCatalogPrivateEndpoint = "CREATE_CATALOG_PRIVATE_ENDPOINT",
+    DeleteCatalogPrivateEndpoint = "DELETE_CATALOG_PRIVATE_ENDPOINT",
+    UpdateCatalogPrivateEndpoint = "UPDATE_CATALOG_PRIVATE_ENDPOINT",
+    MoveCatalogPrivateEndpoint = "MOVE_CATALOG_PRIVATE_ENDPOINT",
+    AttachCatalogPrivateEndpoint = "ATTACH_CATALOG_PRIVATE_ENDPOINT",
+    DetachCatalogPrivateEndpoint = "DETACH_CATALOG_PRIVATE_ENDPOINT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Status {
-    ACCEPTED = "ACCEPTED",
-    INPROGRESS = "IN_PROGRESS",
-    FAILED = "FAILED",
-    SUCCEEDED = "SUCCEEDED",
-    CANCELING = "CANCELING",
-    CANCELED = "CANCELED",
-
+    Accepted = "ACCEPTED",
+    InProgress = "IN_PROGRESS",
+    Failed = "FAILED",
+    Succeeded = "SUCCEEDED",
+    Canceling = "CANCELING",
+    Canceled = "CANCELED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: WorkRequest): object {

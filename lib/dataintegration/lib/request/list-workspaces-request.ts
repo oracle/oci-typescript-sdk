@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListWorkspacesRequest {
+export interface ListWorkspacesRequest extends common.BaseRequest {
   /**
    * The ID of the compartment in which to list resources.
    */
@@ -53,24 +53,24 @@ export interface ListWorkspacesRequest {
 
 export namespace ListWorkspacesRequest {
   export enum LifecycleState {
-    CREATING = "CREATING",
-    ACTIVE = "ACTIVE",
-    INACTIVE = "INACTIVE",
-    UPDATING = "UPDATING",
-    DELETING = "DELETING",
-    DELETED = "DELETED",
-    STOPPING = "STOPPING",
-    STOPPED = "STOPPED",
-    FAILED = "FAILED"
+    Creating = "CREATING",
+    Active = "ACTIVE",
+    Inactive = "INACTIVE",
+    Updating = "UPDATING",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
+    Stopping = "STOPPING",
+    Stopped = "STOPPED",
+    Failed = "FAILED"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 
   export enum SortBy {
-    TIMECREATED = "TIME_CREATED",
-    DISPLAYNAME = "DISPLAY_NAME"
+    TimeCreated = "TIME_CREATED",
+    DisplayName = "DISPLAY_NAME"
   }
 }

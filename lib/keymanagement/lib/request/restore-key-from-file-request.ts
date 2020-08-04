@@ -14,7 +14,7 @@
 import * as model from "../model";
 import common = require("oci-common");
 import stream = require("stream");
-export interface RestoreKeyFromFileRequest {
+export interface RestoreKeyFromFileRequest extends common.BaseRequest {
   /**
    * The content length of the body.
    */

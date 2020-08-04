@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface DeleteRouteTableRequest {
+export interface DeleteRouteTableRequest extends common.BaseRequest {
   /**
    * The OCID of the route table.
    */

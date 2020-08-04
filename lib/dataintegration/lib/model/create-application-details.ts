@@ -51,7 +51,7 @@ export interface CreateApplicationDetails {
 
 export namespace CreateApplicationDetails {
   export enum ModelType {
-    APPLICATION = "INTEGRATION_APPLICATION"
+    IntegrationApplication = "INTEGRATION_APPLICATION"
   }
 
   export function getJsonObj(obj: CreateApplicationDetails): object {

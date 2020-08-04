@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface PublishMessageRequest {
+export interface PublishMessageRequest extends common.BaseRequest {
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the topic.
    *
@@ -38,7 +38,7 @@ export interface PublishMessageRequest {
 
 export namespace PublishMessageRequest {
   export enum MessageType {
-    JSON = "JSON",
-    RAWTEXT = "RAW_TEXT"
+    Json = "JSON",
+    RawText = "RAW_TEXT"
   }
 }

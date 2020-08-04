@@ -124,31 +124,29 @@ Example: `2016-08-25T21:10:29.600Z`
 
 export namespace Image {
   export enum LaunchMode {
-    NATIVE = "NATIVE",
-    EMULATED = "EMULATED",
-    PARAVIRTUALIZED = "PARAVIRTUALIZED",
-    CUSTOM = "CUSTOM",
-
+    Native = "NATIVE",
+    Emulated = "EMULATED",
+    Paravirtualized = "PARAVIRTUALIZED",
+    Custom = "CUSTOM",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LifecycleState {
-    PROVISIONING = "PROVISIONING",
-    IMPORTING = "IMPORTING",
-    AVAILABLE = "AVAILABLE",
-    EXPORTING = "EXPORTING",
-    DISABLED = "DISABLED",
-    DELETED = "DELETED",
-
+    Provisioning = "PROVISIONING",
+    Importing = "IMPORTING",
+    Available = "AVAILABLE",
+    Exporting = "EXPORTING",
+    Disabled = "DISABLED",
+    Deleted = "DELETED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Image): object {

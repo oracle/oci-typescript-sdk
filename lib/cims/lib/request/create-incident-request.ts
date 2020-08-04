@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateIncidentRequest {
+export interface CreateIncidentRequest extends common.BaseRequest {
   /**
    * Incident information
    */

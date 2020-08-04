@@ -34,8 +34,8 @@ export interface PatchDetails {
 
 export namespace PatchDetails {
   export enum Action {
-    APPLY = "APPLY",
-    PRECHECK = "PRECHECK"
+    Apply = "APPLY",
+    Precheck = "PRECHECK"
   }
 
   export function getJsonObj(obj: PatchDetails): object {

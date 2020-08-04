@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateAlarmRequest {
+export interface CreateAlarmRequest extends common.BaseRequest {
   /**
    * Document for creating an alarm.
    */

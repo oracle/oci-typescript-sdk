@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateVolumeGroupBackupRequest {
+export interface CreateVolumeGroupBackupRequest extends common.BaseRequest {
   /**
    * Request to create a new backup group of given volume group.
    */

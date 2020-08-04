@@ -78,29 +78,27 @@ export interface WorkRequest {
 
 export namespace WorkRequest {
   export enum OperationType {
-    COMPARTMENT = "DELETE_COMPARTMENT",
-    TAGDEFINITION = "DELETE_TAG_DEFINITION",
-
+    DeleteCompartment = "DELETE_COMPARTMENT",
+    DeleteTagDefinition = "DELETE_TAG_DEFINITION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Status {
-    ACCEPTED = "ACCEPTED",
-    INPROGRESS = "IN_PROGRESS",
-    FAILED = "FAILED",
-    SUCCEEDED = "SUCCEEDED",
-    CANCELING = "CANCELING",
-    CANCELED = "CANCELED",
-
+    Accepted = "ACCEPTED",
+    InProgress = "IN_PROGRESS",
+    Failed = "FAILED",
+    Succeeded = "SUCCEEDED",
+    Canceling = "CANCELING",
+    Canceled = "CANCELED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: WorkRequest): object {

@@ -1,6 +1,6 @@
 /**
  * Blockchain Platform Control Plane API
- * Blockchain Platform Plane API
+ * Blockchain Platform Control Plane API
  * OpenAPI spec version: 20191010
  *
  *
@@ -108,46 +108,43 @@ export interface BlockchainPlatform {
 
 export namespace BlockchainPlatform {
   export enum PlatformRole {
-    FOUNDER = "FOUNDER",
-    PARTICIPANT = "PARTICIPANT",
-
+    Founder = "FOUNDER",
+    Participant = "PARTICIPANT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum ComputeShape {
-    STANDARD = "STANDARD",
-    ENTERPRISESMALL = "ENTERPRISE_SMALL",
-    ENTERPRISEMEDIUM = "ENTERPRISE_MEDIUM",
-    ENTERPRISELARGE = "ENTERPRISE_LARGE",
-    ENTERPRISEEXTRALARGE = "ENTERPRISE_EXTRA_LARGE",
-    ENTERPRISECUSTOM = "ENTERPRISE_CUSTOM",
-
+    Standard = "STANDARD",
+    EnterpriseSmall = "ENTERPRISE_SMALL",
+    EnterpriseMedium = "ENTERPRISE_MEDIUM",
+    EnterpriseLarge = "ENTERPRISE_LARGE",
+    EnterpriseExtraLarge = "ENTERPRISE_EXTRA_LARGE",
+    EnterpriseCustom = "ENTERPRISE_CUSTOM",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LifecycleState {
-    CREATING = "CREATING",
-    UPDATING = "UPDATING",
-    ACTIVE = "ACTIVE",
-    DELETING = "DELETING",
-    DELETED = "DELETED",
-    SCALING = "SCALING",
-    INACTIVE = "INACTIVE",
-    FAILED = "FAILED",
-
+    Creating = "CREATING",
+    Updating = "UPDATING",
+    Active = "ACTIVE",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
+    Scaling = "SCALING",
+    Inactive = "INACTIVE",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: BlockchainPlatform): object {

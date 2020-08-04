@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateInternetGatewayRequest {
+export interface CreateInternetGatewayRequest extends common.BaseRequest {
   /**
    * Details for creating a new internet gateway.
    */

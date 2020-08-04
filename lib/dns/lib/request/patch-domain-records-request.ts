@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface PatchDomainRecordsRequest {
+export interface PatchDomainRecordsRequest extends common.BaseRequest {
   /**
    * The name or OCID of the target zone.
    */

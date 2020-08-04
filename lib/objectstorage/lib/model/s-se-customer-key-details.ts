@@ -42,7 +42,7 @@ export interface SSECustomerKeyDetails {
 
 export namespace SSECustomerKeyDetails {
   export enum Algorithm {
-    AES256 = "AES256"
+    Aes256 = "AES256"
   }
 
   export function getJsonObj(obj: SSECustomerKeyDetails): object {

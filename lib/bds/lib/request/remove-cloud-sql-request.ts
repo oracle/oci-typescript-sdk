@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface RemoveCloudSqlRequest {
+export interface RemoveCloudSqlRequest extends common.BaseRequest {
   /**
    * The OCID of the BDS instance
    */

@@ -46,7 +46,7 @@ export interface CreateFlowLogConfigAttachmentDetails {
 
 export namespace CreateFlowLogConfigAttachmentDetails {
   export enum TargetEntityType {
-    SUBNET = "SUBNET"
+    Subnet = "SUBNET"
   }
 
   export function getJsonObj(obj: CreateFlowLogConfigAttachmentDetails): object {

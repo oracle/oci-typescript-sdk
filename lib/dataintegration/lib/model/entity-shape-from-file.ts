@@ -84,18 +84,17 @@ export interface EntityShapeFromFile extends model.EntityShape {
 
 export namespace EntityShapeFromFile {
   export enum EntityType {
-    TABLE = "TABLE",
-    VIEW = "VIEW",
-    FILE = "FILE",
-    QUEUE = "QUEUE",
-    STREAM = "STREAM",
-    OTHER = "OTHER",
-
+    Table = "TABLE",
+    View = "VIEW",
+    File = "FILE",
+    Queue = "QUEUE",
+    Stream = "STREAM",
+    Other = "OTHER",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: EntityShapeFromFile, isParentJsonObj?: boolean): object {

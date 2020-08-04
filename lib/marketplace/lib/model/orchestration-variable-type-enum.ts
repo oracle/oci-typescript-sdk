@@ -18,14 +18,14 @@ import common = require("oci-common");
  * Possible data types for an orchestration variable.
  **/
 export enum OrchestrationVariableTypeEnum {
-  STRING = "STRING",
-  INTEGER = "INTEGER",
+  String = "STRING",
+  Integer = "INTEGER",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace OrchestrationVariableTypeEnum {

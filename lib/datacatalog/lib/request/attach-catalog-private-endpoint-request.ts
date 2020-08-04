@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface AttachCatalogPrivateEndpointRequest {
+export interface AttachCatalogPrivateEndpointRequest extends common.BaseRequest {
   /**
    * Details for private reverse connection endpoint to be used for attachment.
    */

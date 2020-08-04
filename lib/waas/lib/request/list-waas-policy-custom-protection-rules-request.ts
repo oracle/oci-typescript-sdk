@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListWaasPolicyCustomProtectionRulesRequest {
+export interface ListWaasPolicyCustomProtectionRulesRequest extends common.BaseRequest {
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the WAAS policy.
    */
@@ -42,7 +42,7 @@ export interface ListWaasPolicyCustomProtectionRulesRequest {
 
 export namespace ListWaasPolicyCustomProtectionRulesRequest {
   export enum Action {
-    DETECT = "DETECT",
-    BLOCK = "BLOCK"
+    Detect = "DETECT",
+    Block = "BLOCK"
   }
 }

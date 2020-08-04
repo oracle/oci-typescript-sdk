@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListPingMonitorsRequest {
+export interface ListPingMonitorsRequest extends common.BaseRequest {
   /**
    * Filters results by compartment.
    */
@@ -61,7 +61,7 @@ export namespace ListPingMonitorsRequest {
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

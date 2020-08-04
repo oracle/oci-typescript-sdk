@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListIncidentsRequest {
+export interface ListIncidentsRequest extends common.BaseRequest {
   /**
    * Customer Support Identifier of the support account
    */

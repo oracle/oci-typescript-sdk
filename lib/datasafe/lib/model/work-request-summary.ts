@@ -62,30 +62,28 @@ export interface WorkRequestSummary {
 
 export namespace WorkRequestSummary {
   export enum OperationType {
-    ENABLEDATASAFECONFIGURATION = "ENABLE_DATA_SAFE_CONFIGURATION",
-    CREATEPRIVATEENDPOINT = "CREATE_PRIVATE_ENDPOINT",
-    UPDATEPRIVATEENDPOINT = "UPDATE_PRIVATE_ENDPOINT",
-    DELETEPRIVATEENDPOINT = "DELETE_PRIVATE_ENDPOINT",
-    CHANGEPRIVATEENDPOINTCOMPARTMENT = "CHANGE_PRIVATE_ENDPOINT_COMPARTMENT",
-
+    EnableDataSafeConfiguration = "ENABLE_DATA_SAFE_CONFIGURATION",
+    CreatePrivateEndpoint = "CREATE_PRIVATE_ENDPOINT",
+    UpdatePrivateEndpoint = "UPDATE_PRIVATE_ENDPOINT",
+    DeletePrivateEndpoint = "DELETE_PRIVATE_ENDPOINT",
+    ChangePrivateEndpointCompartment = "CHANGE_PRIVATE_ENDPOINT_COMPARTMENT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Status {
-    ACCEPTED = "ACCEPTED",
-    INPROGRESS = "IN_PROGRESS",
-    FAILED = "FAILED",
-    SUCCEEDED = "SUCCEEDED",
-
+    Accepted = "ACCEPTED",
+    InProgress = "IN_PROGRESS",
+    Failed = "FAILED",
+    Succeeded = "SUCCEEDED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: WorkRequestSummary): object {

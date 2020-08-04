@@ -27,22 +27,21 @@ export interface TransferDevice {
 
 export namespace TransferDevice {
   export enum LifecycleState {
-    PREPARING = "PREPARING",
-    READY = "READY",
-    PACKAGED = "PACKAGED",
-    ACTIVE = "ACTIVE",
-    PROCESSING = "PROCESSING",
-    COMPLETE = "COMPLETE",
-    MISSING = "MISSING",
-    ERROR = "ERROR",
-    DELETED = "DELETED",
-    CANCELLED = "CANCELLED",
-
+    Preparing = "PREPARING",
+    Ready = "READY",
+    Packaged = "PACKAGED",
+    Active = "ACTIVE",
+    Processing = "PROCESSING",
+    Complete = "COMPLETE",
+    Missing = "MISSING",
+    Error = "ERROR",
+    Deleted = "DELETED",
+    Cancelled = "CANCELLED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: TransferDevice): object {

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateSenderRequest {
+export interface CreateSenderRequest extends common.BaseRequest {
   /**
    * Create a sender.
    */

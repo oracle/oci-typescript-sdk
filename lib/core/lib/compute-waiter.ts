@@ -215,7 +215,7 @@ export class ComputeWaiter {
       this.config,
       () => this.client.getDedicatedVmHost(request),
       response => targetStates.exists(response.dedicatedVmHost.lifecycleState),
-      targetStates.includes(models.DedicatedVmHost.LifecycleState.DELETED)
+      targetStates.includes(models.DedicatedVmHost.LifecycleState.Deleted)
     );
   }
 
@@ -234,7 +234,7 @@ export class ComputeWaiter {
       this.config,
       () => this.client.getImage(request),
       response => targetStates.exists(response.image.lifecycleState),
-      targetStates.includes(models.Image.LifecycleState.DELETED)
+      targetStates.includes(models.Image.LifecycleState.Deleted)
     );
   }
 
@@ -253,7 +253,7 @@ export class ComputeWaiter {
       this.config,
       () => this.client.getInstance(request),
       response => targetStates.exists(response.instance.lifecycleState),
-      targetStates.includes(models.Instance.LifecycleState.TERMINATED)
+      targetStates.includes(models.Instance.LifecycleState.Terminated)
     );
   }
 
@@ -272,7 +272,7 @@ export class ComputeWaiter {
       this.config,
       () => this.client.getInstanceConsoleConnection(request),
       response => targetStates.exists(response.instanceConsoleConnection.lifecycleState),
-      targetStates.includes(models.InstanceConsoleConnection.LifecycleState.DELETED)
+      targetStates.includes(models.InstanceConsoleConnection.LifecycleState.Deleted)
     );
   }
 

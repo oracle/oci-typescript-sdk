@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface InstanceActionRequest {
+export interface InstanceActionRequest extends common.BaseRequest {
   /**
    * The OCID of the instance.
    */
@@ -42,10 +42,10 @@ export interface InstanceActionRequest {
 
 export namespace InstanceActionRequest {
   export enum Action {
-    STOP = "STOP",
-    START = "START",
-    SOFTRESET = "SOFTRESET",
-    RESET = "RESET",
-    SOFTSTOP = "SOFTSTOP"
+    Stop = "STOP",
+    Start = "START",
+    Softreset = "SOFTRESET",
+    Reset = "RESET",
+    Softstop = "SOFTSTOP"
   }
 }

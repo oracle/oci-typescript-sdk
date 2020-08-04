@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface DeleteOsnRequest {
+export interface DeleteOsnRequest extends common.BaseRequest {
   /**
    * Unique service identifier.
    */

@@ -14,7 +14,7 @@
 import * as model from "../model";
 import common = require("oci-common");
 import stream = require("stream");
-export interface CreateModelArtifactRequest {
+export interface CreateModelArtifactRequest extends common.BaseRequest {
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/identifiers.htm) of the model.
    */

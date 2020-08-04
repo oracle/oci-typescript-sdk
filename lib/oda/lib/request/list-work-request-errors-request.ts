@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListWorkRequestErrorsRequest {
+export interface ListWorkRequestErrorsRequest extends common.BaseRequest {
   /**
    * The identifier of the asynchronous work request.
    */
@@ -51,12 +51,12 @@ The default sort order for both `TIMESTAMP` and `CODE` is ascending.
 
 export namespace ListWorkRequestErrorsRequest {
   export enum SortBy {
-    CODE = "CODE",
-    TIMESTAMP = "TIMESTAMP"
+    Code = "CODE",
+    Timestamp = "TIMESTAMP"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

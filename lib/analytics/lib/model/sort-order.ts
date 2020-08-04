@@ -20,8 +20,8 @@ import common = require("oci-common");
  *
  **/
 export enum SortOrder {
-  ASC = "ASC",
-  DESC = "DESC"
+  Asc = "ASC",
+  Desc = "DESC"
 }
 
 export namespace SortOrder {

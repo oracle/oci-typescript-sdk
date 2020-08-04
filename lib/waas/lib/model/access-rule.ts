@@ -112,53 +112,49 @@ Regardless of action, no further rules are processed once a rule is matched.
 
 export namespace AccessRule {
   export enum Action {
-    ALLOW = "ALLOW",
-    DETECT = "DETECT",
-    BLOCK = "BLOCK",
-    BYPASS = "BYPASS",
-    REDIRECT = "REDIRECT",
-    SHOWCAPTCHA = "SHOW_CAPTCHA",
-
+    Allow = "ALLOW",
+    Detect = "DETECT",
+    Block = "BLOCK",
+    Bypass = "BYPASS",
+    Redirect = "REDIRECT",
+    ShowCaptcha = "SHOW_CAPTCHA",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum BlockAction {
-    SETRESPONSECODE = "SET_RESPONSE_CODE",
-    SHOWERRORPAGE = "SHOW_ERROR_PAGE",
-
+    SetResponseCode = "SET_RESPONSE_CODE",
+    ShowErrorPage = "SHOW_ERROR_PAGE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum BypassChallenges {
-    JSCHALLENGE = "JS_CHALLENGE",
-    DEVICEFINGERPRINTCHALLENGE = "DEVICE_FINGERPRINT_CHALLENGE",
-    HUMANINTERACTIONCHALLENGE = "HUMAN_INTERACTION_CHALLENGE",
-    CAPTCHA = "CAPTCHA",
-
+    JsChallenge = "JS_CHALLENGE",
+    DeviceFingerprintChallenge = "DEVICE_FINGERPRINT_CHALLENGE",
+    HumanInteractionChallenge = "HUMAN_INTERACTION_CHALLENGE",
+    Captcha = "CAPTCHA",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum RedirectResponseCode {
-    MOVEDPERMANENTLY = "MOVED_PERMANENTLY",
-    FOUND = "FOUND",
-
+    MovedPermanently = "MOVED_PERMANENTLY",
+    Found = "FOUND",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: AccessRule): object {

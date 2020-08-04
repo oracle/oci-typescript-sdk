@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetWindowsUpdateRequest {
+export interface GetWindowsUpdateRequest extends common.BaseRequest {
   /**
    * The Windows Update
    */

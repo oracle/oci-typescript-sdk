@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateSubnetRequest {
+export interface CreateSubnetRequest extends common.BaseRequest {
   /**
    * Details for creating a subnet.
    */

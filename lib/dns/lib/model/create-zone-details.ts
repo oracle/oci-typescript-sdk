@@ -40,8 +40,8 @@ export interface CreateZoneDetails extends model.CreateZoneBaseDetails {
 
 export namespace CreateZoneDetails {
   export enum ZoneType {
-    PRIMARY = "PRIMARY",
-    SECONDARY = "SECONDARY"
+    Primary = "PRIMARY",
+    Secondary = "SECONDARY"
   }
 
   export function getJsonObj(obj: CreateZoneDetails, isParentJsonObj?: boolean): object {

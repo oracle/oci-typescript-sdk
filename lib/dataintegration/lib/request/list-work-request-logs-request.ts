@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListWorkRequestLogsRequest {
+export interface ListWorkRequestLogsRequest extends common.BaseRequest {
   /**
    * The ID of the asynchronous request.
    */
@@ -45,12 +45,12 @@ export interface ListWorkRequestLogsRequest {
 
 export namespace ListWorkRequestLogsRequest {
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 
   export enum SortBy {
-    TIMECREATED = "TIME_CREATED",
-    DISPLAYNAME = "DISPLAY_NAME"
+    TimeCreated = "TIME_CREATED",
+    DisplayName = "DISPLAY_NAME"
   }
 }

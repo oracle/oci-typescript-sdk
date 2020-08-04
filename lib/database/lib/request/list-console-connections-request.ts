@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListConsoleConnectionsRequest {
+export interface ListConsoleConnectionsRequest extends common.BaseRequest {
   /**
    * The database node [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    */

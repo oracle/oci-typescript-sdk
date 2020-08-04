@@ -78,7 +78,7 @@ async function activeUsers() {
   const structuredSearch = {
     query: "query user resources where inactiveStatus = 0",
     type: "Structured",
-    matchingContextType: resourceSearch.models.SearchDetails.MatchingContextType.NONE
+    matchingContextType: resourceSearch.models.SearchDetails.MatchingContextType.None
   };
 
   const structuredSearchRequest = {
@@ -97,7 +97,7 @@ async function searchWithFreeText() {
   const freeTextSearch = {
     text: "lifecycleState as AVAILABLE",
     type: "FreeText",
-    matchingContextType: resourceSearch.models.SearchDetails.MatchingContextType.HIGHLIGHTS
+    matchingContextType: resourceSearch.models.SearchDetails.MatchingContextType.Highlights
   };
 
   const SearchResourcesRequest = {
@@ -121,7 +121,7 @@ async function userByFreeformTag(tag) {
   const structuredSearch = {
     query: `query user resources where freeformTags.key = '${tag}'`,
     type: "Structured",
-    matchingContextType: resourceSearch.models.SearchDetails.MatchingContextType.NONE
+    matchingContextType: resourceSearch.models.SearchDetails.MatchingContextType.None
   };
 
   const structuredSearchRequest = {
@@ -144,7 +144,7 @@ async function usersByFreeformTagAndValue(tag, value) {
   const structuredSearch = {
     query: `query user resources where (freeformTags.key = '${tag}' && freeformTags.value = '${value}')`,
     type: "Structured",
-    matchingContextType: resourceSearch.models.SearchDetails.MatchingContextType.NONE
+    matchingContextType: resourceSearch.models.SearchDetails.MatchingContextType.None
   };
 
   const structuredSearchRequest = {

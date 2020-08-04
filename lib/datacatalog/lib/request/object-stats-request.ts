@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ObjectStatsRequest {
+export interface ObjectStatsRequest extends common.BaseRequest {
   /**
    * Unique catalog identifier.
    */
@@ -43,12 +43,12 @@ export interface ObjectStatsRequest {
 
 export namespace ObjectStatsRequest {
   export enum SortBy {
-    TIMECREATED = "TIMECREATED",
-    DISPLAYNAME = "DISPLAYNAME"
+    Timecreated = "TIMECREATED",
+    Displayname = "DISPLAYNAME"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

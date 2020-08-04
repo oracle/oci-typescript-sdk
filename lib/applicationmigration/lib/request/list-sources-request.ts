@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListSourcesRequest {
+export interface ListSourcesRequest extends common.BaseRequest {
   /**
    * The compartment OCID on which to filter.
    */
@@ -65,7 +65,7 @@ export interface ListSourcesRequest {
 
 export namespace ListSourcesRequest {
   export enum SortBy {
-    TIMECREATED = "TIMECREATED",
-    DISPLAYNAME = "DISPLAYNAME"
+    Timecreated = "TIMECREATED",
+    Displayname = "DISPLAYNAME"
   }
 }

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetVolumeBackupRequest {
+export interface GetVolumeBackupRequest extends common.BaseRequest {
   /**
    * The OCID of the volume backup.
    */

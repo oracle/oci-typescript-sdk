@@ -48,9 +48,9 @@ export interface CreateGroupCursorDetails {
 
 export namespace CreateGroupCursorDetails {
   export enum Type {
-    ATTIME = "AT_TIME",
-    LATEST = "LATEST",
-    TRIMHORIZON = "TRIM_HORIZON"
+    AtTime = "AT_TIME",
+    Latest = "LATEST",
+    TrimHorizon = "TRIM_HORIZON"
   }
 
   export function getJsonObj(obj: CreateGroupCursorDetails): object {

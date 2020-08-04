@@ -51,7 +51,7 @@ export interface UpdateTaskRunDetails {
 
 export namespace UpdateTaskRunDetails {
   export enum Status {
-    TERMINATING = "TERMINATING"
+    Terminating = "TERMINATING"
   }
 
   export function getJsonObj(obj: UpdateTaskRunDetails): object {

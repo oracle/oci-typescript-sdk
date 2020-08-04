@@ -221,28 +221,26 @@ Example: `2019-02-03T01:02:29.600Z`
 
 export namespace Alarm {
   export enum Severity {
-    CRITICAL = "CRITICAL",
-    ERROR = "ERROR",
-    WARNING = "WARNING",
-    INFO = "INFO",
-
+    Critical = "CRITICAL",
+    Error = "ERROR",
+    Warning = "WARNING",
+    Info = "INFO",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LifecycleState {
-    ACTIVE = "ACTIVE",
-    DELETING = "DELETING",
-    DELETED = "DELETED",
-
+    Active = "ACTIVE",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Alarm): object {

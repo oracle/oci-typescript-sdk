@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateWaasPolicyRequest {
+export interface CreateWaasPolicyRequest extends common.BaseRequest {
   /**
    * The details of the WAAS policy.
    */

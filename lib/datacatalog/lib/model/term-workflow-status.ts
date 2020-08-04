@@ -25,16 +25,16 @@ import common = require("oci-common");
  *
  **/
 export enum TermWorkflowStatus {
-  NEW = "NEW",
-  APPROVED = "APPROVED",
-  UNDER_REVIEW = "UNDER_REVIEW",
-  ESCALATED = "ESCALATED",
+  New = "NEW",
+  Approved = "APPROVED",
+  UnderReview = "UNDER_REVIEW",
+  Escalated = "ESCALATED",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace TermWorkflowStatus {

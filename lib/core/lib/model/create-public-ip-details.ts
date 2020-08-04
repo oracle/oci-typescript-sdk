@@ -71,8 +71,8 @@ Optional for a reserved public IP. If you don't provide it, the public IP is cre
 
 export namespace CreatePublicIpDetails {
   export enum Lifetime {
-    EPHEMERAL = "EPHEMERAL",
-    RESERVED = "RESERVED"
+    Ephemeral = "EPHEMERAL",
+    Reserved = "RESERVED"
   }
 
   export function getJsonObj(obj: CreatePublicIpDetails): object {

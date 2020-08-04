@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListPublishersRequest {
+export interface ListPublishersRequest extends common.BaseRequest {
   /**
    * Limit results to just this publisher.
    */

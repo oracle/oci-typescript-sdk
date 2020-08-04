@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetTaggingWorkRequestRequest {
+export interface GetTaggingWorkRequestRequest extends common.BaseRequest {
   /**
    * The OCID of the work request.
    */

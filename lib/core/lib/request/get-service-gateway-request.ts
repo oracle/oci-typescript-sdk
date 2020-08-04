@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetServiceGatewayRequest {
+export interface GetServiceGatewayRequest extends common.BaseRequest {
   /**
    * The service gateway's [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    */

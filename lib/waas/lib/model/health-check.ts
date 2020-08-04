@@ -73,28 +73,26 @@ export interface HealthCheck {
 
 export namespace HealthCheck {
   export enum Method {
-    GET = "GET",
-    HEAD = "HEAD",
-    POST = "POST",
-
+    Get = "GET",
+    Head = "HEAD",
+    Post = "POST",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum ExpectedResponseCodeGroup {
-    _2XX = "2XX",
-    _3XX = "3XX",
-    _4XX = "4XX",
-    _5XX = "5XX",
-
+    _2Xx = "2XX",
+    _3Xx = "3XX",
+    _4Xx = "4XX",
+    _5Xx = "5XX",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: HealthCheck): object {

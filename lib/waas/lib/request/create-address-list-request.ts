@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateAddressListRequest {
+export interface CreateAddressListRequest extends common.BaseRequest {
   /**
    * The details of the address list resource to create.
    */

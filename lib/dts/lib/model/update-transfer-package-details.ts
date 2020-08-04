@@ -23,8 +23,8 @@ export interface UpdateTransferPackageDetails {
 
 export namespace UpdateTransferPackageDetails {
   export enum LifecycleState {
-    SHIPPING = "SHIPPING",
-    CANCELLED = "CANCELLED"
+    Shipping = "SHIPPING",
+    Cancelled = "CANCELLED"
   }
 
   export function getJsonObj(obj: UpdateTransferPackageDetails): object {

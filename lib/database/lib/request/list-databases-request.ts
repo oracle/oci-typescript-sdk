@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListDatabasesRequest {
+export interface ListDatabasesRequest extends common.BaseRequest {
   /**
    * The compartment [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    */
@@ -54,12 +54,12 @@ export interface ListDatabasesRequest {
 
 export namespace ListDatabasesRequest {
   export enum SortBy {
-    DBNAME = "DBNAME",
-    TIMECREATED = "TIMECREATED"
+    Dbname = "DBNAME",
+    Timecreated = "TIMECREATED"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

@@ -30,19 +30,18 @@ export interface CountStatisticSummary {
 
 export namespace CountStatisticSummary {
   export enum ObjectType {
-    PROJECT = "PROJECT",
-    FOLDER = "FOLDER",
-    DATAFLOW = "DATA_FLOW",
-    DATAASSET = "DATA_ASSET",
-    CONNECTION = "CONNECTION",
-    TASK = "TASK",
-    APPLICATION = "APPLICATION",
-
+    Project = "PROJECT",
+    Folder = "FOLDER",
+    DataFlow = "DATA_FLOW",
+    DataAsset = "DATA_ASSET",
+    Connection = "CONNECTION",
+    Task = "TASK",
+    Application = "APPLICATION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: CountStatisticSummary): object {

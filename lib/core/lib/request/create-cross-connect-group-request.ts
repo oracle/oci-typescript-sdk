@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateCrossConnectGroupRequest {
+export interface CreateCrossConnectGroupRequest extends common.BaseRequest {
   /**
    * Details to create a CrossConnectGroup
    */

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListStreamsRequest {
+export interface ListStreamsRequest extends common.BaseRequest {
   /**
    * The OCID of the compartment. Is exclusive with the `streamPoolId` parameter. One of them is required.
    */
@@ -65,12 +65,12 @@ export interface ListStreamsRequest {
 
 export namespace ListStreamsRequest {
   export enum SortBy {
-    NAME = "NAME",
-    TIMECREATED = "TIMECREATED"
+    Name = "NAME",
+    Timecreated = "TIMECREATED"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

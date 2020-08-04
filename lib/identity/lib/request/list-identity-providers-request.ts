@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListIdentityProvidersRequest {
+export interface ListIdentityProvidersRequest extends common.BaseRequest {
   /**
    * The protocol used for federation.
    */
@@ -65,16 +65,16 @@ export interface ListIdentityProvidersRequest {
 
 export namespace ListIdentityProvidersRequest {
   export enum Protocol {
-    SAML2 = "SAML2"
+    Saml2 = "SAML2"
   }
 
   export enum SortBy {
-    TIMECREATED = "TIMECREATED",
-    NAME = "NAME"
+    Timecreated = "TIMECREATED",
+    Name = "NAME"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

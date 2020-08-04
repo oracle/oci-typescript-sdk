@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateSmtpCredentialRequest {
+export interface CreateSmtpCredentialRequest extends common.BaseRequest {
   /**
    * Request object for creating a new SMTP credential with the user.
    */

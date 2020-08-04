@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface RunScheduledJobNowRequest {
+export interface RunScheduledJobNowRequest extends common.BaseRequest {
   /**
    * The ID of the scheduled job.
    */

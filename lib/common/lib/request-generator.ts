@@ -104,6 +104,7 @@ function stringify(queryParams?: Params): string {
           return key + "=" + value;
         }
       })
+      .filter(key => key !== undefined && key !== null)
       .join("&");
   }
   return qs;

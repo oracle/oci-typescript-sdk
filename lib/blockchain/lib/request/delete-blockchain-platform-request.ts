@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface DeleteBlockchainPlatformRequest {
+export interface DeleteBlockchainPlatformRequest extends common.BaseRequest {
   /**
    * Unique service identifier.
    */

@@ -38,7 +38,7 @@ export class DbSystemWaiter {
       this.config,
       () => this.client.getDbSystem(request),
       response => targetStates.exists(response.dbSystem.lifecycleState),
-      targetStates.includes(models.DbSystem.LifecycleState.DELETED)
+      targetStates.includes(models.DbSystem.LifecycleState.Deleted)
     );
   }
 }

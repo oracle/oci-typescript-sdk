@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetRunLogRequest {
+export interface GetRunLogRequest extends common.BaseRequest {
   /**
    * The unique ID for the run
    *

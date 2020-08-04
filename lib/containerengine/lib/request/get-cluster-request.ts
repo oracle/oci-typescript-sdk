@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetClusterRequest {
+export interface GetClusterRequest extends common.BaseRequest {
   /**
    * The OCID of the cluster.
    */

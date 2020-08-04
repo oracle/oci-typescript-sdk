@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateFunctionRequest {
+export interface CreateFunctionRequest extends common.BaseRequest {
   /**
    * Specification of the function to create
    */

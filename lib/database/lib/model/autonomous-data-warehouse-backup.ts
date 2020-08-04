@@ -64,28 +64,26 @@ export interface AutonomousDataWarehouseBackup {
 
 export namespace AutonomousDataWarehouseBackup {
   export enum Type {
-    INCREMENTAL = "INCREMENTAL",
-    FULL = "FULL",
-
+    Incremental = "INCREMENTAL",
+    Full = "FULL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LifecycleState {
-    CREATING = "CREATING",
-    ACTIVE = "ACTIVE",
-    DELETING = "DELETING",
-    DELETED = "DELETED",
-    FAILED = "FAILED",
-
+    Creating = "CREATING",
+    Active = "ACTIVE",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: AutonomousDataWarehouseBackup): object {

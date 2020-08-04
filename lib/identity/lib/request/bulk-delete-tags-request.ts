@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface BulkDeleteTagsRequest {
+export interface BulkDeleteTagsRequest extends common.BaseRequest {
   /**
    * Request object for deleting tags in bulk.
    */

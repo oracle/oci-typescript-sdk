@@ -21,19 +21,19 @@ import common = require("oci-common");
  * The types of work request operations.
  **/
 export enum WorkRequestOperationType {
-  CLUSTER_CREATE = "CLUSTER_CREATE",
-  CLUSTER_UPDATE = "CLUSTER_UPDATE",
-  CLUSTER_DELETE = "CLUSTER_DELETE",
-  NODEPOOL_CREATE = "NODEPOOL_CREATE",
-  NODEPOOL_UPDATE = "NODEPOOL_UPDATE",
-  NODEPOOL_DELETE = "NODEPOOL_DELETE",
-  WORKREQUEST_CANCEL = "WORKREQUEST_CANCEL",
+  ClusterCreate = "CLUSTER_CREATE",
+  ClusterUpdate = "CLUSTER_UPDATE",
+  ClusterDelete = "CLUSTER_DELETE",
+  NodepoolCreate = "NODEPOOL_CREATE",
+  NodepoolUpdate = "NODEPOOL_UPDATE",
+  NodepoolDelete = "NODEPOOL_DELETE",
+  WorkrequestCancel = "WORKREQUEST_CANCEL",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace WorkRequestOperationType {

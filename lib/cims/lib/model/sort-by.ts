@@ -18,8 +18,8 @@ import common = require("oci-common");
  * The field to sort by. Only one sort order may be provided. If no value is specified dateUpdated is default.
  **/
 export enum SortBy {
-  DATE_UPDATED = "dateUpdated",
-  SEVERITY = "severity"
+  DateUpdated = "dateUpdated",
+  Severity = "severity"
 }
 
 export namespace SortBy {

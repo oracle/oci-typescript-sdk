@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface UpdateTagNamespaceRequest {
+export interface UpdateTagNamespaceRequest extends common.BaseRequest {
   /**
    * The OCID of the tag namespace.
    *

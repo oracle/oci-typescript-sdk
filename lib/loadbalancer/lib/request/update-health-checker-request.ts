@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface UpdateHealthCheckerRequest {
+export interface UpdateHealthCheckerRequest extends common.BaseRequest {
   /**
    * The health check policy configuration details.
    */

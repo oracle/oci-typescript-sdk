@@ -116,8 +116,8 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 
 export namespace CreateLoadBalancerDetails {
   export enum IpMode {
-    IPV4 = "IPV4",
-    IPV6 = "IPV6"
+    Ipv4 = "IPV4",
+    Ipv6 = "IPV6"
   }
 
   export function getJsonObj(obj: CreateLoadBalancerDetails): object {

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface DetachBootVolumeRequest {
+export interface DetachBootVolumeRequest extends common.BaseRequest {
   /**
    * The OCID of the boot volume attachment.
    */

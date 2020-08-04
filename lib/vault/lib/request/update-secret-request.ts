@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface UpdateSecretRequest {
+export interface UpdateSecretRequest extends common.BaseRequest {
   /**
    * The OCID of the secret.
    */

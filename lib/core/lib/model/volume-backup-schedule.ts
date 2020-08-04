@@ -83,87 +83,81 @@ For clients using older versions of Apis and not sending `offsetType` in their r
 
 export namespace VolumeBackupSchedule {
   export enum BackupType {
-    FULL = "FULL",
-    INCREMENTAL = "INCREMENTAL",
-
+    Full = "FULL",
+    Incremental = "INCREMENTAL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Period {
-    HOUR = "ONE_HOUR",
-    DAY = "ONE_DAY",
-    WEEK = "ONE_WEEK",
-    MONTH = "ONE_MONTH",
-    YEAR = "ONE_YEAR",
-
+    OneHour = "ONE_HOUR",
+    OneDay = "ONE_DAY",
+    OneWeek = "ONE_WEEK",
+    OneMonth = "ONE_MONTH",
+    OneYear = "ONE_YEAR",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum OffsetType {
-    STRUCTURED = "STRUCTURED",
-    NUMERICSECONDS = "NUMERIC_SECONDS",
-
+    Structured = "STRUCTURED",
+    NumericSeconds = "NUMERIC_SECONDS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum DayOfWeek {
-    MONDAY = "MONDAY",
-    TUESDAY = "TUESDAY",
-    WEDNESDAY = "WEDNESDAY",
-    THURSDAY = "THURSDAY",
-    FRIDAY = "FRIDAY",
-    SATURDAY = "SATURDAY",
-    SUNDAY = "SUNDAY",
-
+    Monday = "MONDAY",
+    Tuesday = "TUESDAY",
+    Wednesday = "WEDNESDAY",
+    Thursday = "THURSDAY",
+    Friday = "FRIDAY",
+    Saturday = "SATURDAY",
+    Sunday = "SUNDAY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Month {
-    JANUARY = "JANUARY",
-    FEBRUARY = "FEBRUARY",
-    MARCH = "MARCH",
-    APRIL = "APRIL",
-    MAY = "MAY",
-    JUNE = "JUNE",
-    JULY = "JULY",
-    AUGUST = "AUGUST",
-    SEPTEMBER = "SEPTEMBER",
-    OCTOBER = "OCTOBER",
-    NOVEMBER = "NOVEMBER",
-    DECEMBER = "DECEMBER",
-
+    January = "JANUARY",
+    February = "FEBRUARY",
+    March = "MARCH",
+    April = "APRIL",
+    May = "MAY",
+    June = "JUNE",
+    July = "JULY",
+    August = "AUGUST",
+    September = "SEPTEMBER",
+    October = "OCTOBER",
+    November = "NOVEMBER",
+    December = "DECEMBER",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum TimeZone {
-    UTC = "UTC",
-    REGIONALDATACENTERTIME = "REGIONAL_DATA_CENTER_TIME",
-
+    Utc = "UTC",
+    RegionalDataCenterTime = "REGIONAL_DATA_CENTER_TIME",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: VolumeBackupSchedule): object {

@@ -19,13 +19,13 @@ import common = require("oci-common");
  * Migration process state
  **/
 export enum MigrationStates {
-  DISCOVERING_APPLICATION = "DISCOVERING_APPLICATION",
-  DISCOVERY_FAILED = "DISCOVERY_FAILED",
-  MISSING_CONFIG_VALUES = "MISSING_CONFIG_VALUES",
-  READY = "READY",
-  MIGRATING = "MIGRATING",
-  MIGRATION_FAILED = "MIGRATION_FAILED",
-  MIGRATION_SUCCEEDED = "MIGRATION_SUCCEEDED"
+  DiscoveringApplication = "DISCOVERING_APPLICATION",
+  DiscoveryFailed = "DISCOVERY_FAILED",
+  MissingConfigValues = "MISSING_CONFIG_VALUES",
+  Ready = "READY",
+  Migrating = "MIGRATING",
+  MigrationFailed = "MIGRATION_FAILED",
+  MigrationSucceeded = "MIGRATION_SUCCEEDED"
 }
 
 export namespace MigrationStates {

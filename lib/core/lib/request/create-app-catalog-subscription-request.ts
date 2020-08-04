@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateAppCatalogSubscriptionRequest {
+export interface CreateAppCatalogSubscriptionRequest extends common.BaseRequest {
   /**
    * Request for the creation of a subscription for listing resource version for a compartment.
    */

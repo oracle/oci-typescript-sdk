@@ -32,14 +32,13 @@ export interface AutonomousDatabaseWallet {
 
 export namespace AutonomousDatabaseWallet {
   export enum LifecycleState {
-    ACTIVE = "ACTIVE",
-    UPDATING = "UPDATING",
-
+    Active = "ACTIVE",
+    Updating = "UPDATING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: AutonomousDatabaseWallet): object {

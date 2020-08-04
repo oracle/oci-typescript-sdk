@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateAutonomousDatabaseRequest {
+export interface CreateAutonomousDatabaseRequest extends common.BaseRequest {
   /**
    * Request to create a new Autonomous Database.
    */

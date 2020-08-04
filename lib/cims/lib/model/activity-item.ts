@@ -44,27 +44,25 @@ export interface ActivityItem extends model.Item {
 
 export namespace ActivityItem {
   export enum ActivityType {
-    NOTES = "NOTES",
-    PROBLEMDESCRIPTION = "PROBLEM_DESCRIPTION",
-    UPDATE = "UPDATE",
-    CLOSE = "CLOSE",
-
+    Notes = "NOTES",
+    ProblemDescription = "PROBLEM_DESCRIPTION",
+    Update = "UPDATE",
+    Close = "CLOSE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum ActivityAuthor {
-    CUSTOMER = "CUSTOMER",
-    ORACLE = "ORACLE",
-
+    Customer = "CUSTOMER",
+    Oracle = "ORACLE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: ActivityItem, isParentJsonObj?: boolean): object {

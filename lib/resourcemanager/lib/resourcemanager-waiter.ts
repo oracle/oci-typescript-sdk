@@ -78,7 +78,7 @@ export class ResourceManagerWaiter {
       this.config,
       () => this.client.getStack(request),
       response => targetStates.exists(response.stack.lifecycleState),
-      targetStates.includes(models.Stack.LifecycleState.DELETED)
+      targetStates.includes(models.Stack.LifecycleState.Deleted)
     );
   }
 

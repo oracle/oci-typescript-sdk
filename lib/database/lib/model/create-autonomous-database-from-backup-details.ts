@@ -35,8 +35,8 @@ export interface CreateAutonomousDatabaseFromBackupDetails
 
 export namespace CreateAutonomousDatabaseFromBackupDetails {
   export enum CloneType {
-    FULL = "FULL",
-    METADATA = "METADATA"
+    Full = "FULL",
+    Metadata = "METADATA"
   }
 
   export function getJsonObj(

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface UpdateHostnameRequest {
+export interface UpdateHostnameRequest extends common.BaseRequest {
   /**
    * The configuration details to update a virtual hostname.
    */

@@ -32,10 +32,10 @@ export interface UpdateActivityItemDetails extends model.UpdateItemDetails {
 
 export namespace UpdateActivityItemDetails {
   export enum ActivityType {
-    NOTES = "NOTES",
-    PROBLEMDESCRIPTION = "PROBLEM_DESCRIPTION",
-    UPDATE = "UPDATE",
-    CLOSE = "CLOSE"
+    Notes = "NOTES",
+    ProblemDescription = "PROBLEM_DESCRIPTION",
+    Update = "UPDATE",
+    Close = "CLOSE"
   }
 
   export function getJsonObj(obj: UpdateActivityItemDetails, isParentJsonObj?: boolean): object {

@@ -31,9 +31,9 @@ The slow shutdown can take minutes, or even hours in extreme cases where
 * 
 **/
 export enum InnoDbShutdownMode {
-  IMMEDIATE = "IMMEDIATE",
-  FAST = "FAST",
-  SLOW = "SLOW"
+  Immediate = "IMMEDIATE",
+  Fast = "FAST",
+  Slow = "SLOW"
 }
 
 export namespace InnoDbShutdownMode {

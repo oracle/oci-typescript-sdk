@@ -20,16 +20,16 @@ import common = require("oci-common");
  * Possible package operation types
  **/
 export enum OperationTypes {
-  INSTALL = "INSTALL",
-  UPDATE = "UPDATE",
-  REMOVE = "REMOVE",
-  UPDATEALL = "UPDATEALL",
+  Install = "INSTALL",
+  Update = "UPDATE",
+  Remove = "REMOVE",
+  Updateall = "UPDATEALL",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace OperationTypes {

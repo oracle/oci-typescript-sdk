@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateCustomProtectionRuleRequest {
+export interface CreateCustomProtectionRuleRequest extends common.BaseRequest {
   /**
    * The details of the custom protection rule.
    */

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateInstanceConfigurationRequest {
+export interface CreateInstanceConfigurationRequest extends common.BaseRequest {
   /**
    * Instance configuration creation details
    */

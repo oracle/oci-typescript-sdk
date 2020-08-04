@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreatePathRouteSetRequest {
+export interface CreatePathRouteSetRequest extends common.BaseRequest {
   /**
    * The details of the path route set to add.
    */

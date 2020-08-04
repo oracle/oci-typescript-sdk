@@ -76,10 +76,10 @@ Example: `{\"Department\": \"Finance\"}`
 
 export namespace CreateImageDetails {
   export enum LaunchMode {
-    NATIVE = "NATIVE",
-    EMULATED = "EMULATED",
-    PARAVIRTUALIZED = "PARAVIRTUALIZED",
-    CUSTOM = "CUSTOM"
+    Native = "NATIVE",
+    Emulated = "EMULATED",
+    Paravirtualized = "PARAVIRTUALIZED",
+    Custom = "CUSTOM"
   }
 
   export function getJsonObj(obj: CreateImageDetails): object {

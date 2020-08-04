@@ -20,16 +20,16 @@ import common = require("oci-common");
  * Possible checksum types
  **/
 export enum ChecksumTypes {
-  SHA1 = "SHA1",
-  SHA256 = "SHA256",
-  SHA384 = "SHA384",
-  SHA512 = "SHA512",
+  Sha1 = "SHA1",
+  Sha256 = "SHA256",
+  Sha384 = "SHA384",
+  Sha512 = "SHA512",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace ChecksumTypes {

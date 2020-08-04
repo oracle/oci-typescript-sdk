@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface GetExadataIormConfigRequest {
+export interface GetExadataIormConfigRequest extends common.BaseRequest {
   /**
    * The DB system [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    */

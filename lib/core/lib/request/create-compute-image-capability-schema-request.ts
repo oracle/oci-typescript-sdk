@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateComputeImageCapabilitySchemaRequest {
+export interface CreateComputeImageCapabilitySchemaRequest extends common.BaseRequest {
   /**
    * Compute Image Capability Schema creation details
    */

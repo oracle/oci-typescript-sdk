@@ -39,7 +39,26 @@ export class DataFlowWaiter {
       this.config,
       () => this.client.getApplication(request),
       response => targetStates.exists(response.application.lifecycleState),
-      targetStates.includes(models.ApplicationLifecycleState.DELETED)
+      targetStates.includes(models.ApplicationLifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forPrivateEndpoint till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetPrivateEndpointResponse | null (null in case of 404 response)
+   */
+  public async forPrivateEndpoint(
+    request: serviceRequests.GetPrivateEndpointRequest,
+    ...targetStates: models.PrivateEndpointLifecycleState[]
+  ): Promise<serviceResponses.GetPrivateEndpointResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getPrivateEndpoint(request),
+      response => targetStates.exists(response.privateEndpoint.lifecycleState),
+      targetStates.includes(models.PrivateEndpointLifecycleState.Deleted)
     );
   }
 
@@ -58,6 +77,22 @@ export class DataFlowWaiter {
       this.config,
       () => this.client.getRun(request),
       response => targetStates.exists(response.run.lifecycleState)
+    );
+  }
+
+  /**
+   * Waits forWorkRequest
+   *
+   * @param request the request to send
+   * @return response returns GetWorkRequestResponse
+   */
+  public async forWorkRequest(
+    request: serviceRequests.GetWorkRequestRequest
+  ): Promise<serviceResponses.GetWorkRequestResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getWorkRequest(request),
+      response => (response.workRequest.timeFinished ? true : false)
     );
   }
 }

@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateDrgRequest {
+export interface CreateDrgRequest extends common.BaseRequest {
   /**
    * Details for creating a DRG.
    */

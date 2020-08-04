@@ -40,20 +40,19 @@ export interface ApiSpecificationRoute {
 
 export namespace ApiSpecificationRoute {
   export enum Methods {
-    ANY = "ANY",
-    HEAD = "HEAD",
-    GET = "GET",
-    POST = "POST",
-    PUT = "PUT",
-    PATCH = "PATCH",
-    DELETE = "DELETE",
-    OPTIONS = "OPTIONS",
-
+    Any = "ANY",
+    Head = "HEAD",
+    Get = "GET",
+    Post = "POST",
+    Put = "PUT",
+    Patch = "PATCH",
+    Delete = "DELETE",
+    Options = "OPTIONS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: ApiSpecificationRoute): object {

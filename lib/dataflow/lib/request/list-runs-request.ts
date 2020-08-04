@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListRunsRequest {
+export interface ListRunsRequest extends common.BaseRequest {
   /**
    * The OCID of the compartment.
    *
@@ -91,7 +91,7 @@ export namespace ListRunsRequest {
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

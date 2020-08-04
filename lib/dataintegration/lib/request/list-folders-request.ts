@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListFoldersRequest {
+export interface ListFoldersRequest extends common.BaseRequest {
   /**
    * DIS workspace id
    */
@@ -62,12 +62,12 @@ export interface ListFoldersRequest {
 
 export namespace ListFoldersRequest {
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 
   export enum SortBy {
-    TIMECREATED = "TIME_CREATED",
-    DISPLAYNAME = "DISPLAY_NAME"
+    TimeCreated = "TIME_CREATED",
+    DisplayName = "DISPLAY_NAME"
   }
 }

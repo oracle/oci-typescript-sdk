@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListWorkRequestErrorsRequest {
+export interface ListWorkRequestErrorsRequest extends common.BaseRequest {
   /**
    * the ID of the WorkRequest
    */

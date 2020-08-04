@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateJobDefinitionRequest {
+export interface CreateJobDefinitionRequest extends common.BaseRequest {
   /**
    * Unique catalog identifier.
    */

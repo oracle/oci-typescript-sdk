@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListResourceTypesRequest {
+export interface ListResourceTypesRequest extends common.BaseRequest {
   /**
    * The maximum number of items to return. The value must be between 1 and 1000.
    */

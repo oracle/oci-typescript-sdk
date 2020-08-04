@@ -58,8 +58,8 @@ If the tunnel instead uses static routing, you may optionally provide
 
 export namespace CreateIPSecConnectionTunnelDetails {
   export enum Routing {
-    BGP = "BGP",
-    STATIC = "STATIC"
+    Bgp = "BGP",
+    Static = "STATIC"
   }
 
   export enum IkeVersion {

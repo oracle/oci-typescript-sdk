@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface UpdateDedicatedVmHostRequest {
+export interface UpdateDedicatedVmHostRequest extends common.BaseRequest {
   /**
    * The OCID of the dedicated VM host.
    */

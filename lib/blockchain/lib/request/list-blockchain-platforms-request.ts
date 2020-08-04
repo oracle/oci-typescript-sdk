@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListBlockchainPlatformsRequest {
+export interface ListBlockchainPlatformsRequest extends common.BaseRequest {
   /**
    * The ID of the compartment in which to list resources.
    */
@@ -55,8 +55,8 @@ export interface ListBlockchainPlatformsRequest {
 
 export namespace ListBlockchainPlatformsRequest {
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 
   export enum SortBy {

@@ -38,7 +38,7 @@ export class MysqlaasWaiter {
       this.config,
       () => this.client.getConfiguration(request),
       response => targetStates.exists(response.configuration.lifecycleState),
-      targetStates.includes(models.Configuration.LifecycleState.DELETED)
+      targetStates.includes(models.Configuration.LifecycleState.Deleted)
     );
   }
 }

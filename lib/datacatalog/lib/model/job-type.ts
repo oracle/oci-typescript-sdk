@@ -25,25 +25,25 @@ import common = require("oci-common");
  *
  **/
 export enum JobType {
-  HARVEST = "HARVEST",
-  PROFILING = "PROFILING",
-  SAMPLING = "SAMPLING",
-  PREVIEW = "PREVIEW",
-  IMPORT = "IMPORT",
-  EXPORT = "EXPORT",
-  INTERNAL = "INTERNAL",
-  PURGE = "PURGE",
-  IMMEDIATE = "IMMEDIATE",
-  SCHEDULED = "SCHEDULED",
-  IMMEDIATE_EXECUTION = "IMMEDIATE_EXECUTION",
-  SCHEDULED_EXECUTION = "SCHEDULED_EXECUTION",
-  SCHEDULED_EXECUTION_INSTANCE = "SCHEDULED_EXECUTION_INSTANCE",
+  Harvest = "HARVEST",
+  Profiling = "PROFILING",
+  Sampling = "SAMPLING",
+  Preview = "PREVIEW",
+  Import = "IMPORT",
+  Export = "EXPORT",
+  Internal = "INTERNAL",
+  Purge = "PURGE",
+  Immediate = "IMMEDIATE",
+  Scheduled = "SCHEDULED",
+  ImmediateExecution = "IMMEDIATE_EXECUTION",
+  ScheduledExecution = "SCHEDULED_EXECUTION",
+  ScheduledExecutionInstance = "SCHEDULED_EXECUTION_INSTANCE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace JobType {

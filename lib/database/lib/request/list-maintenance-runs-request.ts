@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListMaintenanceRunsRequest {
+export interface ListMaintenanceRunsRequest extends common.BaseRequest {
   /**
    * The compartment [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    */
@@ -61,13 +61,13 @@ export interface ListMaintenanceRunsRequest {
 
 export namespace ListMaintenanceRunsRequest {
   export enum SortBy {
-    TIMESCHEDULED = "TIME_SCHEDULED",
-    TIMEENDED = "TIME_ENDED",
-    DISPLAYNAME = "DISPLAYNAME"
+    TimeScheduled = "TIME_SCHEDULED",
+    TimeEnded = "TIME_ENDED",
+    Displayname = "DISPLAYNAME"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

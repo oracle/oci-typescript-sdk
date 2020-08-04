@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateNatGatewayRequest {
+export interface CreateNatGatewayRequest extends common.BaseRequest {
   /**
    * Details for creating a NAT gateway.
    */

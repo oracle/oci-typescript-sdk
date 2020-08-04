@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateSteeringPolicyAttachmentRequest {
+export interface CreateSteeringPolicyAttachmentRequest extends common.BaseRequest {
   /**
    * Details for creating a new steering policy attachment.
    */

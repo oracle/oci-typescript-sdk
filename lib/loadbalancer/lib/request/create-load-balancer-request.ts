@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateLoadBalancerRequest {
+export interface CreateLoadBalancerRequest extends common.BaseRequest {
   /**
    * The configuration details for creating a load balancer.
    */

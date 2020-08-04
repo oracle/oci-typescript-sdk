@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListSuppressionsRequest {
+export interface ListSuppressionsRequest extends common.BaseRequest {
   /**
    * The OCID for the compartment.
    */
@@ -81,12 +81,12 @@ export interface ListSuppressionsRequest {
 
 export namespace ListSuppressionsRequest {
   export enum SortBy {
-    TIMECREATED = "TIMECREATED",
-    EMAILADDRESS = "EMAILADDRESS"
+    Timecreated = "TIMECREATED",
+    Emailaddress = "EMAILADDRESS"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

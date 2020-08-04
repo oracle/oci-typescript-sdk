@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ChangeSenderCompartmentRequest {
+export interface ChangeSenderCompartmentRequest extends common.BaseRequest {
   /**
    * The unique OCID of the sender.
    */

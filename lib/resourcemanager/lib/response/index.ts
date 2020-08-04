@@ -57,6 +57,8 @@ import * as ListConfigurationSourceProvidersResponse from "./list-configuration-
 export import ListConfigurationSourceProvidersResponse = ListConfigurationSourceProvidersResponse.ListConfigurationSourceProvidersResponse;
 import * as ListJobsResponse from "./list-jobs-response";
 export import ListJobsResponse = ListJobsResponse.ListJobsResponse;
+import * as ListResourceDiscoveryServicesResponse from "./list-resource-discovery-services-response";
+export import ListResourceDiscoveryServicesResponse = ListResourceDiscoveryServicesResponse.ListResourceDiscoveryServicesResponse;
 import * as ListStackResourceDriftDetailsResponse from "./list-stack-resource-drift-details-response";
 export import ListStackResourceDriftDetailsResponse = ListStackResourceDriftDetailsResponse.ListStackResourceDriftDetailsResponse;
 import * as ListStacksResponse from "./list-stacks-response";

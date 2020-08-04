@@ -40,7 +40,7 @@ export class EmailWaiter {
       this.config,
       () => this.client.getSender(request),
       response => targetStates.exists(response.sender.lifecycleState),
-      targetStates.includes(models.Sender.LifecycleState.DELETED)
+      targetStates.includes(models.Sender.LifecycleState.Deleted)
     );
   }
 }

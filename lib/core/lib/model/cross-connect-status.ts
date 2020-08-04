@@ -57,28 +57,26 @@ Example: `14.0`
 
 export namespace CrossConnectStatus {
   export enum InterfaceState {
-    UP = "UP",
-    DOWN = "DOWN",
-
+    Up = "UP",
+    Down = "DOWN",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LightLevelIndicator {
-    NOLIGHT = "NO_LIGHT",
-    LOWWARN = "LOW_WARN",
-    HIGHWARN = "HIGH_WARN",
-    BAD = "BAD",
-    GOOD = "GOOD",
-
+    NoLight = "NO_LIGHT",
+    LowWarn = "LOW_WARN",
+    HighWarn = "HIGH_WARN",
+    Bad = "BAD",
+    Good = "GOOD",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: CrossConnectStatus): object {

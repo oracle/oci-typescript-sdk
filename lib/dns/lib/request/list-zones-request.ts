@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListZonesRequest {
+export interface ListZonesRequest extends common.BaseRequest {
   /**
    * The OCID of the compartment the resource belongs to.
    */
@@ -82,16 +82,16 @@ export interface ListZonesRequest {
 
 export namespace ListZonesRequest {
   export enum ZoneType {
-    PRIMARY = "PRIMARY",
-    SECONDARY = "SECONDARY"
+    Primary = "PRIMARY",
+    Secondary = "SECONDARY"
   }
 
   export enum LifecycleState {
-    ACTIVE = "ACTIVE",
-    CREATING = "CREATING",
-    DELETED = "DELETED",
-    DELETING = "DELETING",
-    FAILED = "FAILED"
+    Active = "ACTIVE",
+    Creating = "CREATING",
+    Deleted = "DELETED",
+    Deleting = "DELETING",
+    Failed = "FAILED"
   }
 
   export enum SortBy {

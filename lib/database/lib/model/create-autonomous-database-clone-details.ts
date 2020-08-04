@@ -34,8 +34,8 @@ export interface CreateAutonomousDatabaseCloneDetails extends model.CreateAutono
 
 export namespace CreateAutonomousDatabaseCloneDetails {
   export enum CloneType {
-    FULL = "FULL",
-    METADATA = "METADATA"
+    Full = "FULL",
+    Metadata = "METADATA"
   }
 
   export function getJsonObj(

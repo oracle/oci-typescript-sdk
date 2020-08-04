@@ -21,10 +21,10 @@ import common = require("oci-common");
  * The keys of WorkRequestResource metadata.
  **/
 export enum WorkRequestResourceMetadataKey {
-  REGION = "REGION",
-  NAMESPACE = "NAMESPACE",
-  BUCKET = "BUCKET",
-  OBJECT = "OBJECT"
+  Region = "REGION",
+  Namespace = "NAMESPACE",
+  Bucket = "BUCKET",
+  Object = "OBJECT"
 }
 
 export namespace WorkRequestResourceMetadataKey {

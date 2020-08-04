@@ -218,40 +218,37 @@ export interface ConfigurationVariables {
 
 export namespace ConfigurationVariables {
   export enum CompletionType {
-    NOCHAIN = "NO_CHAIN",
-    CHAIN = "CHAIN",
-    RELEASE = "RELEASE",
-
+    NoChain = "NO_CHAIN",
+    Chain = "CHAIN",
+    Release = "RELEASE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum DefaultAuthenticationPlugin {
     MysqlNativePassword = "mysql_native_password",
     Sha256Password = "sha256_password",
     CachingSha2Password = "caching_sha2_password",
-
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum TransactionIsolation {
-    READUNCOMMITTED = "READ-UNCOMMITTED",
-    READCOMMITED = "READ-COMMITED",
-    REPEATABLEREAD = "REPEATABLE-READ",
-    SERIALIZABLE = "SERIALIZABLE",
-
+    ReadUncommitted = "READ-UNCOMMITTED",
+    ReadCommited = "READ-COMMITED",
+    RepeatableRead = "REPEATABLE-READ",
+    Serializable = "SERIALIZABLE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: ConfigurationVariables): object {

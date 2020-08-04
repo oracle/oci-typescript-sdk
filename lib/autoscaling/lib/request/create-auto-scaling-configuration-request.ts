@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateAutoScalingConfigurationRequest {
+export interface CreateAutoScalingConfigurationRequest extends common.BaseRequest {
   /**
    * Creation details for an autoscaling configuration.
    */

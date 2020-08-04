@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface EnableDataSafeConfigurationRequest {
+export interface EnableDataSafeConfigurationRequest extends common.BaseRequest {
   /**
    * The details used to enable Data Safe.
    */

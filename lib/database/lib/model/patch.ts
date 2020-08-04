@@ -54,38 +54,35 @@ export interface Patch {
 
 export namespace Patch {
   export enum LastAction {
-    APPLY = "APPLY",
-    PRECHECK = "PRECHECK",
-
+    Apply = "APPLY",
+    Precheck = "PRECHECK",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum AvailableActions {
-    APPLY = "APPLY",
-    PRECHECK = "PRECHECK",
-
+    Apply = "APPLY",
+    Precheck = "PRECHECK",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LifecycleState {
-    AVAILABLE = "AVAILABLE",
-    SUCCESS = "SUCCESS",
-    INPROGRESS = "IN_PROGRESS",
-    FAILED = "FAILED",
-
+    Available = "AVAILABLE",
+    Success = "SUCCESS",
+    InProgress = "IN_PROGRESS",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Patch): object {

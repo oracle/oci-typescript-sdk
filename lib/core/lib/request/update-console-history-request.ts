@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface UpdateConsoleHistoryRequest {
+export interface UpdateConsoleHistoryRequest extends common.BaseRequest {
   /**
    * The OCID of the console history.
    */

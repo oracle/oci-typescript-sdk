@@ -86,16 +86,15 @@ Example: `{\"Department\": \"Finance\"}`
 
 export namespace ConsoleHistory {
   export enum LifecycleState {
-    REQUESTED = "REQUESTED",
-    GETTINGHISTORY = "GETTING-HISTORY",
-    SUCCEEDED = "SUCCEEDED",
-    FAILED = "FAILED",
-
+    Requested = "REQUESTED",
+    GettingHistory = "GETTING-HISTORY",
+    Succeeded = "SUCCEEDED",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: ConsoleHistory): object {

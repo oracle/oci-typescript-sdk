@@ -80,8 +80,8 @@ To get a list of shapes, use the {@link #listDbSystemShapes(ListDbSystemShapesRe
 
 export namespace UpdateDbSystemDetails {
   export enum LicenseModel {
-    LICENSEINCLUDED = "LICENSE_INCLUDED",
-    BRINGYOUROWNLICENSE = "BRING_YOUR_OWN_LICENSE"
+    LicenseIncluded = "LICENSE_INCLUDED",
+    BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE"
   }
 
   export function getJsonObj(obj: UpdateDbSystemDetails): object {

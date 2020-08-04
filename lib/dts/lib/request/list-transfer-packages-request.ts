@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListTransferPackagesRequest {
+export interface ListTransferPackagesRequest extends common.BaseRequest {
   /**
    * ID of the Transfer Job
    */
@@ -30,14 +30,14 @@ export interface ListTransferPackagesRequest {
 
 export namespace ListTransferPackagesRequest {
   export enum LifecycleState {
-    PREPARING = "PREPARING",
-    SHIPPING = "SHIPPING",
-    RECEIVED = "RECEIVED",
-    PROCESSING = "PROCESSING",
-    PROCESSED = "PROCESSED",
-    RETURNED = "RETURNED",
-    DELETED = "DELETED",
-    CANCELLED = "CANCELLED",
-    CANCELLEDRETURNED = "CANCELLED_RETURNED"
+    Preparing = "PREPARING",
+    Shipping = "SHIPPING",
+    Received = "RECEIVED",
+    Processing = "PROCESSING",
+    Processed = "PROCESSED",
+    Returned = "RETURNED",
+    Deleted = "DELETED",
+    Cancelled = "CANCELLED",
+    CancelledReturned = "CANCELLED_RETURNED"
   }
 }

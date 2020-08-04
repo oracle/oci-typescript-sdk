@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ChangeDbSystemCompartmentRequest {
+export interface ChangeDbSystemCompartmentRequest extends common.BaseRequest {
   /**
    * Request to move Db System to a different compartment
    */

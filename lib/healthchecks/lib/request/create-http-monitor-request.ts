@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateHttpMonitorRequest {
+export interface CreateHttpMonitorRequest extends common.BaseRequest {
   /**
    * The configuration details for creating an HTTP monitor.
    */

@@ -142,35 +142,32 @@ export namespace Bucket {
     NoPublicAccess = "NoPublicAccess",
     ObjectRead = "ObjectRead",
     ObjectReadWithoutList = "ObjectReadWithoutList",
-
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum StorageTier {
     Standard = "Standard",
     Archive = "Archive",
-
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Versioning {
     Enabled = "Enabled",
     Suspended = "Suspended",
     Disabled = "Disabled",
-
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
      */
-    UNKNOWN_VALUE = "UNKNOWN_VALUE"
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Bucket): object {

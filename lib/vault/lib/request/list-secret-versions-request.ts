@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface ListSecretVersionsRequest {
+export interface ListSecretVersionsRequest extends common.BaseRequest {
   /**
    * The OCID of the secret.
    */
@@ -50,11 +50,11 @@ export interface ListSecretVersionsRequest {
 
 export namespace ListSecretVersionsRequest {
   export enum SortBy {
-    NUMBER = "VERSION_NUMBER"
+    VersionNumber = "VERSION_NUMBER"
   }
 
   export enum SortOrder {
-    ASC = "ASC",
-    DESC = "DESC"
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

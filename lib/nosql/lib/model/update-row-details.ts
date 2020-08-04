@@ -76,8 +76,8 @@ export interface UpdateRowDetails {
 
 export namespace UpdateRowDetails {
   export enum Option {
-    ABSENT = "IF_ABSENT",
-    PRESENT = "IF_PRESENT"
+    IfAbsent = "IF_ABSENT",
+    IfPresent = "IF_PRESENT"
   }
 
   export function getJsonObj(obj: UpdateRowDetails): object {

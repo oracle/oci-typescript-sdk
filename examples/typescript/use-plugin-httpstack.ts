@@ -19,7 +19,7 @@ class ConsoleFetchHttp implements common.HttpClient {
       name: "Mock User1",
       description: "Mock USer",
       timeCreated: new Date(),
-      lifecycleState: identity.models.User.LifecycleState.ACTIVE,
+      lifecycleState: identity.models.User.LifecycleState.Active,
       isMfaActivated: true
     };
 

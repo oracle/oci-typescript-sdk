@@ -18,41 +18,41 @@ import common = require("oci-common");
  * Available OCI Regions supported by CIMS. eg: PHX, IAD
  **/
 export enum Region {
-  DEV = "DEV",
-  SEA = "SEA",
-  INTEG_NEXT = "INTEG_NEXT",
-  INTEG_STABLE = "INTEG_STABLE",
-  PHX = "PHX",
-  IAD = "IAD",
-  FRA = "FRA",
-  EU_FRANKFURT_1 = "EU_FRANKFURT_1",
-  LHR = "LHR",
-  YYZ = "YYZ",
-  NRT = "NRT",
-  US_LANGLEY_1 = "US_LANGLEY_1",
-  US_LUKE_1 = "US_LUKE_1",
-  ICN = "ICN",
-  BOM = "BOM",
-  GRU = "GRU",
-  US_GOV_ASHBURN_1 = "US_GOV_ASHBURN_1",
-  US_GOV_PHOENIX_1 = "US_GOV_PHOENIX_1",
-  US_GOV_CHICAGO_1 = "US_GOV_CHICAGO_1",
-  SYD = "SYD",
-  ZRH = "ZRH",
-  JED = "JED",
-  AMS = "AMS",
-  KIX = "KIX",
-  MEL = "MEL",
-  YUL = "YUL",
-  HYD = "HYD",
-  YNY = "YNY",
-  TIW = "TIW",
+  Dev = "DEV",
+  Sea = "SEA",
+  IntegNext = "INTEG_NEXT",
+  IntegStable = "INTEG_STABLE",
+  Phx = "PHX",
+  Iad = "IAD",
+  Fra = "FRA",
+  EuFrankfurt1 = "EU_FRANKFURT_1",
+  Lhr = "LHR",
+  Yyz = "YYZ",
+  Nrt = "NRT",
+  UsLangley1 = "US_LANGLEY_1",
+  UsLuke1 = "US_LUKE_1",
+  Icn = "ICN",
+  Bom = "BOM",
+  Gru = "GRU",
+  UsGovAshburn1 = "US_GOV_ASHBURN_1",
+  UsGovPhoenix1 = "US_GOV_PHOENIX_1",
+  UsGovChicago1 = "US_GOV_CHICAGO_1",
+  Syd = "SYD",
+  Zrh = "ZRH",
+  Jed = "JED",
+  Ams = "AMS",
+  Kix = "KIX",
+  Mel = "MEL",
+  Yul = "YUL",
+  Hyd = "HYD",
+  Yny = "YNY",
+  Tiw = "TIW",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
    * version of the SDK.
    */
-  UNKNOWN_VALUE = "UNKNOWN_VALUE"
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace Region {

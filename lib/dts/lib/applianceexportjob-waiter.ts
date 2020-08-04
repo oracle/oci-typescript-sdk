@@ -38,7 +38,7 @@ export class ApplianceExportJobWaiter {
       this.config,
       () => this.client.getApplianceExportJob(request),
       response => targetStates.exists(response.applianceExportJob.lifecycleState),
-      targetStates.includes(models.ApplianceExportJob.LifecycleState.DELETED)
+      targetStates.includes(models.ApplianceExportJob.LifecycleState.Deleted)
     );
   }
 }

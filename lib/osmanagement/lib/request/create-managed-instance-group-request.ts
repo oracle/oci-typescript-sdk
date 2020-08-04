@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateManagedInstanceGroupRequest {
+export interface CreateManagedInstanceGroupRequest extends common.BaseRequest {
   /**
    * Details about a Managed Instance Group to create
    */

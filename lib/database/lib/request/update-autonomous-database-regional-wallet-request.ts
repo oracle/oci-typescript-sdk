@@ -13,7 +13,7 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface UpdateAutonomousDatabaseRegionalWalletRequest {
+export interface UpdateAutonomousDatabaseRegionalWalletRequest extends common.BaseRequest {
   /**
    * Request to update the properties of Autonomous Database regional wallet.
    */
