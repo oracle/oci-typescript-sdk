@@ -99,7 +99,7 @@ export class IncidentClient {
   }
 
   /**
-   * This API enables the customer to Create an Incident
+   * Enables the customer to create an support ticket.
    * @param CreateIncidentRequest
    * @return CreateIncidentResponse
    * @throws OciError when an error occurs
@@ -113,9 +113,9 @@ export class IncidentClient {
     const queryParams = {};
 
     let headerParams = {
-      "opc-retry-token": createIncidentRequest.opcRetryToken,
       "opc-request-id": createIncidentRequest.opcRequestId,
-      "ocid": createIncidentRequest.ocid
+      "ocid": createIncidentRequest.ocid,
+      "homeregion": createIncidentRequest.homeregion
     };
 
     const request = await composeRequest({
@@ -149,11 +149,6 @@ export class IncidentClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
-          },
-          {
-            value: response.headers.get("etag"),
-            key: "etag",
-            dataType: "string"
           }
         ]
       });
@@ -166,7 +161,7 @@ export class IncidentClient {
   }
 
   /**
-   * This API fetches the details of a requested Incident
+   * Gets the details of the support ticket.
    * @param GetIncidentRequest
    * @return GetIncidentResponse
    * @throws OciError when an error occurs
@@ -184,7 +179,9 @@ export class IncidentClient {
     let headerParams = {
       "opc-request-id": getIncidentRequest.opcRequestId,
       "csi": getIncidentRequest.csi,
-      "ocid": getIncidentRequest.ocid
+      "ocid": getIncidentRequest.ocid,
+      "homeregion": getIncidentRequest.homeregion,
+      "problem-type": getIncidentRequest.problemType
     };
 
     const request = await composeRequest({
@@ -213,11 +210,6 @@ export class IncidentClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
-          },
-          {
-            value: response.headers.get("etag"),
-            key: "etag",
-            dataType: "string"
           }
         ]
       });
@@ -230,7 +222,7 @@ export class IncidentClient {
   }
 
   /**
-   * GetStatus of the Service
+   * Gets the status of the service.
    * @param GetStatusRequest
    * @return GetStatusResponse
    * @throws OciError when an error occurs
@@ -247,7 +239,8 @@ export class IncidentClient {
 
     let headerParams = {
       "opc-request-id": getStatusRequest.opcRequestId,
-      "ocid": getStatusRequest.ocid
+      "ocid": getStatusRequest.ocid,
+      "homeregion": getStatusRequest.homeregion
     };
 
     const request = await composeRequest({
@@ -276,11 +269,6 @@ export class IncidentClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
-          },
-          {
-            value: response.headers.get("etag"),
-            key: "etag",
-            dataType: "string"
           }
         ]
       });
@@ -293,7 +281,7 @@ export class IncidentClient {
   }
 
   /**
-   * This API returns the list of all possible product that OCI supports, while creating an incident
+   * During support ticket creation, returns the list of all possible products that Oracle Cloud Infrastructure supports.
    * @param ListIncidentResourceTypesRequest
    * @return ListIncidentResourceTypesResponse
    * @throws OciError when an error occurs
@@ -318,7 +306,8 @@ export class IncidentClient {
     let headerParams = {
       "opc-request-id": listIncidentResourceTypesRequest.opcRequestId,
       "csi": listIncidentResourceTypesRequest.csi,
-      "ocid": listIncidentResourceTypesRequest.ocid
+      "ocid": listIncidentResourceTypesRequest.ocid,
+      "homeregion": listIncidentResourceTypesRequest.homeregion
     };
 
     const request = await composeRequest({
@@ -351,11 +340,6 @@ export class IncidentClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("etag"),
-            key: "etag",
             dataType: "string"
           }
         ]
@@ -394,7 +378,7 @@ export class IncidentClient {
   }
 
   /**
-   * This API returns the list of incidents raised by the tenant
+   * Returns the list of support tickets raised by the tenancy.
    * @param ListIncidentsRequest
    * @return ListIncidentsResponse
    * @throws OciError when an error occurs
@@ -411,13 +395,15 @@ export class IncidentClient {
       "sortBy": listIncidentsRequest.sortBy,
       "sortOrder": listIncidentsRequest.sortOrder,
       "lifecycleState": listIncidentsRequest.lifecycleState,
-      "page": listIncidentsRequest.page
+      "page": listIncidentsRequest.page,
+      "problemType": listIncidentsRequest.problemType
     };
 
     let headerParams = {
       "csi": listIncidentsRequest.csi,
       "opc-request-id": listIncidentsRequest.opcRequestId,
-      "ocid": listIncidentsRequest.ocid
+      "ocid": listIncidentsRequest.ocid,
+      "homeregion": listIncidentsRequest.homeregion
     };
 
     const request = await composeRequest({
@@ -450,11 +436,6 @@ export class IncidentClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("etag"),
-            key: "etag",
             dataType: "string"
           }
         ]
@@ -493,7 +474,7 @@ export class IncidentClient {
   }
 
   /**
-   * This API updates an existing incident
+   * Updates the specified support ticket's information.
    * @param UpdateIncidentRequest
    * @return UpdateIncidentResponse
    * @throws OciError when an error occurs
@@ -510,10 +491,10 @@ export class IncidentClient {
 
     let headerParams = {
       "csi": updateIncidentRequest.csi,
-      "opc-retry-token": updateIncidentRequest.opcRetryToken,
       "opc-request-id": updateIncidentRequest.opcRequestId,
       "if-match": updateIncidentRequest.ifMatch,
-      "ocid": updateIncidentRequest.ocid
+      "ocid": updateIncidentRequest.ocid,
+      "homeregion": updateIncidentRequest.homeregion
     };
 
     const request = await composeRequest({
@@ -547,11 +528,6 @@ export class IncidentClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
-          },
-          {
-            value: response.headers.get("etag"),
-            key: "etag",
-            dataType: "string"
           }
         ]
       });
@@ -564,7 +540,7 @@ export class IncidentClient {
   }
 
   /**
-   * ValidateUser
+   * Checks whether the requested user is valid.
    * @param ValidateUserRequest
    * @return ValidateUserResponse
    * @throws OciError when an error occurs
@@ -581,9 +557,9 @@ export class IncidentClient {
 
     let headerParams = {
       "csi": validateUserRequest.csi,
-      "opc-retry-token": validateUserRequest.opcRetryToken,
       "opc-request-id": validateUserRequest.opcRequestId,
-      "ocid": validateUserRequest.ocid
+      "ocid": validateUserRequest.ocid,
+      "homeregion": validateUserRequest.homeregion
     };
 
     const request = await composeRequest({
@@ -612,10 +588,143 @@ export class IncidentClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
-          },
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } else {
+      const errBody = await common.handleErrorBody(response);
+      throw common.handleErrorResponse(response, errBody);
+    }
+  }
+}
+export enum UserApiKeys {}
+
+export class UserClient {
+  protected static serviceEndpointTemplate =
+    "https://incidentmanagement.{region}.{secondLevelDomain}";
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_clientConfiguration": common.ClientConfiguration;
+
+  protected _httpClient: common.HttpClient;
+
+  constructor(params: common.AuthParams) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    this._httpClient = params.httpClient || new common.FetchHttpClient(requestSigner);
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20181231";
+    if (this.logger) this.logger.info(`UserClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      UserClient.serviceEndpointTemplate,
+      region
+    );
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      UserClient.serviceEndpointTemplate,
+      regionId
+    );
+  }
+
+  /**
+   * Sets the client configuration for the client
+   */
+  public set clientConfiguration(clientConfiguration: common.ClientConfiguration) {
+    this._clientConfiguration = clientConfiguration;
+  }
+
+  /**
+   * Create user to request Customer Support Identifier(CSI) to Customer User Administrator(CUA).
+   * @param CreateUserRequest
+   * @return CreateUserResponse
+   * @throws OciError when an error occurs
+   */
+  public async createUser(
+    createUserRequest: requests.CreateUserRequest
+  ): Promise<responses.CreateUserResponse> {
+    if (this.logger) this.logger.debug("Calling operation UserClient#createUser.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-request-id": createUserRequest.opcRequestId,
+      "ocid": createUserRequest.ocid,
+      "homeregion": createUserRequest.homeregion
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/v2/users",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createUserRequest.createUserDetails,
+        "CreateUserDetails",
+        models.CreateUserDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createUserRequest.retryConfiguration
+    );
+    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
+    if (response.status && response.status >= 200 && response.status <= 299) {
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateUserResponse>{},
+        body: await response.json(),
+        bodyKey: "user",
+        bodyModel: "model.User",
+        responseHeaders: [
           {
-            value: response.headers.get("etag"),
-            key: "etag",
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

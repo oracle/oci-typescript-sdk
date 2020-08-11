@@ -23,6 +23,17 @@ export interface ListJobDefinitionsRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
+   * A filter to return only resources that match display name pattern given. The match is not case sensitive.
+   * For Example : /folders?displayNameContains=Cu.*
+   * The above would match all folders with display name that starts with \"Cu\".
+   *
+   */
+  "displayNameContains"?: string;
+  /**
+   * Job execution state.
+   */
+  "jobExecutionState"?: model.JobExecutionState;
+  /**
    * A filter to return only resources that match the specified lifecycle state. The value is case insensitive.
    */
   "lifecycleState"?: model.LifecycleState;
@@ -68,7 +79,7 @@ export interface ListJobDefinitionsRequest extends common.BaseRequest {
    */
   "fields"?: Array<ListJobDefinitionsRequest.Fields>;
   /**
-   * The field to sort by. Only one sort order may be provided. Default order for TIMECREATED is descending. Default order for DISPLAYNAME is ascending. If no value is specified TIMECREATED is default.
+   * The field to sort by. Only one sort order may be provided. Default order for TIMECREATED is descending. Default order for DISPLAYNAME is ascending. Default order for TIMELATESTEXECUTIONSTARTED is descending. If no value is specified TIMECREATED is default.
    *
    */
   "sortBy"?: ListJobDefinitionsRequest.SortBy;
@@ -97,15 +108,21 @@ export namespace ListJobDefinitionsRequest {
     Description = "description",
     CatalogId = "catalogId",
     JobType = "jobType",
+    ConnectionKey = "connectionKey",
     LifecycleState = "lifecycleState",
     TimeCreated = "timeCreated",
     IsSampleDataExtracted = "isSampleDataExtracted",
-    Uri = "uri"
+    Uri = "uri",
+    TimeLatestExecutionStarted = "timeLatestExecutionStarted",
+    TimeLatestExecutionEnded = "timeLatestExecutionEnded",
+    JobExecutionState = "jobExecutionState",
+    ScheduleType = "scheduleType"
   }
 
   export enum SortBy {
     Timecreated = "TIMECREATED",
-    Displayname = "DISPLAYNAME"
+    Displayname = "DISPLAYNAME",
+    Timelatestexecutionstarted = "TIMELATESTEXECUTIONSTARTED"
   }
 
   export enum SortOrder {

@@ -15,25 +15,32 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of Ticket created
+ * Details relevant to the support ticket.
+ * <p>
+ **Caution:** Avoid using any confidential information when you supply string values using the API.
+ *
  */
 export interface CreateTicketDetails {
   /**
-   * Severity of the ticket. eg: HIGH, MEDIUM
+   * The severity of the support ticket.
    */
   "severity": CreateTicketDetails.Severity;
   /**
-   * List of resources
+   * The list of resources.
    */
   "resourceList"?: Array<model.CreateResourceDetails>;
   /**
-   * Title of ticket
+   * The title of the support ticket.
    */
   "title": string;
   /**
-   * Details of ticket
+   * The description of the support ticket.
    */
   "description": string;
+  /**
+   * The context from where the ticket is getting created.
+   */
+  "contextualData"?: model.ContextualData;
 }
 
 export namespace CreateTicketDetails {
@@ -51,6 +58,10 @@ export namespace CreateTicketDetails {
           ? obj.resourceList.map(item => {
               return model.CreateResourceDetails.getJsonObj(item);
             })
+          : undefined,
+
+        "contextualData": obj.contextualData
+          ? model.ContextualData.getJsonObj(obj.contextualData)
           : undefined
       }
     };

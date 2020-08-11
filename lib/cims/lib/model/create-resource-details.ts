@@ -15,16 +15,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of Ticket Item
+ * Details about the resource that the support ticket relates to.
+ * <p>
+ **Caution:** Avoid using any confidential information when you supply string values using the API.
+ *
  */
 export interface CreateResourceDetails {
   "item"?: model.CreateTechSupportItemDetails | model.CreateLimitItemDetails;
   /**
-   * List of OCI regions
+   * The list of available Oracle Cloud Infrastructure regions.
    */
   "region"?: model.Region;
   /**
-   * List of OCI ADs
+   * The list of available Oracle Cloud Infrastructure availability domains.
    */
   "availabilityDomain"?: model.AvailabilityDomain;
 }

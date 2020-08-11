@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Available OCI Regions supported by CIMS. eg: PHX, IAD
+ * The available Oracle Cloud Infrastructure regions supported by the Support Management API.
  **/
 export enum Region {
   Dev = "DEV",
@@ -29,14 +29,9 @@ export enum Region {
   Lhr = "LHR",
   Yyz = "YYZ",
   Nrt = "NRT",
-  UsLangley1 = "US_LANGLEY_1",
-  UsLuke1 = "US_LUKE_1",
   Icn = "ICN",
   Bom = "BOM",
   Gru = "GRU",
-  UsGovAshburn1 = "US_GOV_ASHBURN_1",
-  UsGovPhoenix1 = "US_GOV_PHOENIX_1",
-  UsGovChicago1 = "US_GOV_CHICAGO_1",
   Syd = "SYD",
   Zrh = "ZRH",
   Jed = "JED",
@@ -46,7 +41,6 @@ export enum Region {
   Yul = "YUL",
   Hyd = "HYD",
   Yny = "YNY",
-  Tiw = "TIW",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

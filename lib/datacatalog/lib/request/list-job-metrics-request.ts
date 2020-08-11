@@ -31,6 +31,13 @@ export interface ListJobMetricsRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
+   * A filter to return only resources that match display name pattern given. The match is not case sensitive.
+   * For Example : /folders?displayNameContains=Cu.*
+   * The above would match all folders with display name that starts with \"Cu\".
+   *
+   */
+  "displayNameContains"?: string;
+  /**
    * Category of this metric.
    */
   "category"?: string;

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Unit to measure Service category/resource
+ * The unit to use to measure the service category or resource.
  **/
 export enum Unit {
   Count = "COUNT",

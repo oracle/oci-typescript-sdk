@@ -20,6 +20,10 @@ import common = require("oci-common");
  */
 export interface JobCollection {
   /**
+   * Total number of items returned.
+   */
+  "count"?: number;
+  /**
    * Collection of jobs.
    */
   "items": Array<model.JobSummary>;

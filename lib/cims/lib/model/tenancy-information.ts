@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of Customer Tenant
+ * Details about the customer's tenancy.
  */
 export interface TenancyInformation {
   /**
-   * Tenant customer support identifier
+   * The Customer Support Identifier number associated with the tenancy.
    */
   "customerSupportKey": string;
   /**
-   * Tenant OCID
+   * The OCID of the tenancy.
    */
   "tenancyId": string;
 }

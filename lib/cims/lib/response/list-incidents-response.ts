@@ -16,17 +16,13 @@ import common = require("oci-common");
 
 export interface ListIncidentsResponse {
   /**
-   * OPC Request Id
+   * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
    */
   "opcRequestId": string;
   /**
-   * OPC next page
+   * For list pagination. When this header appears in the response, additional pages of results remain. For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/Content/API/Concepts/usingapi.htm#nine).
    */
   "opcNextPage": string;
-  /**
-   * e-Tag
-   */
-  "etag": string;
   /**
    * A list of IncidentSummary instances.
    */

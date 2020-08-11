@@ -15,43 +15,43 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of Ticket created
+ * Details about the ticket created.
  */
 export interface Ticket {
   /**
-   * Unique ID that identifies a Ticket
+   * Unique identifier for the ticket.
    */
   "ticketNumber"?: string;
   /**
-   * Severity of the ticket. eg: HIGH, MEDIUM
+   * The severity assigned to the ticket.
    */
   "severity": Ticket.Severity;
   /**
-   * List of resources
+   * The list of resources associated with the ticket.
    */
   "resourceList"?: Array<model.Resource>;
   /**
-   * Title of ticket
+   * The title of the ticket.
    */
   "title": string;
   /**
-   * Details of ticket
+   * The description of the issue addressed in the ticket.
    */
   "description": string;
   /**
-   * Epoch time of ticket creation
+   * The time when the ticket was created, in milliseconds since epoch time.
    */
   "timeCreated"?: number;
   /**
-   * Epoch time of ticket updated
+   * The time when the ticket was updated, in milliseconds since epoch time.
    */
   "timeUpdated"?: number;
   /**
-   * Describes the lifecycles of a ticket
+   * The current state of the ticket.
    */
   "lifecycleState"?: model.LifecycleState;
   /**
-   * Describes the lifecycle details of a ticket
+   * Additional information about the current `lifecycleState`.
    */
   "lifecycleDetails"?: model.LifecycleDetails;
 }

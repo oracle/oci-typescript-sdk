@@ -15,7 +15,10 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of TechSupport Item
+ * Details about the issue that the technical support request relates to.
+ * <p>
+ **Caution:** Avoid using any confidential information when you supply string values using the API.
+ *
  */
 export interface CreateTechSupportItemDetails extends model.CreateItemDetails {
   "type": string;

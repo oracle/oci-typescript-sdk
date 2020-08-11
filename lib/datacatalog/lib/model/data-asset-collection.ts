@@ -20,6 +20,10 @@ import common = require("oci-common");
  */
 export interface DataAssetCollection {
   /**
+   * Total number of items returned.
+   */
+  "count"?: number;
+  /**
    * Collection of data asset summaries.
    */
   "items": Array<model.DataAssetSummary>;

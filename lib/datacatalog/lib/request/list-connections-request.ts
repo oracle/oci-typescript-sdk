@@ -27,6 +27,13 @@ export interface ListConnectionsRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
+   * A filter to return only resources that match display name pattern given. The match is not case sensitive.
+   * For Example : /folders?displayNameContains=Cu.*
+   * The above would match all folders with display name that starts with \"Cu\".
+   *
+   */
+  "displayNameContains"?: string;
+  /**
    * A filter to return only resources that match the specified lifecycle state. The value is case insensitive.
    */
   "lifecycleState"?: model.LifecycleState;

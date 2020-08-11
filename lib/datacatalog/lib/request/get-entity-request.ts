@@ -54,6 +54,7 @@ export namespace GetEntityRequest {
     IsLogical = "isLogical",
     IsPartition = "isPartition",
     FolderKey = "folderKey",
+    FolderName = "folderName",
     TypeKey = "typeKey",
     Path = "path",
     HarvestStatus = "harvestStatus",

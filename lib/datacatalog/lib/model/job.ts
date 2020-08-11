@@ -107,6 +107,20 @@ export interface Job {
    */
   "updatedById"?: string;
   /**
+   * The display name of the job definition resource that defined the scope of this job.
+   */
+  "jobDefinitionName"?: string;
+  /**
+   * Error code returned from the latest job execution for this job. Useful when the latest Job execution is in FAILED state.
+   *
+   */
+  "errorCode"?: string;
+  /**
+   * Error message returned from the latest job execution for this job. Useful when the latest Job Execution is in a FAILED state.
+   *
+   */
+  "errorMessage"?: string;
+  /**
    * URI to the job instance in the API.
    */
   "uri"?: string;

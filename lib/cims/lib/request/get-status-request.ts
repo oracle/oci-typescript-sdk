@@ -15,15 +15,19 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface GetStatusRequest extends common.BaseRequest {
   /**
-   * Source is a downstream system. Eg: JIRA or MOS or any other source in future.
+   * The system that generated the support ticket, such as My Oracle Support.
    */
   "source": string;
   /**
-   * User OCID for IDCS users that have a shadow in OCI
+   * User OCID for Oracle Identity Cloud Service (IDCS) users who also have a federated Oracle Cloud Infrastructure account.
    */
   "ocid": string;
   /**
-   * Unique Header for request id
+   * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
    */
   "opcRequestId"?: string;
+  /**
+   * The region of the tenancy.
+   */
+  "homeregion"?: string;
 }

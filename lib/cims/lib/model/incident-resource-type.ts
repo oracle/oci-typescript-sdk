@@ -15,27 +15,27 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of incident type
+ * Details about the resource associated with the support request.
  */
 export interface IncidentResourceType {
   /**
-   * Unique ID that identifies an Incident Type
+   * Unique identifier of the resource.
    */
   "resourceTypeKey"?: string;
   /**
-   * Name of Incident type
+   * The display name of the resource.
    */
   "name"?: string;
   /**
-   * Label associated with Incident Type
+   * The label associated with the resource.
    */
   "label": string;
   /**
-   * Details of Incident Type
+   * The description of the resource.
    */
   "description"?: string;
   /**
-   * Service Category List
+   * The service category list.
    */
   "serviceCategoryList"?: Array<model.ServiceCategory>;
 }

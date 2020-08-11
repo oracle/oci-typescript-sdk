@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Availability Domain supported by CIMS. eg: PHX_AD_1, PHX_AD_1
+ * The list of availability domains supported by the Support Management API.
  **/
 export enum AvailabilityDomain {
   Dev1 = "DEV_1",
@@ -44,8 +44,6 @@ export enum AvailabilityDomain {
   ApSeoul1Ad1 = "AP_SEOUL_1_AD_1",
   ApMumbai1Ad1 = "AP_MUMBAI_1_AD_1",
   SaSaopaulo1Ad1 = "SA_SAOPAULO_1_AD_1",
-  UsLuke1Ad1 = "US_LUKE_1_AD_1",
-  UsLangley1Ad1 = "US_LANGLEY_1_AD_1",
   MeJeddah1Ad1 = "ME_JEDDAH_1_AD_1",
   ApOsaka1Ad1 = "AP_OSAKA_1_AD_1",
   ApSydney1Ad1 = "AP_SYDNEY_1_AD_1",
@@ -55,7 +53,6 @@ export enum AvailabilityDomain {
   CaMontreal1Ad1 = "CA_MONTREAL_1_AD_1",
   ApHyderabad1Ad1 = "AP_HYDERABAD_1_AD_1",
   ApChuncheon1Ad1 = "AP_CHUNCHEON_1_AD_1",
-  UsTacoma1Ad1 = "US_TACOMA_1_AD_1",
   NoAd = "NO_AD",
 
   /**

@@ -15,23 +15,23 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface ValidateUserRequest extends common.BaseRequest {
   /**
-   * Customer support identifier of the support account
+   * The Customer Support Identifier number for the support account.
    */
   "csi": string;
   /**
-   * User OCID for IDCS users that have a shadow in OCI
+   * User OCID for Oracle Identity Cloud Service (IDCS) users who also have a federated Oracle Cloud Infrastructure account.
    */
   "ocid": string;
   /**
-   * Retry-token header
-   */
-  "opcRetryToken"?: string;
-  /**
-   * Unique request id
+   * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
    */
   "opcRequestId"?: string;
   /**
-   * Problem Type of Taxonomy - tech/limit
+   * The kind of support request.
    */
   "problemType"?: string;
+  /**
+   * The region of the tenancy.
+   */
+  "homeregion"?: string;
 }

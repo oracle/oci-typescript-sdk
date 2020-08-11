@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details Issue Type of the incident
+ * Details about the issue type associated with the support ticket.
  */
 export interface IssueType {
   /**
-   * Unique ID that identifies an Issue Type
+   * Unique identifier for the issue type.
    */
   "issueTypeKey"?: string;
   /**
-   * Label of issue type. eg: Instance Performance
+   * The label for the issue type. For example, `Instance Performance`.
    */
   "label"?: string;
 }

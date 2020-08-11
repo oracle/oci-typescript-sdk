@@ -15,23 +15,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Contact Details of the Customer
+ * Contact details for the customer.
  */
 export interface Contact {
   /**
-   * Contact person name
+   * The name of the contact person.
    */
   "contactName"?: string;
   /**
-   * Contact person email
+   * The email of the contact person.
    */
   "contactEmail"?: string;
   /**
-   * Contact person phone number
+   * The phone number of the contact person.
    */
   "contactPhone"?: string;
   /**
-   * ContactType enum. eg: MANAGER, PRIMARY
+   * The type of contact, such as primary or alternate.
    */
   "contactType"?: Contact.ContactType;
 }

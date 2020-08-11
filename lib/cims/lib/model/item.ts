@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of Item
+ * Details about the item object.
  */
 export interface Item {
   /**
-   * Unique ID that identifies an Item
+   * Unique identifier for the item.
    */
   "itemKey": string;
   /**
-   * Name of item
+   * The display name of the item.
    */
   "name"?: string;
   "category"?: model.Category;

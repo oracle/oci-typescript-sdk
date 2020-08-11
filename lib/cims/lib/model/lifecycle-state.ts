@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Provides the current status of the ticket
+ * The current state of the ticket.
  **/
 export enum LifecycleState {
   Active = "ACTIVE",

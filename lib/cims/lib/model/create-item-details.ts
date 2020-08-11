@@ -15,14 +15,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of Item
+ * Details gathered during item creation.
+ * <p>
+ **Caution:** Avoid using any confidential information when you supply string values using the API.
+ *
  */
 export interface CreateItemDetails {
   "category"?: model.CreateCategoryDetails;
   "subCategory"?: model.CreateSubCategoryDetails;
   "issueType"?: model.CreateIssueTypeDetails;
   /**
-   * Name of the item
+   * The display name of the item.
    */
   "name"?: string;
 

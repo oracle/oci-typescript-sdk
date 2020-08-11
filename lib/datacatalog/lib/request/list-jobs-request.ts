@@ -23,6 +23,13 @@ export interface ListJobsRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
+   * A filter to return only resources that match display name pattern given. The match is not case sensitive.
+   * For Example : /folders?displayNameContains=Cu.*
+   * The above would match all folders with display name that starts with \"Cu\".
+   *
+   */
+  "displayNameContains"?: string;
+  /**
    * Job lifecycle state.
    */
   "lifecycleState"?: model.JobLifecycleState;
@@ -131,7 +138,10 @@ export namespace ListJobsRequest {
     ExecutionCount = "executionCount",
     TimeOfLatestExecution = "timeOfLatestExecution",
     Executions = "executions",
-    Uri = "uri"
+    Uri = "uri",
+    JobDefinitionName = "jobDefinitionName",
+    ErrorCode = "errorCode",
+    ErrorMessage = "errorMessage"
   }
 
   export enum SortBy {

@@ -96,6 +96,24 @@ export interface JobDefinition {
    */
   "sampleDataSizeInMBs"?: number;
   /**
+   * Time that the latest job execution started. An [RFC3339](https://tools.ietf.org/html/rfc3339) formatted datetime string.
+   */
+  "timeLatestExecutionStarted"?: Date;
+  /**
+   * Time that the latest job execution ended or null if it hasn't yet completed.
+   * An [RFC3339](https://tools.ietf.org/html/rfc3339) formatted datetime string.
+   *
+   */
+  "timeLatestExecutionEnded"?: Date;
+  /**
+   * Status of the latest job execution, such as running, paused, or completed.
+   */
+  "jobExecutionState"?: model.JobExecutionState;
+  /**
+   * Type of job schedule for the latest job executed.
+   */
+  "scheduleType"?: model.JobScheduleType;
+  /**
    * A map of maps that contains the properties which are specific to the job type. Each job type
    * definition may define it's set of required and optional properties. The map keys are category names and the
    * values are maps of property name to property value. Every property is contained inside of a category. Most

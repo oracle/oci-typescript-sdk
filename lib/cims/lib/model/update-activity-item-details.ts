@@ -15,15 +15,18 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of Activity Item
+ * Details for udpating the support ticket activity.
+ * <p>
+ **Caution:** Avoid using any confidential information when you supply string values using the API.
+ *
  */
 export interface UpdateActivityItemDetails extends model.UpdateItemDetails {
   /**
-   * Comments to update as part of Activity
+   * Comments updated at the time that the activity occurs.
    */
   "comments"?: string;
   /**
-   * Type of activity. eg: NOTES, UPDATE
+   * The type of activity occurring.
    */
   "activityType"?: UpdateActivityItemDetails.ActivityType;
 

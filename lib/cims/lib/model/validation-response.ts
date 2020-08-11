@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Validation Response
+ * The validation response returned when checking whether the requested user is valid.
  */
 export interface ValidationResponse {
   /**
-   * Boolean value to check whether requested user is valid or not
+   * Boolean value that indicates whether the requested user is valid.
    */
   "isValidUser"?: boolean;
 }

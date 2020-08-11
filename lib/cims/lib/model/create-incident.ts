@@ -15,28 +15,31 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of Incident
+ * Details gathered during the creation of the support ticket.
+ * <p>
+ **Caution:** Avoid using any confidential information when you supply string values using the API.
+ *
  */
 export interface CreateIncident {
   /**
-   * Tenancy Ocid
+   * The OCID of the tenancy.
    */
   "compartmentId": string;
   "ticket": model.CreateTicketDetails;
   /**
-   * Customer Support Identifier of the support account
+   * The Customer Support Identifier number for the support account.
    */
   "csi"?: string;
   /**
-   * States type of incident. eg: LIMIT, TECH
+   * The kind of support ticket, such as a technical issue request.
    */
   "problemType": model.ProblemType;
   /**
-   * List of contacts
+   * The list of contacts.
    */
   "contacts"?: Array<model.Contact>;
   /**
-   * Referrer of the incident., its usually the URL for where the customer logged the incident
+   * The incident referrer. This value is often the URL that the customer used when creating the support ticket.
    */
   "referrer"?: string;
 }

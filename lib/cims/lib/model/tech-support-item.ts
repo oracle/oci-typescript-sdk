@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of TechSupport Item
+ * Details about the TechSupportItem object.
  */
 export interface TechSupportItem extends model.Item {
   "type": string;

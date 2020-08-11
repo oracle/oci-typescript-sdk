@@ -15,35 +15,35 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Incident Classifier details
+ * Details about the incident classifier object.
  */
 export interface Classifier {
   /**
-   * Unique ID that identifies a classifier
+   * Unique identifier of the classifier.
    */
   "id"?: string;
   /**
-   * Name of classifier. eg: LIMIT Increase
+   * The display name of the classifier.
    */
   "name"?: string;
   /**
-   * Label of classifier
+   * The label associated with the classifier.
    */
   "label"?: string;
   /**
-   * Description of classifier
+   * The description of the classifier.
    */
   "description"?: string;
   /**
-   * List of Issues
+   * The list of issues.
    */
   "issueTypeList"?: Array<model.IssueType>;
   /**
-   * Scope of Service category/resource
+   * The scope of the service category or resource.
    */
   "scope"?: Classifier.Scope;
   /**
-   * Unit to measure Service category/ resource
+   * The unit to use to measure the service category or resource.
    */
   "unit"?: Classifier.Unit;
 }

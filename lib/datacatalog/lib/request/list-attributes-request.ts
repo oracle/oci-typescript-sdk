@@ -31,6 +31,13 @@ export interface ListAttributesRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
+   * A filter to return only resources that match display name pattern given. The match is not case sensitive.
+   * For Example : /folders?displayNameContains=Cu.*
+   * The above would match all folders with display name that starts with \"Cu\".
+   *
+   */
+  "displayNameContains"?: string;
+  /**
    * A filter to return only resources that match the specified lifecycle state. The value is case insensitive.
    */
   "lifecycleState"?: model.LifecycleState;
@@ -126,7 +133,14 @@ export namespace ListAttributesRequest {
     ExternalKey = "externalKey",
     Length = "length",
     IsNullable = "isNullable",
-    Uri = "uri"
+    Uri = "uri",
+    Path = "path",
+    MinCollectionCount = "minCollectionCount",
+    MaxCollectionCount = "maxCollectionCount",
+    DatatypeEntityKey = "datatypeEntityKey",
+    ExternalDatatypeEntityKey = "externalDatatypeEntityKey",
+    ParentAttributeKey = "parentAttributeKey",
+    ExternalParentAttributeKey = "externalParentAttributeKey"
   }
 
   export enum SortBy {

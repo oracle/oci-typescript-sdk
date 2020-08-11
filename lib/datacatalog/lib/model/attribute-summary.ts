@@ -66,6 +66,37 @@ export interface AttributeSummary {
    * Data type of the attribute as defined in the external source system.
    */
   "externalDataType"?: string;
+  /**
+   * The minimum count for the number of instances of a given type stored in this collection type attribute,applicable if this attribute is a complex type.
+   */
+  "minCollectionCount"?: number;
+  /**
+   * The maximum count for the number of instances of a given type stored in this collection type attribute,applicable if this attribute is a complex type.
+   * For type specifications in systems that specify only \"capacity\" without upper or lower bound , this property can also be used to just mean \"capacity\".
+   * Some examples are Varray size in Oracle , Occurs Clause in Cobol , capacity in XmlSchemaObjectCollection , maxOccurs in  Xml , maxItems in Json
+   *
+   */
+  "maxCollectionCount"?: number;
+  /**
+   * Entity key that represents the datatype of this attribute , applicable if this attribute is a complex type.
+   */
+  "datatypeEntityKey"?: string;
+  /**
+   * External entity key that represents the datatype of this attribute , applicable if this attribute is a complex type.
+   */
+  "externalDatatypeEntityKey"?: string;
+  /**
+   * Attribute key that represents the parent attribute of this attribute , applicable if the parent attribute is of complex datatype.
+   */
+  "parentAttributeKey"?: string;
+  /**
+   * External attribute key that represents the parent attribute  of this attribute , applicable if the parent attribute is of complex type.
+   */
+  "externalParentAttributeKey"?: string;
+  /**
+   * Full path of the attribute.
+   */
+  "path"?: string;
 }
 
 export namespace AttributeSummary {

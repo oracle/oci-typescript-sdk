@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of Ticket Status
+ * Details about the status of the support ticket.
  */
 export interface Status {
   /**
-   * Unique code
+   * The code unique to this ticket status.
    */
   "code": string;
   /**
-   * Status message
+   * The status message for this ticket.
    */
   "message": string;
 }

@@ -15,11 +15,14 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of Ticket updated
+ * Details about the ticket updated.
+ * <p>
+ **Caution:** Avoid using any confidential information when you supply string values using the API.
+ *
  */
 export interface UpdateTicketDetails {
   /**
-   * List of resources
+   * The list of resources.
    */
   "resource": any;
 }
