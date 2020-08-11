@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of Incident
+ * Details about the support ticket.
  */
 export interface IncidentSummary {
   /**
-   * Unique ID that identifies an Incident
+   * Unique identifier of the incident.
    */
   "key": string;
   /**
-   * Tenancy Ocid
+   * The OCID of the tenancy.
    */
   "compartmentId"?: string;
   "contactList"?: model.ContactList;
@@ -31,7 +31,7 @@ export interface IncidentSummary {
   "ticket"?: model.Ticket;
   "incidentType"?: model.IncidentResourceType;
   /**
-   * States type of incident. eg: LIMIT, TECH
+   * The kind of support ticket, such as a technical support request.
    */
   "problemType": model.ProblemType;
 }

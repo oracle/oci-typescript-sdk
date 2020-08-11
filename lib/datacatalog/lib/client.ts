@@ -4233,6 +4233,7 @@ export class DataCatalogClient {
 
     const queryParams = {
       "displayName": listAttributesRequest.displayName,
+      "displayNameContains": listAttributesRequest.displayNameContains,
       "lifecycleState": listAttributesRequest.lifecycleState,
       "timeCreated": listAttributesRequest.timeCreated,
       "timeUpdated": listAttributesRequest.timeUpdated,
@@ -4506,6 +4507,7 @@ export class DataCatalogClient {
 
     const queryParams = {
       "displayName": listConnectionsRequest.displayName,
+      "displayNameContains": listConnectionsRequest.displayNameContains,
       "lifecycleState": listConnectionsRequest.lifecycleState,
       "timeCreated": listConnectionsRequest.timeCreated,
       "timeUpdated": listConnectionsRequest.timeUpdated,
@@ -4658,6 +4660,7 @@ export class DataCatalogClient {
 
     const queryParams = {
       "displayName": listDataAssetsRequest.displayName,
+      "displayNameContains": listDataAssetsRequest.displayNameContains,
       "lifecycleState": listDataAssetsRequest.lifecycleState,
       "timeCreated": listDataAssetsRequest.timeCreated,
       "timeUpdated": listDataAssetsRequest.timeUpdated,
@@ -4735,6 +4738,7 @@ export class DataCatalogClient {
 
     const queryParams = {
       "displayName": listEntitiesRequest.displayName,
+      "displayNameContains": listEntitiesRequest.displayNameContains,
       "lifecycleState": listEntitiesRequest.lifecycleState,
       "timeCreated": listEntitiesRequest.timeCreated,
       "timeUpdated": listEntitiesRequest.timeUpdated,
@@ -4971,6 +4975,7 @@ export class DataCatalogClient {
 
     const queryParams = {
       "displayName": listFoldersRequest.displayName,
+      "displayNameContains": listFoldersRequest.displayNameContains,
       "lifecycleState": listFoldersRequest.lifecycleState,
       "parentFolderKey": listFoldersRequest.parentFolderKey,
       "path": listFoldersRequest.path,
@@ -5050,6 +5055,7 @@ export class DataCatalogClient {
 
     const queryParams = {
       "displayName": listGlossariesRequest.displayName,
+      "displayNameContains": listGlossariesRequest.displayNameContains,
       "lifecycleState": listGlossariesRequest.lifecycleState,
       "timeCreated": listGlossariesRequest.timeCreated,
       "timeUpdated": listGlossariesRequest.timeUpdated,
@@ -5124,6 +5130,8 @@ export class DataCatalogClient {
 
     const queryParams = {
       "displayName": listJobDefinitionsRequest.displayName,
+      "displayNameContains": listJobDefinitionsRequest.displayNameContains,
+      "jobExecutionState": listJobDefinitionsRequest.jobExecutionState,
       "lifecycleState": listJobDefinitionsRequest.lifecycleState,
       "jobType": listJobDefinitionsRequest.jobType,
       "isIncremental": listJobDefinitionsRequest.isIncremental,
@@ -5366,6 +5374,7 @@ export class DataCatalogClient {
 
     const queryParams = {
       "displayName": listJobMetricsRequest.displayName,
+      "displayNameContains": listJobMetricsRequest.displayNameContains,
       "category": listJobMetricsRequest.category,
       "subCategory": listJobMetricsRequest.subCategory,
       "unit": listJobMetricsRequest.unit,
@@ -5445,6 +5454,7 @@ export class DataCatalogClient {
 
     const queryParams = {
       "displayName": listJobsRequest.displayName,
+      "displayNameContains": listJobsRequest.displayNameContains,
       "lifecycleState": listJobsRequest.lifecycleState,
       "timeCreated": listJobsRequest.timeCreated,
       "timeUpdated": listJobsRequest.timeUpdated,
@@ -5528,6 +5538,7 @@ export class DataCatalogClient {
 
     const queryParams = {
       "displayName": listTagsRequest.displayName,
+      "displayNameContains": listTagsRequest.displayNameContains,
       "lifecycleState": listTagsRequest.lifecycleState,
       "fields": listTagsRequest.fields,
       "sortBy": listTagsRequest.sortBy,
@@ -5601,6 +5612,7 @@ export class DataCatalogClient {
 
     const queryParams = {
       "displayName": listTermRelationshipsRequest.displayName,
+      "displayNameContains": listTermRelationshipsRequest.displayNameContains,
       "lifecycleState": listTermRelationshipsRequest.lifecycleState,
       "fields": listTermRelationshipsRequest.fields,
       "sortBy": listTermRelationshipsRequest.sortBy,
@@ -5672,6 +5684,7 @@ export class DataCatalogClient {
 
     const queryParams = {
       "displayName": listTermsRequest.displayName,
+      "displayNameContains": listTermsRequest.displayNameContains,
       "lifecycleState": listTermsRequest.lifecycleState,
       "parentTermKey": listTermsRequest.parentTermKey,
       "isAllowedToHaveChildTerms": listTermsRequest.isAllowedToHaveChildTerms,

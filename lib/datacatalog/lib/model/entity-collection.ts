@@ -20,6 +20,10 @@ import common = require("oci-common");
  */
 export interface EntityCollection {
   /**
+   * Total number of items returned.
+   */
+  "count"?: number;
+  /**
    * Collection of data entities.
    */
   "items": Array<model.EntitySummary>;

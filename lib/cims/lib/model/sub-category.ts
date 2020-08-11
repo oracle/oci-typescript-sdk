@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of Sub Category of the incident
+ * Details about the subcategory associated with the support ticket.
  */
 export interface SubCategory {
   /**
-   * Unique ID that identifies a Sub Category
+   * Unique identifier for the subcategory.
    */
   "subCategoryKey"?: string;
   /**
-   * Name of sub category. eg: Backup Count, Custom Image Count
+   * The name of the subcategory. For example, `Backup Count` or `Custom Image Count`.
    */
   "name"?: string;
 }

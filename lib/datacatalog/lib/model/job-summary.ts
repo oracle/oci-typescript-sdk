@@ -98,6 +98,20 @@ export interface JobSummary {
    */
   "timeOfLatestExecution"?: Date;
   /**
+   * The display name of the job definition resource that defined the scope of this job.
+   */
+  "jobDefinitionName"?: string;
+  /**
+   * Error code returned from the latest job execution for this job. Useful when the latest Job execution is in FAILED state.
+   *
+   */
+  "errorCode"?: string;
+  /**
+   * Error message returned from the latest job execution for this job. Useful when the latest Job Execution is in a FAILED state.
+   *
+   */
+  "errorMessage"?: string;
+  /**
    * Array of the executions summary associated with this job.
    */
   "executions"?: Array<model.JobExecutionSummary>;

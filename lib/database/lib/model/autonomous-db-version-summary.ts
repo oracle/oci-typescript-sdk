@@ -29,6 +29,7 @@ export interface AutonomousDbVersionSummary {
 * <p>
 - OLTP - indicates an Autonomous Transaction Processing database
 * - DW - indicates an Autonomous Data Warehouse database
+* - AJD - indicates an Autonomous JSON Database
 * 
     */
   "dbWorkload"?: AutonomousDbVersionSummary.DbWorkload;
@@ -51,6 +52,7 @@ export namespace AutonomousDbVersionSummary {
   export enum DbWorkload {
     Oltp = "OLTP",
     Dw = "DW",
+    Ajd = "AJD",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

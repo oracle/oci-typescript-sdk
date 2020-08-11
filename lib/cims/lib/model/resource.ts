@@ -15,16 +15,16 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of Ticket Item
+ * Details about the ticket item object.
  */
 export interface Resource {
   "item"?: model.LimitItem | model.TechSupportItem | model.ActivityItem;
   /**
-   * List of OCI regions
+   * The list of available Oracle Cloud Infrastructure regions.
    */
   "region"?: model.Region;
   /**
-   * List of OCI ADs
+   * The list of available Oracle Cloud Infrastructure availability domains.
    */
   "availabilityDomain"?: model.AvailabilityDomain;
 }

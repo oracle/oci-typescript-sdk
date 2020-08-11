@@ -46,6 +46,10 @@ export interface TermRelationshipSummary {
    */
   "relatedTermDescription"?: string;
   /**
+   * Full path of the related term.
+   */
+  "relatedTermPath"?: string;
+  /**
    * URI to the term relationship instance in the API.
    */
   "uri"?: string;
@@ -61,6 +65,10 @@ export interface TermRelationshipSummary {
    * Description of the parent term.
    */
   "parentTermDescription"?: string;
+  /**
+   * Full path of the parent term.
+   */
+  "parentTermPath"?: string;
   /**
    * The date and time the term relationship was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    * Example: `2019-03-25T21:10:29.600Z`

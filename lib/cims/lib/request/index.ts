@@ -25,3 +25,5 @@ import * as UpdateIncidentRequest from "./update-incident-request";
 export import UpdateIncidentRequest = UpdateIncidentRequest.UpdateIncidentRequest;
 import * as ValidateUserRequest from "./validate-user-request";
 export import ValidateUserRequest = ValidateUserRequest.ValidateUserRequest;
+import * as CreateUserRequest from "./create-user-request";
+export import CreateUserRequest = CreateUserRequest.CreateUserRequest;

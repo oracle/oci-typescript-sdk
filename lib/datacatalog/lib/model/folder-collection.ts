@@ -20,6 +20,10 @@ import common = require("oci-common");
  */
 export interface FolderCollection {
   /**
+   * Total number of items returned.
+   */
+  "count"?: number;
+  /**
    * Collection of folders.
    */
   "items": Array<model.FolderSummary>;

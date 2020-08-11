@@ -20,6 +20,10 @@ import common = require("oci-common");
  */
 export interface GlossaryCollection {
   /**
+   * Total number of items returned.
+   */
+  "count"?: number;
+  /**
    * Collection of glossaries.
    */
   "items": Array<model.GlossarySummary>;

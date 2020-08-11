@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * SortOrder query for Incident Lists
+ * The sort order to use to query support ticket lists, either ascending (`ASC`) or descending (`DESC`).
  **/
 export enum SortOrder {
   Asc = "ASC",

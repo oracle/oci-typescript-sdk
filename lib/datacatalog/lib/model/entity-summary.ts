@@ -44,6 +44,10 @@ export interface EntitySummary {
    */
   "folderKey"?: string;
   /**
+   * Name of the associated folder. This name is harvested from the source data asset when the parent folder for the entiy is harvested.
+   */
+  "folderName"?: string;
+  /**
    * Unique external key of this object in the source system.
    */
   "externalKey"?: string;

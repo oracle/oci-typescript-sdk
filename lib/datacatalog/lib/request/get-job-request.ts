@@ -55,6 +55,9 @@ export namespace GetJobRequest {
     Executions = "executions",
     CreatedById = "createdById",
     UpdatedById = "updatedById",
-    Uri = "uri"
+    Uri = "uri",
+    JobDefinitionName = "jobDefinitionName",
+    ErrorCode = "errorCode",
+    ErrorMessage = "errorMessage"
   }
 }

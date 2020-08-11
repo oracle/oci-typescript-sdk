@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * List of contacts
+ * The list of contacts for the ticket.
  */
 export interface ContactList {
   /**
-   * List of contacts
+   * The list of contacts.
    */
   "contactList": Array<model.Contact>;
 }

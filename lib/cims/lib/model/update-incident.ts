@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of Resource Item to be updated
+ * Details about the support ticket being updated.
  */
 export interface UpdateIncident {
   "ticket": model.UpdateTicketDetails;

@@ -15,27 +15,27 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of Activity Item
+ * Details about the ActivityItem object.
  */
 export interface ActivityItem extends model.Item {
   /**
-   * Comments to update as part of Activity
+   * Comments added with the activity on the support ticket.
    */
   "comments"?: string;
   /**
-   * Epoch time when activity was created
+   * The time when the activity was created, in milliseconds since epoch time.
    */
   "timeCreated"?: number;
   /**
-   * Epoch time when activity was updated
+   * The time when the activity was updated, in milliseconds since epoch time.
    */
   "timeUpdated"?: number;
   /**
-   * Type of activity. eg: NOTES, UPDATE
+   * The type of activity occuring on the support ticket.
    */
   "activityType"?: ActivityItem.ActivityType;
   /**
-   * Person who updates the activity
+   * The person who updates the activity on the support ticket.
    */
   "activityAuthor"?: ActivityItem.ActivityAuthor;
 

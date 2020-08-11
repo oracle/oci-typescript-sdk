@@ -20,6 +20,10 @@ import common = require("oci-common");
  */
 export interface TermRelationshipCollection {
   /**
+   * Total number of items returned.
+   */
+  "count"?: number;
+  /**
    * Collection of term relationships.
    */
   "items": Array<model.TermRelationshipSummary>;

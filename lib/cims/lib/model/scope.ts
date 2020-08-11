@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Scope of Service category/resource
+ * The scope of the service category or resource.
  **/
 export enum Scope {
   Ad = "AD",

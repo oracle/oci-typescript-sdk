@@ -15,11 +15,14 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of Sub Category of the incident
+ * Details for creating the subcategory of the support ticket.
+ * <p>
+ **Caution:** Avoid using any confidential information when you supply string values using the API.
+ *
  */
 export interface CreateSubCategoryDetails {
   /**
-   * Unique ID that identifies a Sub Category
+   * Unique identifier for the subcategory.
    */
   "subCategoryKey"?: string;
 }

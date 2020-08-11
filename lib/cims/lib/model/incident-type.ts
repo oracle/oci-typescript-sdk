@@ -15,27 +15,27 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of incident type
+ * Details about the incident type object.
  */
 export interface IncidentType {
   /**
-   * Unique ID that identifies an Incident Type
+   * Unique identifier for the incident type.
    */
   "id"?: string;
   /**
-   * Name of Incident type
+   * The name of the incident type.
    */
   "name"?: string;
   /**
-   * Label associated with Incident Type
+   * The label associated with the incident type.
    */
   "label"?: string;
   /**
-   * Details of Incident Type
+   * The description of the incident type.
    */
   "description"?: string;
   /**
-   * List of classifiers
+   * The list of classifiers.
    */
   "classifierList"?: Array<model.Classifier>;
 }

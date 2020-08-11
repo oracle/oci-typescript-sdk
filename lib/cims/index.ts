@@ -20,3 +20,4 @@ export { models };
 export { requests };
 export { responses };
 export import IncidentClient = client.IncidentClient;
+export import UserClient = client.UserClient;

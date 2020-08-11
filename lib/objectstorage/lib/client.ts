@@ -3314,6 +3314,9 @@ To use this and other API operations, you must be authorized in an IAM policy. I
      * Creates a new object or overwrites an existing object with the same name. The maximum object size allowed by
 * PutObject is 50 GiB.
 * <p>
+See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingobjects.htm#namerequirements)
+* for object naming requirements. 
+* <p>
 See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/Content/API/Concepts/signingrequests.htm#ObjectStoragePut)
 * for request signature requirements.
 * 
@@ -3650,12 +3653,15 @@ You can alternatively employ one of these encryption strategies for an object:
   }
 
   /**
-   * Rename an object in the given Object Storage namespace.
-   *
-   * @param RenameObjectRequest
-   * @return RenameObjectResponse
-   * @throws OciError when an error occurs
-   */
+     * Rename an object in the given Object Storage namespace.
+* <p>
+See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingobjects.htm#namerequirements)
+* for object naming requirements. 
+* 
+     * @param RenameObjectRequest
+     * @return RenameObjectResponse
+     * @throws OciError when an error occurs
+     */
   public async renameObject(
     renameObjectRequest: requests.RenameObjectRequest
   ): Promise<responses.RenameObjectResponse> {

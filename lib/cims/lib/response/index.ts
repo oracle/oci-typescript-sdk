@@ -25,3 +25,5 @@ import * as UpdateIncidentResponse from "./update-incident-response";
 export import UpdateIncidentResponse = UpdateIncidentResponse.UpdateIncidentResponse;
 import * as ValidateUserResponse from "./validate-user-response";
 export import ValidateUserResponse = ValidateUserResponse.ValidateUserResponse;
+import * as CreateUserResponse from "./create-user-response";
+export import CreateUserResponse = CreateUserResponse.CreateUserResponse;

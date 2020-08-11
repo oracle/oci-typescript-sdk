@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The field to sort by. Only one sort order may be provided. If no value is specified dateUpdated is default.
+ * The field to sort by. You can only provide one sort order. The default value is dateUpdated.
  **/
 export enum SortBy {
   DateUpdated = "dateUpdated",

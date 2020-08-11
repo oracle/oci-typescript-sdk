@@ -68,6 +68,15 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+    * The Autonomous Database workload type. The following values are valid:
+* <p>
+- OLTP - indicates an Autonomous Transaction Processing database
+* - DW - indicates an Autonomous Data Warehouse database
+* - AJD - indicates an Autonomous JSON Database
+* 
+    */
+  "dbWorkload"?: UpdateAutonomousDatabaseDetails.DbWorkload;
+  /**
    * The Oracle license model that applies to the Oracle Autonomous Database. Note that when provisioning an Autonomous Database on [dedicated Exadata infrastructure](https://docs.cloud.oracle.com/Content/Database/Concepts/adbddoverview.htm), this attribute must be null because the attribute is already set at the
    * Autonomous Exadata Infrastructure level. When using [shared Exadata infrastructure](https://docs.cloud.oracle.com/Content/Database/Concepts/adboverview.htm#AEI), if a value is not specified, the system will supply the value of `BRING_YOUR_OWN_LICENSE`.
    *
@@ -122,6 +131,12 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
 }
 
 export namespace UpdateAutonomousDatabaseDetails {
+  export enum DbWorkload {
+    Oltp = "OLTP",
+    Dw = "DW",
+    Ajd = "AJD"
+  }
+
   export enum LicenseModel {
     LicenseIncluded = "LICENSE_INCLUDED",
     BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE"

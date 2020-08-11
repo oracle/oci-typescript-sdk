@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Problem Type of an Incident
+ * The kind of support ticket, such as a technical support request.
  **/
 export enum ProblemType {
   Limit = "LIMIT",

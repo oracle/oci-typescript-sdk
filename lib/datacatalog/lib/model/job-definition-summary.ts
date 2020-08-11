@@ -61,6 +61,29 @@ export interface JobDefinitionSummary {
    *
    */
   "timeCreated"?: Date;
+  /**
+   * The key of the connection resource used in harvest, sampling, profiling jobs.
+   *
+   */
+  "connectionKey"?: string;
+  /**
+   * Time that the latest job execution started. An [RFC3339](https://tools.ietf.org/html/rfc3339) formatted datetime string.
+   */
+  "timeLatestExecutionStarted"?: Date;
+  /**
+   * Time that the latest job execution ended or null if it hasn't yet completed.
+   * An [RFC3339](https://tools.ietf.org/html/rfc3339) formatted datetime string.
+   *
+   */
+  "timeLatestExecutionEnded"?: Date;
+  /**
+   * Status of the latest job execution, such as running, paused, or completed.
+   */
+  "jobExecutionState"?: model.JobExecutionState;
+  /**
+   * Type of job schedule for the latest job executed.
+   */
+  "scheduleType"?: model.JobScheduleType;
 }
 
 export namespace JobDefinitionSummary {

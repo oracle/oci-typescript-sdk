@@ -89,6 +89,10 @@ export interface Entity {
    */
   "folderKey"?: string;
   /**
+   * Name of the associated folder. This name is harvested from the source data asset when the parent folder for the entiy is harvested.
+   */
+  "folderName"?: string;
+  /**
    * Full path of the data entity.
    */
   "path"?: string;

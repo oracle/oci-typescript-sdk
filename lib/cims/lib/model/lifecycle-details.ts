@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Provides the current status of the ticket
+ * Information about the current status of the ticket.
  **/
 export enum LifecycleDetails {
   PendingWithOracle = "PENDING_WITH_ORACLE",

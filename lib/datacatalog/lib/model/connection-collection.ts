@@ -20,6 +20,10 @@ import common = require("oci-common");
  */
 export interface ConnectionCollection {
   /**
+   * Total number of items returned.
+   */
+  "count"?: number;
+  /**
    * Collection of connection summaries.
    */
   "items": Array<model.ConnectionSummary>;

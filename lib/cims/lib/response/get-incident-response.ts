@@ -16,13 +16,9 @@ import common = require("oci-common");
 
 export interface GetIncidentResponse {
   /**
-   * OPC Request Id
+   * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
    */
   "opcRequestId": string;
-  /**
-   * e-Tag
-   */
-  "etag": string;
   /**
    * The returned model.Incident instance.
    */

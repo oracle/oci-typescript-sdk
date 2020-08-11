@@ -39,6 +39,7 @@ export interface CreateAutonomousDatabaseBase {
 * <p>
 - OLTP - indicates an Autonomous Transaction Processing database
 * - DW - indicates an Autonomous Data Warehouse database
+* - AJD - indicates an Autonomous JSON Database
 * 
     */
   "dbWorkload"?: CreateAutonomousDatabaseBase.DbWorkload;
@@ -147,7 +148,8 @@ Example: `{\"Department\": \"Finance\"}`
 export namespace CreateAutonomousDatabaseBase {
   export enum DbWorkload {
     Oltp = "OLTP",
-    Dw = "DW"
+    Dw = "DW",
+    Ajd = "AJD"
   }
 
   export enum LicenseModel {

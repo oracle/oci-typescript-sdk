@@ -20,6 +20,10 @@ import common = require("oci-common");
  */
 export interface TypeCollection {
   /**
+   * Total number of items returned.
+   */
+  "count"?: number;
+  /**
    * Collection of types.
    */
   "items": Array<model.TypeSummary>;

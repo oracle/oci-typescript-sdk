@@ -20,6 +20,10 @@ import common = require("oci-common");
  */
 export interface FolderTagCollection {
   /**
+   * Total number of items returned.
+   */
+  "count"?: number;
+  /**
    * Collection of folder tags.
    */
   "items": Array<model.FolderTagSummary>;

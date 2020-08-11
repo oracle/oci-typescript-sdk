@@ -15,31 +15,31 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface UpdateIncidentRequest extends common.BaseRequest {
   /**
-   * Unique ID that identifies an incident
+   * Unique identifier for the support ticket.
    */
   "incidentKey": string;
   /**
-   * Customer Support Identifier of the support account
+   * The Customer Support Identifier associated with the support account.
    */
   "csi": string;
   /**
-   * Details of Resource to be updated
+   * Details about the support ticket being updated.
    */
   "updateIncidentDetails": model.UpdateIncident;
   /**
-   * User OCID for IDCS users that have a shadow in OCI
+   * User OCID for Oracle Identity Cloud Service (IDCS) users who also have a federated Oracle Cloud Infrastructure account.
    */
   "ocid": string;
   /**
-   * Retry token
-   */
-  "opcRetryToken"?: string;
-  /**
-   * Unique Header for request id
+   * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
    */
   "opcRequestId"?: string;
   /**
-   * if-match check
+   * For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
    */
   "ifMatch"?: string;
+  /**
+   * The region of the tenancy.
+   */
+  "homeregion"?: string;
 }

@@ -52,6 +52,10 @@ export namespace GetJobDefinitionRequest {
     Uri = "uri",
     IsSampleDataExtracted = "isSampleDataExtracted",
     SampleDataSizeInMBs = "sampleDataSizeInMBs",
+    TimeLatestExecutionStarted = "timeLatestExecutionStarted",
+    TimeLatestExecutionEnded = "timeLatestExecutionEnded",
+    JobExecutionState = "jobExecutionState",
+    ScheduleType = "scheduleType",
     Properties = "properties"
   }
 }

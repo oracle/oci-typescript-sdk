@@ -15,23 +15,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of Limit Item
+ * Reserved for future use.
  */
 export interface CreateLimitItemDetails extends model.CreateItemDetails {
   /**
-   * Current available limit of the resource
+   * The limit of the resource currently available.
    */
   "currentLimit"?: number;
   /**
-   * Current used limit of the resource
+   * The current usage of the resource.
    */
   "currentUsage"?: number;
   /**
-   * Requested limit for the resource
+   * Reserved for future use.
    */
   "requestedLimit"?: number;
   /**
-   * Status of the Limit
+   * The current status of the request.
    */
   "limitStatus"?: CreateLimitItemDetails.LimitStatus;
 

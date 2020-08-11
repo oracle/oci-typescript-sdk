@@ -62,6 +62,13 @@ export namespace GetAttributeRequest {
     Scale = "scale",
     TimeExternal = "timeExternal",
     Uri = "uri",
-    Properties = "properties"
+    Properties = "properties",
+    Path = "path",
+    MinCollectionCount = "minCollectionCount",
+    MaxCollectionCount = "maxCollectionCount",
+    DatatypeEntityKey = "datatypeEntityKey",
+    ExternalDatatypeEntityKey = "externalDatatypeEntityKey",
+    ParentAttributeKey = "parentAttributeKey",
+    ExternalParentAttributeKey = "externalParentAttributeKey"
   }
 }

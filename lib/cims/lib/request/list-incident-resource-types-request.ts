@@ -15,43 +15,49 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface ListIncidentResourceTypesRequest extends common.BaseRequest {
   /**
-   * Problem Type of Taxonomy - tech/limit
+   * The kind of support request.
    */
   "problemType": string;
   /**
-   * Tenancy Ocid
+   * The OCID of the tenancy.
    */
   "compartmentId": string;
   /**
-   * Customer Support Identifier of the support account
+   * The Customer Support Identifier associated with the support account.
    */
   "csi": string;
   /**
-   * User OCID for IDCS users that have a shadow in OCI
+   * User OCID for Oracle Identity Cloud Service (IDCS) users who also have a federated Oracle Cloud Infrastructure account.
    */
   "ocid": string;
   /**
-   * Unique Header for request id
+   * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
    */
   "opcRequestId"?: string;
   /**
-   * Limit query for number of returned results
+   * For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   *
    */
   "limit"?: number;
   /**
-   * Pagination for Incident list
+   * For list pagination. The value of the `opc-next-page` response header from the previous \"List\" call. For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   *
    */
   "page"?: string;
   /**
-   * The key to sort the returned items by
+   * The key to use to sort the returned items.
    */
   "sortBy"?: model.SortBy;
   /**
-   * The order in which to sort the results
+   * The order to sort the results in.
    */
   "sortOrder"?: model.SortOrder;
   /**
-   * Name of Incident Type. eg: Limit Increase
+   * The user-friendly name of the incident type.
    */
   "name"?: string;
+  /**
+   * The region of the tenancy.
+   */
+  "homeregion"?: string;
 }

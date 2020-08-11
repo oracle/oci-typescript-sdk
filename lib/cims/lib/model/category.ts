@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of Category of the incident
+ * Details about the category associated with the support ticket.
  */
 export interface Category {
   /**
-   * Unique ID that identifies a Category
+   * Unique identifier for the category.
    */
   "categoryKey"?: string;
   /**
-   * Name of category. eg: Compute, Identity
+   * The name of the category. For example, `Compute` or `Identity`.
    */
   "name"?: string;
 }
