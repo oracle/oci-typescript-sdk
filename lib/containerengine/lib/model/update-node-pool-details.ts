@@ -57,6 +57,23 @@ export interface UpdateNodePoolDetails {
    *
    */
   "nodeConfigDetails"?: model.UpdateNodePoolNodeConfigDetails;
+  /**
+   * A list of key/value pairs to add to each underlying OCI instance in the node pool on launch.
+   */
+  "nodeMetadata"?: { [key: string]: string };
+  /**
+   * Specify the source to use to launch nodes in the node pool. Currently, image is the only supported source.
+   *
+   */
+  "nodeSourceDetails"?: model.NodeSourceViaImageDetails;
+  /**
+   * The SSH public key to add to each node in the node pool on launch.
+   */
+  "sshPublicKey"?: string;
+  /**
+   * The name of the node shape of the nodes in the node pool used on launch.
+   */
+  "nodeShape"?: string;
 }
 
 export namespace UpdateNodePoolDetails {
@@ -72,6 +89,10 @@ export namespace UpdateNodePoolDetails {
 
         "nodeConfigDetails": obj.nodeConfigDetails
           ? model.UpdateNodePoolNodeConfigDetails.getJsonObj(obj.nodeConfigDetails)
+          : undefined,
+
+        "nodeSourceDetails": obj.nodeSourceDetails
+          ? model.NodeSourceDetails.getJsonObj(obj.nodeSourceDetails)
           : undefined
       }
     };

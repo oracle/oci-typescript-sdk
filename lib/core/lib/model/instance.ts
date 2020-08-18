@@ -147,6 +147,7 @@ For more information about iPXE, see http://ipxe.org.
    *
    */
   "launchOptions"?: model.LaunchOptions;
+  "availabilityConfig"?: model.InstanceAvailabilityConfig;
   /**
    * The current state of the instance.
    */
@@ -237,6 +238,9 @@ export namespace Instance {
       ...{
         "launchOptions": obj.launchOptions
           ? model.LaunchOptions.getJsonObj(obj.launchOptions)
+          : undefined,
+        "availabilityConfig": obj.availabilityConfig
+          ? model.InstanceAvailabilityConfig.getJsonObj(obj.availabilityConfig)
           : undefined,
 
         "shapeConfig": obj.shapeConfig

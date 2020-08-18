@@ -90,6 +90,11 @@ export namespace CreateDataGuardAssociationDetails {
             <model.CreateDataGuardAssociationWithNewDbSystemDetails>(<object>jsonObj),
             true
           );
+        case "ExistingVmCluster":
+          return model.CreateDataGuardAssociationToExistingVmClusterDetails.getJsonObj(
+            <model.CreateDataGuardAssociationToExistingVmClusterDetails>(<object>jsonObj),
+            true
+          );
         case "ExistingDbSystem":
           return model.CreateDataGuardAssociationToExistingDbSystemDetails.getJsonObj(
             <model.CreateDataGuardAssociationToExistingDbSystemDetails>(<object>jsonObj),

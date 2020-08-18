@@ -42,7 +42,7 @@ export interface NodePool {
    */
   "kubernetesVersion"?: string;
   /**
-   * A list of key/value pairs to add to each underlying OCI instance in the node pool.
+   * A list of key/value pairs to add to each underlying OCI instance in the node pool on launch.
    */
   "nodeMetadata"?: { [key: string]: string };
   /**
@@ -56,9 +56,13 @@ export interface NodePool {
    */
   "nodeImageName"?: string;
   /**
-   * Source running on the nodes in the node pool.
+   * Deprecated. see `nodeSourceDetails`. Source running on the nodes in the node pool.
    */
   "nodeSource"?: model.NodeSourceViaImageOption;
+  /**
+   * Source running on the nodes in the node pool.
+   */
+  "nodeSourceDetails"?: model.NodeSourceViaImageDetails;
   /**
    * The name of the node shape of the nodes in the node pool.
    */
@@ -68,7 +72,7 @@ export interface NodePool {
    */
   "initialNodeLabels"?: Array<model.KeyValue>;
   /**
-   * The SSH public key on each node in the node pool.
+   * The SSH public key on each node in the node pool on launch.
    */
   "sshPublicKey"?: string;
   /**
@@ -96,6 +100,9 @@ export namespace NodePool {
       ...{
         "nodeSource": obj.nodeSource
           ? model.NodeSourceOption.getJsonObj(obj.nodeSource)
+          : undefined,
+        "nodeSourceDetails": obj.nodeSourceDetails
+          ? model.NodeSourceDetails.getJsonObj(obj.nodeSourceDetails)
           : undefined,
 
         "initialNodeLabels": obj.initialNodeLabels

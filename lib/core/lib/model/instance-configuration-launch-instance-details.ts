@@ -229,6 +229,7 @@ Dedicated VM hosts can be used when launching individual instances from an insta
    *
    */
   "preferredMaintenanceAction"?: InstanceConfigurationLaunchInstanceDetails.PreferredMaintenanceAction;
+  "availabilityConfig"?: model.InstanceConfigurationAvailabilityConfig;
 }
 
 export namespace InstanceConfigurationLaunchInstanceDetails {
@@ -274,6 +275,10 @@ export namespace InstanceConfigurationLaunchInstanceDetails {
           : undefined,
         "agentConfig": obj.agentConfig
           ? model.InstanceConfigurationLaunchInstanceAgentConfigDetails.getJsonObj(obj.agentConfig)
+          : undefined,
+
+        "availabilityConfig": obj.availabilityConfig
+          ? model.InstanceConfigurationAvailabilityConfig.getJsonObj(obj.availabilityConfig)
           : undefined
       }
     };

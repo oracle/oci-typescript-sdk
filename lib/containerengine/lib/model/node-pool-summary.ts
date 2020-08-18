@@ -52,9 +52,13 @@ export interface NodePoolSummary {
    */
   "nodeImageName"?: string;
   /**
-   * Source running on the nodes in the node pool.
+   * Deprecated. see `nodeSourceDetails`. Source running on the nodes in the node pool.
    */
   "nodeSource"?: model.NodeSourceViaImageOption;
+  /**
+   * Source running on the nodes in the node pool.
+   */
+  "nodeSourceDetails"?: model.NodeSourceViaImageDetails;
   /**
    * The name of the node shape of the nodes in the node pool.
    */
@@ -64,7 +68,7 @@ export interface NodePoolSummary {
    */
   "initialNodeLabels"?: Array<model.KeyValue>;
   /**
-   * The SSH public key on each node in the node pool.
+   * The SSH public key on each node in the node pool on launch.
    */
   "sshPublicKey"?: string;
   /**
@@ -88,6 +92,9 @@ export namespace NodePoolSummary {
       ...{
         "nodeSource": obj.nodeSource
           ? model.NodeSourceOption.getJsonObj(obj.nodeSource)
+          : undefined,
+        "nodeSourceDetails": obj.nodeSourceDetails
+          ? model.NodeSourceDetails.getJsonObj(obj.nodeSourceDetails)
           : undefined,
 
         "initialNodeLabels": obj.initialNodeLabels
