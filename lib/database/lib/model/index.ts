@@ -289,6 +289,8 @@ import * as CreateAutonomousDatabaseFromBackupTimestampDetails from "./create-au
 export import CreateAutonomousDatabaseFromBackupTimestampDetails = CreateAutonomousDatabaseFromBackupTimestampDetails.CreateAutonomousDatabaseFromBackupTimestampDetails;
 import * as CreateDataGuardAssociationToExistingDbSystemDetails from "./create-data-guard-association-to-existing-db-system-details";
 export import CreateDataGuardAssociationToExistingDbSystemDetails = CreateDataGuardAssociationToExistingDbSystemDetails.CreateDataGuardAssociationToExistingDbSystemDetails;
+import * as CreateDataGuardAssociationToExistingVmClusterDetails from "./create-data-guard-association-to-existing-vm-cluster-details";
+export import CreateDataGuardAssociationToExistingVmClusterDetails = CreateDataGuardAssociationToExistingVmClusterDetails.CreateDataGuardAssociationToExistingVmClusterDetails;
 import * as CreateDataGuardAssociationWithNewDbSystemDetails from "./create-data-guard-association-with-new-db-system-details";
 export import CreateDataGuardAssociationWithNewDbSystemDetails = CreateDataGuardAssociationWithNewDbSystemDetails.CreateDataGuardAssociationWithNewDbSystemDetails;
 import * as CreateDatabaseFromBackup from "./create-database-from-backup";

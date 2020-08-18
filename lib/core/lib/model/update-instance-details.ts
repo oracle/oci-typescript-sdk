@@ -121,6 +121,7 @@ Example: `FAULT-DOMAIN-1`
    *
    */
   "launchOptions"?: model.UpdateLaunchOptions;
+  "availabilityConfig"?: model.UpdateInstanceAvailabilityConfigDetails;
 }
 
 export namespace UpdateInstanceDetails {
@@ -138,6 +139,9 @@ export namespace UpdateInstanceDetails {
 
         "launchOptions": obj.launchOptions
           ? model.UpdateLaunchOptions.getJsonObj(obj.launchOptions)
+          : undefined,
+        "availabilityConfig": obj.availabilityConfig
+          ? model.UpdateInstanceAvailabilityConfigDetails.getJsonObj(obj.availabilityConfig)
           : undefined
       }
     };

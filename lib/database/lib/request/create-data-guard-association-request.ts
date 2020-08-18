@@ -23,6 +23,7 @@ export interface CreateDataGuardAssociationRequest extends common.BaseRequest {
    */
   "createDataGuardAssociationDetails":
     | model.CreateDataGuardAssociationWithNewDbSystemDetails
+    | model.CreateDataGuardAssociationToExistingVmClusterDetails
     | model.CreateDataGuardAssociationToExistingDbSystemDetails;
   /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or

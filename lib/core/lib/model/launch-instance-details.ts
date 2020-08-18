@@ -148,6 +148,7 @@ For more information about iPXE, see http://ipxe.org.
    *
    */
   "launchOptions"?: model.LaunchOptions;
+  "availabilityConfig"?: model.LaunchInstanceAvailabilityConfigDetails;
   /**
     * Custom metadata key/value pairs that you provide, such as the SSH public key
 * required to connect to the instance.
@@ -240,6 +241,9 @@ export namespace LaunchInstanceDetails {
 
         "launchOptions": obj.launchOptions
           ? model.LaunchOptions.getJsonObj(obj.launchOptions)
+          : undefined,
+        "availabilityConfig": obj.availabilityConfig
+          ? model.LaunchInstanceAvailabilityConfigDetails.getJsonObj(obj.availabilityConfig)
           : undefined,
 
         "agentConfig": obj.agentConfig

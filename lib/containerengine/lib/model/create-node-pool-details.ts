@@ -38,7 +38,7 @@ export interface CreateNodePoolDetails {
    */
   "kubernetesVersion": string;
   /**
-   * A list of key/value pairs to add to each underlying OCI instance in the node pool.
+   * A list of key/value pairs to add to each underlying OCI instance in the node pool on launch.
    */
   "nodeMetadata"?: { [key: string]: string };
   /**
@@ -62,7 +62,7 @@ export interface CreateNodePoolDetails {
    */
   "initialNodeLabels"?: Array<model.KeyValue>;
   /**
-   * The SSH public key to add to each node in the node pool.
+   * The SSH public key on each node in the node pool on launch.
    */
   "sshPublicKey"?: string;
   /**

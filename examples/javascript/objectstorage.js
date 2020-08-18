@@ -71,7 +71,8 @@ client.region = common.Region.US_PHOENIX_1;
     // Create stream to upload
     const fileLocation = "/Users/File/location";
     const stats = fs.statSync(fileLocation);
-    const objectData = fs.createReadStream(fileLocation);
+    const nodeFsBlob = new os.NodeFSBlob(fileLocation, stats.size);
+    const objectData = await nodeFsBlob.getData();
 
     console.log("Bucket is created. Now adding object to the Bucket.");
     const putObjectRequest = {

@@ -27,3 +27,5 @@ export import ObjectStorageClient = client.ObjectStorageClient;
 export import ObjectStorageWaiter = objectstorage_waiter.ObjectStorageWaiter;
 import { UploadManager } from "./lib/upload-manager/upload-manager";
 export { UploadManager };
+import { NodeFSBlob } from "./lib/upload-manager/node-fs-blob";
+export { NodeFSBlob };

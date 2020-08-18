@@ -16,6 +16,7 @@ import os = require("oci-objectstorage");
 import common = require("oci-common");
 import st = require("stream");
 import { createReadStream, statSync } from "fs";
+import { NodeFSBlob } from "oci-objectstorage";
 
 const configurationFilePath = "~/.oci/config";
 const configProfile = "DEFAULT";
@@ -70,7 +71,8 @@ client.region = common.Region.US_PHOENIX_1;
     // Create read stream to file
     const fileLocation = "/Users/File/location";
     const stats = statSync(fileLocation);
-    const objectData = createReadStream(fileLocation);
+    const nodeFsBlob = new NodeFSBlob(fileLocation, stats.size);
+    const objectData = await nodeFsBlob.getData();
 
     console.log("Bucket is created. Now adding object to the Bucket.");
     const putObjectRequest: os.requests.PutObjectRequest = {
