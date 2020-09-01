@@ -56,7 +56,7 @@ export interface CreateAutonomousDatabaseBase {
   /**
    * The password must be between 12 and 30 characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (\") or the username \"admin\", regardless of casing.
    */
-  "adminPassword": string;
+  "adminPassword"?: string;
   /**
    * The user-friendly name for the Autonomous Database. The name does not have to be unique.
    */
@@ -165,6 +165,11 @@ export namespace CreateAutonomousDatabaseBase {
         case "DATABASE":
           return model.CreateAutonomousDatabaseCloneDetails.getJsonObj(
             <model.CreateAutonomousDatabaseCloneDetails>(<object>jsonObj),
+            true
+          );
+        case "CLONE_TO_REFRESHABLE":
+          return model.CreateRefreshableAutonomousDatabaseCloneDetails.getJsonObj(
+            <model.CreateRefreshableAutonomousDatabaseCloneDetails>(<object>jsonObj),
             true
           );
         case "BACKUP_FROM_ID":

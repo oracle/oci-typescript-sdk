@@ -74,6 +74,11 @@ export interface UpdateNodePoolDetails {
    * The name of the node shape of the nodes in the node pool used on launch.
    */
   "nodeShape"?: string;
+  /**
+   * Specify the configuration of the shape to launch nodes in the node pool.
+   *
+   */
+  "nodeShapeConfig"?: model.UpdateNodeShapeConfigDetails;
 }
 
 export namespace UpdateNodePoolDetails {
@@ -93,6 +98,10 @@ export namespace UpdateNodePoolDetails {
 
         "nodeSourceDetails": obj.nodeSourceDetails
           ? model.NodeSourceDetails.getJsonObj(obj.nodeSourceDetails)
+          : undefined,
+
+        "nodeShapeConfig": obj.nodeShapeConfig
+          ? model.UpdateNodeShapeConfigDetails.getJsonObj(obj.nodeShapeConfig)
           : undefined
       }
     };

@@ -10,16 +10,29 @@ import {
   delay,
   WaitContextImpl
 } from "./waiter";
+import { HttpClient } from "./http";
+import { HttpRequest } from "./http-request";
+import { handleErrorBody, handleErrorResponse } from "./helper";
+import { OciError } from "..";
+import { Logger } from "./log";
+
+/**
+ * This class implements the retrier
+ * NOTE : Retries are not supported for requests that have binary or stream bodies
+ * this also affects UploadManager operations
+ * For all requests with binary/stream bodies, retry attempts will not be made
+ */
 
 export type RetryConfiguration = Partial<RetryConfigurationDetails>;
 
 export interface RetryConfigurationDetails extends WaiterConfigurationDetails {
-  retryCondition: (response: Response) => boolean;
+  retryCondition: (response: OciError) => boolean;
 }
 
 class DefaultRetryCondition {
   /**
    * Default retry condition for Retry mechanism
+   * NOTE : Retries are not supported for requests that have binary or stream bodies
    */
   private static RETRYABLE_SERVICE_ERRORS: Map<number, string> = new Map([
     [401, "NotAuthenticated"],
@@ -36,9 +49,11 @@ class DefaultRetryCondition {
     [500, "InternalServerError"]
   ]);
 
-  static shouldBeRetried(response: Response): boolean {
+  static shouldBeRetried(error: OciError): boolean {
     return (
-      response.status >= 500 || DefaultRetryCondition.RETRYABLE_SERVICE_ERRORS.has(response.status)
+      error.statusCode >= 500 ||
+      (DefaultRetryCondition.RETRYABLE_SERVICE_ERRORS.has(error.statusCode) &&
+        DefaultRetryCondition.RETRYABLE_SERVICE_ERRORS.get(error.statusCode) === error.serviceCode)
     );
   }
 }
@@ -57,6 +72,10 @@ export class GenericRetrier {
     this.retryConfiguration = preferredRetryConfig;
   }
 
+  public set logger(logger: Logger) {
+    this.logger = logger;
+  }
+
   public static createPreferredRetrier(
     clientRetryConfiguration?: RetryConfiguration,
     requestRetryConfiguration?: RetryConfiguration
@@ -68,30 +87,61 @@ export class GenericRetrier {
     return new GenericRetrier(retryConfigToUse);
   }
 
-  public async makeServiceCall(serviceCall: () => Promise<Response>): Promise<Response> {
+  public async makeServiceCall(
+    httpClient: HttpClient,
+    request: HttpRequest,
+    excludeBody?: boolean
+  ): Promise<Response> {
     const waitContext = new WaitContextImpl();
-    let delayTime = 0;
-    let lastKnownError!: Error;
-    let lastKnownRetriableResponse!: Response;
+    let lastKnownError!: Error | OciError;
+    let shouldBeRetried: boolean = true;
     while (true) {
       try {
-        const response: Response = await serviceCall();
-        if (!this.retryConfiguration.retryCondition(response)) {
+        const response: Response = await httpClient.send(request, excludeBody);
+        if (response.status && response.status >= 200 && response.status <= 299) {
           return response;
+        } else {
+          const errBody = await handleErrorBody(response);
+          const errorObject = handleErrorResponse(response, errBody);
+          shouldBeRetried = this.retryConfiguration.retryCondition(errorObject);
+          lastKnownError = errorObject;
         }
-        lastKnownRetriableResponse = response;
       } catch (err) {
-        lastKnownError = err;
+        lastKnownError = new OciError(err.code, "unknown code", err.message, "unknown");
+        shouldBeRetried = true;
       }
-      if (this.retryConfiguration.terminationStrategy.shouldTerminate(waitContext)) {
-        if (lastKnownRetriableResponse !== null && lastKnownRetriableResponse !== undefined) {
-          return lastKnownRetriableResponse;
-        }
+      if (
+        !shouldBeRetried ||
+        this.retryConfiguration.terminationStrategy.shouldTerminate(waitContext) ||
+        !GenericRetrier.isRequestRetryable(request)
+      ) {
+        if (this.logger) this.logger.debug("Not retrying the service call...");
         throw lastKnownError;
       }
-      delayTime = this.retryConfiguration.delayStrategy.delay(waitContext);
-      await delay(delayTime);
+      await delay(this.retryConfiguration.delayStrategy.delay(waitContext));
       waitContext.attemptCount++;
+      GenericRetrier.refreshRequest(request);
+      if (this.logger)
+        this.logger.debug("Retrying the service call, attempt : ", waitContext.attemptCount);
     }
+  }
+
+  private static refreshRequest(request: HttpRequest) {
+    request.headers.set("x-date", new Date().toUTCString());
+    // TO-DO : Implement resetting/recreating stream/blobs
+  }
+
+  private static isRequestRetryable(request: HttpRequest) {
+    if (!request.body) return true;
+    if (request.body) {
+      if (GenericRetrier.isReadableStream(request.body)) {
+        return false;
+      }
+      return true;
+    }
+  }
+
+  private static isReadableStream(obj: any) {
+    return typeof obj._read === "function" && typeof obj._readableState === "object";
   }
 }

@@ -19,14 +19,12 @@ import common = require("oci-common");
  *
  */
 export interface AuthenticationPolicy {
-  /**
-   * Password policy.
-   */
   "passwordPolicy"?: model.PasswordPolicy;
   /**
    * Compartment OCID.
    */
   "compartmentId"?: string;
+  "networkPolicy"?: model.NetworkPolicy;
 }
 
 export namespace AuthenticationPolicy {
@@ -36,6 +34,10 @@ export namespace AuthenticationPolicy {
       ...{
         "passwordPolicy": obj.passwordPolicy
           ? model.PasswordPolicy.getJsonObj(obj.passwordPolicy)
+          : undefined,
+
+        "networkPolicy": obj.networkPolicy
+          ? model.NetworkPolicy.getJsonObj(obj.networkPolicy)
           : undefined
       }
     };

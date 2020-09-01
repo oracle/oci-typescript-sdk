@@ -9,5 +9,11 @@ import { RetryConfiguration } from "./retrier";
  * This interface defines the client configuration properties to be used at the client level
  */
 export interface ClientConfiguration {
+  /**
+   * RetryConfiguration to be used for the client
+   * NOTE : Retries are not supported for requests that have binary or stream bodies
+   * this also affects UploadManager operations
+   * For all requests with binary/stream bodies, retry attempts will not be made
+   */
   "retryConfiguration"?: RetryConfiguration;
 }

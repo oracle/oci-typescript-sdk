@@ -30,6 +30,10 @@ export interface Node {
    */
   "name"?: string;
   /**
+   * The version of Kubernetes this node is running.
+   */
+  "kubernetesVersion"?: string;
+  /**
    * The name of the availability domain in which this node is placed.
    */
   "availabilityDomain"?: string;

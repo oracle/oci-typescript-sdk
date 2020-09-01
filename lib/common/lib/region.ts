@@ -49,7 +49,8 @@ export class Region {
     "pia": "us-gov-chicago-1",
     "tus": "us-gov-phoenix-1",
     "sjc": "us-sanjose-1",
-    "brs": "uk-gov-cardiff-1"
+    "brs": "uk-gov-cardiff-1",
+    "nja": "ap-chiyoda-1"
   };
 
   private static KNOWN_REGIONS: Map<string, Region> = new Map();
@@ -93,6 +94,9 @@ export class Region {
   // OC4
   public static UK_GOV_LONDON_1: Region = Region.register("uk-gov-london-1", Realm.OC4);
   public static UK_GOV_CARDIFF_1: Region = Region.register("uk-gov-cardiff-1", Realm.OC4);
+
+  // OC8
+  public static AP_CHIYODA_1: Region = Region.register("ap-chiyoda-1", Realm.OC8);
 
   public static fromRegionId(regionId: string): Region {
     if (!regionId) throw Error("RegionId can not be empty or undefined");

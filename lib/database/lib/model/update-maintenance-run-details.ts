@@ -16,16 +16,16 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Describes the modification parameters for the Maintenance Run.
+ * Describes the modification parameters for the maintenance run.
  *
  */
 export interface UpdateMaintenanceRunDetails {
   /**
-   * If set to false, skips the Maintenance Run.
+   * If `FALSE`, skips the maintenance run.
    */
   "isEnabled"?: boolean;
   /**
-   * The scheduled date and time of the Maintenance Run to update.
+   * The scheduled date and time of the maintenance run to update.
    */
   "timeScheduled"?: Date;
   /**

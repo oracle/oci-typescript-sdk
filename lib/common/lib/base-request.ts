@@ -9,5 +9,11 @@ import { RetryConfiguration } from "./retrier";
  * This interface defines the base request properties
  */
 export interface BaseRequest {
+  /**
+   * RetryConfiguration to be used for the request
+   * NOTE : Retries are not supported for requests that have binary or stream bodies
+   * this also affects UploadManager operations
+   * For all requests with binary/stream bodies, retry attempts are not made
+   */
   "retryConfiguration"?: RetryConfiguration;
 }

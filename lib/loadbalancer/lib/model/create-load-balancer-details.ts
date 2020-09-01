@@ -94,6 +94,7 @@ Example: `[\"ocid1.nsg.oc1.phx.unique_ID\"]`
    */
   "subnetIds": Array<string>;
   "certificates"?: { [key: string]: model.CertificateDetails };
+  "sslCipherSuites"?: { [key: string]: model.SSLCipherSuiteDetails };
   "pathRouteSets"?: { [key: string]: model.PathRouteSetDetails };
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
@@ -136,6 +137,9 @@ export namespace CreateLoadBalancerDetails {
 
         "certificates": obj.certificates
           ? common.mapContainer(obj.certificates, model.CertificateDetails.getJsonObj)
+          : undefined,
+        "sslCipherSuites": obj.sslCipherSuites
+          ? common.mapContainer(obj.sslCipherSuites, model.SSLCipherSuiteDetails.getJsonObj)
           : undefined,
         "pathRouteSets": obj.pathRouteSets
           ? common.mapContainer(obj.pathRouteSets, model.PathRouteSetDetails.getJsonObj)

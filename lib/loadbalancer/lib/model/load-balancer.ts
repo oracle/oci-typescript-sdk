@@ -109,6 +109,7 @@ Example: [\"ocid1.nsg.oc1.phx.unique_ID\"]
   "networkSecurityGroupIds"?: Array<string>;
   "listeners"?: { [key: string]: model.Listener };
   "hostnames"?: { [key: string]: model.Hostname };
+  "sslCipherSuites"?: { [key: string]: model.SSLCipherSuite };
   "certificates"?: { [key: string]: model.Certificate };
   "backendSets"?: { [key: string]: model.BackendSet };
   "pathRouteSets"?: { [key: string]: model.PathRouteSet };
@@ -169,6 +170,9 @@ export namespace LoadBalancer {
           : undefined,
         "hostnames": obj.hostnames
           ? common.mapContainer(obj.hostnames, model.Hostname.getJsonObj)
+          : undefined,
+        "sslCipherSuites": obj.sslCipherSuites
+          ? common.mapContainer(obj.sslCipherSuites, model.SSLCipherSuite.getJsonObj)
           : undefined,
         "certificates": obj.certificates
           ? common.mapContainer(obj.certificates, model.Certificate.getJsonObj)

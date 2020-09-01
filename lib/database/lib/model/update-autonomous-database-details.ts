@@ -96,6 +96,14 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "isAutoScalingEnabled"?: boolean;
   /**
+   * Indicates whether the Autonomous Database is a refreshable clone.
+   */
+  "isRefreshableClone"?: boolean;
+  /**
+   * The refresh mode of the clone. AUTOMATIC indicates that the clone is automatically being refreshed with data from the source Autonomous Database.
+   */
+  "refreshableMode"?: UpdateAutonomousDatabaseDetails.RefreshableMode;
+  /**
    * Indicates whether the Autonomous Database has Data Guard enabled.
    */
   "isDataGuardEnabled"?: boolean;
@@ -140,6 +148,11 @@ export namespace UpdateAutonomousDatabaseDetails {
   export enum LicenseModel {
     LicenseIncluded = "LICENSE_INCLUDED",
     BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE"
+  }
+
+  export enum RefreshableMode {
+    Automatic = "AUTOMATIC",
+    Manual = "MANUAL"
   }
 
   export function getJsonObj(obj: UpdateAutonomousDatabaseDetails): object {

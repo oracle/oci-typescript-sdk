@@ -57,17 +57,22 @@ const uploadManager = new os.UploadManager(client, { enforceMD5: true });
 
       try {
         console.time("Upload Time");
-
-        await uploadManager.upload({
-          content: {
-            filePath: join(directoryPath, filename)
+        const callback = res => {
+          console.log("Progress: ", res);
+        };
+        await uploadManager.upload(
+          {
+            content: {
+              filePath: join(directoryPath, filename)
+            },
+            requestDetails: {
+              namespaceName: namespaceName,
+              bucketName: bucketName,
+              objectName: objectName
+            }
           },
-          requestDetails: {
-            namespaceName: namespaceName,
-            bucketName: bucketName,
-            objectName: objectName
-          }
-        });
+          callback
+        );
 
         console.timeEnd("Upload Time");
       } catch (ex) {
