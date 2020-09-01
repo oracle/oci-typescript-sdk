@@ -112,9 +112,6 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
-  /**
-   * Properties indicating how the user is allowed to authenticate.
-   */
   "capabilities"?: model.UserCapabilities;
   /**
    * Flag indicates if MFA has been activated for the user.

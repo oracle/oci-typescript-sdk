@@ -200,6 +200,38 @@ To add the whitelist VCN specific subnet or IP, use a semicoln ';' as a delimina
    */
   "timeMaintenanceEnd"?: Date;
   /**
+   * Indicates whether the Autonomous Database is a refreshable clone.
+   */
+  "isRefreshableClone"?: boolean;
+  /**
+   * The date and time when last refresh happened.
+   */
+  "timeOfLastRefresh"?: Date;
+  /**
+   * The refresh point timestamp (UTC). The refresh point is the time to which the database was most recently refreshed. Data created after the refresh point is not included in the refresh.
+   */
+  "timeOfLastRefreshPoint"?: Date;
+  /**
+   * The date and time of next refresh.
+   */
+  "timeOfNextRefresh"?: Date;
+  /**
+   * The `DATABASE OPEN` mode. You can open the database in `READ_ONLY` or `READ_WRITE` mode.
+   */
+  "openMode"?: AutonomousDatabase.OpenMode;
+  /**
+   * The refresh status of the clone. REFRESHING indicates that the clone is currently being refreshed with data from the source Autonomous Database.
+   */
+  "refreshableStatus"?: AutonomousDatabase.RefreshableStatus;
+  /**
+   * The refresh mode of the clone. AUTOMATIC indicates that the clone is automatically being refreshed with data from the source Autonomous Database.
+   */
+  "refreshableMode"?: AutonomousDatabase.RefreshableMode;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the source Autonomous Database that was cloned to create the current Autonomous Database.
+   */
+  "sourceId"?: string;
+  /**
    * The timestamp of the last switchover operation for the Autonomous Database.
    */
   "timeOfLastSwitchover"?: Date;
@@ -287,6 +319,36 @@ export namespace AutonomousDatabase {
     Deregistering = "DEREGISTERING",
     NotRegistered = "NOT_REGISTERED",
     Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum OpenMode {
+    ReadOnly = "READ_ONLY",
+    ReadWrite = "READ_WRITE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum RefreshableStatus {
+    Refreshing = "REFRESHING",
+    NotRefreshing = "NOT_REFRESHING",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum RefreshableMode {
+    Automatic = "AUTOMATIC",
+    Manual = "MANUAL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

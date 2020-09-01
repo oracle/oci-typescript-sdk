@@ -158,13 +158,13 @@ export class BudgetClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       createAlertRuleRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAlertRuleResponse>{},
         body: await response.json(),
@@ -185,9 +185,8 @@ export class BudgetClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -225,13 +224,13 @@ export class BudgetClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       createBudgetRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateBudgetResponse>{},
         body: await response.json(),
@@ -252,9 +251,8 @@ export class BudgetClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -289,13 +287,13 @@ export class BudgetClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       deleteAlertRuleRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAlertRuleResponse>{},
         responseHeaders: [
@@ -308,9 +306,8 @@ export class BudgetClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -344,13 +341,13 @@ export class BudgetClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       deleteBudgetRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBudgetResponse>{},
         responseHeaders: [
@@ -363,9 +360,8 @@ export class BudgetClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -399,13 +395,13 @@ export class BudgetClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       getAlertRuleRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAlertRuleResponse>{},
         body: await response.json(),
@@ -426,9 +422,8 @@ export class BudgetClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -461,13 +456,13 @@ export class BudgetClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       getBudgetRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBudgetResponse>{},
         body: await response.json(),
@@ -488,9 +483,8 @@ export class BudgetClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -531,13 +525,13 @@ export class BudgetClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       listAlertRulesRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAlertRulesResponse>{},
         body: await response.json(),
@@ -558,9 +552,8 @@ export class BudgetClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -635,13 +628,13 @@ Additional targetTypes would be available in future releases. Clients should ign
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       listBudgetsRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBudgetsResponse>{},
         body: await response.json(),
@@ -662,9 +655,8 @@ Additional targetTypes would be available in future releases. Clients should ign
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -729,13 +721,13 @@ Additional targetTypes would be available in future releases. Clients should ign
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       updateAlertRuleRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAlertRuleResponse>{},
         body: await response.json(),
@@ -756,9 +748,8 @@ Additional targetTypes would be available in future releases. Clients should ign
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -797,13 +788,13 @@ Additional targetTypes would be available in future releases. Clients should ign
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       updateBudgetRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateBudgetResponse>{},
         body: await response.json(),
@@ -824,9 +815,8 @@ Additional targetTypes would be available in future releases. Clients should ign
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 }

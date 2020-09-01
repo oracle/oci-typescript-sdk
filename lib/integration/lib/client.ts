@@ -163,13 +163,13 @@ export class IntegrationInstanceClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       changeIntegrationInstanceCompartmentRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeIntegrationInstanceCompartmentResponse>{},
         responseHeaders: [
@@ -187,9 +187,8 @@ export class IntegrationInstanceClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -228,13 +227,13 @@ export class IntegrationInstanceClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       createIntegrationInstanceRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateIntegrationInstanceResponse>{},
         responseHeaders: [
@@ -252,9 +251,8 @@ export class IntegrationInstanceClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -289,13 +287,13 @@ export class IntegrationInstanceClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       deleteIntegrationInstanceRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteIntegrationInstanceResponse>{},
         responseHeaders: [
@@ -313,9 +311,8 @@ export class IntegrationInstanceClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -349,13 +346,13 @@ export class IntegrationInstanceClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       getIntegrationInstanceRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.GetIntegrationInstanceResponse>{},
         body: await response.json(),
@@ -376,9 +373,8 @@ export class IntegrationInstanceClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -412,13 +408,13 @@ export class IntegrationInstanceClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       getWorkRequestRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -444,9 +440,8 @@ export class IntegrationInstanceClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -487,13 +482,13 @@ export class IntegrationInstanceClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       listIntegrationInstancesRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ListIntegrationInstancesResponse>{},
         body: await response.json(),
@@ -519,9 +514,8 @@ export class IntegrationInstanceClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -584,13 +578,13 @@ export class IntegrationInstanceClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       listWorkRequestErrorsRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -616,9 +610,8 @@ export class IntegrationInstanceClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -681,13 +674,13 @@ export class IntegrationInstanceClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       listWorkRequestLogsRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -713,9 +706,8 @@ export class IntegrationInstanceClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -778,13 +770,13 @@ export class IntegrationInstanceClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       listWorkRequestsRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -810,9 +802,8 @@ export class IntegrationInstanceClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -874,13 +865,13 @@ export class IntegrationInstanceClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       startIntegrationInstanceRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.StartIntegrationInstanceResponse>{},
         responseHeaders: [
@@ -898,9 +889,8 @@ export class IntegrationInstanceClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -937,13 +927,13 @@ export class IntegrationInstanceClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       stopIntegrationInstanceRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.StopIntegrationInstanceResponse>{},
         responseHeaders: [
@@ -961,9 +951,8 @@ export class IntegrationInstanceClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -1003,13 +992,13 @@ export class IntegrationInstanceClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       updateIntegrationInstanceRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateIntegrationInstanceResponse>{},
         responseHeaders: [
@@ -1027,9 +1016,8 @@ export class IntegrationInstanceClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 }

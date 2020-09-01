@@ -215,6 +215,14 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the DB system.
+   */
+  "sourceDbSystemId"?: string;
+  /**
+   * The point in time for a cloned database system when the data disks were cloned from the source database system, as described in [RFC 3339](https://tools.ietf.org/rfc/rfc3339).
+   */
+  "pointInTimeDataDiskCloneTimestamp"?: Date;
 }
 
 export namespace DbSystem {
@@ -237,6 +245,7 @@ export namespace DbSystem {
     Terminating = "TERMINATING",
     Terminated = "TERMINATED",
     Failed = "FAILED",
+    MaintenanceInProgress = "MAINTENANCE_IN_PROGRESS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

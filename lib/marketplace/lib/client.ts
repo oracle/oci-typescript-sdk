@@ -133,13 +133,13 @@ export class MarketplaceClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       createAcceptedAgreementRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAcceptedAgreementResponse>{},
         body: await response.json(),
@@ -160,9 +160,8 @@ export class MarketplaceClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -202,13 +201,13 @@ export class MarketplaceClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       deleteAcceptedAgreementRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAcceptedAgreementResponse>{},
         responseHeaders: [
@@ -221,9 +220,8 @@ export class MarketplaceClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -257,13 +255,13 @@ export class MarketplaceClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       getAcceptedAgreementRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAcceptedAgreementResponse>{},
         body: await response.json(),
@@ -284,9 +282,8 @@ export class MarketplaceClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -325,13 +322,13 @@ export class MarketplaceClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       getAgreementRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAgreementResponse>{},
         body: await response.json(),
@@ -347,9 +344,8 @@ export class MarketplaceClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -399,13 +395,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       getListingRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.GetListingResponse>{},
         body: await response.json(),
@@ -426,9 +422,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -478,13 +473,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       getPackageRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPackageResponse>{},
         body: await response.json(),
@@ -505,9 +500,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -551,13 +545,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       listAcceptedAgreementsRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAcceptedAgreementsResponse>{},
         body: await response.json(),
@@ -578,9 +572,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -644,13 +637,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       listAgreementsRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAgreementsResponse>{},
         body: await response.json(),
@@ -671,9 +664,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -735,13 +727,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       listCategoriesRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCategoriesResponse>{},
         body: await response.json(),
@@ -762,9 +754,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -848,13 +839,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       listListingsRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ListListingsResponse>{},
         body: await response.json(),
@@ -875,9 +866,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -957,13 +947,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       listPackagesRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPackagesResponse>{},
         body: await response.json(),
@@ -984,9 +974,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -1048,13 +1037,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       listPublishersRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPublishersResponse>{},
         body: await response.json(),
@@ -1075,9 +1064,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -1136,13 +1124,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       listReportTypesRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ListReportTypesResponse>{},
         body: await response.json(),
@@ -1163,9 +1151,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -1201,13 +1188,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       listReportsRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ListReportsResponse>{},
         body: await response.json(),
@@ -1228,9 +1215,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -1272,13 +1258,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       updateAcceptedAgreementRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAcceptedAgreementResponse>{},
         body: await response.json(),
@@ -1299,9 +1285,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 }

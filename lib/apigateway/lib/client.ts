@@ -163,13 +163,13 @@ export class DeploymentClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       changeDeploymentCompartmentRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDeploymentCompartmentResponse>{},
         responseHeaders: [
@@ -187,9 +187,8 @@ export class DeploymentClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -227,13 +226,13 @@ export class DeploymentClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       createDeploymentRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDeploymentResponse>{},
         body: await response.json(),
@@ -264,9 +263,8 @@ export class DeploymentClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -300,13 +298,13 @@ export class DeploymentClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       deleteDeploymentRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDeploymentResponse>{},
         responseHeaders: [
@@ -324,9 +322,8 @@ export class DeploymentClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -359,13 +356,13 @@ export class DeploymentClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       getDeploymentRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDeploymentResponse>{},
         body: await response.json(),
@@ -386,9 +383,8 @@ export class DeploymentClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -429,13 +425,13 @@ export class DeploymentClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       listDeploymentsRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDeploymentsResponse>{},
         body: await response.json(),
@@ -461,9 +457,8 @@ export class DeploymentClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -502,13 +497,13 @@ export class DeploymentClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       updateDeploymentRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDeploymentResponse>{},
         responseHeaders: [
@@ -526,9 +521,8 @@ export class DeploymentClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 }
@@ -667,13 +661,13 @@ export class GatewayClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       changeGatewayCompartmentRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeGatewayCompartmentResponse>{},
         responseHeaders: [
@@ -691,9 +685,8 @@ export class GatewayClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -731,13 +724,13 @@ export class GatewayClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       createGatewayRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateGatewayResponse>{},
         body: await response.json(),
@@ -768,9 +761,8 @@ export class GatewayClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -804,13 +796,13 @@ export class GatewayClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       deleteGatewayRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteGatewayResponse>{},
         responseHeaders: [
@@ -828,9 +820,8 @@ export class GatewayClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -863,13 +854,13 @@ export class GatewayClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       getGatewayRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.GetGatewayResponse>{},
         body: await response.json(),
@@ -890,9 +881,8 @@ export class GatewayClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -932,13 +922,13 @@ export class GatewayClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       listGatewaysRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ListGatewaysResponse>{},
         body: await response.json(),
@@ -964,9 +954,8 @@ export class GatewayClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -1005,13 +994,13 @@ export class GatewayClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       updateGatewayRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateGatewayResponse>{},
         responseHeaders: [
@@ -1029,9 +1018,8 @@ export class GatewayClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 }
@@ -1165,13 +1153,13 @@ export class WorkRequestsClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       cancelWorkRequestRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelWorkRequestResponse>{},
         responseHeaders: [
@@ -1184,9 +1172,8 @@ export class WorkRequestsClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -1219,13 +1206,13 @@ export class WorkRequestsClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       getWorkRequestRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -1251,9 +1238,8 @@ export class WorkRequestsClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -1293,13 +1279,13 @@ export class WorkRequestsClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       listWorkRequestErrorsRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -1325,9 +1311,8 @@ export class WorkRequestsClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -1366,13 +1351,13 @@ export class WorkRequestsClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       listWorkRequestLogsRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -1398,9 +1383,8 @@ export class WorkRequestsClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -1439,13 +1423,13 @@ export class WorkRequestsClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       listWorkRequestsRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1471,9 +1455,8 @@ export class WorkRequestsClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 }

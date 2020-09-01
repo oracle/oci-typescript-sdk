@@ -127,13 +127,13 @@ export class UsageapiClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       requestSummarizedConfigurationsRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.RequestSummarizedConfigurationsResponse>{},
         body: await response.json(),
@@ -149,9 +149,8 @@ export class UsageapiClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 
@@ -191,13 +190,13 @@ export class UsageapiClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
       requestSummarizedUsagesRequest.retryConfiguration
     );
-    const response = await retrier.makeServiceCall(() => this._httpClient.send(request));
-    if (response.status && response.status >= 200 && response.status <= 299) {
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.RequestSummarizedUsagesResponse>{},
         body: await response.json(),
@@ -218,9 +217,8 @@ export class UsageapiClient {
       });
 
       return sdkResponse;
-    } else {
-      const errBody = await common.handleErrorBody(response);
-      throw common.handleErrorResponse(response, errBody);
+    } catch (err) {
+      throw err;
     }
   }
 }

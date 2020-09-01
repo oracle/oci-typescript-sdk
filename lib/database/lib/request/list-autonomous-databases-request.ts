@@ -73,6 +73,12 @@ export interface ListAutonomousDatabasesRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
+   * Filter on the value of the resource's 'isRefreshableClone' property. A value of `true` returns only refreshable clones.
+   * A value of `false` excludes refreshable clones from the returned results. Omitting this parameter returns both refreshable clones and databases that are not refreshable clones.
+   *
+   */
+  "isRefreshableClone"?: boolean;
+  /**
    * A filter to return only resources that have Data Guard enabled.
    */
   "isDataGuardEnabled"?: boolean;

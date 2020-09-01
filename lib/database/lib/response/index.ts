@@ -14,6 +14,8 @@
 
 import * as ActivateExadataInfrastructureResponse from "./activate-exadata-infrastructure-response";
 export import ActivateExadataInfrastructureResponse = ActivateExadataInfrastructureResponse.ActivateExadataInfrastructureResponse;
+import * as AutonomousDatabaseManualRefreshResponse from "./autonomous-database-manual-refresh-response";
+export import AutonomousDatabaseManualRefreshResponse = AutonomousDatabaseManualRefreshResponse.AutonomousDatabaseManualRefreshResponse;
 import * as ChangeAutonomousContainerDatabaseCompartmentResponse from "./change-autonomous-container-database-compartment-response";
 export import ChangeAutonomousContainerDatabaseCompartmentResponse = ChangeAutonomousContainerDatabaseCompartmentResponse.ChangeAutonomousContainerDatabaseCompartmentResponse;
 import * as ChangeAutonomousDatabaseCompartmentResponse from "./change-autonomous-database-compartment-response";
@@ -176,6 +178,8 @@ import * as ListAutonomousDataWarehousesResponse from "./list-autonomous-data-wa
 export import ListAutonomousDataWarehousesResponse = ListAutonomousDataWarehousesResponse.ListAutonomousDataWarehousesResponse;
 import * as ListAutonomousDatabaseBackupsResponse from "./list-autonomous-database-backups-response";
 export import ListAutonomousDatabaseBackupsResponse = ListAutonomousDatabaseBackupsResponse.ListAutonomousDatabaseBackupsResponse;
+import * as ListAutonomousDatabaseClonesResponse from "./list-autonomous-database-clones-response";
+export import ListAutonomousDatabaseClonesResponse = ListAutonomousDatabaseClonesResponse.ListAutonomousDatabaseClonesResponse;
 import * as ListAutonomousDatabasesResponse from "./list-autonomous-databases-response";
 export import ListAutonomousDatabasesResponse = ListAutonomousDatabasesResponse.ListAutonomousDatabasesResponse;
 import * as ListAutonomousDbPreviewVersionsResponse from "./list-autonomous-db-preview-versions-response";

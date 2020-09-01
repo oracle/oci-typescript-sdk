@@ -101,6 +101,8 @@ import * as MfaTotpToken from "./mfa-totp-token";
 export import MfaTotpToken = MfaTotpToken.MfaTotpToken;
 import * as MoveCompartmentDetails from "./move-compartment-details";
 export import MoveCompartmentDetails = MoveCompartmentDetails.MoveCompartmentDetails;
+import * as NetworkPolicy from "./network-policy";
+export import NetworkPolicy = NetworkPolicy.NetworkPolicy;
 import * as NetworkSources from "./network-sources";
 export import NetworkSources = NetworkSources.NetworkSources;
 import * as NetworkSourcesSummary from "./network-sources-summary";

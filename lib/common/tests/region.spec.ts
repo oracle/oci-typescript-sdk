@@ -37,7 +37,8 @@ describe("Test Region", () => {
     Region.US_GOV_PHOENIX_1,
     Region.UK_GOV_LONDON_1,
     Region.US_SANJOSE_1,
-    Region.UK_GOV_CARDIFF_1
+    Region.UK_GOV_CARDIFF_1,
+    Region.AP_CHIYODA_1
   ];
   it("should register a region sucessfully ", function() {
     const region = Region.register(regionId, realm);

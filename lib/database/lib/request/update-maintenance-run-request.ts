@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface UpdateMaintenanceRunRequest extends common.BaseRequest {
   /**
-   * The Maintenance Run OCID.
+   * The maintenance run OCID.
    */
   "maintenanceRunId": string;
   /**
-   * Request to update the properties of a Maintenance Run.
+   * Request to update the properties of a maintenance run.
    */
   "updateMaintenanceRunDetails": model.UpdateMaintenanceRunDetails;
   /**

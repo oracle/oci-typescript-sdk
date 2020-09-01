@@ -16,12 +16,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of a Maintenance Run.
+ * Details of a maintenance run.
  *
  */
 export interface MaintenanceRun {
   /**
-   * The OCID of the Maintenance Run.
+   * The OCID of the maintenance run.
    */
   "id": string;
   /**
@@ -29,15 +29,15 @@ export interface MaintenanceRun {
    */
   "compartmentId": string;
   /**
-   * The user-friendly name for the Maintenance Run.
+   * The user-friendly name for the maintenance run.
    */
   "displayName": string;
   /**
-   * The text describing this Maintenance Run.
+   * Description of the maintenance run.
    */
   "description"?: string;
   /**
-   * The current state of the Maintenance Run.
+   * The current state of the maintenance run.
    */
   "lifecycleState": MaintenanceRun.LifecycleState;
   /**
@@ -45,23 +45,23 @@ export interface MaintenanceRun {
    */
   "lifecycleDetails"?: string;
   /**
-   * The date and time the Maintenance Run is scheduled for.
+   * The date and time the maintenance run is scheduled to occur.
    */
   "timeScheduled": Date;
   /**
-   * The date and time the Maintenance Run starts.
+   * The date and time the maintenance run starts.
    */
   "timeStarted"?: Date;
   /**
-   * The date and time the Maintenance Run was completed.
+   * The date and time the maintenance run was completed.
    */
   "timeEnded"?: Date;
   /**
-   * The type of the target resource on which the Maintenance Run occurs.
+   * The type of the target resource on which the maintenance run occurs.
    */
   "targetResourceType"?: MaintenanceRun.TargetResourceType;
   /**
-   * The ID of the target resource on which the Maintenance Run occurs.
+   * The ID of the target resource on which the maintenance run occurs.
    */
   "targetResourceId"?: string;
   /**

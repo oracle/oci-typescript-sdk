@@ -182,6 +182,12 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * A private IP address of your choice. Must be an available IP address within the subnet's CIDR.
+   * If you don't specify a value, Oracle automatically assigns a private IP address from the subnet.
+   *
+   */
+  "privateIp"?: string;
 
   "source": string;
 }
@@ -202,6 +208,11 @@ export namespace LaunchDbSystemBase {
         case "NONE":
           return model.LaunchDbSystemDetails.getJsonObj(
             <model.LaunchDbSystemDetails>(<object>jsonObj),
+            true
+          );
+        case "DB_SYSTEM":
+          return model.LaunchDbSystemFromDbSystemDetails.getJsonObj(
+            <model.LaunchDbSystemFromDbSystemDetails>(<object>jsonObj),
             true
           );
         case "DATABASE":

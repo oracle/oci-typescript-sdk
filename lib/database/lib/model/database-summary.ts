@@ -104,6 +104,10 @@ Example: `{\"Department\": \"Finance\"}`
    * The Connection strings used to connect to the Oracle Database.
    */
   "connectionStrings"?: model.DatabaseConnectionStrings;
+  /**
+   * Point in time recovery timeStamp of the source database at which cloned database system is cloned from the source database system, as described in [RFC 3339](https://tools.ietf.org/rfc/rfc3339)
+   */
+  "sourceDatabasePointInTimeRecoveryTimestamp"?: Date;
 }
 
 export namespace DatabaseSummary {

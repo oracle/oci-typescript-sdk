@@ -58,6 +58,11 @@ export interface CreateNodePoolDetails {
    */
   "nodeShape": string;
   /**
+   * Specify the configuration of the shape to launch nodes in the node pool.
+   *
+   */
+  "nodeShapeConfig"?: model.CreateNodeShapeConfigDetails;
+  /**
    * A list of key/value pairs to add to nodes after they join the Kubernetes cluster.
    */
   "initialNodeLabels"?: Array<model.KeyValue>;
@@ -95,6 +100,9 @@ export namespace CreateNodePoolDetails {
           ? model.NodeSourceDetails.getJsonObj(obj.nodeSourceDetails)
           : undefined,
 
+        "nodeShapeConfig": obj.nodeShapeConfig
+          ? model.CreateNodeShapeConfigDetails.getJsonObj(obj.nodeShapeConfig)
+          : undefined,
         "initialNodeLabels": obj.initialNodeLabels
           ? obj.initialNodeLabels.map(item => {
               return model.KeyValue.getJsonObj(item);

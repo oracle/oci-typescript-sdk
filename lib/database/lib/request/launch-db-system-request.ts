@@ -19,6 +19,7 @@ export interface LaunchDbSystemRequest extends common.BaseRequest {
    */
   "launchDbSystemDetails":
     | model.LaunchDbSystemDetails
+    | model.LaunchDbSystemFromDbSystemDetails
     | model.LaunchDbSystemFromDatabaseDetails
     | model.LaunchDbSystemFromBackupDetails;
   /**

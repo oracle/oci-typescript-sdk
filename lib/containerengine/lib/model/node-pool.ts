@@ -56,6 +56,10 @@ export interface NodePool {
    */
   "nodeImageName"?: string;
   /**
+   * The shape configuration of the nodes.
+   */
+  "nodeShapeConfig"?: model.NodeShapeConfig;
+  /**
    * Deprecated. see `nodeSourceDetails`. Source running on the nodes in the node pool.
    */
   "nodeSource"?: model.NodeSourceViaImageOption;
@@ -98,6 +102,9 @@ export namespace NodePool {
     const jsonObj = {
       ...obj,
       ...{
+        "nodeShapeConfig": obj.nodeShapeConfig
+          ? model.NodeShapeConfig.getJsonObj(obj.nodeShapeConfig)
+          : undefined,
         "nodeSource": obj.nodeSource
           ? model.NodeSourceOption.getJsonObj(obj.nodeSource)
           : undefined,

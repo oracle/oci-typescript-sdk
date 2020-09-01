@@ -14,6 +14,8 @@
 
 import * as ActivateExadataInfrastructureRequest from "./activate-exadata-infrastructure-request";
 export import ActivateExadataInfrastructureRequest = ActivateExadataInfrastructureRequest.ActivateExadataInfrastructureRequest;
+import * as AutonomousDatabaseManualRefreshRequest from "./autonomous-database-manual-refresh-request";
+export import AutonomousDatabaseManualRefreshRequest = AutonomousDatabaseManualRefreshRequest.AutonomousDatabaseManualRefreshRequest;
 import * as ChangeAutonomousContainerDatabaseCompartmentRequest from "./change-autonomous-container-database-compartment-request";
 export import ChangeAutonomousContainerDatabaseCompartmentRequest = ChangeAutonomousContainerDatabaseCompartmentRequest.ChangeAutonomousContainerDatabaseCompartmentRequest;
 import * as ChangeAutonomousDatabaseCompartmentRequest from "./change-autonomous-database-compartment-request";
@@ -176,6 +178,8 @@ import * as ListAutonomousDataWarehousesRequest from "./list-autonomous-data-war
 export import ListAutonomousDataWarehousesRequest = ListAutonomousDataWarehousesRequest.ListAutonomousDataWarehousesRequest;
 import * as ListAutonomousDatabaseBackupsRequest from "./list-autonomous-database-backups-request";
 export import ListAutonomousDatabaseBackupsRequest = ListAutonomousDatabaseBackupsRequest.ListAutonomousDatabaseBackupsRequest;
+import * as ListAutonomousDatabaseClonesRequest from "./list-autonomous-database-clones-request";
+export import ListAutonomousDatabaseClonesRequest = ListAutonomousDatabaseClonesRequest.ListAutonomousDatabaseClonesRequest;
 import * as ListAutonomousDatabasesRequest from "./list-autonomous-databases-request";
 export import ListAutonomousDatabasesRequest = ListAutonomousDatabasesRequest.ListAutonomousDatabasesRequest;
 import * as ListAutonomousDbPreviewVersionsRequest from "./list-autonomous-db-preview-versions-request";

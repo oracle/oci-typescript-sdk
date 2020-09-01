@@ -34,6 +34,10 @@ import { UploadOptions } from "./upload-options";
 export class UploadManager {
   private readonly options: UploadOptions;
 
+  // uploadSize will be a dictionary that keeps track of uploadSize per uploadId. This helps prevent mismatch uploadSize with
+  // different upload when uploading multiple things in parallel.
+  private uploadSize: { [key: string]: number } = {};
+
   public constructor(
     private readonly client: ObjectStorageClient,
     options?: Partial<UploadOptions>
@@ -71,10 +75,10 @@ export class UploadManager {
    * @throws OciError if the upload fails for any reason.
    */
 
-  public async upload(request: UploadRequest): Promise<UploadResponse> {
+  public async upload(request: UploadRequest, callback?: Function): Promise<UploadResponse> {
     const content = getContent(request.content, this.options);
     if (this.shouldUseMultipartUpload(content)) {
-      return this.multiUpload(request.requestDetails, content);
+      return this.multiUpload(request.requestDetails, content, callback);
     }
     return this.singleUpload(request.requestDetails, content);
   }
@@ -109,7 +113,9 @@ export class UploadManager {
     requestDetails: RequestDetails,
     uploadId: string,
     uploadPartNum: number,
-    semaphore: Semaphore
+    semaphore: Semaphore,
+    totalSize: number,
+    callback?: Function
   ): Promise<models.CommitMultipartUploadPartDetails> {
     try {
       return await semaphore.use(async () => {
@@ -130,7 +136,17 @@ export class UploadManager {
           ...contentDetails,
           ...contentMD5Hash
         });
-        return { etag: response.eTag, partNum: uploadPartNum };
+        const uploadSize = (this.uploadSize[uploadId] += content.size);
+        const progress = (uploadSize / totalSize) * 100;
+        const result = {
+          etag: response.eTag,
+          partNum: uploadPartNum,
+          progress: progress.toFixed()
+        };
+        if (callback) {
+          callback(result);
+        }
+        return result;
       });
     } catch (ex) {
       if (this.logger) this.logger.error(`Upload of part: ${uploadPartNum} failed due to ${ex}`);
@@ -140,7 +156,8 @@ export class UploadManager {
 
   private async multiUpload(
     requestDetails: RequestDetails,
-    content: UploadableBlob
+    content: UploadableBlob,
+    callback?: Function
   ): Promise<UploadResponse> {
     const createUploadResponse = await this.client.createMultipartUpload({
       ...UploadManager.composeRequestDetails(requestDetails),
@@ -149,7 +166,7 @@ export class UploadManager {
       }
     });
     const uploadId = createUploadResponse.multipartUpload.uploadId;
-
+    this.uploadSize[uploadId] = 0;
     try {
       const totalSize = content.size;
       const partUploadPromises = new Array<Promise<models.CommitMultipartUploadPartDetails>>();
@@ -165,7 +182,15 @@ export class UploadManager {
           currentChunkStart + this.options.partSize
         );
         partUploadPromises.push(
-          this.triggerUploadPart(slicedContent, requestDetails, uploadId, uploadPartNum, semaphore)
+          this.triggerUploadPart(
+            slicedContent,
+            requestDetails,
+            uploadId,
+            uploadPartNum,
+            semaphore,
+            totalSize,
+            callback
+          )
         );
         uploadPartNum++;
       }
