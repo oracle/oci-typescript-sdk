@@ -78,6 +78,10 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The database software image [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   */
+  "databaseSoftwareImageId"?: string;
 }
 
 export namespace DbHome {

@@ -54,6 +54,13 @@ export class EsxiHostClient {
   }
 
   /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
    * Sets the endpoint to call (ex, https://www.example.com).
    * @param endpoint The endpoint of the service.
    */
@@ -496,6 +503,13 @@ export class SddcClient {
         this.region = provider.getRegion();
       }
     }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
   }
 
   /**
@@ -1059,6 +1073,13 @@ export class WorkRequestClient {
         this.region = provider.getRegion();
       }
     }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
   }
 
   /**

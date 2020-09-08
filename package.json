@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -71,7 +71,14 @@
     "oci-dataintegration": "file:lib/dataintegration",
     "oci-ocvp": "file:lib/ocvp",
     "oci-usageapi": "file:lib/usageapi",
-    "oci-blockchain": "file:lib/blockchain"
+    "oci-blockchain": "file:lib/blockchain",
+    "oci-loganalytics": "file:lib/loganalytics",
+    "oci-logging": "file:lib/logging",
+    "oci-loggingingestion": "file:lib/loggingingestion",
+    "oci-loggingsearch": "file:lib/loggingsearch",
+    "oci-managementagent": "file:lib/managementagent",
+    "oci-managementdashboard": "file:lib/managementdashboard",
+    "oci-sch": "file:lib/sch"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

@@ -30,6 +30,10 @@ export interface CreateDbHomeDetails {
    * A valid Oracle Database version. To get a list of supported versions, use the {@link #listDbVersions(ListDbVersionsRequest) listDbVersions} operation.
    */
   "dbVersion": string;
+  /**
+   * The database software image [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   */
+  "databaseSoftwareImageId"?: string;
   "database": model.CreateDatabaseDetails;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.

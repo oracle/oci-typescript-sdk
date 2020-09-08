@@ -26,6 +26,8 @@ import * as ChangeAutonomousVmClusterCompartmentRequest from "./change-autonomou
 export import ChangeAutonomousVmClusterCompartmentRequest = ChangeAutonomousVmClusterCompartmentRequest.ChangeAutonomousVmClusterCompartmentRequest;
 import * as ChangeBackupDestinationCompartmentRequest from "./change-backup-destination-compartment-request";
 export import ChangeBackupDestinationCompartmentRequest = ChangeBackupDestinationCompartmentRequest.ChangeBackupDestinationCompartmentRequest;
+import * as ChangeDatabaseSoftwareImageCompartmentRequest from "./change-database-software-image-compartment-request";
+export import ChangeDatabaseSoftwareImageCompartmentRequest = ChangeDatabaseSoftwareImageCompartmentRequest.ChangeDatabaseSoftwareImageCompartmentRequest;
 import * as ChangeDbSystemCompartmentRequest from "./change-db-system-compartment-request";
 export import ChangeDbSystemCompartmentRequest = ChangeDbSystemCompartmentRequest.ChangeDbSystemCompartmentRequest;
 import * as ChangeExadataInfrastructureCompartmentRequest from "./change-exadata-infrastructure-compartment-request";
@@ -56,6 +58,8 @@ import * as CreateDataGuardAssociationRequest from "./create-data-guard-associat
 export import CreateDataGuardAssociationRequest = CreateDataGuardAssociationRequest.CreateDataGuardAssociationRequest;
 import * as CreateDatabaseRequest from "./create-database-request";
 export import CreateDatabaseRequest = CreateDatabaseRequest.CreateDatabaseRequest;
+import * as CreateDatabaseSoftwareImageRequest from "./create-database-software-image-request";
+export import CreateDatabaseSoftwareImageRequest = CreateDatabaseSoftwareImageRequest.CreateDatabaseSoftwareImageRequest;
 import * as CreateDbHomeRequest from "./create-db-home-request";
 export import CreateDbHomeRequest = CreateDbHomeRequest.CreateDbHomeRequest;
 import * as CreateExadataInfrastructureRequest from "./create-exadata-infrastructure-request";
@@ -82,6 +86,8 @@ import * as DeleteConsoleConnectionRequest from "./delete-console-connection-req
 export import DeleteConsoleConnectionRequest = DeleteConsoleConnectionRequest.DeleteConsoleConnectionRequest;
 import * as DeleteDatabaseRequest from "./delete-database-request";
 export import DeleteDatabaseRequest = DeleteDatabaseRequest.DeleteDatabaseRequest;
+import * as DeleteDatabaseSoftwareImageRequest from "./delete-database-software-image-request";
+export import DeleteDatabaseSoftwareImageRequest = DeleteDatabaseSoftwareImageRequest.DeleteDatabaseSoftwareImageRequest;
 import * as DeleteDbHomeRequest from "./delete-db-home-request";
 export import DeleteDbHomeRequest = DeleteDbHomeRequest.DeleteDbHomeRequest;
 import * as DeleteExadataInfrastructureRequest from "./delete-exadata-infrastructure-request";
@@ -122,6 +128,8 @@ import * as GetAutonomousDatabaseWalletRequest from "./get-autonomous-database-w
 export import GetAutonomousDatabaseWalletRequest = GetAutonomousDatabaseWalletRequest.GetAutonomousDatabaseWalletRequest;
 import * as GetAutonomousExadataInfrastructureRequest from "./get-autonomous-exadata-infrastructure-request";
 export import GetAutonomousExadataInfrastructureRequest = GetAutonomousExadataInfrastructureRequest.GetAutonomousExadataInfrastructureRequest;
+import * as GetAutonomousPatchRequest from "./get-autonomous-patch-request";
+export import GetAutonomousPatchRequest = GetAutonomousPatchRequest.GetAutonomousPatchRequest;
 import * as GetAutonomousVmClusterRequest from "./get-autonomous-vm-cluster-request";
 export import GetAutonomousVmClusterRequest = GetAutonomousVmClusterRequest.GetAutonomousVmClusterRequest;
 import * as GetBackupRequest from "./get-backup-request";
@@ -134,6 +142,8 @@ import * as GetDataGuardAssociationRequest from "./get-data-guard-association-re
 export import GetDataGuardAssociationRequest = GetDataGuardAssociationRequest.GetDataGuardAssociationRequest;
 import * as GetDatabaseRequest from "./get-database-request";
 export import GetDatabaseRequest = GetDatabaseRequest.GetDatabaseRequest;
+import * as GetDatabaseSoftwareImageRequest from "./get-database-software-image-request";
+export import GetDatabaseSoftwareImageRequest = GetDatabaseSoftwareImageRequest.GetDatabaseSoftwareImageRequest;
 import * as GetDbHomeRequest from "./get-db-home-request";
 export import GetDbHomeRequest = GetDbHomeRequest.GetDbHomeRequest;
 import * as GetDbHomePatchRequest from "./get-db-home-patch-request";
@@ -198,8 +208,12 @@ import * as ListBackupsRequest from "./list-backups-request";
 export import ListBackupsRequest = ListBackupsRequest.ListBackupsRequest;
 import * as ListConsoleConnectionsRequest from "./list-console-connections-request";
 export import ListConsoleConnectionsRequest = ListConsoleConnectionsRequest.ListConsoleConnectionsRequest;
+import * as ListContainerDatabasePatchesRequest from "./list-container-database-patches-request";
+export import ListContainerDatabasePatchesRequest = ListContainerDatabasePatchesRequest.ListContainerDatabasePatchesRequest;
 import * as ListDataGuardAssociationsRequest from "./list-data-guard-associations-request";
 export import ListDataGuardAssociationsRequest = ListDataGuardAssociationsRequest.ListDataGuardAssociationsRequest;
+import * as ListDatabaseSoftwareImagesRequest from "./list-database-software-images-request";
+export import ListDatabaseSoftwareImagesRequest = ListDatabaseSoftwareImagesRequest.ListDatabaseSoftwareImagesRequest;
 import * as ListDatabasesRequest from "./list-databases-request";
 export import ListDatabasesRequest = ListDatabasesRequest.ListDatabasesRequest;
 import * as ListDbHomePatchHistoryEntriesRequest from "./list-db-home-patch-history-entries-request";
@@ -284,6 +298,8 @@ import * as UpdateBackupDestinationRequest from "./update-backup-destination-req
 export import UpdateBackupDestinationRequest = UpdateBackupDestinationRequest.UpdateBackupDestinationRequest;
 import * as UpdateDatabaseRequest from "./update-database-request";
 export import UpdateDatabaseRequest = UpdateDatabaseRequest.UpdateDatabaseRequest;
+import * as UpdateDatabaseSoftwareImageRequest from "./update-database-software-image-request";
+export import UpdateDatabaseSoftwareImageRequest = UpdateDatabaseSoftwareImageRequest.UpdateDatabaseSoftwareImageRequest;
 import * as UpdateDbHomeRequest from "./update-db-home-request";
 export import UpdateDbHomeRequest = UpdateDbHomeRequest.UpdateDbHomeRequest;
 import * as UpdateDbSystemRequest from "./update-db-system-request";

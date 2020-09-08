@@ -50,6 +50,13 @@ export class ResourceSearchClient {
   }
 
   /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
    * Sets the endpoint to call (ex, https://www.example.com).
    * @param endpoint The endpoint of the service.
    */
@@ -243,7 +250,7 @@ export class ResourceSearchClient {
   }
 
   /**
-   * Queries any and all compartments in the tenancy to find resources that match the specified criteria.
+   * Queries any and all compartments in the specified tenancy to find resources that match the specified criteria.
    * Results include resources that you have permission to view and can span different resource types.
    * You can also sort results based on a specified resource attribute.
    *
@@ -259,7 +266,8 @@ export class ResourceSearchClient {
 
     const queryParams = {
       "limit": searchResourcesRequest.limit,
-      "page": searchResourcesRequest.page
+      "page": searchResourcesRequest.page,
+      "tenantId": searchResourcesRequest.tenantId
     };
 
     let headerParams = {

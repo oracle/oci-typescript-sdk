@@ -69,6 +69,10 @@ export interface MaintenanceRun {
    */
   "maintenanceType"?: MaintenanceRun.MaintenanceType;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the patch to be applied in the maintenance run.
+   */
+  "patchId"?: string;
+  /**
    * Maintenance sub-type.
    */
   "maintenanceSubtype"?: MaintenanceRun.MaintenanceSubtype;

@@ -5,7 +5,7 @@
 
 import common = require("oci-common");
 import * as identity from "oci-identity";
-import { paginatedRecordsWithLimit, paginatedResponsesWithLimit } from "oci-common/lib/paginators";
+import { paginatedRecordsWithLimit, paginatedResponsesWithLimit } from "oci-common";
 
 const configurationFilePath = "~/.oci/config";
 const configProfile = "DEFAULT";

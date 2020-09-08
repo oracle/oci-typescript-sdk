@@ -100,6 +100,10 @@ Example: `{\"Department\": \"Finance\"}`
    * Point in time recovery timeStamp of the source database at which cloned database system is cloned from the source database system, as described in [RFC 3339](https://tools.ietf.org/rfc/rfc3339)
    */
   "sourceDatabasePointInTimeRecoveryTimestamp"?: Date;
+  /**
+   * The database software image [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   */
+  "databaseSoftwareImageId"?: string;
 }
 
 export namespace Database {
