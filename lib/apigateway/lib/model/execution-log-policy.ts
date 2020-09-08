@@ -1,8 +1,8 @@
 /**
  * API Gateway API
- * API for the API Gateway service. Use this API to manage gateways, deployments, and related items. 
+ * API for the API Gateway service. Use this API to manage gateways, deployments, and related items.
 For more information, see
-[Overview of API Gateway](/iaas/Content/APIGateway/Concepts/apigatewayoverview.htm). 
+[Overview of API Gateway](/iaas/Content/APIGateway/Concepts/apigatewayoverview.htm).
 
  * OpenAPI spec version: 20190501
  * 
@@ -18,17 +18,26 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Configures the pushing of execution logs to OCI Public Logging.
+ * Configures the logging policies for the execution logs of an API Deployment.
  *
  */
 export interface ExecutionLogPolicy {
   /**
-   * Enables pushing of execution logs to OCI Public Logging.
-   */
+    * Enables pushing of execution logs to the legacy OCI Object Storage log archival bucket.
+* <p>
+Oracle recommends using the OCI Logging service to enable, retrieve, and query execution logs
+* for an API Deployment. If there is an active log object for the API Deployment and its
+* category is set to 'execution' in OCI Logging service, the logs will not be uploaded to the legacy
+* OCI Object Storage log archival bucket.
+* <p>
+Please note that the functionality to push to the legacy OCI Object Storage log
+* archival bucket has been deprecated and will be removed in the future.
+* 
+    */
   "isEnabled"?: boolean;
   /**
-   * Specifies the logging level, which affects the log entries pushed to
-   * OCI Public Logging if `isEnabled` is set to True.
+   * Specifies the log level used to control logging output of execution logs.
+   * Enabling logging at a given level also enables logging at all higher levels.
    *
    */
   "logLevel"?: ExecutionLogPolicy.LogLevel;

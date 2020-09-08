@@ -69,6 +69,10 @@ export interface AutonomousContainerDatabaseSummary {
    */
   "patchModel": AutonomousContainerDatabaseSummary.PatchModel;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the last patch applied on the system.
+   */
+  "patchId"?: string;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the last maintenance run.
    */
   "lastMaintenanceRunId"?: string;

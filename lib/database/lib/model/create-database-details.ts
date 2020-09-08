@@ -31,6 +31,10 @@ export interface CreateDatabaseDetails {
    */
   "dbUniqueName"?: string;
   /**
+   * The database software image [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   */
+  "databaseSoftwareImageId"?: string;
+  /**
    * The name of the pluggable database. The name must begin with an alphabetic character and can contain a maximum of eight alphanumeric characters. Special characters are not permitted. Pluggable database should not be same as database name.
    */
   "pdbName"?: string;

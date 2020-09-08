@@ -32,6 +32,10 @@ export interface UpdateMaintenanceRunDetails {
    * If set to `TRUE`, starts patching immediately.
    */
   "isPatchNowEnabled"?: boolean;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the patch to be applied in the maintenance run.
+   */
+  "patchId"?: string;
 }
 
 export namespace UpdateMaintenanceRunDetails {

@@ -1,8 +1,8 @@
 /**
  * API Gateway API
- * API for the API Gateway service. Use this API to manage gateways, deployments, and related items. 
+ * API for the API Gateway service. Use this API to manage gateways, deployments, and related items.
 For more information, see
-[Overview of API Gateway](/iaas/Content/APIGateway/Concepts/apigatewayoverview.htm). 
+[Overview of API Gateway](/iaas/Content/APIGateway/Concepts/apigatewayoverview.htm).
 
  * OpenAPI spec version: 20190501
  * 
@@ -34,6 +34,7 @@ export interface ApiSpecificationRoute {
    */
   "methods"?: Array<ApiSpecificationRoute.Methods>;
   "requestPolicies"?: model.ApiSpecificationRouteRequestPolicies;
+  "responsePolicies"?: model.ApiSpecificationRouteResponsePolicies;
   "loggingPolicies"?: model.ApiSpecificationLoggingPolicies;
   "backend": model.HTTPBackend | model.OracleFunctionBackend | model.StockResponseBackend;
 }
@@ -61,6 +62,9 @@ export namespace ApiSpecificationRoute {
       ...{
         "requestPolicies": obj.requestPolicies
           ? model.ApiSpecificationRouteRequestPolicies.getJsonObj(obj.requestPolicies)
+          : undefined,
+        "responsePolicies": obj.responsePolicies
+          ? model.ApiSpecificationRouteResponsePolicies.getJsonObj(obj.responsePolicies)
           : undefined,
         "loggingPolicies": obj.loggingPolicies
           ? model.ApiSpecificationLoggingPolicies.getJsonObj(obj.loggingPolicies)

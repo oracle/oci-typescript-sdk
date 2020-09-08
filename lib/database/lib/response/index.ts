@@ -26,6 +26,8 @@ import * as ChangeAutonomousVmClusterCompartmentResponse from "./change-autonomo
 export import ChangeAutonomousVmClusterCompartmentResponse = ChangeAutonomousVmClusterCompartmentResponse.ChangeAutonomousVmClusterCompartmentResponse;
 import * as ChangeBackupDestinationCompartmentResponse from "./change-backup-destination-compartment-response";
 export import ChangeBackupDestinationCompartmentResponse = ChangeBackupDestinationCompartmentResponse.ChangeBackupDestinationCompartmentResponse;
+import * as ChangeDatabaseSoftwareImageCompartmentResponse from "./change-database-software-image-compartment-response";
+export import ChangeDatabaseSoftwareImageCompartmentResponse = ChangeDatabaseSoftwareImageCompartmentResponse.ChangeDatabaseSoftwareImageCompartmentResponse;
 import * as ChangeDbSystemCompartmentResponse from "./change-db-system-compartment-response";
 export import ChangeDbSystemCompartmentResponse = ChangeDbSystemCompartmentResponse.ChangeDbSystemCompartmentResponse;
 import * as ChangeExadataInfrastructureCompartmentResponse from "./change-exadata-infrastructure-compartment-response";
@@ -56,6 +58,8 @@ import * as CreateDataGuardAssociationResponse from "./create-data-guard-associa
 export import CreateDataGuardAssociationResponse = CreateDataGuardAssociationResponse.CreateDataGuardAssociationResponse;
 import * as CreateDatabaseResponse from "./create-database-response";
 export import CreateDatabaseResponse = CreateDatabaseResponse.CreateDatabaseResponse;
+import * as CreateDatabaseSoftwareImageResponse from "./create-database-software-image-response";
+export import CreateDatabaseSoftwareImageResponse = CreateDatabaseSoftwareImageResponse.CreateDatabaseSoftwareImageResponse;
 import * as CreateDbHomeResponse from "./create-db-home-response";
 export import CreateDbHomeResponse = CreateDbHomeResponse.CreateDbHomeResponse;
 import * as CreateExadataInfrastructureResponse from "./create-exadata-infrastructure-response";
@@ -82,6 +86,8 @@ import * as DeleteConsoleConnectionResponse from "./delete-console-connection-re
 export import DeleteConsoleConnectionResponse = DeleteConsoleConnectionResponse.DeleteConsoleConnectionResponse;
 import * as DeleteDatabaseResponse from "./delete-database-response";
 export import DeleteDatabaseResponse = DeleteDatabaseResponse.DeleteDatabaseResponse;
+import * as DeleteDatabaseSoftwareImageResponse from "./delete-database-software-image-response";
+export import DeleteDatabaseSoftwareImageResponse = DeleteDatabaseSoftwareImageResponse.DeleteDatabaseSoftwareImageResponse;
 import * as DeleteDbHomeResponse from "./delete-db-home-response";
 export import DeleteDbHomeResponse = DeleteDbHomeResponse.DeleteDbHomeResponse;
 import * as DeleteExadataInfrastructureResponse from "./delete-exadata-infrastructure-response";
@@ -122,6 +128,8 @@ import * as GetAutonomousDatabaseWalletResponse from "./get-autonomous-database-
 export import GetAutonomousDatabaseWalletResponse = GetAutonomousDatabaseWalletResponse.GetAutonomousDatabaseWalletResponse;
 import * as GetAutonomousExadataInfrastructureResponse from "./get-autonomous-exadata-infrastructure-response";
 export import GetAutonomousExadataInfrastructureResponse = GetAutonomousExadataInfrastructureResponse.GetAutonomousExadataInfrastructureResponse;
+import * as GetAutonomousPatchResponse from "./get-autonomous-patch-response";
+export import GetAutonomousPatchResponse = GetAutonomousPatchResponse.GetAutonomousPatchResponse;
 import * as GetAutonomousVmClusterResponse from "./get-autonomous-vm-cluster-response";
 export import GetAutonomousVmClusterResponse = GetAutonomousVmClusterResponse.GetAutonomousVmClusterResponse;
 import * as GetBackupResponse from "./get-backup-response";
@@ -134,6 +142,8 @@ import * as GetDataGuardAssociationResponse from "./get-data-guard-association-r
 export import GetDataGuardAssociationResponse = GetDataGuardAssociationResponse.GetDataGuardAssociationResponse;
 import * as GetDatabaseResponse from "./get-database-response";
 export import GetDatabaseResponse = GetDatabaseResponse.GetDatabaseResponse;
+import * as GetDatabaseSoftwareImageResponse from "./get-database-software-image-response";
+export import GetDatabaseSoftwareImageResponse = GetDatabaseSoftwareImageResponse.GetDatabaseSoftwareImageResponse;
 import * as GetDbHomeResponse from "./get-db-home-response";
 export import GetDbHomeResponse = GetDbHomeResponse.GetDbHomeResponse;
 import * as GetDbHomePatchResponse from "./get-db-home-patch-response";
@@ -198,8 +208,12 @@ import * as ListBackupsResponse from "./list-backups-response";
 export import ListBackupsResponse = ListBackupsResponse.ListBackupsResponse;
 import * as ListConsoleConnectionsResponse from "./list-console-connections-response";
 export import ListConsoleConnectionsResponse = ListConsoleConnectionsResponse.ListConsoleConnectionsResponse;
+import * as ListContainerDatabasePatchesResponse from "./list-container-database-patches-response";
+export import ListContainerDatabasePatchesResponse = ListContainerDatabasePatchesResponse.ListContainerDatabasePatchesResponse;
 import * as ListDataGuardAssociationsResponse from "./list-data-guard-associations-response";
 export import ListDataGuardAssociationsResponse = ListDataGuardAssociationsResponse.ListDataGuardAssociationsResponse;
+import * as ListDatabaseSoftwareImagesResponse from "./list-database-software-images-response";
+export import ListDatabaseSoftwareImagesResponse = ListDatabaseSoftwareImagesResponse.ListDatabaseSoftwareImagesResponse;
 import * as ListDatabasesResponse from "./list-databases-response";
 export import ListDatabasesResponse = ListDatabasesResponse.ListDatabasesResponse;
 import * as ListDbHomePatchHistoryEntriesResponse from "./list-db-home-patch-history-entries-response";
@@ -284,6 +298,8 @@ import * as UpdateBackupDestinationResponse from "./update-backup-destination-re
 export import UpdateBackupDestinationResponse = UpdateBackupDestinationResponse.UpdateBackupDestinationResponse;
 import * as UpdateDatabaseResponse from "./update-database-response";
 export import UpdateDatabaseResponse = UpdateDatabaseResponse.UpdateDatabaseResponse;
+import * as UpdateDatabaseSoftwareImageResponse from "./update-database-software-image-response";
+export import UpdateDatabaseSoftwareImageResponse = UpdateDatabaseSoftwareImageResponse.UpdateDatabaseSoftwareImageResponse;
 import * as UpdateDbHomeResponse from "./update-db-home-response";
 export import UpdateDbHomeResponse = UpdateDbHomeResponse.UpdateDbHomeResponse;
 import * as UpdateDbSystemResponse from "./update-db-system-response";

@@ -1,8 +1,8 @@
 /**
  * API Gateway API
- * API for the API Gateway service. Use this API to manage gateways, deployments, and related items. 
+ * API for the API Gateway service. Use this API to manage gateways, deployments, and related items.
 For more information, see
-[Overview of API Gateway](/iaas/Content/APIGateway/Concepts/apigatewayoverview.htm). 
+[Overview of API Gateway](/iaas/Content/APIGateway/Concepts/apigatewayoverview.htm).
 
  * OpenAPI spec version: 20190501
  * 
@@ -53,6 +53,13 @@ export class DeploymentClient {
         this.region = provider.getRegion();
       }
     }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
   }
 
   /**
@@ -555,6 +562,13 @@ export class GatewayClient {
   }
 
   /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
    * Sets the endpoint to call (ex, https://www.example.com).
    * @param endpoint The endpoint of the service.
    */
@@ -1049,6 +1063,13 @@ export class WorkRequestsClient {
         this.region = provider.getRegion();
       }
     }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
   }
 
   /**

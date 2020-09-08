@@ -27,6 +27,11 @@ export interface SearchResourcesRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
+   * The tenancy ID, which can be used to specify a different tenancy (for cross-tenancy authorization) when searching for resources in a different tenancy.
+   *
+   */
+  "tenantId"?: string;
+  /**
    * The unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular
    * request, please provide the complete request ID.
    *

@@ -1,8 +1,8 @@
 /**
  * API Gateway API
- * API for the API Gateway service. Use this API to manage gateways, deployments, and related items. 
+ * API for the API Gateway service. Use this API to manage gateways, deployments, and related items.
 For more information, see
-[Overview of API Gateway](/iaas/Content/APIGateway/Concepts/apigatewayoverview.htm). 
+[Overview of API Gateway](/iaas/Content/APIGateway/Concepts/apigatewayoverview.htm).
 
  * OpenAPI spec version: 20190501
  * 
@@ -28,6 +28,8 @@ import * as ApiSpecificationRouteBackend from "./api-specification-route-backend
 export import ApiSpecificationRouteBackend = ApiSpecificationRouteBackend.ApiSpecificationRouteBackend;
 import * as ApiSpecificationRouteRequestPolicies from "./api-specification-route-request-policies";
 export import ApiSpecificationRouteRequestPolicies = ApiSpecificationRouteRequestPolicies.ApiSpecificationRouteRequestPolicies;
+import * as ApiSpecificationRouteResponsePolicies from "./api-specification-route-response-policies";
+export import ApiSpecificationRouteResponsePolicies = ApiSpecificationRouteResponsePolicies.ApiSpecificationRouteResponsePolicies;
 import * as AuthenticationPolicy from "./authentication-policy";
 export import AuthenticationPolicy = AuthenticationPolicy.AuthenticationPolicy;
 import * as ChangeDeploymentCompartmentDetails from "./change-deployment-compartment-details";
@@ -48,6 +50,14 @@ import * as DeploymentSummary from "./deployment-summary";
 export import DeploymentSummary = DeploymentSummary.DeploymentSummary;
 import * as ExecutionLogPolicy from "./execution-log-policy";
 export import ExecutionLogPolicy = ExecutionLogPolicy.ExecutionLogPolicy;
+import * as FilterHeaderPolicy from "./filter-header-policy";
+export import FilterHeaderPolicy = FilterHeaderPolicy.FilterHeaderPolicy;
+import * as FilterHeaderPolicyItem from "./filter-header-policy-item";
+export import FilterHeaderPolicyItem = FilterHeaderPolicyItem.FilterHeaderPolicyItem;
+import * as FilterQueryParameterPolicy from "./filter-query-parameter-policy";
+export import FilterQueryParameterPolicy = FilterQueryParameterPolicy.FilterQueryParameterPolicy;
+import * as FilterQueryParameterPolicyItem from "./filter-query-parameter-policy-item";
+export import FilterQueryParameterPolicyItem = FilterQueryParameterPolicyItem.FilterQueryParameterPolicyItem;
 import * as Gateway from "./gateway";
 export import Gateway = Gateway.Gateway;
 import * as GatewayCollection from "./gateway-collection";
@@ -56,14 +66,34 @@ import * as GatewaySummary from "./gateway-summary";
 export import GatewaySummary = GatewaySummary.GatewaySummary;
 import * as HeaderFieldSpecification from "./header-field-specification";
 export import HeaderFieldSpecification = HeaderFieldSpecification.HeaderFieldSpecification;
+import * as HeaderTransformationPolicy from "./header-transformation-policy";
+export import HeaderTransformationPolicy = HeaderTransformationPolicy.HeaderTransformationPolicy;
 import * as JsonWebTokenClaim from "./json-web-token-claim";
 export import JsonWebTokenClaim = JsonWebTokenClaim.JsonWebTokenClaim;
 import * as PublicKeySet from "./public-key-set";
 export import PublicKeySet = PublicKeySet.PublicKeySet;
+import * as QueryParameterTransformationPolicy from "./query-parameter-transformation-policy";
+export import QueryParameterTransformationPolicy = QueryParameterTransformationPolicy.QueryParameterTransformationPolicy;
 import * as RateLimitingPolicy from "./rate-limiting-policy";
 export import RateLimitingPolicy = RateLimitingPolicy.RateLimitingPolicy;
+import * as RenameHeaderPolicy from "./rename-header-policy";
+export import RenameHeaderPolicy = RenameHeaderPolicy.RenameHeaderPolicy;
+import * as RenameHeaderPolicyItem from "./rename-header-policy-item";
+export import RenameHeaderPolicyItem = RenameHeaderPolicyItem.RenameHeaderPolicyItem;
+import * as RenameQueryParameterPolicy from "./rename-query-parameter-policy";
+export import RenameQueryParameterPolicy = RenameQueryParameterPolicy.RenameQueryParameterPolicy;
+import * as RenameQueryParameterPolicyItem from "./rename-query-parameter-policy-item";
+export import RenameQueryParameterPolicyItem = RenameQueryParameterPolicyItem.RenameQueryParameterPolicyItem;
 import * as RouteAuthorizationPolicy from "./route-authorization-policy";
 export import RouteAuthorizationPolicy = RouteAuthorizationPolicy.RouteAuthorizationPolicy;
+import * as SetHeaderPolicy from "./set-header-policy";
+export import SetHeaderPolicy = SetHeaderPolicy.SetHeaderPolicy;
+import * as SetHeaderPolicyItem from "./set-header-policy-item";
+export import SetHeaderPolicyItem = SetHeaderPolicyItem.SetHeaderPolicyItem;
+import * as SetQueryParameterPolicy from "./set-query-parameter-policy";
+export import SetQueryParameterPolicy = SetQueryParameterPolicy.SetQueryParameterPolicy;
+import * as SetQueryParameterPolicyItem from "./set-query-parameter-policy-item";
+export import SetQueryParameterPolicyItem = SetQueryParameterPolicyItem.SetQueryParameterPolicyItem;
 import * as StaticPublicKey from "./static-public-key";
 export import StaticPublicKey = StaticPublicKey.StaticPublicKey;
 import * as UpdateDeploymentDetails from "./update-deployment-details";

@@ -42,6 +42,13 @@ export class KmsCryptoClient {
   }
 
   /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
    * Sets the endpoint to call (ex, https://www.example.com).
    * @param endpoint The endpoint of the service.
    */
@@ -259,6 +266,13 @@ export class KmsManagementClient {
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
     this._httpClient = params.httpClient || new common.FetchHttpClient(requestSigner);
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
   }
 
   /**
@@ -1810,6 +1824,13 @@ export class KmsVaultClient {
         this.region = provider.getRegion();
       }
     }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
   }
 
   /**

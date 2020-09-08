@@ -1,8 +1,8 @@
 /**
  * API Gateway API
- * API for the API Gateway service. Use this API to manage gateways, deployments, and related items. 
+ * API for the API Gateway service. Use this API to manage gateways, deployments, and related items.
 For more information, see
-[Overview of API Gateway](/iaas/Content/APIGateway/Concepts/apigatewayoverview.htm). 
+[Overview of API Gateway](/iaas/Content/APIGateway/Concepts/apigatewayoverview.htm).
 
  * OpenAPI spec version: 20190501
  * 
@@ -27,7 +27,7 @@ export interface GatewaySummary {
    */
   "id": string;
   /**
-    * A user-friendly name. Does not have to be unique, and it's changeable. 
+    * A user-friendly name. Does not have to be unique, and it's changeable.
 * Avoid entering confidential information.
 * <p>
 Example: `My new resource`
@@ -41,8 +41,12 @@ Example: `My new resource`
    */
   "compartmentId": string;
   /**
-   * Gateway endpoint type.
-   */
+    * Gateway endpoint type. `PUBLIC` will have a public ip address assigned to it, while `PRIVATE` will only be
+* accessible on a private IP address on the subnet.
+* <p>
+Example: `PUBLIC` or `PRIVATE`
+* 
+    */
   "endpointType": string;
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet in which

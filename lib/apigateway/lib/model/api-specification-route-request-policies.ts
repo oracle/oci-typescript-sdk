@@ -1,8 +1,8 @@
 /**
  * API Gateway API
- * API for the API Gateway service. Use this API to manage gateways, deployments, and related items. 
+ * API for the API Gateway service. Use this API to manage gateways, deployments, and related items.
 For more information, see
-[Overview of API Gateway](/iaas/Content/APIGateway/Concepts/apigatewayoverview.htm). 
+[Overview of API Gateway](/iaas/Content/APIGateway/Concepts/apigatewayoverview.htm).
 
  * OpenAPI spec version: 20190501
  * 
@@ -27,6 +27,8 @@ export interface ApiSpecificationRouteRequestPolicies {
     | model.AnonymousRouteAuthorizationPolicy
     | model.AuthenticationOnlyRouteAuthorizationPolicy;
   "cors"?: model.CorsPolicy;
+  "headerTransformations"?: model.HeaderTransformationPolicy;
+  "queryParameterTransformations"?: model.QueryParameterTransformationPolicy;
 }
 
 export namespace ApiSpecificationRouteRequestPolicies {
@@ -37,7 +39,13 @@ export namespace ApiSpecificationRouteRequestPolicies {
         "authorization": obj.authorization
           ? model.RouteAuthorizationPolicy.getJsonObj(obj.authorization)
           : undefined,
-        "cors": obj.cors ? model.CorsPolicy.getJsonObj(obj.cors) : undefined
+        "cors": obj.cors ? model.CorsPolicy.getJsonObj(obj.cors) : undefined,
+        "headerTransformations": obj.headerTransformations
+          ? model.HeaderTransformationPolicy.getJsonObj(obj.headerTransformations)
+          : undefined,
+        "queryParameterTransformations": obj.queryParameterTransformations
+          ? model.QueryParameterTransformationPolicy.getJsonObj(obj.queryParameterTransformations)
+          : undefined
       }
     };
 

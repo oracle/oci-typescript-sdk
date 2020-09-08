@@ -53,6 +53,13 @@ export class DatabaseClient {
   }
 
   /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
    * Sets the endpoint to call (ex, https://www.example.com).
    * @param endpoint The endpoint of the service.
    */
@@ -618,6 +625,81 @@ export class DatabaseClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeBackupDestinationCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Move the Database Software Image and its dependent resources to the specified compartment.
+   * For more information about moving Databse Software Images, see
+   * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
+   *
+   * @param ChangeDatabaseSoftwareImageCompartmentRequest
+   * @return ChangeDatabaseSoftwareImageCompartmentResponse
+   * @throws OciError when an error occurs
+   */
+  public async changeDatabaseSoftwareImageCompartment(
+    changeDatabaseSoftwareImageCompartmentRequest: requests.ChangeDatabaseSoftwareImageCompartmentRequest
+  ): Promise<responses.ChangeDatabaseSoftwareImageCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeDatabaseSoftwareImageCompartment.");
+    const pathParams = {
+      "{databaseSoftwareImageId}":
+        changeDatabaseSoftwareImageCompartmentRequest.databaseSoftwareImageId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-retry-token": changeDatabaseSoftwareImageCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeDatabaseSoftwareImageCompartmentRequest.opcRequestId,
+      "if-match": changeDatabaseSoftwareImageCompartmentRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseSoftwareImages/{databaseSoftwareImageId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDatabaseSoftwareImageCompartmentRequest.changeCompartmentDetails,
+        "ChangeCompartmentDetails",
+        models.ChangeCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeDatabaseSoftwareImageCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDatabaseSoftwareImageCompartmentResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1706,6 +1788,77 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
+   * create database software image in the specified compartment.
+   *
+   * @param CreateDatabaseSoftwareImageRequest
+   * @return CreateDatabaseSoftwareImageResponse
+   * @throws OciError when an error occurs
+   */
+  public async createDatabaseSoftwareImage(
+    createDatabaseSoftwareImageRequest: requests.CreateDatabaseSoftwareImageRequest
+  ): Promise<responses.CreateDatabaseSoftwareImageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createDatabaseSoftwareImage.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-retry-token": createDatabaseSoftwareImageRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseSoftwareImages",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDatabaseSoftwareImageRequest.createDatabaseSoftwareImageDetails,
+        "CreateDatabaseSoftwareImageDetails",
+        models.CreateDatabaseSoftwareImageDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createDatabaseSoftwareImageRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDatabaseSoftwareImageResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseSoftwareImage",
+        bodyModel: "model.DatabaseSoftwareImage",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new Database Home in the specified DB system based on the request parameters you provide. Applies to bare metal DB systems, Exadata DB systems, and Exadata Cloud at Customer systems.
    *
    * @param CreateDbHomeRequest
@@ -2532,6 +2685,65 @@ The data in this database is local to the DB system and will be lost when the da
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDatabaseResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete a database software image
+   * @param DeleteDatabaseSoftwareImageRequest
+   * @return DeleteDatabaseSoftwareImageResponse
+   * @throws OciError when an error occurs
+   */
+  public async deleteDatabaseSoftwareImage(
+    deleteDatabaseSoftwareImageRequest: requests.DeleteDatabaseSoftwareImageRequest
+  ): Promise<responses.DeleteDatabaseSoftwareImageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteDatabaseSoftwareImage.");
+    const pathParams = {
+      "{databaseSoftwareImageId}": deleteDatabaseSoftwareImageRequest.databaseSoftwareImageId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "if-match": deleteDatabaseSoftwareImageRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseSoftwareImages/{databaseSoftwareImageId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteDatabaseSoftwareImageRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDatabaseSoftwareImageResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -3879,6 +4091,65 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
+   * Gets information about the specified Autonomous Patch.
+   * @param GetAutonomousPatchRequest
+   * @return GetAutonomousPatchResponse
+   * @throws OciError when an error occurs
+   */
+  public async getAutonomousPatch(
+    getAutonomousPatchRequest: requests.GetAutonomousPatchRequest
+  ): Promise<responses.GetAutonomousPatchResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getAutonomousPatch.");
+    const pathParams = {
+      "{autonomousPatchId}": getAutonomousPatchRequest.autonomousPatchId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {};
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousPatches/{autonomousPatchId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getAutonomousPatchRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAutonomousPatchResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousPatch",
+        bodyModel: "model.AutonomousPatch",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets information about the specified Autonomous VM cluster.
    * @param GetAutonomousVmClusterRequest
    * @return GetAutonomousVmClusterResponse
@@ -4220,6 +4491,66 @@ A failover might result in data loss depending on the protection mode in effect 
         body: await response.json(),
         bodyKey: "database",
         bodyModel: "model.Database",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified database software image.
+   * @param GetDatabaseSoftwareImageRequest
+   * @return GetDatabaseSoftwareImageResponse
+   * @throws OciError when an error occurs
+   */
+  public async getDatabaseSoftwareImage(
+    getDatabaseSoftwareImageRequest: requests.GetDatabaseSoftwareImageRequest
+  ): Promise<responses.GetDatabaseSoftwareImageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getDatabaseSoftwareImage.");
+    const pathParams = {
+      "{databaseSoftwareImageId}": getDatabaseSoftwareImageRequest.databaseSoftwareImageId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {};
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseSoftwareImages/{databaseSoftwareImageId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getDatabaseSoftwareImageRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDatabaseSoftwareImageResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseSoftwareImage",
+        bodyModel: "model.DatabaseSoftwareImage",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6626,6 +6957,97 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
+   * Lists the patches applicable to the requested container database.
+   *
+   * @param ListContainerDatabasePatchesRequest
+   * @return ListContainerDatabasePatchesResponse
+   * @throws OciError when an error occurs
+   */
+  public async listContainerDatabasePatches(
+    listContainerDatabasePatchesRequest: requests.ListContainerDatabasePatchesRequest
+  ): Promise<responses.ListContainerDatabasePatchesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listContainerDatabasePatches.");
+    const pathParams = {
+      "{autonomousContainerDatabaseId}":
+        listContainerDatabasePatchesRequest.autonomousContainerDatabaseId
+    };
+
+    const queryParams = {
+      "limit": listContainerDatabasePatchesRequest.limit,
+      "page": listContainerDatabasePatchesRequest.page,
+      "compartmentId": listContainerDatabasePatchesRequest.compartmentId
+    };
+
+    let headerParams = {};
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousContainerDatabases/{autonomousContainerDatabaseId}/patches",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listContainerDatabasePatchesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListContainerDatabasePatchesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "AutonomousPatchSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AutonomousPatchSummary objects
+   * contained in responses from the listContainerDatabasePatches operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllContainerDatabasePatches(
+    request: requests.ListContainerDatabasePatchesRequest
+  ): AsyncIterableIterator<models.AutonomousPatchSummary> {
+    return paginateRecords(request, req => this.listContainerDatabasePatches(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listContainerDatabasePatches operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllContainerDatabasePatchesResponses(
+    request: requests.ListContainerDatabasePatchesRequest
+  ): AsyncIterableIterator<responses.ListContainerDatabasePatchesResponse> {
+    return paginateResponses(request, req => this.listContainerDatabasePatches(req));
+  }
+
+  /**
    * Lists all Data Guard associations for the specified database.
    *
    * @param ListDataGuardAssociationsRequest
@@ -6712,6 +7134,100 @@ An initial database is created on the DB system based on the request parameters 
     request: requests.ListDataGuardAssociationsRequest
   ): AsyncIterableIterator<responses.ListDataGuardAssociationsResponse> {
     return paginateResponses(request, req => this.listDataGuardAssociations(req));
+  }
+
+  /**
+   * Gets a list of the database software images in the specified compartment.
+   *
+   * @param ListDatabaseSoftwareImagesRequest
+   * @return ListDatabaseSoftwareImagesResponse
+   * @throws OciError when an error occurs
+   */
+  public async listDatabaseSoftwareImages(
+    listDatabaseSoftwareImagesRequest: requests.ListDatabaseSoftwareImagesRequest
+  ): Promise<responses.ListDatabaseSoftwareImagesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listDatabaseSoftwareImages.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDatabaseSoftwareImagesRequest.compartmentId,
+      "limit": listDatabaseSoftwareImagesRequest.limit,
+      "page": listDatabaseSoftwareImagesRequest.page,
+      "sortBy": listDatabaseSoftwareImagesRequest.sortBy,
+      "sortOrder": listDatabaseSoftwareImagesRequest.sortOrder,
+      "lifecycleState": listDatabaseSoftwareImagesRequest.lifecycleState,
+      "displayName": listDatabaseSoftwareImagesRequest.displayName,
+      "imageType": listDatabaseSoftwareImagesRequest.imageType,
+      "imageShapeFamily": listDatabaseSoftwareImagesRequest.imageShapeFamily
+    };
+
+    let headerParams = {};
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseSoftwareImages",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listDatabaseSoftwareImagesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDatabaseSoftwareImagesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "DatabaseSoftwareImageSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DatabaseSoftwareImageSummary objects
+   * contained in responses from the listDatabaseSoftwareImages operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDatabaseSoftwareImages(
+    request: requests.ListDatabaseSoftwareImagesRequest
+  ): AsyncIterableIterator<models.DatabaseSoftwareImageSummary> {
+    return paginateRecords(request, req => this.listDatabaseSoftwareImages(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDatabaseSoftwareImages operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDatabaseSoftwareImagesResponses(
+    request: requests.ListDatabaseSoftwareImagesRequest
+  ): AsyncIterableIterator<responses.ListDatabaseSoftwareImagesResponse> {
+    return paginateResponses(request, req => this.listDatabaseSoftwareImages(req));
   }
 
   /**
@@ -9951,6 +10467,73 @@ A switchover guarantees no data loss.
             key: "opcWorkRequestId",
             dataType: "string"
           },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the properties of a Database Software Image, like Display Nmae
+   * @param UpdateDatabaseSoftwareImageRequest
+   * @return UpdateDatabaseSoftwareImageResponse
+   * @throws OciError when an error occurs
+   */
+  public async updateDatabaseSoftwareImage(
+    updateDatabaseSoftwareImageRequest: requests.UpdateDatabaseSoftwareImageRequest
+  ): Promise<responses.UpdateDatabaseSoftwareImageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateDatabaseSoftwareImage.");
+    const pathParams = {
+      "{databaseSoftwareImageId}": updateDatabaseSoftwareImageRequest.databaseSoftwareImageId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "if-match": updateDatabaseSoftwareImageRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseSoftwareImages/{databaseSoftwareImageId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDatabaseSoftwareImageRequest.updateDatabaseSoftwareImageDetails,
+        "UpdateDatabaseSoftwareImageDetails",
+        models.UpdateDatabaseSoftwareImageDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateDatabaseSoftwareImageRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDatabaseSoftwareImageResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseSoftwareImage",
+        bodyModel: "model.DatabaseSoftwareImage",
+        responseHeaders: [
           {
             value: response.headers.get("etag"),
             key: "etag",

@@ -43,7 +43,7 @@ export interface PatchHistoryEntry {
    */
   "timeStarted": Date;
   /**
-   * The date and time when the patch action completed.
+   * The date and time when the patch action completed
    */
   "timeEnded"?: Date;
 }

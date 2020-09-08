@@ -27,6 +27,10 @@ export interface PatchDetails {
    */
   "patchId"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the database software image.
+   */
+  "databaseSoftwareImageId"?: string;
+  /**
    * The action to perform on the patch.
    */
   "action"?: PatchDetails.Action;
