@@ -36,6 +36,7 @@ if (args.length !== 2) {
 
 const directoryPath: string = args[0]; //  for eg : "/Users/Abc/upload-manager";
 const bucketName = args[1];
+const hostName = "objectstorage"
 
 const client = new ObjectStorageClient({ authenticationDetailsProvider: provider });
 client.region = Region.US_PHOENIX_1;
@@ -77,7 +78,7 @@ client.region = Region.US_PHOENIX_1;
         // create pre authenticated request to generate the url
         const resp = await client.createPreauthenticatedRequest(createPreauthenticatedRequest);
         const baseUrl =
-          "https://objectstorage." + common.Region.US_PHOENIX_1.regionId + ".oraclecloud.com";
+          "https://" + hostName + "." + common.Region.US_PHOENIX_1.regionId + ".oraclecloud.com";
         const downloadUrl = resp.preauthenticatedRequest.accessUri;
         console.log("download url for the file " + filename + " is " + baseUrl + downloadUrl);
 
