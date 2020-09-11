@@ -37,7 +37,7 @@ if (args.length !== 2) {
 
 const directoryPath = args[0];
 const bucketName = args[1];
-const hostName = 'objectstorage'
+const serviceName = 'objectstorage'
 
 const client = new os.ObjectStorageClient({
     authenticationDetailsProvider: provider
@@ -79,7 +79,7 @@ client.region = common.Region.US_PHOENIX_1;
                 };
                 // create pre authenticated request to generate the url
                 const resp = await client.createPreauthenticatedRequest(createPreauthenticatedRequest);
-                const baseUrl = 'https://' + hostName + '.' + common.Region.US_PHOENIX_1.regionId + '.oraclecloud.com';
+                const baseUrl = `https://${serviceName}.${common.Region.US_PHOENIX_1.regionId}.${common.Realm.OC1.secondLevelDomain}`
                 const downloadUrl = resp.preauthenticatedRequest.accessUri;
                 console.log('download url for the file ' + filename + ' is ' + baseUrl + downloadUrl);
 
