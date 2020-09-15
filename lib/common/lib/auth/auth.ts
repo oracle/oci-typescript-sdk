@@ -24,6 +24,26 @@ export interface AuthenticationDetailsProvider extends AbstractAuthenticationDet
    * Get the passphrase of the private key to sign the http request.
    */
   getPassphrase(): string | null;
+
+  /**
+   * Get the auth type of this authentication provider
+   */
+  getAuthType?(): string | undefined;
+
+  /**
+   * Get the true authentication provider
+   */
+  getProvider?(): AuthenticationDetailsProvider;
+
+  /**
+   * Set the provider
+   */
+  setProvider?(provider: AuthenticationDetailsProvider): void;
+
+  /**
+   * Get the delegation token
+   */
+  getDelegationToken?(): string | undefined;
 }
 
 /*
@@ -51,6 +71,9 @@ export function isRegionProvider(arg: any): arg is RegionProvider {
  */
 export class SimpleAuthenticationDetailsProvider
   implements AuthenticationDetailsProvider, RegionProvider {
+  // provider is a member variable that may or may not store the actual AuthenticationDetailsProvider.
+  // In case of Cloud shell, provider would be the true AuthenticationDetailsProvider.
+  private provider: AuthenticationDetailsProvider = (null as unknown) as AuthenticationDetailsProvider;
   /**
    * Construct an instance of [[SimpleAuthenticationDetailsProvider]].
    * @param tenancy   tenancy id.
@@ -65,7 +88,9 @@ export class SimpleAuthenticationDetailsProvider
     private fingerprint: string,
     private privateKey: string,
     private passphrase: string | null,
-    private region?: Region
+    private region?: Region,
+    private authType?: string | undefined,
+    private delegationToken?: string | undefined
   ) {}
 
   /**
@@ -115,5 +140,33 @@ export class SimpleAuthenticationDetailsProvider
    */
   public getRegion(): Region {
     return this.region!;
+  }
+
+  /**
+   * Get the authType
+   */
+  public getAuthType(): string | undefined {
+    return this.authType;
+  }
+
+  /**
+   * Set the provider
+   */
+  public setProvider(provider: AuthenticationDetailsProvider): void {
+    this.provider = provider;
+  }
+
+  /**
+   * Get the provider
+   */
+  public getProvider(): AuthenticationDetailsProvider {
+    return this.provider;
+  }
+
+  /**
+   * Get the delegation token
+   */
+  public getDelegationToken(): string | undefined {
+    return this.delegationToken;
   }
 }

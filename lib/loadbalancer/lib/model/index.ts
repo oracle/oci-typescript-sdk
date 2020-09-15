@@ -123,6 +123,8 @@ import * as UpdateListenerDetails from "./update-listener-details";
 export import UpdateListenerDetails = UpdateListenerDetails.UpdateListenerDetails;
 import * as UpdateLoadBalancerDetails from "./update-load-balancer-details";
 export import UpdateLoadBalancerDetails = UpdateLoadBalancerDetails.UpdateLoadBalancerDetails;
+import * as UpdateLoadBalancerShapeDetails from "./update-load-balancer-shape-details";
+export import UpdateLoadBalancerShapeDetails = UpdateLoadBalancerShapeDetails.UpdateLoadBalancerShapeDetails;
 import * as UpdateNetworkSecurityGroupsDetails from "./update-network-security-groups-details";
 export import UpdateNetworkSecurityGroupsDetails = UpdateNetworkSecurityGroupsDetails.UpdateNetworkSecurityGroupsDetails;
 import * as UpdatePathRouteSetDetails from "./update-path-route-set-details";

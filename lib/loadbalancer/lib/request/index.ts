@@ -115,6 +115,8 @@ import * as UpdateListenerRequest from "./update-listener-request";
 export import UpdateListenerRequest = UpdateListenerRequest.UpdateListenerRequest;
 import * as UpdateLoadBalancerRequest from "./update-load-balancer-request";
 export import UpdateLoadBalancerRequest = UpdateLoadBalancerRequest.UpdateLoadBalancerRequest;
+import * as UpdateLoadBalancerShapeRequest from "./update-load-balancer-shape-request";
+export import UpdateLoadBalancerShapeRequest = UpdateLoadBalancerShapeRequest.UpdateLoadBalancerShapeRequest;
 import * as UpdateNetworkSecurityGroupsRequest from "./update-network-security-groups-request";
 export import UpdateNetworkSecurityGroupsRequest = UpdateNetworkSecurityGroupsRequest.UpdateNetworkSecurityGroupsRequest;
 import * as UpdatePathRouteSetRequest from "./update-path-route-set-request";
