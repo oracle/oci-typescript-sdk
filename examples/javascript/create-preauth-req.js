@@ -28,15 +28,16 @@ const provider = new common.ConfigFileAuthenticationDetailsProvider(
 );
 
 const args = process.argv.slice(2);
-if (args.length !== 2) {
+if (args.length !== 3) {
   console.error(
     'Unexpected number of arguments received. Consult the script header comments for expected arguments'
   );
   process.exit(-1);
 }
 
-const directoryPath = args[0];
+const filePath = args[0];
 const bucketName = args[1];
+const namespaceName = args[2];
 const serviceName = 'objectstorage'
 
 const client = new os.ObjectStorageClient({
@@ -46,48 +47,35 @@ client.region = common.Region.US_PHOENIX_1;
 
 (async () => {
     try {
-        console.log('Getting the namespace...');
-        const request = {};
-        const response = await client.getNamespace(request);
-        const namespaceName = response.value;
-        
-        // Read files from the directory
-        readdir(directoryPath, (err, files) => {
-            if (err) return console.log('Unable to scan directory: ' + err);
+        console.time(`Download Time ${filePath}`);
 
-            files.forEach(async filename => {
-                // creating pre authentication request which generates the download url for the file
-                console.time(`Download Time ${filename}`);
+        // set expiry date for the download url.
+        const today = new Date();
+        const neverExpires = new Date(today);
+        neverExpires.setDate(neverExpires.getDate() + 25);
 
-                // set expiry date for the download url.
-                const today = new Date();
-                const neverExpires = new Date(today);
-                neverExpires.setDate(neverExpires.getDate() + 25);
+        // use date for generating a random unique id which can be used as a par id
+        const parUniqueId = Date.now();
+        const createPreauthenticatedRequestDetails = {
+            name: parUniqueId.toString(),
+            objectName: filePath,
+            accessType: os.models.CreatePreauthenticatedRequestDetails.AccessType.ObjectRead,
+            timeExpires: neverExpires
+        };
+        const createPreauthenticatedRequest = {
+            bucketName: bucketName,
+            namespaceName: namespaceName,
+            createPreauthenticatedRequestDetails: createPreauthenticatedRequestDetails
+        };
+        // create pre authenticated request to generate the url
+        const resp = await client.createPreauthenticatedRequest(createPreauthenticatedRequest);
+        const baseUrl = `https://${serviceName}.${common.Region.US_PHOENIX_1.regionId}.${common.Realm.OC1.secondLevelDomain}`
+        const downloadUrl = resp.preauthenticatedRequest.accessUri;
+        console.log('download url for the file ' + filePath + ' is ' + baseUrl + downloadUrl);
 
-                // use date for generating a random unique id which can be used as a par id
-                const parUniqueId = Date.now();
-                const createPreauthenticatedRequestDetails = {
-                    name: parUniqueId.toString(),
-                    objectName: filename,
-                    accessType: os.models.CreatePreauthenticatedRequestDetails.AccessType.ObjectRead,
-                    timeExpires: neverExpires
-                };
-                const createPreauthenticatedRequest = {
-                    bucketName: bucketName,
-                    namespaceName: namespaceName,
-                    createPreauthenticatedRequestDetails: createPreauthenticatedRequestDetails
-                };
-                // create pre authenticated request to generate the url
-                const resp = await client.createPreauthenticatedRequest(createPreauthenticatedRequest);
-                const baseUrl = `https://${serviceName}.${common.Region.US_PHOENIX_1.regionId}.${common.Realm.OC1.secondLevelDomain}`
-                const downloadUrl = resp.preauthenticatedRequest.accessUri;
-                console.log('download url for the file ' + filename + ' is ' + baseUrl + downloadUrl);
-
-                console.timeEnd(`Download Time ${filename}`);
-            });
-        });
+        console.timeEnd(`Download Time ${filePath}`);
     } catch (error) {
         console.log('Error executing example ' + error);
-      }
+    }
 
 })();
