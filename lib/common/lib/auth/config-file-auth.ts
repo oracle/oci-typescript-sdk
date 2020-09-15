@@ -61,16 +61,14 @@ export class ConfigFileAuthenticationDetailsProvider
   }
 
   createConfigFileAuth(file: ConfigFile): SimpleAuthenticationDetailsProvider {
-    const fingerprint = checkNotNull(file.get("fingerprint"), "missing fingerprint in config");
+    const authType = file.get("authentication_type");
     const tenantId = checkNotNull(file.get("tenancy"), "missing tenancy in config");
-    const user = checkNotNull(file.get("user"), "missing user in config");
-    const pemFilePath = checkNotNull(file.get("key_file"), "missing key_file in config");
-    const passPhrase = file.get("pass_phrase");
-    const privateKey = this.getPvtKey(ConfigFileReader.expandUserHome(pemFilePath));
+    const delegationTokenPath = file.get("delegation_token_file");
+    let delegationToken = "";
     let region = null;
     const regionEnvVar = process.env.OCI_REGION;
-    let regionId = file.get("region") || regionEnvVar;
 
+    let regionId = file.get("region") || regionEnvVar;
     if (regionId) {
       region = this.retrieveRegionFromRegionId(regionId!);
     } else {
@@ -79,6 +77,29 @@ export class ConfigFileAuthenticationDetailsProvider
       );
     }
 
+    if (delegationTokenPath) {
+      delegationToken = readFileSync(delegationTokenPath, "utf8").replace(/\n/g, "");
+    }
+    // If authType exist that means we are not doing file based authentication, return early.
+    // This also assumes that a delegationTokenPath exists.
+    if (authType) {
+      return new SimpleAuthenticationDetailsProvider(
+        tenantId,
+        "",
+        "",
+        "",
+        "",
+        region,
+        authType,
+        delegationToken
+      );
+    }
+
+    const fingerprint = checkNotNull(file.get("fingerprint"), "missing fingerprint in config");
+    const user = checkNotNull(file.get("user"), "missing user in config");
+    const pemFilePath = checkNotNull(file.get("key_file"), "missing key_file in config");
+    const passPhrase = file.get("pass_phrase");
+    const privateKey = this.getPvtKey(ConfigFileReader.expandUserHome(pemFilePath));
     return new SimpleAuthenticationDetailsProvider(
       tenantId,
       user,
@@ -141,5 +162,30 @@ export class ConfigFileAuthenticationDetailsProvider
    */
   public getRegion(): Region {
     return this.delegate.getRegion();
+  }
+
+  /**
+   * Get the authType
+   */
+  public getAuthType(): string | undefined {
+    return this.delegate.getAuthType();
+  }
+
+  /**
+   * Set the provider
+   */
+  public setProvider(provider: AuthenticationDetailsProvider): void {
+    this.delegate.setProvider(provider);
+  }
+
+  /**
+   * Get the provider
+   */
+  public getProvider(): AuthenticationDetailsProvider {
+    return this.delegate.getProvider();
+  }
+
+  public getDelegationToken(): string | undefined {
+    return this.delegate.getDelegationToken();
   }
 }

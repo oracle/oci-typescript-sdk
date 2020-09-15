@@ -80,6 +80,10 @@ export interface IntegrationInstance {
    * The file server is enabled or not.
    */
   "isFileServerEnabled"?: boolean;
+  /**
+   * The entitlement used for billing purposes.
+   */
+  "consumptionModel"?: IntegrationInstance.ConsumptionModel;
 }
 
 export namespace IntegrationInstance {
@@ -101,6 +105,17 @@ export namespace IntegrationInstance {
     Deleting = "DELETING",
     Deleted = "DELETED",
     Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ConsumptionModel {
+    Ucm = "UCM",
+    Gov = "GOV",
+    Oic4Saas = "OIC4SAAS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

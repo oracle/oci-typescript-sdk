@@ -3420,6 +3420,77 @@ To delete a rule from a rule set, use the
   }
 
   /**
+   * Update the shape of a load balancer. The new shape can be larger or smaller compared to existing shape of the
+   * LB. The service will try to perform this operation in the least disruptive way to existing connections, but
+   * there is a possibility that they might be lost during the LB resizing process. The new shape becomes effective
+   * as soon as the related work request completes successfully, i.e. when reshaping to a larger shape, the LB will
+   * start accepting larger bandwidth and when reshaping to a smaller one, the LB will be accepting smaller
+   * bandwidth.
+   *
+   * @param UpdateLoadBalancerShapeRequest
+   * @return UpdateLoadBalancerShapeResponse
+   * @throws OciError when an error occurs
+   */
+  public async updateLoadBalancerShape(
+    updateLoadBalancerShapeRequest: requests.UpdateLoadBalancerShapeRequest
+  ): Promise<responses.UpdateLoadBalancerShapeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LoadBalancerClient#updateLoadBalancerShape.");
+    const pathParams = {
+      "{loadBalancerId}": updateLoadBalancerShapeRequest.loadBalancerId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-request-id": updateLoadBalancerShapeRequest.opcRequestId,
+      "opc-retry-token": updateLoadBalancerShapeRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/loadBalancers/{loadBalancerId}/updateShape",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateLoadBalancerShapeRequest.updateLoadBalancerShapeDetails,
+        "UpdateLoadBalancerShapeDetails",
+        models.UpdateLoadBalancerShapeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateLoadBalancerShapeRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateLoadBalancerShapeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the network security groups associated with the specified load balancer.
    * @param UpdateNetworkSecurityGroupsRequest
    * @return UpdateNetworkSecurityGroupsResponse

@@ -57,6 +57,10 @@ export interface CreateIntegrationInstanceDetails {
    */
   "messagePacks": number;
   /**
+   * Optional parameter specifying which entitlement to use for billing purposes. Only required if the account possesses more than one entitlement.
+   */
+  "consumptionModel"?: CreateIntegrationInstanceDetails.ConsumptionModel;
+  /**
    * The file server is enabled or not.
    */
   "isFileServerEnabled"?: boolean;
@@ -66,6 +70,12 @@ export namespace CreateIntegrationInstanceDetails {
   export enum IntegrationInstanceType {
     Standard = "STANDARD",
     Enterprise = "ENTERPRISE"
+  }
+
+  export enum ConsumptionModel {
+    Ucm = "UCM",
+    Gov = "GOV",
+    Oic4Saas = "OIC4SAAS"
   }
 
   export function getJsonObj(obj: CreateIntegrationInstanceDetails): object {

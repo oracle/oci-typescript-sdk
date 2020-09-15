@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -78,7 +78,8 @@
     "oci-loggingsearch": "file:lib/loggingsearch",
     "oci-managementagent": "file:lib/managementagent",
     "oci-managementdashboard": "file:lib/managementdashboard",
-    "oci-sch": "file:lib/sch"
+    "oci-sch": "file:lib/sch",
+    "oci-cloudguard": "file:lib/cloudguard"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

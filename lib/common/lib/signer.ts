@@ -10,12 +10,15 @@ import { parsePrivateKey } from "sshpk";
 import UrlParser = require("url");
 import { Method } from "./request-generator";
 import { HttpRequest } from "./http-request";
+import InstancePrincipalsAuthenticationDetailsProviderBuilder from "./auth/instance-principals-authentication-detail-provider";
+import { delegateAuthProvider } from "./auth/helpers/delegate-auth-provider";
 
 // tslint:disable-next-line:no-var-requires
 const httpSignature: any = require("http-signature");
 const HEADER_CONTENT_SHA = "x-content-sha256";
 const HEADER_CONTENT_LEN = "Content-Length";
 const HEADER_CONTENT_TYPE = "Content-Type";
+const OPC_OBO_TOKEN = "opc-obo-token";
 // The Subtle crypto implementation in IE11 will silently fail to digest an empty string.
 // We have to manually define that value here to avoid hanging forever
 const EMPTY_SHA = "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=";
@@ -54,7 +57,7 @@ export interface RequestSigner {
 export class DefaultRequestSigner implements RequestSigner {
   private static readonly headersToSign = ["x-date", "(request-target)", "host"];
   private static readonly methodsThatRequireExtraHeaders = ["POST", "PUT", "PATCH"];
-
+  private delegationToken: string = "";
   private privateKeyBuffer: Buffer;
 
   /**
@@ -65,6 +68,19 @@ export class DefaultRequestSigner implements RequestSigner {
     let options = {};
     if (this.authenticationDetailsProvider.getPassphrase()) {
       Object.assign(options, { passphrase: this.authenticationDetailsProvider.getPassphrase() });
+    }
+
+    // We can skip parsing private Key if we have an auth type that is not file based authentication.
+    // We will also set DefaultRequestSigner's delegation token from authenticationDetailsProvider before
+    // authenticationDetialsProvider gets changed to its true authentication provider.
+    if (
+      this.authenticationDetailsProvider.getAuthType &&
+      this.authenticationDetailsProvider.getAuthType()
+    ) {
+      this.privateKeyBuffer = (null as unknown) as Buffer;
+      const delegationToken = this.authenticationDetailsProvider.getDelegationToken!()!;
+      this.delegationToken = delegationToken;
+      return;
     }
 
     this.privateKeyBuffer = parsePrivateKey(
@@ -99,7 +115,13 @@ export class DefaultRequestSigner implements RequestSigner {
       request.headers.set("x-date", new Date().toUTCString());
     }
 
-    var headersToSign = DefaultRequestSigner.headersToSign;
+    var headersToSign = [...DefaultRequestSigner.headersToSign];
+
+    if (this.delegationToken) {
+      request.headers.set(OPC_OBO_TOKEN, this.delegationToken);
+      headersToSign.push(OPC_OBO_TOKEN);
+    }
+
     if (
       !forceExcludeBody &&
       DefaultRequestSigner.methodsThatRequireExtraHeaders.indexOf(request.method.toUpperCase()) !==
@@ -133,6 +155,13 @@ export class DefaultRequestSigner implements RequestSigner {
         HEADER_CONTENT_SHA
       );
     }
+
+    // Always make the check to see if there is a true authenticationDetailsProvider to use
+    const provider = await delegateAuthProvider(this.authenticationDetailsProvider);
+    if (provider) {
+      this.authenticationDetailsProvider = provider;
+    }
+
     const keyId = await this.authenticationDetailsProvider.getKeyId();
     this.privateKeyBuffer = parsePrivateKey(
       this.authenticationDetailsProvider.getPrivateKey(),
