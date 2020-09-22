@@ -149,6 +149,7 @@ export class LoggingManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeLogGroupCompartmentRequest.ifMatch,
       "opc-request-id": changeLogGroupCompartmentRequest.opcRequestId
     };
@@ -216,6 +217,7 @@ export class LoggingManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeLogLogGroupRequest.ifMatch,
       "opc-request-id": changeLogLogGroupRequest.opcRequestId
     };
@@ -285,6 +287,7 @@ export class LoggingManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": changeLogSavedSearchCompartmentRequest.opcRetryToken,
       "if-match": changeLogSavedSearchCompartmentRequest.ifMatch,
       "opc-request-id": changeLogSavedSearchCompartmentRequest.opcRequestId
@@ -351,6 +354,7 @@ export class LoggingManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": changeUnifiedAgentConfigurationCompartmentRequest.opcRetryToken,
       "if-match": changeUnifiedAgentConfigurationCompartmentRequest.ifMatch,
       "opc-request-id": changeUnifiedAgentConfigurationCompartmentRequest.opcRequestId
@@ -418,6 +422,7 @@ export class LoggingManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createLogRequest.opcRetryToken,
       "opc-request-id": createLogRequest.opcRequestId
     };
@@ -482,6 +487,7 @@ export class LoggingManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createLogGroupRequest.opcRetryToken,
       "opc-request-id": createLogGroupRequest.opcRequestId
     };
@@ -546,6 +552,7 @@ export class LoggingManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createLogSavedSearchRequest.opcRetryToken,
       "opc-request-id": createLogSavedSearchRequest.opcRequestId
     };
@@ -614,6 +621,7 @@ export class LoggingManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createUnifiedAgentConfigurationRequest.opcRequestId,
       "opc-retry-token": createUnifiedAgentConfigurationRequest.opcRetryToken
     };
@@ -679,6 +687,7 @@ export class LoggingManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteLogRequest.ifMatch,
       "opc-request-id": deleteLogRequest.opcRequestId
     };
@@ -738,6 +747,7 @@ export class LoggingManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteLogGroupRequest.ifMatch,
       "opc-request-id": deleteLogGroupRequest.opcRequestId
     };
@@ -798,6 +808,7 @@ export class LoggingManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteLogSavedSearchRequest.ifMatch,
       "opc-request-id": deleteLogSavedSearchRequest.opcRequestId
     };
@@ -856,6 +867,7 @@ export class LoggingManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteUnifiedAgentConfigurationRequest.opcRequestId,
       "if-match": deleteUnifiedAgentConfigurationRequest.ifMatch
     };
@@ -917,6 +929,7 @@ export class LoggingManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteWorkRequestRequest.ifMatch,
       "opc-request-id": deleteWorkRequestRequest.opcRequestId
     };
@@ -976,6 +989,7 @@ export class LoggingManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getLogRequest.opcRequestId
     };
 
@@ -1037,6 +1051,7 @@ export class LoggingManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getLogGroupRequest.opcRequestId
     };
 
@@ -1101,6 +1116,7 @@ export class LoggingManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getLogIncludedSearchRequest.opcRequestId
     };
 
@@ -1163,6 +1179,7 @@ export class LoggingManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getLogSavedSearchRequest.opcRequestId
     };
 
@@ -1226,6 +1243,7 @@ export class LoggingManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getUnifiedAgentConfigurationRequest.opcRequestId
     };
 
@@ -1287,6 +1305,7 @@ export class LoggingManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -1359,6 +1378,7 @@ export class LoggingManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listLogGroupsRequest.opcRequestId
     };
 
@@ -1458,6 +1478,7 @@ export class LoggingManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listLogIncludedSearchesRequest.opcRequestId
     };
 
@@ -1532,6 +1553,7 @@ export class LoggingManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listLogSavedSearchesRequest.opcRequestId
     };
 
@@ -1608,6 +1630,7 @@ export class LoggingManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listLogsRequest.opcRequestId
     };
 
@@ -1695,6 +1718,7 @@ export class LoggingManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listServicesRequest.opcRequestId
     };
 
@@ -1773,6 +1797,7 @@ export class LoggingManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listUnifiedAgentConfigurationsRequest.opcRequestId
     };
 
@@ -1844,6 +1869,7 @@ export class LoggingManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -1935,6 +1961,7 @@ export class LoggingManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
@@ -2029,6 +2056,7 @@ export class LoggingManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
@@ -2123,6 +2151,7 @@ export class LoggingManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateLogRequest.ifMatch,
       "opc-request-id": updateLogRequest.opcRequestId
     };
@@ -2189,6 +2218,7 @@ export class LoggingManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateLogGroupRequest.ifMatch,
       "opc-request-id": updateLogGroupRequest.opcRequestId
     };
@@ -2255,6 +2285,7 @@ export class LoggingManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateLogSavedSearchRequest.ifMatch,
       "opc-request-id": updateLogSavedSearchRequest.opcRequestId
     };
@@ -2328,6 +2359,7 @@ export class LoggingManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateUnifiedAgentConfigurationRequest.ifMatch,
       "opc-request-id": updateUnifiedAgentConfigurationRequest.opcRequestId
     };

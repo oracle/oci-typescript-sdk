@@ -23,6 +23,7 @@ import common = require("oci-common");
  * Image shape compatibility details.
  */
 export interface AddImageShapeCompatibilityEntryDetails {
+  "memoryConstraints"?: model.ImageMemoryConstraints;
   "ocpuConstraints"?: model.ImageOcpuConstraints;
 }
 
@@ -31,6 +32,9 @@ export namespace AddImageShapeCompatibilityEntryDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "memoryConstraints": obj.memoryConstraints
+          ? model.ImageMemoryConstraints.getJsonObj(obj.memoryConstraints)
+          : undefined,
         "ocpuConstraints": obj.ocpuConstraints
           ? model.ImageOcpuConstraints.getJsonObj(obj.ocpuConstraints)
           : undefined

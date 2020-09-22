@@ -147,6 +147,7 @@ export class OceInstanceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeOceInstanceCompartmentRequest.ifMatch,
       "opc-request-id": changeOceInstanceCompartmentRequest.opcRequestId,
       "opc-retry-token": changeOceInstanceCompartmentRequest.opcRetryToken
@@ -211,6 +212,7 @@ export class OceInstanceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createOceInstanceRequest.opcRetryToken,
       "opc-request-id": createOceInstanceRequest.opcRequestId
     };
@@ -275,6 +277,7 @@ export class OceInstanceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteOceInstanceRequest.ifMatch,
       "opc-request-id": deleteOceInstanceRequest.opcRequestId
     };
@@ -334,6 +337,7 @@ export class OceInstanceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getOceInstanceRequest.opcRequestId
     };
 
@@ -395,6 +399,7 @@ export class OceInstanceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -468,6 +473,7 @@ export class OceInstanceClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listOceInstancesRequest.opcRequestId
     };
 
@@ -559,6 +565,7 @@ export class OceInstanceClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -649,6 +656,7 @@ export class OceInstanceClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
@@ -739,6 +747,7 @@ export class OceInstanceClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
@@ -825,6 +834,7 @@ export class OceInstanceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateOceInstanceRequest.ifMatch,
       "opc-request-id": updateOceInstanceRequest.opcRequestId
     };

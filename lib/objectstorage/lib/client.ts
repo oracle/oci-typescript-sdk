@@ -159,6 +159,7 @@ export class ObjectStorageClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": abortMultipartUploadRequest.opcClientRequestId
     };
 
@@ -218,6 +219,7 @@ export class ObjectStorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": cancelWorkRequestRequest.opcClientRequestId
     };
 
@@ -282,6 +284,7 @@ export class ObjectStorageClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": commitMultipartUploadRequest.ifMatch,
       "if-none-match": commitMultipartUploadRequest.ifNoneMatch,
       "opc-client-request-id": commitMultipartUploadRequest.opcClientRequestId
@@ -369,6 +372,7 @@ export class ObjectStorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": copyObjectRequest.opcClientRequestId,
       "opc-sse-customer-algorithm": copyObjectRequest.opcSseCustomerAlgorithm,
       "opc-sse-customer-key": copyObjectRequest.opcSseCustomerKey,
@@ -445,6 +449,7 @@ export class ObjectStorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": createBucketRequest.opcClientRequestId
     };
 
@@ -524,6 +529,7 @@ export class ObjectStorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": createMultipartUploadRequest.ifMatch,
       "if-none-match": createMultipartUploadRequest.ifNoneMatch,
       "opc-client-request-id": createMultipartUploadRequest.opcClientRequestId,
@@ -603,6 +609,7 @@ export class ObjectStorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": createPreauthenticatedRequestRequest.opcClientRequestId
     };
 
@@ -672,6 +679,7 @@ export class ObjectStorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": createReplicationPolicyRequest.opcClientRequestId
     };
 
@@ -742,6 +750,7 @@ export class ObjectStorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": createRetentionRuleRequest.opcClientRequestId
     };
 
@@ -818,6 +827,7 @@ export class ObjectStorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteBucketRequest.ifMatch,
       "opc-client-request-id": deleteBucketRequest.opcClientRequestId
     };
@@ -882,6 +892,7 @@ export class ObjectStorageClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteObjectRequest.ifMatch,
       "opc-client-request-id": deleteObjectRequest.opcClientRequestId
     };
@@ -959,6 +970,7 @@ export class ObjectStorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": deleteObjectLifecyclePolicyRequest.opcClientRequestId,
       "if-match": deleteObjectLifecyclePolicyRequest.ifMatch
     };
@@ -1021,6 +1033,7 @@ export class ObjectStorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": deletePreauthenticatedRequestRequest.opcClientRequestId
     };
 
@@ -1083,6 +1096,7 @@ export class ObjectStorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": deleteReplicationPolicyRequest.opcClientRequestId
     };
 
@@ -1144,6 +1158,7 @@ export class ObjectStorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteRetentionRuleRequest.ifMatch,
       "opc-client-request-id": deleteRetentionRuleRequest.opcClientRequestId
     };
@@ -1207,6 +1222,7 @@ export class ObjectStorageClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": getBucketRequest.ifMatch,
       "if-none-match": getBucketRequest.ifNoneMatch,
       "opc-client-request-id": getBucketRequest.opcClientRequestId
@@ -1282,6 +1298,7 @@ GetNamespace returns the name of the Object Storage namespace for the user makin
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": getNamespaceRequest.opcClientRequestId
     };
 
@@ -1340,6 +1357,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": getNamespaceMetadataRequest.opcClientRequestId
     };
 
@@ -1406,6 +1424,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": getObjectRequest.ifMatch,
       "if-none-match": getObjectRequest.ifNoneMatch,
       "opc-client-request-id": getObjectRequest.opcClientRequestId,
@@ -1555,6 +1574,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": getObjectLifecyclePolicyRequest.opcClientRequestId
     };
 
@@ -1624,6 +1644,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": getPreauthenticatedRequestRequest.opcClientRequestId
     };
 
@@ -1689,6 +1710,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": getReplicationPolicyRequest.opcClientRequestId
     };
 
@@ -1752,6 +1774,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": getRetentionRuleRequest.opcClientRequestId
     };
 
@@ -1823,6 +1846,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": getWorkRequestRequest.opcClientRequestId
     };
 
@@ -1891,6 +1915,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": headBucketRequest.ifMatch,
       "if-none-match": headBucketRequest.ifNoneMatch,
       "opc-client-request-id": headBucketRequest.opcClientRequestId
@@ -1961,6 +1986,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": headObjectRequest.ifMatch,
       "if-none-match": headObjectRequest.ifNoneMatch,
       "opc-client-request-id": headObjectRequest.opcClientRequestId,
@@ -2108,6 +2134,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": listBucketsRequest.opcClientRequestId
     };
 
@@ -2207,6 +2234,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": listMultipartUploadPartsRequest.opcClientRequestId
     };
 
@@ -2304,6 +2332,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": listMultipartUploadsRequest.opcClientRequestId
     };
 
@@ -2410,6 +2439,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": listObjectVersionsRequest.opcClientRequestId
     };
 
@@ -2490,6 +2520,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": listObjectsRequest.opcClientRequestId
     };
 
@@ -2594,6 +2625,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": listPreauthenticatedRequestsRequest.opcClientRequestId
     };
 
@@ -2691,6 +2723,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": listReplicationPoliciesRequest.opcClientRequestId
     };
 
@@ -2788,6 +2821,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": listReplicationSourcesRequest.opcClientRequestId
     };
 
@@ -2883,7 +2917,9 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "page": listRetentionRulesRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -2952,6 +2988,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": listWorkRequestErrorsRequest.opcClientRequestId
     };
 
@@ -3047,6 +3084,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": listWorkRequestLogsRequest.opcClientRequestId
     };
 
@@ -3141,6 +3179,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": listWorkRequestsRequest.opcClientRequestId
     };
 
@@ -3237,6 +3276,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": makeBucketWritableRequest.opcClientRequestId
     };
 
@@ -3405,6 +3445,7 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": putObjectLifecyclePolicyRequest.opcClientRequestId,
       "if-match": putObjectLifecyclePolicyRequest.ifMatch,
       "if-none-match": putObjectLifecyclePolicyRequest.ifNoneMatch
@@ -3494,6 +3535,7 @@ Calling this API starts a work request task to re-encrypt the data encryption ke
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": reencryptBucketRequest.opcClientRequestId
     };
 
@@ -3570,6 +3612,7 @@ You can alternatively employ one of these encryption strategies for an object:
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": reencryptObjectRequest.opcClientRequestId
     };
 
@@ -3638,6 +3681,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": renameObjectRequest.opcClientRequestId
     };
 
@@ -3719,6 +3763,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": restoreObjectsRequest.opcClientRequestId
     };
 
@@ -3788,6 +3833,7 @@ Use UpdateBucket to move a bucket from one compartment to another within the sam
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateBucketRequest.ifMatch,
       "opc-client-request-id": updateBucketRequest.opcClientRequestId
     };
@@ -3868,6 +3914,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-client-request-id": updateNamespaceMetadataRequest.opcClientRequestId
     };
 
@@ -3938,6 +3985,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateRetentionRuleRequest.ifMatch,
       "opc-client-request-id": updateRetentionRuleRequest.opcClientRequestId
     };

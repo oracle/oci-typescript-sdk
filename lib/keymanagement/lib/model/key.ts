@@ -1,6 +1,8 @@
 /**
- * Key Management Service API
- * API for managing and performing operations with keys and vaults.
+ * Vault Service Key Management API
+ * API for managing and performing operations with keys and vaults. (For the API for managing secrets, see the Vault Service 
+Secret Management API. For the API for retrieving secrets, see the Vault Service Secret Retrieval API.)
+
  * OpenAPI spec version: release
  * Contact: sparta_kms_us_grp@oracle.com
  *
@@ -52,6 +54,15 @@ export interface Key {
   "id": string;
   "keyShape": model.KeyShape;
   /**
+   * The key's protection mode indicates how the key persists and where cryptographic operations that use the key are performed.
+   * A protection mode of `HSM` means that the key persists on a hardware security module (HSM) and all cryptographic operations are performed inside
+   * the HSM. A protection mode of `SOFTWARE` means that the key persists on the server, protected by the vault's RSA wrapping key which persists
+   * on the HSM. All cryptographic operations that use a key with a protection mode of `SOFTWARE` are performed on the server. By default,
+   * a key's protection mode is set to `HSM`. You can't change a key's protection mode after the key is created or imported.
+   *
+   */
+  "protectionMode"?: Key.ProtectionMode;
+  /**
     * The key's current lifecycle state.
 * <p>
 Example: `ENABLED`
@@ -82,6 +93,16 @@ Example: `2018-04-03T21:10:29.600Z`
 }
 
 export namespace Key {
+  export enum ProtectionMode {
+    Hsm = "HSM",
+    Software = "SOFTWARE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export enum LifecycleState {
     Creating = "CREATING",
     Enabling = "ENABLING",

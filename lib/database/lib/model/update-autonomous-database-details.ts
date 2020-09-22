@@ -114,6 +114,14 @@ To add the whitelist VCN specific subnet or IP, use a semicoln ';' as a delimina
    */
   "dbVersion"?: string;
   /**
+   * The `DATABASE OPEN` mode. You can open the database in `READ_ONLY` or `READ_WRITE` mode.
+   */
+  "openMode"?: UpdateAutonomousDatabaseDetails.OpenMode;
+  /**
+   * The Autonomous Database permission level. Restricted mode allows access only to admin users.
+   */
+  "permissionLevel"?: UpdateAutonomousDatabaseDetails.PermissionLevel;
+  /**
     * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with.
 * <p>
 **Subnet Restrictions:**
@@ -155,6 +163,16 @@ export namespace UpdateAutonomousDatabaseDetails {
   export enum RefreshableMode {
     Automatic = "AUTOMATIC",
     Manual = "MANUAL"
+  }
+
+  export enum OpenMode {
+    ReadOnly = "READ_ONLY",
+    ReadWrite = "READ_WRITE"
+  }
+
+  export enum PermissionLevel {
+    Restricted = "RESTRICTED",
+    Unrestricted = "UNRESTRICTED"
   }
 
   export function getJsonObj(obj: UpdateAutonomousDatabaseDetails): object {

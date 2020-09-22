@@ -152,6 +152,7 @@ export class BdsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": addBlockStorageRequest.opcRequestId,
       "if-match": addBlockStorageRequest.ifMatch,
       "opc-retry-token": addBlockStorageRequest.opcRetryToken
@@ -219,6 +220,7 @@ export class BdsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": addCloudSqlRequest.opcRequestId,
       "if-match": addCloudSqlRequest.ifMatch,
       "opc-retry-token": addCloudSqlRequest.opcRetryToken
@@ -286,6 +288,7 @@ export class BdsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": addWorkerNodesRequest.opcRequestId,
       "if-match": addWorkerNodesRequest.ifMatch,
       "opc-retry-token": addWorkerNodesRequest.opcRetryToken
@@ -352,6 +355,7 @@ export class BdsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeBdsInstanceCompartmentRequest.opcRequestId,
       "if-match": changeBdsInstanceCompartmentRequest.ifMatch,
       "opc-retry-token": changeBdsInstanceCompartmentRequest.opcRetryToken
@@ -420,6 +424,7 @@ export class BdsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeShapeRequest.opcRequestId,
       "if-match": changeShapeRequest.ifMatch,
       "opc-retry-token": changeShapeRequest.opcRetryToken
@@ -484,6 +489,7 @@ export class BdsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createBdsInstanceRequest.opcRequestId,
       "opc-retry-token": createBdsInstanceRequest.opcRetryToken
     };
@@ -548,6 +554,7 @@ export class BdsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteBdsInstanceRequest.opcRequestId,
       "if-match": deleteBdsInstanceRequest.ifMatch
     };
@@ -607,6 +614,7 @@ export class BdsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getBdsInstanceRequest.opcRequestId
     };
 
@@ -668,6 +676,7 @@ export class BdsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -736,6 +745,7 @@ export class BdsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listBdsInstancesRequest.opcRequestId
     };
 
@@ -828,6 +838,7 @@ export class BdsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -920,6 +931,7 @@ export class BdsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
@@ -1012,6 +1024,7 @@ export class BdsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
@@ -1099,6 +1112,7 @@ export class BdsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": removeCloudSqlRequest.opcRequestId,
       "if-match": removeCloudSqlRequest.ifMatch
     };
@@ -1164,6 +1178,7 @@ export class BdsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": restartNodeRequest.opcRequestId,
       "if-match": restartNodeRequest.ifMatch,
       "opc-retry-token": restartNodeRequest.opcRetryToken
@@ -1229,6 +1244,7 @@ export class BdsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateBdsInstanceRequest.ifMatch,
       "opc-request-id": updateBdsInstanceRequest.opcRequestId
     };

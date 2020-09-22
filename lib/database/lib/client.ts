@@ -148,6 +148,7 @@ export class DatabaseClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": activateExadataInfrastructureRequest.opcRequestId,
       "opc-retry-token": activateExadataInfrastructureRequest.opcRetryToken
     };
@@ -222,6 +223,7 @@ export class DatabaseClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": autonomousDatabaseManualRefreshRequest.ifMatch,
       "opc-retry-token": autonomousDatabaseManualRefreshRequest.opcRetryToken,
       "opc-request-id": autonomousDatabaseManualRefreshRequest.opcRequestId
@@ -302,6 +304,7 @@ export class DatabaseClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": changeAutonomousContainerDatabaseCompartmentRequest.opcRetryToken,
       "opc-request-id": changeAutonomousContainerDatabaseCompartmentRequest.opcRequestId,
       "if-match": changeAutonomousContainerDatabaseCompartmentRequest.ifMatch
@@ -377,6 +380,7 @@ export class DatabaseClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": changeAutonomousDatabaseCompartmentRequest.opcRetryToken,
       "opc-request-id": changeAutonomousDatabaseCompartmentRequest.opcRequestId,
       "if-match": changeAutonomousDatabaseCompartmentRequest.ifMatch
@@ -454,6 +458,7 @@ export class DatabaseClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": changeAutonomousExadataInfrastructureCompartmentRequest.opcRetryToken,
       "opc-request-id": changeAutonomousExadataInfrastructureCompartmentRequest.opcRequestId,
       "if-match": changeAutonomousExadataInfrastructureCompartmentRequest.ifMatch
@@ -528,6 +533,7 @@ export class DatabaseClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": changeAutonomousVmClusterCompartmentRequest.opcRetryToken,
       "opc-request-id": changeAutonomousVmClusterCompartmentRequest.opcRequestId,
       "if-match": changeAutonomousVmClusterCompartmentRequest.ifMatch
@@ -597,6 +603,7 @@ export class DatabaseClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": changeBackupDestinationCompartmentRequest.opcRetryToken,
       "opc-request-id": changeBackupDestinationCompartmentRequest.opcRequestId,
       "if-match": changeBackupDestinationCompartmentRequest.ifMatch
@@ -672,6 +679,7 @@ export class DatabaseClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": changeDatabaseSoftwareImageCompartmentRequest.opcRetryToken,
       "opc-request-id": changeDatabaseSoftwareImageCompartmentRequest.opcRequestId,
       "if-match": changeDatabaseSoftwareImageCompartmentRequest.ifMatch
@@ -746,6 +754,7 @@ export class DatabaseClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": changeDbSystemCompartmentRequest.opcRetryToken,
       "opc-request-id": changeDbSystemCompartmentRequest.opcRequestId,
       "if-match": changeDbSystemCompartmentRequest.ifMatch
@@ -820,6 +829,7 @@ export class DatabaseClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": changeExadataInfrastructureCompartmentRequest.opcRetryToken,
       "opc-request-id": changeExadataInfrastructureCompartmentRequest.opcRequestId,
       "if-match": changeExadataInfrastructureCompartmentRequest.ifMatch
@@ -888,6 +898,7 @@ export class DatabaseClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": changeVmClusterCompartmentRequest.opcRetryToken,
       "opc-request-id": changeVmClusterCompartmentRequest.opcRequestId,
       "if-match": changeVmClusterCompartmentRequest.ifMatch
@@ -957,6 +968,7 @@ export class DatabaseClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": completeExternalBackupJobRequest.ifMatch,
       "opc-retry-token": completeExternalBackupJobRequest.opcRetryToken
     };
@@ -1029,6 +1041,7 @@ export class DatabaseClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createAutonomousContainerDatabaseRequest.opcRetryToken
     };
 
@@ -1100,6 +1113,7 @@ export class DatabaseClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createAutonomousDataWarehouseRequest.opcRetryToken
     };
 
@@ -1166,6 +1180,7 @@ export class DatabaseClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createAutonomousDataWarehouseBackupRequest.opcRetryToken
     };
 
@@ -1232,6 +1247,7 @@ export class DatabaseClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createAutonomousDatabaseRequest.opcRetryToken,
       "opc-request-id": createAutonomousDatabaseRequest.opcRequestId
     };
@@ -1304,6 +1320,7 @@ export class DatabaseClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createAutonomousDatabaseBackupRequest.opcRetryToken,
       "opc-request-id": createAutonomousDatabaseBackupRequest.opcRequestId
     };
@@ -1376,6 +1393,7 @@ export class DatabaseClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createAutonomousVmClusterRequest.opcRetryToken,
       "opc-request-id": createAutonomousVmClusterRequest.opcRequestId
     };
@@ -1447,6 +1465,7 @@ export class DatabaseClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createBackupRequest.opcRetryToken
     };
 
@@ -1517,6 +1536,7 @@ export class DatabaseClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createBackupDestinationRequest.opcRetryToken,
       "opc-request-id": createBackupDestinationRequest.opcRequestId
     };
@@ -1587,6 +1607,7 @@ export class DatabaseClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createConsoleConnectionRequest.opcRetryToken
     };
 
@@ -1662,6 +1683,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createDataGuardAssociationRequest.opcRetryToken
     };
 
@@ -1732,6 +1754,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createDatabaseRequest.opcRetryToken,
       "opc-request-id": createDatabaseRequest.opcRequestId
     };
@@ -1804,6 +1827,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createDatabaseSoftwareImageRequest.opcRetryToken
     };
 
@@ -1874,6 +1898,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createDbHomeRequest.opcRetryToken
     };
 
@@ -1944,6 +1969,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createExadataInfrastructureRequest.opcRetryToken,
       "opc-request-id": createExadataInfrastructureRequest.opcRequestId
     };
@@ -2017,6 +2043,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createExternalBackupJobRequest.opcRetryToken
     };
 
@@ -2087,6 +2114,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createVmClusterRequest.opcRetryToken,
       "opc-request-id": createVmClusterRequest.opcRequestId
     };
@@ -2160,6 +2188,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createVmClusterNetworkRequest.opcRetryToken,
       "opc-request-id": createVmClusterNetworkRequest.opcRequestId
     };
@@ -2247,6 +2276,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": dbNodeActionRequest.opcRetryToken,
       "if-match": dbNodeActionRequest.ifMatch
     };
@@ -2316,6 +2346,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteAutonomousDataWarehouseRequest.ifMatch
     };
 
@@ -2371,6 +2402,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteAutonomousDatabaseRequest.ifMatch,
       "opc-request-id": deleteAutonomousDatabaseRequest.opcRequestId
     };
@@ -2432,6 +2464,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteAutonomousVmClusterRequest.ifMatch,
       "opc-request-id": deleteAutonomousVmClusterRequest.opcRequestId
     };
@@ -2491,6 +2524,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteBackupRequest.ifMatch
     };
 
@@ -2550,6 +2584,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteBackupDestinationRequest.ifMatch,
       "opc-request-id": deleteBackupDestinationRequest.opcRequestId
     };
@@ -2605,6 +2640,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteConsoleConnectionRequest.ifMatch
     };
 
@@ -2663,6 +2699,7 @@ The data in this database is local to the DB system and will be lost when the da
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteDatabaseRequest.ifMatch,
       "opc-request-id": deleteDatabaseRequest.opcRequestId
     };
@@ -2723,6 +2760,7 @@ The data in this database is local to the DB system and will be lost when the da
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteDatabaseSoftwareImageRequest.ifMatch
     };
 
@@ -2786,6 +2824,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteDbHomeRequest.ifMatch
     };
 
@@ -2846,6 +2885,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteExadataInfrastructureRequest.ifMatch,
       "opc-request-id": deleteExadataInfrastructureRequest.opcRequestId
     };
@@ -2906,6 +2946,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteVmClusterRequest.ifMatch,
       "opc-request-id": deleteVmClusterRequest.opcRequestId
     };
@@ -2967,6 +3008,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteVmClusterNetworkRequest.ifMatch,
       "opc-request-id": deleteVmClusterNetworkRequest.opcRequestId
     };
@@ -3029,6 +3071,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deregisterAutonomousDatabaseDataSafeRequest.opcRequestId
     };
 
@@ -3097,6 +3140,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": downloadExadataInfrastructureConfigFileRequest.opcRequestId,
       "opc-retry-token": downloadExadataInfrastructureConfigFileRequest.opcRetryToken
     };
@@ -3174,6 +3218,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": downloadVmClusterNetworkConfigFileRequest.opcRequestId,
       "opc-retry-token": downloadVmClusterNetworkConfigFileRequest.opcRetryToken
     };
@@ -3250,6 +3295,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": failOverAutonomousDatabaseRequest.ifMatch,
       "opc-retry-token": failOverAutonomousDatabaseRequest.opcRetryToken,
       "opc-request-id": failOverAutonomousDatabaseRequest.opcRequestId
@@ -3325,6 +3371,7 @@ A failover might result in data loss depending on the protection mode in effect 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": failoverDataGuardAssociationRequest.ifMatch
     };
 
@@ -3400,6 +3447,7 @@ A failover might result in data loss depending on the protection mode in effect 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": generateAutonomousDataWarehouseWalletRequest.opcRequestId,
       "opc-retry-token": generateAutonomousDataWarehouseWalletRequest.opcRetryToken
     };
@@ -3480,6 +3528,7 @@ A failover might result in data loss depending on the protection mode in effect 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": generateAutonomousDatabaseWalletRequest.opcRequestId,
       "opc-retry-token": generateAutonomousDatabaseWalletRequest.opcRetryToken
     };
@@ -3561,6 +3610,7 @@ A failover might result in data loss depending on the protection mode in effect 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": generateRecommendedVmClusterNetworkRequest.opcRequestId,
       "opc-retry-token": generateRecommendedVmClusterNetworkRequest.opcRetryToken
     };
@@ -3630,7 +3680,9 @@ A failover might result in data loss depending on the protection mode in effect 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -3691,7 +3743,9 @@ A failover might result in data loss depending on the protection mode in effect 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -3748,7 +3802,9 @@ A failover might result in data loss depending on the protection mode in effect 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -3809,6 +3865,7 @@ A failover might result in data loss depending on the protection mode in effect 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getAutonomousDatabaseRequest.opcRequestId
     };
 
@@ -3871,6 +3928,7 @@ A failover might result in data loss depending on the protection mode in effect 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getAutonomousDatabaseBackupRequest.opcRequestId
     };
 
@@ -3932,6 +3990,7 @@ A failover might result in data loss depending on the protection mode in effect 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getAutonomousDatabaseRegionalWalletRequest.opcRequestId
     };
 
@@ -3990,6 +4049,7 @@ A failover might result in data loss depending on the protection mode in effect 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getAutonomousDatabaseWalletRequest.opcRequestId
     };
 
@@ -4047,7 +4107,9 @@ A failover might result in data loss depending on the protection mode in effect 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4106,7 +4168,9 @@ A failover might result in data loss depending on the protection mode in effect 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4166,6 +4230,7 @@ A failover might result in data loss depending on the protection mode in effect 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getAutonomousVmClusterRequest.opcRequestId
     };
 
@@ -4226,7 +4291,9 @@ A failover might result in data loss depending on the protection mode in effect 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4287,6 +4354,7 @@ A failover might result in data loss depending on the protection mode in effect 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getBackupDestinationRequest.opcRequestId
     };
 
@@ -4348,7 +4416,9 @@ A failover might result in data loss depending on the protection mode in effect 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4409,7 +4479,9 @@ A failover might result in data loss depending on the protection mode in effect 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4468,7 +4540,9 @@ A failover might result in data loss depending on the protection mode in effect 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4528,7 +4602,9 @@ A failover might result in data loss depending on the protection mode in effect 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4587,7 +4663,9 @@ A failover might result in data loss depending on the protection mode in effect 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4648,7 +4726,9 @@ A failover might result in data loss depending on the protection mode in effect 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4705,7 +4785,9 @@ A failover might result in data loss depending on the protection mode in effect 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4764,7 +4846,9 @@ A failover might result in data loss depending on the protection mode in effect 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4823,7 +4907,9 @@ A failover might result in data loss depending on the protection mode in effect 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4884,7 +4970,9 @@ A failover might result in data loss depending on the protection mode in effect 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4941,7 +5029,9 @@ A failover might result in data loss depending on the protection mode in effect 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5002,6 +5092,7 @@ A failover might result in data loss depending on the protection mode in effect 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getExadataInfrastructureRequest.opcRequestId
     };
 
@@ -5066,6 +5157,7 @@ A failover might result in data loss depending on the protection mode in effect 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getExadataInfrastructureOcpusRequest.opcRequestId
     };
 
@@ -5124,6 +5216,7 @@ A failover might result in data loss depending on the protection mode in effect 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getExadataIormConfigRequest.opcRequestId
     };
 
@@ -5182,7 +5275,9 @@ A failover might result in data loss depending on the protection mode in effect 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5241,7 +5336,9 @@ A failover might result in data loss depending on the protection mode in effect 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5301,6 +5398,7 @@ A failover might result in data loss depending on the protection mode in effect 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getVmClusterRequest.opcRequestId
     };
 
@@ -5363,6 +5461,7 @@ A failover might result in data loss depending on the protection mode in effect 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getVmClusterNetworkRequest.opcRequestId
     };
 
@@ -5426,7 +5525,9 @@ A failover might result in data loss depending on the protection mode in effect 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5483,7 +5584,9 @@ A failover might result in data loss depending on the protection mode in effect 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5543,6 +5646,7 @@ A failover might result in data loss depending on the protection mode in effect 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": launchAutonomousExadataInfrastructureRequest.opcRetryToken
     };
 
@@ -5620,6 +5724,7 @@ An initial database is created on the DB system based on the request parameters 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": launchDbSystemRequest.opcRetryToken
     };
 
@@ -5703,7 +5808,9 @@ An initial database is created on the DB system based on the request parameters 
       "displayName": listAutonomousContainerDatabasesRequest.displayName
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5797,7 +5904,9 @@ An initial database is created on the DB system based on the request parameters 
       "displayName": listAutonomousDataWarehouseBackupsRequest.displayName
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5889,7 +5998,9 @@ An initial database is created on the DB system based on the request parameters 
       "displayName": listAutonomousDataWarehousesRequest.displayName
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5983,6 +6094,7 @@ An initial database is created on the DB system based on the request parameters 
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAutonomousDatabaseBackupsRequest.opcRequestId
     };
 
@@ -6080,6 +6192,7 @@ An initial database is created on the DB system based on the request parameters 
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAutonomousDatabaseClonesRequest.opcRequestId
     };
 
@@ -6180,6 +6293,7 @@ An initial database is created on the DB system based on the request parameters 
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAutonomousDatabasesRequest.opcRequestId
     };
 
@@ -6273,6 +6387,7 @@ An initial database is created on the DB system based on the request parameters 
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAutonomousDbPreviewVersionsRequest.opcRequestId
     };
 
@@ -6364,6 +6479,7 @@ An initial database is created on the DB system based on the request parameters 
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAutonomousDbVersionsRequest.opcRequestId
     };
 
@@ -6456,6 +6572,7 @@ An initial database is created on the DB system based on the request parameters 
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAutonomousExadataInfrastructureShapesRequest.opcRequestId
     };
 
@@ -6550,7 +6667,9 @@ An initial database is created on the DB system based on the request parameters 
       "displayName": listAutonomousExadataInfrastructuresRequest.displayName
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -6644,6 +6763,7 @@ An initial database is created on the DB system based on the request parameters 
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAutonomousVmClustersRequest.opcRequestId
     };
 
@@ -6734,6 +6854,7 @@ An initial database is created on the DB system based on the request parameters 
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listBackupDestinationRequest.opcRequestId
     };
 
@@ -6828,7 +6949,9 @@ An initial database is created on the DB system based on the request parameters 
       "page": listBackupsRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -6913,7 +7036,9 @@ An initial database is created on the DB system based on the request parameters 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -6979,7 +7104,9 @@ An initial database is created on the DB system based on the request parameters 
       "compartmentId": listContainerDatabasePatchesRequest.compartmentId
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -7068,7 +7195,9 @@ An initial database is created on the DB system based on the request parameters 
       "page": listDataGuardAssociationsRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -7162,7 +7291,9 @@ An initial database is created on the DB system based on the request parameters 
       "imageShapeFamily": listDatabaseSoftwareImagesRequest.imageShapeFamily
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -7255,7 +7386,9 @@ An initial database is created on the DB system based on the request parameters 
       "dbName": listDatabasesRequest.dbName
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -7344,7 +7477,9 @@ An initial database is created on the DB system based on the request parameters 
       "page": listDbHomePatchHistoryEntriesRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -7432,7 +7567,9 @@ An initial database is created on the DB system based on the request parameters 
       "page": listDbHomePatchesRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -7526,7 +7663,9 @@ An initial database is created on the DB system based on the request parameters 
       "displayName": listDbHomesRequest.displayName
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -7618,7 +7757,9 @@ An initial database is created on the DB system based on the request parameters 
       "lifecycleState": listDbNodesRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -7707,7 +7848,9 @@ An initial database is created on the DB system based on the request parameters 
       "page": listDbSystemPatchHistoryEntriesRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -7795,7 +7938,9 @@ An initial database is created on the DB system based on the request parameters 
       "page": listDbSystemPatchesRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -7882,7 +8027,9 @@ An initial database is created on the DB system based on the request parameters 
       "page": listDbSystemShapesRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -7975,7 +8122,9 @@ An initial database is created on the DB system based on the request parameters 
       "displayName": listDbSystemsRequest.displayName
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -8064,7 +8213,9 @@ An initial database is created on the DB system based on the request parameters 
       "storageManagement": listDbVersionsRequest.storageManagement
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -8157,6 +8308,7 @@ An initial database is created on the DB system based on the request parameters 
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listExadataInfrastructuresRequest.opcRequestId
     };
 
@@ -8246,7 +8398,9 @@ An initial database is created on the DB system based on the request parameters 
       "shape": listGiVersionsRequest.shape
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -8340,7 +8494,9 @@ An initial database is created on the DB system based on the request parameters 
       "availabilityDomain": listMaintenanceRunsRequest.availabilityDomain
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -8434,6 +8590,7 @@ An initial database is created on the DB system based on the request parameters 
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listVmClusterNetworksRequest.opcRequestId
     };
 
@@ -8524,7 +8681,9 @@ An initial database is created on the DB system based on the request parameters 
       "page": listVmClusterPatchHistoryEntriesRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -8612,7 +8771,9 @@ An initial database is created on the DB system based on the request parameters 
       "page": listVmClusterPatchesRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -8705,6 +8866,7 @@ An initial database is created on the DB system based on the request parameters 
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listVmClustersRequest.opcRequestId
     };
 
@@ -8793,6 +8955,7 @@ An initial database is created on the DB system based on the request parameters 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": registerAutonomousDatabaseDataSafeRequest.opcRequestId
     };
 
@@ -8859,6 +9022,7 @@ An initial database is created on the DB system based on the request parameters 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": reinstateDataGuardAssociationRequest.ifMatch
     };
 
@@ -8934,6 +9098,7 @@ An initial database is created on the DB system based on the request parameters 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": restartAutonomousContainerDatabaseRequest.ifMatch,
       "opc-request-id": restartAutonomousContainerDatabaseRequest.opcRequestId
     };
@@ -9003,6 +9168,7 @@ An initial database is created on the DB system based on the request parameters 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": restartAutonomousDatabaseRequest.ifMatch
     };
 
@@ -9071,6 +9237,7 @@ An initial database is created on the DB system based on the request parameters 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": restoreAutonomousDataWarehouseRequest.ifMatch
     };
 
@@ -9139,6 +9306,7 @@ An initial database is created on the DB system based on the request parameters 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": restoreAutonomousDatabaseRequest.ifMatch
     };
 
@@ -9211,6 +9379,7 @@ An initial database is created on the DB system based on the request parameters 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": restoreDatabaseRequest.ifMatch
     };
 
@@ -9284,6 +9453,7 @@ An initial database is created on the DB system based on the request parameters 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": startAutonomousDataWarehouseRequest.ifMatch
     };
 
@@ -9346,6 +9516,7 @@ An initial database is created on the DB system based on the request parameters 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": startAutonomousDatabaseRequest.ifMatch
     };
 
@@ -9414,6 +9585,7 @@ An initial database is created on the DB system based on the request parameters 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": stopAutonomousDataWarehouseRequest.ifMatch
     };
 
@@ -9476,6 +9648,7 @@ An initial database is created on the DB system based on the request parameters 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": stopAutonomousDatabaseRequest.ifMatch,
       "opc-request-id": stopAutonomousDatabaseRequest.opcRequestId
     };
@@ -9545,6 +9718,7 @@ An initial database is created on the DB system based on the request parameters 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": switchoverAutonomousDatabaseRequest.ifMatch,
       "opc-retry-token": switchoverAutonomousDatabaseRequest.opcRetryToken,
       "opc-request-id": switchoverAutonomousDatabaseRequest.opcRequestId
@@ -9619,6 +9793,7 @@ A switchover guarantees no data loss.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": switchoverDataGuardAssociationRequest.ifMatch
     };
 
@@ -9693,6 +9868,7 @@ A switchover guarantees no data loss.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": terminateAutonomousContainerDatabaseRequest.ifMatch
     };
 
@@ -9755,6 +9931,7 @@ A switchover guarantees no data loss.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": terminateAutonomousExadataInfrastructureRequest.ifMatch
     };
 
@@ -9813,6 +9990,7 @@ A switchover guarantees no data loss.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": terminateDbSystemRequest.ifMatch
     };
 
@@ -9873,6 +10051,7 @@ A switchover guarantees no data loss.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateAutonomousContainerDatabaseRequest.ifMatch
     };
 
@@ -9946,6 +10125,7 @@ A switchover guarantees no data loss.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateAutonomousDataWarehouseRequest.ifMatch
     };
 
@@ -10014,6 +10194,7 @@ A switchover guarantees no data loss.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateAutonomousDatabaseRequest.ifMatch,
       "opc-request-id": updateAutonomousDatabaseRequest.opcRequestId
     };
@@ -10086,6 +10267,7 @@ A switchover guarantees no data loss.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateAutonomousDatabaseRegionalWalletRequest.opcRequestId
     };
 
@@ -10151,6 +10333,7 @@ A switchover guarantees no data loss.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateAutonomousDatabaseWalletRequest.opcRequestId
     };
 
@@ -10216,6 +10399,7 @@ A switchover guarantees no data loss.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateAutonomousExadataInfrastructureRequest.ifMatch
     };
 
@@ -10289,6 +10473,7 @@ A switchover guarantees no data loss.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateAutonomousVmClusterRequest.ifMatch,
       "opc-request-id": updateAutonomousVmClusterRequest.opcRequestId
     };
@@ -10364,6 +10549,7 @@ A switchover guarantees no data loss.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateBackupDestinationRequest.ifMatch,
       "opc-request-id": updateBackupDestinationRequest.opcRequestId
     };
@@ -10432,6 +10618,7 @@ A switchover guarantees no data loss.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateDatabaseRequest.ifMatch
     };
 
@@ -10504,6 +10691,7 @@ A switchover guarantees no data loss.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateDatabaseSoftwareImageRequest.ifMatch
     };
 
@@ -10570,6 +10758,7 @@ A switchover guarantees no data loss.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateDbHomeRequest.ifMatch
     };
 
@@ -10641,6 +10830,7 @@ A switchover guarantees no data loss.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateDbSystemRequest.ifMatch
     };
 
@@ -10714,6 +10904,7 @@ A switchover guarantees no data loss.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateExadataInfrastructureRequest.ifMatch,
       "opc-request-id": updateExadataInfrastructureRequest.opcRequestId
     };
@@ -10787,6 +10978,7 @@ A switchover guarantees no data loss.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateExadataIormConfigRequest.opcRequestId,
       "if-match": updateExadataIormConfigRequest.ifMatch
     };
@@ -10859,6 +11051,7 @@ A switchover guarantees no data loss.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateMaintenanceRunRequest.ifMatch
     };
 
@@ -10926,6 +11119,7 @@ A switchover guarantees no data loss.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateVmClusterRequest.ifMatch,
       "opc-request-id": updateVmClusterRequest.opcRequestId
     };
@@ -11000,6 +11194,7 @@ A switchover guarantees no data loss.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateVmClusterNetworkRequest.ifMatch,
       "opc-request-id": updateVmClusterNetworkRequest.opcRequestId
     };
@@ -11076,6 +11271,7 @@ A switchover guarantees no data loss.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": validateVmClusterNetworkRequest.opcRequestId,
       "opc-retry-token": validateVmClusterNetworkRequest.opcRetryToken
     };

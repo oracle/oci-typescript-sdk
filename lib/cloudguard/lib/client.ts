@@ -147,6 +147,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeDetectorRecipeCompartmentRequest.ifMatch,
       "opc-request-id": changeDetectorRecipeCompartmentRequest.opcRequestId,
       "opc-retry-token": changeDetectorRecipeCompartmentRequest.opcRetryToken
@@ -208,6 +209,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeManagedListCompartmentRequest.ifMatch,
       "opc-request-id": changeManagedListCompartmentRequest.opcRequestId,
       "opc-retry-token": changeManagedListCompartmentRequest.opcRetryToken
@@ -269,6 +271,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeResponderRecipeCompartmentRequest.ifMatch,
       "opc-request-id": changeResponderRecipeCompartmentRequest.opcRequestId,
       "opc-retry-token": changeResponderRecipeCompartmentRequest.opcRetryToken
@@ -328,6 +331,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createDetectorRecipeRequest.opcRetryToken,
       "opc-request-id": createDetectorRecipeRequest.opcRequestId
     };
@@ -394,6 +398,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createManagedListRequest.opcRetryToken,
       "opc-request-id": createManagedListRequest.opcRequestId
     };
@@ -460,6 +465,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createResponderRecipeRequest.opcRetryToken,
       "opc-request-id": createResponderRecipeRequest.opcRequestId
     };
@@ -526,6 +532,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createTargetRequest.opcRetryToken,
       "opc-request-id": createTargetRequest.opcRequestId
     };
@@ -595,6 +602,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createTargetDetectorRecipeRequest.opcRetryToken,
       "opc-request-id": createTargetDetectorRecipeRequest.opcRequestId
     };
@@ -664,6 +672,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createTargetResponderRecipeRequest.opcRetryToken,
       "opc-request-id": createTargetResponderRecipeRequest.opcRequestId
     };
@@ -731,6 +740,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteDetectorRecipeRequest.ifMatch,
       "opc-request-id": deleteDetectorRecipeRequest.opcRequestId,
       "opc-retry-token": deleteDetectorRecipeRequest.opcRetryToken
@@ -786,6 +796,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteManagedListRequest.ifMatch,
       "opc-request-id": deleteManagedListRequest.opcRequestId,
       "opc-retry-token": deleteManagedListRequest.opcRetryToken
@@ -841,6 +852,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteResponderRecipeRequest.ifMatch,
       "opc-request-id": deleteResponderRecipeRequest.opcRequestId
     };
@@ -895,6 +907,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteTargetRequest.ifMatch,
       "opc-request-id": deleteTargetRequest.opcRequestId
     };
@@ -951,6 +964,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteTargetDetectorRecipeRequest.ifMatch,
       "opc-request-id": deleteTargetDetectorRecipeRequest.opcRequestId
     };
@@ -1007,6 +1021,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteTargetResponderRecipeRequest.ifMatch,
       "opc-request-id": deleteTargetResponderRecipeRequest.opcRequestId
     };
@@ -1064,6 +1079,7 @@ export class CloudGuardClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": executeResponderExecutionRequest.ifMatch,
       "opc-request-id": executeResponderExecutionRequest.opcRequestId,
       "opc-retry-token": executeResponderExecutionRequest.opcRetryToken
@@ -1129,6 +1145,7 @@ export class CloudGuardClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getConditionMetadataTypeRequest.opcRequestId
     };
 
@@ -1190,6 +1207,7 @@ export class CloudGuardClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getConfigurationRequest.opcRequestId
     };
 
@@ -1257,6 +1275,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getDetectorRequest.opcRequestId
     };
 
@@ -1318,6 +1337,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getDetectorRecipeRequest.opcRequestId
     };
 
@@ -1381,6 +1401,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getDetectorRecipeDetectorRuleRequest.opcRequestId
     };
 
@@ -1444,6 +1465,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getDetectorRuleRequest.opcRequestId
     };
 
@@ -1510,6 +1532,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getManagedListRequest.opcRequestId
     };
 
@@ -1571,6 +1594,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getProblemRequest.opcRequestId
     };
 
@@ -1633,6 +1657,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getResponderExecutionRequest.opcRequestId
     };
 
@@ -1694,6 +1719,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getResponderRecipeRequest.opcRequestId
     };
 
@@ -1757,6 +1783,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getResponderRecipeResponderRuleRequest.opcRequestId
     };
 
@@ -1818,6 +1845,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getResponderRuleRequest.opcRequestId
     };
 
@@ -1879,6 +1907,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getTargetRequest.opcRequestId
     };
 
@@ -1942,6 +1971,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getTargetDetectorRecipeRequest.opcRequestId
     };
 
@@ -2006,6 +2036,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getTargetDetectorRecipeDetectorRuleRequest.opcRequestId
     };
 
@@ -2070,6 +2101,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getTargetResponderRecipeRequest.opcRequestId
     };
 
@@ -2137,6 +2169,7 @@ export class CloudGuardClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getTargetResponderRecipeResponderRuleRequest.opcRequestId
     };
 
@@ -2206,6 +2239,7 @@ export class CloudGuardClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listConditionMetadataTypesRequest.opcRequestId
     };
 
@@ -2277,6 +2311,7 @@ export class CloudGuardClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listDetectorRecipeDetectorRulesRequest.opcRequestId
     };
 
@@ -2362,6 +2397,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listDetectorRecipesRequest.opcRequestId
     };
 
@@ -2432,6 +2468,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listDetectorRulesRequest.opcRequestId
     };
 
@@ -2499,6 +2536,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listDetectorsRequest.opcRequestId
     };
 
@@ -2566,6 +2604,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listImpactedResourcesRequest.opcRequestId
     };
 
@@ -2632,6 +2671,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listManagedListTypesRequest.opcRequestId
     };
 
@@ -2717,6 +2757,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listManagedListsRequest.opcRequestId
     };
 
@@ -2785,6 +2826,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listProblemHistoriesRequest.opcRequestId
     };
 
@@ -2886,6 +2928,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listProblemsRequest.opcRequestId
     };
 
@@ -2957,6 +3000,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listRecommendationsRequest.opcRequestId
     };
 
@@ -3024,6 +3068,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listResourceTypesRequest.opcRequestId
     };
 
@@ -3092,6 +3137,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listResponderActivitiesRequest.opcRequestId
     };
 
@@ -3174,6 +3220,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listResponderExecutionsRequest.opcRequestId
     };
 
@@ -3245,6 +3292,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listResponderRecipeResponderRulesRequest.opcRequestId
     };
 
@@ -3329,6 +3377,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listResponderRecipesRequest.opcRequestId
     };
 
@@ -3397,6 +3446,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listResponderRulesRequest.opcRequestId
     };
 
@@ -3472,6 +3522,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listTargetDetectorRecipeDetectorRulesRequest.opcRequestId
     };
 
@@ -3542,6 +3593,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listTargetDetectorRecipesRequest.opcRequestId
     };
 
@@ -3617,6 +3669,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listTargetResponderRecipeResponderRulesRequest.opcRequestId
     };
 
@@ -3687,6 +3740,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listTargetResponderRecipesRequest.opcRequestId
     };
 
@@ -3770,6 +3824,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listTargetsRequest.opcRequestId
     };
 
@@ -3834,6 +3889,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": requestRiskScoresRequest.opcRequestId
     };
 
@@ -3904,6 +3960,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": requestSecurityScoreSummarizedTrendRequest.opcRequestId
     };
 
@@ -3968,6 +4025,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": requestSecurityScoresRequest.opcRequestId
     };
 
@@ -4050,6 +4108,7 @@ The compartmentId to be passed with `accessLevel` and `compartmentIdInSubtree` p
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": requestSummarizedActivityProblemsRequest.opcRequestId
     };
 
@@ -4129,6 +4188,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": requestSummarizedProblemsRequest.opcRequestId
     };
 
@@ -4212,6 +4272,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": requestSummarizedResponderExecutionsRequest.opcRequestId
     };
 
@@ -4277,6 +4338,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": requestSummarizedRiskScoresRequest.opcRequestId
     };
 
@@ -4342,6 +4404,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": requestSummarizedSecurityScoresRequest.opcRequestId
     };
 
@@ -4424,6 +4487,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": requestSummarizedTrendProblemsRequest.opcRequestId
     };
 
@@ -4509,6 +4573,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": requestSummarizedTrendResponderExecutionsRequest.opcRequestId
     };
 
@@ -4578,6 +4643,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": requestSummarizedTrendSecurityScoresRequest.opcRequestId
     };
 
@@ -4640,6 +4706,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": skipBulkResponderExecutionRequest.opcRequestId
     };
 
@@ -4701,6 +4768,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": skipResponderExecutionRequest.ifMatch,
       "opc-request-id": skipResponderExecutionRequest.opcRequestId,
       "opc-retry-token": skipResponderExecutionRequest.opcRetryToken
@@ -4757,6 +4825,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": triggerResponderRequest.opcRetryToken,
       "opc-request-id": triggerResponderRequest.opcRequestId,
       "if-match": triggerResponderRequest.ifMatch
@@ -4818,6 +4887,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateBulkProblemStatusRequest.opcRequestId
     };
 
@@ -4877,6 +4947,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateConfigurationRequest.opcRequestId,
       "opc-retry-token": updateConfigurationRequest.opcRetryToken,
       "if-match": updateConfigurationRequest.ifMatch
@@ -4945,6 +5016,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateDetectorRecipeRequest.ifMatch,
       "opc-request-id": updateDetectorRecipeRequest.opcRequestId,
       "opc-retry-token": updateDetectorRecipeRequest.opcRetryToken
@@ -5015,6 +5087,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateDetectorRecipeDetectorRuleRequest.ifMatch,
       "opc-request-id": updateDetectorRecipeDetectorRuleRequest.opcRequestId
     };
@@ -5082,6 +5155,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateManagedListRequest.ifMatch,
       "opc-request-id": updateManagedListRequest.opcRequestId,
       "opc-retry-token": updateManagedListRequest.opcRetryToken
@@ -5151,6 +5225,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": updateProblemStatusRequest.opcRetryToken,
       "opc-request-id": updateProblemStatusRequest.opcRequestId,
       "if-match": updateProblemStatusRequest.ifMatch
@@ -5219,6 +5294,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateResponderRecipeRequest.ifMatch,
       "opc-request-id": updateResponderRecipeRequest.opcRequestId
     };
@@ -5288,6 +5364,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateResponderRecipeResponderRuleRequest.ifMatch,
       "opc-request-id": updateResponderRecipeResponderRuleRequest.opcRequestId
     };
@@ -5355,6 +5432,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateTargetRequest.ifMatch,
       "opc-request-id": updateTargetRequest.opcRequestId
     };
@@ -5424,6 +5502,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateTargetDetectorRecipeRequest.ifMatch,
       "opc-request-id": updateTargetDetectorRecipeRequest.opcRequestId
     };
@@ -5497,6 +5576,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateTargetDetectorRecipeDetectorRuleRequest.ifMatch,
       "opc-request-id": updateTargetDetectorRecipeDetectorRuleRequest.opcRequestId
     };
@@ -5567,6 +5647,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateTargetResponderRecipeRequest.ifMatch,
       "opc-request-id": updateTargetResponderRecipeRequest.opcRequestId
     };
@@ -5640,6 +5721,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateTargetResponderRecipeResponderRuleRequest.ifMatch,
       "opc-request-id": updateTargetResponderRecipeResponderRuleRequest.opcRequestId
     };

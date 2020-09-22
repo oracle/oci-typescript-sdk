@@ -153,6 +153,7 @@ For information about moving resources between compartments, see [Moving Resourc
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeAlarmCompartmentRequest.ifMatch,
       "opc-request-id": changeAlarmCompartmentRequest.opcRequestId,
       "opc-retry-token": changeAlarmCompartmentRequest.opcRetryToken
@@ -217,6 +218,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createAlarmRequest.opcRequestId,
       "opc-retry-token": createAlarmRequest.opcRetryToken
     };
@@ -290,6 +292,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteAlarmRequest.ifMatch,
       "opc-request-id": deleteAlarmRequest.opcRequestId
     };
@@ -350,6 +353,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getAlarmRequest.opcRequestId
     };
 
@@ -423,6 +427,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getAlarmHistoryRequest.opcRequestId
     };
 
@@ -497,6 +502,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAlarmsRequest.opcRequestId
     };
 
@@ -595,6 +601,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAlarmsStatusRequest.opcRequestId
     };
 
@@ -689,6 +696,7 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listMetricsRequest.opcRequestId
     };
 
@@ -796,6 +804,7 @@ https://telemetry-ingestion.eu-frankfurt-1.oraclecloud.com
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": postMetricDataRequest.opcRequestId
     };
 
@@ -864,6 +873,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": removeAlarmSuppressionRequest.ifMatch,
       "opc-request-id": removeAlarmSuppressionRequest.opcRequestId
     };
@@ -924,6 +934,7 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": summarizeMetricsDataRequest.opcRequestId
     };
 
@@ -991,6 +1002,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateAlarmRequest.ifMatch,
       "opc-request-id": updateAlarmRequest.opcRequestId
     };

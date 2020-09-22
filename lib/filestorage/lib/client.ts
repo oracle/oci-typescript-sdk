@@ -149,6 +149,7 @@ export class FileStorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeFileSystemCompartmentRequest.ifMatch,
       "opc-request-id": changeFileSystemCompartmentRequest.opcRequestId
     };
@@ -210,6 +211,7 @@ export class FileStorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeMountTargetCompartmentRequest.ifMatch,
       "opc-request-id": changeMountTargetCompartmentRequest.opcRequestId
     };
@@ -269,6 +271,7 @@ export class FileStorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createExportRequest.opcRetryToken,
       "opc-request-id": createExportRequest.opcRequestId
     };
@@ -363,6 +366,7 @@ All Oracle Cloud Infrastructure resources, including
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createFileSystemRequest.opcRetryToken,
       "opc-request-id": createFileSystemRequest.opcRequestId
     };
@@ -460,6 +464,7 @@ All Oracle Cloud Infrastructure Services resources, including
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createMountTargetRequest.opcRetryToken,
       "opc-request-id": createMountTargetRequest.opcRequestId
     };
@@ -527,6 +532,7 @@ All Oracle Cloud Infrastructure Services resources, including
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createSnapshotRequest.opcRetryToken,
       "opc-request-id": createSnapshotRequest.opcRequestId
     };
@@ -595,6 +601,7 @@ All Oracle Cloud Infrastructure Services resources, including
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteExportRequest.ifMatch,
       "opc-request-id": deleteExportRequest.opcRequestId
     };
@@ -652,6 +659,7 @@ All Oracle Cloud Infrastructure Services resources, including
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteFileSystemRequest.ifMatch,
       "opc-request-id": deleteFileSystemRequest.opcRequestId
     };
@@ -708,6 +716,7 @@ All Oracle Cloud Infrastructure Services resources, including
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteMountTargetRequest.ifMatch,
       "opc-request-id": deleteMountTargetRequest.opcRequestId
     };
@@ -763,6 +772,7 @@ All Oracle Cloud Infrastructure Services resources, including
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteSnapshotRequest.ifMatch,
       "opc-request-id": deleteSnapshotRequest.opcRequestId
     };
@@ -817,6 +827,7 @@ All Oracle Cloud Infrastructure Services resources, including
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getExportRequest.opcRequestId
     };
 
@@ -878,6 +889,7 @@ All Oracle Cloud Infrastructure Services resources, including
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getExportSetRequest.opcRequestId
     };
 
@@ -939,6 +951,7 @@ All Oracle Cloud Infrastructure Services resources, including
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getFileSystemRequest.opcRequestId
     };
 
@@ -1000,6 +1013,7 @@ All Oracle Cloud Infrastructure Services resources, including
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getMountTargetRequest.opcRequestId
     };
 
@@ -1061,6 +1075,7 @@ All Oracle Cloud Infrastructure Services resources, including
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getSnapshotRequest.opcRequestId
     };
 
@@ -1131,6 +1146,7 @@ All Oracle Cloud Infrastructure Services resources, including
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listExportSetsRequest.opcRequestId
     };
 
@@ -1228,6 +1244,7 @@ All Oracle Cloud Infrastructure Services resources, including
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listExportsRequest.opcRequestId
     };
 
@@ -1323,6 +1340,7 @@ All Oracle Cloud Infrastructure Services resources, including
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listFileSystemsRequest.opcRequestId
     };
 
@@ -1419,6 +1437,7 @@ All Oracle Cloud Infrastructure Services resources, including
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listMountTargetsRequest.opcRequestId
     };
 
@@ -1511,6 +1530,7 @@ All Oracle Cloud Infrastructure Services resources, including
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSnapshotsRequest.opcRequestId
     };
 
@@ -1597,6 +1617,7 @@ All Oracle Cloud Infrastructure Services resources, including
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateExportRequest.ifMatch,
       "opc-request-id": updateExportRequest.opcRequestId
     };
@@ -1664,6 +1685,7 @@ All Oracle Cloud Infrastructure Services resources, including
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateExportSetRequest.ifMatch,
       "opc-request-id": updateExportSetRequest.opcRequestId
     };
@@ -1733,6 +1755,7 @@ All Oracle Cloud Infrastructure Services resources, including
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateFileSystemRequest.ifMatch,
       "opc-request-id": updateFileSystemRequest.opcRequestId
     };
@@ -1800,6 +1823,7 @@ All Oracle Cloud Infrastructure Services resources, including
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateMountTargetRequest.ifMatch,
       "opc-request-id": updateMountTargetRequest.opcRequestId
     };
@@ -1867,6 +1891,7 @@ All Oracle Cloud Infrastructure Services resources, including
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateSnapshotRequest.ifMatch,
       "opc-request-id": updateSnapshotRequest.opcRequestId
     };

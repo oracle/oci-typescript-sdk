@@ -129,6 +129,7 @@ export class LimitsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getResourceAvailabilityRequest.opcRequestId
     };
 
@@ -194,6 +195,7 @@ export class LimitsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listLimitDefinitionsRequest.opcRequestId
     };
 
@@ -289,6 +291,7 @@ export class LimitsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listLimitValuesRequest.opcRequestId
     };
 
@@ -381,6 +384,7 @@ export class LimitsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listServicesRequest.opcRequestId
     };
 
@@ -570,6 +574,7 @@ export class QuotasClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createQuotaRequest.opcRequestId,
       "opc-retry-token": createQuotaRequest.opcRetryToken
     };
@@ -637,6 +642,7 @@ export class QuotasClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteQuotaRequest.opcRequestId,
       "if-match": deleteQuotaRequest.ifMatch
     };
@@ -691,6 +697,7 @@ export class QuotasClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getQuotaRequest.opcRequestId
     };
 
@@ -758,6 +765,7 @@ export class QuotasClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listQuotasRequest.opcRequestId
     };
 
@@ -844,6 +852,7 @@ export class QuotasClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateQuotaRequest.opcRequestId,
       "if-match": updateQuotaRequest.ifMatch
     };

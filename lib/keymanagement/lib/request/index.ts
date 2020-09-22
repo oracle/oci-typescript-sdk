@@ -1,6 +1,8 @@
 /**
- * Key Management Service API
- * API for managing and performing operations with keys and vaults.
+ * Vault Service Key Management API
+ * API for managing and performing operations with keys and vaults. (For the API for managing secrets, see the Vault Service 
+Secret Management API. For the API for retrieving secrets, see the Vault Service Secret Retrieval API.)
+
  * OpenAPI spec version: release
  * Contact: sparta_kms_us_grp@oracle.com
  *
@@ -15,6 +17,8 @@ import * as DecryptRequest from "./decrypt-request";
 export import DecryptRequest = DecryptRequest.DecryptRequest;
 import * as EncryptRequest from "./encrypt-request";
 export import EncryptRequest = EncryptRequest.EncryptRequest;
+import * as ExportKeyRequest from "./export-key-request";
+export import ExportKeyRequest = ExportKeyRequest.ExportKeyRequest;
 import * as GenerateDataEncryptionKeyRequest from "./generate-data-encryption-key-request";
 export import GenerateDataEncryptionKeyRequest = GenerateDataEncryptionKeyRequest.GenerateDataEncryptionKeyRequest;
 import * as BackupKeyRequest from "./backup-key-request";

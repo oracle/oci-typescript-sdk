@@ -150,6 +150,7 @@ export class ApplicationMigrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": cancelWorkRequestRequest.opcRequestId,
       "if-match": cancelWorkRequestRequest.ifMatch
     };
@@ -205,6 +206,7 @@ export class ApplicationMigrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeMigrationCompartmentRequest.ifMatch,
       "opc-request-id": changeMigrationCompartmentRequest.opcRequestId,
       "opc-retry-token": changeMigrationCompartmentRequest.opcRetryToken
@@ -271,6 +273,7 @@ export class ApplicationMigrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeSourceCompartmentRequest.ifMatch,
       "opc-request-id": changeSourceCompartmentRequest.opcRequestId,
       "opc-retry-token": changeSourceCompartmentRequest.opcRetryToken
@@ -337,6 +340,7 @@ export class ApplicationMigrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createMigrationRequest.opcRequestId,
       "opc-retry-token": createMigrationRequest.opcRetryToken
     };
@@ -410,6 +414,7 @@ export class ApplicationMigrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createSourceRequest.opcRequestId,
       "opc-retry-token": createSourceRequest.opcRetryToken
     };
@@ -483,6 +488,7 @@ export class ApplicationMigrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteMigrationRequest.opcRequestId,
       "if-match": deleteMigrationRequest.ifMatch
     };
@@ -543,6 +549,7 @@ export class ApplicationMigrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteSourceRequest.opcRequestId,
       "if-match": deleteSourceRequest.ifMatch
     };
@@ -603,6 +610,7 @@ export class ApplicationMigrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getMigrationRequest.opcRequestId
     };
 
@@ -664,6 +672,7 @@ export class ApplicationMigrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getSourceRequest.opcRequestId
     };
 
@@ -726,6 +735,7 @@ export class ApplicationMigrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -796,6 +806,7 @@ export class ApplicationMigrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listMigrationsRequest.opcRequestId
     };
 
@@ -891,6 +902,7 @@ export class ApplicationMigrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSourceApplicationsRequest.opcRequestId
     };
 
@@ -985,6 +997,7 @@ export class ApplicationMigrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSourcesRequest.opcRequestId
     };
 
@@ -1077,6 +1090,7 @@ export class ApplicationMigrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -1169,6 +1183,7 @@ export class ApplicationMigrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
@@ -1260,6 +1275,7 @@ export class ApplicationMigrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
@@ -1348,6 +1364,7 @@ export class ApplicationMigrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": migrateApplicationRequest.opcRequestId
     };
 
@@ -1407,6 +1424,7 @@ export class ApplicationMigrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateMigrationRequest.opcRequestId,
       "opc-retry-token": updateMigrationRequest.opcRetryToken,
       "if-match": updateMigrationRequest.ifMatch
@@ -1473,6 +1491,7 @@ export class ApplicationMigrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateSourceRequest.opcRequestId,
       "if-match": updateSourceRequest.ifMatch
     };

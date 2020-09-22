@@ -121,6 +121,7 @@ export class AnnouncementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getAnnouncementRequest.opcRequestId
     };
 
@@ -179,6 +180,7 @@ export class AnnouncementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getAnnouncementUserStatusRequest.opcRequestId
     };
 
@@ -245,6 +247,7 @@ export class AnnouncementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAnnouncementsRequest.opcRequestId
     };
 
@@ -308,6 +311,7 @@ export class AnnouncementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateAnnouncementUserStatusRequest.ifMatch,
       "opc-request-id": updateAnnouncementUserStatusRequest.opcRequestId
     };

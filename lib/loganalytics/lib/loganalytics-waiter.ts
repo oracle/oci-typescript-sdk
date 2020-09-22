@@ -82,6 +82,22 @@ export class LogAnalyticsWaiter {
   }
 
   /**
+   * Waits forQueryWorkRequest
+   *
+   * @param request the request to send
+   * @return response returns GetQueryWorkRequestResponse
+   */
+  public async forQueryWorkRequest(
+    request: serviceRequests.GetQueryWorkRequestRequest
+  ): Promise<serviceResponses.GetQueryWorkRequestResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getQueryWorkRequest(request),
+      response => (response.queryWorkRequest.timeFinished ? true : false)
+    );
+  }
+
+  /**
    * Waits forScheduledTask till it reaches any of the provided states
    *
    * @param request the request to send
@@ -97,6 +113,22 @@ export class LogAnalyticsWaiter {
       () => this.client.getScheduledTask(request),
       response => targetStates.exists(response.scheduledTask.lifecycleState),
       targetStates.includes(models.ScheduledTask.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forStorageWorkRequest
+   *
+   * @param request the request to send
+   * @return response returns GetStorageWorkRequestResponse
+   */
+  public async forStorageWorkRequest(
+    request: serviceRequests.GetStorageWorkRequestRequest
+  ): Promise<serviceResponses.GetStorageWorkRequestResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getStorageWorkRequest(request),
+      response => (response.storageWorkRequest.timeFinished ? true : false)
     );
   }
 

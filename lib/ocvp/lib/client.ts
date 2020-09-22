@@ -152,6 +152,7 @@ Use the {@link WorkRequest} operations to track the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createEsxiHostRequest.opcRetryToken,
       "opc-request-id": createEsxiHostRequest.opcRequestId
     };
@@ -230,6 +231,7 @@ Use the {@link WorkRequest} operations to track the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteEsxiHostRequest.ifMatch,
       "opc-request-id": deleteEsxiHostRequest.opcRequestId
     };
@@ -289,6 +291,7 @@ Use the {@link WorkRequest} operations to track the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getEsxiHostRequest.opcRequestId
     };
 
@@ -366,6 +369,7 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listEsxiHostsRequest.opcRequestId
     };
 
@@ -427,6 +431,7 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateEsxiHostRequest.ifMatch,
       "opc-request-id": updateEsxiHostRequest.opcRequestId
     };
@@ -603,6 +608,7 @@ export class SddcClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeSddcCompartmentRequest.ifMatch,
       "opc-request-id": changeSddcCompartmentRequest.opcRequestId,
       "opc-retry-token": changeSddcCompartmentRequest.opcRetryToken
@@ -665,6 +671,7 @@ Use the {@link WorkRequest} operations to track the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createSddcRequest.opcRetryToken,
       "opc-request-id": createSddcRequest.opcRequestId
     };
@@ -735,6 +742,7 @@ Use the {@link WorkRequest} operations to track the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteSddcRequest.ifMatch,
       "opc-request-id": deleteSddcRequest.opcRequestId
     };
@@ -794,6 +802,7 @@ Use the {@link WorkRequest} operations to track the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getSddcRequest.opcRequestId
     };
 
@@ -864,6 +873,7 @@ Use the {@link WorkRequest} operations to track the
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSddcsRequest.opcRequestId
     };
 
@@ -930,6 +940,7 @@ Use the {@link WorkRequest} operations to track the
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSupportedVmwareSoftwareVersionsRequest.opcRequestId
     };
 
@@ -997,6 +1008,7 @@ Use the {@link WorkRequest} operations to track the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateSddcRequest.ifMatch,
       "opc-request-id": updateSddcRequest.opcRequestId
     };
@@ -1170,6 +1182,7 @@ export class WorkRequestClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -1236,6 +1249,7 @@ export class WorkRequestClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -1301,6 +1315,7 @@ export class WorkRequestClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
@@ -1366,6 +1381,7 @@ export class WorkRequestClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 

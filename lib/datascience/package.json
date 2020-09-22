@@ -1,6 +1,6 @@
 {
   "name": "oci-datascience",
-  "version": "1.5.4",
+  "version": "1.5.5",
   "description": "OCI NodeJS client for Data Science Service",
   "repository": {
     "type": "git",

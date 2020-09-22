@@ -235,6 +235,10 @@ To add the whitelist VCN specific subnet or IP, use a semicoln ';' as a delimina
    */
   "sourceId"?: string;
   /**
+   * The Autonomous Database permission level. Restricted mode allows access only to admin users.
+   */
+  "permissionLevel"?: AutonomousDatabaseSummary.PermissionLevel;
+  /**
    * The timestamp of the last switchover operation for the Autonomous Database.
    */
   "timeOfLastSwitchover"?: Date;
@@ -352,6 +356,16 @@ export namespace AutonomousDatabaseSummary {
   export enum RefreshableMode {
     Automatic = "AUTOMATIC",
     Manual = "MANUAL",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum PermissionLevel {
+    Restricted = "RESTRICTED",
+    Unrestricted = "UNRESTRICTED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

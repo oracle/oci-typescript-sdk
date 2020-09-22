@@ -150,6 +150,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": addPackagesToSoftwareSourceRequest.opcRequestId
     };
 
@@ -214,6 +215,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": attachChildSoftwareSourceToManagedInstanceRequest.opcRequestId,
       "opc-retry-token": attachChildSoftwareSourceToManagedInstanceRequest.opcRetryToken
     };
@@ -283,6 +285,7 @@ export class OsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": attachManagedInstanceToManagedInstanceGroupRequest.opcRequestId,
       "opc-retry-token": attachManagedInstanceToManagedInstanceGroupRequest.opcRetryToken
     };
@@ -344,6 +347,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": attachParentSoftwareSourceToManagedInstanceRequest.opcRequestId,
       "opc-retry-token": attachParentSoftwareSourceToManagedInstanceRequest.opcRetryToken
     };
@@ -409,6 +413,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeManagedInstanceGroupCompartmentRequest.opcRequestId,
       "if-match": changeManagedInstanceGroupCompartmentRequest.ifMatch,
       "opc-retry-token": changeManagedInstanceGroupCompartmentRequest.opcRetryToken
@@ -472,6 +477,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeScheduledJobCompartmentRequest.opcRequestId,
       "if-match": changeScheduledJobCompartmentRequest.ifMatch,
       "opc-retry-token": changeScheduledJobCompartmentRequest.opcRetryToken
@@ -535,6 +541,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeSoftwareSourceCompartmentRequest.opcRequestId,
       "if-match": changeSoftwareSourceCompartmentRequest.ifMatch,
       "opc-retry-token": changeSoftwareSourceCompartmentRequest.opcRetryToken
@@ -597,6 +604,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createManagedInstanceGroupRequest.opcRequestId,
       "opc-retry-token": createManagedInstanceGroupRequest.opcRetryToken
     };
@@ -671,6 +679,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createScheduledJobRequest.opcRequestId,
       "opc-retry-token": createScheduledJobRequest.opcRetryToken
     };
@@ -745,6 +754,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createSoftwareSourceRequest.opcRequestId,
       "opc-retry-token": createSoftwareSourceRequest.opcRetryToken
     };
@@ -819,6 +829,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteManagedInstanceGroupRequest.opcRequestId,
       "if-match": deleteManagedInstanceGroupRequest.ifMatch
     };
@@ -874,6 +885,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteScheduledJobRequest.opcRequestId,
       "if-match": deleteScheduledJobRequest.ifMatch
     };
@@ -930,6 +942,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteSoftwareSourceRequest.opcRequestId,
       "if-match": deleteSoftwareSourceRequest.ifMatch
     };
@@ -989,6 +1002,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": detachChildSoftwareSourceFromManagedInstanceRequest.opcRequestId,
       "opc-retry-token": detachChildSoftwareSourceFromManagedInstanceRequest.opcRetryToken
     };
@@ -1055,6 +1069,7 @@ export class OsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": detachManagedInstanceFromManagedInstanceGroupRequest.opcRequestId,
       "opc-retry-token": detachManagedInstanceFromManagedInstanceGroupRequest.opcRetryToken
     };
@@ -1114,6 +1129,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": detachParentSoftwareSourceFromManagedInstanceRequest.opcRequestId,
       "opc-retry-token": detachParentSoftwareSourceFromManagedInstanceRequest.opcRetryToken
     };
@@ -1174,6 +1190,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getErratumRequest.opcRequestId
     };
 
@@ -1231,6 +1248,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getManagedInstanceRequest.opcRequestId
     };
 
@@ -1289,6 +1307,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getManagedInstanceGroupRequest.opcRequestId
     };
 
@@ -1356,6 +1375,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getScheduledJobRequest.opcRequestId
     };
 
@@ -1424,6 +1444,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getSoftwarePackageRequest.opcRequestId
     };
 
@@ -1481,6 +1502,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getSoftwareSourceRequest.opcRequestId
     };
 
@@ -1548,6 +1570,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWindowsUpdateRequest.opcRequestId
     };
 
@@ -1604,6 +1627,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -1674,6 +1698,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": installAllPackageUpdatesOnManagedInstanceRequest.opcRequestId,
       "opc-retry-token": installAllPackageUpdatesOnManagedInstanceRequest.opcRetryToken
     };
@@ -1737,6 +1762,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": installAllWindowsUpdatesOnManagedInstanceRequest.opcRequestId,
       "opc-retry-token": installAllWindowsUpdatesOnManagedInstanceRequest.opcRetryToken
     };
@@ -1800,6 +1826,7 @@ export class OsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": installPackageOnManagedInstanceRequest.opcRequestId,
       "opc-retry-token": installPackageOnManagedInstanceRequest.opcRetryToken
     };
@@ -1865,6 +1892,7 @@ export class OsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": installPackageUpdateOnManagedInstanceRequest.opcRequestId,
       "opc-retry-token": installPackageUpdateOnManagedInstanceRequest.opcRetryToken
     };
@@ -1930,6 +1958,7 @@ export class OsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": installWindowsUpdateOnManagedInstanceRequest.opcRequestId,
       "opc-retry-token": installWindowsUpdateOnManagedInstanceRequest.opcRetryToken
     };
@@ -2000,6 +2029,7 @@ export class OsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAvailablePackagesForManagedInstanceRequest.opcRequestId
     };
 
@@ -2097,6 +2127,7 @@ export class OsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAvailableSoftwareSourcesForManagedInstanceRequest.opcRequestId
     };
 
@@ -2198,6 +2229,7 @@ export class OsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAvailableUpdatesForManagedInstanceRequest.opcRequestId
     };
 
@@ -2297,6 +2329,7 @@ export class OsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAvailableWindowsUpdatesForManagedInstanceRequest.opcRequestId
     };
 
@@ -2394,6 +2427,7 @@ export class OsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listManagedInstanceGroupsRequest.opcRequestId
     };
 
@@ -2488,6 +2522,7 @@ export class OsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listManagedInstancesRequest.opcRequestId
     };
 
@@ -2585,6 +2620,7 @@ export class OsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listPackagesInstalledOnManagedInstanceRequest.opcRequestId
     };
 
@@ -2682,6 +2718,7 @@ export class OsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listScheduledJobsRequest.opcRequestId
     };
 
@@ -2777,6 +2814,7 @@ export class OsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSoftwareSourcePackagesRequest.opcRequestId
     };
 
@@ -2870,6 +2908,7 @@ export class OsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSoftwareSourcesRequest.opcRequestId
     };
 
@@ -2968,6 +3007,7 @@ export class OsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listUpcomingScheduledJobsRequest.opcRequestId
     };
 
@@ -3060,6 +3100,7 @@ export class OsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWindowsUpdatesRequest.opcRequestId
     };
 
@@ -3157,6 +3198,7 @@ export class OsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWindowsUpdatesInstalledOnManagedInstanceRequest.opcRequestId
     };
 
@@ -3251,6 +3293,7 @@ export class OsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -3347,6 +3390,7 @@ export class OsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
@@ -3446,6 +3490,7 @@ export class OsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
@@ -3536,6 +3581,7 @@ export class OsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": removePackageFromManagedInstanceRequest.opcRequestId,
       "opc-retry-token": removePackageFromManagedInstanceRequest.opcRetryToken
     };
@@ -3597,6 +3643,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": removePackagesFromSoftwareSourceRequest.opcRequestId
     };
 
@@ -3657,6 +3704,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": runScheduledJobNowRequest.opcRequestId,
       "if-match": runScheduledJobNowRequest.ifMatch,
       "opc-retry-token": runScheduledJobNowRequest.opcRetryToken
@@ -3726,6 +3774,7 @@ export class OsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": searchSoftwarePackagesRequest.opcRequestId
     };
 
@@ -3815,6 +3864,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": skipNextScheduledJobExecutionRequest.opcRequestId,
       "if-match": skipNextScheduledJobExecutionRequest.ifMatch,
       "opc-retry-token": skipNextScheduledJobExecutionRequest.opcRetryToken
@@ -3877,6 +3927,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateManagedInstanceGroupRequest.opcRequestId,
       "if-match": updateManagedInstanceGroupRequest.ifMatch
     };
@@ -3945,6 +3996,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateScheduledJobRequest.opcRequestId,
       "if-match": updateScheduledJobRequest.ifMatch
     };
@@ -4014,6 +4066,7 @@ export class OsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateSoftwareSourceRequest.opcRequestId,
       "if-match": updateSoftwareSourceRequest.ifMatch
     };

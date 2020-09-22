@@ -154,6 +154,7 @@ export class DnsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-Match": changeSteeringPolicyCompartmentRequest.ifMatch,
       "opc-retry-token": changeSteeringPolicyCompartmentRequest.opcRetryToken,
       "opc-request-id": changeSteeringPolicyCompartmentRequest.opcRequestId
@@ -214,6 +215,7 @@ export class DnsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-Match": changeTsigKeyCompartmentRequest.ifMatch,
       "opc-retry-token": changeTsigKeyCompartmentRequest.opcRetryToken,
       "opc-request-id": changeTsigKeyCompartmentRequest.opcRequestId
@@ -275,6 +277,7 @@ export class DnsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-Match": changeZoneCompartmentRequest.ifMatch,
       "opc-retry-token": changeZoneCompartmentRequest.opcRetryToken,
       "opc-request-id": changeZoneCompartmentRequest.opcRequestId
@@ -335,6 +338,7 @@ export class DnsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createSteeringPolicyRequest.opcRetryToken,
       "opc-request-id": createSteeringPolicyRequest.opcRequestId
     };
@@ -407,6 +411,7 @@ For the purposes of access control, the attachment is automatically placed
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createSteeringPolicyAttachmentRequest.opcRetryToken,
       "opc-request-id": createSteeringPolicyAttachmentRequest.opcRequestId
     };
@@ -474,6 +479,7 @@ For the purposes of access control, the attachment is automatically placed
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createTsigKeyRequest.opcRequestId
     };
 
@@ -543,6 +549,7 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createZoneRequest.opcRequestId
     };
 
@@ -612,6 +619,7 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-Match": deleteDomainRecordsRequest.ifMatch,
       "If-Unmodified-Since": deleteDomainRecordsRequest.ifUnmodifiedSince,
       "opc-request-id": deleteDomainRecordsRequest.opcRequestId
@@ -672,6 +680,7 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-Match": deleteRRSetRequest.ifMatch,
       "If-Unmodified-Since": deleteRRSetRequest.ifUnmodifiedSince,
       "opc-request-id": deleteRRSetRequest.opcRequestId
@@ -731,6 +740,7 @@ For the purposes of access control, the attachment is automatically placed
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-Match": deleteSteeringPolicyRequest.ifMatch,
       "If-Unmodified-Since": deleteSteeringPolicyRequest.ifUnmodifiedSince,
       "opc-request-id": deleteSteeringPolicyRequest.opcRequestId
@@ -790,6 +800,7 @@ For the purposes of access control, the attachment is automatically placed
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-Match": deleteSteeringPolicyAttachmentRequest.ifMatch,
       "If-Unmodified-Since": deleteSteeringPolicyAttachmentRequest.ifUnmodifiedSince,
       "opc-request-id": deleteSteeringPolicyAttachmentRequest.opcRequestId
@@ -846,6 +857,7 @@ For the purposes of access control, the attachment is automatically placed
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-Match": deleteTsigKeyRequest.ifMatch,
       "If-Unmodified-Since": deleteTsigKeyRequest.ifUnmodifiedSince,
       "opc-request-id": deleteTsigKeyRequest.opcRequestId
@@ -910,6 +922,7 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-Match": deleteZoneRequest.ifMatch,
       "If-Unmodified-Since": deleteZoneRequest.ifUnmodifiedSince,
       "opc-request-id": deleteZoneRequest.opcRequestId
@@ -977,6 +990,7 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-None-Match": getDomainRecordsRequest.ifNoneMatch,
       "If-Modified-Since": getDomainRecordsRequest.ifModifiedSince,
       "opc-request-id": getDomainRecordsRequest.opcRequestId
@@ -1095,6 +1109,7 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-None-Match": getRRSetRequest.ifNoneMatch,
       "If-Modified-Since": getRRSetRequest.ifModifiedSince,
       "opc-request-id": getRRSetRequest.opcRequestId
@@ -1203,6 +1218,7 @@ For the purposes of access control, the attachment is automatically placed
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-None-Match": getSteeringPolicyRequest.ifNoneMatch,
       "If-Modified-Since": getSteeringPolicyRequest.ifModifiedSince,
       "opc-request-id": getSteeringPolicyRequest.opcRequestId
@@ -1267,6 +1283,7 @@ For the purposes of access control, the attachment is automatically placed
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-None-Match": getSteeringPolicyAttachmentRequest.ifNoneMatch,
       "If-Modified-Since": getSteeringPolicyAttachmentRequest.ifModifiedSince,
       "opc-request-id": getSteeringPolicyAttachmentRequest.opcRequestId
@@ -1331,6 +1348,7 @@ For the purposes of access control, the attachment is automatically placed
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-None-Match": getTsigKeyRequest.ifNoneMatch,
       "If-Modified-Since": getTsigKeyRequest.ifModifiedSince,
       "opc-request-id": getTsigKeyRequest.opcRequestId
@@ -1398,6 +1416,7 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-None-Match": getZoneRequest.ifNoneMatch,
       "If-Modified-Since": getZoneRequest.ifModifiedSince,
       "opc-request-id": getZoneRequest.opcRequestId
@@ -1474,6 +1493,7 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-None-Match": getZoneRecordsRequest.ifNoneMatch,
       "If-Modified-Since": getZoneRecordsRequest.ifModifiedSince,
       "opc-request-id": getZoneRecordsRequest.opcRequestId
@@ -1597,6 +1617,7 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSteeringPoliciesRequest.opcRequestId
     };
 
@@ -1704,6 +1725,7 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSteeringPolicyAttachmentsRequest.opcRequestId
     };
 
@@ -1803,6 +1825,7 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listTsigKeysRequest.opcRequestId
     };
 
@@ -1901,6 +1924,7 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listZonesRequest.opcRequestId
     };
 
@@ -1999,6 +2023,7 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-Match": patchDomainRecordsRequest.ifMatch,
       "If-Unmodified-Since": patchDomainRecordsRequest.ifUnmodifiedSince,
       "opc-request-id": patchDomainRecordsRequest.opcRequestId
@@ -2081,6 +2106,7 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-Match": patchRRSetRequest.ifMatch,
       "If-Unmodified-Since": patchRRSetRequest.ifUnmodifiedSince,
       "opc-request-id": patchRRSetRequest.opcRequestId
@@ -2165,6 +2191,7 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-Match": patchZoneRecordsRequest.ifMatch,
       "If-Unmodified-Since": patchZoneRecordsRequest.ifUnmodifiedSince,
       "opc-request-id": patchZoneRecordsRequest.opcRequestId
@@ -2252,6 +2279,7 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-Match": updateDomainRecordsRequest.ifMatch,
       "If-Unmodified-Since": updateDomainRecordsRequest.ifUnmodifiedSince,
       "opc-request-id": updateDomainRecordsRequest.opcRequestId
@@ -2334,6 +2362,7 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-Match": updateRRSetRequest.ifMatch,
       "If-Unmodified-Since": updateRRSetRequest.ifUnmodifiedSince,
       "opc-request-id": updateRRSetRequest.opcRequestId
@@ -2413,6 +2442,7 @@ For the purposes of access control, the attachment is automatically placed
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-Match": updateSteeringPolicyRequest.ifMatch,
       "If-Unmodified-Since": updateSteeringPolicyRequest.ifUnmodifiedSince,
       "opc-request-id": updateSteeringPolicyRequest.opcRequestId
@@ -2484,6 +2514,7 @@ For the purposes of access control, the attachment is automatically placed
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-Match": updateSteeringPolicyAttachmentRequest.ifMatch,
       "If-Unmodified-Since": updateSteeringPolicyAttachmentRequest.ifUnmodifiedSince,
       "opc-request-id": updateSteeringPolicyAttachmentRequest.opcRequestId
@@ -2553,6 +2584,7 @@ For the purposes of access control, the attachment is automatically placed
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-Match": updateTsigKeyRequest.ifMatch,
       "If-Unmodified-Since": updateTsigKeyRequest.ifUnmodifiedSince,
       "opc-request-id": updateTsigKeyRequest.opcRequestId
@@ -2626,6 +2658,7 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-Match": updateZoneRequest.ifMatch,
       "If-Unmodified-Since": updateZoneRequest.ifUnmodifiedSince,
       "opc-request-id": updateZoneRequest.opcRequestId
@@ -2701,6 +2734,7 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "If-Match": updateZoneRecordsRequest.ifMatch,
       "If-Unmodified-Since": updateZoneRecordsRequest.ifUnmodifiedSince,
       "opc-request-id": updateZoneRecordsRequest.opcRequestId

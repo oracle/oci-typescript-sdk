@@ -147,6 +147,7 @@ export class BudgetClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createAlertRuleRequest.opcRetryToken,
       "opc-request-id": createAlertRuleRequest.opcRequestId
     };
@@ -213,6 +214,7 @@ export class BudgetClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createBudgetRequest.opcRetryToken,
       "opc-request-id": createBudgetRequest.opcRequestId
     };
@@ -281,6 +283,7 @@ export class BudgetClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteAlertRuleRequest.ifMatch,
       "opc-request-id": deleteAlertRuleRequest.opcRequestId
     };
@@ -335,6 +338,7 @@ export class BudgetClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteBudgetRequest.ifMatch,
       "opc-request-id": deleteBudgetRequest.opcRequestId
     };
@@ -390,6 +394,7 @@ export class BudgetClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getAlertRuleRequest.opcRequestId
     };
 
@@ -451,6 +456,7 @@ export class BudgetClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getBudgetRequest.opcRequestId
     };
 
@@ -520,6 +526,7 @@ export class BudgetClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAlertRulesRequest.opcRequestId
     };
 
@@ -623,6 +630,7 @@ Additional targetTypes would be available in future releases. Clients should ign
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listBudgetsRequest.opcRequestId
     };
 
@@ -710,6 +718,7 @@ Additional targetTypes would be available in future releases. Clients should ign
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateAlertRuleRequest.ifMatch,
       "opc-request-id": updateAlertRuleRequest.opcRequestId
     };
@@ -777,6 +786,7 @@ Additional targetTypes would be available in future releases. Clients should ign
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateBudgetRequest.ifMatch,
       "opc-request-id": updateBudgetRequest.opcRequestId
     };

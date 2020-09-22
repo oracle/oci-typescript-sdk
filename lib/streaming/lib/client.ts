@@ -89,6 +89,7 @@ export class StreamClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": consumerCommitRequest.opcRequestId
     };
 
@@ -148,6 +149,7 @@ export class StreamClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": consumerHeartbeatRequest.opcRequestId
     };
 
@@ -209,6 +211,7 @@ export class StreamClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createCursorRequest.opcRequestId
     };
 
@@ -271,6 +274,7 @@ export class StreamClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createGroupCursorRequest.opcRequestId
     };
 
@@ -334,6 +338,7 @@ export class StreamClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getGroupRequest.opcRequestId
     };
 
@@ -396,6 +401,7 @@ export class StreamClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getMessagesRequest.opcRequestId
     };
 
@@ -461,6 +467,7 @@ export class StreamClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": putMessagesRequest.opcRequestId
     };
 
@@ -524,6 +531,7 @@ export class StreamClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateGroupRequest.opcRequestId
     };
 
@@ -689,6 +697,7 @@ export class StreamAdminClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeConnectHarnessCompartmentRequest.ifMatch,
       "opc-request-id": changeConnectHarnessCompartmentRequest.opcRequestId
     };
@@ -752,6 +761,7 @@ export class StreamAdminClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeStreamCompartmentRequest.ifMatch,
       "opc-request-id": changeStreamCompartmentRequest.opcRequestId
     };
@@ -812,6 +822,7 @@ export class StreamAdminClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeStreamPoolCompartmentRequest.ifMatch,
       "opc-request-id": changeStreamPoolCompartmentRequest.opcRequestId
     };
@@ -871,6 +882,7 @@ export class StreamAdminClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createConnectHarnessRequest.opcRequestId,
       "opc-retry-token": createConnectHarnessRequest.opcRetryToken
     };
@@ -941,6 +953,7 @@ export class StreamAdminClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createStreamRequest.opcRequestId
     };
 
@@ -1008,6 +1021,7 @@ export class StreamAdminClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createStreamPoolRequest.opcRequestId,
       "opc-retry-token": createStreamPoolRequest.opcRetryToken
     };
@@ -1080,6 +1094,7 @@ export class StreamAdminClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteConnectHarnessRequest.opcRequestId,
       "if-match": deleteConnectHarnessRequest.ifMatch
     };
@@ -1139,6 +1154,7 @@ export class StreamAdminClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteStreamRequest.opcRequestId,
       "if-match": deleteStreamRequest.ifMatch
     };
@@ -1195,6 +1211,7 @@ export class StreamAdminClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteStreamPoolRequest.opcRequestId,
       "if-match": deleteStreamPoolRequest.ifMatch
     };
@@ -1249,6 +1266,7 @@ export class StreamAdminClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getConnectHarnessRequest.opcRequestId
     };
 
@@ -1310,6 +1328,7 @@ export class StreamAdminClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getStreamRequest.opcRequestId
     };
 
@@ -1371,6 +1390,7 @@ export class StreamAdminClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getStreamPoolRequest.opcRequestId
     };
 
@@ -1439,6 +1459,7 @@ export class StreamAdminClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listConnectHarnessesRequest.opcRequestId
     };
 
@@ -1537,6 +1558,7 @@ export class StreamAdminClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listStreamPoolsRequest.opcRequestId
     };
 
@@ -1640,6 +1662,7 @@ export class StreamAdminClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listStreamsRequest.opcRequestId
     };
 
@@ -1732,6 +1755,7 @@ export class StreamAdminClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateConnectHarnessRequest.opcRequestId,
       "if-match": updateConnectHarnessRequest.ifMatch
     };
@@ -1800,6 +1824,7 @@ export class StreamAdminClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateStreamRequest.opcRequestId,
       "if-match": updateStreamRequest.ifMatch
     };
@@ -1868,6 +1893,7 @@ export class StreamAdminClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateStreamPoolRequest.opcRequestId,
       "if-match": updateStreamPoolRequest.ifMatch
     };

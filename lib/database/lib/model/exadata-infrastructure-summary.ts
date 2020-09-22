@@ -122,6 +122,14 @@ export interface ExadataInfrastructureSummary {
    */
   "lifecycleDetails"?: string;
   /**
+   * The CSI Number of the Exadata Infrastructure.
+   */
+  "csiNumber"?: string;
+  /**
+   * The list of contacts for the Exadata Infrastructure.
+   */
+  "contacts"?: Array<model.ExadataInfrastructureContact>;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
@@ -157,7 +165,16 @@ export namespace ExadataInfrastructureSummary {
   }
 
   export function getJsonObj(obj: ExadataInfrastructureSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "contacts": obj.contacts
+          ? obj.contacts.map(item => {
+              return model.ExadataInfrastructureContact.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -40,6 +40,11 @@ export interface InstanceConfigurationLaunchInstanceShapeConfigDetails {
    *
    */
   "ocpus"?: number;
+  /**
+   * The total amount of memory available to the instance, in gigabytes.
+   *
+   */
+  "memoryInGBs"?: number;
 }
 
 export namespace InstanceConfigurationLaunchInstanceShapeConfigDetails {

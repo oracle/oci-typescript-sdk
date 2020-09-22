@@ -148,6 +148,7 @@ export class BlockchainPlatformClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeBlockchainPlatformCompartmentRequest.ifMatch,
       "opc-request-id": changeBlockchainPlatformCompartmentRequest.opcRequestId,
       "opc-retry-token": changeBlockchainPlatformCompartmentRequest.opcRetryToken
@@ -213,6 +214,7 @@ export class BlockchainPlatformClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createBlockchainPlatformRequest.opcRetryToken,
       "opc-request-id": createBlockchainPlatformRequest.opcRequestId
     };
@@ -277,6 +279,7 @@ export class BlockchainPlatformClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": createOsnRequest.ifMatch,
       "opc-request-id": createOsnRequest.opcRequestId,
       "opc-retry-token": createOsnRequest.opcRetryToken
@@ -342,6 +345,7 @@ export class BlockchainPlatformClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createPeerRequest.opcRequestId,
       "opc-retry-token": createPeerRequest.opcRetryToken
     };
@@ -407,6 +411,7 @@ export class BlockchainPlatformClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteBlockchainPlatformRequest.opcRequestId,
       "if-match": deleteBlockchainPlatformRequest.ifMatch
     };
@@ -467,6 +472,7 @@ export class BlockchainPlatformClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteOsnRequest.opcRequestId,
       "if-match": deleteOsnRequest.ifMatch
     };
@@ -527,6 +533,7 @@ export class BlockchainPlatformClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deletePeerRequest.opcRequestId,
       "if-match": deletePeerRequest.ifMatch
     };
@@ -587,6 +594,7 @@ export class BlockchainPlatformClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteWorkRequestRequest.opcRequestId,
       "if-match": deleteWorkRequestRequest.ifMatch
     };
@@ -647,6 +655,7 @@ export class BlockchainPlatformClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getBlockchainPlatformRequest.opcRequestId
     };
 
@@ -707,6 +716,7 @@ export class BlockchainPlatformClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getOsnRequest.opcRequestId
     };
 
@@ -769,6 +779,7 @@ export class BlockchainPlatformClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getPeerRequest.opcRequestId
     };
 
@@ -831,6 +842,7 @@ export class BlockchainPlatformClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -904,6 +916,7 @@ export class BlockchainPlatformClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listBlockchainPlatformsRequest.opcRequestId
     };
 
@@ -971,6 +984,7 @@ export class BlockchainPlatformClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listOsnsRequest.opcRequestId,
       "opc-retry-token": listOsnsRequest.opcRetryToken
     };
@@ -1039,6 +1053,7 @@ export class BlockchainPlatformClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listPeersRequest.opcRequestId,
       "opc-retry-token": listPeersRequest.opcRetryToken
     };
@@ -1106,6 +1121,7 @@ export class BlockchainPlatformClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -1172,6 +1188,7 @@ export class BlockchainPlatformClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
@@ -1240,6 +1257,7 @@ export class BlockchainPlatformClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
@@ -1304,6 +1322,7 @@ export class BlockchainPlatformClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": previewScaleBlockchainPlatformRequest.opcRequestId
     };
 
@@ -1371,6 +1390,7 @@ export class BlockchainPlatformClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": scaleBlockchainPlatformRequest.ifMatch,
       "opc-request-id": scaleBlockchainPlatformRequest.opcRequestId,
       "opc-retry-token": scaleBlockchainPlatformRequest.opcRetryToken
@@ -1437,6 +1457,7 @@ export class BlockchainPlatformClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": startBlockchainPlatformRequest.ifMatch,
       "opc-request-id": startBlockchainPlatformRequest.opcRequestId
     };
@@ -1497,6 +1518,7 @@ export class BlockchainPlatformClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": stopBlockchainPlatformRequest.ifMatch,
       "opc-request-id": stopBlockchainPlatformRequest.opcRequestId
     };
@@ -1557,6 +1579,7 @@ export class BlockchainPlatformClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateBlockchainPlatformRequest.opcRequestId,
       "if-match": updateBlockchainPlatformRequest.ifMatch
     };
@@ -1622,6 +1645,7 @@ export class BlockchainPlatformClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateOsnRequest.ifMatch,
       "opc-request-id": updateOsnRequest.opcRequestId,
       "opc-retry-token": updateOsnRequest.opcRetryToken
@@ -1688,6 +1712,7 @@ export class BlockchainPlatformClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updatePeerRequest.ifMatch,
       "opc-request-id": updatePeerRequest.opcRequestId
     };

@@ -163,6 +163,7 @@ export class BlockstorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeBootVolumeBackupCompartmentRequest.opcRequestId
     };
 
@@ -230,6 +231,7 @@ export class BlockstorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeBootVolumeCompartmentRequest.opcRequestId
     };
 
@@ -297,6 +299,7 @@ export class BlockstorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeVolumeBackupCompartmentRequest.opcRequestId
     };
 
@@ -364,6 +367,7 @@ export class BlockstorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeVolumeCompartmentRequest.opcRequestId
     };
 
@@ -431,6 +435,7 @@ export class BlockstorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeVolumeGroupBackupCompartmentRequest.opcRequestId
     };
 
@@ -498,6 +503,7 @@ export class BlockstorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeVolumeGroupCompartmentRequest.opcRequestId
     };
 
@@ -564,6 +570,7 @@ export class BlockstorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": copyBootVolumeBackupRequest.opcRetryToken,
       "opc-request-id": copyBootVolumeBackupRequest.opcRequestId
     };
@@ -633,6 +640,7 @@ export class BlockstorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": copyVolumeBackupRequest.opcRetryToken,
       "opc-request-id": copyVolumeBackupRequest.opcRequestId
     };
@@ -702,6 +710,7 @@ export class BlockstorageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createBootVolumeRequest.opcRetryToken
     };
 
@@ -773,6 +782,7 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createBootVolumeBackupRequest.opcRetryToken
     };
 
@@ -851,6 +861,7 @@ You may optionally specify a *display name* for the volume, which is simply a fr
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createVolumeRequest.opcRetryToken
     };
 
@@ -921,6 +932,7 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createVolumeBackupRequest.opcRetryToken
     };
 
@@ -990,6 +1002,7 @@ For more information about Oracle defined backup policies and user defined backu
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createVolumeBackupPolicyRequest.opcRetryToken,
       "opc-request-id": createVolumeBackupPolicyRequest.opcRequestId
     };
@@ -1058,7 +1071,9 @@ For more information about Oracle defined backup policies and user defined backu
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -1128,6 +1143,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createVolumeGroupRequest.opcRetryToken
     };
 
@@ -1195,6 +1211,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createVolumeGroupBackupRequest.opcRetryToken
     };
 
@@ -1265,6 +1282,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteBootVolumeRequest.ifMatch
     };
 
@@ -1319,6 +1337,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteBootVolumeBackupRequest.ifMatch
     };
 
@@ -1374,6 +1393,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteBootVolumeKmsKeyRequest.ifMatch
     };
 
@@ -1431,6 +1451,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteVolumeRequest.ifMatch
     };
 
@@ -1484,6 +1505,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteVolumeBackupRequest.ifMatch
     };
 
@@ -1543,6 +1565,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteVolumeBackupPolicyRequest.opcRequestId,
       "if-match": deleteVolumeBackupPolicyRequest.ifMatch
     };
@@ -1598,6 +1621,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteVolumeBackupPolicyAssignmentRequest.ifMatch
     };
 
@@ -1653,6 +1677,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteVolumeGroupRequest.ifMatch
     };
 
@@ -1707,6 +1732,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteVolumeGroupBackupRequest.ifMatch
     };
 
@@ -1761,6 +1787,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteVolumeKmsKeyRequest.ifMatch
     };
 
@@ -1813,7 +1840,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -1872,7 +1901,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -1933,6 +1964,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": getBootVolumeKmsKeyRequest.ifMatch
     };
 
@@ -1993,7 +2025,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -2052,7 +2086,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -2112,7 +2148,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -2179,7 +2217,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
       "page": getVolumeBackupPolicyAssetAssignmentRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -2264,7 +2304,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -2323,7 +2365,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -2383,7 +2427,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -2444,6 +2490,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": getVolumeKmsKeyRequest.ifMatch
     };
 
@@ -2514,7 +2561,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
       "lifecycleState": listBootVolumeBackupsRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -2603,7 +2652,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
       "volumeGroupId": listBootVolumesRequest.volumeGroupId
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -2694,7 +2745,9 @@ For more information about Oracle defined backup policies and user defined backu
       "compartmentId": listVolumeBackupPoliciesRequest.compartmentId
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -2787,7 +2840,9 @@ For more information about Oracle defined backup policies and user defined backu
       "lifecycleState": listVolumeBackupsRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -2880,7 +2935,9 @@ For more information about Oracle defined backup policies and user defined backu
       "sortOrder": listVolumeGroupBackupsRequest.sortOrder
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -2973,7 +3030,9 @@ For more information about Oracle defined backup policies and user defined backu
       "lifecycleState": listVolumeGroupsRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -3066,7 +3125,9 @@ For more information about Oracle defined backup policies and user defined backu
       "lifecycleState": listVolumesRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -3151,6 +3212,7 @@ For more information about Oracle defined backup policies and user defined backu
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateBootVolumeRequest.ifMatch
     };
 
@@ -3220,6 +3282,7 @@ For more information about Oracle defined backup policies and user defined backu
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateBootVolumeBackupRequest.ifMatch
     };
 
@@ -3283,6 +3346,7 @@ For more information about Oracle defined backup policies and user defined backu
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateBootVolumeKmsKeyRequest.ifMatch
     };
 
@@ -3351,6 +3415,7 @@ For more information about Oracle defined backup policies and user defined backu
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateVolumeRequest.ifMatch
     };
 
@@ -3419,6 +3484,7 @@ For more information about Oracle defined backup policies and user defined backu
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateVolumeBackupRequest.ifMatch
     };
 
@@ -3486,6 +3552,7 @@ For more information about Oracle defined backup policies and user defined backu
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateVolumeBackupPolicyRequest.ifMatch,
       "opc-request-id": updateVolumeBackupPolicyRequest.opcRequestId,
       "opc-retry-token": updateVolumeBackupPolicyRequest.opcRetryToken
@@ -3560,6 +3627,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateVolumeGroupRequest.ifMatch
     };
 
@@ -3627,6 +3695,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateVolumeGroupBackupRequest.ifMatch
     };
 
@@ -3689,6 +3758,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateVolumeKmsKeyRequest.ifMatch
     };
 
@@ -3866,7 +3936,9 @@ export class ComputeClient {
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -3925,6 +3997,7 @@ export class ComputeClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": attachBootVolumeRequest.opcRetryToken
     };
 
@@ -3992,6 +4065,7 @@ export class ComputeClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": attachVnicRequest.opcRetryToken
     };
 
@@ -4057,6 +4131,7 @@ export class ComputeClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": attachVolumeRequest.opcRetryToken
     };
 
@@ -4138,6 +4213,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": captureConsoleHistoryRequest.opcRetryToken
     };
 
@@ -4211,6 +4287,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeComputeImageCapabilitySchemaCompartmentRequest.ifMatch,
       "opc-request-id": changeComputeImageCapabilitySchemaCompartmentRequest.opcRequestId,
       "opc-retry-token": changeComputeImageCapabilitySchemaCompartmentRequest.opcRetryToken
@@ -4273,6 +4350,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeDedicatedVmHostCompartmentRequest.ifMatch,
       "opc-request-id": changeDedicatedVmHostCompartmentRequest.opcRequestId,
       "opc-retry-token": changeDedicatedVmHostCompartmentRequest.opcRetryToken
@@ -4346,6 +4424,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeImageCompartmentRequest.ifMatch,
       "opc-request-id": changeImageCompartmentRequest.opcRequestId,
       "opc-retry-token": changeImageCompartmentRequest.opcRetryToken
@@ -4418,6 +4497,7 @@ When you move an instance to a different compartment, associated resources such 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeInstanceCompartmentRequest.ifMatch,
       "opc-request-id": changeInstanceCompartmentRequest.opcRequestId,
       "opc-retry-token": changeInstanceCompartmentRequest.opcRetryToken
@@ -4488,6 +4568,7 @@ When you move an instance to a different compartment, associated resources such 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createAppCatalogSubscriptionRequest.opcRetryToken
     };
 
@@ -4554,6 +4635,7 @@ When you move an instance to a different compartment, associated resources such 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createComputeImageCapabilitySchemaRequest.opcRetryToken
     };
 
@@ -4622,6 +4704,7 @@ When you move an instance to a different compartment, associated resources such 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createDedicatedVmHostRequest.opcRequestId,
       "opc-retry-token": createDedicatedVmHostRequest.opcRetryToken
     };
@@ -4715,6 +4798,7 @@ You may optionally specify a *display name* for the image, which is simply a fri
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createImageRequest.opcRetryToken
     };
 
@@ -4790,6 +4874,7 @@ For more information about console access, see [Accessing the Console](https://d
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createInstanceConsoleConnectionRequest.opcRetryToken
     };
 
@@ -4858,7 +4943,9 @@ For more information about console access, see [Accessing the Console](https://d
       "resourceVersion": deleteAppCatalogSubscriptionRequest.resourceVersion
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4913,6 +5000,7 @@ For more information about console access, see [Accessing the Console](https://d
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteComputeImageCapabilitySchemaRequest.ifMatch
     };
 
@@ -4966,6 +5054,7 @@ For more information about console access, see [Accessing the Console](https://d
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteConsoleHistoryRequest.ifMatch
     };
 
@@ -5023,6 +5112,7 @@ If any VM instances are assigned to the dedicated virtual machine host,
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteDedicatedVmHostRequest.opcRequestId
     };
 
@@ -5081,6 +5171,7 @@ If any VM instances are assigned to the dedicated virtual machine host,
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteImageRequest.ifMatch
     };
 
@@ -5136,6 +5227,7 @@ If any VM instances are assigned to the dedicated virtual machine host,
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteInstanceConsoleConnectionRequest.ifMatch
     };
 
@@ -5193,6 +5285,7 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": detachBootVolumeRequest.ifMatch
     };
 
@@ -5256,6 +5349,7 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": detachVnicRequest.ifMatch
     };
 
@@ -5313,6 +5407,7 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": detachVolumeRequest.ifMatch
     };
 
@@ -5376,6 +5471,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": exportImageRequest.opcRetryToken,
       "if-match": exportImageRequest.ifMatch
     };
@@ -5447,7 +5543,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5508,7 +5606,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5569,7 +5669,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5628,7 +5730,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5689,7 +5793,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5754,7 +5860,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5819,7 +5927,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
       "isMergeEnabled": getComputeImageCapabilitySchemaRequest.isMergeEnabled
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5881,7 +5991,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5946,7 +6058,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
       "length": getConsoleHistoryContentRequest.length
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -6006,6 +6120,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getDedicatedVmHostRequest.opcRequestId
     };
 
@@ -6066,7 +6181,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -6128,6 +6245,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getImageShapeCompatibilityEntryRequest.opcRequestId
     };
 
@@ -6183,7 +6301,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -6244,7 +6364,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -6299,7 +6421,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -6358,7 +6482,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -6420,7 +6546,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -6494,6 +6622,7 @@ For more information, see [Stopping and Starting an Instance](https://docs.cloud
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": instanceActionRequest.opcRetryToken,
       "if-match": instanceActionRequest.ifMatch
     };
@@ -6593,6 +6722,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": launchInstanceRequest.opcRetryToken
     };
 
@@ -6668,7 +6798,9 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       "sortOrder": listAppCatalogListingResourceVersionsRequest.sortOrder
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -6762,7 +6894,9 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       "displayName": listAppCatalogListingsRequest.displayName
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -6852,7 +6986,9 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       "listingId": listAppCatalogSubscriptionsRequest.listingId
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -6944,7 +7080,9 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       "bootVolumeId": listBootVolumeAttachmentsRequest.bootVolumeId
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -7039,7 +7177,9 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       "sortOrder": listComputeGlobalImageCapabilitySchemaVersionsRequest.sortOrder
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -7134,7 +7274,9 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       "sortOrder": listComputeGlobalImageCapabilitySchemasRequest.sortOrder
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -7226,7 +7368,9 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       "sortOrder": listComputeImageCapabilitySchemasRequest.sortOrder
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -7318,7 +7462,9 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       "lifecycleState": listConsoleHistoriesRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -7410,6 +7556,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listDedicatedVmHostInstanceShapesRequest.opcRequestId
     };
 
@@ -7505,6 +7652,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listDedicatedVmHostInstancesRequest.opcRequestId
     };
 
@@ -7597,6 +7745,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listDedicatedVmHostShapesRequest.opcRequestId
     };
 
@@ -7695,6 +7844,7 @@ You can limit the list by specifying a dedicated virtual machine host display na
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listDedicatedVmHostsRequest.opcRequestId
     };
 
@@ -7785,6 +7935,7 @@ You can limit the list by specifying a dedicated virtual machine host display na
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listImageShapeCompatibilityEntriesRequest.opcRequestId
     };
 
@@ -7886,7 +8037,9 @@ The order of images returned may change when new images are released.
       "lifecycleState": listImagesRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -7975,7 +8128,9 @@ For more information about console access, see [Accessing the Console](https://d
       "page": listInstanceConsoleConnectionsRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -8067,6 +8222,7 @@ For more information about console access, see [Accessing the Console](https://d
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listInstanceDevicesRequest.opcRequestId
     };
 
@@ -8162,7 +8318,9 @@ For more information about console access, see [Accessing the Console](https://d
       "lifecycleState": listInstancesRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -8252,7 +8410,9 @@ For more information about console access, see [Accessing the Console](https://d
       "imageId": listShapesRequest.imageId
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -8342,7 +8502,9 @@ For more information about console access, see [Accessing the Console](https://d
       "vnicId": listVnicAttachmentsRequest.vnicId
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -8436,7 +8598,9 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
       "volumeId": listVolumeAttachmentsRequest.volumeId
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -8522,7 +8686,9 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -8584,6 +8750,7 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": terminateInstanceRequest.ifMatch
     };
 
@@ -8640,6 +8807,7 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateComputeImageCapabilitySchemaRequest.ifMatch
     };
 
@@ -8706,6 +8874,7 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateConsoleHistoryRequest.ifMatch
     };
 
@@ -8774,6 +8943,7 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateDedicatedVmHostRequest.ifMatch,
       "opc-request-id": updateDedicatedVmHostRequest.opcRequestId,
       "opc-retry-token": updateDedicatedVmHostRequest.opcRetryToken
@@ -8842,6 +9012,7 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": updateImageRequest.opcRetryToken,
       "if-match": updateImageRequest.ifMatch
     };
@@ -8916,6 +9087,7 @@ The OCID of the instance remains the same.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": updateInstanceRequest.opcRetryToken,
       "if-match": updateInstanceRequest.ifMatch
     };
@@ -9100,6 +9272,7 @@ export class ComputeManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": attachLoadBalancerRequest.opcRetryToken,
       "if-match": attachLoadBalancerRequest.ifMatch
     };
@@ -9176,6 +9349,7 @@ When you move a cluster network to a different compartment, associated resources
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeClusterNetworkCompartmentRequest.ifMatch,
       "opc-request-id": changeClusterNetworkCompartmentRequest.opcRequestId,
       "opc-retry-token": changeClusterNetworkCompartmentRequest.opcRetryToken
@@ -9258,6 +9432,7 @@ When you move an instance configuration to a different compartment, associated r
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeInstanceConfigurationCompartmentRequest.ifMatch,
       "opc-request-id": changeInstanceConfigurationCompartmentRequest.opcRequestId,
       "opc-retry-token": changeInstanceConfigurationCompartmentRequest.opcRetryToken
@@ -9330,6 +9505,7 @@ When you move an instance pool to a different compartment, associated resources 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeInstancePoolCompartmentRequest.ifMatch,
       "opc-request-id": changeInstancePoolCompartmentRequest.opcRequestId,
       "opc-retry-token": changeInstancePoolCompartmentRequest.opcRetryToken
@@ -9396,6 +9572,7 @@ When you move an instance pool to a different compartment, associated resources 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createClusterNetworkRequest.opcRetryToken
     };
 
@@ -9468,6 +9645,7 @@ When you move an instance pool to a different compartment, associated resources 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createInstanceConfigurationRequest.opcRetryToken
     };
 
@@ -9533,6 +9711,7 @@ When you move an instance pool to a different compartment, associated resources 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createInstancePoolRequest.opcRetryToken
     };
 
@@ -9600,6 +9779,7 @@ When you move an instance pool to a different compartment, associated resources 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteInstanceConfigurationRequest.ifMatch
     };
 
@@ -9655,6 +9835,7 @@ When you move an instance pool to a different compartment, associated resources 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": detachLoadBalancerRequest.opcRetryToken,
       "if-match": detachLoadBalancerRequest.ifMatch
     };
@@ -9722,7 +9903,9 @@ When you move an instance pool to a different compartment, associated resources 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -9782,7 +9965,9 @@ When you move an instance pool to a different compartment, associated resources 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -9842,7 +10027,9 @@ When you move an instance pool to a different compartment, associated resources 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -9907,7 +10094,9 @@ When you move an instance pool to a different compartment, associated resources 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -9971,6 +10160,7 @@ If the instance configuration does not include all of the parameters that are
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": launchInstanceConfigurationRequest.opcRetryToken
     };
 
@@ -10049,7 +10239,9 @@ If the instance configuration does not include all of the parameters that are
       "sortOrder": listClusterNetworkInstancesRequest.sortOrder
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -10140,7 +10332,9 @@ If the instance configuration does not include all of the parameters that are
       "lifecycleState": listClusterNetworksRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -10230,7 +10424,9 @@ If the instance configuration does not include all of the parameters that are
       "sortOrder": listInstanceConfigurationsRequest.sortOrder
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -10322,7 +10518,9 @@ If the instance configuration does not include all of the parameters that are
       "sortOrder": listInstancePoolInstancesRequest.sortOrder
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -10413,7 +10611,9 @@ If the instance configuration does not include all of the parameters that are
       "lifecycleState": listInstancePoolsRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -10501,6 +10701,7 @@ If the instance configuration does not include all of the parameters that are
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": resetInstancePoolRequest.opcRetryToken,
       "if-match": resetInstancePoolRequest.ifMatch
     };
@@ -10566,6 +10767,7 @@ If the instance configuration does not include all of the parameters that are
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": softresetInstancePoolRequest.opcRetryToken,
       "if-match": softresetInstancePoolRequest.ifMatch
     };
@@ -10631,6 +10833,7 @@ If the instance configuration does not include all of the parameters that are
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": startInstancePoolRequest.opcRetryToken,
       "if-match": startInstancePoolRequest.ifMatch
     };
@@ -10696,6 +10899,7 @@ If the instance configuration does not include all of the parameters that are
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": stopInstancePoolRequest.opcRetryToken,
       "if-match": stopInstancePoolRequest.ifMatch
     };
@@ -10763,6 +10967,7 @@ When you delete a cluster network, all of its resources are permanently deleted,
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": terminateClusterNetworkRequest.ifMatch
     };
 
@@ -10830,6 +11035,7 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": terminateInstancePoolRequest.ifMatch
     };
 
@@ -10885,6 +11091,7 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": updateClusterNetworkRequest.opcRetryToken,
       "if-match": updateClusterNetworkRequest.ifMatch
     };
@@ -10953,6 +11160,7 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": updateInstanceConfigurationRequest.opcRetryToken,
       "if-match": updateInstanceConfigurationRequest.ifMatch
     };
@@ -11024,6 +11232,7 @@ The OCID of the instance pool remains the same.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": updateInstancePoolRequest.opcRetryToken,
       "if-match": updateInstancePoolRequest.ifMatch
     };
@@ -11204,7 +11413,9 @@ export class VirtualNetworkClient {
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -11274,6 +11485,7 @@ export class VirtualNetworkClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": attachServiceIdRequest.ifMatch
     };
 
@@ -11341,7 +11553,9 @@ export class VirtualNetworkClient {
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -11398,7 +11612,9 @@ export class VirtualNetworkClient {
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -11453,6 +11669,7 @@ export class VirtualNetworkClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeCpeCompartmentRequest.opcRequestId,
       "opc-retry-token": changeCpeCompartmentRequest.opcRetryToken
     };
@@ -11521,6 +11738,7 @@ export class VirtualNetworkClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeCrossConnectCompartmentRequest.opcRequestId,
       "opc-retry-token": changeCrossConnectCompartmentRequest.opcRetryToken
     };
@@ -11591,6 +11809,7 @@ export class VirtualNetworkClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeCrossConnectGroupCompartmentRequest.opcRequestId,
       "opc-retry-token": changeCrossConnectGroupCompartmentRequest.opcRetryToken
     };
@@ -11659,6 +11878,7 @@ export class VirtualNetworkClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeDhcpOptionsCompartmentRequest.opcRequestId,
       "opc-retry-token": changeDhcpOptionsCompartmentRequest.opcRetryToken
     };
@@ -11727,6 +11947,7 @@ export class VirtualNetworkClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeDrgCompartmentRequest.opcRequestId,
       "opc-retry-token": changeDrgCompartmentRequest.opcRetryToken
     };
@@ -11800,6 +12021,7 @@ export class VirtualNetworkClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeIPSecConnectionCompartmentRequest.opcRequestId,
       "opc-retry-token": changeIPSecConnectionCompartmentRequest.opcRetryToken
     };
@@ -11868,6 +12090,7 @@ export class VirtualNetworkClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeInternetGatewayCompartmentRequest.opcRequestId,
       "opc-retry-token": changeInternetGatewayCompartmentRequest.opcRetryToken
     };
@@ -11938,6 +12161,7 @@ export class VirtualNetworkClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeLocalPeeringGatewayCompartmentRequest.opcRequestId,
       "opc-retry-token": changeLocalPeeringGatewayCompartmentRequest.opcRetryToken
     };
@@ -12006,6 +12230,7 @@ export class VirtualNetworkClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeNatGatewayCompartmentRequest.opcRequestId,
       "opc-retry-token": changeNatGatewayCompartmentRequest.opcRetryToken
     };
@@ -12076,6 +12301,7 @@ export class VirtualNetworkClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeNetworkSecurityGroupCompartmentRequest.opcRequestId,
       "opc-retry-token": changeNetworkSecurityGroupCompartmentRequest.opcRetryToken
     };
@@ -12147,6 +12373,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changePublicIpCompartmentRequest.opcRequestId,
       "opc-retry-token": changePublicIpCompartmentRequest.opcRetryToken
     };
@@ -12218,6 +12445,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeRemotePeeringConnectionCompartmentRequest.opcRequestId,
       "opc-retry-token": changeRemotePeeringConnectionCompartmentRequest.opcRetryToken
     };
@@ -12286,6 +12514,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeRouteTableCompartmentRequest.opcRequestId,
       "opc-retry-token": changeRouteTableCompartmentRequest.opcRetryToken
     };
@@ -12354,6 +12583,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeSecurityListCompartmentRequest.opcRequestId,
       "opc-retry-token": changeSecurityListCompartmentRequest.opcRetryToken
     };
@@ -12422,6 +12652,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeServiceGatewayCompartmentRequest.opcRequestId,
       "opc-retry-token": changeServiceGatewayCompartmentRequest.opcRetryToken
     };
@@ -12490,6 +12721,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeSubnetCompartmentRequest.opcRequestId,
       "opc-retry-token": changeSubnetCompartmentRequest.opcRetryToken
     };
@@ -12563,6 +12795,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeVcnCompartmentRequest.opcRequestId,
       "opc-retry-token": changeVcnCompartmentRequest.opcRetryToken
     };
@@ -12636,6 +12869,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeVirtualCircuitCompartmentRequest.opcRequestId,
       "opc-retry-token": changeVirtualCircuitCompartmentRequest.opcRetryToken
     };
@@ -12704,6 +12938,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeVlanCompartmentRequest.ifMatch,
       "opc-request-id": changeVlanCompartmentRequest.opcRequestId,
       "opc-retry-token": changeVlanCompartmentRequest.opcRetryToken
@@ -12778,6 +13013,7 @@ This operation must be called by the VCN administrator who is designated as
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "x-cross-tenancy-request": connectLocalPeeringGatewaysRequest.xCrossTenancyRequest
     };
 
@@ -12845,7 +13081,9 @@ This operation must be called by the VCN administrator who is designated as
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -12915,6 +13153,7 @@ You may optionally specify a *display name* for the CPE, otherwise a default is 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createCpeRequest.opcRetryToken
     };
 
@@ -12999,6 +13238,7 @@ You may optionally specify a *display name* for the cross-connect.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createCrossConnectRequest.opcRetryToken
     };
 
@@ -13079,6 +13319,7 @@ You may optionally specify a *display name* for the cross-connect group.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createCrossConnectGroupRequest.opcRetryToken
     };
 
@@ -13155,6 +13396,7 @@ You may optionally specify a *display name* for the set of DHCP options, otherwi
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createDhcpOptionsRequest.opcRetryToken
     };
 
@@ -13231,6 +13473,7 @@ You may optionally specify a *display name* for the DRG, otherwise a default is 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createDrgRequest.opcRetryToken
     };
 
@@ -13307,6 +13550,7 @@ For the purposes of access control, the DRG attachment is automatically placed i
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createDrgAttachmentRequest.opcRetryToken
     };
 
@@ -13373,6 +13617,7 @@ For the purposes of access control, the DRG attachment is automatically placed i
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createFlowLogConfigRequest.opcRetryToken
     };
 
@@ -13442,6 +13687,7 @@ For the purposes of access control, the DRG attachment is automatically placed i
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createFlowLogConfigAttachmentRequest.opcRetryToken
     };
 
@@ -13536,6 +13782,7 @@ For each tunnel, you need the IP address of Oracle's VPN headend and the shared 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createIPSecConnectionRequest.opcRetryToken
     };
 
@@ -13622,6 +13869,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createInternetGatewayRequest.opcRetryToken
     };
 
@@ -13687,6 +13935,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createIpv6Request.opcRequestId,
       "opc-retry-token": createIpv6Request.opcRetryToken
     };
@@ -13754,6 +14003,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createLocalPeeringGatewayRequest.opcRetryToken
     };
 
@@ -13820,6 +14070,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createNatGatewayRequest.opcRetryToken
     };
 
@@ -13886,6 +14137,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createNetworkSecurityGroupRequest.opcRetryToken
     };
 
@@ -13953,6 +14205,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createPrivateIpRequest.opcRetryToken
     };
 
@@ -14038,6 +14291,7 @@ Also, for reserved public IPs, the optional assignment part of this operation is
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createPublicIpRequest.opcRetryToken
     };
 
@@ -14104,6 +14358,7 @@ Also, for reserved public IPs, the optional assignment part of this operation is
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createRemotePeeringConnectionRequest.opcRetryToken
     };
 
@@ -14183,6 +14438,7 @@ You may optionally specify a *display name* for the route table, otherwise a def
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createRouteTableRequest.opcRetryToken
     };
 
@@ -14262,6 +14518,7 @@ You may optionally specify a *display name* for the security list, otherwise a d
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createSecurityListRequest.opcRetryToken
     };
 
@@ -14336,6 +14593,7 @@ You may optionally specify a *display name* for the service gateway, otherwise a
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createServiceGatewayRequest.opcRetryToken
     };
 
@@ -14426,6 +14684,7 @@ You can also add a DNS label for the subnet, which is required if you want the I
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createSubnetRequest.opcRetryToken
     };
 
@@ -14519,6 +14778,7 @@ The VCN and subnets you create are not accessible until you attach an internet g
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createVcnRequest.opcRetryToken
     };
 
@@ -14605,6 +14865,7 @@ You may optionally specify a *display name* for the virtual circuit.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createVirtualCircuitRequest.opcRetryToken
     };
 
@@ -14670,6 +14931,7 @@ You may optionally specify a *display name* for the virtual circuit.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createVlanRequest.opcRetryToken,
       "opc-request-id": createVlanRequest.opcRequestId
     };
@@ -14740,6 +15002,7 @@ You may optionally specify a *display name* for the virtual circuit.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteCpeRequest.ifMatch
     };
 
@@ -14796,6 +15059,7 @@ You may optionally specify a *display name* for the virtual circuit.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteCrossConnectRequest.ifMatch
     };
 
@@ -14853,6 +15117,7 @@ You may optionally specify a *display name* for the virtual circuit.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteCrossConnectGroupRequest.ifMatch
     };
 
@@ -14911,6 +15176,7 @@ This is an asynchronous operation. The state of the set of options will switch t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteDhcpOptionsRequest.ifMatch
     };
 
@@ -14968,6 +15234,7 @@ This is an asynchronous operation. The state of the set of options will switch t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteDrgRequest.ifMatch
     };
 
@@ -15025,6 +15292,7 @@ This is an asynchronous operation. The state of the set of options will switch t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteDrgAttachmentRequest.ifMatch
     };
 
@@ -15080,6 +15348,7 @@ This is an asynchronous operation. The state of the set of options will switch t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteFlowLogConfigRequest.ifMatch
     };
 
@@ -15136,6 +15405,7 @@ This is an asynchronous operation. The state of the set of options will switch t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteFlowLogConfigAttachmentRequest.ifMatch
     };
 
@@ -15198,6 +15468,7 @@ This is an asynchronous operation. The connection's `lifecycleState` will change
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteIPSecConnectionRequest.ifMatch
     };
 
@@ -15257,6 +15528,7 @@ This is an asynchronous operation. The gateway's `lifecycleState` will change to
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteInternetGatewayRequest.ifMatch
     };
 
@@ -15312,6 +15584,7 @@ This is an asynchronous operation. The gateway's `lifecycleState` will change to
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteIpv6Request.ifMatch,
       "opc-request-id": deleteIpv6Request.opcRequestId
     };
@@ -15371,6 +15644,7 @@ This is an asynchronous operation; the local peering gateway's `lifecycleState` 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteLocalPeeringGatewayRequest.ifMatch
     };
 
@@ -15429,6 +15703,7 @@ This is an asynchronous operation. The NAT gateway's `lifecycleState` will chang
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteNatGatewayRequest.ifMatch
     };
 
@@ -15490,6 +15765,7 @@ To get a list of the VNICs in a network security group, use
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteNetworkSecurityGroupRequest.ifMatch
     };
 
@@ -15554,6 +15830,7 @@ This operation cannot be used with primary private IPs, which are
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deletePrivateIpRequest.ifMatch
     };
 
@@ -15622,6 +15899,7 @@ If you want to simply unassign a reserved public IP and return it to your pool
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deletePublicIpRequest.ifMatch
     };
 
@@ -15680,6 +15958,7 @@ This is an asynchronous operation; the RPC's `lifecycleState` changes to TERMINA
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteRemotePeeringConnectionRequest.ifMatch
     };
 
@@ -15738,6 +16017,7 @@ This is an asynchronous operation. The route table's `lifecycleState` will chang
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteRouteTableRequest.ifMatch
     };
 
@@ -15797,6 +16077,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteSecurityListRequest.ifMatch
     };
 
@@ -15853,6 +16134,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteServiceGatewayRequest.ifMatch
     };
 
@@ -15909,6 +16191,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteSubnetRequest.ifMatch
     };
 
@@ -15965,6 +16248,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteVcnRequest.ifMatch
     };
 
@@ -16024,6 +16308,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteVirtualCircuitRequest.ifMatch
     };
 
@@ -16078,6 +16363,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteVlanRequest.ifMatch,
       "opc-request-id": deleteVlanRequest.opcRequestId
     };
@@ -16144,6 +16430,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": detachServiceIdRequest.ifMatch
     };
 
@@ -16202,7 +16489,9 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -16281,6 +16570,7 @@ The operation returns configuration information for *all* of the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getCpeDeviceConfigContentRequest.opcRequestId
     };
 
@@ -16347,6 +16637,7 @@ The operation returns configuration information for *all* of the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getCpeDeviceShapeRequest.opcRequestId
     };
 
@@ -16402,7 +16693,9 @@ The operation returns configuration information for *all* of the
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -16462,7 +16755,9 @@ The operation returns configuration information for *all* of the
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -16522,7 +16817,9 @@ The operation returns configuration information for *all* of the
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -16578,7 +16875,9 @@ The operation returns configuration information for *all* of the
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -16632,7 +16931,9 @@ The operation returns configuration information for *all* of the
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -16689,7 +16990,9 @@ The operation returns configuration information for *all* of the
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -16748,7 +17051,9 @@ The operation returns configuration information for *all* of the
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -16811,6 +17116,7 @@ The operation returns configuration information for *all* of the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getDrgRedundancyStatusRequest.opcRequestId
     };
 
@@ -16869,7 +17175,9 @@ The operation returns configuration information for *all* of the
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -16927,7 +17235,9 @@ The operation returns configuration information for *all* of the
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -16983,7 +17293,9 @@ The operation returns configuration information for *all* of the
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -17044,7 +17356,9 @@ The operation returns configuration information for *all* of the
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -17107,7 +17421,9 @@ The operation returns configuration information for *all* of the
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -17171,7 +17487,9 @@ The operation returns configuration information for *all* of the
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -17233,7 +17551,9 @@ The operation returns configuration information for *all* of the
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -17297,7 +17617,9 @@ The operation returns configuration information for *all* of the
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -17362,7 +17684,9 @@ The operation returns configuration information for *all* of the
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -17422,7 +17746,9 @@ The operation returns configuration information for *all* of the
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -17502,6 +17828,7 @@ The operation returns configuration information for all tunnels in the single sp
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getIpsecCpeDeviceConfigContentRequest.opcRequestId
     };
 
@@ -17563,6 +17890,7 @@ The operation returns configuration information for all tunnels in the single sp
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getIpv6Request.opcRequestId
     };
 
@@ -17624,7 +17952,9 @@ The operation returns configuration information for all tunnels in the single sp
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -17683,7 +18013,9 @@ The operation returns configuration information for all tunnels in the single sp
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -17750,7 +18082,9 @@ To list the security rules in an NSG, see
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -17813,7 +18147,9 @@ To list the security rules in an NSG, see
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -17883,7 +18219,9 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -17946,7 +18284,9 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -18020,7 +18360,9 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -18086,7 +18428,9 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -18145,7 +18489,9 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -18204,7 +18550,9 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -18264,7 +18612,9 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -18323,7 +18673,9 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -18382,7 +18734,9 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -18449,6 +18803,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getTunnelCpeDeviceConfigRequest.opcRequestId
     };
 
@@ -18530,6 +18885,7 @@ The operation returns configuration information for only the specified IPSec tun
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getTunnelCpeDeviceConfigContentRequest.opcRequestId
     };
 
@@ -18584,7 +18940,9 @@ The operation returns configuration information for only the specified IPSec tun
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -18643,7 +19001,9 @@ The operation returns configuration information for only the specified IPSec tun
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -18703,6 +19063,7 @@ The operation returns configuration information for only the specified IPSec tun
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getVlanRequest.opcRequestId
     };
 
@@ -18767,7 +19128,9 @@ The operation returns configuration information for only the specified IPSec tun
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -18829,7 +19192,9 @@ The operation returns configuration information for only the specified IPSec tun
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -18899,6 +19264,7 @@ For information about generating CPE configuration content, see these operations
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listCpeDeviceShapesRequest.opcRequestId
     };
 
@@ -18987,7 +19353,9 @@ For information about generating CPE configuration content, see these operations
       "page": listCpesRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -19077,7 +19445,9 @@ For information about generating CPE configuration content, see these operations
       "lifecycleState": listCrossConnectGroupsRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -19166,7 +19536,9 @@ For information about generating CPE configuration content, see these operations
       "page": listCrossConnectLocationsRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -19259,7 +19631,9 @@ For information about generating CPE configuration content, see these operations
       "lifecycleState": listCrossConnectsRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -19349,7 +19723,9 @@ For information about generating CPE configuration content, see these operations
       "page": listCrossconnectPortSpeedShapesRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -19444,7 +19820,9 @@ For information about generating CPE configuration content, see these operations
       "lifecycleState": listDhcpOptionsRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -19535,7 +19913,9 @@ For information about generating CPE configuration content, see these operations
       "page": listDrgAttachmentsRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -19622,7 +20002,9 @@ For information about generating CPE configuration content, see these operations
       "page": listDrgsRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -19714,7 +20096,9 @@ For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/C
       "page": listFastConnectProviderServicesRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -19809,7 +20193,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "page": listFastConnectProviderVirtualCircuitBandwidthShapesRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -19904,7 +20290,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "page": listFlowLogConfigAttachmentsRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -19995,7 +20383,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "sortOrder": listFlowLogConfigsRequest.sortOrder
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -20084,7 +20474,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "page": listIPSecConnectionTunnelsRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -20175,7 +20567,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "page": listIPSecConnectionsRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -20269,7 +20663,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "lifecycleState": listInternetGatewaysRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -20366,6 +20762,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listIpv6sRequest.opcRequestId
     };
 
@@ -20455,7 +20852,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "vcnId": listLocalPeeringGatewaysRequest.vcnId
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -20548,7 +20947,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "lifecycleState": listNatGatewaysRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -20643,7 +21044,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "sortOrder": listNetworkSecurityGroupSecurityRulesRequest.sortOrder
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -20734,7 +21137,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "sortOrder": listNetworkSecurityGroupVnicsRequest.sortOrder
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -20827,7 +21232,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "lifecycleState": listNetworkSecurityGroupsRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -20932,7 +21339,9 @@ If you are an Oracle Cloud VMware Solution customer and have VLANs
       "vlanId": listPrivateIpsRequest.vlanId
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -21041,7 +21450,9 @@ To list the ephemeral public IPs assigned to private IPs:
       "compartmentId": listPublicIpsRequest.compartmentId
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -21131,7 +21542,9 @@ To list the ephemeral public IPs assigned to private IPs:
       "page": listRemotePeeringConnectionsRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -21226,7 +21639,9 @@ To list the ephemeral public IPs assigned to private IPs:
       "lifecycleState": listRouteTablesRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -21319,7 +21734,9 @@ To list the ephemeral public IPs assigned to private IPs:
       "lifecycleState": listSecurityListsRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -21412,7 +21829,9 @@ To list the ephemeral public IPs assigned to private IPs:
       "lifecycleState": listServiceGatewaysRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -21499,7 +21918,9 @@ To list the ephemeral public IPs assigned to private IPs:
       "page": listServicesRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -21592,7 +22013,9 @@ To list the ephemeral public IPs assigned to private IPs:
       "lifecycleState": listSubnetsRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -21683,7 +22106,9 @@ To list the ephemeral public IPs assigned to private IPs:
       "lifecycleState": listVcnsRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -21771,7 +22196,9 @@ To list the ephemeral public IPs assigned to private IPs:
       "page": listVirtualCircuitBandwidthShapesRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -21860,7 +22287,9 @@ To list the ephemeral public IPs assigned to private IPs:
       "verificationState": listVirtualCircuitPublicPrefixesRequest.verificationState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -21922,7 +22351,9 @@ To list the ephemeral public IPs assigned to private IPs:
       "lifecycleState": listVirtualCircuitsRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -22015,6 +22446,7 @@ To list the ephemeral public IPs assigned to private IPs:
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listVlansRequest.opcRequestId
     };
 
@@ -22103,7 +22535,9 @@ To list the ephemeral public IPs assigned to private IPs:
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -22162,6 +22596,7 @@ To list the ephemeral public IPs assigned to private IPs:
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateCpeRequest.ifMatch
     };
 
@@ -22229,6 +22664,7 @@ To list the ephemeral public IPs assigned to private IPs:
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateCrossConnectRequest.ifMatch
     };
 
@@ -22298,6 +22734,7 @@ To list the ephemeral public IPs assigned to private IPs:
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateCrossConnectGroupRequest.ifMatch
     };
 
@@ -22368,6 +22805,7 @@ Note that the `options` object you provide replaces the entire existing set of o
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateDhcpOptionsRequest.ifMatch
     };
 
@@ -22435,6 +22873,7 @@ Note that the `options` object you provide replaces the entire existing set of o
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateDrgRequest.ifMatch
     };
 
@@ -22504,6 +22943,7 @@ Note that the `options` object you provide replaces the entire existing set of o
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateDrgAttachmentRequest.ifMatch
     };
 
@@ -22572,6 +23012,7 @@ Note that the `options` object you provide replaces the entire existing set of o
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateFlowLogConfigRequest.ifMatch
     };
 
@@ -22640,6 +23081,7 @@ Note that the `options` object you provide replaces the entire existing set of o
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateFlowLogConfigAttachmentRequest.ifMatch
     };
 
@@ -22711,6 +23153,7 @@ To update an individual IPSec tunnel's attributes, use
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateIPSecConnectionRequest.ifMatch
     };
 
@@ -22791,6 +23234,7 @@ To update an individual IPSec tunnel's attributes, use
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateIPSecConnectionTunnelRequest.ifMatch,
       "opc-request-id": updateIPSecConnectionTunnelRequest.opcRequestId
     };
@@ -22865,6 +23309,7 @@ To update an individual IPSec tunnel's attributes, use
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateIPSecConnectionTunnelSharedSecretRequest.ifMatch
     };
 
@@ -22937,6 +23382,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateInternetGatewayRequest.ifMatch
     };
 
@@ -23010,6 +23456,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateIpv6Request.ifMatch,
       "opc-request-id": updateIpv6Request.opcRequestId
     };
@@ -23079,6 +23526,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateLocalPeeringGatewayRequest.ifMatch
     };
 
@@ -23146,6 +23594,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateNatGatewayRequest.ifMatch
     };
 
@@ -23228,6 +23677,7 @@ To edit the contents of existing security rules in the group, use
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateNetworkSecurityGroupRequest.ifMatch
     };
 
@@ -23298,7 +23748,9 @@ To edit the contents of existing security rules in the group, use
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -23368,6 +23820,7 @@ This operation cannot be used with primary private IPs.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updatePrivateIpRequest.ifMatch
     };
 
@@ -23473,6 +23926,7 @@ Regarding ephemeral public IPs:
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updatePublicIpRequest.ifMatch
     };
 
@@ -23541,6 +23995,7 @@ Regarding ephemeral public IPs:
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateRemotePeeringConnectionRequest.ifMatch
     };
 
@@ -23611,6 +24066,7 @@ Note that the `routeRules` object you provide replaces the entire existing set o
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateRouteTableRequest.ifMatch
     };
 
@@ -23683,6 +24139,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateSecurityListRequest.ifMatch
     };
 
@@ -23752,6 +24209,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateServiceGatewayRequest.ifMatch
     };
 
@@ -23819,6 +24277,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateSubnetRequest.ifMatch
     };
 
@@ -23890,6 +24349,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateTunnelCpeDeviceConfigRequest.ifMatch,
       "opc-retry-token": updateTunnelCpeDeviceConfigRequest.opcRetryToken,
       "opc-request-id": updateTunnelCpeDeviceConfigRequest.opcRequestId
@@ -23959,6 +24419,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateVcnRequest.ifMatch
     };
 
@@ -24050,6 +24511,7 @@ To change the list of public IP prefixes for a public virtual circuit,
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateVirtualCircuitRequest.ifMatch
     };
 
@@ -24119,6 +24581,7 @@ To change the list of public IP prefixes for a public virtual circuit,
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateVlanRequest.ifMatch,
       "opc-request-id": updateVlanRequest.opcRequestId
     };
@@ -24187,6 +24650,7 @@ To change the list of public IP prefixes for a public virtual circuit,
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateVnicRequest.ifMatch
     };
 

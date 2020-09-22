@@ -147,6 +147,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": attachCatalogPrivateEndpointRequest.ifMatch,
       "opc-request-id": attachCatalogPrivateEndpointRequest.opcRequestId,
       "opc-retry-token": attachCatalogPrivateEndpointRequest.opcRetryToken
@@ -213,6 +214,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeCatalogCompartmentRequest.ifMatch,
       "opc-request-id": changeCatalogCompartmentRequest.opcRequestId
     };
@@ -281,6 +283,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeCatalogPrivateEndpointCompartmentRequest.ifMatch,
       "opc-request-id": changeCatalogPrivateEndpointCompartmentRequest.opcRequestId
     };
@@ -347,6 +350,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createAttributeRequest.opcRequestId,
       "opc-retry-token": createAttributeRequest.opcRetryToken
     };
@@ -417,6 +421,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createAttributeTagRequest.opcRequestId,
       "opc-retry-token": createAttributeTagRequest.opcRetryToken
     };
@@ -485,6 +490,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createCatalogRequest.opcRetryToken,
       "opc-request-id": createCatalogRequest.opcRequestId
     };
@@ -548,6 +554,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createCatalogPrivateEndpointRequest.opcRequestId,
       "opc-retry-token": createCatalogPrivateEndpointRequest.opcRetryToken
     };
@@ -613,6 +620,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createConnectionRequest.opcRequestId,
       "opc-retry-token": createConnectionRequest.opcRetryToken
     };
@@ -680,6 +688,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createDataAssetRequest.opcRequestId,
       "opc-retry-token": createDataAssetRequest.opcRetryToken
     };
@@ -748,6 +757,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createDataAssetTagRequest.opcRequestId,
       "opc-retry-token": createDataAssetTagRequest.opcRetryToken
     };
@@ -816,6 +826,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createEntityRequest.opcRequestId,
       "opc-retry-token": createEntityRequest.opcRetryToken
     };
@@ -885,6 +896,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createEntityTagRequest.opcRequestId,
       "opc-retry-token": createEntityTagRequest.opcRetryToken
     };
@@ -953,6 +965,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createFolderRequest.opcRequestId,
       "opc-retry-token": createFolderRequest.opcRetryToken
     };
@@ -1022,6 +1035,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createFolderTagRequest.opcRequestId,
       "opc-retry-token": createFolderTagRequest.opcRetryToken
     };
@@ -1089,6 +1103,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createGlossaryRequest.opcRequestId,
       "opc-retry-token": createGlossaryRequest.opcRetryToken
     };
@@ -1156,6 +1171,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createJobRequest.opcRequestId,
       "opc-retry-token": createJobRequest.opcRetryToken
     };
@@ -1223,6 +1239,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createJobDefinitionRequest.opcRequestId,
       "opc-retry-token": createJobDefinitionRequest.opcRetryToken
     };
@@ -1291,6 +1308,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createJobExecutionRequest.opcRequestId,
       "opc-retry-token": createJobExecutionRequest.opcRetryToken
     };
@@ -1359,6 +1377,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createTermRequest.opcRequestId,
       "opc-retry-token": createTermRequest.opcRetryToken
     };
@@ -1429,6 +1448,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createTermRelationshipRequest.opcRequestId,
       "opc-retry-token": createTermRelationshipRequest.opcRetryToken
     };
@@ -1499,6 +1519,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteAttributeRequest.ifMatch,
       "opc-request-id": deleteAttributeRequest.opcRequestId
     };
@@ -1558,6 +1579,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteAttributeTagRequest.ifMatch,
       "opc-request-id": deleteAttributeTagRequest.opcRequestId
     };
@@ -1613,6 +1635,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteCatalogRequest.ifMatch,
       "opc-request-id": deleteCatalogRequest.opcRequestId
     };
@@ -1673,6 +1696,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteCatalogPrivateEndpointRequest.ifMatch,
       "opc-request-id": deleteCatalogPrivateEndpointRequest.opcRequestId
     };
@@ -1734,6 +1758,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteConnectionRequest.ifMatch,
       "opc-request-id": deleteConnectionRequest.opcRequestId
     };
@@ -1789,6 +1814,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteDataAssetRequest.ifMatch,
       "opc-request-id": deleteDataAssetRequest.opcRequestId
     };
@@ -1845,6 +1871,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteDataAssetTagRequest.ifMatch,
       "opc-request-id": deleteDataAssetTagRequest.opcRequestId
     };
@@ -1901,6 +1928,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteEntityRequest.ifMatch,
       "opc-request-id": deleteEntityRequest.opcRequestId
     };
@@ -1958,6 +1986,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteEntityTagRequest.ifMatch,
       "opc-request-id": deleteEntityTagRequest.opcRequestId
     };
@@ -2014,6 +2043,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteFolderRequest.ifMatch,
       "opc-request-id": deleteFolderRequest.opcRequestId
     };
@@ -2071,6 +2101,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteFolderTagRequest.ifMatch,
       "opc-request-id": deleteFolderTagRequest.opcRequestId
     };
@@ -2126,6 +2157,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteGlossaryRequest.ifMatch,
       "opc-request-id": deleteGlossaryRequest.opcRequestId
     };
@@ -2181,6 +2213,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteJobRequest.ifMatch,
       "opc-request-id": deleteJobRequest.opcRequestId
     };
@@ -2236,6 +2269,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteJobDefinitionRequest.ifMatch,
       "opc-request-id": deleteJobDefinitionRequest.opcRequestId
     };
@@ -2292,6 +2326,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteTermRequest.ifMatch,
       "opc-request-id": deleteTermRequest.opcRequestId
     };
@@ -2350,6 +2385,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteTermRelationshipRequest.ifMatch,
       "opc-request-id": deleteTermRelationshipRequest.opcRequestId
     };
@@ -2406,6 +2442,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": detachCatalogPrivateEndpointRequest.ifMatch,
       "opc-request-id": detachCatalogPrivateEndpointRequest.opcRequestId
     };
@@ -2472,6 +2509,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": expandTreeForGlossaryRequest.opcRequestId,
       "opc-retry-token": expandTreeForGlossaryRequest.opcRetryToken
     };
@@ -2537,6 +2575,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": exportGlossaryRequest.opcRequestId,
       "opc-retry-token": exportGlossaryRequest.opcRetryToken
     };
@@ -2604,6 +2643,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getAttributeRequest.opcRequestId
     };
 
@@ -2672,6 +2712,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getAttributeTagRequest.opcRequestId
     };
 
@@ -2734,6 +2775,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getCatalogRequest.opcRequestId
     };
 
@@ -2796,6 +2838,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getCatalogPrivateEndpointRequest.opcRequestId
     };
 
@@ -2861,6 +2904,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getConnectionRequest.opcRequestId
     };
 
@@ -2925,6 +2969,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getDataAssetRequest.opcRequestId
     };
 
@@ -2990,6 +3035,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getDataAssetTagRequest.opcRequestId
     };
 
@@ -3055,6 +3101,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getEntityRequest.opcRequestId
     };
 
@@ -3121,6 +3168,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getEntityTagRequest.opcRequestId
     };
 
@@ -3186,6 +3234,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getFolderRequest.opcRequestId
     };
 
@@ -3252,6 +3301,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getFolderTagRequest.opcRequestId
     };
 
@@ -3316,6 +3366,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getGlossaryRequest.opcRequestId
     };
 
@@ -3378,6 +3429,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getJobRequest.opcRequestId
     };
 
@@ -3442,6 +3494,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getJobDefinitionRequest.opcRequestId
     };
 
@@ -3507,6 +3560,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getJobExecutionRequest.opcRequestId
     };
 
@@ -3573,6 +3627,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getJobLogRequest.opcRequestId
     };
 
@@ -3639,6 +3694,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getJobMetricsRequest.opcRequestId
     };
 
@@ -3705,6 +3761,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getTermRequest.opcRequestId
     };
 
@@ -3771,6 +3828,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getTermRelationshipRequest.opcRequestId
     };
 
@@ -3836,6 +3894,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getTypeRequest.opcRequestId
     };
 
@@ -3897,6 +3956,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -3964,6 +4024,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": importConnectionRequest.opcRequestId,
       "if-match": importConnectionRequest.ifMatch,
       "opc-retry-token": importConnectionRequest.opcRetryToken
@@ -4035,6 +4096,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": importGlossaryRequest.opcRequestId,
       "opc-retry-token": importGlossaryRequest.opcRetryToken
     };
@@ -4114,6 +4176,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAttributeTagsRequest.opcRequestId
     };
 
@@ -4200,6 +4263,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAttributesRequest.opcRequestId
     };
 
@@ -4269,6 +4333,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listCatalogPrivateEndpointsRequest.opcRequestId
     };
 
@@ -4362,6 +4427,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listCatalogsRequest.opcRequestId
     };
 
@@ -4465,6 +4531,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listConnectionsRequest.opcRequestId
     };
 
@@ -4539,6 +4606,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listDataAssetTagsRequest.opcRequestId
     };
 
@@ -4615,6 +4683,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listDataAssetsRequest.opcRequestId
     };
 
@@ -4699,6 +4768,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listEntitiesRequest.opcRequestId
     };
 
@@ -4774,6 +4844,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listEntityTagsRequest.opcRequestId
     };
 
@@ -4849,6 +4920,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listFolderTagsRequest.opcRequestId
     };
 
@@ -4929,6 +5001,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listFoldersRequest.opcRequestId
     };
 
@@ -5003,6 +5076,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listGlossariesRequest.opcRequestId
     };
 
@@ -5083,6 +5157,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listJobDefinitionsRequest.opcRequestId
     };
 
@@ -5167,6 +5242,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listJobExecutionsRequest.opcRequestId
     };
 
@@ -5242,6 +5318,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listJobLogsRequest.opcRequestId
     };
 
@@ -5323,6 +5400,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listJobMetricsRequest.opcRequestId
     };
 
@@ -5406,6 +5484,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listJobsRequest.opcRequestId
     };
 
@@ -5476,6 +5555,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listTagsRequest.opcRequestId
     };
 
@@ -5549,6 +5629,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listTermRelationshipsRequest.opcRequestId
     };
 
@@ -5624,6 +5705,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listTermsRequest.opcRequestId
     };
 
@@ -5698,6 +5780,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listTypesRequest.opcRequestId
     };
 
@@ -5766,6 +5849,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -5858,6 +5942,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
@@ -5947,6 +6032,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
@@ -6038,6 +6124,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": objectStatsRequest.opcRequestId
     };
 
@@ -6102,6 +6189,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": parseConnectionRequest.opcRequestId,
       "opc-retry-token": parseConnectionRequest.opcRetryToken
     };
@@ -6178,6 +6266,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": searchCriteriaRequest.opcRequestId
     };
 
@@ -6246,6 +6335,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": testConnectionRequest.opcRequestId,
       "opc-retry-token": testConnectionRequest.opcRetryToken
     };
@@ -6312,6 +6402,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateAttributeRequest.ifMatch,
       "opc-request-id": updateAttributeRequest.opcRequestId
     };
@@ -6380,6 +6471,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateCatalogRequest.ifMatch,
       "opc-request-id": updateCatalogRequest.opcRequestId
     };
@@ -6448,6 +6540,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateCatalogPrivateEndpointRequest.ifMatch,
       "opc-request-id": updateCatalogPrivateEndpointRequest.opcRequestId
     };
@@ -6514,6 +6607,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateConnectionRequest.ifMatch,
       "opc-request-id": updateConnectionRequest.opcRequestId
     };
@@ -6582,6 +6676,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateDataAssetRequest.ifMatch,
       "opc-request-id": updateDataAssetRequest.opcRequestId
     };
@@ -6651,6 +6746,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateEntityRequest.ifMatch,
       "opc-request-id": updateEntityRequest.opcRequestId
     };
@@ -6720,6 +6816,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateFolderRequest.ifMatch,
       "opc-request-id": updateFolderRequest.opcRequestId
     };
@@ -6788,6 +6885,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateGlossaryRequest.ifMatch,
       "opc-request-id": updateGlossaryRequest.opcRequestId
     };
@@ -6856,6 +6954,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateJobRequest.ifMatch,
       "opc-request-id": updateJobRequest.opcRequestId
     };
@@ -6924,6 +7023,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateJobDefinitionRequest.ifMatch,
       "opc-request-id": updateJobDefinitionRequest.opcRequestId
     };
@@ -6993,6 +7093,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateTermRequest.ifMatch,
       "opc-request-id": updateTermRequest.opcRequestId
     };
@@ -7064,6 +7165,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateTermRelationshipRequest.ifMatch,
       "opc-request-id": updateTermRelationshipRequest.opcRequestId
     };
@@ -7134,6 +7236,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": uploadCredentialsRequest.opcRequestId,
       "if-match": uploadCredentialsRequest.ifMatch,
       "opc-retry-token": uploadCredentialsRequest.opcRetryToken
@@ -7206,6 +7309,7 @@ export class DataCatalogClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": usersRequest.opcRequestId
     };
 
@@ -7268,6 +7372,7 @@ export class DataCatalogClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": validateConnectionRequest.opcRequestId,
       "opc-retry-token": validateConnectionRequest.opcRetryToken
     };

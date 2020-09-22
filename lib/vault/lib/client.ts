@@ -149,6 +149,7 @@ export class VaultsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": cancelSecretDeletionRequest.ifMatch,
       "opc-request-id": cancelSecretDeletionRequest.opcRequestId
     };
@@ -210,6 +211,7 @@ export class VaultsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": cancelSecretVersionDeletionRequest.ifMatch,
       "opc-request-id": cancelSecretVersionDeletionRequest.opcRequestId
     };
@@ -273,6 +275,7 @@ When provided, if-match is checked against the ETag values of the secret.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeSecretCompartmentRequest.ifMatch,
       "opc-request-id": changeSecretCompartmentRequest.opcRequestId,
       "opc-retry-token": changeSecretCompartmentRequest.opcRetryToken
@@ -339,6 +342,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createSecretRequest.opcRequestId,
       "opc-retry-token": createSecretRequest.opcRetryToken
     };
@@ -406,6 +410,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getSecretRequest.opcRequestId
     };
 
@@ -469,6 +474,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getSecretVersionRequest.opcRequestId
     };
 
@@ -535,6 +541,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSecretVersionsRequest.opcRequestId
     };
 
@@ -628,6 +635,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSecretsRequest.opcRequestId
     };
 
@@ -716,6 +724,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": scheduleSecretDeletionRequest.ifMatch,
       "opc-request-id": scheduleSecretDeletionRequest.opcRequestId
     };
@@ -784,6 +793,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": scheduleSecretVersionDeletionRequest.ifMatch,
       "opc-request-id": scheduleSecretVersionDeletionRequest.opcRequestId
     };
@@ -854,6 +864,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateSecretRequest.ifMatch,
       "opc-request-id": updateSecretRequest.opcRequestId
     };

@@ -128,6 +128,7 @@ export class SecretsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getSecretBundleRequest.opcRequestId
     };
 
@@ -194,6 +195,7 @@ export class SecretsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSecretBundleVersionsRequest.opcRequestId
     };
 

@@ -41,6 +41,16 @@ export interface ShapeMemoryOptions {
    *
    */
   "defaultPerOcpuInGBs"?: number;
+  /**
+   * The minimum amount of memory per OCPU available for this shape, in gigabytes.
+   *
+   */
+  "minPerOcpuInGBs"?: number;
+  /**
+   * The maximum amount of memory per OCPU available for this shape, in gigabytes.
+   *
+   */
+  "maxPerOcpuInGBs"?: number;
 }
 
 export namespace ShapeMemoryOptions {

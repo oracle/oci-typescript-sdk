@@ -131,6 +131,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": changeTopicCompartmentRequest.opcRetryToken,
       "opc-request-id": changeTopicCompartmentRequest.opcRequestId,
       "if-match": changeTopicCompartmentRequest.ifMatch
@@ -204,6 +205,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createTopicRequest.opcRetryToken,
       "opc-request-id": createTopicRequest.opcRequestId
     };
@@ -275,6 +277,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteTopicRequest.opcRequestId,
       "if-match": deleteTopicRequest.ifMatch
     };
@@ -331,6 +334,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getTopicRequest.opcRequestId
     };
 
@@ -403,6 +407,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 120.
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listTopicsRequest.opcRequestId
     };
 
@@ -493,6 +498,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateTopicRequest.opcRequestId,
       "if-match": updateTopicRequest.ifMatch
     };
@@ -675,6 +681,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": changeSubscriptionCompartmentRequest.opcRetryToken,
       "opc-request-id": changeSubscriptionCompartmentRequest.opcRequestId,
       "if-match": changeSubscriptionCompartmentRequest.ifMatch
@@ -739,6 +746,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createSubscriptionRequest.opcRetryToken,
       "opc-request-id": createSubscriptionRequest.opcRequestId
     };
@@ -810,6 +818,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteSubscriptionRequest.opcRequestId,
       "if-match": deleteSubscriptionRequest.ifMatch
     };
@@ -871,6 +880,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getConfirmSubscriptionRequest.opcRequestId
     };
 
@@ -936,6 +946,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getSubscriptionRequest.opcRequestId
     };
 
@@ -1004,6 +1015,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getUnsubscriptionRequest.opcRequestId
     };
 
@@ -1067,6 +1079,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSubscriptionsRequest.opcRequestId
     };
 
@@ -1171,6 +1184,7 @@ For more information about publishing messages, see [Publishing Messages](https:
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": publishMessageRequest.opcRequestId,
       "messageType": publishMessageRequest.messageType
     };
@@ -1239,6 +1253,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": resendSubscriptionConfirmationRequest.opcRequestId
     };
 
@@ -1299,6 +1314,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateSubscriptionRequest.opcRequestId,
       "if-match": updateSubscriptionRequest.ifMatch
     };

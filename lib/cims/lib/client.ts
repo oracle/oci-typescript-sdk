@@ -120,6 +120,7 @@ export class IncidentClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createIncidentRequest.opcRequestId,
       "ocid": createIncidentRequest.ocid,
       "homeregion": createIncidentRequest.homeregion
@@ -183,6 +184,7 @@ export class IncidentClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getIncidentRequest.opcRequestId,
       "csi": getIncidentRequest.csi,
       "ocid": getIncidentRequest.ocid,
@@ -243,6 +245,7 @@ export class IncidentClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getStatusRequest.opcRequestId,
       "ocid": getStatusRequest.ocid,
       "homeregion": getStatusRequest.homeregion
@@ -308,6 +311,7 @@ export class IncidentClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listIncidentResourceTypesRequest.opcRequestId,
       "csi": listIncidentResourceTypesRequest.csi,
       "ocid": listIncidentResourceTypesRequest.ocid,
@@ -403,6 +407,7 @@ export class IncidentClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "csi": listIncidentsRequest.csi,
       "opc-request-id": listIncidentsRequest.opcRequestId,
       "ocid": listIncidentsRequest.ocid,
@@ -492,6 +497,7 @@ export class IncidentClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "csi": updateIncidentRequest.csi,
       "opc-request-id": updateIncidentRequest.opcRequestId,
       "if-match": updateIncidentRequest.ifMatch,
@@ -557,6 +563,7 @@ export class IncidentClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "csi": validateUserRequest.csi,
       "opc-request-id": validateUserRequest.opcRequestId,
       "ocid": validateUserRequest.ocid,
@@ -697,6 +704,7 @@ export class UserClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createUserRequest.opcRequestId,
       "ocid": createUserRequest.ocid,
       "homeregion": createUserRequest.homeregion

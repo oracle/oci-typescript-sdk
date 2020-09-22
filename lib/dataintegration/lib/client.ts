@@ -149,6 +149,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeCompartmentRequest.ifMatch,
       "opc-request-id": changeCompartmentRequest.opcRequestId,
       "opc-retry-token": changeCompartmentRequest.opcRetryToken
@@ -216,6 +217,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createApplicationRequest.opcRequestId,
       "opc-retry-token": createApplicationRequest.opcRetryToken
     };
@@ -283,6 +285,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createConnectionRequest.opcRequestId,
       "opc-retry-token": createConnectionRequest.opcRetryToken
     };
@@ -351,6 +354,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createConnectionValidationRequest.opcRequestId,
       "opc-retry-token": createConnectionValidationRequest.opcRetryToken
     };
@@ -418,6 +422,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createDataAssetRequest.opcRequestId,
       "opc-retry-token": createDataAssetRequest.opcRetryToken
     };
@@ -486,6 +491,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createDataFlowRequest.opcRetryToken,
       "opc-request-id": createDataFlowRequest.opcRequestId
     };
@@ -555,6 +561,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createDataFlowValidationRequest.opcRequestId,
       "opc-retry-token": createDataFlowValidationRequest.opcRetryToken
     };
@@ -625,6 +632,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createEntityShapeRequest.opcRequestId,
       "opc-retry-token": createEntityShapeRequest.opcRetryToken,
       "if-match": createEntityShapeRequest.ifMatch
@@ -691,6 +699,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createFolderRequest.opcRetryToken,
       "opc-request-id": createFolderRequest.opcRequestId
     };
@@ -759,6 +768,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createPatchRequest.opcRequestId,
       "opc-retry-token": createPatchRequest.opcRetryToken
     };
@@ -827,6 +837,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createProjectRequest.opcRetryToken,
       "opc-request-id": createProjectRequest.opcRequestId
     };
@@ -895,6 +906,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createTaskRequest.opcRetryToken,
       "opc-request-id": createTaskRequest.opcRequestId
     };
@@ -963,6 +975,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createTaskRunRequest.opcRetryToken,
       "opc-request-id": createTaskRunRequest.opcRequestId
     };
@@ -1031,6 +1044,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createTaskValidationRequest.opcRequestId,
       "opc-retry-token": createTaskValidationRequest.opcRetryToken
     };
@@ -1097,6 +1111,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createWorkspaceRequest.opcRetryToken,
       "opc-request-id": createWorkspaceRequest.opcRequestId
     };
@@ -1163,6 +1178,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteApplicationRequest.ifMatch,
       "opc-request-id": deleteApplicationRequest.opcRequestId
     };
@@ -1218,6 +1234,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteConnectionRequest.ifMatch,
       "opc-request-id": deleteConnectionRequest.opcRequestId
     };
@@ -1274,6 +1291,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteConnectionValidationRequest.ifMatch,
       "opc-request-id": deleteConnectionValidationRequest.opcRequestId
     };
@@ -1329,6 +1347,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteDataAssetRequest.ifMatch,
       "opc-request-id": deleteDataAssetRequest.opcRequestId
     };
@@ -1384,6 +1403,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteDataFlowRequest.ifMatch,
       "opc-request-id": deleteDataFlowRequest.opcRequestId
     };
@@ -1440,6 +1460,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteDataFlowValidationRequest.ifMatch,
       "opc-request-id": deleteDataFlowValidationRequest.opcRequestId
     };
@@ -1495,6 +1516,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteFolderRequest.ifMatch,
       "opc-request-id": deleteFolderRequest.opcRequestId
     };
@@ -1551,6 +1573,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deletePatchRequest.ifMatch,
       "opc-request-id": deletePatchRequest.opcRequestId
     };
@@ -1606,6 +1629,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteProjectRequest.ifMatch,
       "opc-request-id": deleteProjectRequest.opcRequestId
     };
@@ -1661,6 +1685,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteTaskRequest.ifMatch,
       "opc-request-id": deleteTaskRequest.opcRequestId
     };
@@ -1717,6 +1742,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteTaskRunRequest.ifMatch,
       "opc-request-id": deleteTaskRunRequest.opcRequestId
     };
@@ -1774,6 +1800,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteTaskValidationRequest.ifMatch,
       "opc-request-id": deleteTaskValidationRequest.opcRequestId
     };
@@ -1831,6 +1858,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteWorkspaceRequest.ifMatch,
       "opc-request-id": deleteWorkspaceRequest.opcRequestId
     };
@@ -1891,6 +1919,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getApplicationRequest.opcRequestId
     };
 
@@ -1953,6 +1982,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getConnectionRequest.opcRequestId
     };
 
@@ -2016,6 +2046,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getConnectionValidationRequest.opcRequestId
     };
 
@@ -2081,6 +2112,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getCountStatisticRequest.opcRequestId
     };
 
@@ -2143,6 +2175,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getDataAssetRequest.opcRequestId
     };
 
@@ -2207,6 +2240,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getDataEntityRequest.opcRequestId
     };
 
@@ -2265,6 +2299,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getDataFlowRequest.opcRequestId
     };
 
@@ -2328,6 +2363,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getDataFlowValidationRequest.opcRequestId
     };
 
@@ -2392,6 +2428,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getDependentObjectRequest.opcRequestId
     };
 
@@ -2455,6 +2492,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getFolderRequest.opcRequestId
     };
 
@@ -2518,6 +2556,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getPatchRequest.opcRequestId
     };
 
@@ -2580,6 +2619,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getProjectRequest.opcRequestId
     };
 
@@ -2646,6 +2686,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getPublishedObjectRequest.opcRequestId
     };
 
@@ -2710,6 +2751,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getSchemaRequest.opcRequestId
     };
 
@@ -2767,6 +2809,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getTaskRequest.opcRequestId
     };
 
@@ -2830,6 +2873,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getTaskRunRequest.opcRequestId
     };
 
@@ -2894,6 +2938,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getTaskValidationRequest.opcRequestId
     };
 
@@ -2955,6 +3000,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -3021,6 +3067,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkspaceRequest.opcRequestId
     };
 
@@ -3090,6 +3137,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listApplicationsRequest.opcRequestId
     };
 
@@ -3171,6 +3219,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listConnectionValidationsRequest.opcRequestId
     };
 
@@ -3251,6 +3300,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listConnectionsRequest.opcRequestId
     };
 
@@ -3331,6 +3381,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listDataAssetsRequest.opcRequestId
     };
 
@@ -3414,6 +3465,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listDataEntitiesRequest.opcRequestId
     };
 
@@ -3496,6 +3548,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listDataFlowValidationsRequest.opcRequestId
     };
 
@@ -3577,6 +3630,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listDataFlowsRequest.opcRequestId
     };
 
@@ -3660,6 +3714,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listDependentObjectsRequest.opcRequestId
     };
 
@@ -3741,6 +3796,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listFoldersRequest.opcRequestId
     };
 
@@ -3821,6 +3877,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listPatchesRequest.opcRequestId
     };
 
@@ -3901,6 +3958,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listProjectsRequest.opcRequestId
     };
 
@@ -3984,6 +4042,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listPublishedObjectsRequest.opcRequestId
     };
 
@@ -4064,6 +4123,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSchemasRequest.opcRequestId
     };
 
@@ -4142,6 +4202,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listTaskRunLogsRequest.opcRequestId
     };
 
@@ -4247,6 +4308,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listTaskRunsRequest.opcRequestId
     };
 
@@ -4329,6 +4391,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listTaskValidationsRequest.opcRequestId
     };
 
@@ -4412,6 +4475,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listTasksRequest.opcRequestId
     };
 
@@ -4490,6 +4554,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -4583,6 +4648,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
@@ -4675,6 +4741,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
@@ -4768,6 +4835,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkspacesRequest.opcRequestId
     };
 
@@ -4855,6 +4923,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": startWorkspaceRequest.ifMatch,
       "opc-request-id": startWorkspaceRequest.opcRequestId,
       "opc-retry-token": startWorkspaceRequest.opcRetryToken
@@ -4919,6 +4988,7 @@ export class DataIntegrationClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": stopWorkspaceRequest.ifMatch,
       "opc-request-id": stopWorkspaceRequest.opcRequestId,
       "opc-retry-token": stopWorkspaceRequest.opcRetryToken
@@ -4981,6 +5051,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateApplicationRequest.ifMatch,
       "opc-request-id": updateApplicationRequest.opcRequestId
     };
@@ -5049,6 +5120,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateConnectionRequest.opcRequestId,
       "if-match": updateConnectionRequest.ifMatch
     };
@@ -5117,6 +5189,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateDataAssetRequest.opcRequestId,
       "if-match": updateDataAssetRequest.ifMatch
     };
@@ -5185,6 +5258,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateDataFlowRequest.opcRequestId,
       "if-match": updateDataFlowRequest.ifMatch
     };
@@ -5253,6 +5327,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateFolderRequest.opcRequestId,
       "if-match": updateFolderRequest.ifMatch
     };
@@ -5321,6 +5396,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateProjectRequest.opcRequestId,
       "if-match": updateProjectRequest.ifMatch
     };
@@ -5389,6 +5465,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateTaskRequest.opcRequestId,
       "if-match": updateTaskRequest.ifMatch
     };
@@ -5458,6 +5535,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateTaskRunRequest.opcRequestId,
       "if-match": updateTaskRunRequest.ifMatch
     };
@@ -5525,6 +5603,7 @@ export class DataIntegrationClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateWorkspaceRequest.ifMatch,
       "opc-request-id": updateWorkspaceRequest.opcRequestId
     };

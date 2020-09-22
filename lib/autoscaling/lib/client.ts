@@ -137,6 +137,7 @@ When you move an autoscaling configuration to a different compartment, associate
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeAutoScalingConfigurationCompartmentRequest.opcRequestId,
       "if-match": changeAutoScalingConfigurationCompartmentRequest.ifMatch,
       "opc-retry-token": changeAutoScalingConfigurationCompartmentRequest.opcRetryToken
@@ -201,6 +202,7 @@ When you move an autoscaling configuration to a different compartment, associate
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createAutoScalingConfigurationRequest.opcRequestId,
       "opc-retry-token": createAutoScalingConfigurationRequest.opcRetryToken
     };
@@ -270,6 +272,7 @@ When you move an autoscaling configuration to a different compartment, associate
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createAutoScalingPolicyRequest.opcRequestId,
       "opc-retry-token": createAutoScalingPolicyRequest.opcRetryToken
     };
@@ -339,6 +342,7 @@ When you move an autoscaling configuration to a different compartment, associate
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteAutoScalingConfigurationRequest.ifMatch,
       "opc-request-id": deleteAutoScalingConfigurationRequest.opcRequestId
     };
@@ -395,6 +399,7 @@ When you move an autoscaling configuration to a different compartment, associate
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteAutoScalingPolicyRequest.ifMatch,
       "opc-request-id": deleteAutoScalingPolicyRequest.opcRequestId
     };
@@ -451,6 +456,7 @@ When you move an autoscaling configuration to a different compartment, associate
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getAutoScalingConfigurationRequest.opcRequestId
     };
 
@@ -513,6 +519,7 @@ When you move an autoscaling configuration to a different compartment, associate
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getAutoScalingPolicyRequest.opcRequestId
     };
 
@@ -582,6 +589,7 @@ When you move an autoscaling configuration to a different compartment, associate
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAutoScalingConfigurationsRequest.opcRequestId
     };
 
@@ -676,6 +684,7 @@ When you move an autoscaling configuration to a different compartment, associate
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAutoScalingPoliciesRequest.opcRequestId
     };
 
@@ -766,6 +775,7 @@ When you move an autoscaling configuration to a different compartment, associate
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateAutoScalingConfigurationRequest.ifMatch,
       "opc-request-id": updateAutoScalingConfigurationRequest.opcRequestId,
       "opc-retry-token": updateAutoScalingConfigurationRequest.opcRetryToken
@@ -836,6 +846,7 @@ When you move an autoscaling configuration to a different compartment, associate
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateAutoScalingPolicyRequest.ifMatch,
       "opc-request-id": updateAutoScalingPolicyRequest.opcRequestId,
       "opc-retry-token": updateAutoScalingPolicyRequest.opcRetryToken

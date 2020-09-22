@@ -7,7 +7,7 @@ import common = require("oci-common");
 import { ObjectStorageClient, requests } from "oci-objectstorage";
 import { Region } from "oci-common";
 
-const configurationFilePath = '~/.oci/config';
+const configurationFilePath = "~/.oci/config";
 const configProfile = "DEFAULT";
 
 const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider(

@@ -151,6 +151,7 @@ export class DeploymentClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": changeDeploymentCompartmentRequest.opcRetryToken,
       "if-match": changeDeploymentCompartmentRequest.ifMatch,
       "opc-request-id": changeDeploymentCompartmentRequest.opcRequestId
@@ -215,6 +216,7 @@ export class DeploymentClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createDeploymentRequest.opcRetryToken,
       "opc-request-id": createDeploymentRequest.opcRequestId
     };
@@ -292,6 +294,7 @@ export class DeploymentClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteDeploymentRequest.ifMatch,
       "opc-request-id": deleteDeploymentRequest.opcRequestId
     };
@@ -351,6 +354,7 @@ export class DeploymentClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getDeploymentRequest.opcRequestId
     };
 
@@ -420,6 +424,7 @@ export class DeploymentClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listDeploymentsRequest.opcRequestId
     };
 
@@ -486,6 +491,7 @@ export class DeploymentClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateDeploymentRequest.ifMatch,
       "opc-request-id": updateDeploymentRequest.opcRequestId
     };
@@ -656,6 +662,7 @@ export class GatewayClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": changeGatewayCompartmentRequest.opcRetryToken,
       "if-match": changeGatewayCompartmentRequest.ifMatch,
       "opc-request-id": changeGatewayCompartmentRequest.opcRequestId
@@ -720,6 +727,7 @@ export class GatewayClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createGatewayRequest.opcRetryToken,
       "opc-request-id": createGatewayRequest.opcRequestId
     };
@@ -797,6 +805,7 @@ export class GatewayClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteGatewayRequest.ifMatch,
       "opc-request-id": deleteGatewayRequest.opcRequestId
     };
@@ -856,6 +865,7 @@ export class GatewayClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getGatewayRequest.opcRequestId
     };
 
@@ -924,6 +934,7 @@ export class GatewayClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listGatewaysRequest.opcRequestId
     };
 
@@ -990,6 +1001,7 @@ export class GatewayClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateGatewayRequest.ifMatch,
       "opc-request-id": updateGatewayRequest.opcRequestId
     };
@@ -1160,6 +1172,7 @@ export class WorkRequestsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": cancelWorkRequestRequest.opcRetryToken,
       "if-match": cancelWorkRequestRequest.ifMatch,
       "opc-request-id": cancelWorkRequestRequest.opcRequestId
@@ -1215,6 +1228,7 @@ export class WorkRequestsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -1288,6 +1302,7 @@ export class WorkRequestsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -1360,6 +1375,7 @@ export class WorkRequestsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
@@ -1432,6 +1448,7 @@ export class WorkRequestsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 

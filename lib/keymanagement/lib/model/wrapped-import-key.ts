@@ -1,6 +1,8 @@
 /**
- * Key Management Service API
- * API for managing and performing operations with keys and vaults.
+ * Vault Service Key Management API
+ * API for managing and performing operations with keys and vaults. (For the API for managing secrets, see the Vault Service 
+Secret Management API. For the API for retrieving secrets, see the Vault Service Secret Retrieval API.)
+
  * OpenAPI spec version: release
  * Contact: sparta_kms_us_grp@oracle.com
  *
@@ -16,11 +18,11 @@ import common = require("oci-common");
 
 export interface WrappedImportKey {
   /**
-   * The wrapped/encrypted key material to import. It is encrypted using RSA wrapped key and Base64 encoded.
+   * The key material to import, wrapped by the vault's public RSA wrapping key and base64-encoded.
    */
   "keyMaterial": string;
   /**
-   * The wrapping mechanism to be used during key import
+   * The wrapping mechanism to use during key import.
    */
   "wrappingAlgorithm": WrappedImportKey.WrappingAlgorithm;
 }

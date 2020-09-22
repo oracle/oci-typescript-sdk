@@ -147,6 +147,7 @@ export class ManagementAgentClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createManagementAgentInstallKeyRequest.opcRetryToken,
       "opc-request-id": createManagementAgentInstallKeyRequest.opcRequestId
     };
@@ -215,6 +216,7 @@ export class ManagementAgentClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteManagementAgentRequest.ifMatch,
       "opc-request-id": deleteManagementAgentRequest.opcRequestId
     };
@@ -271,6 +273,7 @@ export class ManagementAgentClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteManagementAgentInstallKeyRequest.ifMatch,
       "opc-request-id": deleteManagementAgentInstallKeyRequest.opcRequestId
     };
@@ -326,6 +329,7 @@ export class ManagementAgentClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteWorkRequestRequest.opcRequestId,
       "if-match": deleteWorkRequestRequest.ifMatch
     };
@@ -379,6 +383,7 @@ export class ManagementAgentClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": deployPluginsRequest.opcRetryToken,
       "opc-request-id": deployPluginsRequest.opcRequestId
     };
@@ -444,6 +449,7 @@ export class ManagementAgentClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getManagementAgentRequest.opcRequestId
     };
 
@@ -507,6 +513,7 @@ export class ManagementAgentClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getManagementAgentInstallKeyRequest.opcRequestId
     };
 
@@ -575,6 +582,7 @@ export class ManagementAgentClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getManagementAgentInstallKeyContentRequest.opcRequestId
     };
 
@@ -642,6 +650,7 @@ export class ManagementAgentClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -716,6 +725,7 @@ export class ManagementAgentClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": listManagementAgentImagesRequest.opcRetryToken,
       "opc-request-id": listManagementAgentImagesRequest.opcRequestId
     };
@@ -812,6 +822,7 @@ export class ManagementAgentClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listManagementAgentInstallKeysRequest.opcRequestId
     };
 
@@ -906,6 +917,7 @@ export class ManagementAgentClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listManagementAgentPluginsRequest.opcRequestId
     };
 
@@ -1003,6 +1015,7 @@ export class ManagementAgentClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listManagementAgentsRequest.opcRequestId
     };
 
@@ -1096,6 +1109,7 @@ export class ManagementAgentClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -1189,6 +1203,7 @@ export class ManagementAgentClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
@@ -1283,6 +1298,7 @@ export class ManagementAgentClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
@@ -1371,6 +1387,7 @@ export class ManagementAgentClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": updateManagementAgentRequest.opcRetryToken,
       "opc-request-id": updateManagementAgentRequest.opcRequestId,
       "if-match": updateManagementAgentRequest.ifMatch
@@ -1442,6 +1459,7 @@ export class ManagementAgentClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": updateManagementAgentInstallKeyRequest.opcRetryToken,
       "opc-request-id": updateManagementAgentInstallKeyRequest.opcRequestId,
       "if-match": updateManagementAgentInstallKeyRequest.ifMatch

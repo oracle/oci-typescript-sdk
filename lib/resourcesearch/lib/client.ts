@@ -122,6 +122,7 @@ export class ResourceSearchClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getResourceTypeRequest.opcRequestId
     };
 
@@ -180,6 +181,7 @@ export class ResourceSearchClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listResourceTypesRequest.opcRequestId
     };
 
@@ -271,6 +273,7 @@ export class ResourceSearchClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": searchResourcesRequest.opcRequestId
     };
 
