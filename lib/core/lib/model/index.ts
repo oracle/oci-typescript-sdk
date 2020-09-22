@@ -332,6 +332,8 @@ import * as Image from "./image";
 export import Image = Image.Image;
 import * as ImageCapabilitySchemaDescriptor from "./image-capability-schema-descriptor";
 export import ImageCapabilitySchemaDescriptor = ImageCapabilitySchemaDescriptor.ImageCapabilitySchemaDescriptor;
+import * as ImageMemoryConstraints from "./image-memory-constraints";
+export import ImageMemoryConstraints = ImageMemoryConstraints.ImageMemoryConstraints;
 import * as ImageOcpuConstraints from "./image-ocpu-constraints";
 export import ImageOcpuConstraints = ImageOcpuConstraints.ImageOcpuConstraints;
 import * as ImageShapeCompatibilityEntry from "./image-shape-compatibility-entry";

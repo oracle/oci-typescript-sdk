@@ -150,6 +150,7 @@ export class DataSafeClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeDataSafePrivateEndpointCompartmentRequest.opcRequestId,
       "if-match": changeDataSafePrivateEndpointCompartmentRequest.ifMatch
     };
@@ -214,6 +215,7 @@ export class DataSafeClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createDataSafePrivateEndpointRequest.opcRetryToken,
       "opc-request-id": createDataSafePrivateEndpointRequest.opcRequestId
     };
@@ -279,6 +281,7 @@ export class DataSafeClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteDataSafePrivateEndpointRequest.ifMatch,
       "opc-request-id": deleteDataSafePrivateEndpointRequest.opcRequestId
     };
@@ -340,6 +343,7 @@ export class DataSafeClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": enableDataSafeConfigurationRequest.ifMatch,
       "opc-request-id": enableDataSafeConfigurationRequest.opcRequestId
     };
@@ -405,6 +409,7 @@ export class DataSafeClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getDataSafeConfigurationRequest.opcRequestId
     };
 
@@ -467,6 +472,7 @@ export class DataSafeClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getDataSafePrivateEndpointRequest.opcRequestId
     };
 
@@ -528,6 +534,7 @@ export class DataSafeClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -603,6 +610,7 @@ export class DataSafeClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listDataSafePrivateEndpointsRequest.opcRequestId
     };
 
@@ -693,6 +701,7 @@ export class DataSafeClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -783,6 +792,7 @@ export class DataSafeClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
@@ -873,6 +883,7 @@ export class DataSafeClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
@@ -960,6 +971,7 @@ export class DataSafeClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateDataSafePrivateEndpointRequest.ifMatch,
       "opc-request-id": updateDataSafePrivateEndpointRequest.opcRequestId
     };

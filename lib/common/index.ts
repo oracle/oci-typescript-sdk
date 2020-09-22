@@ -14,6 +14,8 @@ import { Region } from "./lib/region";
 import { Realm } from "./lib/realm";
 import { EndpointBuilder } from "./lib/endpoint-builder";
 import { LOG } from "./lib/log";
+import Constants from "./lib/constants";
+
 import {
   DelayStrategy,
   TerminationStrategy,
@@ -99,5 +101,6 @@ export {
   MaxAttemptsTerminationStrategy,
   RetryConfiguration,
   BaseRequest,
-  ClientConfiguration
+  ClientConfiguration,
+  Constants
 };

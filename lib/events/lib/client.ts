@@ -150,6 +150,7 @@ export class EventsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeRuleCompartmentRequest.ifMatch,
       "opc-request-id": changeRuleCompartmentRequest.opcRequestId,
       "opc-retry-token": changeRuleCompartmentRequest.opcRetryToken
@@ -209,6 +210,7 @@ export class EventsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createRuleRequest.opcRetryToken,
       "opc-request-id": createRuleRequest.opcRequestId
     };
@@ -276,6 +278,7 @@ export class EventsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteRuleRequest.ifMatch,
       "opc-request-id": deleteRuleRequest.opcRequestId
     };
@@ -330,6 +333,7 @@ export class EventsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getRuleRequest.opcRequestId
     };
 
@@ -398,6 +402,7 @@ export class EventsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listRulesRequest.opcRequestId
     };
 
@@ -485,6 +490,7 @@ export class EventsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateRuleRequest.ifMatch,
       "opc-request-id": updateRuleRequest.opcRequestId
     };

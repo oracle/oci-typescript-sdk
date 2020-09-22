@@ -151,6 +151,7 @@ export class EmailClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeSenderCompartmentRequest.ifMatch,
       "opc-request-id": changeSenderCompartmentRequest.opcRequestId
     };
@@ -208,6 +209,7 @@ export class EmailClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createSenderRequest.opcRequestId
     };
 
@@ -276,6 +278,7 @@ export class EmailClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createSuppressionRequest.opcRequestId
     };
 
@@ -339,6 +342,7 @@ export class EmailClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteSenderRequest.ifMatch,
       "opc-request-id": deleteSenderRequest.opcRequestId
     };
@@ -395,6 +399,7 @@ export class EmailClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteSuppressionRequest.opcRequestId
     };
 
@@ -448,6 +453,7 @@ export class EmailClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getSenderRequest.opcRequestId
     };
 
@@ -511,6 +517,7 @@ export class EmailClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getSuppressionRequest.opcRequestId
     };
 
@@ -574,6 +581,7 @@ export class EmailClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSendersRequest.opcRequestId
     };
 
@@ -680,6 +688,7 @@ export class EmailClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSuppressionsRequest.opcRequestId
     };
 
@@ -775,6 +784,7 @@ export class EmailClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateSenderRequest.ifMatch,
       "opc-request-id": updateSenderRequest.opcRequestId
     };

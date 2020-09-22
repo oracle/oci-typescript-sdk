@@ -122,6 +122,7 @@ export class LogSearchClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": searchLogsRequest.opcRequestId
     };
 

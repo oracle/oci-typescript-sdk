@@ -36,8 +36,8 @@ if (args.length !== 3) {
 
 const filePath: string = args[0]; //  for eg : "/Users/Abc/upload-manager";
 const bucketName = args[1];
-const namespaceName = args[2]
-const serviceName = "objectstorage"
+const namespaceName = args[2];
+const serviceName = "objectstorage";
 
 const client = new ObjectStorageClient({ authenticationDetailsProvider: provider });
 client.region = Region.US_PHOENIX_1;
@@ -67,7 +67,7 @@ client.region = Region.US_PHOENIX_1;
     };
     // create pre authenticated request to generate the url
     const resp = await client.createPreauthenticatedRequest(createPreauthenticatedRequest);
-    const baseUrl = `https://${serviceName}.${common.Region.US_PHOENIX_1.regionId}.${common.Realm.OC1.secondLevelDomain}`
+    const baseUrl = `https://${serviceName}.${common.Region.US_PHOENIX_1.regionId}.${common.Realm.OC1.secondLevelDomain}`;
     const downloadUrl = resp.preauthenticatedRequest.accessUri;
     console.log("download url for the file " + filePath + " is " + baseUrl + downloadUrl);
 

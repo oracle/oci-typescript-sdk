@@ -149,6 +149,7 @@ export class NosqlClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": changeTableCompartmentRequest.opcRetryToken,
       "if-match": changeTableCompartmentRequest.ifMatch,
       "opc-request-id": changeTableCompartmentRequest.opcRequestId
@@ -214,6 +215,7 @@ export class NosqlClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createIndexRequest.opcRetryToken,
       "opc-request-id": createIndexRequest.opcRequestId
     };
@@ -276,6 +278,7 @@ export class NosqlClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createTableRequest.opcRetryToken,
       "opc-request-id": createTableRequest.opcRequestId
     };
@@ -344,6 +347,7 @@ export class NosqlClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteIndexRequest.ifMatch,
       "opc-request-id": deleteIndexRequest.opcRequestId
     };
@@ -408,6 +412,7 @@ export class NosqlClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteRowRequest.ifMatch,
       "opc-request-id": deleteRowRequest.opcRequestId
     };
@@ -468,6 +473,7 @@ export class NosqlClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteTableRequest.ifMatch,
       "opc-request-id": deleteTableRequest.opcRequestId
     };
@@ -527,6 +533,7 @@ export class NosqlClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteWorkRequestRequest.ifMatch,
       "opc-request-id": deleteWorkRequestRequest.opcRequestId
     };
@@ -589,6 +596,7 @@ export class NosqlClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getIndexRequest.opcRequestId
     };
 
@@ -653,6 +661,7 @@ export class NosqlClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getRowRequest.opcRequestId
     };
 
@@ -716,6 +725,7 @@ export class NosqlClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getTableRequest.opcRequestId
     };
 
@@ -777,6 +787,7 @@ export class NosqlClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -851,6 +862,7 @@ export class NosqlClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listIndexesRequest.opcRequestId
     };
 
@@ -918,6 +930,7 @@ export class NosqlClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listTableUsageRequest.opcRequestId
     };
 
@@ -985,6 +998,7 @@ export class NosqlClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listTablesRequest.opcRequestId
     };
 
@@ -1050,6 +1064,7 @@ export class NosqlClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -1115,6 +1130,7 @@ export class NosqlClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
@@ -1178,6 +1194,7 @@ export class NosqlClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
@@ -1241,6 +1258,7 @@ export class NosqlClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": prepareStatementRequest.opcRequestId
     };
 
@@ -1296,6 +1314,7 @@ export class NosqlClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": queryRequest.opcRequestId
     };
 
@@ -1364,6 +1383,7 @@ export class NosqlClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": summarizeStatementRequest.opcRequestId
     };
 
@@ -1420,6 +1440,7 @@ export class NosqlClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateRowRequest.ifMatch,
       "opc-request-id": updateRowRequest.opcRequestId
     };
@@ -1489,6 +1510,7 @@ export class NosqlClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateTableRequest.ifMatch,
       "opc-request-id": updateTableRequest.opcRequestId
     };

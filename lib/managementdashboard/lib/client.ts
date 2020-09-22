@@ -126,6 +126,7 @@ export class DashxApisClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeManagementDashboardsCompartmentRequest.ifMatch,
       "opc-retry-token": changeManagementDashboardsCompartmentRequest.opcRetryToken,
       "opc-request-id": changeManagementDashboardsCompartmentRequest.opcRequestId
@@ -196,6 +197,7 @@ export class DashxApisClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeManagementSavedSearchesCompartmentRequest.ifMatch,
       "opc-retry-token": changeManagementSavedSearchesCompartmentRequest.opcRetryToken,
       "opc-request-id": changeManagementSavedSearchesCompartmentRequest.opcRequestId
@@ -261,6 +263,7 @@ export class DashxApisClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createManagementDashboardRequest.opcRetryToken,
       "opc-request-id": createManagementDashboardRequest.opcRequestId
     };
@@ -333,6 +336,7 @@ export class DashxApisClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createManagementSavedSearchRequest.opcRetryToken,
       "opc-request-id": createManagementSavedSearchRequest.opcRequestId
     };
@@ -406,6 +410,7 @@ export class DashxApisClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteManagementDashboardRequest.ifMatch,
       "opc-request-id": deleteManagementDashboardRequest.opcRequestId
     };
@@ -466,6 +471,7 @@ export class DashxApisClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteManagementSavedSearchRequest.ifMatch,
       "opc-request-id": deleteManagementSavedSearchRequest.opcRequestId
     };
@@ -525,6 +531,7 @@ export class DashxApisClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": exportDashboardRequest.opcRetryToken,
       "opc-request-id": exportDashboardRequest.opcRequestId
     };
@@ -587,6 +594,7 @@ export class DashxApisClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": getManagementDashboardRequest.opcRetryToken,
       "opc-request-id": getManagementDashboardRequest.opcRequestId
     };
@@ -655,6 +663,7 @@ export class DashxApisClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": getManagementSavedSearchRequest.opcRetryToken,
       "opc-request-id": getManagementSavedSearchRequest.opcRequestId
     };
@@ -721,6 +730,7 @@ export class DashxApisClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": importDashboardRequest.ifMatch,
       "opc-retry-token": importDashboardRequest.opcRetryToken,
       "opc-request-id": importDashboardRequest.opcRequestId
@@ -792,6 +802,7 @@ export class DashxApisClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listManagementDashboardsRequest.opcRequestId
     };
 
@@ -859,6 +870,7 @@ export class DashxApisClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listManagementSavedSearchesRequest.opcRequestId
     };
 
@@ -922,6 +934,7 @@ export class DashxApisClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateManagementDashboardRequest.ifMatch,
       "opc-retry-token": updateManagementDashboardRequest.opcRetryToken,
       "opc-request-id": updateManagementDashboardRequest.opcRequestId
@@ -997,6 +1010,7 @@ export class DashxApisClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateManagementSavedSearchRequest.ifMatch,
       "opc-retry-token": updateManagementSavedSearchRequest.opcRetryToken,
       "opc-request-id": updateManagementSavedSearchRequest.opcRequestId

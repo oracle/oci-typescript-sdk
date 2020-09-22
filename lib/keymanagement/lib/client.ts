@@ -1,6 +1,8 @@
 /**
- * Key Management Service API
- * API for managing and performing operations with keys and vaults.
+ * Vault Service Key Management API
+ * API for managing and performing operations with keys and vaults. (For the API for managing secrets, see the Vault Service 
+Secret Management API. For the API for retrieving secrets, see the Vault Service Secret Retrieval API.)
+
  * OpenAPI spec version: release
  * Contact: sparta_kms_us_grp@oracle.com
  *
@@ -69,7 +71,7 @@ export class KmsCryptoClient {
   }
 
   /**
-   * Decrypts data using the given [DecryptDataDetails](https://docs.cloud.oracle.com/api/#/en/key/release/datatypes/DecryptDataDetails) resource.
+   * Decrypts data using the given [DecryptDataDetails](https://docs.cloud.oracle.com/api/#/en/key/latest/datatypes/DecryptDataDetails) resource.
    *
    * @param DecryptRequest
    * @return DecryptResponse
@@ -84,6 +86,7 @@ export class KmsCryptoClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": decryptRequest.opcRequestId
     };
 
@@ -129,7 +132,7 @@ export class KmsCryptoClient {
   }
 
   /**
-   * Encrypts data using the given [EncryptDataDetails](https://docs.cloud.oracle.com/api/#/en/key/release/datatypes/EncryptDataDetails) resource.
+   * Encrypts data using the given [EncryptDataDetails](https://docs.cloud.oracle.com/api/#/en/key/latest/datatypes/EncryptDataDetails) resource.
    * Plaintext included in the example request is a base64-encoded value of a UTF-8 string.
    *
    * @param EncryptRequest
@@ -145,6 +148,7 @@ export class KmsCryptoClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": encryptRequest.opcRequestId
     };
 
@@ -190,6 +194,68 @@ export class KmsCryptoClient {
   }
 
   /**
+   * Exports a specific version of a master encryption key according to the details of the request. For their protection,
+   * keys that you create and store on a hardware security module (HSM) can never leave the HSM. You can only export keys
+   * stored on the server. For export, the key version is encrypted by an RSA public key that you provide.
+   *
+   * @param ExportKeyRequest
+   * @return ExportKeyResponse
+   * @throws OciError when an error occurs
+   */
+  public async exportKey(
+    exportKeyRequest: requests.ExportKeyRequest
+  ): Promise<responses.ExportKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsCryptoClient#exportKey.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/20180608/exportKey",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        exportKeyRequest.exportKeyDetails,
+        "ExportKeyDetails",
+        models.ExportKeyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      exportKeyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ExportKeyResponse>{},
+        body: await response.json(),
+        bodyKey: "exportedKeyData",
+        bodyModel: "model.ExportedKeyData",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Generates a key that you can use to encrypt or decrypt data.
    *
    * @param GenerateDataEncryptionKeyRequest
@@ -206,6 +272,7 @@ export class KmsCryptoClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": generateDataEncryptionKeyRequest.opcRequestId
     };
 
@@ -337,6 +404,7 @@ export class KmsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": backupKeyRequest.ifMatch,
       "opc-request-id": backupKeyRequest.opcRequestId,
       "opc-retry-token": backupKeyRequest.opcRetryToken
@@ -418,6 +486,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": cancelKeyDeletionRequest.ifMatch,
       "opc-request-id": cancelKeyDeletionRequest.opcRequestId,
       "opc-retry-token": cancelKeyDeletionRequest.opcRetryToken
@@ -491,6 +560,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": cancelKeyVersionDeletionRequest.ifMatch,
       "opc-request-id": cancelKeyVersionDeletionRequest.opcRequestId,
       "opc-retry-token": cancelKeyVersionDeletionRequest.opcRetryToken
@@ -564,6 +634,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeKeyCompartmentRequest.ifMatch,
       "opc-request-id": changeKeyCompartmentRequest.opcRequestId,
       "opc-retry-token": changeKeyCompartmentRequest.opcRetryToken
@@ -633,6 +704,7 @@ As a management operation, this call is subject to a Key Management limit that a
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createKeyRequest.opcRequestId,
       "opc-retry-token": createKeyRequest.opcRetryToken
     };
@@ -684,7 +756,7 @@ As a management operation, this call is subject to a Key Management limit that a
   }
 
   /**
-     * Generates a new [KeyVersion](https://docs.cloud.oracle.com/api/#/en/key/release/KeyVersion/) resource that provides new cryptographic
+     * Generates a new [KeyVersion](https://docs.cloud.oracle.com/api/#/en/key/latest/KeyVersion/) resource that provides new cryptographic
 * material for a master encryption key. The key must be in an `ENABLED` state to be rotated.
 * <p>
 As a management operation, this call is subject to a Key Management limit that applies to the total number
@@ -707,6 +779,7 @@ As a management operation, this call is subject to a Key Management limit that a
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createKeyVersionRequest.opcRequestId,
       "opc-retry-token": createKeyVersionRequest.opcRetryToken
     };
@@ -776,6 +849,7 @@ As a management operation, this call is subject to a Key Management limit that a
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": disableKeyRequest.ifMatch,
       "opc-request-id": disableKeyRequest.opcRequestId,
       "opc-retry-token": disableKeyRequest.opcRetryToken
@@ -846,6 +920,7 @@ As a management operation, this call is subject to a Key Management limit that a
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": enableKeyRequest.ifMatch,
       "opc-request-id": enableKeyRequest.opcRequestId,
       "opc-retry-token": enableKeyRequest.opcRetryToken
@@ -913,6 +988,7 @@ As a management operation, this call is subject to a Key Management limit that a
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getKeyRequest.opcRequestId
     };
 
@@ -981,6 +1057,7 @@ As a management operation, this call is subject to a Key Management limit that a
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getKeyVersionRequest.opcRequestId
     };
 
@@ -1042,6 +1119,7 @@ As a management operation, this call is subject to a Key Management limit that a
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWrappingKeyRequest.opcRequestId
     };
 
@@ -1104,6 +1182,7 @@ As a management operation, this call is subject to a Key Management limit that a
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": importKeyRequest.opcRequestId,
       "opc-retry-token": importKeyRequest.opcRetryToken
     };
@@ -1176,6 +1255,7 @@ As a management operation, this call is subject to a Key Management limit that a
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": importKeyVersionRequest.opcRequestId,
       "opc-retry-token": importKeyVersionRequest.opcRetryToken
     };
@@ -1227,7 +1307,7 @@ As a management operation, this call is subject to a Key Management limit that a
   }
 
   /**
-     * Lists all [KeyVersion](https://docs.cloud.oracle.com/api/#/en/key/release/KeyVersion/) resources for the specified
+     * Lists all [KeyVersion](https://docs.cloud.oracle.com/api/#/en/key/latest/KeyVersion/) resources for the specified
 * master encryption key.
 * <p>
 As a management operation, this call is subject to a Key Management limit that applies to the total number
@@ -1255,6 +1335,7 @@ As a management operation, this call is subject to a Key Management limit that a
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listKeyVersionsRequest.opcRequestId
     };
 
@@ -1347,10 +1428,12 @@ As a management operation, this call is subject to a Key Management limit that a
       "limit": listKeysRequest.limit,
       "page": listKeysRequest.page,
       "sortBy": listKeysRequest.sortBy,
-      "sortOrder": listKeysRequest.sortOrder
+      "sortOrder": listKeysRequest.sortOrder,
+      "protectionMode": listKeysRequest.protectionMode
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listKeysRequest.opcRequestId
     };
 
@@ -1514,6 +1597,7 @@ As a management operation, this call is subject to a Key Management limit that a
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": restoreKeyFromObjectStoreRequest.ifMatch,
       "opc-request-id": restoreKeyFromObjectStoreRequest.opcRequestId,
       "opc-retry-token": restoreKeyFromObjectStoreRequest.opcRetryToken
@@ -1595,6 +1679,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": scheduleKeyDeletionRequest.ifMatch,
       "opc-request-id": scheduleKeyDeletionRequest.opcRequestId,
       "opc-retry-token": scheduleKeyDeletionRequest.opcRetryToken
@@ -1672,6 +1757,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": scheduleKeyVersionDeletionRequest.ifMatch,
       "opc-request-id": scheduleKeyVersionDeletionRequest.opcRequestId,
       "opc-retry-token": scheduleKeyVersionDeletionRequest.opcRetryToken
@@ -1748,6 +1834,7 @@ As a management operation, this call is subject to a Key Management limit that a
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateKeyRequest.ifMatch,
       "opc-request-id": updateKeyRequest.opcRequestId
     };
@@ -1923,6 +2010,7 @@ export class KmsVaultClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": backupVaultRequest.ifMatch,
       "opc-request-id": backupVaultRequest.opcRequestId,
       "opc-retry-token": backupVaultRequest.opcRetryToken
@@ -2005,6 +2093,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": cancelVaultDeletionRequest.ifMatch,
       "opc-request-id": cancelVaultDeletionRequest.opcRequestId,
       "opc-retry-token": cancelVaultDeletionRequest.opcRetryToken
@@ -2077,6 +2166,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeVaultCompartmentRequest.ifMatch,
       "opc-request-id": changeVaultCompartmentRequest.opcRequestId,
       "opc-retry-token": changeVaultCompartmentRequest.opcRetryToken
@@ -2149,6 +2239,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createVaultRequest.opcRequestId,
       "opc-retry-token": createVaultRequest.opcRetryToken
     };
@@ -2222,6 +2313,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getVaultRequest.opcRequestId
     };
 
@@ -2284,6 +2376,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getVaultUsageRequest.opcRequestId
     };
 
@@ -2350,6 +2443,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listVaultsRequest.opcRequestId
     };
 
@@ -2519,6 +2613,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": restoreVaultFromObjectStoreRequest.ifMatch,
       "opc-request-id": restoreVaultFromObjectStoreRequest.opcRequestId,
       "opc-retry-token": restoreVaultFromObjectStoreRequest.opcRetryToken
@@ -2602,6 +2697,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": scheduleVaultDeletionRequest.ifMatch,
       "opc-request-id": scheduleVaultDeletionRequest.opcRequestId,
       "opc-retry-token": scheduleVaultDeletionRequest.opcRetryToken
@@ -2678,6 +2774,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateVaultRequest.ifMatch,
       "opc-request-id": updateVaultRequest.opcRequestId
     };

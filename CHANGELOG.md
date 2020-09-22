@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 1.5.5 - 2020-09-22
+### Added
+- Support for software keys in the Key Management service
+- Support for customer contacts on Exadata Cloud at Customer in the Database service
+- Support for updating open modes and permission levels of autonomous databases in the Database service
+- Support for flexible memory on VM instances in the Compute and Compute Management services
+
 ## 1.5.4 - 2020-09-15
 ### Added
 - Support for the Cloud Guard service

@@ -122,6 +122,7 @@ export class MarketplaceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createAcceptedAgreementRequest.opcRequestId,
       "opc-retry-token": createAcceptedAgreementRequest.opcRetryToken
     };
@@ -195,6 +196,7 @@ export class MarketplaceClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteAcceptedAgreementRequest.opcRequestId,
       "if-match": deleteAcceptedAgreementRequest.ifMatch
     };
@@ -250,6 +252,7 @@ export class MarketplaceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getAcceptedAgreementRequest.opcRequestId
     };
 
@@ -317,6 +320,7 @@ export class MarketplaceClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getAgreementRequest.opcRequestId
     };
 
@@ -390,6 +394,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getListingRequest.opcRequestId
     };
 
@@ -468,6 +473,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getPackageRequest.opcRequestId
     };
 
@@ -540,6 +546,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAcceptedAgreementsRequest.opcRequestId
     };
 
@@ -632,6 +639,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAgreementsRequest.opcRequestId
     };
 
@@ -722,6 +730,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listCategoriesRequest.opcRequestId
     };
 
@@ -834,6 +843,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listListingsRequest.opcRequestId
     };
 
@@ -942,6 +952,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listPackagesRequest.opcRequestId
     };
 
@@ -1032,6 +1043,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listPublishersRequest.opcRequestId
     };
 
@@ -1119,6 +1131,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listReportTypesRequest.opcRequestId
     };
 
@@ -1183,6 +1196,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listReportsRequest.opcRequestId
     };
 
@@ -1246,6 +1260,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateAcceptedAgreementRequest.opcRequestId,
       "opc-retry-token": updateAcceptedAgreementRequest.opcRetryToken,
       "if-match": updateAcceptedAgreementRequest.ifMatch

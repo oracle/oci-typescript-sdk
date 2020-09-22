@@ -4,6 +4,10 @@
  */
 
 import { Realm } from "./realm";
+import { ConfigFileReader } from "./config-file-reader";
+import { readFileSync } from "fs";
+import { RegionMetadataSchema } from "./region-metadata-schema";
+import { FetchHttpClient } from "./http";
 
 export class Region {
   /**
@@ -55,10 +59,24 @@ export class Region {
 
   private static KNOWN_REGIONS: Map<string, Region> = new Map();
 
-  private constructor(regionId: string, realm: Realm) {
+  private static hasCalledForImds: boolean = false;
+  private static hasUsedConfigFile: boolean = false;
+  private static hasUsedEnvVar: boolean = false;
+  private static imdsRegionMetadata: RegionMetadataSchema | undefined;
+
+  private static REGIONS_CONFIG_FILE_PATH: string = "~/.oci/regions-config.json";
+  private static OCI_REGION_METADATA_ENV_VAR: string = "OCI_REGION_METADATA";
+  private static IMDS_BASE_URL: string = "http://169.254.169.254/opc/v2/";
+  private static METADATA_AUTH_HEADERS: string = "Bearer Oracle";
+  private static AUTHORIZATION: string = "Authorization";
+  private static CONTENT_TYPE_HEADER: string = "Content-Type";
+  private static CONTENT_TYPE_HEADER_VALUE: string = "application/json";
+
+  private constructor(regionId: string, realm: Realm, regionCode?: string) {
     this._realm = realm;
     this._regionId = regionId;
     Region.KNOWN_REGIONS.set(regionId, this);
+    if (regionCode) Region.REGIONS_SHORT_NAMES[regionCode] = regionId;
   }
 
   // OC1
@@ -99,12 +117,131 @@ export class Region {
   public static AP_CHIYODA_1: Region = Region.register("ap-chiyoda-1", Realm.OC8);
 
   public static fromRegionId(regionId: string): Region {
+    /*
+     * load provided region from already registered regions if it exists
+     * else load provided region from region configuration file if it exists
+     * else load provided region from region metadeta environment variable
+     * else if instance metadeta service (IMDS) has been opted in, try loading region from IMDS
+     */
     if (!regionId) throw Error("RegionId can not be empty or undefined");
     regionId = (regionId.trim() as any).toLocaleLowerCase("en-US");
-    return Region.KNOWN_REGIONS.get(regionId)!;
+
+    let foundRegion = Region.KNOWN_REGIONS.get(regionId);
+
+    if (!foundRegion) {
+      Region.addRegionsFromConfigFile();
+      foundRegion = Region.KNOWN_REGIONS.get(regionId);
+    }
+
+    if (!foundRegion) {
+      Region.addRegionFromEnvVar();
+      foundRegion = Region.KNOWN_REGIONS.get(regionId);
+    }
+
+    if (!foundRegion && Region.hasCalledForImds) {
+      Region.addRegionFromImds();
+      foundRegion = Region.KNOWN_REGIONS.get(regionId);
+    }
+
+    return foundRegion!;
   }
 
-  public static register(regionId: string, realm: Realm): Region {
+  // Adds regions from the config file
+  private static addRegionsFromConfigFile(): void {
+    if (!Region.hasUsedConfigFile) {
+      Region.hasUsedConfigFile = true;
+      let expandedRegionConfigFilePath = ConfigFileReader.expandUserHome(
+        Region.REGIONS_CONFIG_FILE_PATH
+      );
+      if (ConfigFileReader.fileExists(expandedRegionConfigFilePath)) {
+        try {
+          const fileContent = readFileSync(expandedRegionConfigFilePath, "utf8");
+          const regionMetadata = JSON.parse(fileContent) as RegionMetadataSchema[];
+          if (regionMetadata && regionMetadata.length > 0 && Array.isArray(regionMetadata)) {
+            regionMetadata.map(metadata => {
+              if (RegionMetadataSchema.isValidSchema(metadata)) {
+                Region.register(
+                  metadata.regionIdentifier,
+                  Realm.register(metadata.realmKey, metadata.realmDomainComponent),
+                  metadata.regionKey
+                );
+              }
+            });
+          }
+        } catch (error) {
+          console.log("error reading or parsing region config file");
+        }
+      }
+    }
+  }
+
+  // Adds region from the environment variable
+  private static addRegionFromEnvVar(): void {
+    if (!Region.hasUsedEnvVar) {
+      Region.hasUsedEnvVar = true;
+      const envVarRegionMetadata = process.env[Region.OCI_REGION_METADATA_ENV_VAR];
+      if (envVarRegionMetadata) {
+        try {
+          const regionMetadata = JSON.parse(envVarRegionMetadata) as RegionMetadataSchema;
+          if (RegionMetadataSchema.isValidSchema(regionMetadata)) {
+            Region.register(
+              regionMetadata.regionIdentifier,
+              Realm.register(regionMetadata.realmKey, regionMetadata.realmDomainComponent),
+              regionMetadata.regionKey
+            );
+          }
+        } catch (error) {
+          console.log("error reading or parsing region metadata env var config file");
+        }
+      }
+    }
+  }
+
+  // Add region from the Instance Metadata Service
+  private static addRegionFromImds(): void {
+    if (Region.imdsRegionMetadata) {
+      Region.register(
+        Region.imdsRegionMetadata.regionIdentifier,
+        Realm.register(
+          Region.imdsRegionMetadata.realmKey,
+          Region.imdsRegionMetadata.realmDomainComponent
+        ),
+        Region.imdsRegionMetadata.regionKey
+      );
+      Region.imdsRegionMetadata = undefined;
+    }
+  }
+
+  /*
+   * Enable instance metadata lookup for region info
+   */
+  public static async enableInstanceMetadata(): Promise<void> {
+    if (!Region.hasCalledForImds) {
+      Region.hasCalledForImds = true;
+      try {
+        const url: string = Region.IMDS_BASE_URL + "instance/regionInfo/";
+        let headers = new Headers();
+        headers.append(Region.CONTENT_TYPE_HEADER, Region.CONTENT_TYPE_HEADER_VALUE);
+        headers.append(Region.AUTHORIZATION, Region.METADATA_AUTH_HEADERS);
+        const httpClient = new FetchHttpClient(null);
+        const response = await httpClient.send({
+          uri: url,
+          method: "GET",
+          headers: headers
+        });
+        const regionMetadata = (await response.json()) as RegionMetadataSchema;
+        if (RegionMetadataSchema.isValidSchema(regionMetadata)) {
+          Region.imdsRegionMetadata = regionMetadata;
+        }
+      } catch (error) {
+        console.log(
+          "Unable to retrieve region metadata from instance metadata service, reason :" + error
+        );
+      }
+    }
+  }
+
+  public static register(regionId: string, realm: Realm, regionCode?: string): Region {
     if (!regionId) throw Error("RegionId can not be empty or undefined");
     regionId = (regionId.trim() as any).toLocaleLowerCase("en-US");
     const region = Region.KNOWN_REGIONS.get(regionId);
@@ -120,7 +257,10 @@ export class Region {
       }
       return region;
     }
-    return new Region(regionId, realm);
+    if (regionCode) {
+      regionCode = (regionCode.trim() as any).toLocaleLowerCase("en-US");
+    }
+    return new Region(regionId, realm, regionCode);
   }
 
   /**
@@ -131,8 +271,26 @@ export class Region {
    */
   public static getRegionIdFromShortCode(regionStr: string): string {
     regionStr = regionStr.toLocaleLowerCase();
-    return Region.REGIONS_SHORT_NAMES[regionStr]
-      ? Region.REGIONS_SHORT_NAMES[regionStr]
-      : regionStr;
+
+    // If region short code is not found in the SDK, add regions from the regions config file
+    let foundRegionId = Region.REGIONS_SHORT_NAMES[regionStr];
+    if (!foundRegionId) {
+      Region.addRegionsFromConfigFile();
+      foundRegionId = Region.REGIONS_SHORT_NAMES[regionStr];
+    }
+
+    // else add region from environment variable, and then check for short code
+    if (!foundRegionId) {
+      Region.addRegionFromEnvVar();
+      foundRegionId = Region.REGIONS_SHORT_NAMES[regionStr];
+    }
+
+    // else add region from IMDS if it has been opted in, and then check for short code
+    if (!foundRegionId && Region.hasCalledForImds) {
+      Region.addRegionFromImds();
+      foundRegionId = Region.REGIONS_SHORT_NAMES[regionStr];
+    }
+
+    return foundRegionId ? foundRegionId : regionStr;
   }
 }

@@ -147,6 +147,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": activateModelRequest.ifMatch,
       "opc-request-id": activateModelRequest.opcRequestId
     };
@@ -210,6 +211,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": activateNotebookSessionRequest.ifMatch,
       "opc-request-id": activateNotebookSessionRequest.opcRequestId
     };
@@ -269,6 +271,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": cancelWorkRequestRequest.ifMatch,
       "opc-request-id": cancelWorkRequestRequest.opcRequestId
     };
@@ -324,6 +327,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeModelCompartmentRequest.ifMatch,
       "opc-request-id": changeModelCompartmentRequest.opcRequestId,
       "opc-retry-token": changeModelCompartmentRequest.opcRetryToken
@@ -385,6 +389,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeNotebookSessionCompartmentRequest.ifMatch,
       "opc-request-id": changeNotebookSessionCompartmentRequest.opcRequestId,
       "opc-retry-token": changeNotebookSessionCompartmentRequest.opcRetryToken
@@ -446,6 +451,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeProjectCompartmentRequest.ifMatch,
       "opc-request-id": changeProjectCompartmentRequest.opcRequestId,
       "opc-retry-token": changeProjectCompartmentRequest.opcRetryToken
@@ -504,6 +510,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createModelRequest.opcRequestId,
       "opc-retry-token": createModelRequest.opcRetryToken
     };
@@ -634,6 +641,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createModelProvenanceRequest.opcRequestId,
       "opc-retry-token": createModelProvenanceRequest.opcRetryToken
     };
@@ -700,6 +708,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createNotebookSessionRequest.opcRequestId,
       "opc-retry-token": createNotebookSessionRequest.opcRetryToken
     };
@@ -775,6 +784,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createProjectRequest.opcRequestId,
       "opc-retry-token": createProjectRequest.opcRetryToken
     };
@@ -842,6 +852,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deactivateModelRequest.ifMatch,
       "opc-request-id": deactivateModelRequest.opcRequestId
     };
@@ -905,6 +916,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deactivateNotebookSessionRequest.ifMatch,
       "opc-request-id": deactivateNotebookSessionRequest.opcRequestId
     };
@@ -964,6 +976,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteModelRequest.ifMatch,
       "opc-request-id": deleteModelRequest.opcRequestId
     };
@@ -1019,6 +1032,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteNotebookSessionRequest.ifMatch,
       "opc-request-id": deleteNotebookSessionRequest.opcRequestId
     };
@@ -1078,6 +1092,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteProjectRequest.ifMatch,
       "opc-request-id": deleteProjectRequest.opcRequestId
     };
@@ -1137,6 +1152,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getModelRequest.opcRequestId
     };
 
@@ -1199,6 +1215,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getModelArtifactContentRequest.opcRequestId,
       "range": getModelArtifactContentRequest.range
     };
@@ -1282,6 +1299,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getModelProvenanceRequest.opcRequestId
     };
 
@@ -1343,6 +1361,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getNotebookSessionRequest.opcRequestId
     };
 
@@ -1404,6 +1423,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getProjectRequest.opcRequestId
     };
 
@@ -1465,6 +1485,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -1531,6 +1552,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": headModelArtifactRequest.opcRequestId
     };
 
@@ -1618,6 +1640,7 @@ export class DataScienceClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listModelsRequest.opcRequestId
     };
 
@@ -1712,6 +1735,7 @@ export class DataScienceClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listNotebookSessionShapesRequest.opcRequestId
     };
 
@@ -1812,6 +1836,7 @@ export class DataScienceClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listNotebookSessionsRequest.opcRequestId
     };
 
@@ -1911,6 +1936,7 @@ export class DataScienceClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listProjectsRequest.opcRequestId
     };
 
@@ -2003,6 +2029,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -2059,6 +2086,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
@@ -2122,6 +2150,7 @@ export class DataScienceClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
@@ -2213,6 +2242,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateModelRequest.ifMatch,
       "opc-request-id": updateModelRequest.opcRequestId
     };
@@ -2281,6 +2311,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateModelProvenanceRequest.opcRequestId,
       "if-match": updateModelProvenanceRequest.ifMatch
     };
@@ -2352,6 +2383,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateNotebookSessionRequest.ifMatch,
       "opc-request-id": updateNotebookSessionRequest.opcRequestId
     };
@@ -2419,6 +2451,7 @@ export class DataScienceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateProjectRequest.ifMatch,
       "opc-request-id": updateProjectRequest.opcRequestId
     };

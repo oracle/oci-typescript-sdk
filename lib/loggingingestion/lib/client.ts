@@ -123,6 +123,7 @@ export class LoggingClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "timestamp-opc-agent-processing": putLogsRequest.timestampOpcAgentProcessing,
       "opc-agent-version": putLogsRequest.opcAgentVersion,
       "opc-request-id": putLogsRequest.opcRequestId

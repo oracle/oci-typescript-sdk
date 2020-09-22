@@ -149,6 +149,7 @@ export class OdaClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeOdaInstanceCompartmentRequest.ifMatch,
       "opc-request-id": changeOdaInstanceCompartmentRequest.opcRequestId,
       "opc-retry-token": changeOdaInstanceCompartmentRequest.opcRetryToken
@@ -216,6 +217,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createOdaInstanceRequest.opcRequestId,
       "opc-retry-token": createOdaInstanceRequest.opcRetryToken
     };
@@ -294,6 +296,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteOdaInstanceRequest.ifMatch,
       "opc-request-id": deleteOdaInstanceRequest.opcRequestId
     };
@@ -353,6 +356,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getOdaInstanceRequest.opcRequestId
     };
 
@@ -418,6 +422,7 @@ You can use this operation to monitor the status of jobs that you
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -491,6 +496,7 @@ If the `opc-next-page` header appears in the response, then
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listOdaInstancesRequest.opcRequestId
     };
 
@@ -587,6 +593,7 @@ If the `opc-next-page` header appears in the response, then
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -683,6 +690,7 @@ If the `opc-next-page` header appears in the response, then
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
@@ -779,6 +787,7 @@ If the `opc-next-page` header appears in the response, then
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
@@ -867,6 +876,7 @@ If the `opc-next-page` header appears in the response, then
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": startOdaInstanceRequest.opcRequestId,
       "if-match": startOdaInstanceRequest.ifMatch,
       "opc-retry-token": startOdaInstanceRequest.opcRetryToken
@@ -930,6 +940,7 @@ If the `opc-next-page` header appears in the response, then
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": stopOdaInstanceRequest.opcRequestId,
       "if-match": stopOdaInstanceRequest.ifMatch,
       "opc-retry-token": stopOdaInstanceRequest.opcRetryToken
@@ -990,6 +1001,7 @@ If the `opc-next-page` header appears in the response, then
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateOdaInstanceRequest.ifMatch,
       "opc-request-id": updateOdaInstanceRequest.opcRequestId
     };

@@ -155,6 +155,7 @@ export class ApplianceExportJobClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeApplianceExportJobCompartmentRequest.ifMatch,
       "opc-request-id": changeApplianceExportJobCompartmentRequest.opcRequestId,
       "opc-retry-token": changeApplianceExportJobCompartmentRequest.opcRetryToken
@@ -214,6 +215,7 @@ export class ApplianceExportJobClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createApplianceExportJobRequest.opcRetryToken,
       "opc-request-id": createApplianceExportJobRequest.opcRequestId
     };
@@ -282,6 +284,7 @@ export class ApplianceExportJobClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteApplianceExportJobRequest.ifMatch,
       "opc-request-id": deleteApplianceExportJobRequest.opcRequestId
     };
@@ -337,6 +340,7 @@ export class ApplianceExportJobClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getApplianceExportJobRequest.opcRequestId
     };
 
@@ -403,6 +407,7 @@ export class ApplianceExportJobClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listApplianceExportJobsRequest.opcRequestId
     };
 
@@ -490,6 +495,7 @@ export class ApplianceExportJobClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateApplianceExportJobRequest.ifMatch,
       "opc-request-id": updateApplianceExportJobRequest.opcRequestId
     };
@@ -638,7 +644,9 @@ export class ShippingVendorsClient {
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -801,6 +809,7 @@ export class TransferApplianceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createTransferApplianceRequest.opcRetryToken
     };
 
@@ -871,7 +880,9 @@ export class TransferApplianceClient {
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -937,7 +948,9 @@ export class TransferApplianceClient {
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -990,7 +1003,9 @@ export class TransferApplianceClient {
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -1054,7 +1069,9 @@ export class TransferApplianceClient {
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -1119,7 +1136,9 @@ export class TransferApplianceClient {
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -1181,7 +1200,9 @@ export class TransferApplianceClient {
       "lifecycleState": listTransferAppliancesRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -1238,6 +1259,7 @@ export class TransferApplianceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateTransferApplianceRequest.ifMatch
     };
 
@@ -1413,6 +1435,7 @@ export class TransferApplianceEntitlementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createTransferApplianceEntitlementRequest.opcRetryToken,
       "opc-request-id": createTransferApplianceEntitlementRequest.opcRequestId
     };
@@ -1483,6 +1506,7 @@ export class TransferApplianceEntitlementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": getTransferApplianceEntitlementRequest.opcRetryToken,
       "opc-request-id": getTransferApplianceEntitlementRequest.opcRequestId
     };
@@ -1545,6 +1569,7 @@ export class TransferApplianceEntitlementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listTransferApplianceEntitlementRequest.opcRequestId
     };
 
@@ -1709,6 +1734,7 @@ export class TransferDeviceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createTransferDeviceRequest.opcRetryToken
     };
 
@@ -1776,7 +1802,9 @@ export class TransferDeviceClient {
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -1828,7 +1856,9 @@ export class TransferDeviceClient {
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -1891,7 +1921,9 @@ export class TransferDeviceClient {
       "displayName": listTransferDevicesRequest.displayName
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -1948,6 +1980,7 @@ export class TransferDeviceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateTransferDeviceRequest.ifMatch
     };
 
@@ -2122,6 +2155,7 @@ export class TransferJobClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeTransferJobCompartmentRequest.ifMatch,
       "opc-request-id": changeTransferJobCompartmentRequest.opcRequestId,
       "opc-retry-token": changeTransferJobCompartmentRequest.opcRetryToken
@@ -2185,6 +2219,7 @@ export class TransferJobClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createTransferJobRequest.opcRetryToken,
       "opc-request-id": createTransferJobRequest.opcRequestId
     };
@@ -2252,6 +2287,7 @@ export class TransferJobClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteTransferJobRequest.opcRequestId
     };
 
@@ -2305,6 +2341,7 @@ export class TransferJobClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getTransferJobRequest.opcRequestId
     };
 
@@ -2370,6 +2407,7 @@ export class TransferJobClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listTransferJobsRequest.opcRequestId
     };
 
@@ -2456,6 +2494,7 @@ export class TransferJobClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateTransferJobRequest.ifMatch,
       "opc-request-id": updateTransferJobRequest.opcRequestId
     };
@@ -2631,7 +2670,9 @@ export class TransferPackageClient {
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -2694,6 +2735,7 @@ export class TransferPackageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createTransferPackageRequest.opcRetryToken
     };
 
@@ -2761,7 +2803,9 @@ export class TransferPackageClient {
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -2816,7 +2860,9 @@ export class TransferPackageClient {
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -2879,7 +2925,9 @@ export class TransferPackageClient {
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -2942,7 +2990,9 @@ export class TransferPackageClient {
       "displayName": listTransferPackagesRequest.displayName
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -2999,6 +3049,7 @@ export class TransferPackageClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateTransferPackageRequest.ifMatch
     };
 

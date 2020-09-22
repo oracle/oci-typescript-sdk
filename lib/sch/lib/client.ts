@@ -157,6 +157,7 @@ After you send your request, the service connector's state is temporarily
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": activateServiceConnectorRequest.opcRetryToken,
       "if-match": activateServiceConnectorRequest.ifMatch,
       "opc-request-id": activateServiceConnectorRequest.opcRequestId
@@ -225,6 +226,7 @@ When provided, If-Match is checked against ETag values of the resource.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeServiceConnectorCompartmentRequest.ifMatch,
       "opc-request-id": changeServiceConnectorCompartmentRequest.opcRequestId
     };
@@ -306,6 +308,7 @@ After you send your request, the new service connector's state is temporarily
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createServiceConnectorRequest.opcRetryToken,
       "opc-request-id": createServiceConnectorRequest.opcRequestId
     };
@@ -377,6 +380,7 @@ After you send your request, the service connector's state is temporarily
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": deactivateServiceConnectorRequest.opcRetryToken,
       "if-match": deactivateServiceConnectorRequest.ifMatch,
       "opc-request-id": deactivateServiceConnectorRequest.opcRequestId
@@ -442,6 +446,7 @@ After you send your request, the service connector's state is temporarily
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteServiceConnectorRequest.ifMatch,
       "opc-request-id": deleteServiceConnectorRequest.opcRequestId
     };
@@ -503,6 +508,7 @@ After you send your request, the service connector's state is temporarily
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getServiceConnectorRequest.opcRequestId
     };
 
@@ -565,6 +571,7 @@ After you send your request, the service connector's state is temporarily
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -634,6 +641,7 @@ After you send your request, the service connector's state is temporarily
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listServiceConnectorsRequest.opcRequestId
     };
 
@@ -705,6 +713,7 @@ After you send your request, the service connector's state is temporarily
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -776,6 +785,7 @@ After you send your request, the service connector's state is temporarily
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
@@ -846,6 +856,7 @@ After you send your request, the service connector's state is temporarily
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
@@ -918,6 +929,7 @@ After you send your request, the service connector's state is temporarily
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateServiceConnectorRequest.ifMatch,
       "opc-request-id": updateServiceConnectorRequest.opcRequestId
     };

@@ -150,6 +150,7 @@ export class AnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeAnalyticsInstanceCompartmentRequest.ifMatch,
       "opc-request-id": changeAnalyticsInstanceCompartmentRequest.opcRequestId,
       "opc-retry-token": changeAnalyticsInstanceCompartmentRequest.opcRetryToken
@@ -220,6 +221,7 @@ export class AnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeAnalyticsInstanceNetworkEndpointRequest.ifMatch,
       "opc-request-id": changeAnalyticsInstanceNetworkEndpointRequest.opcRequestId,
       "opc-retry-token": changeAnalyticsInstanceNetworkEndpointRequest.opcRetryToken
@@ -286,6 +288,7 @@ export class AnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createAnalyticsInstanceRequest.opcRequestId,
       "opc-retry-token": createAnalyticsInstanceRequest.opcRetryToken
     };
@@ -366,6 +369,7 @@ export class AnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteAnalyticsInstanceRequest.ifMatch,
       "opc-request-id": deleteAnalyticsInstanceRequest.opcRequestId,
       "opc-retry-token": deleteAnalyticsInstanceRequest.opcRetryToken
@@ -427,6 +431,7 @@ export class AnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteWorkRequestRequest.ifMatch,
       "opc-request-id": deleteWorkRequestRequest.opcRequestId
     };
@@ -482,6 +487,7 @@ export class AnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getAnalyticsInstanceRequest.opcRequestId
     };
 
@@ -544,6 +550,7 @@ export class AnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -619,6 +626,7 @@ export class AnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAnalyticsInstancesRequest.opcRequestId
     };
 
@@ -709,6 +717,7 @@ export class AnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -799,6 +808,7 @@ export class AnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
@@ -893,6 +903,7 @@ export class AnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
@@ -981,6 +992,7 @@ export class AnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": scaleAnalyticsInstanceRequest.ifMatch,
       "opc-request-id": scaleAnalyticsInstanceRequest.opcRequestId,
       "opc-retry-token": scaleAnalyticsInstanceRequest.opcRetryToken
@@ -1048,6 +1060,7 @@ export class AnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": startAnalyticsInstanceRequest.ifMatch,
       "opc-request-id": startAnalyticsInstanceRequest.opcRequestId,
       "opc-retry-token": startAnalyticsInstanceRequest.opcRetryToken
@@ -1110,6 +1123,7 @@ export class AnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": stopAnalyticsInstanceRequest.ifMatch,
       "opc-request-id": stopAnalyticsInstanceRequest.opcRequestId,
       "opc-retry-token": stopAnalyticsInstanceRequest.opcRetryToken
@@ -1173,6 +1187,7 @@ export class AnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateAnalyticsInstanceRequest.ifMatch,
       "opc-request-id": updateAnalyticsInstanceRequest.opcRequestId
     };

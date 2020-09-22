@@ -151,6 +151,7 @@ export class IntegrationInstanceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeIntegrationInstanceCompartmentRequest.ifMatch,
       "opc-request-id": changeIntegrationInstanceCompartmentRequest.opcRequestId,
       "opc-retry-token": changeIntegrationInstanceCompartmentRequest.opcRetryToken
@@ -216,6 +217,7 @@ export class IntegrationInstanceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createIntegrationInstanceRequest.opcRetryToken,
       "opc-request-id": createIntegrationInstanceRequest.opcRequestId
     };
@@ -281,6 +283,7 @@ export class IntegrationInstanceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteIntegrationInstanceRequest.ifMatch,
       "opc-request-id": deleteIntegrationInstanceRequest.opcRequestId
     };
@@ -341,6 +344,7 @@ export class IntegrationInstanceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getIntegrationInstanceRequest.opcRequestId
     };
 
@@ -403,6 +407,7 @@ export class IntegrationInstanceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -477,6 +482,7 @@ export class IntegrationInstanceClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listIntegrationInstancesRequest.opcRequestId
     };
 
@@ -573,6 +579,7 @@ export class IntegrationInstanceClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -669,6 +676,7 @@ export class IntegrationInstanceClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
@@ -765,6 +773,7 @@ export class IntegrationInstanceClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
@@ -858,6 +867,7 @@ export class IntegrationInstanceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": startIntegrationInstanceRequest.ifMatch,
       "opc-request-id": startIntegrationInstanceRequest.opcRequestId,
       "opc-retry-token": startIntegrationInstanceRequest.opcRetryToken
@@ -920,6 +930,7 @@ export class IntegrationInstanceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": stopIntegrationInstanceRequest.ifMatch,
       "opc-request-id": stopIntegrationInstanceRequest.opcRequestId,
       "opc-retry-token": stopIntegrationInstanceRequest.opcRetryToken
@@ -981,6 +992,7 @@ export class IntegrationInstanceClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateIntegrationInstanceRequest.ifMatch,
       "opc-request-id": updateIntegrationInstanceRequest.opcRequestId
     };

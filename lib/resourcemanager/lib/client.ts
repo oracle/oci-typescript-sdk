@@ -153,6 +153,7 @@ export class ResourceManagerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": cancelJobRequest.opcRequestId,
       "if-match": cancelJobRequest.ifMatch
     };
@@ -214,6 +215,7 @@ export class ResourceManagerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeConfigurationSourceProviderCompartmentRequest.ifMatch,
       "opc-request-id": changeConfigurationSourceProviderCompartmentRequest.opcRequestId,
       "opc-retry-token": changeConfigurationSourceProviderCompartmentRequest.opcRetryToken
@@ -276,6 +278,7 @@ export class ResourceManagerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeStackCompartmentRequest.ifMatch,
       "opc-request-id": changeStackCompartmentRequest.opcRequestId,
       "opc-retry-token": changeStackCompartmentRequest.opcRetryToken
@@ -345,6 +348,7 @@ export class ResourceManagerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createConfigurationSourceProviderRequest.opcRequestId,
       "opc-retry-token": createConfigurationSourceProviderRequest.opcRetryToken
     };
@@ -410,6 +414,7 @@ export class ResourceManagerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createJobRequest.opcRequestId,
       "opc-retry-token": createJobRequest.opcRetryToken
     };
@@ -481,6 +486,7 @@ export class ResourceManagerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createStackRequest.opcRequestId,
       "opc-retry-token": createStackRequest.opcRetryToken
     };
@@ -557,6 +563,7 @@ export class ResourceManagerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteConfigurationSourceProviderRequest.opcRequestId,
       "if-match": deleteConfigurationSourceProviderRequest.ifMatch
     };
@@ -611,6 +618,7 @@ export class ResourceManagerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteStackRequest.opcRequestId,
       "if-match": deleteStackRequest.ifMatch
     };
@@ -665,6 +673,7 @@ export class ResourceManagerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": detectStackDriftRequest.ifMatch,
       "opc-request-id": detectStackDriftRequest.opcRequestId,
       "opc-retry-token": detectStackDriftRequest.opcRetryToken
@@ -727,6 +736,7 @@ export class ResourceManagerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getConfigurationSourceProviderRequest.opcRequestId
     };
 
@@ -786,6 +796,7 @@ export class ResourceManagerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getJobRequest.opcRequestId
     };
 
@@ -856,6 +867,7 @@ export class ResourceManagerClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getJobLogsRequest.opcRequestId
     };
 
@@ -945,6 +957,7 @@ export class ResourceManagerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getJobLogsContentRequest.opcRequestId
     };
 
@@ -1004,6 +1017,7 @@ export class ResourceManagerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getJobTfConfigRequest.opcRequestId
     };
 
@@ -1061,6 +1075,7 @@ export class ResourceManagerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getJobTfStateRequest.opcRequestId
     };
 
@@ -1118,6 +1133,7 @@ export class ResourceManagerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getStackRequest.opcRequestId
     };
 
@@ -1181,6 +1197,7 @@ export class ResourceManagerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getStackTfConfigRequest.opcRequestId
     };
 
@@ -1238,6 +1255,7 @@ export class ResourceManagerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getStackTfStateRequest.opcRequestId
     };
 
@@ -1295,6 +1313,7 @@ export class ResourceManagerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -1364,6 +1383,7 @@ export class ResourceManagerClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listConfigurationSourceProvidersRequest.opcRequestId
     };
 
@@ -1438,6 +1458,7 @@ export class ResourceManagerClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listJobsRequest.opcRequestId
     };
 
@@ -1524,6 +1545,7 @@ export class ResourceManagerClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listResourceDiscoveryServicesRequest.opcRequestId
     };
 
@@ -1588,6 +1610,7 @@ export class ResourceManagerClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listStackResourceDriftDetailsRequest.opcRequestId
     };
 
@@ -1659,6 +1682,7 @@ export class ResourceManagerClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listStacksRequest.opcRequestId
     };
 
@@ -1747,6 +1771,7 @@ export class ResourceManagerClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listTerraformVersionsRequest.opcRequestId
     };
 
@@ -1810,6 +1835,7 @@ export class ResourceManagerClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -1903,6 +1929,7 @@ export class ResourceManagerClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
@@ -1993,6 +2020,7 @@ export class ResourceManagerClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
@@ -2086,6 +2114,7 @@ export class ResourceManagerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateConfigurationSourceProviderRequest.opcRequestId,
       "if-match": updateConfigurationSourceProviderRequest.ifMatch
     };
@@ -2153,6 +2182,7 @@ export class ResourceManagerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateJobRequest.opcRequestId,
       "if-match": updateJobRequest.ifMatch
     };
@@ -2226,6 +2256,7 @@ export class ResourceManagerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateStackRequest.opcRequestId,
       "if-match": updateStackRequest.ifMatch
     };

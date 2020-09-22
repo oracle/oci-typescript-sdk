@@ -150,6 +150,7 @@ export class DataFlowClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeApplicationCompartmentRequest.opcRequestId,
       "if-match": changeApplicationCompartmentRequest.ifMatch,
       "opc-retry-token": changeApplicationCompartmentRequest.opcRetryToken
@@ -212,6 +213,7 @@ export class DataFlowClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changePrivateEndpointCompartmentRequest.opcRequestId,
       "if-match": changePrivateEndpointCompartmentRequest.ifMatch
     };
@@ -280,6 +282,7 @@ export class DataFlowClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeRunCompartmentRequest.opcRequestId,
       "if-match": changeRunCompartmentRequest.ifMatch,
       "opc-retry-token": changeRunCompartmentRequest.opcRetryToken
@@ -339,6 +342,7 @@ export class DataFlowClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createApplicationRequest.opcRetryToken,
       "opc-request-id": createApplicationRequest.opcRequestId
     };
@@ -405,6 +409,7 @@ export class DataFlowClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createPrivateEndpointRequest.opcRetryToken,
       "opc-request-id": createPrivateEndpointRequest.opcRequestId
     };
@@ -481,6 +486,7 @@ export class DataFlowClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createRunRequest.opcRetryToken,
       "opc-request-id": createRunRequest.opcRequestId
     };
@@ -549,6 +555,7 @@ export class DataFlowClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteApplicationRequest.opcRequestId,
       "if-match": deleteApplicationRequest.ifMatch
     };
@@ -604,6 +611,7 @@ export class DataFlowClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deletePrivateEndpointRequest.opcRequestId,
       "if-match": deletePrivateEndpointRequest.ifMatch
     };
@@ -665,6 +673,7 @@ export class DataFlowClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteRunRequest.opcRequestId,
       "if-match": deleteRunRequest.ifMatch
     };
@@ -720,6 +729,7 @@ export class DataFlowClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getApplicationRequest.opcRequestId
     };
 
@@ -782,6 +792,7 @@ export class DataFlowClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getPrivateEndpointRequest.opcRequestId
     };
 
@@ -842,6 +853,7 @@ export class DataFlowClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getRunRequest.opcRequestId
     };
 
@@ -905,6 +917,7 @@ export class DataFlowClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getRunLogRequest.opcRequestId
     };
 
@@ -991,6 +1004,7 @@ export class DataFlowClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -1055,6 +1069,7 @@ export class DataFlowClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listApplicationsRequest.opcRequestId
     };
 
@@ -1155,6 +1170,7 @@ export class DataFlowClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listPrivateEndpointsRequest.opcRequestId
     };
 
@@ -1225,6 +1241,7 @@ export class DataFlowClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listRunLogsRequest.opcRequestId
     };
 
@@ -1327,6 +1344,7 @@ export class DataFlowClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listRunsRequest.opcRequestId
     };
 
@@ -1420,6 +1438,7 @@ export class DataFlowClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -1490,6 +1509,7 @@ export class DataFlowClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
@@ -1559,6 +1579,7 @@ export class DataFlowClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
@@ -1626,6 +1647,7 @@ export class DataFlowClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateApplicationRequest.opcRequestId,
       "if-match": updateApplicationRequest.ifMatch
     };
@@ -1696,6 +1718,7 @@ export class DataFlowClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updatePrivateEndpointRequest.opcRequestId,
       "if-match": updatePrivateEndpointRequest.ifMatch
     };
@@ -1761,6 +1784,7 @@ export class DataFlowClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateRunRequest.opcRequestId,
       "if-match": updateRunRequest.ifMatch
     };

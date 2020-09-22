@@ -148,6 +148,7 @@ export class DbBackupsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createBackupRequest.opcRequestId,
       "opc-retry-token": createBackupRequest.opcRetryToken
     };
@@ -221,6 +222,7 @@ export class DbBackupsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteBackupRequest.ifMatch,
       "opc-request-id": deleteBackupRequest.opcRequestId
     };
@@ -280,6 +282,7 @@ export class DbBackupsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getBackupRequest.opcRequestId,
       "if-none-match": getBackupRequest.ifNoneMatch
     };
@@ -351,6 +354,7 @@ export class DbBackupsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listBackupsRequest.opcRequestId
     };
 
@@ -437,6 +441,7 @@ export class DbBackupsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateBackupRequest.ifMatch,
       "opc-request-id": updateBackupRequest.opcRequestId
     };
@@ -601,6 +606,7 @@ export class DbSystemClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createDbSystemRequest.opcRequestId,
       "opc-retry-token": createDbSystemRequest.opcRetryToken
     };
@@ -680,6 +686,7 @@ export class DbSystemClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteDbSystemRequest.ifMatch,
       "opc-request-id": deleteDbSystemRequest.opcRequestId
     };
@@ -739,6 +746,7 @@ export class DbSystemClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getDbSystemRequest.opcRequestId,
       "if-none-match": getDbSystemRequest.ifNoneMatch
     };
@@ -812,6 +820,7 @@ export class DbSystemClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listDbSystemsRequest.opcRequestId
     };
 
@@ -898,6 +907,7 @@ export class DbSystemClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": restartDbSystemRequest.ifMatch,
       "opc-request-id": restartDbSystemRequest.opcRequestId,
       "opc-retry-token": restartDbSystemRequest.opcRetryToken
@@ -963,6 +973,7 @@ export class DbSystemClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": startDbSystemRequest.ifMatch,
       "opc-request-id": startDbSystemRequest.opcRequestId,
       "opc-retry-token": startDbSystemRequest.opcRetryToken
@@ -1026,6 +1037,7 @@ A stopped DB System is not billed.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": stopDbSystemRequest.ifMatch,
       "opc-request-id": stopDbSystemRequest.opcRequestId,
       "opc-retry-token": stopDbSystemRequest.opcRetryToken
@@ -1099,6 +1111,7 @@ Updating different fields in the DB System will have different results
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateDbSystemRequest.ifMatch,
       "opc-request-id": updateDbSystemRequest.opcRequestId
     };
@@ -1267,6 +1280,7 @@ export class MysqlaasClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createConfigurationRequest.opcRequestId,
       "opc-retry-token": createConfigurationRequest.opcRetryToken
     };
@@ -1346,6 +1360,7 @@ export class MysqlaasClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteConfigurationRequest.ifMatch,
       "opc-request-id": deleteConfigurationRequest.opcRequestId
     };
@@ -1401,6 +1416,7 @@ export class MysqlaasClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getConfigurationRequest.opcRequestId,
       "if-none-match": getConfigurationRequest.ifNoneMatch
     };
@@ -1480,6 +1496,7 @@ The default sort order is a multi-part sort by:
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listConfigurationsRequest.opcRequestId
     };
 
@@ -1572,6 +1589,7 @@ The default sort order is a multi-part sort by:
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listShapesRequest.opcRequestId
     };
 
@@ -1631,6 +1649,7 @@ The list is sorted by version family.
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listVersionsRequest.opcRequestId
     };
 
@@ -1687,6 +1706,7 @@ The list is sorted by version family.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateConfigurationRequest.ifMatch,
       "opc-request-id": updateConfigurationRequest.opcRequestId
     };
@@ -1860,6 +1880,7 @@ export class WorkRequestsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-none-match": getWorkRequestRequest.ifNoneMatch,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
@@ -1932,6 +1953,7 @@ export class WorkRequestsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -2022,6 +2044,7 @@ export class WorkRequestsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
@@ -2113,6 +2136,7 @@ export class WorkRequestsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 

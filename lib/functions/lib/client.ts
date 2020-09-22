@@ -258,6 +258,7 @@ export class FunctionsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeApplicationCompartmentRequest.ifMatch,
       "opc-request-id": changeApplicationCompartmentRequest.opcRequestId
     };
@@ -316,6 +317,7 @@ export class FunctionsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createApplicationRequest.opcRequestId
     };
 
@@ -381,6 +383,7 @@ export class FunctionsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createFunctionRequest.opcRequestId
     };
 
@@ -448,6 +451,7 @@ export class FunctionsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteApplicationRequest.ifMatch,
       "opc-request-id": deleteApplicationRequest.opcRequestId
     };
@@ -503,6 +507,7 @@ export class FunctionsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteFunctionRequest.ifMatch,
       "opc-request-id": deleteFunctionRequest.opcRequestId
     };
@@ -558,6 +563,7 @@ export class FunctionsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getApplicationRequest.opcRequestId
     };
 
@@ -619,6 +625,7 @@ export class FunctionsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getFunctionRequest.opcRequestId
     };
 
@@ -688,6 +695,7 @@ export class FunctionsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listApplicationsRequest.opcRequestId
     };
 
@@ -782,6 +790,7 @@ export class FunctionsManagementClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listFunctionsRequest.opcRequestId
     };
 
@@ -869,6 +878,7 @@ export class FunctionsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateApplicationRequest.ifMatch,
       "opc-request-id": updateApplicationRequest.opcRequestId
     };
@@ -937,6 +947,7 @@ export class FunctionsManagementClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateFunctionRequest.ifMatch,
       "opc-request-id": updateFunctionRequest.opcRequestId
     };

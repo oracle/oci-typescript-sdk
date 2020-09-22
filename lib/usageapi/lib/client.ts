@@ -122,6 +122,7 @@ export class UsageapiClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": requestSummarizedConfigurationsRequest.opcRequestId
     };
 
@@ -180,6 +181,7 @@ export class UsageapiClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": requestSummarizedUsagesRequest.opcRequestId
     };
 

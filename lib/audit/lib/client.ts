@@ -124,7 +124,9 @@ export class AuditClient {
       "compartmentId": getConfigurationRequest.compartmentId
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -178,6 +180,7 @@ export class AuditClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listEventsRequest.opcRequestId
     };
 
@@ -263,7 +266,9 @@ export class AuditClient {
       "compartmentId": updateConfigurationRequest.compartmentId
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,

@@ -150,6 +150,7 @@ export class RedirectClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeHttpRedirectCompartmentRequest.ifMatch,
       "opc-request-id": changeHttpRedirectCompartmentRequest.opcRequestId,
       "opc-retry-token": changeHttpRedirectCompartmentRequest.opcRetryToken
@@ -208,6 +209,7 @@ export class RedirectClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createHttpRedirectRequest.opcRequestId,
       "opc-retry-token": createHttpRedirectRequest.opcRetryToken
     };
@@ -272,6 +274,7 @@ export class RedirectClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteHttpRedirectRequest.opcRequestId,
       "opc-retry-token": deleteHttpRedirectRequest.opcRetryToken,
       "if-match": deleteHttpRedirectRequest.ifMatch
@@ -332,6 +335,7 @@ export class RedirectClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getHttpRedirectRequest.opcRequestId
     };
 
@@ -402,6 +406,7 @@ export class RedirectClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listHttpRedirectsRequest.opcRequestId
     };
 
@@ -488,6 +493,7 @@ export class RedirectClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateHttpRedirectRequest.opcRequestId,
       "opc-retry-token": updateHttpRedirectRequest.opcRetryToken,
       "if-match": updateHttpRedirectRequest.ifMatch
@@ -663,6 +669,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": acceptRecommendationsRequest.opcRequestId,
       "if-match": acceptRecommendationsRequest.ifMatch
     };
@@ -726,6 +733,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": cancelWorkRequestRequest.opcRequestId,
       "opc-retry-token": cancelWorkRequestRequest.opcRetryToken,
       "if-match": cancelWorkRequestRequest.ifMatch
@@ -785,6 +793,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeAddressListCompartmentRequest.ifMatch,
       "opc-request-id": changeAddressListCompartmentRequest.opcRequestId,
       "opc-retry-token": changeAddressListCompartmentRequest.opcRetryToken
@@ -848,6 +857,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeCertificateCompartmentRequest.ifMatch,
       "opc-request-id": changeCertificateCompartmentRequest.opcRequestId,
       "opc-retry-token": changeCertificateCompartmentRequest.opcRetryToken
@@ -910,6 +920,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeCustomProtectionRuleCompartmentRequest.ifMatch,
       "opc-request-id": changeCustomProtectionRuleCompartmentRequest.opcRequestId,
       "opc-retry-token": changeCustomProtectionRuleCompartmentRequest.opcRetryToken
@@ -972,6 +983,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeWaasPolicyCompartmentRequest.ifMatch,
       "opc-request-id": changeWaasPolicyCompartmentRequest.opcRequestId,
       "opc-retry-token": changeWaasPolicyCompartmentRequest.opcRetryToken
@@ -1030,6 +1042,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createAddressListRequest.opcRequestId,
       "opc-retry-token": createAddressListRequest.opcRetryToken
     };
@@ -1097,6 +1110,7 @@ For more information, see [WAF Settings](https://docs.cloud.oracle.com/iaas/Cont
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createCertificateRequest.opcRequestId,
       "opc-retry-token": createCertificateRequest.opcRetryToken
     };
@@ -1164,6 +1178,7 @@ Custom protection rules allow you to create rules in addition to the rulesets pr
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createCustomProtectionRuleRequest.opcRequestId,
       "opc-retry-token": createCustomProtectionRuleRequest.opcRetryToken
     };
@@ -1241,6 +1256,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createWaasPolicyRequest.opcRequestId,
       "opc-retry-token": createWaasPolicyRequest.opcRetryToken
     };
@@ -1310,6 +1326,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteAddressListRequest.opcRequestId,
       "opc-retry-token": deleteAddressListRequest.opcRetryToken,
       "if-match": deleteAddressListRequest.ifMatch
@@ -1365,6 +1382,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteCertificateRequest.opcRequestId,
       "opc-retry-token": deleteCertificateRequest.opcRetryToken,
       "if-match": deleteCertificateRequest.ifMatch
@@ -1420,6 +1438,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteCustomProtectionRuleRequest.opcRequestId,
       "opc-retry-token": deleteCustomProtectionRuleRequest.opcRetryToken,
       "if-match": deleteCustomProtectionRuleRequest.ifMatch
@@ -1475,6 +1494,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteWaasPolicyRequest.opcRequestId,
       "opc-retry-token": deleteWaasPolicyRequest.opcRetryToken,
       "if-match": deleteWaasPolicyRequest.ifMatch
@@ -1535,6 +1555,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getAddressListRequest.opcRequestId
     };
 
@@ -1596,6 +1617,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getCertificateRequest.opcRequestId
     };
 
@@ -1657,6 +1679,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getCustomProtectionRuleRequest.opcRequestId
     };
 
@@ -1719,6 +1742,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getDeviceFingerprintChallengeRequest.opcRequestId
     };
 
@@ -1781,6 +1805,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getHumanInteractionChallengeRequest.opcRequestId
     };
 
@@ -1842,6 +1867,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getJsChallengeRequest.opcRequestId
     };
 
@@ -1903,6 +1929,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getPolicyConfigRequest.opcRequestId
     };
 
@@ -1965,6 +1992,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getProtectionRuleRequest.opcRequestId
     };
 
@@ -2026,6 +2054,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getProtectionSettingsRequest.opcRequestId
     };
 
@@ -2087,6 +2116,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWaasPolicyRequest.opcRequestId
     };
 
@@ -2148,6 +2178,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWafAddressRateLimitingRequest.opcRequestId
     };
 
@@ -2209,6 +2240,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWafConfigRequest.opcRequestId
     };
 
@@ -2270,6 +2302,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -2340,6 +2373,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAccessRulesRequest.opcRequestId
     };
 
@@ -2440,6 +2474,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAddressListsRequest.opcRequestId
     };
 
@@ -2530,6 +2565,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listCachingRulesRequest.opcRequestId
     };
 
@@ -2629,6 +2665,7 @@ The order of the CAPTCHA challenges is important. The URL for each
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listCaptchasRequest.opcRequestId
     };
 
@@ -2729,6 +2766,7 @@ The order of the CAPTCHA challenges is important. The URL for each
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listCertificatesRequest.opcRequestId
     };
 
@@ -2825,6 +2863,7 @@ The order of the CAPTCHA challenges is important. The URL for each
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listCustomProtectionRulesRequest.opcRequestId
     };
 
@@ -2914,6 +2953,7 @@ The order of the CAPTCHA challenges is important. The URL for each
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listEdgeSubnetsRequest.opcRequestId
     };
 
@@ -3006,6 +3046,7 @@ The list is sorted by `key`, in ascending order.
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listGoodBotsRequest.opcRequestId
     };
 
@@ -3103,6 +3144,7 @@ The list is sorted by `key`, in ascending order.
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listProtectionRulesRequest.opcRequestId
     };
 
@@ -3201,6 +3243,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listRecommendationsRequest.opcRequestId
     };
 
@@ -3298,6 +3341,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listThreatFeedsRequest.opcRequestId
     };
 
@@ -3398,6 +3442,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWaasPoliciesRequest.opcRequestId
     };
 
@@ -3490,6 +3535,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWaasPolicyCustomProtectionRulesRequest.opcRequestId
     };
 
@@ -3588,6 +3634,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWafBlockedRequestsRequest.opcRequestId
     };
 
@@ -3699,6 +3746,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWafLogsRequest.opcRequestId
     };
 
@@ -3793,6 +3841,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWafRequestsRequest.opcRequestId
     };
 
@@ -3886,6 +3935,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWafTrafficRequest.opcRequestId
     };
 
@@ -3975,6 +4025,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWhitelistsRequest.opcRequestId
     };
 
@@ -4071,6 +4122,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
@@ -4158,6 +4210,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": purgeCacheRequest.opcRequestId,
       "if-match": purgeCacheRequest.ifMatch
     };
@@ -4230,6 +4283,7 @@ Any existing access rules that are not specified with a `key` in the list of acc
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateAccessRulesRequest.opcRequestId,
       "opc-retry-token": updateAccessRulesRequest.opcRetryToken,
       "if-match": updateAccessRulesRequest.ifMatch
@@ -4295,6 +4349,7 @@ Any existing access rules that are not specified with a `key` in the list of acc
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateAddressListRequest.opcRequestId,
       "if-match": updateAddressListRequest.ifMatch
     };
@@ -4368,6 +4423,7 @@ The order the caching rules are specified in is important. The rules are process
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateCachingRulesRequest.opcRequestId,
       "opc-retry-token": updateCachingRulesRequest.opcRetryToken,
       "if-match": updateCachingRulesRequest.ifMatch
@@ -4441,6 +4497,7 @@ Query parameters are allowed in CAPTCHA URL.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateCaptchasRequest.opcRequestId,
       "opc-retry-token": updateCaptchasRequest.opcRetryToken,
       "if-match": updateCaptchasRequest.ifMatch
@@ -4506,6 +4563,7 @@ Query parameters are allowed in CAPTCHA URL.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateCertificateRequest.opcRequestId,
       "if-match": updateCertificateRequest.ifMatch
     };
@@ -4573,6 +4631,7 @@ Query parameters are allowed in CAPTCHA URL.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateCustomProtectionRuleRequest.opcRequestId,
       "opc-retry-token": updateCustomProtectionRuleRequest.opcRetryToken,
       "if-match": updateCustomProtectionRuleRequest.ifMatch
@@ -4646,6 +4705,7 @@ DFC collects attributes to generate a hashed signature about a client - if a fin
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateDeviceFingerprintChallengeRequest.opcRequestId,
       "opc-retry-token": updateDeviceFingerprintChallengeRequest.opcRetryToken,
       "if-match": updateDeviceFingerprintChallengeRequest.ifMatch
@@ -4713,6 +4773,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateGoodBotsRequest.opcRequestId,
       "opc-retry-token": updateGoodBotsRequest.opcRetryToken,
       "if-match": updateGoodBotsRequest.ifMatch
@@ -4779,6 +4840,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateHumanInteractionChallengeRequest.opcRequestId,
       "opc-retry-token": updateHumanInteractionChallengeRequest.opcRetryToken,
       "if-match": updateHumanInteractionChallengeRequest.ifMatch
@@ -4844,6 +4906,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateJsChallengeRequest.opcRequestId,
       "opc-retry-token": updateJsChallengeRequest.opcRetryToken,
       "if-match": updateJsChallengeRequest.ifMatch
@@ -4909,6 +4972,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updatePolicyConfigRequest.opcRequestId,
       "opc-retry-token": updatePolicyConfigRequest.opcRetryToken,
       "if-match": updatePolicyConfigRequest.ifMatch
@@ -4976,6 +5040,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateProtectionRulesRequest.opcRequestId,
       "if-match": updateProtectionRulesRequest.ifMatch
     };
@@ -5040,6 +5105,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateProtectionSettingsRequest.opcRequestId,
       "opc-retry-token": updateProtectionSettingsRequest.opcRetryToken,
       "if-match": updateProtectionSettingsRequest.ifMatch
@@ -5105,6 +5171,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateThreatFeedsRequest.opcRequestId,
       "if-match": updateThreatFeedsRequest.ifMatch
     };
@@ -5171,6 +5238,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateWaasPolicyRequest.opcRequestId,
       "opc-retry-token": updateWaasPolicyRequest.opcRetryToken,
       "if-match": updateWaasPolicyRequest.ifMatch
@@ -5237,6 +5305,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateWaasPolicyCustomProtectionRulesRequest.opcRequestId,
       "opc-retry-token": updateWaasPolicyCustomProtectionRulesRequest.opcRetryToken,
       "if-match": updateWaasPolicyCustomProtectionRulesRequest.ifMatch
@@ -5303,6 +5372,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateWafAddressRateLimitingRequest.opcRequestId,
       "opc-retry-token": updateWafAddressRateLimitingRequest.opcRetryToken,
       "if-match": updateWafAddressRateLimitingRequest.ifMatch
@@ -5376,6 +5446,7 @@ The returned list will contain objects with `key` properties that can be used to
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateWafConfigRequest.opcRequestId,
       "opc-retry-token": updateWafConfigRequest.opcRetryToken,
       "if-match": updateWafConfigRequest.ifMatch
@@ -5449,6 +5520,7 @@ Whitelists can be deleted by removing the existing whitelist object from the lis
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateWhitelistsRequest.opcRequestId,
       "opc-retry-token": updateWhitelistsRequest.opcRetryToken,
       "if-match": updateWhitelistsRequest.ifMatch

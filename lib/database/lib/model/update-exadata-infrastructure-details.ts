@@ -49,6 +49,10 @@ export interface UpdateExadataInfrastructureDetails {
    */
   "corporateProxy"?: string;
   /**
+   * The list of contacts for the Exadata Infrastructure.
+   */
+  "contacts"?: Array<model.ExadataInfrastructureContact>;
+  /**
    * The list of DNS server IP addresses. Maximum of 3 allowed.
    */
   "dnsServer"?: Array<string>;
@@ -79,7 +83,16 @@ Example: `{\"Department\": \"Finance\"}`
 
 export namespace UpdateExadataInfrastructureDetails {
   export function getJsonObj(obj: UpdateExadataInfrastructureDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "contacts": obj.contacts
+          ? obj.contacts.map(item => {
+              return model.ExadataInfrastructureContact.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -148,6 +148,7 @@ export class IdentityClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": activateMfaTotpDeviceRequest.ifMatch,
       "opc-retry-token": activateMfaTotpDeviceRequest.opcRetryToken
     };
@@ -217,6 +218,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": addUserToGroupRequest.opcRetryToken
     };
 
@@ -287,7 +289,9 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       "lifecycleState": assembleEffectiveTagSetRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -352,6 +356,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": bulkDeleteResourcesRequest.opcRequestId,
       "opc-retry-token": bulkDeleteResourcesRequest.opcRetryToken
     };
@@ -435,6 +440,7 @@ In order to delete tags, you must first retire the tags. Use {@link #updateTag(U
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": bulkDeleteTagsRequest.opcRequestId,
       "opc-retry-token": bulkDeleteTagsRequest.opcRetryToken
     };
@@ -504,6 +510,7 @@ In order to delete tags, you must first retire the tags. Use {@link #updateTag(U
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": bulkMoveResourcesRequest.opcRequestId,
       "opc-retry-token": bulkMoveResourcesRequest.opcRetryToken
     };
@@ -588,6 +595,7 @@ To delete a tag namespace, you must first retire it. Use {@link #updateTagNamesp
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": cascadeDeleteTagNamespaceRequest.ifMatch,
       "opc-request-id": cascadeDeleteTagNamespaceRequest.opcRequestId,
       "opc-retry-token": cascadeDeleteTagNamespaceRequest.opcRetryToken
@@ -655,6 +663,7 @@ Moving a tag namespace moves all the tag key definitions contained in the tag na
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": changeTagNamespaceCompartmentRequest.opcRetryToken
     };
 
@@ -723,6 +732,7 @@ Every user has permission to create an auth token for *their own user ID*. An ad
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createAuthTokenRequest.opcRetryToken
     };
 
@@ -806,6 +816,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createCompartmentRequest.opcRetryToken
     };
 
@@ -883,6 +894,7 @@ Every user has permission to create a secret key for *their own user ID*. An adm
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createCustomerSecretKeyRequest.opcRetryToken
     };
 
@@ -965,6 +977,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createDynamicGroupRequest.opcRetryToken
     };
 
@@ -1050,6 +1063,7 @@ After creating the group, you need to put users in it and write policies for it.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createGroupRequest.opcRetryToken
     };
 
@@ -1132,6 +1146,7 @@ After you send your request, the new object's `lifecycleState` will temporarily
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createIdentityProviderRequest.opcRetryToken
     };
 
@@ -1200,6 +1215,7 @@ After you send your request, the new object's `lifecycleState` will temporarily
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createIdpGroupMappingRequest.opcRetryToken
     };
 
@@ -1267,6 +1283,7 @@ After you send your request, the new object's `lifecycleState` will temporarily
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createMfaTotpDeviceRequest.opcRetryToken
     };
 
@@ -1347,6 +1364,7 @@ After your network resource is created, you can use it in policy to restrict acc
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createNetworkSourceRequest.opcRetryToken
     };
 
@@ -1415,6 +1433,7 @@ After your network resource is created, you can use it in policy to restrict acc
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createOAuthClientCredentialRequest.opcRetryToken
     };
 
@@ -1492,6 +1511,7 @@ Use this operation after creating a new user, or if a user forgets their passwor
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createOrResetUIPasswordRequest.opcRetryToken
     };
 
@@ -1568,6 +1588,7 @@ New policies take effect typically within 10 seconds.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createPolicyRequest.opcRetryToken
     };
 
@@ -1636,6 +1657,7 @@ New policies take effect typically within 10 seconds.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createRegionSubscriptionRequest.opcRetryToken
     };
 
@@ -1701,6 +1723,7 @@ New policies take effect typically within 10 seconds.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createSmtpCredentialRequest.opcRetryToken
     };
 
@@ -1779,6 +1802,7 @@ Every user has permission to create a Swift password for *their own user ID*. An
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createSwiftPasswordRequest.opcRetryToken
     };
 
@@ -1867,6 +1891,7 @@ The tag must have a value type, which is specified with a validator. Tags can us
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createTagRequest.opcRetryToken
     };
 
@@ -1939,6 +1964,7 @@ If you specify that a value is required, a value is set during resource creation
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createTagDefaultRequest.opcRetryToken,
       "opc-request-id": createTagDefaultRequest.opcRequestId
     };
@@ -2018,6 +2044,7 @@ You must also specify a *description* for the namespace.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createTagNamespaceRequest.opcRetryToken
     };
 
@@ -2112,6 +2139,7 @@ A new user has no permissions until you place the user in one or more groups (se
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createUserRequest.opcRetryToken
     };
 
@@ -2185,6 +2213,7 @@ Every user has permission to use this operation to delete a key for *their own u
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteApiKeyRequest.ifMatch
     };
 
@@ -2240,6 +2269,7 @@ Every user has permission to use this operation to delete a key for *their own u
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteAuthTokenRequest.ifMatch
     };
 
@@ -2294,6 +2324,7 @@ Every user has permission to use this operation to delete a key for *their own u
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteCompartmentRequest.ifMatch
     };
 
@@ -2354,6 +2385,7 @@ Every user has permission to use this operation to delete a key for *their own u
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteCustomerSecretKeyRequest.ifMatch
     };
 
@@ -2408,6 +2440,7 @@ Every user has permission to use this operation to delete a key for *their own u
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteDynamicGroupRequest.ifMatch
     };
 
@@ -2462,6 +2495,7 @@ Every user has permission to use this operation to delete a key for *their own u
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteGroupRequest.ifMatch
     };
 
@@ -2517,6 +2551,7 @@ Every user has permission to use this operation to delete a key for *their own u
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteIdentityProviderRequest.ifMatch
     };
 
@@ -2571,6 +2606,7 @@ Every user has permission to use this operation to delete a key for *their own u
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteIdpGroupMappingRequest.ifMatch
     };
 
@@ -2626,6 +2662,7 @@ Every user has permission to use this operation to delete a key for *their own u
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteMfaTotpDeviceRequest.ifMatch
     };
 
@@ -2680,6 +2717,7 @@ Every user has permission to use this operation to delete a key for *their own u
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteNetworkSourceRequest.ifMatch
     };
 
@@ -2736,6 +2774,7 @@ Every user has permission to use this operation to delete a key for *their own u
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteOAuthClientCredentialRequest.ifMatch
     };
 
@@ -2789,6 +2828,7 @@ Every user has permission to use this operation to delete a key for *their own u
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deletePolicyRequest.ifMatch
     };
 
@@ -2844,6 +2884,7 @@ Every user has permission to use this operation to delete a key for *their own u
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteSmtpCredentialRequest.ifMatch
     };
 
@@ -2901,6 +2942,7 @@ Deletes the specified Swift password for the specified user.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteSwiftPasswordRequest.ifMatch
     };
 
@@ -2976,6 +3018,7 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteTagRequest.ifMatch
     };
 
@@ -3035,6 +3078,7 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteTagDefaultRequest.opcRequestId,
       "if-match": deleteTagDefaultRequest.ifMatch
     };
@@ -3096,6 +3140,7 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteTagNamespaceRequest.ifMatch,
       "opc-request-id": deleteTagNamespaceRequest.opcRequestId
     };
@@ -3150,6 +3195,7 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteUserRequest.ifMatch
     };
 
@@ -3205,6 +3251,7 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": generateTotpSeedRequest.ifMatch
     };
 
@@ -3267,7 +3314,9 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -3334,7 +3383,9 @@ This operation does not return a list of all the resources inside the compartmen
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -3394,7 +3445,9 @@ This operation does not return a list of all the resources inside the compartmen
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -3458,7 +3511,9 @@ This operation does not return a list of all the users in the group. To do that,
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -3517,7 +3572,9 @@ This operation does not return a list of all the users in the group. To do that,
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -3577,7 +3634,9 @@ This operation does not return a list of all the users in the group. To do that,
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -3638,7 +3697,9 @@ This operation does not return a list of all the users in the group. To do that,
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -3698,7 +3759,9 @@ This operation does not return a list of all the users in the group. To do that,
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -3757,7 +3820,9 @@ This operation does not return a list of all the users in the group. To do that,
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -3815,7 +3880,9 @@ This operation does not return a list of all the users in the group. To do that,
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -3875,7 +3942,9 @@ This operation does not return a list of all the users in the group. To do that,
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -3935,7 +4004,9 @@ This operation does not return a list of all the users in the group. To do that,
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -3991,7 +4062,9 @@ This operation does not return a list of all the users in the group. To do that,
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4050,7 +4123,9 @@ This operation does not return a list of all the users in the group. To do that,
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4104,7 +4179,9 @@ This operation does not return a list of all the users in the group. To do that,
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4163,7 +4240,9 @@ This operation does not return a list of all the users in the group. To do that,
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4225,7 +4304,9 @@ This operation does not return a list of all the users in the group. To do that,
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4286,7 +4367,9 @@ This operation does not return a list of all the users in the group. To do that,
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4349,7 +4432,9 @@ Every user has permission to use this API call for *their own user ID*.  An admi
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4410,7 +4495,9 @@ Every user has permission to use this API call for *their own user ID*.  An admi
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4474,7 +4561,9 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       "compartmentId": listAvailabilityDomainsRequest.compartmentId
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4543,7 +4632,9 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       "limit": listBulkActionResourceTypesRequest.limit
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4628,7 +4719,9 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "lifecycleState": listCompartmentsRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4716,7 +4809,9 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "limit": listCostTrackingTagsRequest.limit
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4802,7 +4897,9 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4870,7 +4967,9 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "lifecycleState": listDynamicGroupsRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4958,7 +5057,9 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "availabilityDomain": listFaultDomainsRequest.availabilityDomain
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5021,7 +5122,9 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "lifecycleState": listGroupsRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5109,7 +5212,9 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "lifecycleState": listIdentityProviderGroupsRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5204,7 +5309,9 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "lifecycleState": listIdentityProvidersRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5292,7 +5399,9 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "limit": listIdpGroupMappingsRequest.limit
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5383,7 +5492,9 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "sortOrder": listMfaTotpDevicesRequest.sortOrder
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5476,7 +5587,9 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "lifecycleState": listNetworkSourcesRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5566,7 +5679,9 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "lifecycleState": listOAuthClientCredentialsRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5661,7 +5776,9 @@ To determine which policies apply to a particular group or compartment, you must
       "lifecycleState": listPoliciesRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5745,7 +5862,9 @@ To determine which policies apply to a particular group or compartment, you must
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5797,7 +5916,9 @@ To determine which policies apply to a particular group or compartment, you must
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5853,7 +5974,9 @@ To determine which policies apply to a particular group or compartment, you must
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5916,7 +6039,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -5981,7 +6106,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "lifecycleState": listTagDefaultsRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -6070,7 +6197,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "lifecycleState": listTagNamespacesRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -6159,7 +6288,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "limit": listTaggingWorkRequestErrorsRequest.limit
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -6253,7 +6384,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "limit": listTaggingWorkRequestLogsRequest.limit
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -6346,7 +6479,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "resourceIdentifier": listTaggingWorkRequestsRequest.resourceIdentifier
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -6435,7 +6570,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "lifecycleState": listTagsRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -6532,7 +6669,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "limit": listUserGroupMembershipsRequest.limit
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -6627,7 +6766,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "lifecycleState": listUsersRequest.lifecycleState
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -6713,7 +6854,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "resourceIdentifier": listWorkRequestsRequest.resourceIdentifier
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -6806,6 +6949,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": moveCompartmentRequest.ifMatch,
       "opc-request-id": moveCompartmentRequest.opcRequestId,
       "opc-retry-token": moveCompartmentRequest.opcRetryToken
@@ -6872,6 +7016,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": recoverCompartmentRequest.ifMatch,
       "opc-request-id": recoverCompartmentRequest.opcRequestId
     };
@@ -6934,6 +7079,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": removeUserFromGroupRequest.ifMatch
     };
 
@@ -6987,7 +7133,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -7044,6 +7192,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateAuthTokenRequest.ifMatch
     };
 
@@ -7112,6 +7261,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateAuthenticationPolicyRequest.ifMatch
     };
 
@@ -7178,6 +7328,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateCompartmentRequest.ifMatch
     };
 
@@ -7246,6 +7397,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateCustomerSecretKeyRequest.ifMatch
     };
 
@@ -7312,6 +7464,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateDynamicGroupRequest.ifMatch
     };
 
@@ -7378,6 +7531,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateGroupRequest.ifMatch
     };
 
@@ -7444,6 +7598,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateIdentityProviderRequest.ifMatch
     };
 
@@ -7511,6 +7666,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateIdpGroupMappingRequest.ifMatch
     };
 
@@ -7577,6 +7733,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateNetworkSourceRequest.ifMatch
     };
 
@@ -7646,6 +7803,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateOAuthClientCredentialRequest.ifMatch
     };
 
@@ -7715,6 +7873,7 @@ Policy changes take effect typically within 10 seconds.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updatePolicyRequest.ifMatch
     };
 
@@ -7783,6 +7942,7 @@ Policy changes take effect typically within 10 seconds.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateSmtpCredentialRequest.ifMatch
     };
 
@@ -7853,6 +8013,7 @@ Updates the specified Swift password's description.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateSwiftPasswordRequest.ifMatch
     };
 
@@ -7930,6 +8091,7 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateTagRequest.ifMatch
     };
 
@@ -8002,6 +8164,7 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateTagDefaultRequest.ifMatch,
       "opc-request-id": updateTagDefaultRequest.opcRequestId
     };
@@ -8077,7 +8240,9 @@ You can't add a namespace with the same name as a retired namespace in the same 
 
     const queryParams = {};
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -8137,6 +8302,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateUserRequest.ifMatch
     };
 
@@ -8204,6 +8370,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateUserCapabilitiesRequest.ifMatch
     };
 
@@ -8271,6 +8438,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateUserStateRequest.ifMatch
     };
 
@@ -8352,6 +8520,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": uploadApiKeyRequest.opcRetryToken
     };
 

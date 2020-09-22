@@ -194,6 +194,22 @@ export class IdentityWaiter {
   }
 
   /**
+   * Waits forTaggingWorkRequest
+   *
+   * @param request the request to send
+   * @return response returns GetTaggingWorkRequestResponse
+   */
+  public async forTaggingWorkRequest(
+    request: serviceRequests.GetTaggingWorkRequestRequest
+  ): Promise<serviceResponses.GetTaggingWorkRequestResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getTaggingWorkRequest(request),
+      response => (response.taggingWorkRequest.timeFinished ? true : false)
+    );
+  }
+
+  /**
    * Waits forUser till it reaches any of the provided states
    *
    * @param request the request to send

@@ -151,6 +151,7 @@ export class LoadBalancerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": changeLoadBalancerCompartmentRequest.opcRequestId,
       "opc-retry-token": changeLoadBalancerCompartmentRequest.opcRetryToken,
       "if-match": changeLoadBalancerCompartmentRequest.ifMatch
@@ -217,6 +218,7 @@ export class LoadBalancerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createBackendRequest.opcRequestId,
       "opc-retry-token": createBackendRequest.opcRetryToken
     };
@@ -281,6 +283,7 @@ export class LoadBalancerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createBackendSetRequest.opcRequestId,
       "opc-retry-token": createBackendSetRequest.opcRetryToken
     };
@@ -345,6 +348,7 @@ export class LoadBalancerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createCertificateRequest.opcRequestId,
       "opc-retry-token": createCertificateRequest.opcRetryToken
     };
@@ -411,6 +415,7 @@ export class LoadBalancerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createHostnameRequest.opcRequestId,
       "opc-retry-token": createHostnameRequest.opcRetryToken
     };
@@ -475,6 +480,7 @@ export class LoadBalancerClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createListenerRequest.opcRequestId,
       "opc-retry-token": createListenerRequest.opcRetryToken
     };
@@ -564,6 +570,7 @@ When you create a load balancer, the system assigns an IP address.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createLoadBalancerRequest.opcRequestId,
       "opc-retry-token": createLoadBalancerRequest.opcRetryToken
     };
@@ -630,6 +637,7 @@ When you create a load balancer, the system assigns an IP address.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createPathRouteSetRequest.opcRequestId,
       "opc-retry-token": createPathRouteSetRequest.opcRetryToken
     };
@@ -696,6 +704,7 @@ When you create a load balancer, the system assigns an IP address.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createRuleSetRequest.opcRequestId
     };
 
@@ -760,6 +769,7 @@ When you create a load balancer, the system assigns an IP address.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createSSLCipherSuiteRequest.opcRequestId,
       "opc-retry-token": createSSLCipherSuiteRequest.opcRetryToken
     };
@@ -826,6 +836,7 @@ When you create a load balancer, the system assigns an IP address.
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteBackendRequest.opcRequestId
     };
 
@@ -888,6 +899,7 @@ Before you can delete a backend set, you must remove it from any active listener
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteBackendSetRequest.opcRequestId
     };
 
@@ -947,6 +959,7 @@ Before you can delete a backend set, you must remove it from any active listener
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteCertificateRequest.opcRequestId
     };
 
@@ -1007,6 +1020,7 @@ Before you can delete a backend set, you must remove it from any active listener
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteHostnameRequest.opcRequestId
     };
 
@@ -1066,6 +1080,7 @@ Before you can delete a backend set, you must remove it from any active listener
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteListenerRequest.opcRequestId
     };
 
@@ -1124,6 +1139,7 @@ Before you can delete a backend set, you must remove it from any active listener
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteLoadBalancerRequest.opcRequestId
     };
 
@@ -1187,6 +1203,7 @@ To delete a path route rule from a path route set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deletePathRouteSetRequest.opcRequestId
     };
 
@@ -1250,6 +1267,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteRuleSetRequest.opcRequestId
     };
 
@@ -1310,6 +1328,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteSSLCipherSuiteRequest.opcRequestId
     };
 
@@ -1370,6 +1389,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getBackendRequest.opcRequestId
     };
 
@@ -1428,6 +1448,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getBackendHealthRequest.opcRequestId
     };
 
@@ -1486,6 +1507,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getBackendSetRequest.opcRequestId
     };
 
@@ -1543,6 +1565,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getBackendSetHealthRequest.opcRequestId
     };
 
@@ -1600,6 +1623,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getHealthCheckerRequest.opcRequestId
     };
 
@@ -1657,6 +1681,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getHostnameRequest.opcRequestId
     };
 
@@ -1713,6 +1738,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getLoadBalancerRequest.opcRequestId
     };
 
@@ -1770,6 +1796,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getLoadBalancerHealthRequest.opcRequestId
     };
 
@@ -1827,6 +1854,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getPathRouteSetRequest.opcRequestId
     };
 
@@ -1884,6 +1912,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getRuleSetRequest.opcRequestId
     };
 
@@ -1941,6 +1970,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getSSLCipherSuiteRequest.opcRequestId
     };
 
@@ -1997,6 +2027,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -2053,6 +2084,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listBackendSetsRequest.opcRequestId
     };
 
@@ -2110,6 +2142,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listBackendsRequest.opcRequestId
     };
 
@@ -2166,6 +2199,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listCertificatesRequest.opcRequestId
     };
 
@@ -2222,6 +2256,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listHostnamesRequest.opcRequestId
     };
 
@@ -2286,6 +2321,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listListenerRulesRequest.opcRequestId
     };
 
@@ -2345,6 +2381,7 @@ To delete a rule from a rule set, use the
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listLoadBalancerHealthsRequest.opcRequestId
     };
 
@@ -2438,6 +2475,7 @@ To delete a rule from a rule set, use the
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listLoadBalancersRequest.opcRequestId
     };
 
@@ -2524,6 +2562,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listPathRouteSetsRequest.opcRequestId
     };
 
@@ -2582,6 +2621,7 @@ To delete a rule from a rule set, use the
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listPoliciesRequest.opcRequestId
     };
 
@@ -2670,6 +2710,7 @@ To delete a rule from a rule set, use the
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listProtocolsRequest.opcRequestId
     };
 
@@ -2756,6 +2797,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listRuleSetsRequest.opcRequestId
     };
 
@@ -2812,6 +2854,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSSLCipherSuitesRequest.opcRequestId
     };
 
@@ -2870,6 +2913,7 @@ To delete a rule from a rule set, use the
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listShapesRequest.opcRequestId
     };
 
@@ -2959,6 +3003,7 @@ To delete a rule from a rule set, use the
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
@@ -3047,6 +3092,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateBackendRequest.opcRequestId,
       "opc-retry-token": updateBackendRequest.opcRetryToken
     };
@@ -3112,6 +3158,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateBackendSetRequest.opcRequestId,
       "opc-retry-token": updateBackendSetRequest.opcRetryToken
     };
@@ -3177,6 +3224,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateHealthCheckerRequest.opcRequestId,
       "opc-retry-token": updateHealthCheckerRequest.opcRetryToken
     };
@@ -3244,6 +3292,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateHostnameRequest.opcRequestId
     };
 
@@ -3308,6 +3357,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateListenerRequest.opcRequestId,
       "opc-retry-token": updateListenerRequest.opcRetryToken
     };
@@ -3372,6 +3422,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateLoadBalancerRequest.opcRequestId,
       "opc-retry-token": updateLoadBalancerRequest.opcRetryToken
     };
@@ -3443,6 +3494,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateLoadBalancerShapeRequest.opcRequestId,
       "opc-retry-token": updateLoadBalancerShapeRequest.opcRetryToken
     };
@@ -3508,6 +3560,7 @@ To delete a rule from a rule set, use the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateNetworkSecurityGroupsRequest.opcRequestId,
       "opc-retry-token": updateNetworkSecurityGroupsRequest.opcRetryToken
     };
@@ -3579,6 +3632,7 @@ To add a new path route rule to a path route set, the `pathRoutes` in the
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updatePathRouteSetRequest.opcRequestId,
       "opc-retry-token": updatePathRouteSetRequest.opcRetryToken
     };
@@ -3648,6 +3702,7 @@ To add a new rule to a set, the body must include both the new rule to add and t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateRuleSetRequest.opcRequestId
     };
 
@@ -3713,6 +3768,7 @@ To add a new rule to a set, the body must include both the new rule to add and t
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateSSLCipherSuiteRequest.opcRequestId,
       "opc-retry-token": updateSSLCipherSuiteRequest.opcRetryToken
     };

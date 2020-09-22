@@ -128,6 +128,7 @@ export class HealthChecksClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeHttpMonitorCompartmentRequest.ifMatch,
       "opc-request-id": changeHttpMonitorCompartmentRequest.opcRequestId,
       "opc-retry-token": changeHttpMonitorCompartmentRequest.opcRetryToken
@@ -191,6 +192,7 @@ export class HealthChecksClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changePingMonitorCompartmentRequest.ifMatch,
       "opc-request-id": changePingMonitorCompartmentRequest.opcRequestId,
       "opc-retry-token": changePingMonitorCompartmentRequest.opcRetryToken
@@ -252,6 +254,7 @@ export class HealthChecksClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createHttpMonitorRequest.opcRequestId,
       "opc-retry-token": createHttpMonitorRequest.opcRetryToken
     };
@@ -327,6 +330,7 @@ export class HealthChecksClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createOnDemandHttpProbeRequest.opcRequestId
     };
 
@@ -396,6 +400,7 @@ export class HealthChecksClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createOnDemandPingProbeRequest.opcRequestId
     };
 
@@ -463,6 +468,7 @@ export class HealthChecksClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createPingMonitorRequest.opcRequestId,
       "opc-retry-token": createPingMonitorRequest.opcRetryToken
     };
@@ -537,6 +543,7 @@ export class HealthChecksClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteHttpMonitorRequest.opcRequestId,
       "if-match": deleteHttpMonitorRequest.ifMatch
     };
@@ -593,6 +600,7 @@ export class HealthChecksClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deletePingMonitorRequest.opcRequestId,
       "if-match": deletePingMonitorRequest.ifMatch
     };
@@ -648,6 +656,7 @@ export class HealthChecksClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getHttpMonitorRequest.opcRequestId,
       "if-none-match": getHttpMonitorRequest.ifNoneMatch
     };
@@ -711,6 +720,7 @@ export class HealthChecksClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getPingMonitorRequest.opcRequestId,
       "if-none-match": getPingMonitorRequest.ifNoneMatch
     };
@@ -780,6 +790,7 @@ export class HealthChecksClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listHealthChecksVantagePointsRequest.opcRequestId
     };
 
@@ -873,6 +884,7 @@ export class HealthChecksClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listHttpMonitorsRequest.opcRequestId
     };
 
@@ -970,6 +982,7 @@ export class HealthChecksClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listHttpProbeResultsRequest.opcRequestId
     };
 
@@ -1066,6 +1079,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listPingMonitorsRequest.opcRequestId
     };
 
@@ -1167,6 +1181,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listPingProbeResultsRequest.opcRequestId
     };
 
@@ -1256,6 +1271,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateHttpMonitorRequest.opcRequestId,
       "if-match": updateHttpMonitorRequest.ifMatch
     };
@@ -1326,6 +1342,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updatePingMonitorRequest.opcRequestId,
       "if-match": updatePingMonitorRequest.ifMatch
     };

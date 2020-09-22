@@ -31,6 +31,7 @@ export interface ImageShapeCompatibilitySummary {
    * The shape name.
    */
   "shape": string;
+  "memoryConstraints"?: model.ImageMemoryConstraints;
   "ocpuConstraints"?: model.ImageOcpuConstraints;
 }
 
@@ -39,6 +40,9 @@ export namespace ImageShapeCompatibilitySummary {
     const jsonObj = {
       ...obj,
       ...{
+        "memoryConstraints": obj.memoryConstraints
+          ? model.ImageMemoryConstraints.getJsonObj(obj.memoryConstraints)
+          : undefined,
         "ocpuConstraints": obj.ocpuConstraints
           ? model.ImageOcpuConstraints.getJsonObj(obj.ocpuConstraints)
           : undefined

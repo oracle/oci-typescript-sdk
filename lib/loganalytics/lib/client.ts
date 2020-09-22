@@ -149,6 +149,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": addEntityAssociationRequest.opcRequestId,
       "opc-retry-token": addEntityAssociationRequest.opcRetryToken,
       "if-match": addEntityAssociationRequest.ifMatch
@@ -216,6 +217,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": batchGetBasicInfoRequest.opcRequestId
     };
 
@@ -289,6 +291,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": cancelQueryWorkRequestRequest.opcRequestId,
       "if-match": cancelQueryWorkRequestRequest.ifMatch
     };
@@ -347,6 +350,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeLogAnalyticsEntityCompartmentRequest.ifMatch,
       "opc-request-id": changeLogAnalyticsEntityCompartmentRequest.opcRequestId,
       "opc-retry-token": changeLogAnalyticsEntityCompartmentRequest.opcRetryToken
@@ -413,6 +417,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeLogAnalyticsLogGroupCompartmentRequest.ifMatch,
       "opc-request-id": changeLogAnalyticsLogGroupCompartmentRequest.opcRequestId,
       "opc-retry-token": changeLogAnalyticsLogGroupCompartmentRequest.opcRetryToken
@@ -479,6 +484,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeLogAnalyticsObjectCollectionRuleCompartmentRequest.ifMatch,
       "opc-request-id": changeLogAnalyticsObjectCollectionRuleCompartmentRequest.opcRequestId
     };
@@ -542,6 +548,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeScheduledTaskCompartmentRequest.ifMatch,
       "opc-request-id": changeScheduledTaskCompartmentRequest.opcRequestId,
       "opc-retry-token": changeScheduledTaskCompartmentRequest.opcRetryToken
@@ -607,6 +614,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": cleanRequest.opcRequestId,
       "opc-retry-token": cleanRequest.opcRetryToken
     };
@@ -662,6 +670,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createLogAnalyticsEntityRequest.opcRetryToken,
       "opc-request-id": createLogAnalyticsEntityRequest.opcRequestId
     };
@@ -730,6 +739,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createLogAnalyticsEntityTypeRequest.opcRequestId,
       "opc-retry-token": createLogAnalyticsEntityTypeRequest.opcRetryToken
     };
@@ -790,6 +800,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createLogAnalyticsLogGroupRequest.opcRetryToken,
       "opc-request-id": createLogAnalyticsLogGroupRequest.opcRequestId
     };
@@ -860,6 +871,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createLogAnalyticsObjectCollectionRuleRequest.opcRequestId
     };
 
@@ -926,6 +938,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createScheduledTaskRequest.opcRequestId,
       "opc-retry-token": createScheduledTaskRequest.opcRetryToken
     };
@@ -993,6 +1006,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": deleteAssociationsRequest.opcRetryToken,
       "opc-request-id": deleteAssociationsRequest.opcRequestId
     };
@@ -1056,6 +1070,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": deleteFieldRequest.opcRetryToken,
       "opc-request-id": deleteFieldRequest.opcRequestId,
       "if-match": deleteFieldRequest.ifMatch
@@ -1112,6 +1127,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": deleteLabelRequest.opcRetryToken,
       "opc-request-id": deleteLabelRequest.opcRequestId,
       "if-match": deleteLabelRequest.ifMatch
@@ -1169,6 +1185,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteLogAnalyticsEntityRequest.ifMatch,
       "opc-request-id": deleteLogAnalyticsEntityRequest.opcRequestId
     };
@@ -1225,6 +1242,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteLogAnalyticsEntityTypeRequest.ifMatch,
       "opc-request-id": deleteLogAnalyticsEntityTypeRequest.opcRequestId
     };
@@ -1281,6 +1299,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteLogAnalyticsLogGroupRequest.ifMatch,
       "opc-request-id": deleteLogAnalyticsLogGroupRequest.opcRequestId
     };
@@ -1342,6 +1361,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteLogAnalyticsObjectCollectionRuleRequest.opcRequestId,
       "if-match": deleteLogAnalyticsObjectCollectionRuleRequest.ifMatch
     };
@@ -1398,6 +1418,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": deleteParserRequest.opcRetryToken,
       "opc-request-id": deleteParserRequest.opcRequestId,
       "if-match": deleteParserRequest.ifMatch
@@ -1454,6 +1475,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteScheduledTaskRequest.opcRequestId,
       "if-match": deleteScheduledTaskRequest.ifMatch
     };
@@ -1509,6 +1531,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": deleteSourceRequest.opcRetryToken,
       "opc-request-id": deleteSourceRequest.opcRequestId,
       "if-match": deleteSourceRequest.ifMatch
@@ -1567,6 +1590,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteUploadRequest.ifMatch,
       "opc-request-id": deleteUploadRequest.opcRequestId
     };
@@ -1635,6 +1659,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteUploadFileRequest.opcRequestId
     };
 
@@ -1701,6 +1726,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteUploadWarningRequest.opcRequestId
     };
 
@@ -1755,6 +1781,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": disableArchivingRequest.opcRequestId,
       "if-match": disableArchivingRequest.ifMatch
     };
@@ -1818,6 +1845,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": enableArchivingRequest.opcRequestId,
       "if-match": enableArchivingRequest.ifMatch
     };
@@ -1882,6 +1910,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": estimatePurgeDataSizeRequest.opcRequestId,
       "opc-retry-token": estimatePurgeDataSizeRequest.opcRetryToken,
       "if-match": estimatePurgeDataSizeRequest.ifMatch
@@ -1950,6 +1979,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": exportCustomContentRequest.opcRetryToken,
       "opc-request-id": exportCustomContentRequest.opcRequestId
     };
@@ -2013,6 +2043,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": exportQueryResultRequest.opcRequestId
     };
 
@@ -2078,6 +2109,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": extractStructuredLogFieldPathsRequest.opcRetryToken,
       "opc-request-id": extractStructuredLogFieldPathsRequest.opcRequestId
     };
@@ -2143,6 +2175,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": extractStructuredLogHeaderPathsRequest.opcRetryToken,
       "opc-request-id": extractStructuredLogHeaderPathsRequest.opcRequestId
     };
@@ -2203,6 +2236,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": filterRequest.opcRequestId
     };
 
@@ -2267,6 +2301,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getAssociationSummaryRequest.opcRequestId
     };
 
@@ -2325,6 +2360,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": getColumnNamesRequest.opcRetryToken,
       "opc-request-id": getColumnNamesRequest.opcRequestId
     };
@@ -2381,6 +2417,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getConfigWorkRequestRequest.opcRequestId
     };
 
@@ -2438,6 +2475,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getFieldRequest.opcRequestId
     };
 
@@ -2501,6 +2539,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getFieldsSummaryRequest.opcRequestId
     };
 
@@ -2558,6 +2597,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getLabelRequest.opcRequestId
     };
 
@@ -2619,6 +2659,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getLabelSummaryRequest.opcRequestId
     };
 
@@ -2678,6 +2719,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getLogAnalyticsEntitiesSummaryRequest.opcRequestId
     };
 
@@ -2736,6 +2778,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getLogAnalyticsEntityRequest.opcRequestId
     };
 
@@ -2799,6 +2842,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getLogAnalyticsEntityTypeRequest.opcRequestId
     };
 
@@ -2862,6 +2906,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getLogAnalyticsLogGroupRequest.opcRequestId
     };
 
@@ -2926,6 +2971,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getLogAnalyticsLogGroupsSummaryRequest.opcRequestId
     };
 
@@ -2987,6 +3033,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getLogAnalyticsObjectCollectionRuleRequest.opcRequestId
     };
 
@@ -3050,6 +3097,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getNamespaceRequest.opcRequestId
     };
 
@@ -3112,6 +3160,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getParserRequest.opcRequestId
     };
 
@@ -3173,6 +3222,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getParserSummaryRequest.opcRequestId
     };
 
@@ -3238,6 +3288,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getQueryResultRequest.opcRequestId
     };
 
@@ -3310,6 +3361,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getQueryWorkRequestRequest.opcRequestId
     };
 
@@ -3377,6 +3429,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getScheduledTaskRequest.opcRequestId
     };
 
@@ -3441,6 +3494,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getSourceRequest.opcRequestId
     };
 
@@ -3502,6 +3556,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getSourceSummaryRequest.opcRequestId
     };
 
@@ -3559,6 +3614,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getStorageRequest.opcRequestId
     };
 
@@ -3621,6 +3677,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getStorageUsageRequest.opcRequestId
     };
 
@@ -3681,6 +3738,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getStorageWorkRequestRequest.opcRequestId
     };
 
@@ -3748,6 +3806,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getUploadRequest.opcRequestId
     };
 
@@ -3810,6 +3869,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -3941,6 +4001,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAssociatedEntitiesRequest.opcRequestId
     };
 
@@ -4013,7 +4074,9 @@ export class LogAnalyticsClient {
       "page": listConfigWorkRequestsRequest.page
     };
 
-    let headerParams = {};
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
@@ -4086,6 +4149,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listEntityAssociationsRequest.opcRequestId
     };
 
@@ -4160,6 +4224,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listEntitySourceAssociationsRequest.opcRequestId
     };
 
@@ -4239,6 +4304,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listFieldsRequest.opcRequestId
     };
 
@@ -4308,6 +4374,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listLabelPrioritiesRequest.opcRequestId
     };
 
@@ -4381,6 +4448,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listLabelSourceDetailsRequest.opcRequestId
     };
 
@@ -4458,6 +4526,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listLabelsRequest.opcRequestId
     };
 
@@ -4541,6 +4610,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listLogAnalyticsEntitiesRequest.opcRequestId
     };
 
@@ -4612,6 +4682,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listLogAnalyticsEntityTypesRequest.opcRequestId
     };
 
@@ -4681,6 +4752,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listLogAnalyticsLogGroupsRequest.opcRequestId
     };
 
@@ -4758,6 +4830,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listLogAnalyticsObjectCollectionRulesRequest.opcRequestId
     };
 
@@ -4824,6 +4897,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listMetaSourceTypesRequest.opcRequestId
     };
 
@@ -4890,6 +4964,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listNamespacesRequest.opcRequestId
     };
 
@@ -4952,6 +5027,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listParserFunctionsRequest.opcRequestId
     };
 
@@ -5024,6 +5100,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listParserMetaPluginsRequest.opcRequestId
     };
 
@@ -5101,6 +5178,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listParsersRequest.opcRequestId
     };
 
@@ -5175,6 +5253,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listQueryWorkRequestsRequest.opcRequestId
     };
 
@@ -5249,6 +5328,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listScheduledTasksRequest.opcRequestId
     };
 
@@ -5326,6 +5406,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSourceAssociationsRequest.opcRequestId
     };
 
@@ -5399,6 +5480,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSourceExtendedFieldDefinitionsRequest.opcRequestId
     };
 
@@ -5471,6 +5553,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSourceLabelOperatorsRequest.opcRequestId
     };
 
@@ -5543,6 +5626,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSourceMetaFunctionsRequest.opcRequestId
     };
 
@@ -5616,6 +5700,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSourcePatternsRequest.opcRequestId
     };
 
@@ -5694,6 +5779,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSourcesRequest.opcRequestId
     };
 
@@ -5768,6 +5854,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listStorageWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -5847,6 +5934,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listStorageWorkRequestsRequest.opcRequestId
     };
 
@@ -5917,6 +6005,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSupportedCharEncodingsRequest.opcRequestId
     };
 
@@ -5987,6 +6076,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listSupportedTimezonesRequest.opcRequestId
     };
 
@@ -6061,6 +6151,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listUploadFilesRequest.opcRequestId
     };
 
@@ -6126,6 +6217,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listUploadWarningsRequest.opcRequestId
     };
 
@@ -6196,6 +6288,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listUploadsRequest.opcRequestId
     };
 
@@ -6268,6 +6361,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -6334,6 +6428,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
@@ -6400,6 +6495,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
@@ -6461,6 +6557,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": offboardNamespaceRequest.opcRequestId
     };
 
@@ -6520,6 +6617,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": onboardNamespaceRequest.opcRetryToken,
       "opc-request-id": onboardNamespaceRequest.opcRequestId
     };
@@ -6579,6 +6677,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": parseQueryRequest.opcRequestId
     };
 
@@ -6641,6 +6740,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": purgeStorageDataRequest.opcRequestId,
       "opc-retry-token": purgeStorageDataRequest.opcRetryToken,
       "if-match": purgeStorageDataRequest.ifMatch
@@ -6713,6 +6813,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": putQueryWorkRequestBackgroundRequest.opcRequestId,
       "if-match": putQueryWorkRequestBackgroundRequest.ifMatch
     };
@@ -6777,6 +6878,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": queryRequest.opcRequestId
     };
 
@@ -6859,6 +6961,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": recallArchivedDataRequest.opcRequestId,
       "opc-retry-token": recallArchivedDataRequest.opcRetryToken,
       "if-match": recallArchivedDataRequest.ifMatch
@@ -6999,6 +7102,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": releaseRecalledDataRequest.opcRequestId,
       "opc-retry-token": releaseRecalledDataRequest.opcRetryToken,
       "if-match": releaseRecalledDataRequest.ifMatch
@@ -7071,6 +7175,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": removeEntityAssociationsRequest.ifMatch,
       "opc-request-id": removeEntityAssociationsRequest.opcRequestId,
       "opc-retry-token": removeEntityAssociationsRequest.opcRetryToken
@@ -7137,6 +7242,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": runRequest.opcRequestId,
       "opc-retry-token": runRequest.opcRetryToken
     };
@@ -7191,6 +7297,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": suggestRequest.opcRequestId
     };
 
@@ -7255,6 +7362,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": testParserRequest.opcRetryToken,
       "opc-request-id": testParserRequest.opcRequestId
     };
@@ -7319,6 +7427,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateLogAnalyticsEntityRequest.ifMatch,
       "opc-request-id": updateLogAnalyticsEntityRequest.opcRequestId
     };
@@ -7388,6 +7497,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateLogAnalyticsEntityTypeRequest.opcRequestId,
       "if-match": updateLogAnalyticsEntityTypeRequest.ifMatch
     };
@@ -7449,6 +7559,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateLogAnalyticsLogGroupRequest.ifMatch,
       "opc-request-id": updateLogAnalyticsLogGroupRequest.opcRequestId
     };
@@ -7521,6 +7632,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateLogAnalyticsObjectCollectionRuleRequest.ifMatch,
       "opc-request-id": updateLogAnalyticsObjectCollectionRuleRequest.opcRequestId
     };
@@ -7590,6 +7702,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateScheduledTaskRequest.opcRequestId,
       "if-match": updateScheduledTaskRequest.ifMatch
     };
@@ -7658,6 +7771,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateStorageRequest.opcRequestId,
       "if-match": updateStorageRequest.ifMatch
     };
@@ -7809,6 +7923,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": upsertAssociationsRequest.opcRetryToken,
       "opc-request-id": upsertAssociationsRequest.opcRequestId
     };
@@ -7873,6 +7988,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": upsertFieldRequest.opcRetryToken,
       "opc-request-id": upsertFieldRequest.opcRequestId,
       "if-match": upsertFieldRequest.ifMatch
@@ -7941,6 +8057,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": upsertLabelRequest.opcRetryToken,
       "opc-request-id": upsertLabelRequest.opcRequestId,
       "if-match": upsertLabelRequest.ifMatch
@@ -8009,6 +8126,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": upsertParserRequest.opcRetryToken,
       "opc-request-id": upsertParserRequest.opcRequestId,
       "if-match": upsertParserRequest.ifMatch
@@ -8081,6 +8199,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": upsertSourceRequest.opcRetryToken,
       "opc-request-id": upsertSourceRequest.opcRequestId,
       "if-match": upsertSourceRequest.ifMatch
@@ -8155,6 +8274,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": validateAssociationParametersRequest.opcRetryToken,
       "opc-request-id": validateAssociationParametersRequest.opcRequestId
     };
@@ -8225,6 +8345,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": validateFileRequest.opcRequestId
     };
 
@@ -8285,6 +8406,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": validateSourceRequest.opcRetryToken,
       "opc-request-id": validateSourceRequest.opcRequestId
     };
@@ -8348,6 +8470,7 @@ export class LogAnalyticsClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": validateSourceExtendedFieldDetailsRequest.opcRetryToken,
       "opc-request-id": validateSourceExtendedFieldDetailsRequest.opcRequestId
     };
@@ -8415,6 +8538,7 @@ export class LogAnalyticsClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": validateSourceMappingRequest.opcRequestId
     };
 

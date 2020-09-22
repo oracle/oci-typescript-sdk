@@ -148,6 +148,7 @@ export class ContainerEngineClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createClusterRequest.opcRetryToken,
       "opc-request-id": createClusterRequest.opcRequestId
     };
@@ -212,6 +213,7 @@ export class ContainerEngineClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createKubeconfigRequest.opcRequestId
     };
 
@@ -272,6 +274,7 @@ export class ContainerEngineClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createNodePoolRequest.opcRetryToken,
       "opc-request-id": createNodePoolRequest.opcRequestId
     };
@@ -336,6 +339,7 @@ export class ContainerEngineClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteClusterRequest.ifMatch,
       "opc-request-id": deleteClusterRequest.opcRequestId
     };
@@ -395,6 +399,7 @@ export class ContainerEngineClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteNodePoolRequest.ifMatch,
       "opc-request-id": deleteNodePoolRequest.opcRequestId
     };
@@ -455,6 +460,7 @@ export class ContainerEngineClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteWorkRequestRequest.ifMatch,
       "opc-request-id": deleteWorkRequestRequest.opcRequestId
     };
@@ -509,6 +515,7 @@ export class ContainerEngineClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getClusterRequest.opcRequestId
     };
 
@@ -573,6 +580,7 @@ export class ContainerEngineClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getClusterOptionsRequest.opcRequestId
     };
 
@@ -629,6 +637,7 @@ export class ContainerEngineClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getNodePoolRequest.opcRequestId
     };
 
@@ -693,6 +702,7 @@ export class ContainerEngineClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getNodePoolOptionsRequest.opcRequestId
     };
 
@@ -749,6 +759,7 @@ export class ContainerEngineClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
@@ -821,6 +832,7 @@ export class ContainerEngineClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listClustersRequest.opcRequestId
     };
 
@@ -913,6 +925,7 @@ export class ContainerEngineClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listNodePoolsRequest.opcRequestId
     };
 
@@ -1002,6 +1015,7 @@ export class ContainerEngineClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
@@ -1061,6 +1075,7 @@ export class ContainerEngineClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
@@ -1125,6 +1140,7 @@ export class ContainerEngineClient {
     };
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
@@ -1211,6 +1227,7 @@ export class ContainerEngineClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateClusterRequest.ifMatch,
       "opc-request-id": updateClusterRequest.opcRequestId
     };
@@ -1275,6 +1292,7 @@ export class ContainerEngineClient {
     const queryParams = {};
 
     let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateNodePoolRequest.ifMatch,
       "opc-request-id": updateNodePoolRequest.opcRequestId
     };

@@ -188,6 +188,8 @@ import * as DeregisterAutonomousDatabaseDataSafeDetails from "./deregister-auton
 export import DeregisterAutonomousDatabaseDataSafeDetails = DeregisterAutonomousDatabaseDataSafeDetails.DeregisterAutonomousDatabaseDataSafeDetails;
 import * as ExadataInfrastructure from "./exadata-infrastructure";
 export import ExadataInfrastructure = ExadataInfrastructure.ExadataInfrastructure;
+import * as ExadataInfrastructureContact from "./exadata-infrastructure-contact";
+export import ExadataInfrastructureContact = ExadataInfrastructureContact.ExadataInfrastructureContact;
 import * as ExadataInfrastructureSummary from "./exadata-infrastructure-summary";
 export import ExadataInfrastructureSummary = ExadataInfrastructureSummary.ExadataInfrastructureSummary;
 import * as ExadataIormConfig from "./exadata-iorm-config";
