@@ -121,6 +121,10 @@ Example: `FAULT-DOMAIN-1`
    *
    */
   "launchOptions"?: model.UpdateLaunchOptions;
+  /**
+   * Options for defining the availability of a VM instance after a maintenance event that impacts the underlying hardware.
+   *
+   */
   "availabilityConfig"?: model.UpdateInstanceAvailabilityConfigDetails;
 }
 

@@ -229,6 +229,10 @@ Dedicated VM hosts can be used when launching individual instances from an insta
    *
    */
   "preferredMaintenanceAction"?: InstanceConfigurationLaunchInstanceDetails.PreferredMaintenanceAction;
+  /**
+   * Options for defining the availabiity of a VM instance after a maintenance event that impacts the underlying hardware.
+   *
+   */
   "availabilityConfig"?: model.InstanceConfigurationAvailabilityConfig;
 }
 

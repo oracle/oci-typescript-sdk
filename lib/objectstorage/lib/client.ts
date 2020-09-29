@@ -1420,7 +1420,13 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     };
 
     const queryParams = {
-      "versionId": getObjectRequest.versionId
+      "versionId": getObjectRequest.versionId,
+      "httpResponseContentDisposition": getObjectRequest.httpResponseContentDisposition,
+      "httpResponseCacheControl": getObjectRequest.httpResponseCacheControl,
+      "httpResponseContentType": getObjectRequest.httpResponseContentType,
+      "httpResponseContentLanguage": getObjectRequest.httpResponseContentLanguage,
+      "httpResponseContentEncoding": getObjectRequest.httpResponseContentEncoding,
+      "httpResponseExpires": getObjectRequest.httpResponseExpires
     };
 
     let headerParams = {
@@ -1536,6 +1542,11 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
             value: response.headers.get("version-id"),
             key: "versionId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("expires"),
+            key: "expires",
+            dataType: "Date"
           }
         ]
       });

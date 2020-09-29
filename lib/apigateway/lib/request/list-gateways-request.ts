@@ -19,6 +19,10 @@ export interface ListGatewaysRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
+   * Filter gateways by the certificate ocid.
+   */
+  "certificateId"?: string;
+  /**
  * A user-friendly name. Does not have to be unique, and it's changeable.
 * <p>
 Example: `My new resource`

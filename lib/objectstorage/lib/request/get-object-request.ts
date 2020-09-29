@@ -77,4 +77,28 @@ export interface GetObjectRequest extends common.BaseRequest {
    *
    */
   "opcSseCustomerKeySha256"?: string;
+  /**
+   * This value will be used in Content-Disposition header of the response.
+   */
+  "httpResponseContentDisposition"?: string;
+  /**
+   * This value will be used in Cache-Control header of the response.
+   */
+  "httpResponseCacheControl"?: string;
+  /**
+   * This value will be used in Content-Type header of the response.
+   */
+  "httpResponseContentType"?: string;
+  /**
+   * This value will be used in Content-Language header of the response.
+   */
+  "httpResponseContentLanguage"?: string;
+  /**
+   * This value will be used in Content-Encoding header of the response
+   */
+  "httpResponseContentEncoding"?: string;
+  /**
+   * This value will be used in Expires header of the response
+   */
+  "httpResponseExpires"?: string;
 }

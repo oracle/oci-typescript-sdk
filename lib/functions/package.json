@@ -1,6 +1,6 @@
 {
   "name": "oci-functions",
-  "version": "1.5.5",
+  "version": "1.5.6",
   "description": "OCI NodeJS client for Functions",
   "repository": {
     "type": "git",

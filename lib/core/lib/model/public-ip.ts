@@ -151,6 +151,10 @@ Example: `2016-08-25T21:10:29.600Z`
 * 
     */
   "timeCreated"?: Date;
+  /**
+   * OCID of the pool object created by the current tenancy
+   */
+  "publicIpPoolId"?: string;
 }
 
 export namespace PublicIp {

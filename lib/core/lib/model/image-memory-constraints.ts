@@ -20,15 +20,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * OCPU options for an image and shape.
+ * For a flexible image and shape, the amount of memory supported for instances that use this image.
  */
 export interface ImageMemoryConstraints {
   /**
-   * The minimum amount of memory supported for this image and shape, in gigabytes.
+   * The minimum amount of memory, in gigabytes.
    */
   "minInGBs"?: number;
   /**
-   * The maximum amount of memory supported for this image and shape, in gigabytes.
+   * The maximum amount of memory, in gigabytes.
    */
   "maxInGBs"?: number;
 }

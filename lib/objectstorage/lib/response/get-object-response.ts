@@ -94,6 +94,10 @@ export interface GetObjectResponse {
    */
   "versionId": string;
   /**
+   * Time after which object is no longer cacheable, as described in [RFC 2616](https://tools.ietf.org/rfc/rfc2616#section-14.21).
+   */
+  "expires": Date;
+  /**
    * The returned stream.Readable | ReadableStream instance, or null if {@link #isNotModified()} is true.
    */
   "value": stream.Readable | ReadableStream;

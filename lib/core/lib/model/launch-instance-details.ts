@@ -148,6 +148,10 @@ For more information about iPXE, see http://ipxe.org.
    *
    */
   "launchOptions"?: model.LaunchOptions;
+  /**
+   * Options for defining the availability of a VM instance after a maintenance event that impacts the underlying hardware.
+   *
+   */
   "availabilityConfig"?: model.LaunchInstanceAvailabilityConfigDetails;
   /**
     * Custom metadata key/value pairs that you provide, such as the SSH public key

@@ -147,6 +147,10 @@ For more information about iPXE, see http://ipxe.org.
    *
    */
   "launchOptions"?: model.LaunchOptions;
+  /**
+   * Options for defining the availability of a VM instance after a maintenance event that impacts the underlying hardware.
+   *
+   */
   "availabilityConfig"?: model.InstanceAvailabilityConfig;
   /**
    * The current state of the instance.

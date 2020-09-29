@@ -9142,6 +9142,76 @@ The OCID of the instance remains the same.
       throw err;
     }
   }
+
+  /**
+   * Updates the defined tags and free-form tags for the specified instance console connection.
+   * @param UpdateInstanceConsoleConnectionRequest
+   * @return UpdateInstanceConsoleConnectionResponse
+   * @throws OciError when an error occurs
+   */
+  public async updateInstanceConsoleConnection(
+    updateInstanceConsoleConnectionRequest: requests.UpdateInstanceConsoleConnectionRequest
+  ): Promise<responses.UpdateInstanceConsoleConnectionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#updateInstanceConsoleConnection.");
+    const pathParams = {
+      "{instanceConsoleConnectionId}":
+        updateInstanceConsoleConnectionRequest.instanceConsoleConnectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateInstanceConsoleConnectionRequest.opcRequestId,
+      "if-match": updateInstanceConsoleConnectionRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/instanceConsoleConnections/{instanceConsoleConnectionId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateInstanceConsoleConnectionRequest.updateInstanceConsoleConnectionDetails,
+        "UpdateInstanceConsoleConnectionDetails",
+        models.UpdateInstanceConsoleConnectionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateInstanceConsoleConnectionRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateInstanceConsoleConnectionResponse>{},
+        body: await response.json(),
+        bodyKey: "instanceConsoleConnection",
+        bodyModel: "model.InstanceConsoleConnection",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
 }
 export enum ComputeManagementApiKeys {}
 
@@ -11459,6 +11529,136 @@ export class VirtualNetworkClient {
   }
 
   /**
+   * Adds a Cidr from the named Byoip Range prefix to the referenced Public IP Pool.
+   * The cidr must be a subset of the Byoip Range in question.
+   * The cidr must not overlap with any other cidr already added to this
+   * or any other Public Ip Pool.
+   *
+   * @param AddPublicIpPoolCapacityRequest
+   * @return AddPublicIpPoolCapacityResponse
+   * @throws OciError when an error occurs
+   */
+  public async addPublicIpPoolCapacity(
+    addPublicIpPoolCapacityRequest: requests.AddPublicIpPoolCapacityRequest
+  ): Promise<responses.AddPublicIpPoolCapacityResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#addPublicIpPoolCapacity.");
+    const pathParams = {
+      "{publicIpPoolId}": addPublicIpPoolCapacityRequest.publicIpPoolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addPublicIpPoolCapacityRequest.opcRequestId,
+      "opc-retry-token": addPublicIpPoolCapacityRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/publicIpPools/{publicIpPoolId}/actions/addCapacity",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addPublicIpPoolCapacityRequest.addPublicIpPoolCapacityDetails,
+        "AddPublicIpPoolCapacityDetails",
+        models.AddPublicIpPoolCapacityDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      addPublicIpPoolCapacityRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddPublicIpPoolCapacityResponse>{},
+        body: await response.json(),
+        bodyKey: "publicIpPool",
+        bodyModel: "model.PublicIpPool",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * initiate route advertisements for the Byoip Range prefix.
+   * the prefix must be in PROVISIONED state
+   *
+   * @param AdvertiseByoipRangeRequest
+   * @return AdvertiseByoipRangeResponse
+   * @throws OciError when an error occurs
+   */
+  public async advertiseByoipRange(
+    advertiseByoipRangeRequest: requests.AdvertiseByoipRangeRequest
+  ): Promise<responses.AdvertiseByoipRangeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#advertiseByoipRange.");
+    const pathParams = {
+      "{byoipRangeId}": advertiseByoipRangeRequest.byoipRangeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": advertiseByoipRangeRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/byoipRanges/{byoipRangeId}/actions/advertise",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      advertiseByoipRangeRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AdvertiseByoipRangeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Adds the specified {@link Service} to the list of enabled
    * `Service` objects for the specified gateway. You must also set up a route rule with the
    * `cidrBlock` of the `Service` as the rule's destination and the service gateway as the rule's
@@ -11640,6 +11840,70 @@ export class VirtualNetworkClient {
       const sdkResponse = composeResponse({
         responseObject: <responses.BulkDeleteVirtualCircuitPublicPrefixesResponse>{},
         responseHeaders: []
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a byoip range into a different compartment within the same tenancy. For information
+   * about moving resources between compartments, see
+   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * @param ChangeByoipRangeCompartmentRequest
+   * @return ChangeByoipRangeCompartmentResponse
+   * @throws OciError when an error occurs
+   */
+  public async changeByoipRangeCompartment(
+    changeByoipRangeCompartmentRequest: requests.ChangeByoipRangeCompartmentRequest
+  ): Promise<responses.ChangeByoipRangeCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeByoipRangeCompartment.");
+    const pathParams = {
+      "{byoipRangeId}": changeByoipRangeCompartmentRequest.byoipRangeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeByoipRangeCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeByoipRangeCompartmentRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/byoipRanges/{byoipRangeId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeByoipRangeCompartmentRequest.changeByoipRangeCompartmentDetails,
+        "ChangeByoipRangeCompartmentDetails",
+        models.ChangeByoipRangeCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeByoipRangeCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeByoipRangeCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
       });
 
       return sdkResponse;
@@ -12422,6 +12686,70 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   }
 
   /**
+   * Moves a public IP pool into a different compartment within the same tenancy. For information
+   * about moving resources between compartments, see
+   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * @param ChangePublicIpPoolCompartmentRequest
+   * @return ChangePublicIpPoolCompartmentResponse
+   * @throws OciError when an error occurs
+   */
+  public async changePublicIpPoolCompartment(
+    changePublicIpPoolCompartmentRequest: requests.ChangePublicIpPoolCompartmentRequest
+  ): Promise<responses.ChangePublicIpPoolCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changePublicIpPoolCompartment.");
+    const pathParams = {
+      "{publicIpPoolId}": changePublicIpPoolCompartmentRequest.publicIpPoolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changePublicIpPoolCompartmentRequest.opcRequestId,
+      "opc-retry-token": changePublicIpPoolCompartmentRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/publicIpPools/{publicIpPoolId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changePublicIpPoolCompartmentRequest.changePublicIpPoolCompartmentDetails,
+        "ChangePublicIpPoolCompartmentDetails",
+        models.ChangePublicIpPoolCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changePublicIpPoolCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangePublicIpPoolCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a remote peering connection (RPC) into a different compartment within the same tenancy. For information
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
@@ -13109,6 +13437,73 @@ This operation must be called by the VCN administrator who is designated as
       const sdkResponse = composeResponse({
         responseObject: <responses.ConnectRemotePeeringConnectionsResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a Byoip Range prefix.
+   *
+   * @param CreateByoipRangeRequest
+   * @return CreateByoipRangeResponse
+   * @throws OciError when an error occurs
+   */
+  public async createByoipRange(
+    createByoipRangeRequest: requests.CreateByoipRangeRequest
+  ): Promise<responses.CreateByoipRangeResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createByoipRange.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createByoipRangeRequest.opcRequestId,
+      "opc-retry-token": createByoipRangeRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/byoipRanges",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createByoipRangeRequest.createByoipRangeDetails,
+        "CreateByoipRangeDetails",
+        models.CreateByoipRangeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createByoipRangeRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateByoipRangeResponse>{},
+        body: await response.json(),
+        bodyKey: "byoipRange",
+        bodyModel: "model.ByoipRange",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -14342,6 +14737,74 @@ Also, for reserved public IPs, the optional assignment part of this operation is
   }
 
   /**
+   * Creates a Public Ip Pool
+   *
+   * @param CreatePublicIpPoolRequest
+   * @return CreatePublicIpPoolResponse
+   * @throws OciError when an error occurs
+   */
+  public async createPublicIpPool(
+    createPublicIpPoolRequest: requests.CreatePublicIpPoolRequest
+  ): Promise<responses.CreatePublicIpPoolResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createPublicIpPool.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createPublicIpPoolRequest.opcRequestId,
+      "opc-retry-token": createPublicIpPoolRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/publicIpPools",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createPublicIpPoolRequest.createPublicIpPoolDetails,
+        "CreatePublicIpPoolDetails",
+        models.CreatePublicIpPoolDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createPublicIpPoolRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreatePublicIpPoolResponse>{},
+        body: await response.json(),
+        bodyKey: "publicIpPool",
+        bodyModel: "model.PublicIpPool",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new remote peering connection (RPC) for the specified DRG.
    *
    * @param CreateRemotePeeringConnectionRequest
@@ -14971,6 +15434,72 @@ You may optionally specify a *display name* for the virtual circuit.
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Deletes the specified Byoip Range prefix.
+* The prefix must be in CREATING, PROVISIONED or FAILED state.
+* It must not have any subranges allocated to a Public Ip Pool object.
+* You must specify the object's OCID.
+* <p>
+In case the range is currently PROVISIONED, the operation will be asynchronous as it needs to be de-ptovisioned first.
+* 
+     * @param DeleteByoipRangeRequest
+     * @return DeleteByoipRangeResponse
+     * @throws OciError when an error occurs
+     */
+  public async deleteByoipRange(
+    deleteByoipRangeRequest: requests.DeleteByoipRangeRequest
+  ): Promise<responses.DeleteByoipRangeResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteByoipRange.");
+    const pathParams = {
+      "{byoipRangeId}": deleteByoipRangeRequest.byoipRangeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteByoipRangeRequest.opcRequestId,
+      "if-match": deleteByoipRangeRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/byoipRanges/{byoipRangeId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteByoipRangeRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteByoipRangeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -15937,6 +16466,65 @@ If you want to simply unassign a reserved public IP and return it to your pool
   }
 
   /**
+   * Deletes the specified Public Ip Pool
+   * It must not have any active address allocations
+   * You must specify the object's OCID.
+   *
+   * @param DeletePublicIpPoolRequest
+   * @return DeletePublicIpPoolResponse
+   * @throws OciError when an error occurs
+   */
+  public async deletePublicIpPool(
+    deletePublicIpPoolRequest: requests.DeletePublicIpPoolRequest
+  ): Promise<responses.DeletePublicIpPoolResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deletePublicIpPool.");
+    const pathParams = {
+      "{publicIpPoolId}": deletePublicIpPoolRequest.publicIpPoolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deletePublicIpPoolRequest.opcRequestId,
+      "if-match": deletePublicIpPoolRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/publicIpPools/{publicIpPoolId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deletePublicIpPoolRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeletePublicIpPoolResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Deletes the remote peering connection (RPC).
 * <p>
 This is an asynchronous operation; the RPC's `lifecycleState` changes to TERMINATING temporarily
@@ -16461,6 +17049,69 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
         bodyKey: "serviceGateway",
         bodyModel: "model.ServiceGateway",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the specified Byoip Range object. You must specify the object's OCID.
+   *
+   * @param GetByoipRangeRequest
+   * @return GetByoipRangeResponse
+   * @throws OciError when an error occurs
+   */
+  public async getByoipRange(
+    getByoipRangeRequest: requests.GetByoipRangeRequest
+  ): Promise<responses.GetByoipRangeResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getByoipRange.");
+    const pathParams = {
+      "{byoipRangeId}": getByoipRangeRequest.byoipRangeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getByoipRangeRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/byoipRanges/{byoipRangeId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getByoipRangeRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetByoipRangeResponse>{},
+        body: await response.json(),
+        bodyKey: "byoipRange",
+        bodyModel: "model.ByoipRange",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -18411,6 +19062,69 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   }
 
   /**
+   * Gets the specified Public Ip Pool object. You must specify the object's OCID.
+   *
+   * @param GetPublicIpPoolRequest
+   * @return GetPublicIpPoolResponse
+   * @throws OciError when an error occurs
+   */
+  public async getPublicIpPool(
+    getPublicIpPoolRequest: requests.GetPublicIpPoolRequest
+  ): Promise<responses.GetPublicIpPoolResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getPublicIpPool.");
+    const pathParams = {
+      "{publicIpPoolId}": getPublicIpPoolRequest.publicIpPoolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPublicIpPoolRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/publicIpPools/{publicIpPoolId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getPublicIpPoolRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPublicIpPoolResponse>{},
+        body: await response.json(),
+        bodyKey: "publicIpPool",
+        bodyModel: "model.PublicIpPool",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Get the specified remote peering connection's information.
    *
    * @param GetRemotePeeringConnectionRequest
@@ -19218,6 +19932,144 @@ The operation returns configuration information for only the specified IPSec tun
         bodyKey: "items",
         bodyModel: "PeerRegionForRemotePeering[]",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the ByoipAllocatedRange objects for the ByoipRange.
+   * Each ByoipAllocatedRange object has a CIDR block part of the ByoipRange and the PublicIpPool it is assigned to.
+   *
+   * @param ListByoipAllocatedRangesRequest
+   * @return ListByoipAllocatedRangesResponse
+   * @throws OciError when an error occurs
+   */
+  public async listByoipAllocatedRanges(
+    listByoipAllocatedRangesRequest: requests.ListByoipAllocatedRangesRequest
+  ): Promise<responses.ListByoipAllocatedRangesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listByoipAllocatedRanges.");
+    const pathParams = {
+      "{byoipRangeId}": listByoipAllocatedRangesRequest.byoipRangeId
+    };
+
+    const queryParams = {
+      "limit": listByoipAllocatedRangesRequest.limit,
+      "page": listByoipAllocatedRangesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listByoipAllocatedRangesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/byoipRanges/{byoipRangeId}/byoipAllocatedRanges",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listByoipAllocatedRangesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListByoipAllocatedRangesResponse>{},
+        body: await response.json(),
+        bodyKey: "byoipAllocatedRangeCollection",
+        bodyModel: "model.ByoipAllocatedRangeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the ByoipRange objects in the specified compartment.
+   * You can filter the list by using query parameters.
+   *
+   * @param ListByoipRangesRequest
+   * @return ListByoipRangesResponse
+   * @throws OciError when an error occurs
+   */
+  public async listByoipRanges(
+    listByoipRangesRequest: requests.ListByoipRangesRequest
+  ): Promise<responses.ListByoipRangesResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listByoipRanges.");
+    const pathParams = {};
+
+    const queryParams = {
+      "limit": listByoipRangesRequest.limit,
+      "page": listByoipRangesRequest.page,
+      "displayName": listByoipRangesRequest.displayName,
+      "lifecycleState": listByoipRangesRequest.lifecycleState,
+      "sortBy": listByoipRangesRequest.sortBy,
+      "sortOrder": listByoipRangesRequest.sortOrder,
+      "compartmentId": listByoipRangesRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listByoipRangesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/byoipRanges",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listByoipRangesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListByoipRangesResponse>{},
+        body: await response.json(),
+        bodyKey: "byoipRangeCollection",
+        bodyModel: "model.ByoipRangeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -21410,6 +22262,76 @@ If you are an Oracle Cloud VMware Solution customer and have VLANs
   }
 
   /**
+   * Lists the PublicIpPool objects in the specified compartment.
+   * You can filter the list by using query parameters.
+   *
+   * @param ListPublicIpPoolsRequest
+   * @return ListPublicIpPoolsResponse
+   * @throws OciError when an error occurs
+   */
+  public async listPublicIpPools(
+    listPublicIpPoolsRequest: requests.ListPublicIpPoolsRequest
+  ): Promise<responses.ListPublicIpPoolsResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listPublicIpPools.");
+    const pathParams = {};
+
+    const queryParams = {
+      "limit": listPublicIpPoolsRequest.limit,
+      "page": listPublicIpPoolsRequest.page,
+      "displayName": listPublicIpPoolsRequest.displayName,
+      "byoipRangeId": listPublicIpPoolsRequest.byoipRangeId,
+      "sortBy": listPublicIpPoolsRequest.sortBy,
+      "sortOrder": listPublicIpPoolsRequest.sortOrder,
+      "compartmentId": listPublicIpPoolsRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPublicIpPoolsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/publicIpPools",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listPublicIpPoolsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPublicIpPoolsResponse>{},
+        body: await response.json(),
+        bodyKey: "publicIpPoolCollection",
+        bodyModel: "model.PublicIpPoolCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Lists the {@link PublicIp} objects
 * in the specified compartment. You can filter the list by using query parameters.
 * <p>
@@ -21447,7 +22369,8 @@ To list the ephemeral public IPs assigned to private IPs:
       "scope": listPublicIpsRequest.scope,
       "availabilityDomain": listPublicIpsRequest.availabilityDomain,
       "lifetime": listPublicIpsRequest.lifetime,
-      "compartmentId": listPublicIpsRequest.compartmentId
+      "compartmentId": listPublicIpsRequest.compartmentId,
+      "publicIpPoolId": listPublicIpsRequest.publicIpPoolId
     };
 
     let headerParams = {
@@ -22563,6 +23486,145 @@ To list the ephemeral public IPs assigned to private IPs:
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveNetworkSecurityGroupSecurityRulesResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes a Cidr from the referenced Public IP Pool.
+   *
+   * @param RemovePublicIpPoolCapacityRequest
+   * @return RemovePublicIpPoolCapacityResponse
+   * @throws OciError when an error occurs
+   */
+  public async removePublicIpPoolCapacity(
+    removePublicIpPoolCapacityRequest: requests.RemovePublicIpPoolCapacityRequest
+  ): Promise<responses.RemovePublicIpPoolCapacityResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#removePublicIpPoolCapacity.");
+    const pathParams = {
+      "{publicIpPoolId}": removePublicIpPoolCapacityRequest.publicIpPoolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removePublicIpPoolCapacityRequest.opcRequestId,
+      "opc-retry-token": removePublicIpPoolCapacityRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/publicIpPools/{publicIpPoolId}/actions/removeCapacity",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removePublicIpPoolCapacityRequest.removePublicIpPoolCapacityDetails,
+        "RemovePublicIpPoolCapacityDetails",
+        models.RemovePublicIpPoolCapacityDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      removePublicIpPoolCapacityRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemovePublicIpPoolCapacityResponse>{},
+        body: await response.json(),
+        bodyKey: "publicIpPool",
+        bodyModel: "model.PublicIpPool",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified Byoip Range.
+   *
+   * @param UpdateByoipRangeRequest
+   * @return UpdateByoipRangeResponse
+   * @throws OciError when an error occurs
+   */
+  public async updateByoipRange(
+    updateByoipRangeRequest: requests.UpdateByoipRangeRequest
+  ): Promise<responses.UpdateByoipRangeResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateByoipRange.");
+    const pathParams = {
+      "{byoipRangeId}": updateByoipRangeRequest.byoipRangeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateByoipRangeRequest.opcRequestId,
+      "if-match": updateByoipRangeRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/byoipRanges/{byoipRangeId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateByoipRangeRequest.updateByoipRangeDetails,
+        "UpdateByoipRangeDetails",
+        models.UpdateByoipRangeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateByoipRangeRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateByoipRangeResponse>{},
+        body: await response.json(),
+        bodyKey: "byoipRange",
+        bodyModel: "model.ByoipRange",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -23977,6 +25039,76 @@ Regarding ephemeral public IPs:
   }
 
   /**
+   * Updates the specified Public Ip Pool.
+   *
+   * @param UpdatePublicIpPoolRequest
+   * @return UpdatePublicIpPoolResponse
+   * @throws OciError when an error occurs
+   */
+  public async updatePublicIpPool(
+    updatePublicIpPoolRequest: requests.UpdatePublicIpPoolRequest
+  ): Promise<responses.UpdatePublicIpPoolResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updatePublicIpPool.");
+    const pathParams = {
+      "{publicIpPoolId}": updatePublicIpPoolRequest.publicIpPoolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updatePublicIpPoolRequest.opcRequestId,
+      "if-match": updatePublicIpPoolRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/publicIpPools/{publicIpPoolId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updatePublicIpPoolRequest.updatePublicIpPoolDetails,
+        "UpdatePublicIpPoolDetails",
+        models.UpdatePublicIpPoolDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updatePublicIpPoolRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdatePublicIpPoolResponse>{},
+        body: await response.json(),
+        bodyKey: "publicIpPool",
+        bodyModel: "model.PublicIpPool",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the specified remote peering connection (RPC).
    *
    * @param UpdateRemotePeeringConnectionRequest
@@ -24686,6 +25818,124 @@ To change the list of public IP prefixes for a public virtual circuit,
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * submit the Byoip Range for validation. This presumes the user has
+   * updated their IP registry record in accordance to validation requirements
+   *
+   * @param ValidateByoipRangeRequest
+   * @return ValidateByoipRangeResponse
+   * @throws OciError when an error occurs
+   */
+  public async validateByoipRange(
+    validateByoipRangeRequest: requests.ValidateByoipRangeRequest
+  ): Promise<responses.ValidateByoipRangeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#validateByoipRange.");
+    const pathParams = {
+      "{byoipRangeId}": validateByoipRangeRequest.byoipRangeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": validateByoipRangeRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/byoipRanges/{byoipRangeId}/actions/validate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      validateByoipRangeRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ValidateByoipRangeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * stop route advertisements for the Byoip Range prefix.
+   *
+   * @param WithdrawByoipRangeRequest
+   * @return WithdrawByoipRangeResponse
+   * @throws OciError when an error occurs
+   */
+  public async withdrawByoipRange(
+    withdrawByoipRangeRequest: requests.WithdrawByoipRangeRequest
+  ): Promise<responses.WithdrawByoipRangeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#withdrawByoipRange.");
+    const pathParams = {
+      "{byoipRangeId}": withdrawByoipRangeRequest.byoipRangeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": withdrawByoipRangeRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/byoipRanges/{byoipRangeId}/actions/withdraw",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      withdrawByoipRangeRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.WithdrawByoipRangeResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",

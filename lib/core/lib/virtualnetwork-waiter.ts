@@ -118,6 +118,46 @@ export class VirtualNetworkWaiter {
   }
 
   /**
+   * Waits forDeleteByoipRange
+   *
+   * @param request the request to send
+   * @return response returns DeleteByoipRangeResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteByoipRange(
+    request: serviceRequests.DeleteByoipRangeRequest
+  ): Promise<{
+    response: serviceResponses.DeleteByoipRangeResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteByoipRangeResponse = await this.client.deleteByoipRange(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteByoipRangeResponse.opcWorkRequestId
+    );
+    return { response: deleteByoipRangeResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forByoipRange till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetByoipRangeResponse | null (null in case of 404 response)
+   */
+  public async forByoipRange(
+    request: serviceRequests.GetByoipRangeRequest,
+    ...targetStates: models.ByoipRange.LifecycleState[]
+  ): Promise<serviceResponses.GetByoipRangeResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getByoipRange(request),
+      response => targetStates.exists(response.byoipRange.lifecycleState),
+      targetStates.includes(models.ByoipRange.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forCrossConnect till it reaches any of the provided states
    *
    * @param request the request to send
@@ -421,6 +461,25 @@ export class VirtualNetworkWaiter {
   }
 
   /**
+   * Waits forPublicIpPool till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetPublicIpPoolResponse | null (null in case of 404 response)
+   */
+  public async forPublicIpPool(
+    request: serviceRequests.GetPublicIpPoolRequest,
+    ...targetStates: models.PublicIpPool.LifecycleState[]
+  ): Promise<serviceResponses.GetPublicIpPoolResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getPublicIpPool(request),
+      response => targetStates.exists(response.publicIpPool.lifecycleState),
+      targetStates.includes(models.PublicIpPool.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forRemotePeeringConnectiononLifecycleState till it reaches any of the provided states
    *
    * @param request the request to send
@@ -608,5 +667,26 @@ export class VirtualNetworkWaiter {
       response => targetStates.exists(response.vnic.lifecycleState),
       targetStates.includes(models.Vnic.LifecycleState.Terminated)
     );
+  }
+
+  /**
+   * Waits forValidateByoipRange
+   *
+   * @param request the request to send
+   * @return response returns ValidateByoipRangeResponse, GetWorkRequestResponse tuple
+   */
+  public async forValidateByoipRange(
+    request: serviceRequests.ValidateByoipRangeRequest
+  ): Promise<{
+    response: serviceResponses.ValidateByoipRangeResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const validateByoipRangeResponse = await this.client.validateByoipRange(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      validateByoipRangeResponse.opcWorkRequestId
+    );
+    return { response: validateByoipRangeResponse, workRequestResponse: getWorkRequestResponse };
   }
 }

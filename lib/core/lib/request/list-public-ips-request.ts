@@ -60,6 +60,11 @@ Example: `Uocm:PHX-AD-1`
    *
    */
   "lifetime"?: ListPublicIpsRequest.Lifetime;
+  /**
+   * A filter to return only resources that belong to the given public IP pool.
+   *
+   */
+  "publicIpPoolId"?: string;
 }
 
 export namespace ListPublicIpsRequest {

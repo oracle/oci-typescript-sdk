@@ -1,6 +1,6 @@
 {
   "name": "oci-common",
-  "version": "1.5.5",
+  "version": "1.5.6",
   "description": "OCI Common module for NodeJS",
   "repository": {
     "type": "git",

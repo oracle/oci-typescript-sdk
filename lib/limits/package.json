@@ -1,6 +1,6 @@
 {
   "name": "oci-limits",
-  "version": "1.5.5",
+  "version": "1.5.6",
   "description": "OCI NodeJS client for Limits Service",
   "repository": {
     "type": "git",
