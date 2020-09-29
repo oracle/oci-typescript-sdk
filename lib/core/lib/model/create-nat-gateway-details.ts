@@ -60,6 +60,11 @@ Example: `true`
    *
    */
   "vcnId": string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Public IP associated with the NAT gateway.
+   *
+   */
+  "publicIpId"?: string;
 }
 
 export namespace CreateNatGatewayDetails {

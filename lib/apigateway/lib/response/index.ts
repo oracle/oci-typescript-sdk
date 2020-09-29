@@ -14,6 +14,18 @@ For more information, see
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeCertificateCompartmentResponse from "./change-certificate-compartment-response";
+export import ChangeCertificateCompartmentResponse = ChangeCertificateCompartmentResponse.ChangeCertificateCompartmentResponse;
+import * as CreateCertificateResponse from "./create-certificate-response";
+export import CreateCertificateResponse = CreateCertificateResponse.CreateCertificateResponse;
+import * as DeleteCertificateResponse from "./delete-certificate-response";
+export import DeleteCertificateResponse = DeleteCertificateResponse.DeleteCertificateResponse;
+import * as GetCertificateResponse from "./get-certificate-response";
+export import GetCertificateResponse = GetCertificateResponse.GetCertificateResponse;
+import * as ListCertificatesResponse from "./list-certificates-response";
+export import ListCertificatesResponse = ListCertificatesResponse.ListCertificatesResponse;
+import * as UpdateCertificateResponse from "./update-certificate-response";
+export import UpdateCertificateResponse = UpdateCertificateResponse.UpdateCertificateResponse;
 import * as ChangeDeploymentCompartmentResponse from "./change-deployment-compartment-response";
 export import ChangeDeploymentCompartmentResponse = ChangeDeploymentCompartmentResponse.ChangeDeploymentCompartmentResponse;
 import * as CreateDeploymentResponse from "./create-deployment-response";

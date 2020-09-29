@@ -75,6 +75,9 @@ export namespace WorkRequest {
     CreateDeployment = "CREATE_DEPLOYMENT",
     UpdateDeployment = "UPDATE_DEPLOYMENT",
     DeleteDeployment = "DELETE_DEPLOYMENT",
+    CreateCertificate = "CREATE_CERTIFICATE",
+    UpdateCertificate = "UPDATE_CERTIFICATE",
+    DeleteCertificate = "DELETE_CERTIFICATE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

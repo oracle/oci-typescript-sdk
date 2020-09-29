@@ -80,6 +80,15 @@ Example: `PUBLIC` or `PRIVATE`
    */
   "hostname"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the resource.
+   *
+   */
+  "certificateId"?: string;
+  /**
+   * An array of IP addresses associated with the gateway.
+   */
+  "ipAddresses"?: Array<model.IpAddress>;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair
 * with no predefined name, type, or namespace. For more information, see
 * [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
@@ -125,7 +134,16 @@ export namespace Gateway {
   }
 
   export function getJsonObj(obj: Gateway): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "ipAddresses": obj.ipAddresses
+          ? obj.ipAddresses.map(item => {
+              return model.IpAddress.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

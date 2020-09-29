@@ -67,6 +67,10 @@ Optional for a reserved public IP. If you don't provide it, the public IP is cre
 * 
     */
   "privateIpId"?: string;
+  /**
+   * OCID of the pool object created by the current tenancy
+   */
+  "publicIpPoolId"?: string;
 }
 
 export namespace CreatePublicIpDetails {

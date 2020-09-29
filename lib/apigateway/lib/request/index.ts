@@ -14,6 +14,18 @@ For more information, see
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeCertificateCompartmentRequest from "./change-certificate-compartment-request";
+export import ChangeCertificateCompartmentRequest = ChangeCertificateCompartmentRequest.ChangeCertificateCompartmentRequest;
+import * as CreateCertificateRequest from "./create-certificate-request";
+export import CreateCertificateRequest = CreateCertificateRequest.CreateCertificateRequest;
+import * as DeleteCertificateRequest from "./delete-certificate-request";
+export import DeleteCertificateRequest = DeleteCertificateRequest.DeleteCertificateRequest;
+import * as GetCertificateRequest from "./get-certificate-request";
+export import GetCertificateRequest = GetCertificateRequest.GetCertificateRequest;
+import * as ListCertificatesRequest from "./list-certificates-request";
+export import ListCertificatesRequest = ListCertificatesRequest.ListCertificatesRequest;
+import * as UpdateCertificateRequest from "./update-certificate-request";
+export import UpdateCertificateRequest = UpdateCertificateRequest.UpdateCertificateRequest;
 import * as ChangeDeploymentCompartmentRequest from "./change-deployment-compartment-request";
 export import ChangeDeploymentCompartmentRequest = ChangeDeploymentCompartmentRequest.ChangeDeploymentCompartmentRequest;
 import * as CreateDeploymentRequest from "./create-deployment-request";
