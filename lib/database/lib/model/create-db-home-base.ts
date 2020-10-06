@@ -64,6 +64,11 @@ export namespace CreateDbHomeBase {
             <model.CreateDbHomeWithDbSystemIdFromBackupDetails>(<object>jsonObj),
             true
           );
+        case "VM_CLUSTER_BACKUP":
+          return model.CreateDbHomeWithVmClusterIdFromBackupDetails.getJsonObj(
+            <model.CreateDbHomeWithVmClusterIdFromBackupDetails>(<object>jsonObj),
+            true
+          );
         case "NONE":
           return model.CreateDbHomeWithDbSystemIdDetails.getJsonObj(
             <model.CreateDbHomeWithDbSystemIdDetails>(<object>jsonObj),

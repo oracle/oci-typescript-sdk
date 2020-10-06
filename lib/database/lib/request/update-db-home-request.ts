@@ -19,7 +19,7 @@ export interface UpdateDbHomeRequest extends common.BaseRequest {
    */
   "dbHomeId": string;
   /**
-   * Request to update the properties of a DB Home.
+   * Request to update the properties of a Database Home.
    */
   "updateDbHomeDetails": model.UpdateDbHomeDetails;
   /**

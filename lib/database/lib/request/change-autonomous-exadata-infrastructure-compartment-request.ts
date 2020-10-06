@@ -16,7 +16,7 @@ import common = require("oci-common");
 export interface ChangeAutonomousExadataInfrastructureCompartmentRequest
   extends common.BaseRequest {
   /**
-   * Request to move Autonomous Exadata Infrastructure to a different compartment
+   * Request to move an Autonomous Exadata Infrastructure resource to a different compartment.
    */
   "changeCompartmentDetails": model.ChangeCompartmentDetails;
   /**

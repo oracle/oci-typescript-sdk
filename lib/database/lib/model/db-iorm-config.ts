@@ -16,22 +16,22 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * IORM Config setting response for this database
+ * The IORM configuration settings for the database.
  *
  */
 export interface DbIormConfig {
   /**
-   * Database Name. For default DbPlan, the dbName will always be `default`
+   * The database name. For the default `DbPlan`, the `dbName` is `default`.
    *
    */
   "dbName"?: string;
   /**
-   * Relative priority of a database
+   * The relative priority of this database.
    *
    */
   "share"?: number;
   /**
-   * Flash Cache limit, internally configured based on shares
+   * The flash cache limit for this database. This value is internally configured based on the share value assigned to the database.
    *
    */
   "flashCacheLimit"?: string;

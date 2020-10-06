@@ -106,6 +106,8 @@ export namespace DatabaseSoftwareImageSummary {
     Deleting = "DELETING",
     Deleted = "DELETED",
     Failed = "FAILED",
+    Terminating = "TERMINATING",
+    Terminated = "TERMINATED",
     Updating = "UPDATING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

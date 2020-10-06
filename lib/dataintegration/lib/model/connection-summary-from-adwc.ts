@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The ADWC connection details object.
+ * The connection summary details for an Autonomous Data Warehouse data asset.
  */
 export interface ConnectionSummaryFromAdwc extends model.ConnectionSummary {
   /**

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface GetWorkRequestRequest extends common.BaseRequest {
   /**
-   * The ID of the asynchronous request.
+   * The ID of the asynchronous work request to retrieve.
    */
   "workRequestId": string;
   /**

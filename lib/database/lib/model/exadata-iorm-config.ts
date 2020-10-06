@@ -16,29 +16,29 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Response details which has IORM Settings for this Exadata System
+ * The IORM settings of the Exadata DB system.
  *
  */
 export interface ExadataIormConfig {
   /**
-   * The current config state of IORM settings for this Exadata System.
+   * The current state of IORM configuration for the Exadata DB system.
    *
    */
   "lifecycleState"?: ExadataIormConfig.LifecycleState;
   /**
-   * Additional information about the current lifecycleState.
+   * Additional information about the current `lifecycleState`.
    *
    */
   "lifecycleDetails"?: string;
   /**
-   * Value for the IORM objective
-   * Default is \"Auto\"
+   * The current value for the IORM objective.
+   * The default is `AUTO`.
    *
    */
   "objective"?: ExadataIormConfig.Objective;
   /**
-   * Array of IORM Setting for all the database in
-   * this Exadata DB System
+   * An array of IORM settings for all the database in
+   * the Exadata DB system.
    *
    */
   "dbPlans"?: Array<model.DbIormConfig>;

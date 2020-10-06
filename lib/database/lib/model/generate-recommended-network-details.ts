@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Generates a recommended VM cluster network configuration.
+ * Generates a recommended VM cluster network configuration for an Exadata Cloud@Customer system.
  *
  */
 export interface GenerateRecommendedNetworkDetails {

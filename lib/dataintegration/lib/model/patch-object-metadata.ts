@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A summary type containing information about the object including its key, name and when/who created/updated it
+ * A summary type containing information about the object including its key, name and when/who created/updated it.
  */
 export interface PatchObjectMetadata {
   /**
@@ -23,11 +23,11 @@ export interface PatchObjectMetadata {
    */
   "key"?: string;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name"?: string;
   /**
-   * The fully qualified path of the published object which would include its project and folder.
+   * The fully qualified path of the published object, which would include its project and folder.
    */
   "namePath"?: string;
   /**
@@ -39,11 +39,11 @@ export interface PatchObjectMetadata {
    */
   "objectVersion"?: number;
   /**
-   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be edited by the user.
+   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be modified.
    */
   "identifier"?: string;
   /**
-   * The patch action, if object was created, updated or deleted.
+   * The patch action indicating if object was created, updated, or deleted.
    */
   "action"?: PatchObjectMetadata.Action;
 }

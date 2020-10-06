@@ -39,5 +39,7 @@ import * as ListReportTypesRequest from "./list-report-types-request";
 export import ListReportTypesRequest = ListReportTypesRequest.ListReportTypesRequest;
 import * as ListReportsRequest from "./list-reports-request";
 export import ListReportsRequest = ListReportsRequest.ListReportsRequest;
+import * as ListTaxesRequest from "./list-taxes-request";
+export import ListTaxesRequest = ListTaxesRequest.ListTaxesRequest;
 import * as UpdateAcceptedAgreementRequest from "./update-accepted-agreement-request";
 export import UpdateAcceptedAgreementRequest = UpdateAcceptedAgreementRequest.UpdateAcceptedAgreementRequest;

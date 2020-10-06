@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListingPackageSummary {
   /**
-   * The id of the listing the specified package belongs to.
+   * The ID of the listing that the specified package belongs to.
    */
   "listingId"?: string;
   /**
@@ -31,7 +31,8 @@ export interface ListingPackageSummary {
    */
   "packageType"?: model.PackageTypeEnum;
   /**
-   * The regions where the package is eligible to be deployed.
+   * The regions where you can deploy the listing package. (Some packages have restrictions that limit their deployment to United States regions only.)
+   *
    */
   "regions"?: Array<model.Region>;
   /**

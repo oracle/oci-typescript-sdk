@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ProxyField extends model.TypedObject {
   /**
-   * Reference to a typed object, this can be either a key value to an object within the document, a shall referenced to a TypedObject or a full TypedObject definition.
+   * Reference to a typed object. This can be either a key value to an object within the document, a shall referenced to a `TypedObject`, or a full `TypedObject` definition.
    */
   "scope"?: any;
   "type"?:
@@ -30,7 +30,7 @@ export interface ProxyField extends model.TypedObject {
     | model.DataType
     | model.CompositeType;
   /**
-   * Labels are keywords or labels that you can add to data assets, dataflows etc. You can define your own labels and use them to categorize content.
+   * Labels are keywords or labels that you can add to data assets, dataflows and so on. You can define your own labels and use them to categorize content.
    */
   "labels"?: Array<string>;
 

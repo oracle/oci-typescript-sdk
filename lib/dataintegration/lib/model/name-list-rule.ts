@@ -15,35 +15,35 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The name list rule which defines how fields are projected. For example this may be all fields begining with STR.
+ * The name list rule which defines how fields are projected. For example, this may be all fields begining with STR.
  */
 export interface NameListRule extends model.ProjectionRule {
   /**
-   * skipRemainingRulesOnMatch
+   * Specifies whether to skip remaining rules when a match is found.
    */
   "isSkipRemainingRulesOnMatch"?: boolean;
   /**
-   * Reference to a typed object, this can be either a key value to an object within the document, a shall referenced to a TypedObject or a full TypedObject definition.
+   * Reference to a typed object. This can be either a key value to an object within the document, a shall referenced to a `TypedObject`, or a full `TypedObject` definition.
    */
   "scope"?: any;
   /**
-   * cascade
+   * Specifies whether to cascade or not.
    */
   "isCascade"?: boolean;
   /**
-   * matchingStrategy
+   * The pattern matching strategy.
    */
   "matchingStrategy"?: NameListRule.MatchingStrategy;
   /**
-   * caseSensitive
+   * Specifies if the rule is case sensitive.
    */
   "isCaseSensitive"?: boolean;
   /**
-   * ruleType
+   * The rule type.
    */
   "ruleType"?: NameListRule.RuleType;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "names"?: Array<string>;
 

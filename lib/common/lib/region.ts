@@ -54,7 +54,8 @@ export class Region {
     "tus": "us-gov-phoenix-1",
     "sjc": "us-sanjose-1",
     "brs": "uk-gov-cardiff-1",
-    "nja": "ap-chiyoda-1"
+    "nja": "ap-chiyoda-1",
+    "dxb": "me-dubai-1"
   };
 
   private static KNOWN_REGIONS: Map<string, Region> = new Map();
@@ -99,6 +100,7 @@ export class Region {
   public static EU_AMSTERDAM_1: Region = Region.register("eu-amsterdam-1", Realm.OC1);
   public static ME_JEDDAH_1: Region = Region.register("me-jeddah-1", Realm.OC1);
   public static US_SANJOSE_1: Region = Region.register("us-sanjose-1", Realm.OC1);
+  public static ME_DUBAI_1: Region = Region.register("me-dubai-1", Realm.OC1);
 
   // OC2
   public static US_LANGLEY_1: Region = Region.register("us-langley-1", Realm.OC2);

@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * List of DependentObject summaries
+ * A list of dependent object summaries.
  */
 export interface DependentObjectSummaryCollection {
   /**
-   * The array of DependentObject summaries
+   * An array of dependent object summaries.
    */
   "items": Array<model.DependentObjectSummary>;
 }

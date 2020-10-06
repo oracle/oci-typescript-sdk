@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The TypedObject class is a base class for any model object that has a type.
+ * The `TypedObject` class is a base class for any model object that has a type.
  */
 export interface TypedObject {
   /**
@@ -33,7 +33,7 @@ export interface TypedObject {
    */
   "objectStatus"?: number;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name"?: string;
   /**
@@ -86,6 +86,8 @@ export namespace TypedObject {
           return model.Parameter.getJsonObj(<model.Parameter>(<object>jsonObj), true);
         case "OUTPUT_FIELD":
           return model.OutputField.getJsonObj(<model.OutputField>(<object>jsonObj), true);
+        case "MACRO_FIELD":
+          return model.MacroField.getJsonObj(<model.MacroField>(<object>jsonObj), true);
         case "DERIVED_FIELD":
           return model.DerivedField.getJsonObj(<model.DerivedField>(<object>jsonObj), true);
         case "FLOW_PORT":

@@ -65,13 +65,15 @@ export async function getStringFromResponseBody(body: any): Promise<string> {
   if (body instanceof Readable) {
     // body is a stream type
     return readStringFromReadable(body);
-  } else if (body instanceof Blob) {
-    // body is a blob type
-    return readStringFromBlob(body);
-  } else if (body instanceof ReadableStream) {
-    // body is a fetch readableStream type
-    return readStringFromFetchReadableStream(body);
-  } else {
+  }
+  // else if (body instanceof Blob) {
+  //   // body is a blob type
+  //   return readStringFromBlob(body);
+  // } else if (body instanceof ReadableStream) {
+  //   // body is a fetch readableStream type
+  //   return readStringFromFetchReadableStream(body);
+  // }
+  else {
     // unknown type, unable to read body content for signing, reject it
     throw new Error("Unable to read body content to sign the request");
   }
@@ -99,52 +101,52 @@ export async function readStringFromReadable(readable: Readable): Promise<string
 }
 
 // read string from fetch ReadbaleString asynchronously, return a string content of it
-export async function readStringFromFetchReadableStream(readable: ReadableStream): Promise<string> {
-  let contentBuffer: Array<string> = [];
-  const reader = readable.getReader();
-  const decoder = new TextDecoder("utf-8");
+// export async function readStringFromFetchReadableStream(readable: ReadableStream): Promise<string> {
+//   let contentBuffer: Array<string> = [];
+//   const reader = readable.getReader();
+//   const decoder = new TextDecoder("utf-8");
 
-  return new Promise<string>((resolve, reject) => {
-    reader
-      .read()
-      .then(function processText({ done, value }): any {
-        if (done) {
-          // reading stream done, resolve it
-          resolve(contentBuffer.join(""));
-        }
+//   return new Promise<string>((resolve, reject) => {
+//     reader
+//       .read()
+//       .then(function processText({ done, value }): any {
+//         if (done) {
+//           // reading stream done, resolve it
+//           resolve(contentBuffer.join(""));
+//         }
 
-        // put each chunk into a buffer
-        contentBuffer.push(decoder.decode(value));
+//         // put each chunk into a buffer
+//         contentBuffer.push(decoder.decode(value));
 
-        // read more data and call processText function again to read more
-        return reader.read().then(processText);
-      })
-      .catch(function(e) {
-        // reject if has error
-        reject(e);
-      });
-  });
-}
+//         // read more data and call processText function again to read more
+//         return reader.read().then(processText);
+//       })
+//       .catch(function(e) {
+//         // reject if has error
+//         reject(e);
+//       });
+//   });
+// }
 
 // read string from Blob asynchronously, return a string content of it
-export async function readStringFromBlob(blob: Blob): Promise<string> {
-  const reader = new FileReader();
+// export async function readStringFromBlob(blob: Blob): Promise<string> {
+//   const reader = new FileReader();
 
-  return new Promise<string>((resolve, reject) => {
-    reader.onerror = err => {
-      reader.abort();
-      reject(err);
-    };
+//   return new Promise<string>((resolve, reject) => {
+//     reader.onerror = err => {
+//       reader.abort();
+//       reject(err);
+//     };
 
-    reader.onload = () => {
-      // read as Text is called, so this will be a string
-      resolve(reader.result as string);
-    };
+//     reader.onload = () => {
+//       // read as Text is called, so this will be a string
+//       resolve(reader.result as string);
+//     };
 
-    // utf-8 default encoding is used here
-    reader.readAsText(blob);
-  });
-}
+//     // utf-8 default encoding is used here
+//     reader.readAsText(blob);
+//   });
+// }
 
 // returns duplicated body for separate consumption by signer and Fetch Request
 export function getSignerAndReqBody(
@@ -174,17 +176,17 @@ export function getSignerAndReqBody(
     const reqBody = body.pipe(new PassThrough());
     return { signerBody: signerbody, requestBody: reqBody };
   }
-  //if body instance of blob, can be duplicated.
-  else if (body instanceof Blob) {
-    return { signerBody: body, requestBody: body };
-  }
-  // if body instance of ReadableStream, tee() it.
-  else if (body instanceof ReadableStream) {
-    // body.tee() not supported in IE.
-    // https://jira.oci.oraclecorp.com/browse/DEX-7126
-    const duplicateStream = body.tee();
-    return { signerBody: duplicateStream[0], requestBody: duplicateStream[1] };
-  }
+  // //if body instance of blob, can be duplicated.
+  // else if (body instanceof Blob) {
+  //   return { signerBody: body, requestBody: body };
+  // }
+  // // if body instance of ReadableStream, tee() it.
+  // else if (body instanceof ReadableStream) {
+  //   // body.tee() not supported in IE.
+  //   // https://jira.oci.oraclecorp.com/browse/DEX-7126
+  //   const duplicateStream = body.tee();
+  //   return { signerBody: duplicateStream[0], requestBody: duplicateStream[1] };
+  // }
   // unknown type, unable to read body content.
   else throw new Error("Unable to read body content");
 }
@@ -222,13 +224,15 @@ export async function getStringFromRequestBody(body: any): Promise<string> {
   if (body instanceof Readable) {
     // body is a stream type
     return readStringFromReadable(body);
-  } else if (body instanceof Blob) {
-    // body is a blob type
-    return readStringFromBlob(body);
-  } else if (body instanceof ReadableStream) {
-    // body is a fetch readableStream type
-    return readStringFromFetchReadableStream(body);
-  } else {
+  }
+  // else if (body instanceof Blob) {
+  //   // body is a blob type
+  //   return readStringFromBlob(body);
+  // } else if (body instanceof ReadableStream) {
+  //   // body is a fetch readableStream type
+  //   return readStringFromFetchReadableStream(body);
+  // }
+  else {
     // unknown type, unable to read body content for signing, reject it
     throw new Error("Unable to read body content to sign the request");
   }

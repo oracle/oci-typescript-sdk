@@ -15,12 +15,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about connection validation
+ * The information about connection validation.
  */
 export interface ConnectionValidationSummary {
   "validationMessage"?: model.Message;
   /**
-   * Objects will use a 36 character key as unique ID. It is system generated and cannot be edited by user
+   * Objects will use a 36 character key as unique ID. It is system generated and cannot be modified.
    */
   "key"?: string;
   /**
@@ -33,7 +33,7 @@ export interface ConnectionValidationSummary {
   "modelVersion"?: string;
   "parentRef"?: model.ParentReference;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name"?: string;
   /**
@@ -49,7 +49,7 @@ export interface ConnectionValidationSummary {
    */
   "objectStatus"?: number;
   /**
-   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be edited by the user.
+   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be modified.
    */
   "identifier"?: string;
   "metadata"?: model.ObjectMetadata;

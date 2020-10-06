@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * List of taskRun summaries
+ * A list of task run summaries.
  */
 export interface TaskRunSummaryCollection {
   /**
-   * The array of taskRun summaries
+   * The array of task run summaries.
    */
   "items": Array<model.TaskRunSummary>;
 }

@@ -19,7 +19,7 @@ export interface GenerateRecommendedVmClusterNetworkRequest extends common.BaseR
    */
   "exadataInfrastructureId": string;
   /**
-   * Request to generate a recommended VM cluster network configuration.
+   * Request to generate a recommended Cloud@Customer VM cluster network configuration.
    */
   "generateRecommendedNetworkDetails": model.GenerateRecommendedNetworkDetails;
   /**

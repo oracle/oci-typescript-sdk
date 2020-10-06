@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface WriteOperationConfig extends model.AbstractDataOperationConfig {
   /**
-   * The key of the object.
+   * The object key.
    */
   "key"?: string;
   /**
-   * The model version of an object.
+   * The object's model version.
    */
   "modelVersion"?: string;
   "parentRef"?: model.ParentReference;
@@ -41,6 +41,7 @@ export interface WriteOperationConfig extends model.AbstractDataOperationConfig 
    * The mode for the write operation.
    */
   "writeMode"?: WriteOperationConfig.WriteMode;
+  "mergeKey"?: model.UniqueKey;
   /**
    * The status of an object that can be set to value 1 for shallow references across objects, other values reserved.
    */
@@ -80,7 +81,9 @@ export namespace WriteOperationConfig {
           : undefined,
         "writeAttribute": obj.writeAttribute
           ? model.AbstractWriteAttribute.getJsonObj(obj.writeAttribute)
-          : undefined
+          : undefined,
+
+        "mergeKey": obj.mergeKey ? model.UniqueKey.getJsonObj(obj.mergeKey) : undefined
       }
     };
 

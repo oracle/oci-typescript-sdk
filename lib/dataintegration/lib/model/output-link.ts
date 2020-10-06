@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about output links.
+ * Details about the outgoing data of an operator in a data flow design.
  */
 export interface OutputLink extends model.FlowPortLink {
   /**

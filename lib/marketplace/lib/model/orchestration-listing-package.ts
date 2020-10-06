@@ -27,7 +27,8 @@ export interface OrchestrationListingPackage extends model.ListingPackage {
    */
   "variables"?: Array<model.OrchestrationVariable>;
   /**
-   * List of regions in which this ListingPackage is available.
+   * The regions where you can deploy this listing package. (Some packages have restrictions that limit their deployment to United States regions only.)
+   *
    */
   "regions"?: Array<model.Region>;
 

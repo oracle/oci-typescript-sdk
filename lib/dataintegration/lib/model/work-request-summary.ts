@@ -27,11 +27,11 @@ export interface WorkRequestSummary {
    */
   "status": WorkRequestSummary.Status;
   /**
-   * The id of the work request.
+   * The ID of the work request.
    */
   "id": string;
   /**
-   * The ocid of the compartment that contains this work request. Work requests should be scoped to
+   * The OCID of the compartment that contains this work request. Work requests should be scoped to
    * the same compartment as the resource the work request affects. If the work request affects multiple resources that are not in the same compartment, then the system picks a primary
    * resource whose compartment should be used.
    *

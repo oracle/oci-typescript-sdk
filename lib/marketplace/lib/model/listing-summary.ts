@@ -44,7 +44,8 @@ export interface ListingSummary {
    */
   "pricingTypes"?: Array<ListingSummary.PricingTypes>;
   /**
-   * The regions where the listing is eligible to be deployed.
+   * The regions where you can deploy the listing. (Some listings have restrictions that limit their deployment to United States regions only.)
+   *
    */
   "regions"?: Array<model.Region>;
   /**

@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * List of task validation summaries
+ * A list of task validation summaries.
  */
 export interface TaskValidationSummaryCollection {
   /**
-   * The array of validation summaries
+   * An array of validation summaries.
    */
   "items": Array<model.TaskValidationSummary>;
 }

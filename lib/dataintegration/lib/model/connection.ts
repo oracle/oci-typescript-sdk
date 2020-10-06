@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The connection object.
+ * The connection for a data asset.
  */
 export interface Connection {
   /**
@@ -28,11 +28,11 @@ export interface Connection {
   "modelVersion"?: string;
   "parentRef"?: model.ParentReference;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name"?: string;
   /**
-   * Detailed description for the object.
+   * User-defined description for the connection.
    */
   "description"?: string;
   /**
@@ -44,7 +44,7 @@ export interface Connection {
    */
   "objectStatus"?: number;
   /**
-   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be edited by the user.
+   * Value can only contain upper case letters, underscore, and numbers. It should begin with upper case letter or underscore. The value can be modified.
    */
   "identifier"?: string;
   "primarySchema"?: model.Schema;
@@ -58,7 +58,7 @@ export interface Connection {
   "isDefault"?: boolean;
   "metadata"?: model.ObjectMetadata;
   /**
-   * A map, if provided key is replaced with generated key, this structure provides mapping between user provided key and generated key
+   * A key map. If provided, key is replaced with generated key. This structure provides mapping between user provided key and generated key.
    */
   "keyMap"?: { [key: string]: string };
 
@@ -103,6 +103,16 @@ export namespace Connection {
         case "ORACLEDB_CONNECTION":
           return model.ConnectionFromOracle.getJsonObj(
             <model.ConnectionFromOracle>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_CONNECTION":
+          return model.ConnectionFromMySQL.getJsonObj(
+            <model.ConnectionFromMySQL>(<object>jsonObj),
+            true
+          );
+        case "GENERIC_JDBC_CONNECTION":
+          return model.ConnectionFromJdbc.getJsonObj(
+            <model.ConnectionFromJdbc>(<object>jsonObj),
             true
           );
         default:

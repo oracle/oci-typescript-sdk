@@ -15,16 +15,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A ConfiguraedType represents a type that has built-in configuration to the type itself. An example is a SSN type whose basic type is VARCHAR, but the type itself also has a built-in configuration like length=10
+ * A `ConfiguredType` represents a type that has built-in configuration to the type itself. An example is a `SSN` type whose basic type is `VARCHAR`, but the type itself also has a built-in configuration like length=10.
  */
 export interface ConfiguredType extends model.BaseType {
-  "wrappedType"?:
-    | model.ConfiguredType
-    | model.JavaType
-    | model.DynamicType
-    | model.DerivedType
-    | model.DataType
-    | model.CompositeType;
+  /**
+   * A wrapped type, may be a string or a BaseType.
+   */
+  "wrappedType"?: any;
   "configValues"?: model.ConfigValues;
   "configDefinition"?: model.ConfigDefinition;
 
@@ -36,7 +33,6 @@ export namespace ConfiguredType {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.BaseType.getJsonObj(obj) as ConfiguredType)),
       ...{
-        "wrappedType": obj.wrappedType ? model.BaseType.getJsonObj(obj.wrappedType) : undefined,
         "configValues": obj.configValues
           ? model.ConfigValues.getJsonObj(obj.configValues)
           : undefined,

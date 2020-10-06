@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface ChangeBackupDestinationCompartmentRequest extends common.BaseRequest {
   /**
-   * Request to move backup destination to a different compartment
+   * Request to move backup destination to a different compartment.
    *
    */
   "changeCompartmentDetails": model.ChangeCompartmentDetails;

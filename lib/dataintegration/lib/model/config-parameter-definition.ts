@@ -30,7 +30,7 @@ export interface ConfigParameterDefinition {
    */
   "parameterName"?: string;
   /**
-   * Detailed description for the object.
+   * A user defined description for the object.
    */
   "description"?: string;
   /**
@@ -42,11 +42,11 @@ export interface ConfigParameterDefinition {
    */
   "classFieldName"?: string;
   /**
-   * Whether the parameter is static or not.
+   * Specifies whether the parameter is static or not.
    */
   "isStatic"?: boolean;
   /**
-   * Whether the parameter is a class field or not.
+   * Specifies whether the parameter is a class field or not.
    */
   "isClassFieldValue"?: boolean;
 }

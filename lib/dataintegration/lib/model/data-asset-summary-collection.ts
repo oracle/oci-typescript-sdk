@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DataAssetSummaryCollection {
   /**
-   * The array of DataAsset summaries
+   * The array of data asset summaries.
    */
   "items": Array<model.DataAssetSummary>;
 }

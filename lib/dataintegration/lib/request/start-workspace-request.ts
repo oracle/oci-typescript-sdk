@@ -15,14 +15,13 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface StartWorkspaceRequest extends common.BaseRequest {
   /**
-   * DIS workspace id
+   * The workspace ID.
    */
   "workspaceId": string;
   /**
-   * Update and Delete operations should accept an optional If-Match header,
-   * in which clients can send a previously-received ETag. When If-Match is
-   * provided and its value does not exactly match the ETag of the resource
-   * on the server, the request should fail with HTTP response status code 412
+   * For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the `etag` from a previous GET or POST response for that resource.
+   * The resource will be updated or deleted only if the `etag` you provide matches the resource's current `etag` value.
+   * When 'if-match' is provided and its value does not exactly match the 'etag' of the resource on the server, the request fails with the 412 response code.
    *
    */
   "ifMatch"?: string;
@@ -34,7 +33,7 @@ export interface StartWorkspaceRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * Caller may provide \"retry tokens\" allowing them to retry an operation
+   * A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of executing that same action again.
    *
    */
   "opcRetryToken"?: string;

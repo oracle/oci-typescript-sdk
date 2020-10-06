@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Parameters are created and assigned values that can be deferred to execution/runtime.
+ * Parameters are created and assigned values that can be configured for each integration task.
  */
 export interface Parameter extends model.TypedObject {
   "type"?:
@@ -34,19 +34,19 @@ export interface Parameter extends model.TypedObject {
    */
   "rootObjectDefaultValue"?: any;
   /**
-   * Whether the parameter is input value.
+   * Specifies whether the parameter is input value.
    */
   "isInput"?: boolean;
   /**
-   * Whether the parameter is output value.
+   * Specifies whether the parameter is output value.
    */
   "isOutput"?: boolean;
   /**
-   * The output aggregation type
+   * The output aggregation type.
    */
   "outputAggregationType"?: Parameter.OutputAggregationType;
   /**
-   * The name of the object type.
+   * The type of value the parameter was created for.
    */
   "typeName"?: string;
 

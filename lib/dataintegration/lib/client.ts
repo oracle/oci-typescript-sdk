@@ -131,7 +131,7 @@ export class DataIntegrationClient {
   }
 
   /**
-   * The workspace will be moved to the desired compartment.
+   * Moves a workspace to a specified compartment.
    *
    * @param ChangeCompartmentRequest
    * @return ChangeCompartmentResponse
@@ -543,7 +543,7 @@ export class DataIntegrationClient {
   }
 
   /**
-   * The endpoint accepts the DataFlow object definition in the request payload and creates a DataFlow object validation.
+   * Accepts the data flow definition in the request payload and creates a data flow validation.
    *
    * @param CreateDataFlowValidationRequest
    * @return CreateDataFlowValidationResponse
@@ -613,7 +613,7 @@ export class DataIntegrationClient {
   }
 
   /**
-   * Retrieves the data entity shape from the end data system. The input can specify the data entity to get the shape for. For databases, this can be retrieved from the database data dictionary. For files, some hints as to the file properties can also be supplied in the input.
+   * Creates the data entity shape using the shape from the data asset.
    * @param CreateEntityShapeRequest
    * @return CreateEntityShapeResponse
    * @throws OciError when an error occurs
@@ -666,6 +666,148 @@ export class DataIntegrationClient {
         bodyKey: "entityShape",
         bodyModel: "model.EntityShape",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Publish a DataFlow in a OCI DataFlow application.
+   * @param CreateExternalPublicationRequest
+   * @return CreateExternalPublicationResponse
+   * @throws OciError when an error occurs
+   */
+  public async createExternalPublication(
+    createExternalPublicationRequest: requests.CreateExternalPublicationRequest
+  ): Promise<responses.CreateExternalPublicationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#createExternalPublication.");
+    const pathParams = {
+      "{workspaceId}": createExternalPublicationRequest.workspaceId,
+      "{taskKey}": createExternalPublicationRequest.taskKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createExternalPublicationRequest.opcRequestId,
+      "opc-retry-token": createExternalPublicationRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/tasks/{taskKey}/externalPublications",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createExternalPublicationRequest.createExternalPublicationDetails,
+        "CreateExternalPublicationDetails",
+        models.CreateExternalPublicationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createExternalPublicationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateExternalPublicationResponse>{},
+        body: await response.json(),
+        bodyKey: "externalPublication",
+        bodyModel: "model.ExternalPublication",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Validates a specific task.
+   * @param CreateExternalPublicationValidationRequest
+   * @return CreateExternalPublicationValidationResponse
+   * @throws OciError when an error occurs
+   */
+  public async createExternalPublicationValidation(
+    createExternalPublicationValidationRequest: requests.CreateExternalPublicationValidationRequest
+  ): Promise<responses.CreateExternalPublicationValidationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataIntegrationClient#createExternalPublicationValidation."
+      );
+    const pathParams = {
+      "{workspaceId}": createExternalPublicationValidationRequest.workspaceId,
+      "{taskKey}": createExternalPublicationValidationRequest.taskKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createExternalPublicationValidationRequest.opcRequestId,
+      "opc-retry-token": createExternalPublicationValidationRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/tasks/{taskKey}/externalPublicationValidations",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createExternalPublicationValidationRequest.createExternalPublicationValidationDetails,
+        "CreateExternalPublicationValidationDetails",
+        models.CreateExternalPublicationValidationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createExternalPublicationValidationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateExternalPublicationValidationResponse>{},
+        body: await response.json(),
+        bodyKey: "externalPublicationValidation",
+        bodyModel: "model.ExternalPublicationValidation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -958,7 +1100,7 @@ export class DataIntegrationClient {
   }
 
   /**
-   * Creates a data integration task or task run. The task can be based on a dataflow design or a task.
+   * Creates a data integration task run for the specified task.
    * @param CreateTaskRunRequest
    * @return CreateTaskRunResponse
    * @throws OciError when an error occurs
@@ -1096,7 +1238,7 @@ export class DataIntegrationClient {
   }
 
   /**
-   * Creates a new Data Integration Workspace ready for performing data integration.
+   * Creates a new Data Integration workspace ready for performing data integration tasks.
    *
    * @param CreateWorkspaceRequest
    * @return CreateWorkspaceResponse
@@ -1273,7 +1415,7 @@ export class DataIntegrationClient {
   }
 
   /**
-   * Successfully accepted the delete request. The connection validation will be deleted.
+   * Deletes a connection validation.
    * @param DeleteConnectionValidationRequest
    * @return DeleteConnectionValidationResponse
    * @throws OciError when an error occurs
@@ -1483,6 +1625,128 @@ export class DataIntegrationClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDataFlowValidationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes a published object using the specified identifier.
+   * @param DeleteExternalPublicationRequest
+   * @return DeleteExternalPublicationResponse
+   * @throws OciError when an error occurs
+   */
+  public async deleteExternalPublication(
+    deleteExternalPublicationRequest: requests.DeleteExternalPublicationRequest
+  ): Promise<responses.DeleteExternalPublicationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#deleteExternalPublication.");
+    const pathParams = {
+      "{workspaceId}": deleteExternalPublicationRequest.workspaceId,
+      "{taskKey}": deleteExternalPublicationRequest.taskKey,
+      "{externalPublicationsKey}": deleteExternalPublicationRequest.externalPublicationsKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteExternalPublicationRequest.ifMatch,
+      "opc-request-id": deleteExternalPublicationRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/workspaces/{workspaceId}/tasks/{taskKey}/externalPublications/{externalPublicationsKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteExternalPublicationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteExternalPublicationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes a task validation using the specified identifier.
+   *
+   * @param DeleteExternalPublicationValidationRequest
+   * @return DeleteExternalPublicationValidationResponse
+   * @throws OciError when an error occurs
+   */
+  public async deleteExternalPublicationValidation(
+    deleteExternalPublicationValidationRequest: requests.DeleteExternalPublicationValidationRequest
+  ): Promise<responses.DeleteExternalPublicationValidationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataIntegrationClient#deleteExternalPublicationValidation."
+      );
+    const pathParams = {
+      "{workspaceId}": deleteExternalPublicationValidationRequest.workspaceId,
+      "{taskKey}": deleteExternalPublicationValidationRequest.taskKey,
+      "{externalPublicationValidationKey}":
+        deleteExternalPublicationValidationRequest.externalPublicationValidationKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteExternalPublicationValidationRequest.ifMatch,
+      "opc-request-id": deleteExternalPublicationValidationRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/workspaces/{workspaceId}/tasks/{taskKey}/externalPublicationValidations/{externalPublicationValidationKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteExternalPublicationValidationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteExternalPublicationValidationResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1839,7 +2103,7 @@ export class DataIntegrationClient {
   }
 
   /**
-   * Deletes a Data Integration Workspace resource by identifier
+   * Deletes a Data Integration workspace resource using the specified identifier.
    * @param DeleteWorkspaceRequest
    * @return DeleteWorkspaceResponse
    * @throws OciError when an error occurs
@@ -2475,6 +2739,141 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Retrieves a publshed object in an task using the specified identifier.
+   * @param GetExternalPublicationRequest
+   * @return GetExternalPublicationResponse
+   * @throws OciError when an error occurs
+   */
+  public async getExternalPublication(
+    getExternalPublicationRequest: requests.GetExternalPublicationRequest
+  ): Promise<responses.GetExternalPublicationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#getExternalPublication.");
+    const pathParams = {
+      "{workspaceId}": getExternalPublicationRequest.workspaceId,
+      "{taskKey}": getExternalPublicationRequest.taskKey,
+      "{externalPublicationsKey}": getExternalPublicationRequest.externalPublicationsKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExternalPublicationRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/workspaces/{workspaceId}/tasks/{taskKey}/externalPublications/{externalPublicationsKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getExternalPublicationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExternalPublicationResponse>{},
+        body: await response.json(),
+        bodyKey: "externalPublication",
+        bodyModel: "model.ExternalPublication",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves an external publication validation using the specified identifier.
+   * @param GetExternalPublicationValidationRequest
+   * @return GetExternalPublicationValidationResponse
+   * @throws OciError when an error occurs
+   */
+  public async getExternalPublicationValidation(
+    getExternalPublicationValidationRequest: requests.GetExternalPublicationValidationRequest
+  ): Promise<responses.GetExternalPublicationValidationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataIntegrationClient#getExternalPublicationValidation."
+      );
+    const pathParams = {
+      "{workspaceId}": getExternalPublicationValidationRequest.workspaceId,
+      "{taskKey}": getExternalPublicationValidationRequest.taskKey,
+      "{externalPublicationValidationKey}":
+        getExternalPublicationValidationRequest.externalPublicationValidationKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExternalPublicationValidationRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/workspaces/{workspaceId}/tasks/{taskKey}/externalPublicationValidations/{externalPublicationValidationKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getExternalPublicationValidationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExternalPublicationValidationResponse>{},
+        body: await response.json(),
+        bodyKey: "externalPublicationValidation",
+        bodyModel: "model.ExternalPublicationValidation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves a folder using the specified identifier.
    * @param GetFolderRequest
    * @return GetFolderResponse
@@ -2712,6 +3111,70 @@ export class DataIntegrationClient {
         body: await response.json(),
         bodyKey: "publishedObject",
         bodyModel: "model.PublishedObject",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves a reference in an application.
+   * @param GetReferenceRequest
+   * @return GetReferenceResponse
+   * @throws OciError when an error occurs
+   */
+  public async getReference(
+    getReferenceRequest: requests.GetReferenceRequest
+  ): Promise<responses.GetReferenceResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getReference.");
+    const pathParams = {
+      "{workspaceId}": getReferenceRequest.workspaceId,
+      "{applicationKey}": getReferenceRequest.applicationKey,
+      "{referenceKey}": getReferenceRequest.referenceKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getReferenceRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/applications/{applicationKey}/references/{referenceKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getReferenceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetReferenceResponse>{},
+        body: await response.json(),
+        bodyKey: "reference",
+        bodyModel: "model.Reference",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2984,7 +3447,7 @@ export class DataIntegrationClient {
   }
 
   /**
-   * Gets the status of the work request with the given ID.
+   * Retrieves the status of the work request with the given ID.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -3051,7 +3514,7 @@ export class DataIntegrationClient {
   }
 
   /**
-   * Gets a Data Integration Workspace by identifier
+   * Retrieves a Data Integration workspace using the specified identifier.
    * @param GetWorkspaceRequest
    * @return GetWorkspaceResponse
    * @throws OciError when an error occurs
@@ -3356,7 +3819,7 @@ export class DataIntegrationClient {
   }
 
   /**
-   * This endpoint can be used to list all data asset summaries
+   * Retrieves a list of all data asset summaries.
    *
    * @param ListDataAssetsRequest
    * @return ListDataAssetsResponse
@@ -3437,8 +3900,7 @@ export class DataIntegrationClient {
   }
 
   /**
-   * Retrieves a list of summaries of data entities present in the schema identified by schema name. |
-   * A live query is run on the data asset identified via the connection specified.
+   * Lists a summary of data entities from the data asset using the specified connection.
    *
    * @param ListDataEntitiesRequest
    * @return ListDataEntitiesResponse
@@ -3522,7 +3984,7 @@ export class DataIntegrationClient {
   }
 
   /**
-   * Retrieves a list of data flow validations within the specified workspace
+   * Retrieves a list of data flow validations within the specified workspace.
    * @param ListDataFlowValidationsRequest
    * @return ListDataFlowValidationsResponse
    * @throws OciError when an error occurs
@@ -3770,6 +4232,172 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Retrieves a lists of external publication validations in a workspace and provides options to filter the list.
+   *
+   * @param ListExternalPublicationValidationsRequest
+   * @return ListExternalPublicationValidationsResponse
+   * @throws OciError when an error occurs
+   */
+  public async listExternalPublicationValidations(
+    listExternalPublicationValidationsRequest: requests.ListExternalPublicationValidationsRequest
+  ): Promise<responses.ListExternalPublicationValidationsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataIntegrationClient#listExternalPublicationValidations."
+      );
+    const pathParams = {
+      "{workspaceId}": listExternalPublicationValidationsRequest.workspaceId,
+      "{taskKey}": listExternalPublicationValidationsRequest.taskKey
+    };
+
+    const queryParams = {
+      "fields": listExternalPublicationValidationsRequest.fields,
+      "name": listExternalPublicationValidationsRequest.name,
+      "identifier": listExternalPublicationValidationsRequest.identifier,
+      "page": listExternalPublicationValidationsRequest.page,
+      "limit": listExternalPublicationValidationsRequest.limit,
+      "sortOrder": listExternalPublicationValidationsRequest.sortOrder,
+      "sortBy": listExternalPublicationValidationsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExternalPublicationValidationsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/tasks/{taskKey}/externalPublicationValidations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listExternalPublicationValidationsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExternalPublicationValidationsResponse>{},
+        body: await response.json(),
+        bodyKey: "externalPublicationValidationSummaryCollection",
+        bodyModel: "model.ExternalPublicationValidationSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves a list of external publications in an application and provides options to filter the list.
+   * @param ListExternalPublicationsRequest
+   * @return ListExternalPublicationsResponse
+   * @throws OciError when an error occurs
+   */
+  public async listExternalPublications(
+    listExternalPublicationsRequest: requests.ListExternalPublicationsRequest
+  ): Promise<responses.ListExternalPublicationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#listExternalPublications.");
+    const pathParams = {
+      "{workspaceId}": listExternalPublicationsRequest.workspaceId,
+      "{taskKey}": listExternalPublicationsRequest.taskKey
+    };
+
+    const queryParams = {
+      "fields": listExternalPublicationsRequest.fields,
+      "name": listExternalPublicationsRequest.name,
+      "limit": listExternalPublicationsRequest.limit,
+      "page": listExternalPublicationsRequest.page,
+      "sortOrder": listExternalPublicationsRequest.sortOrder,
+      "sortBy": listExternalPublicationsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExternalPublicationsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/tasks/{taskKey}/externalPublications",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listExternalPublicationsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExternalPublicationsResponse>{},
+        body: await response.json(),
+        bodyKey: "externalPublicationSummaryCollection",
+        bodyModel: "model.ExternalPublicationSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves a list of folders in a project and provides options to filter the list.
    *
    * @param ListFoldersRequest
@@ -3853,6 +4481,87 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a list of patches in an application and provides options to filter the list.
+   * @param ListPatchChangesRequest
+   * @return ListPatchChangesResponse
+   * @throws OciError when an error occurs
+   */
+  public async listPatchChanges(
+    listPatchChangesRequest: requests.ListPatchChangesRequest
+  ): Promise<responses.ListPatchChangesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listPatchChanges.");
+    const pathParams = {
+      "{workspaceId}": listPatchChangesRequest.workspaceId,
+      "{applicationKey}": listPatchChangesRequest.applicationKey
+    };
+
+    const queryParams = {
+      "name": listPatchChangesRequest.name,
+      "sincePatch": listPatchChangesRequest.sincePatch,
+      "toPatch": listPatchChangesRequest.toPatch,
+      "limit": listPatchChangesRequest.limit,
+      "page": listPatchChangesRequest.page,
+      "sortOrder": listPatchChangesRequest.sortOrder,
+      "sortBy": listPatchChangesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPatchChangesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/applications/{applicationKey}/patchChanges",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listPatchChangesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPatchChangesResponse>{},
+        body: await response.json(),
+        bodyKey: "patchChangeSummaryCollection",
+        bodyModel: "model.PatchChangeSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves a list of patches in an application and provides options to filter the list. For listing changes based on a period and logical objects changed, see ListPatchChanges API.
    * @param ListPatchesRequest
    * @return ListPatchesResponse
    * @throws OciError when an error occurs
@@ -4098,6 +4807,90 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Retrieves a list of references in an application. Reference objects are created when dataflows and tasks use objects, such as data assets and connections.
+   * @param ListReferencesRequest
+   * @return ListReferencesResponse
+   * @throws OciError when an error occurs
+   */
+  public async listReferences(
+    listReferencesRequest: requests.ListReferencesRequest
+  ): Promise<responses.ListReferencesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listReferences.");
+    const pathParams = {
+      "{workspaceId}": listReferencesRequest.workspaceId,
+      "{applicationKey}": listReferencesRequest.applicationKey
+    };
+
+    const queryParams = {
+      "limit": listReferencesRequest.limit,
+      "page": listReferencesRequest.page,
+      "name": listReferencesRequest.name,
+      "sortOrder": listReferencesRequest.sortOrder,
+      "sortBy": listReferencesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listReferencesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/applications/{applicationKey}/references",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listReferencesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListReferencesResponse>{},
+        body: await response.json(),
+        bodyKey: "referenceSummaryCollection",
+        bodyModel: "model.ReferenceSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves a list of all the schemas that can be accessed using the specified connection.
    * @param ListSchemasRequest
    * @return ListSchemasResponse
@@ -4179,7 +4972,7 @@ export class DataIntegrationClient {
   }
 
   /**
-   * Get log entries for task runs using its key
+   * Gets log entries for task runs using its key.
    * @param ListTaskRunLogsRequest
    * @return ListTaskRunLogsResponse
    * @throws OciError when an error occurs
@@ -4531,7 +5324,7 @@ export class DataIntegrationClient {
   }
 
   /**
-   * Return a (paginated) list of errors for a given work request.
+   * Retrieves a paginated list of errors for a given work request.
    *
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
@@ -4625,7 +5418,7 @@ export class DataIntegrationClient {
   }
 
   /**
-   * Return a (paginated) list of logs for a given work request.
+   * Retrieves a paginated list of logs for a given work request.
    *
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
@@ -4812,7 +5605,7 @@ export class DataIntegrationClient {
   }
 
   /**
-   * Returns a list of Data Integration Workspaces.
+   * Retrieves a list of Data Integration workspaces.
    *
    * @param ListWorkspacesRequest
    * @return ListWorkspacesResponse
@@ -4906,7 +5699,7 @@ export class DataIntegrationClient {
   }
 
   /**
-   * The workspace will be started.
+   * Starts a workspace.
    *
    * @param StartWorkspaceRequest
    * @return StartWorkspaceResponse
@@ -4968,7 +5761,7 @@ export class DataIntegrationClient {
   }
 
   /**
-   * The workspace will be stopped.
+   * Stops a workspace.
    *
    * @param StopWorkspaceRequest
    * @return StopWorkspaceResponse
@@ -5310,6 +6103,78 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Updates the external publication object.
+   * @param UpdateExternalPublicationRequest
+   * @return UpdateExternalPublicationResponse
+   * @throws OciError when an error occurs
+   */
+  public async updateExternalPublication(
+    updateExternalPublicationRequest: requests.UpdateExternalPublicationRequest
+  ): Promise<responses.UpdateExternalPublicationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#updateExternalPublication.");
+    const pathParams = {
+      "{workspaceId}": updateExternalPublicationRequest.workspaceId,
+      "{taskKey}": updateExternalPublicationRequest.taskKey,
+      "{externalPublicationsKey}": updateExternalPublicationRequest.externalPublicationsKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateExternalPublicationRequest.opcRequestId,
+      "if-match": updateExternalPublicationRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/workspaces/{workspaceId}/tasks/{taskKey}/externalPublications/{externalPublicationsKey}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExternalPublicationRequest.updateExternalPublicationDetails,
+        "UpdateExternalPublicationDetails",
+        models.UpdateExternalPublicationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateExternalPublicationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExternalPublicationResponse>{},
+        body: await response.json(),
+        bodyKey: "externalPublication",
+        bodyModel: "model.ExternalPublication",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates a specific folder.
    * @param UpdateFolderRequest
    * @return UpdateFolderResponse
@@ -5427,6 +6292,77 @@ export class DataIntegrationClient {
         body: await response.json(),
         bodyKey: "project",
         bodyModel: "model.Project",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the application references. For example, to map a data asset to a different target object.
+   * @param UpdateReferenceRequest
+   * @return UpdateReferenceResponse
+   * @throws OciError when an error occurs
+   */
+  public async updateReference(
+    updateReferenceRequest: requests.UpdateReferenceRequest
+  ): Promise<responses.UpdateReferenceResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updateReference.");
+    const pathParams = {
+      "{workspaceId}": updateReferenceRequest.workspaceId,
+      "{applicationKey}": updateReferenceRequest.applicationKey,
+      "{referenceKey}": updateReferenceRequest.referenceKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateReferenceRequest.opcRequestId,
+      "if-match": updateReferenceRequest.ifMatch,
+      "opc-retry-token": updateReferenceRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/applications/{applicationKey}/references/{referenceKey}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateReferenceRequest.updateReferenceDetails,
+        "UpdateReferenceDetails",
+        models.UpdateReferenceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateReferenceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateReferenceResponse>{},
+        body: await response.json(),
+        bodyKey: "reference",
+        bodyModel: "model.Reference",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5587,7 +6523,7 @@ export class DataIntegrationClient {
   }
 
   /**
-   * Updates the Data Integration Workspace
+   * Updates the specified Data Integration workspace.
    * @param UpdateWorkspaceRequest
    * @return UpdateWorkspaceResponse
    * @throws OciError when an error occurs

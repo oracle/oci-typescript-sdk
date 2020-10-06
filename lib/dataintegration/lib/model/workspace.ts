@@ -35,7 +35,7 @@ export interface Workspace {
    */
   "dnsServerZone"?: string;
   /**
-   * Whether the private network connection is enabled or disabled.
+   * Specifies whether the private network connection is enabled or disabled.
    */
   "isPrivateNetworkEnabled"?: boolean;
   /**
@@ -88,11 +88,11 @@ export interface Workspace {
    */
   "lifecycleState"?: Workspace.LifecycleState;
   /**
-   * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
+   * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in failed state.
    */
   "stateMessage"?: string;
   /**
-   * Unique identifier that is immutable on creation
+   * A system-generated and immutable identifier assigned to the workspace upon creation.
    */
   "id": string;
 }

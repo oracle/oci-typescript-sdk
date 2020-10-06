@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The ATP connection details.
+ * The details to create an Autonomous Transaction Processing data asset connection.
  */
 export interface CreateConnectionFromAtp extends model.CreateConnectionDetails {
   /**

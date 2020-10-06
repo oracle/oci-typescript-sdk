@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A parameter value.
+ * User defined value for a parameter.
  */
 export interface ParameterValue {
   /**
@@ -23,7 +23,7 @@ export interface ParameterValue {
    */
   "simpleValue"?: any;
   /**
-   * This can be any object such as a file entity, or a schema or a table.
+   * This can be any object such as a file entity, a schema, or a table.
    */
   "rootObjectValue"?: any;
 }

@@ -18,7 +18,10 @@ import common = require("oci-common");
  * The data format object.
  */
 export interface DataFormat {
-  "formatAttribute"?: model.JsonFormatAttribute | model.CsvFormatAttribute;
+  "formatAttribute"?:
+    | model.AvroFormatAttribute
+    | model.JsonFormatAttribute
+    | model.CsvFormatAttribute;
   /**
    * type
    */
@@ -32,6 +35,7 @@ export namespace DataFormat {
     Csv = "CSV",
     Orc = "ORC",
     Parquet = "PARQUET",
+    Avro = "AVRO",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

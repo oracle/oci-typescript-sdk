@@ -31,7 +31,7 @@ export interface UpdateWorkspaceDetails {
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * A detailed description for the workspace.
+   * A user defined description for the workspace.
    */
   "description"?: string;
   /**

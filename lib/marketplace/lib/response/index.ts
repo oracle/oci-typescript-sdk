@@ -39,5 +39,7 @@ import * as ListReportTypesResponse from "./list-report-types-response";
 export import ListReportTypesResponse = ListReportTypesResponse.ListReportTypesResponse;
 import * as ListReportsResponse from "./list-reports-response";
 export import ListReportsResponse = ListReportsResponse.ListReportsResponse;
+import * as ListTaxesResponse from "./list-taxes-response";
+export import ListTaxesResponse = ListTaxesResponse.ListTaxesResponse;
 import * as UpdateAcceptedAgreementResponse from "./update-accepted-agreement-response";
 export import UpdateAcceptedAgreementResponse = UpdateAcceptedAgreementResponse.UpdateAcceptedAgreementResponse;

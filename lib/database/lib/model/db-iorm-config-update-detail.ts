@@ -16,17 +16,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * IORM Config setting request for this database
+ * Details of the IORM configuration settings update request.
  *
  */
 export interface DbIormConfigUpdateDetail {
   /**
-   * Database Name. For updating default DbPlan, pass in dbName as `default`
+   * The database name. For the default `DbPlan`, the `dbName` is `default`.
    *
    */
   "dbName"?: string;
   /**
-   * Relative priority of a database
+   * The relative priority of this database.
    *
    */
   "share"?: number;

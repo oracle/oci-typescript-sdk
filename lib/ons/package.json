@@ -1,6 +1,6 @@
 {
   "name": "oci-ons",
-  "version": "1.5.6",
+  "version": "1.5.7",
   "description": "OCI NodeJS client for ONS",
   "repository": {
     "type": "git",

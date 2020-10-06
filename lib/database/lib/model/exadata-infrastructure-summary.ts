@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of the Exadata infrastructure.
+ * Details of the Exadata Cloud@Customer infrastructure.
  */
 export interface ExadataInfrastructureSummary {
   /**
@@ -32,7 +32,7 @@ export interface ExadataInfrastructureSummary {
    */
   "lifecycleState": ExadataInfrastructureSummary.LifecycleState;
   /**
-   * The user-friendly name for the Exadata infrastructure. The name does not need to be unique.
+   * The user-friendly name for the Exadata Cloud@Customer infrastructure. The name does not need to be unique.
    */
   "displayName": string;
   /**
@@ -122,11 +122,11 @@ export interface ExadataInfrastructureSummary {
    */
   "lifecycleDetails"?: string;
   /**
-   * The CSI Number of the Exadata Infrastructure.
+   * The CSI Number of the Exadata infrastructure.
    */
   "csiNumber"?: string;
   /**
-   * The list of contacts for the Exadata Infrastructure.
+   * The list of contacts for the Exadata infrastructure.
    */
   "contacts"?: Array<model.ExadataInfrastructureContact>;
   /**

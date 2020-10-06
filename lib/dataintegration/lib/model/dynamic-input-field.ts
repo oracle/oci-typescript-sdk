@@ -26,7 +26,7 @@ export interface DynamicInputField extends model.TypedObject {
     | model.DataType
     | model.CompositeType;
   /**
-   * Labels are keywords or labels that you can add to data assets, dataflows etc. You can define your own labels and use them to categorize content.
+   * Labels are keywords or labels that you can add to data assets, dataflows and so on. You can define your own labels and use them to categorize content.
    */
   "labels"?: Array<string>;
 

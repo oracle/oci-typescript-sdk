@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ProjectSummaryCollection {
   /**
-   * The array of Project summaries
+   * The array of project summaries.
    */
   "items": Array<model.ProjectSummary>;
 }

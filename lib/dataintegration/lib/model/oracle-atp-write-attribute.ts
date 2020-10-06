@@ -27,15 +27,19 @@ export interface OracleAtpWriteAttribute extends model.AbstractWriteAttribute {
    */
   "stagingFileName"?: string;
   "stagingDataAsset"?:
+    | model.DataAssetFromJdbc
     | model.DataAssetFromOracleDetails
     | model.DataAssetFromAdwcDetails
     | model.DataAssetFromObjectStorageDetails
-    | model.DataAssetFromAtpDetails;
+    | model.DataAssetFromAtpDetails
+    | model.DataAssetFromMySQL;
   "stagingConnection"?:
     | model.ConnectionFromObjectStorage
     | model.ConnectionFromAdwc
     | model.ConnectionFromAtp
-    | model.ConnectionFromOracle;
+    | model.ConnectionFromOracle
+    | model.ConnectionFromMySQL
+    | model.ConnectionFromJdbc;
 
   "modelType": string;
 }

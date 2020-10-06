@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface GetAutonomousPatchRequest extends common.BaseRequest {
   /**
-   * The Autonomous Patch [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The autonomous patch [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    */
   "autonomousPatchId": string;
 }

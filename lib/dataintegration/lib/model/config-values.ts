@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Configuration values can be string, objects or parameters.
+ * Configuration values can be string, objects, or parameters.
  */
 export interface ConfigValues {
   /**
-   * configParamValues
+   * The configuration parameter values.
    */
   "configParamValues"?: { [key: string]: model.ConfigParameterValue };
   "parentRef"?: model.ParentReference;

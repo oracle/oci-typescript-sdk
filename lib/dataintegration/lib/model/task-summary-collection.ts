@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface TaskSummaryCollection {
   /**
-   * The array of Task summaries.
+   * The array of task summaries.
    */
   "items": Array<model.TaskSummary>;
 }

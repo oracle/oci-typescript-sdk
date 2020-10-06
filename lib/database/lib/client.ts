@@ -131,7 +131,7 @@ export class DatabaseClient {
   }
 
   /**
-   * Activates the specified Exadata infrastructure.
+   * Activates the specified Exadata Cloud@Customer infrastructure.
    * @param ActivateExadataInfrastructureRequest
    * @return ActivateExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -435,8 +435,8 @@ export class DatabaseClient {
   }
 
   /**
-   * Move the Autonomous Exadata Infrastructure and its dependent resources to the specified compartment.
-   * For more information about moving Autonomous Exadata Infrastructures, see
+   * Moves the Autonomous Exadata Infrastructure resource and its dependent resources to the specified compartment.
+   * For more information, see
    * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
    * @param ChangeAutonomousExadataInfrastructureCompartmentRequest
@@ -584,7 +584,7 @@ export class DatabaseClient {
 
   /**
    * Move the backup destination and its dependent resources to the specified compartment.
-   * For more information about moving backup destinations, see
+   * For more information, see
    * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
    * @param ChangeBackupDestinationCompartmentRequest
@@ -638,6 +638,147 @@ export class DatabaseClient {
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * To move a cloud Exadata infrastructure resource and its dependent resources to another compartment, use the
+   * {@link #changeCloudExadataInfrastructureCompartment(ChangeCloudExadataInfrastructureCompartmentRequest) changeCloudExadataInfrastructureCompartment} operation.
+   *
+   * @param ChangeCloudExadataInfrastructureCompartmentRequest
+   * @return ChangeCloudExadataInfrastructureCompartmentResponse
+   * @throws OciError when an error occurs
+   */
+  public async changeCloudExadataInfrastructureCompartment(
+    changeCloudExadataInfrastructureCompartmentRequest: requests.ChangeCloudExadataInfrastructureCompartmentRequest
+  ): Promise<responses.ChangeCloudExadataInfrastructureCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#changeCloudExadataInfrastructureCompartment."
+      );
+    const pathParams = {
+      "{cloudExadataInfrastructureId}":
+        changeCloudExadataInfrastructureCompartmentRequest.cloudExadataInfrastructureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeCloudExadataInfrastructureCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeCloudExadataInfrastructureCompartmentRequest.opcRequestId,
+      "if-match": changeCloudExadataInfrastructureCompartmentRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataInfrastructures/{cloudExadataInfrastructureId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeCloudExadataInfrastructureCompartmentRequest.changeCloudExadataInfrastructureCompartmentDetails,
+        "ChangeCloudExadataInfrastructureCompartmentDetails",
+        models.ChangeCloudExadataInfrastructureCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeCloudExadataInfrastructureCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeCloudExadataInfrastructureCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * To move a cloud VM cluster and its dependent resources to another compartment, use the
+   * {@link #changeCloudVmClusterCompartment(ChangeCloudVmClusterCompartmentRequest) changeCloudVmClusterCompartment} operation.
+   *
+   * @param ChangeCloudVmClusterCompartmentRequest
+   * @return ChangeCloudVmClusterCompartmentResponse
+   * @throws OciError when an error occurs
+   */
+  public async changeCloudVmClusterCompartment(
+    changeCloudVmClusterCompartmentRequest: requests.ChangeCloudVmClusterCompartmentRequest
+  ): Promise<responses.ChangeCloudVmClusterCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeCloudVmClusterCompartment.");
+    const pathParams = {
+      "{cloudVmClusterId}": changeCloudVmClusterCompartmentRequest.cloudVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeCloudVmClusterCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeCloudVmClusterCompartmentRequest.opcRequestId,
+      "if-match": changeCloudVmClusterCompartmentRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudVmClusters/{cloudVmClusterId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeCloudVmClusterCompartmentRequest.changeCloudVmClusterCompartmentDetails,
+        "ChangeCloudVmClusterCompartmentDetails",
+        models.ChangeCloudVmClusterCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeCloudVmClusterCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeCloudVmClusterCompartmentResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
@@ -809,7 +950,7 @@ export class DatabaseClient {
   }
 
   /**
-   * To move an Exadata infrastructure and its dependent resources to another compartment, use the
+   * To move an Exadata Cloud@Customer infrastructure resource and its dependent resources to another compartment, use the
    * {@link #changeExadataInfrastructureCompartment(ChangeExadataInfrastructureCompartmentRequest) changeExadataInfrastructureCompartment} operation.
    *
    * @param ChangeExadataInfrastructureCompartmentRequest
@@ -879,7 +1020,7 @@ export class DatabaseClient {
   }
 
   /**
-   * To move a VM cluster and its dependent resources to another compartment, use the
+   * To move an Exadata Cloud@Customer VM cluster and its dependent resources to another compartment, use the
    * {@link #changeVmClusterCompartment(ChangeVmClusterCompartmentRequest) changeVmClusterCompartment} operation.
    *
    * @param ChangeVmClusterCompartmentRequest
@@ -1025,7 +1166,7 @@ export class DatabaseClient {
   }
 
   /**
-   * Create a new Autonomous Container Database in the specified Autonomous Exadata Infrastructure.
+   * Creates an Autonomous Container Database in the specified Autonomous Exadata Infrastructure.
    *
    * @param CreateAutonomousContainerDatabaseRequest
    * @return CreateAutonomousContainerDatabaseResponse
@@ -1377,7 +1518,7 @@ export class DatabaseClient {
   }
 
   /**
-   * Creates an Autonomous VM cluster.
+   * Creates an Autonomous VM cluster for Exadata Cloud@Customer.
    *
    * @param CreateAutonomousVmClusterRequest
    * @return CreateAutonomousVmClusterResponse
@@ -1521,7 +1662,7 @@ export class DatabaseClient {
   }
 
   /**
-   * Creates a backup destination.
+   * Creates a backup destination in an Exadata Cloud@Customer system.
    *
    * @param CreateBackupDestinationRequest
    * @return CreateBackupDestinationResponse
@@ -1588,7 +1729,151 @@ export class DatabaseClient {
   }
 
   /**
-   * Creates a new console connection to the specified dbNode.
+   * Creates a cloud Exadata infrastructure resource.
+   * @param CreateCloudExadataInfrastructureRequest
+   * @return CreateCloudExadataInfrastructureResponse
+   * @throws OciError when an error occurs
+   */
+  public async createCloudExadataInfrastructure(
+    createCloudExadataInfrastructureRequest: requests.CreateCloudExadataInfrastructureRequest
+  ): Promise<responses.CreateCloudExadataInfrastructureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createCloudExadataInfrastructure.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createCloudExadataInfrastructureRequest.opcRetryToken,
+      "opc-request-id": createCloudExadataInfrastructureRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataInfrastructures",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createCloudExadataInfrastructureRequest.createCloudExadataInfrastructureDetails,
+        "CreateCloudExadataInfrastructureDetails",
+        models.CreateCloudExadataInfrastructureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createCloudExadataInfrastructureRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateCloudExadataInfrastructureResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudExadataInfrastructure",
+        bodyModel: "model.CloudExadataInfrastructure",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a cloud VM cluster.
+   *
+   * @param CreateCloudVmClusterRequest
+   * @return CreateCloudVmClusterResponse
+   * @throws OciError when an error occurs
+   */
+  public async createCloudVmCluster(
+    createCloudVmClusterRequest: requests.CreateCloudVmClusterRequest
+  ): Promise<responses.CreateCloudVmClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createCloudVmCluster.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createCloudVmClusterRequest.opcRetryToken,
+      "opc-request-id": createCloudVmClusterRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudVmClusters",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createCloudVmClusterRequest.createCloudVmClusterDetails,
+        "CreateCloudVmClusterDetails",
+        models.CreateCloudVmClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createCloudVmClusterRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateCloudVmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudVmCluster",
+        bodyModel: "model.CloudVmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new console connection to the specified database node.
    * After the console connection has been created and is available,
    * you connect to the console using SSH.
    *
@@ -1739,7 +2024,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * Creates a new database in the specified Database Home. If the database version is provided, it must match the version of the Database Home. Applies to Exadata DB systems and Exadata Cloud at Customer.
+   * Creates a new database in the specified Database Home. If the database version is provided, it must match the version of the Database Home. Applies to Exadata and Exadata Cloud@Customer systems.
    *
    * @param CreateDatabaseRequest
    * @return CreateDatabaseResponse
@@ -1883,7 +2168,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * Creates a new Database Home in the specified DB system based on the request parameters you provide. Applies to bare metal DB systems, Exadata DB systems, and Exadata Cloud at Customer systems.
+   * Creates a new Database Home in the specified database system based on the request parameters you provide. Applies to bare metal DB systems, Exadata systems, and Exadata Cloud@Customer systems.
    *
    * @param CreateDbHomeRequest
    * @return CreateDbHomeResponse
@@ -1954,7 +2239,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * Create Exadata infrastructure.
+   * Creates Exadata Cloud@Customer infrastructure.
    * @param CreateExadataInfrastructureRequest
    * @return CreateExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -2099,7 +2384,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * Creates a VM cluster.
+   * Creates an Exadata Cloud@Customer VM cluster.
    *
    * @param CreateVmClusterRequest
    * @return CreateVmClusterResponse
@@ -2171,7 +2456,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * Creates the VM cluster network.
+   * Creates the Exadata Cloud@Customer VM cluster network.
    *
    * @param CreateVmClusterNetworkRequest
    * @return CreateVmClusterNetworkResponse
@@ -2252,7 +2537,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * - reset - power off and power on
    * <p>
    **Note:** Stopping a node affects billing differently, depending on the type of DB system:
-   * *Bare metal and Exadata DB systems* - The _stop_ state has no effect on the resources you consume.
+   * *Bare metal and Exadata systems* - The _stop_ state has no effect on the resources you consume.
    * Billing continues for DB nodes that you stop, and related resources continue
    * to apply against any relevant quotas. You must terminate the DB system
    * ({@link #terminateDbSystem(TerminateDbSystemRequest) terminateDbSystem})
@@ -2446,7 +2731,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * Deletes the specified Autonomous VM cluster.
+   * Deletes the specified Autonomous VM cluster in an Exadata Cloud@Customer system.
    *
    * @param DeleteAutonomousVmClusterRequest
    * @return DeleteAutonomousVmClusterResponse
@@ -2567,7 +2852,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * Deletes a backup destination.
+   * Deletes a backup destination in an Exadata Cloud@Customer system.
    *
    * @param DeleteBackupDestinationRequest
    * @return DeleteBackupDestinationResponse
@@ -2623,7 +2908,133 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * Deletes the specified Db node console connection.
+   * Deletes the cloud Exadata infrastructure resource.
+   *
+   * @param DeleteCloudExadataInfrastructureRequest
+   * @return DeleteCloudExadataInfrastructureResponse
+   * @throws OciError when an error occurs
+   */
+  public async deleteCloudExadataInfrastructure(
+    deleteCloudExadataInfrastructureRequest: requests.DeleteCloudExadataInfrastructureRequest
+  ): Promise<responses.DeleteCloudExadataInfrastructureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteCloudExadataInfrastructure.");
+    const pathParams = {
+      "{cloudExadataInfrastructureId}":
+        deleteCloudExadataInfrastructureRequest.cloudExadataInfrastructureId
+    };
+
+    const queryParams = {
+      "isDeleteVmClusters": deleteCloudExadataInfrastructureRequest.isDeleteVmClusters
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteCloudExadataInfrastructureRequest.ifMatch,
+      "opc-request-id": deleteCloudExadataInfrastructureRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataInfrastructures/{cloudExadataInfrastructureId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteCloudExadataInfrastructureRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteCloudExadataInfrastructureResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified cloud VM cluster.
+   *
+   * @param DeleteCloudVmClusterRequest
+   * @return DeleteCloudVmClusterResponse
+   * @throws OciError when an error occurs
+   */
+  public async deleteCloudVmCluster(
+    deleteCloudVmClusterRequest: requests.DeleteCloudVmClusterRequest
+  ): Promise<responses.DeleteCloudVmClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteCloudVmCluster.");
+    const pathParams = {
+      "{cloudVmClusterId}": deleteCloudVmClusterRequest.cloudVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteCloudVmClusterRequest.ifMatch,
+      "opc-request-id": deleteCloudVmClusterRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudVmClusters/{cloudVmClusterId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteCloudVmClusterRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteCloudVmClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified database node console connection.
    * @param DeleteConsoleConnectionRequest
    * @return DeleteConsoleConnectionResponse
    * @throws OciError when an error occurs
@@ -2678,9 +3089,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-     * Deletes the database. Applies only to Exadata DB systems.
+     * Deletes the specified database. Applies only to Exadata systems.
 * <p>
-The data in this database is local to the DB system and will be lost when the database is deleted. Oracle recommends that you back up any data in the DB system prior to deleting it. You can use the `performFinalBackup` parameter to have the Exadata DB system database backed up before it is deleted.
+The data in this database is local to the Exadata system and will be lost when the database is deleted. Oracle recommends that you back up any data in the Exadata system prior to deleting it. You can use the `performFinalBackup` parameter to have the Exadata system database backed up before it is deleted.
 * 
      * @param DeleteDatabaseRequest
      * @return DeleteDatabaseResponse
@@ -2803,9 +3214,9 @@ The data in this database is local to the DB system and will be lost when the da
   }
 
   /**
-     * Deletes a Database Home. Applies to bare metal DB systems, Exadata DB systems, and Exadata Cloud at Customer systems.
+     * Deletes a Database Home. Applies to bare metal DB systems, Exadata Cloud Service, and Exadata Cloud@Customer systems.
 * <p>
-Oracle recommends that you use the `performFinalBackup` parameter to back up any data on a bare metal DB system before you delete a Database Home. On an Exadata Cloud at Customer system or an Exadata DB system, you can delete a Database Home only when there are no databases in it and therefore you cannot use the `performFinalBackup` parameter to back up data.
+Oracle recommends that you use the `performFinalBackup` parameter to back up any data on a bare metal DB system before you delete a Database Home. On an Exadata Cloud@Customer system or an Exadata Cloud Service system, you can delete a Database Home only when there are no databases in it and therefore you cannot use the `performFinalBackup` parameter to back up data.
 * 
      * @param DeleteDbHomeRequest
      * @return DeleteDbHomeResponse
@@ -2867,7 +3278,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
-   * Deletes the Exadata infrastructure.
+   * Deletes the Exadata Cloud@Customer infrastructure.
    *
    * @param DeleteExadataInfrastructureRequest
    * @return DeleteExadataInfrastructureResponse
@@ -2929,7 +3340,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
-   * Deletes the specified VM cluster.
+   * Deletes the specified Exadata Cloud@Customer VM cluster.
    *
    * @param DeleteVmClusterRequest
    * @return DeleteVmClusterResponse
@@ -2990,7 +3401,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
-   * Deletes the specified VM cluster network.
+   * Deletes the specified Exadata Cloud@Customer VM cluster network.
    *
    * @param DeleteVmClusterNetworkRequest
    * @return DeleteVmClusterNetworkResponse
@@ -3119,7 +3530,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
-   * Downloads the configuration file for the specified Exadata infrastructure.
+   * Downloads the configuration file for the specified Exadata Cloud@Customer infrastructure.
    *
    * @param DownloadExadataInfrastructureConfigFileRequest
    * @return DownloadExadataInfrastructureConfigFileResponse
@@ -3198,7 +3609,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
-   * Downloads the configuration file for the specified VM Cluster Network.
+   * Downloads the configuration file for the specified Exadata Cloud@Customer VM cluster network.
    *
    * @param DownloadVmClusterNetworkConfigFileRequest
    * @return DownloadVmClusterNetworkConfigFileResponse
@@ -3591,7 +4002,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Generates a recommended VM cluster network configuration.
+   * Generates a recommended Cloud@Customer VM cluster network configuration.
    *
    * @param GenerateRecommendedVmClusterNetworkRequest
    * @return GenerateRecommendedVmClusterNetworkResponse
@@ -4090,7 +4501,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about the specified Autonomous Exadata Infrastructure.
+   * Gets information about the specified Autonomous Exadata Infrastructure resource.
    * @param GetAutonomousExadataInfrastructureRequest
    * @return GetAutonomousExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -4153,7 +4564,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about the specified Autonomous Patch.
+   * Gets information about a specific autonomous patch.
    * @param GetAutonomousPatchRequest
    * @return GetAutonomousPatchResponse
    * @throws OciError when an error occurs
@@ -4214,7 +4625,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about the specified Autonomous VM cluster.
+   * Gets information about the specified Autonomous VM cluster for an Exadata Cloud@Customer system.
    * @param GetAutonomousVmClusterRequest
    * @return GetAutonomousVmClusterResponse
    * @throws OciError when an error occurs
@@ -4337,7 +4748,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about the specified backup destination.
+   * Gets information about the specified backup destination in an Exadata Cloud@Customer system.
    *
    * @param GetBackupDestinationRequest
    * @return GetBackupDestinationResponse
@@ -4400,7 +4811,322 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets the specified Db node console connection's information.
+   * Gets information about the specified cloud Exadata infrastructure resource.
+   * @param GetCloudExadataInfrastructureRequest
+   * @return GetCloudExadataInfrastructureResponse
+   * @throws OciError when an error occurs
+   */
+  public async getCloudExadataInfrastructure(
+    getCloudExadataInfrastructureRequest: requests.GetCloudExadataInfrastructureRequest
+  ): Promise<responses.GetCloudExadataInfrastructureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getCloudExadataInfrastructure.");
+    const pathParams = {
+      "{cloudExadataInfrastructureId}":
+        getCloudExadataInfrastructureRequest.cloudExadataInfrastructureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudExadataInfrastructureRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataInfrastructures/{cloudExadataInfrastructureId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getCloudExadataInfrastructureRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudExadataInfrastructureResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudExadataInfrastructure",
+        bodyModel: "model.CloudExadataInfrastructure",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified cloud VM cluster.
+   * @param GetCloudVmClusterRequest
+   * @return GetCloudVmClusterResponse
+   * @throws OciError when an error occurs
+   */
+  public async getCloudVmCluster(
+    getCloudVmClusterRequest: requests.GetCloudVmClusterRequest
+  ): Promise<responses.GetCloudVmClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getCloudVmCluster.");
+    const pathParams = {
+      "{cloudVmClusterId}": getCloudVmClusterRequest.cloudVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudVmClusterRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudVmClusters/{cloudVmClusterId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getCloudVmClusterRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudVmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudVmCluster",
+        bodyModel: "model.CloudVmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the IORM configuration for the specified cloud VM cluster.
+   * If you have not specified an IORM configuration, the default configuration is returned.
+   *
+   * @param GetCloudVmClusterIormConfigRequest
+   * @return GetCloudVmClusterIormConfigResponse
+   * @throws OciError when an error occurs
+   */
+  public async getCloudVmClusterIormConfig(
+    getCloudVmClusterIormConfigRequest: requests.GetCloudVmClusterIormConfigRequest
+  ): Promise<responses.GetCloudVmClusterIormConfigResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getCloudVmClusterIormConfig.");
+    const pathParams = {
+      "{cloudVmClusterId}": getCloudVmClusterIormConfigRequest.cloudVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudVmClusterIormConfigRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudVmClusters/{cloudVmClusterId}/CloudVmClusterIormConfig",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getCloudVmClusterIormConfigRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudVmClusterIormConfigResponse>{},
+        body: await response.json(),
+        bodyKey: "exadataIormConfig",
+        bodyModel: "model.ExadataIormConfig",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about a specified maintenance update package.
+   *
+   * @param GetCloudVmClusterUpdateRequest
+   * @return GetCloudVmClusterUpdateResponse
+   * @throws OciError when an error occurs
+   */
+  public async getCloudVmClusterUpdate(
+    getCloudVmClusterUpdateRequest: requests.GetCloudVmClusterUpdateRequest
+  ): Promise<responses.GetCloudVmClusterUpdateResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getCloudVmClusterUpdate.");
+    const pathParams = {
+      "{cloudVmClusterId}": getCloudVmClusterUpdateRequest.cloudVmClusterId,
+      "{updateId}": getCloudVmClusterUpdateRequest.updateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudVmClusterUpdateRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudVmClusters/{cloudVmClusterId}/updates/{updateId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getCloudVmClusterUpdateRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudVmClusterUpdateResponse>{},
+        body: await response.json(),
+        bodyKey: "update",
+        bodyModel: "model.Update",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the maintenance update history details for the specified update history entry.
+   *
+   * @param GetCloudVmClusterUpdateHistoryEntryRequest
+   * @return GetCloudVmClusterUpdateHistoryEntryResponse
+   * @throws OciError when an error occurs
+   */
+  public async getCloudVmClusterUpdateHistoryEntry(
+    getCloudVmClusterUpdateHistoryEntryRequest: requests.GetCloudVmClusterUpdateHistoryEntryRequest
+  ): Promise<responses.GetCloudVmClusterUpdateHistoryEntryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getCloudVmClusterUpdateHistoryEntry.");
+    const pathParams = {
+      "{cloudVmClusterId}": getCloudVmClusterUpdateHistoryEntryRequest.cloudVmClusterId,
+      "{updateHistoryEntryId}": getCloudVmClusterUpdateHistoryEntryRequest.updateHistoryEntryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudVmClusterUpdateHistoryEntryRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudVmClusters/{cloudVmClusterId}/updateHistoryEntries/{updateHistoryEntryId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getCloudVmClusterUpdateHistoryEntryRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudVmClusterUpdateHistoryEntryResponse>{},
+        body: await response.json(),
+        bodyKey: "updateHistoryEntry",
+        bodyModel: "model.UpdateHistoryEntry",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the specified database node console connection's information.
    * @param GetConsoleConnectionRequest
    * @return GetConsoleConnectionResponse
    * @throws OciError when an error occurs
@@ -4525,7 +5251,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about a specific database.
+   * Gets information about the specified database.
    * @param GetDatabaseRequest
    * @return GetDatabaseResponse
    * @throws OciError when an error occurs
@@ -4953,7 +5679,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about a specified patch package.
+   * Gets information the specified patch.
    *
    * @param GetDbSystemPatchRequest
    * @return GetDbSystemPatchResponse
@@ -5011,7 +5737,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets the patch history details for the specified patchHistoryEntryId.
+   * Gets the details of the specified patch operation on the specified DB system.
    *
    * @param GetDbSystemPatchHistoryEntryRequest
    * @return GetDbSystemPatchHistoryEntryResponse
@@ -5075,7 +5801,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about the specified Exadata infrastructure.
+   * Gets information about the specified Exadata Cloud@Customer infrastructure.
    * @param GetExadataInfrastructureRequest
    * @return GetExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -5138,7 +5864,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets details of the available and consumed OCPUs for the specified Autonomous Exadata Infrastructure instance.
+   * Gets details of the available and consumed OCPUs for the specified Autonomous Exadata Infrastructure resource.
    *
    * @param GetExadataInfrastructureOcpusRequest
    * @return GetExadataInfrastructureOcpusResponse
@@ -5198,8 +5924,8 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets `IORM` Setting for the requested Exadata DB System.
-   * The default IORM Settings is pre-created in all the Exadata DB System.
+   * Gets the IORM configuration settings for the specified cloud Exadata system.
+   * All Exadata service instances have default IORM settings.
    *
    * @param GetExadataIormConfigRequest
    * @return GetExadataIormConfigResponse
@@ -5382,7 +6108,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about the specified VM cluster.
+   * Gets information about the specified Exadata Cloud@Customer VM cluster.
    * @param GetVmClusterRequest
    * @return GetVmClusterResponse
    * @throws OciError when an error occurs
@@ -5444,7 +6170,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about the specified VM cluster network.
+   * Gets information about the specified Exadata Cloud@Customer VM cluster network.
    * @param GetVmClusterNetworkRequest
    * @return GetVmClusterNetworkResponse
    * @throws OciError when an error occurs
@@ -5566,7 +6292,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets the patch history details for the specified patchHistoryEntryId.
+   * Gets the patch history details for the specified patch history entry.
    *
    * @param GetVmClusterPatchHistoryEntryRequest
    * @return GetVmClusterPatchHistoryEntryResponse
@@ -5630,7 +6356,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Launches a new Autonomous Exadata Infrastructure in the specified compartment and availability domain.
+   * Creates a new Autonomous Exadata Infrastructure in the specified compartment and availability domain.
    *
    * @param LaunchAutonomousExadataInfrastructureRequest
    * @return LaunchAutonomousExadataInfrastructureResponse
@@ -6165,7 +6891,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Gets a list of the Autonomous Database clones for the specified Autonomous Database.
+   * Lists the Autonomous Database clones for the specified Autonomous Database.
    *
    * @param ListAutonomousDatabaseClonesRequest
    * @return ListAutonomousDatabaseClonesResponse
@@ -6263,7 +6989,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Gets a list of Autonomous Databases.
+   * Gets a list of Autonomous Databases based on the query parameters specified.
    *
    * @param ListAutonomousDatabasesRequest
    * @return ListAutonomousDatabasesResponse
@@ -6550,7 +7276,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Gets a list of the shapes that can be used to launch a new Autonomous Exadata Infrastructure DB system. The shape determines resources to allocate to the DB system (CPU cores, memory and storage).
+   * Gets a list of the shapes that can be used to launch a new Autonomous Exadata Infrastructure resource. The shape determines resources to allocate (CPU cores, memory and storage).
    * @param ListAutonomousExadataInfrastructureShapesRequest
    * @return ListAutonomousExadataInfrastructureShapesResponse
    * @throws OciError when an error occurs
@@ -6738,7 +7464,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Gets a list of Autonomous VM clusters in the specified compartment.
+   * Gets a list of Exadata Cloud@Customer Autonomous VM clusters in the specified compartment.
    *
    * @param ListAutonomousVmClustersRequest
    * @return ListAutonomousVmClustersResponse
@@ -6930,7 +7656,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Gets a list of backups based on the databaseId or compartmentId specified. Either one of the query parameters must be provided.
+   * Gets a list of backups based on the `databaseId` or `compartmentId` specified. Either one of these query parameters must be provided.
    *
    * @param ListBackupsRequest
    * @return ListBackupsResponse
@@ -7020,7 +7746,383 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Lists the console connections for the specified Db node.
+   * Gets a list of the cloud Exadata infrastructure in the specified compartment.
+   *
+   * @param ListCloudExadataInfrastructuresRequest
+   * @return ListCloudExadataInfrastructuresResponse
+   * @throws OciError when an error occurs
+   */
+  public async listCloudExadataInfrastructures(
+    listCloudExadataInfrastructuresRequest: requests.ListCloudExadataInfrastructuresRequest
+  ): Promise<responses.ListCloudExadataInfrastructuresResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listCloudExadataInfrastructures.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCloudExadataInfrastructuresRequest.compartmentId,
+      "limit": listCloudExadataInfrastructuresRequest.limit,
+      "page": listCloudExadataInfrastructuresRequest.page,
+      "sortBy": listCloudExadataInfrastructuresRequest.sortBy,
+      "sortOrder": listCloudExadataInfrastructuresRequest.sortOrder,
+      "lifecycleState": listCloudExadataInfrastructuresRequest.lifecycleState,
+      "displayName": listCloudExadataInfrastructuresRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudExadataInfrastructuresRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataInfrastructures",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listCloudExadataInfrastructuresRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudExadataInfrastructuresResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "CloudExadataInfrastructureSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.CloudExadataInfrastructureSummary objects
+   * contained in responses from the listCloudExadataInfrastructures operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllCloudExadataInfrastructures(
+    request: requests.ListCloudExadataInfrastructuresRequest
+  ): AsyncIterableIterator<models.CloudExadataInfrastructureSummary> {
+    return paginateRecords(request, req => this.listCloudExadataInfrastructures(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCloudExadataInfrastructures operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllCloudExadataInfrastructuresResponses(
+    request: requests.ListCloudExadataInfrastructuresRequest
+  ): AsyncIterableIterator<responses.ListCloudExadataInfrastructuresResponse> {
+    return paginateResponses(request, req => this.listCloudExadataInfrastructures(req));
+  }
+
+  /**
+   * Gets the history of the maintenance update actions performed on the specified cloud VM cluster.
+   *
+   * @param ListCloudVmClusterUpdateHistoryEntriesRequest
+   * @return ListCloudVmClusterUpdateHistoryEntriesResponse
+   * @throws OciError when an error occurs
+   */
+  public async listCloudVmClusterUpdateHistoryEntries(
+    listCloudVmClusterUpdateHistoryEntriesRequest: requests.ListCloudVmClusterUpdateHistoryEntriesRequest
+  ): Promise<responses.ListCloudVmClusterUpdateHistoryEntriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listCloudVmClusterUpdateHistoryEntries.");
+    const pathParams = {
+      "{cloudVmClusterId}": listCloudVmClusterUpdateHistoryEntriesRequest.cloudVmClusterId
+    };
+
+    const queryParams = {
+      "updateType": listCloudVmClusterUpdateHistoryEntriesRequest.updateType,
+      "limit": listCloudVmClusterUpdateHistoryEntriesRequest.limit,
+      "page": listCloudVmClusterUpdateHistoryEntriesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudVmClusterUpdateHistoryEntriesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudVmClusters/{cloudVmClusterId}/updateHistoryEntries",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listCloudVmClusterUpdateHistoryEntriesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudVmClusterUpdateHistoryEntriesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "UpdateHistoryEntrySummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.UpdateHistoryEntrySummary objects
+   * contained in responses from the listCloudVmClusterUpdateHistoryEntries operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllCloudVmClusterUpdateHistoryEntries(
+    request: requests.ListCloudVmClusterUpdateHistoryEntriesRequest
+  ): AsyncIterableIterator<models.UpdateHistoryEntrySummary> {
+    return paginateRecords(request, req => this.listCloudVmClusterUpdateHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCloudVmClusterUpdateHistoryEntries operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllCloudVmClusterUpdateHistoryEntriesResponses(
+    request: requests.ListCloudVmClusterUpdateHistoryEntriesRequest
+  ): AsyncIterableIterator<responses.ListCloudVmClusterUpdateHistoryEntriesResponse> {
+    return paginateResponses(request, req => this.listCloudVmClusterUpdateHistoryEntries(req));
+  }
+
+  /**
+   * Lists the maintenance updates that can be applied to the requested cloud VM cluster.
+   *
+   * @param ListCloudVmClusterUpdatesRequest
+   * @return ListCloudVmClusterUpdatesResponse
+   * @throws OciError when an error occurs
+   */
+  public async listCloudVmClusterUpdates(
+    listCloudVmClusterUpdatesRequest: requests.ListCloudVmClusterUpdatesRequest
+  ): Promise<responses.ListCloudVmClusterUpdatesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listCloudVmClusterUpdates.");
+    const pathParams = {
+      "{cloudVmClusterId}": listCloudVmClusterUpdatesRequest.cloudVmClusterId
+    };
+
+    const queryParams = {
+      "updateType": listCloudVmClusterUpdatesRequest.updateType,
+      "limit": listCloudVmClusterUpdatesRequest.limit,
+      "page": listCloudVmClusterUpdatesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudVmClusterUpdatesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudVmClusters/{cloudVmClusterId}/updates",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listCloudVmClusterUpdatesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudVmClusterUpdatesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "UpdateSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.UpdateSummary objects
+   * contained in responses from the listCloudVmClusterUpdates operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllCloudVmClusterUpdates(
+    request: requests.ListCloudVmClusterUpdatesRequest
+  ): AsyncIterableIterator<models.UpdateSummary> {
+    return paginateRecords(request, req => this.listCloudVmClusterUpdates(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCloudVmClusterUpdates operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllCloudVmClusterUpdatesResponses(
+    request: requests.ListCloudVmClusterUpdatesRequest
+  ): AsyncIterableIterator<responses.ListCloudVmClusterUpdatesResponse> {
+    return paginateResponses(request, req => this.listCloudVmClusterUpdates(req));
+  }
+
+  /**
+   * Gets a list of the cloud VM clusters in the specified compartment.
+   *
+   * @param ListCloudVmClustersRequest
+   * @return ListCloudVmClustersResponse
+   * @throws OciError when an error occurs
+   */
+  public async listCloudVmClusters(
+    listCloudVmClustersRequest: requests.ListCloudVmClustersRequest
+  ): Promise<responses.ListCloudVmClustersResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listCloudVmClusters.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCloudVmClustersRequest.compartmentId,
+      "cloudExadataInfrastructureId": listCloudVmClustersRequest.cloudExadataInfrastructureId,
+      "limit": listCloudVmClustersRequest.limit,
+      "page": listCloudVmClustersRequest.page,
+      "sortBy": listCloudVmClustersRequest.sortBy,
+      "sortOrder": listCloudVmClustersRequest.sortOrder,
+      "lifecycleState": listCloudVmClustersRequest.lifecycleState,
+      "displayName": listCloudVmClustersRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudVmClustersRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudVmClusters",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listCloudVmClustersRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudVmClustersResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "CloudVmClusterSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.CloudVmClusterSummary objects
+   * contained in responses from the listCloudVmClusters operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllCloudVmClusters(
+    request: requests.ListCloudVmClustersRequest
+  ): AsyncIterableIterator<models.CloudVmClusterSummary> {
+    return paginateRecords(request, req => this.listCloudVmClusters(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCloudVmClusters operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllCloudVmClustersResponses(
+    request: requests.ListCloudVmClustersRequest
+  ): AsyncIterableIterator<responses.ListCloudVmClustersResponse> {
+    return paginateResponses(request, req => this.listCloudVmClusters(req));
+  }
+
+  /**
+   * Lists the console connections for the specified database node.
    *
    * @param ListConsoleConnectionsRequest
    * @return ListConsoleConnectionsResponse
@@ -7457,7 +8559,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Gets history of the actions taken for patches for the specified Database Home.
+   * Lists the history of patch operations on the specified Database Home.
    *
    * @param ListDbHomePatchHistoryEntriesRequest
    * @return ListDbHomePatchHistoryEntriesResponse
@@ -7638,7 +8740,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Gets a list of Database Homes in the specified DB system and compartment. A Database Home is a directory where Oracle Database software is installed.
+   * Lists the Database Homes in the specified DB system and compartment. A Database Home is a directory where Oracle Database software is installed.
    *
    * @param ListDbHomesRequest
    * @return ListDbHomesResponse
@@ -7734,7 +8836,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Gets a list of database nodes in the specified DB system and compartment. A database node is a server running database software.
+   * Lists the database nodes in the specified DB system and compartment. A database node is a server running database software.
    *
    * @param ListDbNodesRequest
    * @return ListDbNodesResponse
@@ -7919,7 +9021,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Lists the patches applicable to the requested DB system.
+   * Lists the patches applicable to the specified DB system.
    *
    * @param ListDbSystemPatchesRequest
    * @return ListDbSystemPatchesResponse
@@ -8098,7 +9200,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Gets a list of the DB systems in the specified compartment. You can specify a backupId to list only the DB systems that support creating a database using this backup in this compartment.
+   * Lists the DB systems in the specified compartment. You can specify a `backupId` to list only the DB systems that support creating a database using this backup in this compartment.
    *
    * @param ListDbSystemsRequest
    * @return ListDbSystemsResponse
@@ -8284,7 +9386,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Gets a list of the Exadata infrastructure in the specified compartment.
+   * Gets a list of the Exadata Cloud@Customer infrastructure resources in the specified compartment.
    *
    * @param ListExadataInfrastructuresRequest
    * @return ListExadataInfrastructuresResponse
@@ -8379,7 +9481,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Gets a list of supported GI versions for VM Cluster.
+   * Gets a list of supported GI versions for the Exadata Cloud@Customer VM cluster.
    * @param ListGiVersionsRequest
    * @return ListGiVersionsResponse
    * @throws OciError when an error occurs
@@ -8565,7 +9667,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Gets a list of the VM cluster networks in the specified compartment.
+   * Gets a list of the Exadata Cloud@Customer VM cluster networks in the specified compartment.
    *
    * @param ListVmClusterNetworksRequest
    * @return ListVmClusterNetworksResponse
@@ -8661,7 +9763,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Gets the history of the patch actions performed on the specified Vm cluster.
+   * Gets the history of the patch actions performed on the specified VM cluster in an Exadata Cloud@Customer system.
    *
    * @param ListVmClusterPatchHistoryEntriesRequest
    * @return ListVmClusterPatchHistoryEntriesResponse
@@ -8752,7 +9854,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Lists the patches applicable to the requested Vm cluster.
+   * Lists the patches applicable to the specified VM cluster in an Exadata Cloud@Customer system.
    *
    * @param ListVmClusterPatchesRequest
    * @return ListVmClusterPatchesResponse
@@ -8842,7 +9944,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Gets a list of the VM clusters in the specified compartment.
+   * Gets a list of the Exadata Cloud@Customer VM clusters in the specified compartment.
    *
    * @param ListVmClustersRequest
    * @return ListVmClustersResponse
@@ -8934,6 +10036,77 @@ An initial database is created on the DB system based on the request parameters 
     request: requests.ListVmClustersRequest
   ): AsyncIterableIterator<responses.ListVmClustersResponse> {
     return paginateResponses(request, req => this.listVmClusters(req));
+  }
+
+  /**
+   * Migrates the Exadata DB system to the cloud Exadata infrastructure model. All related resources will be migrated.
+   *
+   * @param MigrateExadataDbSystemResourceModelRequest
+   * @return MigrateExadataDbSystemResourceModelResponse
+   * @throws OciError when an error occurs
+   */
+  public async migrateExadataDbSystemResourceModel(
+    migrateExadataDbSystemResourceModelRequest: requests.MigrateExadataDbSystemResourceModelRequest
+  ): Promise<responses.MigrateExadataDbSystemResourceModelResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#migrateExadataDbSystemResourceModel.");
+    const pathParams = {
+      "{dbSystemId}": migrateExadataDbSystemResourceModelRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": migrateExadataDbSystemResourceModelRequest.opcRequestId,
+      "if-match": migrateExadataDbSystemResourceModelRequest.ifMatch,
+      "opc-retry-token": migrateExadataDbSystemResourceModelRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/actions/migration",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      migrateExadataDbSystemResourceModelRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.MigrateExadataDbSystemResourceModelResponse>{},
+        body: await response.json(),
+        bodyKey: "exadataDbSystemMigration",
+        bodyModel: "model.ExadataDbSystemMigration",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -9435,6 +10608,149 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
+   * Creates a new version of an existing [Vault service](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) key.
+   * @param RotateAutonomousContainerDatabaseEncryptionKeyRequest
+   * @return RotateAutonomousContainerDatabaseEncryptionKeyResponse
+   * @throws OciError when an error occurs
+   */
+  public async rotateAutonomousContainerDatabaseEncryptionKey(
+    rotateAutonomousContainerDatabaseEncryptionKeyRequest: requests.RotateAutonomousContainerDatabaseEncryptionKeyRequest
+  ): Promise<responses.RotateAutonomousContainerDatabaseEncryptionKeyResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#rotateAutonomousContainerDatabaseEncryptionKey."
+      );
+    const pathParams = {
+      "{autonomousContainerDatabaseId}":
+        rotateAutonomousContainerDatabaseEncryptionKeyRequest.autonomousContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": rotateAutonomousContainerDatabaseEncryptionKeyRequest.ifMatch,
+      "opc-retry-token": rotateAutonomousContainerDatabaseEncryptionKeyRequest.opcRetryToken,
+      "opc-request-id": rotateAutonomousContainerDatabaseEncryptionKeyRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousContainerDatabases/{autonomousContainerDatabaseId}/actions/rotateKey",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      rotateAutonomousContainerDatabaseEncryptionKeyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RotateAutonomousContainerDatabaseEncryptionKeyResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousContainerDatabase",
+        bodyModel: "model.AutonomousContainerDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Rotate existing AutonomousDatabase [Vault service](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) key.
+   * @param RotateAutonomousDatabaseEncryptionKeyRequest
+   * @return RotateAutonomousDatabaseEncryptionKeyResponse
+   * @throws OciError when an error occurs
+   */
+  public async rotateAutonomousDatabaseEncryptionKey(
+    rotateAutonomousDatabaseEncryptionKeyRequest: requests.RotateAutonomousDatabaseEncryptionKeyRequest
+  ): Promise<responses.RotateAutonomousDatabaseEncryptionKeyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#rotateAutonomousDatabaseEncryptionKey.");
+    const pathParams = {
+      "{autonomousDatabaseId}": rotateAutonomousDatabaseEncryptionKeyRequest.autonomousDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": rotateAutonomousDatabaseEncryptionKeyRequest.ifMatch,
+      "opc-retry-token": rotateAutonomousDatabaseEncryptionKeyRequest.opcRetryToken,
+      "opc-request-id": rotateAutonomousDatabaseEncryptionKeyRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabases/{autonomousDatabaseId}/actions/rotateKey",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      rotateAutonomousDatabaseEncryptionKeyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RotateAutonomousDatabaseEncryptionKeyResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousDatabase",
+        bodyModel: "model.AutonomousDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * **Deprecated.** To start an Autonomous Data Warehouse, use the {@link #startAutonomousDatabase(StartAutonomousDatabaseRequest) startAutonomousDatabase} operation.
    *
    * @param StartAutonomousDataWarehouseRequest
@@ -9911,7 +11227,7 @@ A switchover guarantees no data loss.
   }
 
   /**
-   * Terminates an Autonomous Exadata Infrastructure, which permanently deletes the Exadata Infrastructure and any container databases and databases contained in the Exadata Infrastructure. The database data is local to the Autonomous Exadata Infrastructure and will be lost when the system is terminated. Oracle recommends that you back up any data in the Autonomous Exadata Infrastructure prior to terminating it.
+   * Terminates an Autonomous Exadata Infrastructure, which permanently deletes the infrastructure resource and any container databases and databases contained in the resource. The database data is local to the Autonomous Exadata Infrastructure and will be lost when the system is terminated. Oracle recommends that you back up any data in the Autonomous Exadata Infrastructure prior to terminating it.
    * @param TerminateAutonomousExadataInfrastructureRequest
    * @return TerminateAutonomousExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -10455,7 +11771,7 @@ A switchover guarantees no data loss.
   }
 
   /**
-   * Updates the specified Autonomous VM cluster.
+   * Updates the specified Autonomous VM cluster for the Exadata Cloud@Customer system.
    *
    * @param UpdateAutonomousVmClusterRequest
    * @return UpdateAutonomousVmClusterResponse
@@ -10601,7 +11917,232 @@ A switchover guarantees no data loss.
   }
 
   /**
-   * Update a Database based on the request parameters you provide.
+   * Updates the Cloud Exadata infrastructure resource.
+   *
+   * @param UpdateCloudExadataInfrastructureRequest
+   * @return UpdateCloudExadataInfrastructureResponse
+   * @throws OciError when an error occurs
+   */
+  public async updateCloudExadataInfrastructure(
+    updateCloudExadataInfrastructureRequest: requests.UpdateCloudExadataInfrastructureRequest
+  ): Promise<responses.UpdateCloudExadataInfrastructureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateCloudExadataInfrastructure.");
+    const pathParams = {
+      "{cloudExadataInfrastructureId}":
+        updateCloudExadataInfrastructureRequest.cloudExadataInfrastructureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateCloudExadataInfrastructureRequest.ifMatch,
+      "opc-request-id": updateCloudExadataInfrastructureRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataInfrastructures/{cloudExadataInfrastructureId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCloudExadataInfrastructureRequest.updateCloudExadataInfrastructureDetails,
+        "UpdateCloudExadataInfrastructureDetails",
+        models.UpdateCloudExadataInfrastructureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateCloudExadataInfrastructureRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCloudExadataInfrastructureResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudExadataInfrastructure",
+        bodyModel: "model.CloudExadataInfrastructure",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified cloud VM cluster.
+   *
+   * @param UpdateCloudVmClusterRequest
+   * @return UpdateCloudVmClusterResponse
+   * @throws OciError when an error occurs
+   */
+  public async updateCloudVmCluster(
+    updateCloudVmClusterRequest: requests.UpdateCloudVmClusterRequest
+  ): Promise<responses.UpdateCloudVmClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateCloudVmCluster.");
+    const pathParams = {
+      "{cloudVmClusterId}": updateCloudVmClusterRequest.cloudVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateCloudVmClusterRequest.ifMatch,
+      "opc-request-id": updateCloudVmClusterRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudVmClusters/{cloudVmClusterId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCloudVmClusterRequest.updateCloudVmClusterDetails,
+        "UpdateCloudVmClusterDetails",
+        models.UpdateCloudVmClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateCloudVmClusterRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCloudVmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudVmCluster",
+        bodyModel: "model.CloudVmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the IORM settings for the specified cloud VM cluster.
+   *
+   * @param UpdateCloudVmClusterIormConfigRequest
+   * @return UpdateCloudVmClusterIormConfigResponse
+   * @throws OciError when an error occurs
+   */
+  public async updateCloudVmClusterIormConfig(
+    updateCloudVmClusterIormConfigRequest: requests.UpdateCloudVmClusterIormConfigRequest
+  ): Promise<responses.UpdateCloudVmClusterIormConfigResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateCloudVmClusterIormConfig.");
+    const pathParams = {
+      "{cloudVmClusterId}": updateCloudVmClusterIormConfigRequest.cloudVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateCloudVmClusterIormConfigRequest.opcRequestId,
+      "if-match": updateCloudVmClusterIormConfigRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudVmClusters/{cloudVmClusterId}/CloudVmClusterIormConfig",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCloudVmClusterIormConfigRequest.cloudVmClusterIormConfigUpdateDetails,
+        "ExadataIormConfigUpdateDetails",
+        models.ExadataIormConfigUpdateDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateCloudVmClusterIormConfigRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCloudVmClusterIormConfigResponse>{},
+        body: await response.json(),
+        bodyKey: "exadataIormConfig",
+        bodyModel: "model.ExadataIormConfig",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update the specified database based on the request parameters provided.
    *
    * @param UpdateDatabaseRequest
    * @return UpdateDatabaseResponse
@@ -10742,7 +12283,7 @@ A switchover guarantees no data loss.
   }
 
   /**
-   * Patches the specified dbHome.
+   * Patches the specified Database Home.
    * @param UpdateDbHomeRequest
    * @return UpdateDbHomeResponse
    * @throws OciError when an error occurs
@@ -10814,7 +12355,7 @@ A switchover guarantees no data loss.
   }
 
   /**
-   * Updates the properties of a DB system, such as the CPU core count.
+   * Updates the properties of the specified DB system.
    * @param UpdateDbSystemRequest
    * @return UpdateDbSystemResponse
    * @throws OciError when an error occurs
@@ -10886,7 +12427,7 @@ A switchover guarantees no data loss.
   }
 
   /**
-   * Updates the Exadata infrastructure.
+   * Updates the Exadata Cloud@Customer infrastructure.
    *
    * @param UpdateExadataInfrastructureRequest
    * @return UpdateExadataInfrastructureResponse
@@ -10961,7 +12502,7 @@ A switchover guarantees no data loss.
   }
 
   /**
-   * Update `IORM` Settings for the requested Exadata DB System.
+   * Updates IORM settings for the specified Exadata system.
    *
    * @param UpdateExadataIormConfigRequest
    * @return UpdateExadataIormConfigResponse
@@ -11102,7 +12643,7 @@ A switchover guarantees no data loss.
   }
 
   /**
-   * Updates the specified VM cluster.
+   * Updates the specified Exadata Cloud@Customer VM cluster.
    *
    * @param UpdateVmClusterRequest
    * @return UpdateVmClusterResponse
@@ -11176,7 +12717,7 @@ A switchover guarantees no data loss.
   }
 
   /**
-   * Updates the specified VM cluster network.
+   * Updates the specified Exadata Cloud@Customer VM cluster network.
    *
    * @param UpdateVmClusterNetworkRequest
    * @return UpdateVmClusterNetworkResponse
@@ -11252,7 +12793,7 @@ A switchover guarantees no data loss.
   }
 
   /**
-   * Validates the specified VM cluster network.
+   * Validates the specified Exadata Cloud@Customer VM cluster network.
    *
    * @param ValidateVmClusterNetworkRequest
    * @return ValidateVmClusterNetworkResponse

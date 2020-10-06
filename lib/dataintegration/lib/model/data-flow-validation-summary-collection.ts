@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * List of dataflow validation summaries
+ * A list of data flow validation summaries.
  */
 export interface DataFlowValidationSummaryCollection {
   /**
-   * The array of validation summaries
+   * The array of validation summaries.
    */
   "items": Array<model.DataFlowValidationSummary>;
 }

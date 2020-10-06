@@ -19,7 +19,7 @@ export interface UpdateExadataInfrastructureRequest extends common.BaseRequest {
    */
   "exadataInfrastructureId": string;
   /**
-   * Request to update the properties of an Exadata infrastructure
+   * Request to update the properties of an Exadata Cloud@Customer infrastructure.
    */
   "updateExadataInfrastructureDetails": model.UpdateExadataInfrastructureDetails;
   /**

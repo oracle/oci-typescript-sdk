@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface CreateDataFlowValidationRequest extends common.BaseRequest {
   /**
-   * DIS workspace id
+   * The workspace ID.
    */
   "workspaceId": string;
   /**
-   * Details for the new DataFlow object.
+   * The information needed to create the data flow validation for the data flow object.
    */
   "createDataFlowValidationDetails": model.CreateDataFlowValidationDetails;
   /**
@@ -30,7 +30,7 @@ export interface CreateDataFlowValidationRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * Caller may provide \"retry tokens\" allowing them to retry an operation
+   * A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of executing that same action again.
    *
    */
   "opcRetryToken"?: string;

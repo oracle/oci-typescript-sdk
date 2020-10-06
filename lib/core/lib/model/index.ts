@@ -388,6 +388,8 @@ import * as InstanceConfigurationCreateVolumeDetails from "./instance-configurat
 export import InstanceConfigurationCreateVolumeDetails = InstanceConfigurationCreateVolumeDetails.InstanceConfigurationCreateVolumeDetails;
 import * as InstanceConfigurationInstanceDetails from "./instance-configuration-instance-details";
 export import InstanceConfigurationInstanceDetails = InstanceConfigurationInstanceDetails.InstanceConfigurationInstanceDetails;
+import * as InstanceConfigurationInstanceOptions from "./instance-configuration-instance-options";
+export import InstanceConfigurationInstanceOptions = InstanceConfigurationInstanceOptions.InstanceConfigurationInstanceOptions;
 import * as InstanceConfigurationInstanceSourceDetails from "./instance-configuration-instance-source-details";
 export import InstanceConfigurationInstanceSourceDetails = InstanceConfigurationInstanceSourceDetails.InstanceConfigurationInstanceSourceDetails;
 import * as InstanceConfigurationLaunchInstanceAgentConfigDetails from "./instance-configuration-launch-instance-agent-config-details";
@@ -406,6 +408,8 @@ import * as InstanceConsoleConnection from "./instance-console-connection";
 export import InstanceConsoleConnection = InstanceConsoleConnection.InstanceConsoleConnection;
 import * as InstanceCredentials from "./instance-credentials";
 export import InstanceCredentials = InstanceCredentials.InstanceCredentials;
+import * as InstanceOptions from "./instance-options";
+export import InstanceOptions = InstanceOptions.InstanceOptions;
 import * as InstancePool from "./instance-pool";
 export import InstancePool = InstancePool.InstancePool;
 import * as InstancePoolInstanceLoadBalancerBackend from "./instance-pool-instance-load-balancer-backend";

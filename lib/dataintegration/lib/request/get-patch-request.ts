@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface GetPatchRequest extends common.BaseRequest {
   /**
-   * DIS workspace id
+   * The workspace ID.
    */
   "workspaceId": string;
   /**
-   * DIS application key
+   * The application key.
    */
   "applicationKey": string;
   /**
-   * DIS patch key
+   * The patch key.
    */
   "patchKey": string;
   /**

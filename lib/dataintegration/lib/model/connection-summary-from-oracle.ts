@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The Oracle connection details object.
+ * The connection summary details for an Oracle Database data asset.
  */
 export interface ConnectionSummaryFromOracle extends model.ConnectionSummary {
   /**

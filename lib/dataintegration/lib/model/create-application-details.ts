@@ -23,7 +23,7 @@ export interface CreateApplicationDetails {
    */
   "key"?: string;
   /**
-   * The model version of an object.
+   * The object's model version.
    */
   "modelVersion"?: string;
   /**
@@ -31,7 +31,7 @@ export interface CreateApplicationDetails {
    */
   "modelType"?: CreateApplicationDetails.ModelType;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name": string;
   /**
@@ -43,9 +43,10 @@ export interface CreateApplicationDetails {
    */
   "objectStatus"?: number;
   /**
-   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be edited by the user.
+   * Value can only contain upper case letters, underscore, and numbers. It should begin with upper case letter or underscore. The value can be modified.
    */
   "identifier": string;
+  "sourceApplicationInfo"?: model.CreateSourceApplicationInfo;
   "registryMetadata"?: model.RegistryMetadata;
 }
 
@@ -58,6 +59,9 @@ export namespace CreateApplicationDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "sourceApplicationInfo": obj.sourceApplicationInfo
+          ? model.CreateSourceApplicationInfo.getJsonObj(obj.sourceApplicationInfo)
+          : undefined,
         "registryMetadata": obj.registryMetadata
           ? model.RegistryMetadata.getJsonObj(obj.registryMetadata)
           : undefined

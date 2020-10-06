@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface CreateWorkspaceRequest extends common.BaseRequest {
   /**
-   * Details for the new Data Integration Workspace.
+   * The information needed to create a new Data Integration workspace.
    */
   "createWorkspaceDetails": model.CreateWorkspaceDetails;
   /**
-   * Caller may provide \"retry tokens\" allowing them to retry an operation
+   * A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of executing that same action again.
    *
    */
   "opcRetryToken"?: string;

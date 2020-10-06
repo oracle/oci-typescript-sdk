@@ -27,11 +27,11 @@ export interface DataAssetSummary {
    */
   "modelVersion"?: string;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name"?: string;
   /**
-   * Detailed description for the object.
+   * The user-defined description of the data asset.
    */
   "description"?: string;
   /**
@@ -39,15 +39,15 @@ export interface DataAssetSummary {
    */
   "objectStatus"?: number;
   /**
-   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be edited by the user.
+   * Value can only contain upper case letters, underscore, and numbers. It should begin with upper case letter or underscore. The value can be modified.
    */
   "identifier"?: string;
   /**
-   * The external key for the object
+   * The external key for the object.
    */
   "externalKey"?: string;
   /**
-   * assetProperties
+   * Additional properties for the data asset.
    */
   "assetProperties"?: { [key: string]: string };
   "nativeTypeSystem"?: model.TypeSystem;
@@ -77,6 +77,11 @@ export namespace DataAssetSummary {
 
     if ("modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "MYSQL_DATA_ASSET":
+          return model.DataAssetSummaryFromMySQL.getJsonObj(
+            <model.DataAssetSummaryFromMySQL>(<object>jsonObj),
+            true
+          );
         case "ORACLE_ATP_DATA_ASSET":
           return model.DataAssetSummaryFromAtp.getJsonObj(
             <model.DataAssetSummaryFromAtp>(<object>jsonObj),
@@ -85,6 +90,11 @@ export namespace DataAssetSummary {
         case "ORACLE_ADWC_DATA_ASSET":
           return model.DataAssetSummaryFromAdwc.getJsonObj(
             <model.DataAssetSummaryFromAdwc>(<object>jsonObj),
+            true
+          );
+        case "GENERIC_JDBC_DATA_ASSET":
+          return model.DataAssetSummaryFromJdbc.getJsonObj(
+            <model.DataAssetSummaryFromJdbc>(<object>jsonObj),
             true
           );
         case "ORACLE_OBJECT_STORAGE_DATA_ASSET":

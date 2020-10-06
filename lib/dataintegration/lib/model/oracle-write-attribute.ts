@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The Oracle write attribute
+ * The Oracle write attribute.
  */
 export interface OracleWriteAttribute extends model.AbstractWriteAttribute {
   /**

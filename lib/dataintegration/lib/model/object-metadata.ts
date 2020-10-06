@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A summary type containing information about the object including its key, name and when/who created/updated it
+ * A summary type containing information about the object including its key, name and when/who created/updated it.
  */
 export interface ObjectMetadata {
   /**
@@ -51,17 +51,21 @@ export interface ObjectMetadata {
    */
   "identifierPath"?: string;
   /**
-   * infoFields
+   * Information property fields.
    */
   "infoFields"?: { [key: string]: string };
   /**
-   * registryVersion
+   * The registry version of the object.
    */
   "registryVersion"?: number;
   /**
-   * Labels are keywords or tags that you can add to data assets, dataflows etc. You can define your own labels and use them to categorize content.
+   * Labels are keywords or tags that you can add to data assets, dataflows and so on. You can define your own labels and use them to categorize content.
    */
   "labels"?: Array<string>;
+  /**
+   * Specifies whether this object is a favorite or not.
+   */
+  "isFavorite"?: boolean;
 }
 
 export namespace ObjectMetadata {

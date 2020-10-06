@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface OutputPort extends model.TypedObject {
   /**
-   * The port details for the data asset.Type
+   * The port details for the data asset.Type.
    */
   "portType"?: OutputPort.PortType;
   /**
-   * fields
+   * An array of fields.
    */
   "fields"?: Array<model.TypedObject>;
 

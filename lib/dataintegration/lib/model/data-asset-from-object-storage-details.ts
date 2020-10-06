@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The Object Storage data asset details.
+ * Details for the Oracle Object storage data asset type.
  */
 export interface DataAssetFromObjectStorageDetails extends model.DataAsset {
   /**
-   * url
+   * The Oracle Object storage URL.
    */
   "url"?: string;
   /**
@@ -27,7 +27,7 @@ export interface DataAssetFromObjectStorageDetails extends model.DataAsset {
    */
   "tenancyId"?: string;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * The namespace for the specified Oracle Object storage resource. You can find the namespace under Object Storage Settings in the Console.
    */
   "namespace"?: string;
   "defaultConnection"?: model.ConnectionFromObjectStorageDetails;

@@ -19,15 +19,15 @@ import common = require("oci-common");
  */
 export interface Expression {
   /**
-   * The key of the object.
+   * The object key.
    */
   "key"?: string;
   /**
-   * The type of the object.
+   * The object type.
    */
   "modelType"?: string;
   /**
-   * The model version of an object.
+   * The object's model version.
    */
   "modelVersion"?: string;
   "parentRef"?: model.ParentReference;

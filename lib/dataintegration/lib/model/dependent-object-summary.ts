@@ -51,17 +51,21 @@ export interface DependentObjectSummary {
    */
   "identifierPath"?: string;
   /**
-   * infoFields
+   * Information property fields.
    */
   "infoFields"?: { [key: string]: string };
   /**
-   * registryVersion
+   * The registry version of the object.
    */
   "registryVersion"?: number;
   /**
-   * Labels are keywords or tags that you can add to data assets, dataflows etc. You can define your own labels and use them to categorize content.
+   * Labels are keywords or tags that you can add to data assets, dataflows and so on. You can define your own labels and use them to categorize content.
    */
   "labels"?: Array<string>;
+  /**
+   * Specifies whether this object is a favorite or not.
+   */
+  "isFavorite"?: boolean;
 }
 
 export namespace DependentObjectSummary {

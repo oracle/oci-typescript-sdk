@@ -101,6 +101,7 @@ Example: `VM.Standard2.1`
     */
   "shape"?: string;
   "shapeConfig"?: model.UpdateInstanceShapeConfigDetails;
+  "instanceOptions"?: model.InstanceOptions;
   /**
     * A fault domain is a grouping of hardware and infrastructure within an availability domain.
 * Each availability domain contains three fault domains. Fault domains let you distribute your
@@ -139,6 +140,9 @@ export namespace UpdateInstanceDetails {
 
         "shapeConfig": obj.shapeConfig
           ? model.UpdateInstanceShapeConfigDetails.getJsonObj(obj.shapeConfig)
+          : undefined,
+        "instanceOptions": obj.instanceOptions
+          ? model.InstanceOptions.getJsonObj(obj.instanceOptions)
           : undefined,
 
         "launchOptions": obj.launchOptions

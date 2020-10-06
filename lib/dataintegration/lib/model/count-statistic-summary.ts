@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Detail of object.
+ * Details of the count statistic summary object.
  */
 export interface CountStatisticSummary {
   /**
-   * the type of object for the object count statistic.
+   * The type of object for the count statistic object.
    */
   "objectType"?: CountStatisticSummary.ObjectType;
   /**
-   * the value for the object count statistic.
+   * The value for the count statistic object.
    */
   "objectCount"?: number;
 }
