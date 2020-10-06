@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ConfigProvider {
   /**
-   * bindings
+   * The configuration provider bindings.
    */
   "bindings"?: { [key: string]: model.ParameterValue };
   /**
-   * childProviders
+   * The child providers.
    */
   "childProviders"?: { [key: string]: model.ConfigProvider };
 }

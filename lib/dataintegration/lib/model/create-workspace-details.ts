@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about new Workspace.
+ * The information needed to create a new workspace.
  */
 export interface CreateWorkspaceDetails {
   /**
@@ -47,7 +47,7 @@ export interface CreateWorkspaceDetails {
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * A detailed description for the workspace.
+   * A user defined description for the workspace.
    */
   "description"?: string;
   /**
@@ -59,7 +59,7 @@ export interface CreateWorkspaceDetails {
    */
   "compartmentId": string;
   /**
-   * Whether the private network connection is enabled or disabled.
+   * Specifies whether the private network connection is enabled or disabled.
    */
   "isPrivateNetworkEnabled"?: boolean;
 }

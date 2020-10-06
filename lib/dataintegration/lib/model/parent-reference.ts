@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A reference to the object's parent
+ * A reference to the object's parent.
  */
 export interface ParentReference {
   /**
-   * Key of the parent object
+   * Key of the parent object.
    */
   "parent"?: string;
 }

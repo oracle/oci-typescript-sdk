@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface GetPublishedObjectRequest extends common.BaseRequest {
   /**
-   * DIS workspace id
+   * The workspace ID.
    */
   "workspaceId": string;
   /**
-   * DIS application key
+   * The application key.
    */
   "applicationKey": string;
   /**
-   * DIS published object key
+   * The published object key.
    */
   "publishedObjectKey": string;
   /**
@@ -34,7 +34,7 @@ export interface GetPublishedObjectRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * This is used to expand references of the object. If value is true, then all referenced objects will be expanded. If value is false, then shallow objects will be returned in place of references. Default is false. <br><br><B>Examples:-</B><br> <ul> <li><B>?expandReferences=true</B> returns all objects of type data loader task</li> </ul>
+   * Used to expand references of the object. If value is true, then all referenced objects are expanded. If value is false, then shallow objects are returned in place of references. Default is false. <br><br><B>Example:</B><br> <ul> <li><B>?expandReferences=true</B> returns all objects of type data loader task</li> </ul>
    */
   "expandReferences"?: string;
 }

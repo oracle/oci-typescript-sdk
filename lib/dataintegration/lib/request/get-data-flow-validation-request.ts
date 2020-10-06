@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface GetDataFlowValidationRequest extends common.BaseRequest {
   /**
-   * DIS workspace id
+   * The workspace ID.
    */
   "workspaceId": string;
   /**
-   * key of the dataflow validation.
+   * The key of the dataflow validation.
    */
   "dataFlowValidationKey": string;
   /**

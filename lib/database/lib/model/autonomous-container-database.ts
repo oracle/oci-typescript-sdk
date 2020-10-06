@@ -49,6 +49,14 @@ export interface AutonomousContainerDatabase {
    */
   "infrastructureType"?: AutonomousContainerDatabase.InfrastructureType;
   /**
+   * The OCID of the key container that is used as the master encryption key in database transparent data encryption (TDE) operations.
+   */
+  "kmsKeyId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Oracle Cloud Infrastructure [vault](https://docs.cloud.oracle.com/Content/KeyManagement/Concepts/keyoverview.htm#concepts).
+   */
+  "vaultId"?: string;
+  /**
    * The current state of the Autonomous Container Database.
    */
   "lifecycleState": AutonomousContainerDatabase.LifecycleState;
@@ -96,7 +104,7 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "availabilityDomain"?: string;
   /**
-   * Oracle Database version of the Autonomous Container Database
+   * Oracle Database version of the Autonomous Container Database.
    */
   "dbVersion"?: string;
   "backupConfig"?: model.AutonomousContainerDatabaseBackupConfig;

@@ -15,19 +15,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The level, message key and validation message.
+ * The level, message key, and validation message.
  */
 export interface ValidationMessage {
   /**
-   * Total number of validation messages
+   * The total number of validation messages.
    */
   "level"?: string;
   /**
-   * The key.
+   * The validation message key.
    */
   "messageKey"?: string;
   /**
-   * The message itself.
+   * The validation message.
    */
   "validationMessage"?: string;
 }

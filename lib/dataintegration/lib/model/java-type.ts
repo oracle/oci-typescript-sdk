@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface JavaType extends model.BaseType {
   /**
-   * javaTypeName
+   * The java type name.
    */
   "javaTypeName"?: string;
   "configDefinition"?: model.ConfigDefinition;

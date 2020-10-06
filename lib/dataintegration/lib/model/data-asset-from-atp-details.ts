@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The ATP data asset details.
+ * Details for the Autonomous Transaction Processing data asset type.
  */
 export interface DataAssetFromAtpDetails extends model.DataAsset {
   /**
-   * The service name for the data asset.
+   * The Autonomous Transaction Processing instance service name.
    */
   "serviceName"?: string;
   /**
@@ -27,7 +27,7 @@ export interface DataAssetFromAtpDetails extends model.DataAsset {
    */
   "serviceNames"?: Array<string>;
   /**
-   * The driver class for the data asset.
+   * The Autonomous Transaction Processing driver class.
    */
   "driverClass"?: string;
   "defaultConnection"?: model.ConnectionFromAtpDetails;

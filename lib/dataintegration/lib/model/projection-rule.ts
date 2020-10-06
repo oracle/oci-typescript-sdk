@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Base type for how fields are projected, there are many different mechanisms for doing this such as by a name patter, datatype etc. See the modelType property for the types.
+ * Base type for how fields are projected. There are many different mechanisms for doing this such as by a name pattern, datatype and so on. See the `modelType` property for the types.
  */
 export interface ProjectionRule {
   /**
@@ -37,7 +37,7 @@ export interface ProjectionRule {
    */
   "objectStatus"?: number;
   /**
-   * Detailed description for the object.
+   * A user defined description for the object.
    */
   "description"?: string;
 

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about change compartment action.
+ * The information needed to change the workspace compartment.
  */
 export interface ChangeCompartmentDetails {
   /**

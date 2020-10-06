@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface GetDataAssetRequest extends common.BaseRequest {
   /**
-   * DIS workspace id
+   * The workspace ID.
    */
   "workspaceId": string;
   /**
-   * Data asset key.
+   * The data asset key.
    */
   "dataAssetKey": string;
   /**

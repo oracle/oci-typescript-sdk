@@ -232,6 +232,44 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forCloudExadataInfrastructure till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetCloudExadataInfrastructureResponse | null (null in case of 404 response)
+   */
+  public async forCloudExadataInfrastructure(
+    request: serviceRequests.GetCloudExadataInfrastructureRequest,
+    ...targetStates: models.CloudExadataInfrastructure.LifecycleState[]
+  ): Promise<serviceResponses.GetCloudExadataInfrastructureResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getCloudExadataInfrastructure(request),
+      response => targetStates.exists(response.cloudExadataInfrastructure.lifecycleState),
+      targetStates.includes(models.CloudExadataInfrastructure.LifecycleState.Terminated)
+    );
+  }
+
+  /**
+   * Waits forCloudVmCluster till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetCloudVmClusterResponse | null (null in case of 404 response)
+   */
+  public async forCloudVmCluster(
+    request: serviceRequests.GetCloudVmClusterRequest,
+    ...targetStates: models.CloudVmCluster.LifecycleState[]
+  ): Promise<serviceResponses.GetCloudVmClusterResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getCloudVmCluster(request),
+      response => targetStates.exists(response.cloudVmCluster.lifecycleState),
+      targetStates.includes(models.CloudVmCluster.LifecycleState.Terminated)
+    );
+  }
+
+  /**
    * Waits forConsoleConnection till it reaches any of the provided states
    *
    * @param request the request to send
@@ -303,7 +341,7 @@ export class DatabaseWaiter {
       this.config,
       () => this.client.getDatabaseSoftwareImage(request),
       response => targetStates.exists(response.databaseSoftwareImage.lifecycleState),
-      targetStates.includes(models.DatabaseSoftwareImage.LifecycleState.Deleted)
+      targetStates.includes(models.DatabaseSoftwareImage.LifecycleState.Terminated)
     );
   }
 

@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * List of connection validation summaries
+ * A list of connection validation summaries.
  */
 export interface ConnectionValidationSummaryCollection {
   /**
-   * The array of validation summaries
+   * An array of connection validation summaries.
    */
   "items": Array<model.ConnectionValidationSummary>;
 }

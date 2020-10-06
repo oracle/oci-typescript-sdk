@@ -15,31 +15,31 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about task validation
+ * The information about task validation.
  */
 export interface TaskValidation {
   /**
-   * Total number of validation messages
+   * Total number of validation messages.
    */
   "totalMessageCount"?: number;
   /**
-   * Total number of validation error messages
+   * Total number of validation error messages.
    */
   "errorMessageCount"?: number;
   /**
-   * Total number of validation warning messages
+   * Total number of validation warning messages.
    */
   "warnMessageCount"?: number;
   /**
-   * Total number of validation information messages
+   * Total number of validation information messages.
    */
   "infoMessageCount"?: number;
   /**
-   * Detailed information of the DataFlow object validation.
+   * Detailed information of the data flow object validation.
    */
   "validationMessages"?: { [key: string]: Array<model.ValidationMessage> };
   /**
-   * Objects will use a 36 character key as unique ID. It is system generated and cannot be edited by user
+   * Objects use a 36 character key as unique ID. It is system generated and cannot be modified.
    */
   "key"?: string;
   /**
@@ -52,7 +52,7 @@ export interface TaskValidation {
   "modelVersion"?: string;
   "parentRef"?: model.ParentReference;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name"?: string;
   /**
@@ -68,7 +68,7 @@ export interface TaskValidation {
    */
   "objectStatus"?: number;
   /**
-   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be edited by the user.
+   * Value can only contain upper case letters, underscore, and numbers. It should begin with upper case letter or underscore. The value can be modified.
    */
   "identifier"?: string;
   "metadata"?: model.ObjectMetadata;

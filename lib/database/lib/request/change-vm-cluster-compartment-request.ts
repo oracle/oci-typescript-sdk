@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface ChangeVmClusterCompartmentRequest extends common.BaseRequest {
   /**
-   * Request to move VM cluster to a different compartment
+   * Request to move the Exadata Cloud@Customer VM cluster to a different compartment.
    */
   "changeVmClusterCompartmentDetails": model.ChangeVmClusterCompartmentDetails;
   /**

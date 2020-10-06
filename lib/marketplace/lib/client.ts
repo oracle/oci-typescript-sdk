@@ -1242,6 +1242,70 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   }
 
   /**
+   * Returns list of all tax implications that current tenant may be liable to once they launch the listing.
+   * @param ListTaxesRequest
+   * @return ListTaxesResponse
+   * @throws OciError when an error occurs
+   */
+  public async listTaxes(
+    listTaxesRequest: requests.ListTaxesRequest
+  ): Promise<responses.ListTaxesResponse> {
+    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listTaxes.");
+    const pathParams = {
+      "{listingId}": listTaxesRequest.listingId
+    };
+
+    const queryParams = {
+      "compartmentId": listTaxesRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listTaxesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/listings/{listingId}/taxes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listTaxesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListTaxesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "TaxSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the display name or tags associated with a listing's previously accepted terms of use agreement.
    *
    * @param UpdateAcceptedAgreementRequest

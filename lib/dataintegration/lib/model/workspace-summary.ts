@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of a Workspace.
+ * Summary details of a workspace.
  */
 export interface WorkspaceSummary {
   /**
-   * Unique identifier that is immutable.
+   * A system-generated and immutable identifier assigned to the workspace upon creation.
    */
   "id"?: string;
   /**
-   * A detailed description of the workspace.
+   * A user defined description for the workspace.
    */
   "description"?: string;
   /**

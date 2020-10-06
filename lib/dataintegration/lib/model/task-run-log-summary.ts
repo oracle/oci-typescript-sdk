@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface TaskRunLogSummary {
   /**
-   * Human-readable log message.
+   * A user-friendly log message.
    */
   "message"?: string;
 }

@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details for a VM cluster network.
+ * Details for an Exadata Cloud@Customer VM cluster network.
  *
  */
 export interface VmClusterNetworkDetails {
@@ -25,7 +25,7 @@ export interface VmClusterNetworkDetails {
    */
   "compartmentId": string;
   /**
-   * The user-friendly name for the VM cluster network. The name does not need to be unique.
+   * The user-friendly name for the Exadata Cloud@Customer VM cluster network. The name does not need to be unique.
    */
   "displayName": string;
   /**

@@ -32,7 +32,7 @@ export interface ExadataInfrastructure {
    */
   "lifecycleState": ExadataInfrastructure.LifecycleState;
   /**
-   * The user-friendly name for the Exadata infrastructure. The name does not need to be unique.
+   * The user-friendly name for the Exadata Cloud@Customer infrastructure. The name does not need to be unique.
    */
   "displayName": string;
   /**
@@ -122,11 +122,11 @@ export interface ExadataInfrastructure {
    */
   "lifecycleDetails"?: string;
   /**
-   * The CSI Number of the Exadata Infrastructure.
+   * The CSI Number of the Exadata infrastructure.
    */
   "csiNumber"?: string;
   /**
-   * The list of contacts for the Exadata Infrastructure.
+   * The list of contacts for the Exadata infrastructure.
    */
   "contacts"?: Array<model.ExadataInfrastructureContact>;
   /**

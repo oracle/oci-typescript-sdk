@@ -28,11 +28,11 @@ export interface Operator {
   "modelVersion"?: string;
   "parentRef"?: model.ParentReference;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name"?: string;
   /**
-   * Detailed description for the object.
+   * Details about the operator.
    */
   "description"?: string;
   /**
@@ -52,11 +52,11 @@ export interface Operator {
    */
   "objectStatus"?: number;
   /**
-   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be edited by the user.
+   * Value can only contain upper case letters, underscore, and numbers. It should begin with upper case letter or underscore. The value can be modified.
    */
   "identifier"?: string;
   /**
-   * An array of parameters.
+   * An array of parameters used in the data flow.
    */
   "parameters"?: Array<model.Parameter>;
   "opConfigValues"?: model.ConfigValues;
@@ -99,10 +99,14 @@ export namespace Operator {
           return model.Target.getJsonObj(<model.Target>(<object>jsonObj), true);
         case "JOINER_OPERATOR":
           return model.Joiner.getJsonObj(<model.Joiner>(<object>jsonObj), true);
+        case "DISTINCT_OPERATOR":
+          return model.Distinct.getJsonObj(<model.Distinct>(<object>jsonObj), true);
         case "FILTER_OPERATOR":
           return model.Filter.getJsonObj(<model.Filter>(<object>jsonObj), true);
         case "AGGREGATOR_OPERATOR":
           return model.Aggregator.getJsonObj(<model.Aggregator>(<object>jsonObj), true);
+        case "SORT_OPERATOR":
+          return model.SortOper.getJsonObj(<model.SortOper>(<object>jsonObj), true);
         case "PROJECTION_OPERATOR":
           return model.Projection.getJsonObj(<model.Projection>(<object>jsonObj), true);
         case "SOURCE_OPERATOR":

@@ -23,15 +23,15 @@ export interface ApplicationSummary {
    */
   "key"?: string;
   /**
-   * The type of the object.
+   * The object type.
    */
   "modelType"?: string;
   /**
-   * The model version of an object.
+   * The object's model version.
    */
   "modelVersion"?: string;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name"?: string;
   /**
@@ -39,7 +39,7 @@ export interface ApplicationSummary {
    */
   "description"?: string;
   /**
-   * version
+   * The application's version.
    */
   "applicationVersion"?: number;
   /**
@@ -47,7 +47,7 @@ export interface ApplicationSummary {
    */
   "objectStatus"?: number;
   /**
-   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be edited by the user.
+   * Value can only contain upper case letters, underscore, and numbers. It should begin with upper case letter or underscore. The value can be modified.
    */
   "identifier"?: string;
   "parentRef"?: model.ParentReference;
@@ -56,16 +56,22 @@ export interface ApplicationSummary {
    */
   "objectVersion"?: number;
   /**
-   * List of dependent objects in this patch.
+   * A list of dependent objects in this patch.
    */
   "dependentObjectMetadata"?: Array<model.PatchObjectMetadata>;
   /**
-   * List of objects that are published / unpublished in this patch.
+   * A list of objects that are published or unpublished in this patch.
    */
   "publishedObjectMetadata"?: { [key: string]: model.PatchObjectMetadata };
+  "sourceApplicationInfo"?: model.SourceApplicationInfo;
+  /**
+   * The date and time the application was patched, in the timestamp format defined by RFC3339.
+   *
+   */
+  "timePatched"?: Date;
   "metadata"?: model.ObjectMetadata;
   /**
-   * A map, if provided key is replaced with generated key, this structure provides mapping between user provided key and generated key
+   * A key map. If provided, key is replaced with generated key. This structure provides mapping between user provided key and generated key.
    */
   "keyMap"?: { [key: string]: string };
 }
@@ -85,6 +91,10 @@ export namespace ApplicationSummary {
         "publishedObjectMetadata": obj.publishedObjectMetadata
           ? common.mapContainer(obj.publishedObjectMetadata, model.PatchObjectMetadata.getJsonObj)
           : undefined,
+        "sourceApplicationInfo": obj.sourceApplicationInfo
+          ? model.SourceApplicationInfo.getJsonObj(obj.sourceApplicationInfo)
+          : undefined,
+
         "metadata": obj.metadata ? model.ObjectMetadata.getJsonObj(obj.metadata) : undefined
       }
     };

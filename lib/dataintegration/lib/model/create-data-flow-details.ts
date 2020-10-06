@@ -28,11 +28,11 @@ export interface CreateDataFlowDetails {
   "modelVersion"?: string;
   "parentRef"?: model.ParentReference;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name": string;
   /**
-   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be edited by the user.
+   * Value can only contain upper case letters, underscore, and numbers. It should begin with upper case letter or underscore. The value can be modified.
    */
   "identifier": string;
   /**

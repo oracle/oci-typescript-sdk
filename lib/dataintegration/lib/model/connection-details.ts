@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The connection details object.
+ * The connection details for a data asset.
  */
 export interface ConnectionDetails {
   /**
@@ -28,11 +28,11 @@ export interface ConnectionDetails {
   "modelVersion"?: string;
   "parentRef"?: model.ParentReference;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name"?: string;
   /**
-   * Detailed description for the object.
+   * User-defined description for the connection.
    */
   "description"?: string;
   /**
@@ -44,7 +44,7 @@ export interface ConnectionDetails {
    */
   "objectStatus"?: number;
   /**
-   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be edited by the user.
+   * Value can only contain upper case letters, underscore, and numbers. It should begin with upper case letter or underscore. The value can be modified.
    */
   "identifier"?: string;
   "primarySchema"?: model.Schema;
@@ -81,9 +81,19 @@ export namespace ConnectionDetails {
 
     if ("modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "GENERIC_JDBC_CONNECTION":
+          return model.ConnectionFromJdbcDetails.getJsonObj(
+            <model.ConnectionFromJdbcDetails>(<object>jsonObj),
+            true
+          );
         case "ORACLE_OBJECT_STORAGE_CONNECTION":
           return model.ConnectionFromObjectStorageDetails.getJsonObj(
             <model.ConnectionFromObjectStorageDetails>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_CONNECTION":
+          return model.ConnectionFromMySQLDetails.getJsonObj(
+            <model.ConnectionFromMySQLDetails>(<object>jsonObj),
             true
           );
         case "ORACLE_ADWC_CONNECTION":

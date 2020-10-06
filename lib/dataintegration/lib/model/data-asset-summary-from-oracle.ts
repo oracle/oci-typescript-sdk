@@ -15,27 +15,27 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The Oracle data asset details.
+ * Summary details for the Oracle Database data asset type.
  */
 export interface DataAssetSummaryFromOracle extends model.DataAssetSummary {
   /**
-   * The host details for the data asset.
+   * The Oracle Database hostname.
    */
   "host"?: string;
   /**
-   * The port details for the data asset.
+   * The Oracle Database port.
    */
   "port"?: string;
   /**
-   * The service name for the data asset.
+   * The Oracle Database service name.
    */
   "serviceName"?: string;
   /**
-   * The driver class for the data asset.
+   * The Oracle Database driver class.
    */
   "driverClass"?: string;
   /**
-   * sid
+   * The Oracle Database SID.
    */
   "sid"?: string;
   /**

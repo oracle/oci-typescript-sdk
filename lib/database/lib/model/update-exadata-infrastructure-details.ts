@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Updates the Exadata infrastructure.
+ * Updates the Exadata Cloud@Customer infrastructure.
  *
  */
 export interface UpdateExadataInfrastructureDetails {
@@ -49,7 +49,7 @@ export interface UpdateExadataInfrastructureDetails {
    */
   "corporateProxy"?: string;
   /**
-   * The list of contacts for the Exadata Infrastructure.
+   * The list of contacts for the Exadata infrastructure.
    */
   "contacts"?: Array<model.ExadataInfrastructureContact>;
   /**

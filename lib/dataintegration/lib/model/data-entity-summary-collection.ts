@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DataEntitySummaryCollection {
   /**
-   * The array of DataEntity summaries
+   * The array of data entity summaries.
    */
   "items": Array<model.DataEntitySummary>;
 }

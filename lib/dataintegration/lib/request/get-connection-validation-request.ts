@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface GetConnectionValidationRequest extends common.BaseRequest {
   /**
-   * DIS workspace id
+   * The workspace ID.
    */
   "workspaceId": string;
   /**
-   * key of the connection validation.
+   * The key of the connection validation.
    */
   "connectionValidationKey": string;
   /**

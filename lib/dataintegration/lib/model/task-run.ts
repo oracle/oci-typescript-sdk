@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about TaskRun.
+ * The information about a task run.
  */
 export interface TaskRun {
   /**
@@ -32,7 +32,7 @@ export interface TaskRun {
   "modelVersion"?: string;
   "parentRef"?: model.ParentReference;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name"?: string;
   /**
@@ -45,35 +45,35 @@ export interface TaskRun {
   "objectVersion"?: number;
   "configProvider"?: model.ConfigProvider;
   /**
-   * status
+   * The status of the task run.
    */
   "status"?: TaskRun.Status;
   /**
-   * startTimeMillis
+   * The start time.
    */
   "startTimeMillis"?: number;
   /**
-   * endTimeMillis
+   * The end time.
    */
   "endTimeMillis"?: number;
   /**
-   * lastUpdated
+   * The date and time the object was last updated.
    */
   "lastUpdated"?: number;
   /**
-   * Number of records processed in task run.
+   * The number of records processed in the task run.
    */
   "recordsWritten"?: number;
   /**
-   * Number of bytes processed in task run.
+   * The number of bytes processed in the task run.
    */
   "bytesProcessed"?: number;
   /**
-   * Error message if status is ERROR
+   * Contains an error message if status is `ERROR`.
    */
   "errorMessage"?: string;
   /**
-   * Opc request id of execution of task run
+   * The OPC request ID of execution of the task run.
    */
   "opcRequestId"?: string;
   /**
@@ -81,16 +81,16 @@ export interface TaskRun {
    */
   "objectStatus"?: number;
   /**
-   * The type of the task for the run.
+   * The type of task run.
    */
   "taskType"?: TaskRun.TaskType;
   /**
-   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be edited by the user.
+   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be modified.
    */
   "identifier"?: string;
   "metadata"?: model.ObjectMetadata;
   /**
-   * A map, if provided key is replaced with generated key, this structure provides mapping between user provided key and generated key
+   * A key map. If provided, key is replaced with generated key. This structure provides mapping between user provided key and generated key.
    */
   "keyMap"?: { [key: string]: string };
 }

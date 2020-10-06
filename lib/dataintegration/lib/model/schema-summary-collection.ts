@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface SchemaSummaryCollection {
   /**
-   * The array of Schema summaries
+   * The array of schema summaries.
    */
   "items": Array<model.SchemaSummary>;
 }

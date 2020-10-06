@@ -19,19 +19,19 @@ import common = require("oci-common");
  */
 export interface Patch {
   /**
-   * The key of the object.
+   * The object key.
    */
   "key"?: string;
   /**
-   * The type of the object.
+   * The object type.
    */
   "modelType"?: string;
   /**
-   * The model version of an object.
+   * The object's model version.
    */
   "modelVersion"?: string;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name"?: string;
   /**
@@ -47,7 +47,7 @@ export interface Patch {
    */
   "objectStatus"?: number;
   /**
-   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be edited by the user.
+   * Value can only contain upper case letters, underscore, and numbers. It should begin with upper case letter or underscore. The value can be modified.
    */
   "identifier"?: string;
   /**
@@ -75,13 +75,13 @@ export interface Patch {
    */
   "dependentObjectMetadata"?: Array<model.PatchObjectMetadata>;
   /**
-   * List of objects that are published / unpublished in this patch.
+   * List of objects that are published or unpublished in this patch.
    */
   "patchObjectMetadata"?: Array<model.PatchObjectMetadata>;
   "parentRef"?: model.ParentReference;
   "metadata"?: model.ObjectMetadata;
   /**
-   * A map, if provided key is replaced with generated key, this structure provides mapping between user provided key and generated key
+   * A key map. If provided, key is replaced with generated key. This structure provides mapping between user provided key and generated key.
    */
   "keyMap"?: { [key: string]: string };
 }
@@ -89,6 +89,7 @@ export interface Patch {
 export namespace Patch {
   export enum PatchType {
     Publish = "PUBLISH",
+    Refresh = "REFRESH",
     Unpublish = "UNPUBLISH",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

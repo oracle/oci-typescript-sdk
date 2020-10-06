@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of the VM cluster.
+ * Details of the Exadata Cloud@Customer VM cluster.
  *
  */
 export interface VmClusterSummary {
@@ -37,7 +37,7 @@ export interface VmClusterSummary {
    */
   "lifecycleState"?: VmClusterSummary.LifecycleState;
   /**
-   * The user-friendly name for the VM cluster. The name does not need to be unique.
+   * The user-friendly name for the Exadata Cloud@Customer VM cluster. The name does not need to be unique.
    */
   "displayName"?: string;
   /**

@@ -15,41 +15,40 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface ListPatchesRequest extends common.BaseRequest {
   /**
-   * DIS workspace id
+   * The workspace ID.
    */
   "workspaceId": string;
   /**
-   * DIS application key
+   * The application key.
    */
   "applicationKey": string;
   /**
-   * This filter parameter can be used to filter by the name of the object.
+   * Used to filter by the name of the object.
    */
   "name"?: string;
   /**
-   * This filter parameter can be used to filter by the identifier of the published object.
+   * Used to filter by the identifier of the published object.
    *
    */
   "identifier"?: Array<string>;
   /**
-   * This parameter allows users to specify which fields to get for an object.
+   * Specifies the fields to get for an object.
    */
   "fields"?: Array<string>;
   /**
-   * The maximum number of items to return.
+   * Sets the maximum number of results per page, or items to return in a paginated `List` call. See [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    */
   "limit"?: number;
   /**
-   * The page token representing the page at which to start retrieving results. This is usually retrieved from a previous list call.
-   *
+   * For list pagination. The value for this parameter is the `opc-next-page` or the `opc-prev-page` response header from the previous `List` call. See [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    */
   "page"?: string;
   /**
-   * This parameter is used to control the sort order.  Supported values are `ASC` (ascending) and `DESC` (descending).
+   * Specifies sort order to use, either `ASC` (ascending) or `DESC` (descending).
    */
   "sortOrder"?: ListPatchesRequest.SortOrder;
   /**
-   * This parameter allows users to specify a sort field.  Supported sort fields are `name`, `identifier`, `timeCreated`, and `timeUpdated`.  Default sort order is the descending order of `timeCreated` (most recently created objects at the top).  Sorting related parameters are ignored when parameter `query` is present (search operation and sorting order is by relevance score in descending order).
+   * Specifies the field to sort by. Accepts only one field. By default, when you sort by time fields, results are shown in descending order. All other fields default to ascending order. Sorting related parameters are ignored when parameter `query` is present (search operation and sorting order is by relevance score in descending order).
    */
   "sortBy"?: ListPatchesRequest.SortBy;
   /**

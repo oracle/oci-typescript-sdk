@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Request to create Exadata infrastructure.
+ * Request to create Exadata Cloud@Customer infrastructure resource.
  *
  */
 export interface CreateExadataInfrastructureDetails {
@@ -71,7 +71,7 @@ export interface CreateExadataInfrastructureDetails {
    */
   "corporateProxy"?: string;
   /**
-   * The list of contacts for the Exadata Infrastructure.
+   * The list of contacts for the Exadata infrastructure.
    */
   "contacts"?: Array<model.ExadataInfrastructureContact>;
   /**

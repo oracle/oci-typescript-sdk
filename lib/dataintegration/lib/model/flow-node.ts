@@ -32,7 +32,7 @@ export interface FlowNode {
   "modelVersion"?: string;
   "parentRef"?: model.ParentReference;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name"?: string;
   /**
@@ -40,18 +40,20 @@ export interface FlowNode {
    */
   "description"?: string;
   /**
-   * inputLinks
+   * An array of input links.
    */
   "inputLinks"?: Array<model.InputLink>;
   /**
-   * outputLinks
+   * An array of output links.
    */
   "outputLinks"?: Array<model.OutputLink>;
   "operator"?:
     | model.Target
     | model.Joiner
+    | model.Distinct
     | model.Filter
     | model.Aggregator
+    | model.SortOper
     | model.Projection
     | model.Source;
   "uiProperties"?: model.UIProperties;

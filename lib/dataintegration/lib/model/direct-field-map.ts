@@ -19,21 +19,21 @@ import common = require("oci-common");
  */
 export interface DirectFieldMap extends model.FieldMap {
   /**
-   * The key of the object.
+   * The object key.
    */
   "key"?: string;
   /**
-   * The model version of an object.
+   * The object's model version.
    */
   "modelVersion"?: string;
   "parentRef"?: model.ParentReference;
   "configValues"?: model.ConfigValues;
   /**
-   * Reference to a typed object
+   * Reference to a typed object.
    */
   "sourceTypedObject"?: string;
   /**
-   * Reference to a typed object
+   * Reference to a typed object.
    */
   "targetTypedObject"?: string;
   /**

@@ -28,11 +28,11 @@ export interface ConnectionSummary {
   "modelVersion"?: string;
   "parentRef"?: model.ParentReference;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name"?: string;
   /**
-   * Detailed description for the object.
+   * User-defined description for the connection.
    */
   "description"?: string;
   /**
@@ -44,7 +44,7 @@ export interface ConnectionSummary {
    */
   "objectStatus"?: number;
   /**
-   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be edited by the user.
+   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be modified.
    */
   "identifier"?: string;
   "primarySchema"?: model.Schema;
@@ -58,7 +58,7 @@ export interface ConnectionSummary {
   "isDefault"?: boolean;
   "metadata"?: model.ObjectMetadata;
   /**
-   * A map, if provided key is replaced with generated key, this structure provides mapping between user provided key and generated key
+   * A key map. If provided, key is replaced with generated key. This structure provides mapping between user provided key and generated key.
    */
   "keyMap"?: { [key: string]: string };
 
@@ -85,6 +85,11 @@ export namespace ConnectionSummary {
 
     if ("modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "GENERIC_JDBC_CONNECTION":
+          return model.ConnectionSummaryFromJdbc.getJsonObj(
+            <model.ConnectionSummaryFromJdbc>(<object>jsonObj),
+            true
+          );
         case "ORACLE_ATP_CONNECTION":
           return model.ConnectionSummaryFromAtp.getJsonObj(
             <model.ConnectionSummaryFromAtp>(<object>jsonObj),
@@ -98,6 +103,11 @@ export namespace ConnectionSummary {
         case "ORACLE_ADWC_CONNECTION":
           return model.ConnectionSummaryFromAdwc.getJsonObj(
             <model.ConnectionSummaryFromAdwc>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_CONNECTION":
+          return model.ConnectionSummaryFromMySQL.getJsonObj(
+            <model.ConnectionSummaryFromMySQL>(<object>jsonObj),
             true
           );
         case "ORACLE_OBJECT_STORAGE_CONNECTION":

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The Oracle read attribute
+ * The Oracle read attribute.
  */
 export interface OracleReadAttribute extends model.AbstractReadAttribute {
   /**

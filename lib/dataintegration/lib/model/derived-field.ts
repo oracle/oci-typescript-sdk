@@ -24,7 +24,7 @@ export interface DerivedField extends model.TypedObject {
    */
   "type"?: string;
   /**
-   * Labels are keywords or labels that you can add to data assets, dataflows etc. You can define your own labels and use them to categorize content.
+   * Labels are keywords or labels that you can add to data assets, dataflows and so on. You can define your own labels and use them to categorize content.
    */
   "labels"?: Array<string>;
 

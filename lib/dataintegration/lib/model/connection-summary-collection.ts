@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ConnectionSummaryCollection {
   /**
-   * The array of Connection summaries
+   * The array of connection summaries.
    */
   "items": Array<model.ConnectionSummary>;
 }

@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface GetApplicationRequest extends common.BaseRequest {
   /**
-   * DIS workspace id
+   * The workspace ID.
    */
   "workspaceId": string;
   /**
-   * DIS application key
+   * The application key.
    */
   "applicationKey": string;
   /**

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface PatchSummaryCollection {
   /**
-   * The array of patch summaries
+   * The array of patch summaries.
    */
   "items": Array<model.PatchSummary>;
 }

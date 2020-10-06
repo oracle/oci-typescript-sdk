@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * This holds the values/objects.
+ * Contains the parameter configuration values.
  */
 export interface ConfigParameterValue {
   /**

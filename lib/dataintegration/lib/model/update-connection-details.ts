@@ -28,11 +28,11 @@ export interface UpdateConnectionDetails {
   "modelVersion"?: string;
   "parentRef"?: model.ParentReference;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name"?: string;
   /**
-   * Detailed description for the object.
+   * User-defined description for the connection.
    */
   "description"?: string;
   /**
@@ -44,7 +44,7 @@ export interface UpdateConnectionDetails {
    */
   "objectVersion": number;
   /**
-   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be edited by the user.
+   * Value can only contain upper case letters, underscore, and numbers. It should begin with upper case letter or underscore. The value can be modified.
    */
   "identifier"?: string;
   /**
@@ -76,6 +76,11 @@ export namespace UpdateConnectionDetails {
 
     if ("modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "GENERIC_JDBC_CONNECTION":
+          return model.UpdateConnectionFromJdbc.getJsonObj(
+            <model.UpdateConnectionFromJdbc>(<object>jsonObj),
+            true
+          );
         case "ORACLE_OBJECT_STORAGE_CONNECTION":
           return model.UpdateConnectionFromObjectStorage.getJsonObj(
             <model.UpdateConnectionFromObjectStorage>(<object>jsonObj),
@@ -94,6 +99,11 @@ export namespace UpdateConnectionDetails {
         case "ORACLE_ADWC_CONNECTION":
           return model.UpdateConnectionFromAdwc.getJsonObj(
             <model.UpdateConnectionFromAdwc>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_CONNECTION":
+          return model.UpdateConnectionFromMySQL.getJsonObj(
+            <model.UpdateConnectionFromMySQL>(<object>jsonObj),
             true
           );
         default:

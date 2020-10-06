@@ -15,19 +15,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The Oracle data asset details.
+ * Details for the Autonomous Data Warehouse data asset type.
  */
 export interface UpdateDataAssetFromAdwc extends model.UpdateDataAssetDetails {
   /**
-   * The service name for the data asset.
+   * The Autonomous Data Warehouse instance service name.
    */
   "serviceName"?: string;
   /**
-   * The driver class for the data asset.
+   * The Autonomous Data Warehouse driver class.
    */
   "driverClass"?: string;
   /**
-   * The credential file content from a wallet for the data asset.
+   * The credential file content from a Autonomous Data Warehouse wallet.
    */
   "credentialFileContent"?: string;
   "defaultConnection"?: model.UpdateConnectionFromAdwc;

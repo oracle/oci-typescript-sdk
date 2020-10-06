@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface GetFolderRequest extends common.BaseRequest {
   /**
-   * DIS workspace id
+   * The workspace ID.
    */
   "workspaceId": string;
   /**
-   * DIS Folder key
+   * The folder key.
    */
   "folderKey": string;
   /**

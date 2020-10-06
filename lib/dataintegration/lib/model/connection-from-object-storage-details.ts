@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The Object Storage connection details.
+ * The connection summary details for an Oracle Object Storage data asset.
  */
 export interface ConnectionFromObjectStorageDetails extends model.ConnectionDetails {
   /**
-   * The credential file content from a wallet for the data asset.
+   * The credential file content from an Oracle Object Storage wallet.
    */
   "credentialFileContent"?: string;
   /**
@@ -27,11 +27,11 @@ export interface ConnectionFromObjectStorageDetails extends model.ConnectionDeta
    */
   "userId"?: string;
   /**
-   * The fingeprint for the user.
+   * The fingerprint for the user.
    */
   "fingerPrint"?: string;
   /**
-   * The pass phrase for the connection.
+   * The passphrase for the connection.
    */
   "passPhrase"?: string;
 

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface CreateVmClusterRequest extends common.BaseRequest {
   /**
-   * Request to create a VM cluster.
+   * Request to create an Exadata Cloud@Customer VM cluster.
    */
   "createVmClusterDetails": model.CreateVmClusterDetails;
   /**

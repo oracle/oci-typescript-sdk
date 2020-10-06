@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DataFlowSummaryCollection {
   /**
-   * The array of DataFlow summaries
+   * The array of data flow summaries.
    */
   "items": Array<model.DataFlowSummary>;
 }

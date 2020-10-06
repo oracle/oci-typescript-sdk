@@ -15,12 +15,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A CompositeType represents a type that is composed of a list of sub-types, for example an \"Address\" type.   The sub-types can be simple DataType or other CompositeType objects. Thus in general a CompositeType may represent an arbitrarily deep hierarchy of types.
+ * A `CompositeType` represents a type that is composed of a list of sub-types, for example an `Address` type.   The sub-types can be simple `DataType` or other `CompositeType` objects. Typically, a `CompositeType` may represent an arbitrarily deep hierarchy of types.
  */
 export interface CompositeType extends model.BaseType {
   "parentType"?: model.CompositeType;
   /**
-   * elements
+   * An array of elements.
    */
   "elements"?: Array<model.TypedObject>;
   "configDefinition"?: model.ConfigDefinition;

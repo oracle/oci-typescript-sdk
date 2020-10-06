@@ -15,35 +15,35 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * This rule projects fields by a name pattern, for example it may start with STR_ or end with _DATE, this is defined using a regular expression.
+ * This rule projects fields by a name pattern, for example it may start with STR_ or end with _DATE. This is defined using a regular expression.
  */
 export interface NamePatternRule extends model.ProjectionRule {
   /**
-   * skipRemainingRulesOnMatch
+   * Specifies whether to skip remaining rules when a match is found.
    */
   "isSkipRemainingRulesOnMatch"?: boolean;
   /**
-   * Reference to a typed object, this can be either a key value to an object within the document, a shall referenced to a TypedObject or a full TypedObject definition.
+   * Reference to a typed object. This can be either a key value to an object within the document, a shall referenced to a `TypedObject`, or a full `TypedObject` definition.
    */
   "scope"?: any;
   /**
-   * cascade
+   * Specifies whether to cascade or not.
    */
   "isCascade"?: boolean;
   /**
-   * matchingStrategy
+   * The pattern matching strategy.
    */
   "matchingStrategy"?: NamePatternRule.MatchingStrategy;
   /**
-   * caseSensitive
+   * Specifies if the rule is case sensitive.
    */
   "isCaseSensitive"?: boolean;
   /**
-   * ruleType
+   * The rule type.
    */
   "ruleType"?: NamePatternRule.RuleType;
   /**
-   * pattern
+   * The rule pattern.
    */
   "pattern"?: string;
 

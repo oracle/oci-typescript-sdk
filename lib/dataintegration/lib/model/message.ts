@@ -23,11 +23,11 @@ export interface Message {
    */
   "type": Message.Type;
   /**
-   * The message code
+   * The message code.
    */
   "code": string;
   /**
-   * The message text
+   * The message text.
    */
   "message": string;
 }

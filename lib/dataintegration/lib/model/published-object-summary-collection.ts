@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface PublishedObjectSummaryCollection {
   /**
-   * The array of PublishedObject summaries
+   * The array of published object summaries.
    */
   "items": Array<model.PublishedObjectSummary>;
 }

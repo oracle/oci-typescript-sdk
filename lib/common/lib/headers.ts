@@ -5,7 +5,7 @@
 
 /* This utility adds extra headers to each request before being sent over wire*/
 
-import { version } from "../../../package.json";
+import { version } from "../package.json";
 import { isBrowser, isEmpty } from "./utils";
 const uuidv1 = require("uuid/v1");
 

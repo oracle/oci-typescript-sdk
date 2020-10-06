@@ -27,6 +27,11 @@ export namespace AbstractFormatAttribute {
 
     if ("modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "AVRO_FORMAT":
+          return model.AvroFormatAttribute.getJsonObj(
+            <model.AvroFormatAttribute>(<object>jsonObj),
+            true
+          );
         case "JSON_FORMAT":
           return model.JsonFormatAttribute.getJsonObj(
             <model.JsonFormatAttribute>(<object>jsonObj),

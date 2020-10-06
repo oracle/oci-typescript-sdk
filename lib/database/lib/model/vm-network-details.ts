@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of the client or backup networks in a VM cluster network.
+ * Details of the client or backup networks in an Exadata Cloud@Customer VM cluster network.
  */
 export interface VmNetworkDetails {
   /**

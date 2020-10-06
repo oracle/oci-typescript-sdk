@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details including name, description for the project, which is a container of folders, tasks and dataflows.
+ * The details including name and description for the project, which is a container of folders, tasks, and dataflows.
  */
 export interface ProjectDetails {
   /**
@@ -31,11 +31,11 @@ export interface ProjectDetails {
    */
   "modelVersion"?: string;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name"?: string;
   /**
-   * Detailed description for the object.
+   * A user defined description for the project.
    */
   "description"?: string;
   /**
@@ -43,7 +43,7 @@ export interface ProjectDetails {
    */
   "objectStatus"?: number;
   /**
-   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be edited by the user.
+   * Value can only contain upper case letters, underscore, and numbers. It should begin with upper case letter or underscore. The value can be modified.
    */
   "identifier"?: string;
   /**

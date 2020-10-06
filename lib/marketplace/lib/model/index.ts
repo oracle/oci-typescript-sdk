@@ -75,6 +75,8 @@ import * as Screenshot from "./screenshot";
 export import Screenshot = Screenshot.Screenshot;
 import * as SupportContact from "./support-contact";
 export import SupportContact = SupportContact.SupportContact;
+import * as TaxSummary from "./tax-summary";
+export import TaxSummary = TaxSummary.TaxSummary;
 import * as UpdateAcceptedAgreementDetails from "./update-accepted-agreement-details";
 export import UpdateAcceptedAgreementDetails = UpdateAcceptedAgreementDetails.UpdateAcceptedAgreementDetails;
 import * as UploadData from "./upload-data";

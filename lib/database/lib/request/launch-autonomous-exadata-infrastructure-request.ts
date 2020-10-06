@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface LaunchAutonomousExadataInfrastructureRequest extends common.BaseRequest {
   /**
-   * Request to launch a Autonomous Exadata Infrastructure.
+   * Request to create an Autonomous Exadata Infrastructure resource.
    */
   "launchAutonomousExadataInfrastructureDetails": model.LaunchAutonomousExadataInfrastructureDetails;
   /**

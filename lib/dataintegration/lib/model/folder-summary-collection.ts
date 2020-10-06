@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface FolderSummaryCollection {
   /**
-   * The array of Folder summaries
+   * The array of folder summaries.
    */
   "items": Array<model.FolderSummary>;
 }

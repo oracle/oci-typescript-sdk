@@ -19,35 +19,39 @@ import common = require("oci-common");
  */
 export interface TypedNamePatternRule extends model.ProjectionRule {
   /**
-   * types
+   * An array of types.
    */
-  "types"?: Array<model.BaseType>;
+  "types"?: Array<any>;
   /**
-   * skipRemainingRulesOnMatch
+   * Specifies whether to skip remaining rules when a match is found.
    */
   "isSkipRemainingRulesOnMatch"?: boolean;
   /**
-   * Reference to a typed object, this can be either a key value to an object within the document, a shall referenced to a TypedObject or a full TypedObject definition.
+   * Reference to a typed object. This can be either a key value to an object within the document, a shall referenced to a `TypedObject`, or a full `TypedObject` definition.
    */
   "scope"?: any;
   /**
-   * cascade
+   * Specifies whether to cascade or not.
    */
   "isCascade"?: boolean;
   /**
-   * matchingStrategy
+   * The pattern matching strategy.
    */
   "matchingStrategy"?: TypedNamePatternRule.MatchingStrategy;
   /**
-   * caseSensitive
+   * Specifies if the rule is case sensitive.
    */
   "isCaseSensitive"?: boolean;
   /**
-   * ruleType
+   * The rule type.
    */
   "ruleType"?: TypedNamePatternRule.RuleType;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * The rule pattern.
+   */
+  "pattern"?: string;
+  /**
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "names"?: Array<string>;
 
@@ -79,13 +83,7 @@ export namespace TypedNamePatternRule {
   export function getJsonObj(obj: TypedNamePatternRule, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.ProjectionRule.getJsonObj(obj) as TypedNamePatternRule)),
-      ...{
-        "types": obj.types
-          ? obj.types.map(item => {
-              return model.BaseType.getJsonObj(item);
-            })
-          : undefined
-      }
+      ...{}
     };
 
     return jsonObj;

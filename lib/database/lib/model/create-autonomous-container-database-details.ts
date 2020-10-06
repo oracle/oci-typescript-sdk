@@ -64,6 +64,19 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   "backupConfig"?: model.AutonomousContainerDatabaseBackupConfig;
+  /**
+   * The OCID of the key container that is used as the master encryption key in database transparent data encryption (TDE) operations.
+   */
+  "kmsKeyId"?: string;
+  /**
+   * The OCID of the key container version that is used in database transparent data encryption (TDE) operations KMS Key can have multiple key versions. If none is specified, the current key version (latest) of the Key Id is used for the operation.
+   *
+   */
+  "kmsKeyVersionId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Oracle Cloud Infrastructure [vault](https://docs.cloud.oracle.com/Content/KeyManagement/Concepts/keyoverview.htm#concepts).
+   */
+  "vaultId"?: string;
 }
 
 export namespace CreateAutonomousContainerDatabaseDetails {

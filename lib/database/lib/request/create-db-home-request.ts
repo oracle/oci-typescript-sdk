@@ -20,6 +20,7 @@ export interface CreateDbHomeRequest extends common.BaseRequest {
   "createDbHomeWithDbSystemIdDetails":
     | model.CreateDbHomeWithDbSystemIdFromDatabaseDetails
     | model.CreateDbHomeWithDbSystemIdFromBackupDetails
+    | model.CreateDbHomeWithVmClusterIdFromBackupDetails
     | model.CreateDbHomeWithDbSystemIdDetails
     | model.CreateDbHomeWithVmClusterIdDetails;
   /**

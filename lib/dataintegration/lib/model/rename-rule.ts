@@ -15,19 +15,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The rename rule can rename fields from one to another.
+ * Lets you rename an attribute.
  */
 export interface RenameRule extends model.ProjectionRule {
   /**
-   * skipRemainingRulesOnMatch
+   * Specifies whether to skip remaining rules when a match is found.
    */
   "isSkipRemainingRulesOnMatch"?: boolean;
   /**
-   * fromName
+   * The attribute name that needs to be renamed.
    */
   "fromName"?: string;
   /**
-   * toName
+   * The new attribute name.
    */
   "toName"?: string;
 

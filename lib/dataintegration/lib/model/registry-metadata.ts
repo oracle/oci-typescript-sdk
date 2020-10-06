@@ -27,13 +27,17 @@ export interface RegistryMetadata {
    */
   "labels"?: Array<string>;
   /**
-   * Registry version.
+   * The registry version.
    */
   "registryVersion"?: number;
   /**
    * The identifying key for the object.
    */
   "key"?: string;
+  /**
+   * Specifies whether this object is a favorite or not.
+   */
+  "isFavorite"?: boolean;
 }
 
 export namespace RegistryMetadata {

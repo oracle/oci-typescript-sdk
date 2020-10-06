@@ -19,7 +19,7 @@ export interface CreateVmClusterNetworkRequest extends common.BaseRequest {
    */
   "exadataInfrastructureId": string;
   /**
-   * Request to create the VM cluster network.
+   * Request to create the Cloud@Customer VM cluster network.
    */
   "vmClusterNetworkDetails": model.VmClusterNetworkDetails;
   /**

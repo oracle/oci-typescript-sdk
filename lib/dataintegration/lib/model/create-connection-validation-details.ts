@@ -15,15 +15,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Connection validation definition
+ * The properties used in create connection validation operations.
  */
 export interface CreateConnectionValidationDetails {
   "dataAsset"?:
+    | model.CreateDataAssetFromJdbc
+    | model.CreateDataAssetFromMySQL
     | model.CreateDataAssetFromOracle
     | model.CreateDataAssetFromAdwc
     | model.CreateDataAssetFromAtp
     | model.CreateDataAssetFromObjectStorage;
   "connection"?:
+    | model.CreateConnectionFromMySQL
+    | model.CreateConnectionFromJdbc
     | model.CreateConnectionFromAtp
     | model.CreateConnectionFromAdwc
     | model.CreateConnectionFromOracle

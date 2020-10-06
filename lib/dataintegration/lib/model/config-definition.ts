@@ -32,11 +32,11 @@ export interface ConfigDefinition {
   "modelVersion"?: string;
   "parentRef"?: model.ParentReference;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name"?: string;
   /**
-   * Whether the configuration is contained or not.
+   * Specifies whether the configuration is contained or not.
    */
   "isContained"?: boolean;
   /**
@@ -44,7 +44,7 @@ export interface ConfigDefinition {
    */
   "objectStatus"?: number;
   /**
-   * configParamDefs
+   * The parameter configuration details.
    */
   "configParameterDefinitions"?: { [key: string]: model.ConfigParameterDefinition };
 }

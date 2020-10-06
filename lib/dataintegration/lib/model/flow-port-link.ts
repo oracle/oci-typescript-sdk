@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details of the flow port links.
+ * Details about the link between two data flow operators.
  */
 export interface FlowPortLink {
   /**

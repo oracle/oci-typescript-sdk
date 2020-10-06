@@ -15,19 +15,19 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface GetDataEntityRequest extends common.BaseRequest {
   /**
-   * DIS workspace id
+   * The workspace ID.
    */
   "workspaceId": string;
   /**
-   * The connection key
+   * The connection key.
    */
   "connectionKey": string;
   /**
-   * Schema resource name used for retrieving schemas
+   * The schema resource name used for retrieving schemas.
    */
   "schemaResourceName": string;
   /**
-   * Name of the data entity
+   * The key of the data entity.
    */
   "dataEntityKey": string;
   /**

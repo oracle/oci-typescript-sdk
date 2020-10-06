@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 1.5.7 - 2020-10-06
+### Added
+- Support for calling Oracle Cloud Infrastructure services in the me-dubai-1 region
+- Support for rotating keys on autonomous container databases and autonomous databases in the Database service
+- Support for cloud Exadata infrastructure and cloud VM clusters in the Database service
+- Support for controlling the display of tax banners in the Marketplace service
+- Support for application references, patch changes, generic JDBC and MySQL data asset types, and publishing tasks to OCI Dataflow in the Data Integration service
+- Support for disabling the legacy Instance Metadata endpoints v1 in the Compute service
+- Support for instance configurations specifying instance options in the Compute Management service
+
 ## 1.5.6 - 2020-09-29
 ### Added
 - Support for specifying custom content dispositions when downloading objects in the Object Storage service

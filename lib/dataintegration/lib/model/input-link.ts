@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about input links.
+ * Details about the incoming data to an operator in a data flow design.
  */
 export interface InputLink extends model.FlowPortLink {
   /**
-   * From link reference.
+   * The from link reference.
    */
   "fromLink"?: string;
   "fieldMap"?:

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface CreateFolderRequest extends common.BaseRequest {
   /**
-   * DIS workspace id
+   * The workspace ID.
    */
   "workspaceId": string;
   /**
@@ -23,7 +23,7 @@ export interface CreateFolderRequest extends common.BaseRequest {
    */
   "createFolderDetails": model.CreateFolderDetails;
   /**
-   * Caller may provide \"retry tokens\" allowing them to retry an operation
+   * A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of executing that same action again.
    *
    */
   "opcRetryToken"?: string;

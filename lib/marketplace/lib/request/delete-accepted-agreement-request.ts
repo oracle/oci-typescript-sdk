@@ -19,7 +19,7 @@ export interface DeleteAcceptedAgreementRequest extends common.BaseRequest {
    */
   "acceptedAgreementId": string;
   /**
-   * Deprecated. The signature value is ignored.
+   * Previously, the signature generated for the listing package terms of use agreement, but now deprecated and ignored.
    */
   "signature"?: string;
   /**

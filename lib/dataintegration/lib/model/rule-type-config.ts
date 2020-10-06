@@ -28,15 +28,15 @@ export interface RuleTypeConfig extends model.DynamicTypeHandler {
   "modelVersion"?: string;
   "parentRef"?: model.ParentReference;
   /**
-   * Reference to a typed object, this can be either a key value to an object within the document, a shall referenced to a TypedObject or a full TypedObject definition.
+   * Reference to a typed object, this can be either a key value to an object within the document, a shall referenced to a `TypedObject` or a full `TypedObject` definition.
    */
   "scope"?: any;
   /**
-   * orderByRule
+   * Specifies whether it is ordered by rule.
    */
   "isOrderByRule"?: boolean;
   /**
-   * projectionRules
+   * The projection rules.
    */
   "projectionRules"?: Array<model.ProjectionRule>;
   "configValues"?: model.ConfigValues;

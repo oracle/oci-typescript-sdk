@@ -15,19 +15,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The Oracle data asset details.
+ * Details for the Autonomous Transaction Processing data asset type.
  */
 export interface UpdateDataAssetFromAtp extends model.UpdateDataAssetDetails {
   /**
-   * The service name for the data asset.
+   * The Autonomous Transaction Processing instance service name.
    */
   "serviceName"?: string;
   /**
-   * The driver class for the data asset.
+   * The Autonomous Transaction Processing driver class
    */
   "driverClass"?: string;
   /**
-   * The credential file content from a wallet for the data asset.
+   * The credential file content from an Autonomous Transaction Processing wallet.
    */
   "credentialFileContent"?: string;
   "defaultConnection"?: model.UpdateConnectionFromAtp;

@@ -148,6 +148,7 @@ For more information about iPXE, see http://ipxe.org.
    *
    */
   "launchOptions"?: model.LaunchOptions;
+  "instanceOptions"?: model.InstanceOptions;
   /**
    * Options for defining the availability of a VM instance after a maintenance event that impacts the underlying hardware.
    *
@@ -245,6 +246,9 @@ export namespace LaunchInstanceDetails {
 
         "launchOptions": obj.launchOptions
           ? model.LaunchOptions.getJsonObj(obj.launchOptions)
+          : undefined,
+        "instanceOptions": obj.instanceOptions
+          ? model.InstanceOptions.getJsonObj(obj.instanceOptions)
           : undefined,
         "availabilityConfig": obj.availabilityConfig
           ? model.LaunchInstanceAvailabilityConfigDetails.getJsonObj(obj.availabilityConfig)

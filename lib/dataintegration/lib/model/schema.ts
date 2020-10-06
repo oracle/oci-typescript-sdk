@@ -19,24 +19,28 @@ import common = require("oci-common");
  */
 export interface Schema {
   /**
-   * The key of the object.
+   * The object key.
    */
   "key"?: string;
   /**
-   * The type of the object.
+   * The object's type.
    */
   "modelType"?: string;
   /**
-   * The model version of an object.
+   * The object's model version.
    */
   "modelVersion"?: string;
   "parentRef"?: model.ParentReference;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name"?: string;
   /**
-   * Detailed description for the object.
+   * A resource name can have letters, numbers, and special characters. The value is editable and is restricted to 4000 characters.
+   */
+  "resourceName"?: string;
+  /**
+   * User-defined description for the schema.
    */
   "description"?: string;
   /**
@@ -48,11 +52,11 @@ export interface Schema {
    */
   "externalKey"?: string;
   /**
-   * hasContainers
+   * Specifies whether the schema has containers.
    */
   "isHasContainers"?: boolean;
   /**
-   * Connection key which is the default.
+   * The default connection key.
    */
   "defaultConnection"?: string;
   /**
@@ -60,7 +64,7 @@ export interface Schema {
    */
   "objectStatus"?: number;
   /**
-   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be edited by the user.
+   * Value can only contain upper case letters, underscore, and numbers. It should begin with upper case letter or underscore. The value can be modified.
    */
   "identifier"?: string;
   "metadata"?: model.ObjectMetadata;

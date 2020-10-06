@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UIProperties {
   /**
-   * coordinateX
+   * The X coordinate of the object.
    */
   "coordinateX"?: number;
   /**
-   * coordinateY
+   * The Y coordinate of the object.
    */
   "coordinateY"?: number;
 }

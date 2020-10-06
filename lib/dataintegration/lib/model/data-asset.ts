@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The data asset type.
+ * Represents a data source in the Data Integration service.
  */
 export interface DataAsset {
   /**
@@ -27,11 +27,11 @@ export interface DataAsset {
    */
   "modelVersion"?: string;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name"?: string;
   /**
-   * Detailed description for the object.
+   * User-defined description of the data asset.
    */
   "description"?: string;
   /**
@@ -39,15 +39,15 @@ export interface DataAsset {
    */
   "objectStatus"?: number;
   /**
-   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be edited by the user.
+   * Value can only contain upper case letters, underscore, and numbers. It should begin with upper case letter or underscore. The value can be modified.
    */
   "identifier"?: string;
   /**
-   * The external key for the object
+   * The external key for the object.
    */
   "externalKey"?: string;
   /**
-   * assetProperties
+   * Additional properties for the data asset.
    */
   "assetProperties"?: { [key: string]: string };
   "nativeTypeSystem"?: model.TypeSystem;
@@ -58,7 +58,7 @@ export interface DataAsset {
   "parentRef"?: model.ParentReference;
   "metadata"?: model.ObjectMetadata;
   /**
-   * A map, if provided key is replaced with generated key, this structure provides mapping between user provided key and generated key
+   * A key map. If provided, key is replaced with generated key. This structure provides mapping between user provided key and generated key.
    */
   "keyMap"?: { [key: string]: string };
 
@@ -81,6 +81,11 @@ export namespace DataAsset {
 
     if ("modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "GENERIC_JDBC_DATA_ASSET":
+          return model.DataAssetFromJdbc.getJsonObj(
+            <model.DataAssetFromJdbc>(<object>jsonObj),
+            true
+          );
         case "ORACLE_DATA_ASSET":
           return model.DataAssetFromOracleDetails.getJsonObj(
             <model.DataAssetFromOracleDetails>(<object>jsonObj),
@@ -99,6 +104,11 @@ export namespace DataAsset {
         case "ORACLE_ATP_DATA_ASSET":
           return model.DataAssetFromAtpDetails.getJsonObj(
             <model.DataAssetFromAtpDetails>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_DATA_ASSET":
+          return model.DataAssetFromMySQL.getJsonObj(
+            <model.DataAssetFromMySQL>(<object>jsonObj),
             true
           );
         default:

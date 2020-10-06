@@ -15,24 +15,24 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about TaskRun.
+ * The information about a task run.
  */
 export interface TaskRunSummary {
   /**
-   * The key of the object.
+   * The object key.
    */
   "key"?: string;
   /**
-   * The type of the object.
+   * The object type.
    */
   "modelType"?: string;
   /**
-   * The model version of an object.
+   * The object's model version.
    */
   "modelVersion"?: string;
   "parentRef"?: model.ParentReference;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value can be edited by the user and it is restricted to 1000 characters
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name"?: string;
   /**
@@ -48,15 +48,15 @@ export interface TaskRunSummary {
    */
   "status"?: TaskRunSummary.Status;
   /**
-   * startTimeMillis
+   * The task run start time.
    */
   "startTimeMillis"?: number;
   /**
-   * endTimeMillis
+   * The task run end time.
    */
   "endTimeMillis"?: number;
   /**
-   * lastUpdated
+   * The date and time the task run was last updated.
    */
   "lastUpdated"?: number;
   /**
@@ -76,7 +76,7 @@ export interface TaskRunSummary {
    */
   "taskType"?: TaskRunSummary.TaskType;
   /**
-   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be edited by the user.
+   * Value can only contain upper case letters, underscore, and numbers. It should begin with upper case letter or underscore. The value can be modified.
    */
   "identifier"?: string;
   "metadata"?: model.ObjectMetadata;
