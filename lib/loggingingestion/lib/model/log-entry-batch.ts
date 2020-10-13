@@ -1,6 +1,6 @@
 /**
- * PublicLoggingDataplane API
- * PublicLoggingDataplane API specification
+ * Logging Ingestion API
+ * Use the Logging Ingestion API to ingest your application logs.
  * OpenAPI spec version: 20200831
  *
  *
@@ -23,28 +23,28 @@ export interface LogEntryBatch {
    */
   "entries": Array<model.LogEntry>;
   /**
-   * Source of the logs that generated the message. It could be the
-   * instance name, hostname or the source used to read the event.
+   * Source of the logs that generated the message. This could be the
+   * instance name, hostname, or the source used to read the event. For example, \"ServerA\".
    *
    */
   "source": string;
   /**
    * This field signifies the type of logs being ingested.
-   * For example: ServerA.requestLogs
+   * For example: ServerA.requestLogs.
    *
    */
   "type": string;
   /**
-   * This optional field is useful for specifying the specific subresource
+   * This optional field is useful for specifying the specific sub-resource
    * or input file used to read the event.
-   * For example: \"/var/log/application.log\"
+   * For example: \"/var/log/application.log\".
    *
    */
   "subject"?: string;
   /**
-   * The timestamp for all log entries in this request. This can be
+   * The timestamp for all log entries in this batch. This can be
    * considered as the default timestamp for each entry, unless it is
-   * overwritten by the entry time. An RFC3339 formatted datetime
+   * overwritten by the entry time. An RFC3339-formatted date-time
    * string.
    *
    */

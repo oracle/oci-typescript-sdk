@@ -1,6 +1,6 @@
 /**
- * loggingManagementControlplane API
- * loggingManagementControlplane API specification
+ * Logging Management API
+ * Use the Logging Management API to create, read, list, update, and delete log groups, log objects, and agent configurations.
  * OpenAPI spec version: 20200531
  *
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of Services that are integrated with public logging
+ * Summary of services that are integrated with public logging.
  */
 export interface ServiceSummary {
   /**
@@ -23,11 +23,11 @@ export interface ServiceSummary {
    */
   "tenantId": string;
   /**
-   * Apollo project namespace if any.
+   * Apollo project namespace, if any.
    */
   "namespace"?: string;
   /**
-   * Service id as set in Service Principal.
+   * Service ID as set in Service Principal.
    */
   "servicePrincipalName": string;
   /**
@@ -35,15 +35,15 @@ export interface ServiceSummary {
    */
   "endpoint": string;
   /**
-   * User friendly service name.
+   * User-friendly service name.
    */
   "name": string;
   /**
-   * Service id.
+   * Service ID.
    */
   "id"?: string;
   /**
-   * Type of Resource that a Service provides.
+   * Type of resource that a service provides.
    */
   "resourceTypes": Array<model.ResourceType>;
 }

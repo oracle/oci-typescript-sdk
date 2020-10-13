@@ -31,6 +31,10 @@ export interface ListDbHomesRequest extends common.BaseRequest {
    */
   "backupId"?: string;
   /**
+   * A filter to return only DB Homes that match the specified dbVersion.
+   */
+  "dbVersion"?: string;
+  /**
    * The maximum number of items to return per page.
    */
   "limit"?: number;

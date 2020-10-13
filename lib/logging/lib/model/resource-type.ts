@@ -1,6 +1,6 @@
 /**
- * loggingManagementControlplane API
- * loggingManagementControlplane API specification
+ * Logging Management API
+ * Use the Logging Management API to create, read, list, update, and delete log groups, log objects, and agent configurations.
  * OpenAPI spec version: 20200531
  *
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Type of Resource that Service provides.
+ * Type of resource that a service provides.
  */
 export interface ResourceType {
   /**
@@ -23,7 +23,7 @@ export interface ResourceType {
    */
   "name"?: string;
   /**
-   * categories for resources.
+   * Categories for resources.
    */
   "categories"?: Array<model.Category>;
 }

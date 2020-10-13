@@ -20,6 +20,8 @@ import * as AutonomousContainerDatabase from "./autonomous-container-database";
 export import AutonomousContainerDatabase = AutonomousContainerDatabase.AutonomousContainerDatabase;
 import * as AutonomousContainerDatabaseBackupConfig from "./autonomous-container-database-backup-config";
 export import AutonomousContainerDatabaseBackupConfig = AutonomousContainerDatabaseBackupConfig.AutonomousContainerDatabaseBackupConfig;
+import * as AutonomousContainerDatabaseDataguardAssociation from "./autonomous-container-database-dataguard-association";
+export import AutonomousContainerDatabaseDataguardAssociation = AutonomousContainerDatabaseDataguardAssociation.AutonomousContainerDatabaseDataguardAssociation;
 import * as AutonomousContainerDatabaseSummary from "./autonomous-container-database-summary";
 export import AutonomousContainerDatabaseSummary = AutonomousContainerDatabaseSummary.AutonomousContainerDatabaseSummary;
 import * as AutonomousDataWarehouse from "./autonomous-data-warehouse";
@@ -46,6 +48,8 @@ import * as AutonomousDatabaseConnectionUrls from "./autonomous-database-connect
 export import AutonomousDatabaseConnectionUrls = AutonomousDatabaseConnectionUrls.AutonomousDatabaseConnectionUrls;
 import * as AutonomousDatabaseConsoleTokenDetails from "./autonomous-database-console-token-details";
 export import AutonomousDatabaseConsoleTokenDetails = AutonomousDatabaseConsoleTokenDetails.AutonomousDatabaseConsoleTokenDetails;
+import * as AutonomousDatabaseDataguardAssociation from "./autonomous-database-dataguard-association";
+export import AutonomousDatabaseDataguardAssociation = AutonomousDatabaseDataguardAssociation.AutonomousDatabaseDataguardAssociation;
 import * as AutonomousDatabaseManualRefreshDetails from "./autonomous-database-manual-refresh-details";
 export import AutonomousDatabaseManualRefreshDetails = AutonomousDatabaseManualRefreshDetails.AutonomousDatabaseManualRefreshDetails;
 import * as AutonomousDatabaseStandbySummary from "./autonomous-database-standby-summary";

@@ -76,6 +76,28 @@ export interface Glossary {
    */
   "workflowStatus"?: model.TermWorkflowStatus;
   /**
+   * The list of customized properties along with the values for this object
+   */
+  "customPropertyMembers"?: Array<model.CustomPropertyGetUsage>;
+  /**
+   * The unique key of the job definition resource that was used in the Glossary import.
+   */
+  "importJobDefinitionKey"?: string;
+  /**
+   * The unique key of the job policy for Glossary import.
+   */
+  "importJobKey"?: string;
+  /**
+   * The unique key of the parent job execution for which the log resource was created.
+   */
+  "latestImportJobExecutionKey"?: string;
+  /**
+   * Status of the latest glossary import job execution, such as running, paused, or completed.
+   * This may include additional information like time import started , import file size and % of completion
+   *
+   */
+  "latestImportJobExecutionStatus"?: string;
+  /**
    * URI to the tag instance in the API.
    */
   "uri"?: string;
@@ -83,7 +105,16 @@ export interface Glossary {
 
 export namespace Glossary {
   export function getJsonObj(obj: Glossary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customPropertyMembers": obj.customPropertyMembers
+          ? obj.customPropertyMembers.map(item => {
+              return model.CustomPropertyGetUsage.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -137,6 +137,10 @@ export interface Attribute {
    */
   "path"?: string;
   /**
+   * The list of customized properties along with the values for this object
+   */
+  "customPropertyMembers"?: Array<model.CustomPropertyGetUsage>;
+  /**
    * A map of maps that contains the properties which are specific to the attribute type. Each attribute type
    * definition defines it's set of required and optional properties. The map keys are category names and the
    * values are maps of property name to property value. Every property is contained inside of a category. Most
@@ -149,7 +153,16 @@ export interface Attribute {
 
 export namespace Attribute {
   export function getJsonObj(obj: Attribute): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customPropertyMembers": obj.customPropertyMembers
+          ? obj.customPropertyMembers.map(item => {
+              return model.CustomPropertyGetUsage.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

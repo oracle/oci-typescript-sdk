@@ -1,6 +1,6 @@
 /**
- * loggingManagementControlplane API
- * loggingManagementControlplane API specification
+ * Logging Management API
+ * Use the Logging Management API to create, read, list, update, and delete log groups, log objects, and agent configurations.
  * OpenAPI spec version: 20200531
  *
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Represents a LogGroup object
+ * Represents a LogGroup object.
  */
 export interface LogGroup {
   /**
@@ -27,7 +27,7 @@ export interface LogGroup {
    */
   "compartmentId": string;
   /**
-   * The display name of a user-friendly name. It has to be unique within enclosing resource,
+   * The user-friendly display name. This must be unique within the enclosing resource,
    * and it's changeable. Avoid entering confidential information.
    *
    */
@@ -37,7 +37,7 @@ export interface LogGroup {
    */
   "description"?: string;
   /**
-   * The state of the log group object.
+   * The log group object state.
    */
   "lifecycleState"?: model.LogGroupLifecycleState;
   /**

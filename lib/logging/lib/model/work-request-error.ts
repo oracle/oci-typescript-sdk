@@ -1,6 +1,6 @@
 /**
- * loggingManagementControlplane API
- * loggingManagementControlplane API specification
+ * Logging Management API
+ * Use the Logging Management API to create, read, list, update, and delete log groups, log objects, and agent configurations.
  * OpenAPI spec version: 20200531
  *
  *
@@ -19,8 +19,8 @@ import common = require("oci-common");
  */
 export interface WorkRequestError {
   /**
-   * A machine-usable code for the error that occured. Error codes are listed on
-   * (https://docs.us-phoenix-1.oraclecloud.com/Content/API/References/apierrors.htm)
+   * A machine-usable code for the error that occured. Error codes are listed at
+   * https://docs.us-phoenix-1.oraclecloud.com/Content/API/References/apierrors.htm.
    *
    */
   "code": string;
@@ -29,7 +29,7 @@ export interface WorkRequestError {
    */
   "message": string;
   /**
-   * The time the error occured. An RFC3339 formatted datetime string.
+   * The time the error occured. An RFC3339-formatted date and time string.
    */
   "timestamp": Date;
 }

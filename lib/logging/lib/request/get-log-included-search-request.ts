@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface GetLogIncludedSearchRequest extends common.BaseRequest {
   /**
-   * Compartment OCID to list resources in. Please see compartmentIdInSubtree
+   * Compartment OCID to list resources in. See compartmentIdInSubtree
    *      for nested compartments traversal.
    *
    */

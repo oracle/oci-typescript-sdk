@@ -36,11 +36,24 @@ export interface CreateGlossaryDetails {
    * OCID of the user who is the owner of the glossary.
    */
   "owner"?: string;
+  /**
+   * The list of customized properties along with the values for this object
+   */
+  "customPropertyMembers"?: Array<model.CustomPropertySetUsage>;
 }
 
 export namespace CreateGlossaryDetails {
   export function getJsonObj(obj: CreateGlossaryDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customPropertyMembers": obj.customPropertyMembers
+          ? obj.customPropertyMembers.map(item => {
+              return model.CustomPropertySetUsage.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

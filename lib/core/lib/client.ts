@@ -40,14 +40,22 @@ export class BlockstorageClient {
   protected "_defaultHeaders": any = {};
   protected "_waiters": BlockstorageWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
 
   protected _httpClient: common.HttpClient;
 
-  constructor(params: common.AuthParams) {
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
-    this._httpClient = params.httpClient || new common.FetchHttpClient(requestSigner);
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+    }
+    this._httpClient =
+      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
     if (
       params.authenticationDetailsProvider &&
@@ -133,13 +141,6 @@ export class BlockstorageClient {
       return this._waiters;
     }
     throw Error("Waiters do not exist. Please create waiters.");
-  }
-
-  /**
-   * Sets the client configuration for the client
-   */
-  public set clientConfiguration(clientConfiguration: common.ClientConfiguration) {
-    this._clientConfiguration = clientConfiguration;
   }
 
   /**
@@ -3816,14 +3817,22 @@ export class ComputeClient {
   protected "_defaultHeaders": any = {};
   protected "_waiters": ComputeWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
 
   protected _httpClient: common.HttpClient;
 
-  constructor(params: common.AuthParams) {
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
-    this._httpClient = params.httpClient || new common.FetchHttpClient(requestSigner);
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+    }
+    this._httpClient =
+      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
     if (
       params.authenticationDetailsProvider &&
@@ -3909,13 +3918,6 @@ export class ComputeClient {
       return this._waiters;
     }
     throw Error("Waiters do not exist. Please create waiters.");
-  }
-
-  /**
-   * Sets the client configuration for the client
-   */
-  public set clientConfiguration(clientConfiguration: common.ClientConfiguration) {
-    this._clientConfiguration = clientConfiguration;
   }
 
   /**
@@ -9221,14 +9223,22 @@ export class ComputeManagementClient {
   protected "_defaultHeaders": any = {};
   protected "_waiters": ComputeManagementWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
 
   protected _httpClient: common.HttpClient;
 
-  constructor(params: common.AuthParams) {
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
-    this._httpClient = params.httpClient || new common.FetchHttpClient(requestSigner);
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+    }
+    this._httpClient =
+      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
     if (
       params.authenticationDetailsProvider &&
@@ -9314,13 +9324,6 @@ export class ComputeManagementClient {
       return this._waiters;
     }
     throw Error("Waiters do not exist. Please create waiters.");
-  }
-
-  /**
-   * Sets the client configuration for the client
-   */
-  public set clientConfiguration(clientConfiguration: common.ClientConfiguration) {
-    this._clientConfiguration = clientConfiguration;
   }
 
   /**
@@ -11361,14 +11364,22 @@ export class VirtualNetworkClient {
   protected "_defaultHeaders": any = {};
   protected "_waiters": VirtualNetworkWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
 
   protected _httpClient: common.HttpClient;
 
-  constructor(params: common.AuthParams) {
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
-    this._httpClient = params.httpClient || new common.FetchHttpClient(requestSigner);
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+    }
+    this._httpClient =
+      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
     if (
       params.authenticationDetailsProvider &&
@@ -11454,13 +11465,6 @@ export class VirtualNetworkClient {
       return this._waiters;
     }
     throw Error("Waiters do not exist. Please create waiters.");
-  }
-
-  /**
-   * Sets the client configuration for the client
-   */
-  public set clientConfiguration(clientConfiguration: common.ClientConfiguration) {
-    this._clientConfiguration = clientConfiguration;
   }
 
   /**

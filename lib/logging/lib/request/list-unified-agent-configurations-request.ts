@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface ListUnifiedAgentConfigurationsRequest extends common.BaseRequest {
   /**
-   * Compartment OCID to list resources in. Please see compartmentIdInSubtree
+   * Compartment OCID to list resources in. See compartmentIdInSubtree
    *      for nested compartments traversal.
    *
    */
@@ -59,7 +59,7 @@ export interface ListUnifiedAgentConfigurationsRequest extends common.BaseReques
    */
   "sortBy"?: ListUnifiedAgentConfigurationsRequest.SortBy;
   /**
-   * The sort order to use, either 'asc' or 'desc'
+   * The sort order to use, whether 'asc' or 'desc'.
    *
    */
   "sortOrder"?: ListUnifiedAgentConfigurationsRequest.SortOrder;

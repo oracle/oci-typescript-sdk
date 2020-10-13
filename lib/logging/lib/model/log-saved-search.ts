@@ -1,6 +1,6 @@
 /**
- * loggingManagementControlplane API
- * loggingManagementControlplane API specification
+ * Logging Management API
+ * Use the Logging Management API to create, read, list, update, and delete log groups, log objects, and agent configurations.
  * OpenAPI spec version: 20200531
  *
  *
@@ -28,7 +28,7 @@ export interface LogSavedSearch {
    */
   "compartmentId": string;
   /**
-   * The display name of a user-friendly name. It has to be unique within enclosing resource,
+   * The user-friendly display name. This must be unique within the enclosing resource,
    * and it's changeable. Avoid entering confidential information.
    *
    */
@@ -51,10 +51,6 @@ export interface LogSavedSearch {
    */
   "query": string;
   /**
-   * True if the LogSavedSearch should be show as quickstart in the UI
-   */
-  "isQuickStart": boolean;
-  /**
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
@@ -69,6 +65,11 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
    *
    */
   "freeformTags"?: { [key: string]: string };
+  /**
+   * The state of the LogSavedSearch
+   *
+   */
+  "lifecycleState"?: model.LogSavedSearchLifecycleState;
 }
 
 export namespace LogSavedSearch {

@@ -1,6 +1,6 @@
 /**
- * PublicLoggingDataplane API
- * PublicLoggingDataplane API specification
+ * Logging Ingestion API
+ * Use the Logging Ingestion API to ingest your application logs.
  * OpenAPI spec version: 20200831
  *
  *
@@ -29,14 +29,22 @@ export class LoggingClient {
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
 
   protected _httpClient: common.HttpClient;
 
-  constructor(params: common.AuthParams) {
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
-    this._httpClient = params.httpClient || new common.FetchHttpClient(requestSigner);
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+    }
+    this._httpClient =
+      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
     if (
       params.authenticationDetailsProvider &&
@@ -98,14 +106,7 @@ export class LoggingClient {
   }
 
   /**
-   * Sets the client configuration for the client
-   */
-  public set clientConfiguration(clientConfiguration: common.ClientConfiguration) {
-    this._clientConfiguration = clientConfiguration;
-  }
-
-  /**
-   * This Api allows ingesting logs associated with a logId. Success
+   * This API allows ingesting logs associated with a logId. A success
    * response implies the data has been accepted.
    *
    * @param PutLogsRequest

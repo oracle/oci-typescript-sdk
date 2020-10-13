@@ -256,6 +256,10 @@ To add the whitelist VCN specific subnet or IP, use a semicoln ';' as a delimina
   "failedDataRecoveryInSeconds"?: number;
   "standbyDb"?: model.AutonomousDatabaseStandbySummary;
   /**
+   * The role of the Autonomous Data Guard-enabled Autonomous Container Database.
+   */
+  "role"?: AutonomousDatabaseSummary.Role;
+  /**
    * List of Oracle Database versions available for a database upgrade. If there are no version upgrades available, this list is empty.
    */
   "availableUpgradeVersions"?: Array<string>;
@@ -366,6 +370,17 @@ export namespace AutonomousDatabaseSummary {
   export enum PermissionLevel {
     Restricted = "RESTRICTED",
     Unrestricted = "UNRESTRICTED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum Role {
+    Primary = "PRIMARY",
+    Standby = "STANDBY",
+    DisabledStandby = "DISABLED_STANDBY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

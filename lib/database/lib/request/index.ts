@@ -116,6 +116,8 @@ import * as DownloadVmClusterNetworkConfigFileRequest from "./download-vm-cluste
 export import DownloadVmClusterNetworkConfigFileRequest = DownloadVmClusterNetworkConfigFileRequest.DownloadVmClusterNetworkConfigFileRequest;
 import * as FailOverAutonomousDatabaseRequest from "./fail-over-autonomous-database-request";
 export import FailOverAutonomousDatabaseRequest = FailOverAutonomousDatabaseRequest.FailOverAutonomousDatabaseRequest;
+import * as FailoverAutonomousContainerDatabaseDataguardAssociationRequest from "./failover-autonomous-container-database-dataguard-association-request";
+export import FailoverAutonomousContainerDatabaseDataguardAssociationRequest = FailoverAutonomousContainerDatabaseDataguardAssociationRequest.FailoverAutonomousContainerDatabaseDataguardAssociationRequest;
 import * as FailoverDataGuardAssociationRequest from "./failover-data-guard-association-request";
 export import FailoverDataGuardAssociationRequest = FailoverDataGuardAssociationRequest.FailoverDataGuardAssociationRequest;
 import * as GenerateAutonomousDataWarehouseWalletRequest from "./generate-autonomous-data-warehouse-wallet-request";
@@ -126,6 +128,8 @@ import * as GenerateRecommendedVmClusterNetworkRequest from "./generate-recommen
 export import GenerateRecommendedVmClusterNetworkRequest = GenerateRecommendedVmClusterNetworkRequest.GenerateRecommendedVmClusterNetworkRequest;
 import * as GetAutonomousContainerDatabaseRequest from "./get-autonomous-container-database-request";
 export import GetAutonomousContainerDatabaseRequest = GetAutonomousContainerDatabaseRequest.GetAutonomousContainerDatabaseRequest;
+import * as GetAutonomousContainerDatabaseDataguardAssociationRequest from "./get-autonomous-container-database-dataguard-association-request";
+export import GetAutonomousContainerDatabaseDataguardAssociationRequest = GetAutonomousContainerDatabaseDataguardAssociationRequest.GetAutonomousContainerDatabaseDataguardAssociationRequest;
 import * as GetAutonomousDataWarehouseRequest from "./get-autonomous-data-warehouse-request";
 export import GetAutonomousDataWarehouseRequest = GetAutonomousDataWarehouseRequest.GetAutonomousDataWarehouseRequest;
 import * as GetAutonomousDataWarehouseBackupRequest from "./get-autonomous-data-warehouse-backup-request";
@@ -134,6 +138,8 @@ import * as GetAutonomousDatabaseRequest from "./get-autonomous-database-request
 export import GetAutonomousDatabaseRequest = GetAutonomousDatabaseRequest.GetAutonomousDatabaseRequest;
 import * as GetAutonomousDatabaseBackupRequest from "./get-autonomous-database-backup-request";
 export import GetAutonomousDatabaseBackupRequest = GetAutonomousDatabaseBackupRequest.GetAutonomousDatabaseBackupRequest;
+import * as GetAutonomousDatabaseDataguardAssociationRequest from "./get-autonomous-database-dataguard-association-request";
+export import GetAutonomousDatabaseDataguardAssociationRequest = GetAutonomousDatabaseDataguardAssociationRequest.GetAutonomousDatabaseDataguardAssociationRequest;
 import * as GetAutonomousDatabaseRegionalWalletRequest from "./get-autonomous-database-regional-wallet-request";
 export import GetAutonomousDatabaseRegionalWalletRequest = GetAutonomousDatabaseRegionalWalletRequest.GetAutonomousDatabaseRegionalWalletRequest;
 import * as GetAutonomousDatabaseWalletRequest from "./get-autonomous-database-wallet-request";
@@ -202,6 +208,8 @@ import * as LaunchAutonomousExadataInfrastructureRequest from "./launch-autonomo
 export import LaunchAutonomousExadataInfrastructureRequest = LaunchAutonomousExadataInfrastructureRequest.LaunchAutonomousExadataInfrastructureRequest;
 import * as LaunchDbSystemRequest from "./launch-db-system-request";
 export import LaunchDbSystemRequest = LaunchDbSystemRequest.LaunchDbSystemRequest;
+import * as ListAutonomousContainerDatabaseDataguardAssociationsRequest from "./list-autonomous-container-database-dataguard-associations-request";
+export import ListAutonomousContainerDatabaseDataguardAssociationsRequest = ListAutonomousContainerDatabaseDataguardAssociationsRequest.ListAutonomousContainerDatabaseDataguardAssociationsRequest;
 import * as ListAutonomousContainerDatabasesRequest from "./list-autonomous-container-databases-request";
 export import ListAutonomousContainerDatabasesRequest = ListAutonomousContainerDatabasesRequest.ListAutonomousContainerDatabasesRequest;
 import * as ListAutonomousDataWarehouseBackupsRequest from "./list-autonomous-data-warehouse-backups-request";
@@ -212,6 +220,8 @@ import * as ListAutonomousDatabaseBackupsRequest from "./list-autonomous-databas
 export import ListAutonomousDatabaseBackupsRequest = ListAutonomousDatabaseBackupsRequest.ListAutonomousDatabaseBackupsRequest;
 import * as ListAutonomousDatabaseClonesRequest from "./list-autonomous-database-clones-request";
 export import ListAutonomousDatabaseClonesRequest = ListAutonomousDatabaseClonesRequest.ListAutonomousDatabaseClonesRequest;
+import * as ListAutonomousDatabaseDataguardAssociationsRequest from "./list-autonomous-database-dataguard-associations-request";
+export import ListAutonomousDatabaseDataguardAssociationsRequest = ListAutonomousDatabaseDataguardAssociationsRequest.ListAutonomousDatabaseDataguardAssociationsRequest;
 import * as ListAutonomousDatabasesRequest from "./list-autonomous-databases-request";
 export import ListAutonomousDatabasesRequest = ListAutonomousDatabasesRequest.ListAutonomousDatabasesRequest;
 import * as ListAutonomousDbPreviewVersionsRequest from "./list-autonomous-db-preview-versions-request";
@@ -282,6 +292,8 @@ import * as MigrateExadataDbSystemResourceModelRequest from "./migrate-exadata-d
 export import MigrateExadataDbSystemResourceModelRequest = MigrateExadataDbSystemResourceModelRequest.MigrateExadataDbSystemResourceModelRequest;
 import * as RegisterAutonomousDatabaseDataSafeRequest from "./register-autonomous-database-data-safe-request";
 export import RegisterAutonomousDatabaseDataSafeRequest = RegisterAutonomousDatabaseDataSafeRequest.RegisterAutonomousDatabaseDataSafeRequest;
+import * as ReinstateAutonomousContainerDatabaseDataguardAssociationRequest from "./reinstate-autonomous-container-database-dataguard-association-request";
+export import ReinstateAutonomousContainerDatabaseDataguardAssociationRequest = ReinstateAutonomousContainerDatabaseDataguardAssociationRequest.ReinstateAutonomousContainerDatabaseDataguardAssociationRequest;
 import * as ReinstateDataGuardAssociationRequest from "./reinstate-data-guard-association-request";
 export import ReinstateDataGuardAssociationRequest = ReinstateDataGuardAssociationRequest.ReinstateDataGuardAssociationRequest;
 import * as RestartAutonomousContainerDatabaseRequest from "./restart-autonomous-container-database-request";
@@ -306,6 +318,8 @@ import * as StopAutonomousDataWarehouseRequest from "./stop-autonomous-data-ware
 export import StopAutonomousDataWarehouseRequest = StopAutonomousDataWarehouseRequest.StopAutonomousDataWarehouseRequest;
 import * as StopAutonomousDatabaseRequest from "./stop-autonomous-database-request";
 export import StopAutonomousDatabaseRequest = StopAutonomousDatabaseRequest.StopAutonomousDatabaseRequest;
+import * as SwitchoverAutonomousContainerDatabaseDataguardAssociationRequest from "./switchover-autonomous-container-database-dataguard-association-request";
+export import SwitchoverAutonomousContainerDatabaseDataguardAssociationRequest = SwitchoverAutonomousContainerDatabaseDataguardAssociationRequest.SwitchoverAutonomousContainerDatabaseDataguardAssociationRequest;
 import * as SwitchoverAutonomousDatabaseRequest from "./switchover-autonomous-database-request";
 export import SwitchoverAutonomousDatabaseRequest = SwitchoverAutonomousDatabaseRequest.SwitchoverAutonomousDatabaseRequest;
 import * as SwitchoverDataGuardAssociationRequest from "./switchover-data-guard-association-request";

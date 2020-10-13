@@ -1,6 +1,6 @@
 /**
- * PublicLoggingDataplane API
- * PublicLoggingDataplane API specification
+ * Logging Ingestion API
+ * Use the Logging Ingestion API to ingest your application logs.
  * OpenAPI spec version: 20200831
  *
  *
@@ -15,13 +15,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Contains the content of the log with associated timestamp and id. Each
+ * Contains the log content with the associated timestamp and ID. Each
  * entry should be less than 1 MB size.
  *
  */
 export interface LogEntry {
   /**
-   * The content of the log entry.
+   * The log entry content.
    */
   "data": string;
   /**
@@ -31,9 +31,8 @@ export interface LogEntry {
    */
   "id": string;
   /**
-   * Optional. The timestamp associated with the log entry. Defaults to
-   * PutLogsDetails.defaultlogentrytime if unspecified. An RFC3339 formatted
-   * datetime string.
+   * Optional. The timestamp associated with the log entry. An RFC3339-formatted date-time string.
+   * If unspecified, defaults to PutLogsDetails.defaultlogentrytime.
    *
    */
   "time"?: Date;

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface ListWorkRequestsRequest extends common.BaseRequest {
   /**
-   * Compartment OCID to list resources in. Please see compartmentIdInSubtree
+   * Compartment OCID to list resources in. See compartmentIdInSubtree
    *      for nested compartments traversal.
    *
    */
@@ -47,7 +47,7 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The sort order to use, either 'asc' or 'desc'
+   * The sort order to use, whether 'asc' or 'desc'.
    *
    */
   "sortOrder"?: ListWorkRequestsRequest.SortOrder;

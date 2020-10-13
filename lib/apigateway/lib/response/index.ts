@@ -14,16 +14,34 @@ For more information, see
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeApiCompartmentResponse from "./change-api-compartment-response";
+export import ChangeApiCompartmentResponse = ChangeApiCompartmentResponse.ChangeApiCompartmentResponse;
 import * as ChangeCertificateCompartmentResponse from "./change-certificate-compartment-response";
 export import ChangeCertificateCompartmentResponse = ChangeCertificateCompartmentResponse.ChangeCertificateCompartmentResponse;
+import * as CreateApiResponse from "./create-api-response";
+export import CreateApiResponse = CreateApiResponse.CreateApiResponse;
 import * as CreateCertificateResponse from "./create-certificate-response";
 export import CreateCertificateResponse = CreateCertificateResponse.CreateCertificateResponse;
+import * as DeleteApiResponse from "./delete-api-response";
+export import DeleteApiResponse = DeleteApiResponse.DeleteApiResponse;
 import * as DeleteCertificateResponse from "./delete-certificate-response";
 export import DeleteCertificateResponse = DeleteCertificateResponse.DeleteCertificateResponse;
+import * as GetApiResponse from "./get-api-response";
+export import GetApiResponse = GetApiResponse.GetApiResponse;
+import * as GetApiContentResponse from "./get-api-content-response";
+export import GetApiContentResponse = GetApiContentResponse.GetApiContentResponse;
+import * as GetApiDeploymentSpecificationResponse from "./get-api-deployment-specification-response";
+export import GetApiDeploymentSpecificationResponse = GetApiDeploymentSpecificationResponse.GetApiDeploymentSpecificationResponse;
+import * as GetApiValidationsResponse from "./get-api-validations-response";
+export import GetApiValidationsResponse = GetApiValidationsResponse.GetApiValidationsResponse;
 import * as GetCertificateResponse from "./get-certificate-response";
 export import GetCertificateResponse = GetCertificateResponse.GetCertificateResponse;
+import * as ListApisResponse from "./list-apis-response";
+export import ListApisResponse = ListApisResponse.ListApisResponse;
 import * as ListCertificatesResponse from "./list-certificates-response";
 export import ListCertificatesResponse = ListCertificatesResponse.ListCertificatesResponse;
+import * as UpdateApiResponse from "./update-api-response";
+export import UpdateApiResponse = UpdateApiResponse.UpdateApiResponse;
 import * as UpdateCertificateResponse from "./update-certificate-response";
 export import UpdateCertificateResponse = UpdateCertificateResponse.UpdateCertificateResponse;
 import * as ChangeDeploymentCompartmentResponse from "./change-deployment-compartment-response";

@@ -15,6 +15,7 @@ import { Realm } from "./lib/realm";
 import { EndpointBuilder } from "./lib/endpoint-builder";
 import { LOG } from "./lib/log";
 import Constants from "./lib/constants";
+import CircuitBreaker from "./lib/circuit-breaker";
 
 import {
   DelayStrategy,
@@ -102,5 +103,6 @@ export {
   RetryConfiguration,
   BaseRequest,
   ClientConfiguration,
-  Constants
+  Constants,
+  CircuitBreaker
 };

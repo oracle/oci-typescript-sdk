@@ -23,11 +23,36 @@ export interface SearchCriteria {
    * Search query dsl that defines the query components including fields and predicates.
    */
   "query"?: string;
+  /**
+   * Query string that a dataObject is to be searched with. Used in the faceted query request
+   */
+  "facetedQuery"?: string;
+  /**
+   * List of properties of dataObjects that needs to aggregated on for facets.
+   */
+  "dimensions"?: Array<string>;
+  /**
+   * Array of objects having details about sort field and order.
+   */
+  "sort"?: Array<model.FacetedSearchSortRequest>;
+  "filters"?: model.FacetedSearchFilterRequest;
 }
 
 export namespace SearchCriteria {
   export function getJsonObj(obj: SearchCriteria): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sort": obj.sort
+          ? obj.sort.map(item => {
+              return model.FacetedSearchSortRequest.getJsonObj(item);
+            })
+          : undefined,
+        "filters": obj.filters
+          ? model.FacetedSearchFilterRequest.getJsonObj(obj.filters)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

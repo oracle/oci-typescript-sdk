@@ -1,6 +1,6 @@
 /**
- * loggingManagementControlplane API
- * loggingManagementControlplane API specification
+ * Logging Management API
+ * Use the Logging Management API to create, read, list, update, and delete log groups, log objects, and agent configurations.
  * OpenAPI spec version: 20200531
  *
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * this parser signifies a non parser and puts entire log line in a message_key.
+ * This parser signifies a non-parser, and puts the entire log line in a message_key.
  */
 export interface UnifiedAgentNoneParser extends model.UnifiedAgentParser {
   "messageKey"?: string;

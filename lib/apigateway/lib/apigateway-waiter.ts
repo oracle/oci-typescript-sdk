@@ -27,6 +27,25 @@ export class ApiGatewayWaiter {
   ) {}
 
   /**
+   * Waits forApi till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetApiResponse | null (null in case of 404 response)
+   */
+  public async forApi(
+    request: serviceRequests.GetApiRequest,
+    ...targetStates: models.Api.LifecycleState[]
+  ): Promise<serviceResponses.GetApiResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getApi(request),
+      response => targetStates.exists(response.api.lifecycleState),
+      targetStates.includes(models.Api.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forCertificate till it reaches any of the provided states
    *
    * @param request the request to send

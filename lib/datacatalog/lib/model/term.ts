@@ -94,6 +94,10 @@ export interface Term {
    * Array of objects associated to a term.
    */
   "associatedObjects"?: Array<model.TermAssociatedObject>;
+  /**
+   * The list of customized properties along with the values for this object
+   */
+  "customPropertyMembers"?: Array<model.CustomPropertyGetUsage>;
 }
 
 export namespace Term {
@@ -104,6 +108,11 @@ export namespace Term {
         "associatedObjects": obj.associatedObjects
           ? obj.associatedObjects.map(item => {
               return model.TermAssociatedObject.getJsonObj(item);
+            })
+          : undefined,
+        "customPropertyMembers": obj.customPropertyMembers
+          ? obj.customPropertyMembers.map(item => {
+              return model.CustomPropertyGetUsage.getJsonObj(item);
             })
           : undefined
       }

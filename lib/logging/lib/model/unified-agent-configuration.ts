@@ -1,6 +1,6 @@
 /**
- * loggingManagementControlplane API
- * loggingManagementControlplane API specification
+ * Logging Management API
+ * Use the Logging Management API to create, read, list, update, and delete log groups, log objects, and agent configurations.
  * OpenAPI spec version: 20200531
  *
  *
@@ -27,7 +27,7 @@ export interface UnifiedAgentConfiguration {
    */
   "compartmentId": string;
   /**
-   * The display name of a user-friendly name. It has to be unique within enclosing resource,
+   * The user-friendly display name. This must be unique within the enclosing resource,
    * and it's changeable. Avoid entering confidential information.
    *
    */
@@ -60,7 +60,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
    */
   "timeLastModified"?: Date;
   /**
-   * The state of an pipeline.
+   * The pipeline state.
    */
   "lifecycleState": model.LogLifecycleState;
   /**

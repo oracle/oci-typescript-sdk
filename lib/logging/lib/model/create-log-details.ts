@@ -1,6 +1,6 @@
 /**
- * loggingManagementControlplane API
- * loggingManagementControlplane API specification
+ * Logging Management API
+ * Use the Logging Management API to create, read, list, update, and delete log groups, log objects, and agent configurations.
  * OpenAPI spec version: 20200531
  *
  *
@@ -19,13 +19,13 @@ import common = require("oci-common");
  */
 export interface CreateLogDetails {
   /**
-   * The display name of a user-friendly name. It has to be unique within enclosing resource,
+   * The user-friendly display name. This must be unique within the enclosing resource,
    * and it's changeable. Avoid entering confidential information.
    *
    */
   "displayName": string;
   /**
-   * The logType that the log object is for, custom or service.
+   * The logType that the log object is for, whether custom or service.
    */
   "logType": CreateLogDetails.LogType;
   /**
@@ -49,7 +49,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
   "freeformTags"?: { [key: string]: string };
   "configuration"?: model.Configuration;
   /**
-   * Log retention duration in days.
+   * Log retention duration in 30-day increments (30, 60, 90 and so on).
    */
   "retentionDuration"?: number;
 }

@@ -44,11 +44,24 @@ export interface CreateTermDetails {
    * Status of the approval process workflow for this business term in the glossary.
    */
   "workflowStatus"?: model.TermWorkflowStatus;
+  /**
+   * The list of customized properties along with the values for this object
+   */
+  "customPropertyMembers"?: Array<model.CustomPropertySetUsage>;
 }
 
 export namespace CreateTermDetails {
   export function getJsonObj(obj: CreateTermDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customPropertyMembers": obj.customPropertyMembers
+          ? obj.customPropertyMembers.map(item => {
+              return model.CustomPropertySetUsage.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

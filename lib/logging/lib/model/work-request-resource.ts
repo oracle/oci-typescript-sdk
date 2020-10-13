@@ -1,6 +1,6 @@
 /**
- * loggingManagementControlplane API
- * loggingManagementControlplane API specification
+ * Logging Management API
+ * Use the Logging Management API to create, read, list, update, and delete log groups, log objects, and agent configurations.
  * OpenAPI spec version: 20200531
  *
  *
@@ -25,17 +25,17 @@ export interface WorkRequestResource {
   /**
    * The way in which this resource is affected by the work tracked in the work request.
    * A resource being created, updated, or deleted will remain in the IN_PROGRESS state until
-   * work is complete for that resource at which point it will transition to CREATED, UPDATED,
+   * work is complete for that resource, at which point it will transition to CREATED, UPDATED,
    * or DELETED, respectively.
    *
    */
   "actionType": model.ActionTypes;
   /**
-   * The identifier of the resource the work request affects.
+   * The resource identifier the work request affects.
    */
   "identifier": string;
   /**
-   * The URI path that the user can do a GET on to access the resource metadata
+   * The URI path that the user can do a GET on to access the resource metadata.
    */
   "entityUri"?: string;
 }

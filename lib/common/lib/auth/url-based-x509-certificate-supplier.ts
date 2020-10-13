@@ -8,6 +8,8 @@ import X509CertificateSupplier from "./models/X509-certificate-supplier";
 import CertificateAndPrivateKeyPair from "./certificate-and-privatekey-pair";
 import Refreshable from "./models/refreshable";
 import { getStringFromResponseBody } from "../helper";
+import CircuitBreaker from "../circuit-breaker";
+
 /**
  * A class that retrieves certificate based on metadata service url
  */
@@ -81,7 +83,7 @@ export class ResourceDetails {
   constructor(private url: string, private headers: Headers) {}
 
   async send(): Promise<Response> {
-    const httpClient = new FetchHttpClient(null);
+    const httpClient = new FetchHttpClient(null, CircuitBreaker.internalCircuit);
     const response = await httpClient.send({
       uri: this.url,
       method: "GET",

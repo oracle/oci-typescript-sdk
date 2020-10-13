@@ -28,6 +28,14 @@ export interface SearchResultCollection {
    * Search result set.
    */
   "items"?: Array<model.SearchResult>;
+  /**
+   * String that data objects are to be searched with.
+   */
+  "query"?: string;
+  /**
+   * Aggregations/facets on properties of data objects.
+   */
+  "facetedSearchAggregation"?: Array<model.FacetedSearchAggregation>;
 }
 
 export namespace SearchResultCollection {
@@ -38,6 +46,12 @@ export namespace SearchResultCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.SearchResult.getJsonObj(item);
+            })
+          : undefined,
+
+        "facetedSearchAggregation": obj.facetedSearchAggregation
+          ? obj.facetedSearchAggregation.map(item => {
+              return model.FacetedSearchAggregation.getJsonObj(item);
             })
           : undefined
       }

@@ -62,6 +62,24 @@ export interface GlossarySummary {
    * State of the Glossary.
    */
   "lifecycleState"?: model.LifecycleState;
+  /**
+   * The unique key of the job definition resource that was used in the Glossary import.
+   */
+  "importJobDefinitionKey"?: string;
+  /**
+   * The unique key of the job policy for Glossary import.
+   */
+  "importJobKey"?: string;
+  /**
+   * The unique key of the parent job execution for which the log resource was created.
+   */
+  "latestImportJobExecutionKey"?: string;
+  /**
+   * Status of the latest glossary import job execution, such as running, paused, or completed.
+   * This may include additional information like time import started , import file size and % of completion
+   *
+   */
+  "latestImportJobExecutionStatus"?: string;
 }
 
 export namespace GlossarySummary {

@@ -1,6 +1,6 @@
 /**
- * loggingManagementControlplane API
- * loggingManagementControlplane API specification
+ * Logging Management API
+ * Use the Logging Management API to create, read, list, update, and delete log groups, log objects, and agent configurations.
  * OpenAPI spec version: 20200531
  *
  *
@@ -16,13 +16,21 @@ import common = require("oci-common");
 
 /**
  * The state of the LogSavedSearch
- *    1. *ACTIVE* LogSavedSearch is active and can be used by other users
- *    2. *DELETED* LogSavedSearch is deleted and cannot be used by other users
+ *   1. CREATING
+ *   2. ACTIVE   LogSavedSearch is active and can be used by other users
+ *   3. UPDATING
+ *   4. INACTIVE
+ *   5. DELETING
+ *   6. FAILED
  *
  **/
 export enum LogSavedSearchLifecycleState {
+  Creating = "CREATING",
   Active = "ACTIVE",
-  Deleted = "DELETED",
+  Updating = "UPDATING",
+  Inactive = "INACTIVE",
+  Deleting = "DELETING",
+  Failed = "FAILED",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

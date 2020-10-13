@@ -129,6 +129,14 @@ export interface SearchResult {
    * Absolute path of this resource, which could be a term, folder, entity etc, usually resolvable to this resource through a namespace hierarchy.
    */
   "path"?: string;
+  /**
+   * Expression for logical entities against which names of dataObjects will be matched.
+   */
+  "expression"?: string;
+  /**
+   * Custom properties defined by users.
+   */
+  "customProperties"?: Array<model.FacetedSearchCustomProperty>;
 }
 
 export namespace SearchResult {
@@ -144,6 +152,12 @@ export namespace SearchResult {
         "termSummary": obj.termSummary
           ? obj.termSummary.map(item => {
               return model.SearchTermSummary.getJsonObj(item);
+            })
+          : undefined,
+
+        "customProperties": obj.customProperties
+          ? obj.customProperties.map(item => {
+              return model.FacetedSearchCustomProperty.getJsonObj(item);
             })
           : undefined
       }

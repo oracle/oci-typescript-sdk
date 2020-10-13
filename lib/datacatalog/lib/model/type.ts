@@ -87,11 +87,24 @@ export interface Type {
    * URI to the type instance in the API.
    */
   "uri"?: string;
+  /**
+   * Custom properties associated with this Type.
+   */
+  "customProperties"?: Array<model.CustomPropertySummary>;
 }
 
 export namespace Type {
   export function getJsonObj(obj: Type): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customProperties": obj.customProperties
+          ? obj.customProperties.map(item => {
+              return model.CustomPropertySummary.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
