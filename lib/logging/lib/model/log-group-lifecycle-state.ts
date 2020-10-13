@@ -1,6 +1,6 @@
 /**
- * loggingManagementControlplane API
- * loggingManagementControlplane API specification
+ * Logging Management API
+ * Use the Logging Management API to create, read, list, update, and delete log groups, log objects, and agent configurations.
  * OpenAPI spec version: 20200531
  *
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The state of the log group object. The states workflow is:
- *    1. *CREATING* Log group is being created, back end service contacted
- *    2. *ACTIVE* Logg group is active
- *    3. *UPDATING* Object configuration change requested, but backend service haven't confirmed the update
- *    4. *INACTIVE* Log group is disabled
+ * The log group object state. The states workflow is:
+ *    1. *CREATING* Log group is being created, backend service contacted.
+ *    2. *ACTIVE* Log group is active.
+ *    3. *UPDATING* Object configuration change requested, but the backend service has not confirmed the update.
+ *    4. *INACTIVE* Log group is disabled.
  *    5. *DELETING* Log group is being deleted.
  *
  **/

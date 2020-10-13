@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface DeleteWorkRequestRequest extends common.BaseRequest {
   /**
-   * The ID of the asynchronous request.
+   * The asynchronous request ID.
    */
   "workRequestId": string;
   /**

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface ListLogGroupsRequest extends common.BaseRequest {
   /**
-   * Compartment OCID to list resources in. Please see compartmentIdInSubtree
+   * Compartment OCID to list resources in. See compartmentIdInSubtree
    *      for nested compartments traversal.
    *
    */
@@ -46,7 +46,7 @@ export interface ListLogGroupsRequest extends common.BaseRequest {
    */
   "sortBy"?: ListLogGroupsRequest.SortBy;
   /**
-   * The sort order to use, either 'asc' or 'desc'
+   * The sort order to use, whether 'asc' or 'desc'.
    *
    */
   "sortOrder"?: ListLogGroupsRequest.SortOrder;

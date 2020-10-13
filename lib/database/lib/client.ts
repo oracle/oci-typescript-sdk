@@ -32,14 +32,22 @@ export class DatabaseClient {
   protected "_defaultHeaders": any = {};
   protected "_waiters": DatabaseWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
 
   protected _httpClient: common.HttpClient;
 
-  constructor(params: common.AuthParams) {
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
-    this._httpClient = params.httpClient || new common.FetchHttpClient(requestSigner);
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+    }
+    this._httpClient =
+      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
     if (
       params.authenticationDetailsProvider &&
@@ -121,13 +129,6 @@ export class DatabaseClient {
       return this._waiters;
     }
     throw Error("Waiters do not exist. Please create waiters.");
-  }
-
-  /**
-   * Sets the client configuration for the client
-   */
-  public set clientConfiguration(clientConfiguration: common.ClientConfiguration) {
-    this._clientConfiguration = clientConfiguration;
   }
 
   /**
@@ -3759,6 +3760,85 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
+     * Fails over the standby Autonomous Container Database identified by the autonomousContainerDatabaseId parameter to the primary Autonomous Container Database after the existing primary Autonomous Container Database fails or becomes unreachable.
+* <p>
+A failover can result in data loss, depending on the protection mode in effect at the time the primary Autonomous Container Database fails.
+* 
+     * @param FailoverAutonomousContainerDatabaseDataguardAssociationRequest
+     * @return FailoverAutonomousContainerDatabaseDataguardAssociationResponse
+     * @throws OciError when an error occurs
+     */
+  public async failoverAutonomousContainerDatabaseDataguardAssociation(
+    failoverAutonomousContainerDatabaseDataguardAssociationRequest: requests.FailoverAutonomousContainerDatabaseDataguardAssociationRequest
+  ): Promise<responses.FailoverAutonomousContainerDatabaseDataguardAssociationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#failoverAutonomousContainerDatabaseDataguardAssociation."
+      );
+    const pathParams = {
+      "{autonomousContainerDatabaseId}":
+        failoverAutonomousContainerDatabaseDataguardAssociationRequest.autonomousContainerDatabaseId,
+      "{autonomousContainerDatabaseDataguardAssociationId}":
+        failoverAutonomousContainerDatabaseDataguardAssociationRequest.autonomousContainerDatabaseDataguardAssociationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": failoverAutonomousContainerDatabaseDataguardAssociationRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/autonomousContainerDatabases/{autonomousContainerDatabaseId}/autonomousContainerDatabaseDataguardAssociations/{autonomousContainerDatabaseDataguardAssociationId}/actions/failover",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      failoverAutonomousContainerDatabaseDataguardAssociationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <
+          responses.FailoverAutonomousContainerDatabaseDataguardAssociationResponse
+        >{},
+        body: await response.json(),
+        bodyKey: "autonomousContainerDatabaseDataguardAssociation",
+        bodyModel: "model.AutonomousContainerDatabaseDataguardAssociation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Performs a failover to transition the standby database identified by the `databaseId` parameter into the
 * specified Data Guard association's primary role after the existing primary database fails or becomes unreachable.
 * <p>
@@ -4137,6 +4217,75 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
+   * Gets an Autonomous Container Database enabled with Autonomous Data Guard associated with the specified Autonomous Container Database.
+   *
+   * @param GetAutonomousContainerDatabaseDataguardAssociationRequest
+   * @return GetAutonomousContainerDatabaseDataguardAssociationResponse
+   * @throws OciError when an error occurs
+   */
+  public async getAutonomousContainerDatabaseDataguardAssociation(
+    getAutonomousContainerDatabaseDataguardAssociationRequest: requests.GetAutonomousContainerDatabaseDataguardAssociationRequest
+  ): Promise<responses.GetAutonomousContainerDatabaseDataguardAssociationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#getAutonomousContainerDatabaseDataguardAssociation."
+      );
+    const pathParams = {
+      "{autonomousContainerDatabaseId}":
+        getAutonomousContainerDatabaseDataguardAssociationRequest.autonomousContainerDatabaseId,
+      "{autonomousContainerDatabaseDataguardAssociationId}":
+        getAutonomousContainerDatabaseDataguardAssociationRequest.autonomousContainerDatabaseDataguardAssociationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/autonomousContainerDatabases/{autonomousContainerDatabaseId}/autonomousContainerDatabaseDataguardAssociations/{autonomousContainerDatabaseDataguardAssociationId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getAutonomousContainerDatabaseDataguardAssociationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAutonomousContainerDatabaseDataguardAssociationResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousContainerDatabaseDataguardAssociation",
+        bodyModel: "model.AutonomousContainerDatabaseDataguardAssociation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * **Deprecated.** To get the details of an Autonomous Data Warehouse, use the {@link #getAutonomousDatabase(GetAutonomousDatabaseRequest) getAutonomousDatabase} operation.
    *
    * @param GetAutonomousDataWarehouseRequest
@@ -4364,6 +4513,76 @@ A failover might result in data loss depending on the protection mode in effect 
         body: await response.json(),
         bodyKey: "autonomousDatabaseBackup",
         bodyModel: "model.AutonomousDatabaseBackup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets an Autonomous Data Guard-enabled database associated with the specified Autonomous Database.
+   *
+   * @param GetAutonomousDatabaseDataguardAssociationRequest
+   * @return GetAutonomousDatabaseDataguardAssociationResponse
+   * @throws OciError when an error occurs
+   */
+  public async getAutonomousDatabaseDataguardAssociation(
+    getAutonomousDatabaseDataguardAssociationRequest: requests.GetAutonomousDatabaseDataguardAssociationRequest
+  ): Promise<responses.GetAutonomousDatabaseDataguardAssociationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#getAutonomousDatabaseDataguardAssociation."
+      );
+    const pathParams = {
+      "{autonomousDatabaseId}":
+        getAutonomousDatabaseDataguardAssociationRequest.autonomousDatabaseId,
+      "{autonomousDatabaseDataguardAssociationId}":
+        getAutonomousDatabaseDataguardAssociationRequest.autonomousDatabaseDataguardAssociationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAutonomousDatabaseDataguardAssociationRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/autonomousDatabases/{autonomousDatabaseId}/autonomousDatabaseDataguardAssociations/{autonomousDatabaseDataguardAssociationId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getAutonomousDatabaseDataguardAssociationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAutonomousDatabaseDataguardAssociationResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousDatabaseDataguardAssociation",
+        bodyModel: "model.AutonomousDatabaseDataguardAssociation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6506,6 +6725,105 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
+   * Gets a list of the Autonomous Container Databases with Autonomous Data Guard enabled associated with the specified Autonomous Container Database.
+   *
+   * @param ListAutonomousContainerDatabaseDataguardAssociationsRequest
+   * @return ListAutonomousContainerDatabaseDataguardAssociationsResponse
+   * @throws OciError when an error occurs
+   */
+  public async listAutonomousContainerDatabaseDataguardAssociations(
+    listAutonomousContainerDatabaseDataguardAssociationsRequest: requests.ListAutonomousContainerDatabaseDataguardAssociationsRequest
+  ): Promise<responses.ListAutonomousContainerDatabaseDataguardAssociationsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#listAutonomousContainerDatabaseDataguardAssociations."
+      );
+    const pathParams = {
+      "{autonomousContainerDatabaseId}":
+        listAutonomousContainerDatabaseDataguardAssociationsRequest.autonomousContainerDatabaseId
+    };
+
+    const queryParams = {
+      "limit": listAutonomousContainerDatabaseDataguardAssociationsRequest.limit,
+      "page": listAutonomousContainerDatabaseDataguardAssociationsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/autonomousContainerDatabases/{autonomousContainerDatabaseId}/autonomousContainerDatabaseDataguardAssociations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listAutonomousContainerDatabaseDataguardAssociationsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAutonomousContainerDatabaseDataguardAssociationsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "AutonomousContainerDatabaseDataguardAssociation[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AutonomousContainerDatabaseDataguardAssociation objects
+   * contained in responses from the listAutonomousContainerDatabaseDataguardAssociations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllAutonomousContainerDatabaseDataguardAssociations(
+    request: requests.ListAutonomousContainerDatabaseDataguardAssociationsRequest
+  ): AsyncIterableIterator<models.AutonomousContainerDatabaseDataguardAssociation> {
+    return paginateRecords(request, req =>
+      this.listAutonomousContainerDatabaseDataguardAssociations(req)
+    );
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAutonomousContainerDatabaseDataguardAssociations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllAutonomousContainerDatabaseDataguardAssociationsResponses(
+    request: requests.ListAutonomousContainerDatabaseDataguardAssociationsRequest
+  ): AsyncIterableIterator<responses.ListAutonomousContainerDatabaseDataguardAssociationsResponse> {
+    return paginateResponses(request, req =>
+      this.listAutonomousContainerDatabaseDataguardAssociations(req)
+    );
+  }
+
+  /**
    * Gets a list of the Autonomous Container Databases in the specified compartment.
    *
    * @param ListAutonomousContainerDatabasesRequest
@@ -6531,7 +6849,8 @@ An initial database is created on the DB system based on the request parameters 
       "sortOrder": listAutonomousContainerDatabasesRequest.sortOrder,
       "lifecycleState": listAutonomousContainerDatabasesRequest.lifecycleState,
       "availabilityDomain": listAutonomousContainerDatabasesRequest.availabilityDomain,
-      "displayName": listAutonomousContainerDatabasesRequest.displayName
+      "displayName": listAutonomousContainerDatabasesRequest.displayName,
+      "serviceLevelAgreementType": listAutonomousContainerDatabasesRequest.serviceLevelAgreementType
     };
 
     let headerParams = {
@@ -6986,6 +7305,100 @@ An initial database is created on the DB system based on the request parameters 
     request: requests.ListAutonomousDatabaseClonesRequest
   ): AsyncIterableIterator<responses.ListAutonomousDatabaseClonesResponse> {
     return paginateResponses(request, req => this.listAutonomousDatabaseClones(req));
+  }
+
+  /**
+   * Gets a list of the Autonomous Data Guard-enabled databases associated with the specified Autonomous Database.
+   *
+   * @param ListAutonomousDatabaseDataguardAssociationsRequest
+   * @return ListAutonomousDatabaseDataguardAssociationsResponse
+   * @throws OciError when an error occurs
+   */
+  public async listAutonomousDatabaseDataguardAssociations(
+    listAutonomousDatabaseDataguardAssociationsRequest: requests.ListAutonomousDatabaseDataguardAssociationsRequest
+  ): Promise<responses.ListAutonomousDatabaseDataguardAssociationsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#listAutonomousDatabaseDataguardAssociations."
+      );
+    const pathParams = {
+      "{autonomousDatabaseId}":
+        listAutonomousDatabaseDataguardAssociationsRequest.autonomousDatabaseId
+    };
+
+    const queryParams = {
+      "limit": listAutonomousDatabaseDataguardAssociationsRequest.limit,
+      "page": listAutonomousDatabaseDataguardAssociationsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabases/{autonomousDatabaseId}/autonomousDatabaseDataguardAssociations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listAutonomousDatabaseDataguardAssociationsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAutonomousDatabaseDataguardAssociationsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "AutonomousDatabaseDataguardAssociation[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AutonomousDatabaseDataguardAssociation objects
+   * contained in responses from the listAutonomousDatabaseDataguardAssociations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllAutonomousDatabaseDataguardAssociations(
+    request: requests.ListAutonomousDatabaseDataguardAssociationsRequest
+  ): AsyncIterableIterator<models.AutonomousDatabaseDataguardAssociation> {
+    return paginateRecords(request, req => this.listAutonomousDatabaseDataguardAssociations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAutonomousDatabaseDataguardAssociations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllAutonomousDatabaseDataguardAssociationsResponses(
+    request: requests.ListAutonomousDatabaseDataguardAssociationsRequest
+  ): AsyncIterableIterator<responses.ListAutonomousDatabaseDataguardAssociationsResponse> {
+    return paginateResponses(request, req => this.listAutonomousDatabaseDataguardAssociations(req));
   }
 
   /**
@@ -8757,6 +9170,7 @@ An initial database is created on the DB system based on the request parameters 
       "dbSystemId": listDbHomesRequest.dbSystemId,
       "vmClusterId": listDbHomesRequest.vmClusterId,
       "backupId": listDbHomesRequest.backupId,
+      "dbVersion": listDbHomesRequest.dbVersion,
       "limit": listDbHomesRequest.limit,
       "page": listDbHomesRequest.page,
       "sortBy": listDbHomesRequest.sortBy,
@@ -10176,6 +10590,83 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
+   * Reinstates a disabled standby Autonomous Container Database, identified by the autonomousContainerDatabaseId parameter, to an active standby Autonomous Container Database.
+   *
+   * @param ReinstateAutonomousContainerDatabaseDataguardAssociationRequest
+   * @return ReinstateAutonomousContainerDatabaseDataguardAssociationResponse
+   * @throws OciError when an error occurs
+   */
+  public async reinstateAutonomousContainerDatabaseDataguardAssociation(
+    reinstateAutonomousContainerDatabaseDataguardAssociationRequest: requests.ReinstateAutonomousContainerDatabaseDataguardAssociationRequest
+  ): Promise<responses.ReinstateAutonomousContainerDatabaseDataguardAssociationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#reinstateAutonomousContainerDatabaseDataguardAssociation."
+      );
+    const pathParams = {
+      "{autonomousContainerDatabaseId}":
+        reinstateAutonomousContainerDatabaseDataguardAssociationRequest.autonomousContainerDatabaseId,
+      "{autonomousContainerDatabaseDataguardAssociationId}":
+        reinstateAutonomousContainerDatabaseDataguardAssociationRequest.autonomousContainerDatabaseDataguardAssociationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": reinstateAutonomousContainerDatabaseDataguardAssociationRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/autonomousContainerDatabases/{autonomousContainerDatabaseId}/autonomousContainerDatabaseDataguardAssociations/{autonomousContainerDatabaseDataguardAssociationId}/actions/reinstate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      reinstateAutonomousContainerDatabaseDataguardAssociationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <
+          responses.ReinstateAutonomousContainerDatabaseDataguardAssociationResponse
+        >{},
+        body: await response.json(),
+        bodyKey: "autonomousContainerDatabaseDataguardAssociation",
+        bodyModel: "model.AutonomousContainerDatabaseDataguardAssociation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Reinstates the database identified by the `databaseId` parameter into the standby role in a Data Guard association.
    *
    * @param ReinstateDataGuardAssociationRequest
@@ -10990,6 +11481,85 @@ An initial database is created on the DB system based on the request parameters 
         body: await response.json(),
         bodyKey: "autonomousDatabase",
         bodyModel: "model.AutonomousDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Switches over the primary Autonomous Container Database of an Autonomous Data Guard peer association into a standby role. The standby Autonomous Container Database associated with autonomousContainerDatabaseDataguardAssociationId assumes the primary Autonomous Container Database role.
+* <p>
+A switchover incurs no data loss.
+* 
+     * @param SwitchoverAutonomousContainerDatabaseDataguardAssociationRequest
+     * @return SwitchoverAutonomousContainerDatabaseDataguardAssociationResponse
+     * @throws OciError when an error occurs
+     */
+  public async switchoverAutonomousContainerDatabaseDataguardAssociation(
+    switchoverAutonomousContainerDatabaseDataguardAssociationRequest: requests.SwitchoverAutonomousContainerDatabaseDataguardAssociationRequest
+  ): Promise<responses.SwitchoverAutonomousContainerDatabaseDataguardAssociationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#switchoverAutonomousContainerDatabaseDataguardAssociation."
+      );
+    const pathParams = {
+      "{autonomousContainerDatabaseId}":
+        switchoverAutonomousContainerDatabaseDataguardAssociationRequest.autonomousContainerDatabaseId,
+      "{autonomousContainerDatabaseDataguardAssociationId}":
+        switchoverAutonomousContainerDatabaseDataguardAssociationRequest.autonomousContainerDatabaseDataguardAssociationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": switchoverAutonomousContainerDatabaseDataguardAssociationRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/autonomousContainerDatabases/{autonomousContainerDatabaseId}/autonomousContainerDatabaseDataguardAssociations/{autonomousContainerDatabaseDataguardAssociationId}/actions/switchover",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      switchoverAutonomousContainerDatabaseDataguardAssociationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <
+          responses.SwitchoverAutonomousContainerDatabaseDataguardAssociationResponse
+        >{},
+        body: await response.json(),
+        bodyKey: "autonomousContainerDatabaseDataguardAssociation",
+        bodyModel: "model.AutonomousContainerDatabaseDataguardAssociation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

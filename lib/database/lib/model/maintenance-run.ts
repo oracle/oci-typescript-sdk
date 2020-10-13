@@ -76,6 +76,10 @@ export interface MaintenanceRun {
    * Maintenance sub-type.
    */
   "maintenanceSubtype"?: MaintenanceRun.MaintenanceSubtype;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the maintenance run for the Autonomous Data Guard association's peer container database.
+   */
+  "peerMaintenanceRunId"?: string;
 }
 
 export namespace MaintenanceRun {

@@ -4,6 +4,7 @@
  */
 
 import { RetryConfiguration } from "./retrier";
+import CircuitBreaker from "./circuit-breaker";
 
 /**
  * This interface defines the client configuration properties to be used at the client level
@@ -16,4 +17,9 @@ export interface ClientConfiguration {
    * For all requests with binary/stream bodies, retry attempts will not be made
    */
   "retryConfiguration"?: RetryConfiguration;
+
+  /*
+   * Optional CircuitBreaker used for the client.
+   */
+  circuitBreaker?: CircuitBreaker;
 }

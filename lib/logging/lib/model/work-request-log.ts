@@ -1,6 +1,6 @@
 /**
- * loggingManagementControlplane API
- * loggingManagementControlplane API specification
+ * Logging Management API
+ * Use the Logging Management API to create, read, list, update, and delete log groups, log objects, and agent configurations.
  * OpenAPI spec version: 20200531
  *
  *
@@ -23,7 +23,7 @@ export interface WorkRequestLog {
    */
   "message": string;
   /**
-   * The time the log message was written. An RFC3339 formatted datetime string
+   * The time the log message was written. An RFC3339-formatted date and time string.
    */
   "timestamp": Date;
 }

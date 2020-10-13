@@ -30,14 +30,22 @@ export class StreamClient {
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
 
   protected _httpClient: common.HttpClient;
 
-  constructor(params: common.AuthParams) {
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
-    this._httpClient = params.httpClient || new common.FetchHttpClient(requestSigner);
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+    }
+    this._httpClient =
+      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
   }
 
   /**
@@ -59,13 +67,6 @@ export class StreamClient {
 
   public get logger() {
     return common.LOG.logger;
-  }
-
-  /**
-   * Sets the client configuration for the client
-   */
-  public set clientConfiguration(clientConfiguration: common.ClientConfiguration) {
-    this._clientConfiguration = clientConfiguration;
   }
 
   /**
@@ -581,14 +582,22 @@ export class StreamAdminClient {
   protected "_defaultHeaders": any = {};
   protected "_waiters": StreamAdminWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
 
   protected _httpClient: common.HttpClient;
 
-  constructor(params: common.AuthParams) {
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
-    this._httpClient = params.httpClient || new common.FetchHttpClient(requestSigner);
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+    }
+    this._httpClient =
+      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
     if (
       params.authenticationDetailsProvider &&
@@ -670,13 +679,6 @@ export class StreamAdminClient {
       return this._waiters;
     }
     throw Error("Waiters do not exist. Please create waiters.");
-  }
-
-  /**
-   * Sets the client configuration for the client
-   */
-  public set clientConfiguration(clientConfiguration: common.ClientConfiguration) {
-    this._clientConfiguration = clientConfiguration;
   }
 
   /**

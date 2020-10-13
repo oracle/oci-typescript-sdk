@@ -52,6 +52,14 @@ export interface EntitySummary {
    */
   "externalKey"?: string;
   /**
+   * Key of the associated pattern if this is a logical entity.
+   */
+  "patternKey"?: string;
+  /**
+   * The expression realized after resolving qualifiers . Used in deriving this logical entity
+   */
+  "realizedExpression"?: string;
+  /**
    * Full path of the data entity.
    */
   "path"?: string;

@@ -79,6 +79,7 @@ export namespace Update {
   }
 
   export enum UpdateType {
+    GiUpgrade = "GI_UPGRADE",
     GiPatch = "GI_PATCH",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

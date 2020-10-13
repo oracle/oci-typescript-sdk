@@ -36,11 +36,24 @@ export interface UpdateGlossaryDetails {
    * Status of the approval process workflow for this business glossary.
    */
   "workflowStatus"?: model.TermWorkflowStatus;
+  /**
+   * The list of customized properties along with the values for this object
+   */
+  "customPropertyMembers"?: Array<model.CustomPropertySetUsage>;
 }
 
 export namespace UpdateGlossaryDetails {
   export function getJsonObj(obj: UpdateGlossaryDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customPropertyMembers": obj.customPropertyMembers
+          ? obj.customPropertyMembers.map(item => {
+              return model.CustomPropertySetUsage.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

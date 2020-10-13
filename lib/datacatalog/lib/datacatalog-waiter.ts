@@ -119,6 +119,25 @@ export class DataCatalogWaiter {
   }
 
   /**
+   * Waits forCustomProperty till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetCustomPropertyResponse | null (null in case of 404 response)
+   */
+  public async forCustomProperty(
+    request: serviceRequests.GetCustomPropertyRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetCustomPropertyResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getCustomProperty(request),
+      response => targetStates.exists(response.customProperty.lifecycleState),
+      targetStates.includes(models.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forDataAsset till it reaches any of the provided states
    *
    * @param request the request to send
@@ -303,6 +322,44 @@ export class DataCatalogWaiter {
       this.config,
       () => this.client.getJobExecution(request),
       response => targetStates.exists(response.jobExecution.lifecycleState)
+    );
+  }
+
+  /**
+   * Waits forNamespace till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetNamespaceResponse | null (null in case of 404 response)
+   */
+  public async forNamespace(
+    request: serviceRequests.GetNamespaceRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetNamespaceResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getNamespace(request),
+      response => targetStates.exists(response.namespace.lifecycleState),
+      targetStates.includes(models.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forPattern till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetPatternResponse | null (null in case of 404 response)
+   */
+  public async forPattern(
+    request: serviceRequests.GetPatternRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetPatternResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getPattern(request),
+      response => targetStates.exists(response.pattern.lifecycleState),
+      targetStates.includes(models.LifecycleState.Deleted)
     );
   }
 

@@ -37,6 +37,21 @@ export interface CreateAutonomousContainerDatabaseDetails {
    */
   "autonomousExadataInfrastructureId"?: string;
   /**
+   * The OCID of the peer Autonomous Exadata Infrastructure for Autonomous Data Guard.
+   */
+  "peerAutonomousExadataInfrastructureId"?: string;
+  /**
+   * The display name for the peer Autonomous Container Database.
+   */
+  "peerAutonomousContainerDatabaseDisplayName"?: string;
+  /**
+   * The protection mode of this Autonomous Data Guard association. For more information, see
+   * [Oracle Data Guard Protection Modes](http://docs.oracle.com/database/122/SBYDB/oracle-data-guard-protection-modes.htm#SBYDB02000)
+   * in the Oracle Data Guard documentation.
+   *
+   */
+  "protectionMode"?: CreateAutonomousContainerDatabaseDetails.ProtectionMode;
+  /**
    * The OCID of the Autonomous VM Cluster.
    */
   "autonomousVmClusterId"?: string;
@@ -49,6 +64,12 @@ export interface CreateAutonomousContainerDatabaseDetails {
    */
   "patchModel": CreateAutonomousContainerDatabaseDetails.PatchModel;
   "maintenanceWindowDetails"?: model.MaintenanceWindow;
+  /**
+   * The scheduling detail for the quarterly maintenance window of the standby Autonomous Container Database.
+   * This value represents the number of days before the primary database maintenance schedule.
+   *
+   */
+  "standbyMaintenanceBufferInDays"?: number;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
@@ -81,7 +102,13 @@ Example: `{\"Department\": \"Finance\"}`
 
 export namespace CreateAutonomousContainerDatabaseDetails {
   export enum ServiceLevelAgreementType {
-    Standard = "STANDARD"
+    Standard = "STANDARD",
+    AutonomousDataguard = "AUTONOMOUS_DATAGUARD"
+  }
+
+  export enum ProtectionMode {
+    MaximumAvailability = "MAXIMUM_AVAILABILITY",
+    MaximumPerformance = "MAXIMUM_PERFORMANCE"
   }
 
   export enum PatchModel {

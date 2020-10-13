@@ -1,6 +1,6 @@
 /**
- * loggingManagementControlplane API
- * loggingManagementControlplane API specification
+ * Logging Management API
+ * Use the Logging Management API to create, read, list, update, and delete log groups, log objects, and agent configurations.
  * OpenAPI spec version: 20200531
  *
  *
@@ -31,14 +31,22 @@ export class LoggingManagementClient {
   protected "_defaultHeaders": any = {};
   protected "_waiters": LoggingManagementWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
 
   protected _httpClient: common.HttpClient;
 
-  constructor(params: common.AuthParams) {
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
-    this._httpClient = params.httpClient || new common.FetchHttpClient(requestSigner);
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+    }
+    this._httpClient =
+      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
     if (
       params.authenticationDetailsProvider &&
@@ -123,14 +131,7 @@ export class LoggingManagementClient {
   }
 
   /**
-   * Sets the client configuration for the client
-   */
-  public set clientConfiguration(clientConfiguration: common.ClientConfiguration) {
-    this._clientConfiguration = clientConfiguration;
-  }
-
-  /**
-   * Moves a log group into a different compartment within the same tenancy.  When provided, If-Match is checked against ETag values of the resource.
+   * Moves a log group into a different compartment within the same tenancy.  When provided, the If-Match is checked against the resource ETag values.
    * For information about moving resources between compartments, see [Moving Resources Between Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * @param ChangeLogGroupCompartmentRequest
@@ -198,7 +199,7 @@ export class LoggingManagementClient {
   }
 
   /**
-   * Moves a log into a different log group within the same tenancy.  When provided, If-Match is checked against ETag values of the resource.
+   * Moves a log into a different log group within the same tenancy.  When provided, the If-Match is checked against the ETag values of the resource.
    *
    * @param ChangeLogLogGroupRequest
    * @return ChangeLogLogGroupResponse
@@ -332,7 +333,7 @@ export class LoggingManagementClient {
   }
 
   /**
-   * Moves unified agent configuration into a different compartment within the same tenancy.  When provided, If-Match is checked against ETag values of the resource.
+   * Moves the unified agent configuration into a different compartment within the same tenancy.  When provided, the If-Match is checked against the ETag values of the resource.
    * For information about moving resources between compartments, see [Moving Resources Between Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * @param ChangeUnifiedAgentConfigurationCompartmentRequest
@@ -404,8 +405,8 @@ export class LoggingManagementClient {
   }
 
   /**
-   * Creates a log within specified log group. This call fails if log group is already created
-   * with same displayName or (service, resource, category) triplet.
+   * Creates a log within the specified log group. This call fails if a log group has already been created
+   * with the same displayName or (service, resource, category) triplet.
    *
    * @param CreateLogRequest
    * @return CreateLogResponse
@@ -471,8 +472,8 @@ export class LoggingManagementClient {
   }
 
   /**
-   * Create new log group with unique display name. This call fails
-   * if log group is already created with same displayName in the compartment.
+   * Create a new log group with a unique display name. This call fails
+   * if the log group is already created with the same displayName in the compartment.
    *
    * @param CreateLogGroupRequest
    * @return CreateLogGroupResponse
@@ -604,7 +605,7 @@ export class LoggingManagementClient {
   }
 
   /**
-   * Create unified agent config registration
+   * Create unified agent configuration registration.
    * @param CreateUnifiedAgentConfigurationRequest
    * @return CreateUnifiedAgentConfigurationResponse
    * @throws OciError when an error occurs
@@ -847,7 +848,7 @@ export class LoggingManagementClient {
   }
 
   /**
-   * Delete unified agent configuration
+   * Delete unified agent configuration.
    * @param DeleteUnifiedAgentConfigurationRequest
    * @return DeleteUnifiedAgentConfigurationResponse
    * @throws OciError when an error occurs
@@ -973,7 +974,7 @@ export class LoggingManagementClient {
   }
 
   /**
-   * Gets the log object config for log object OCID.
+   * Gets the log object configuration for the log object OCID.
    *
    * @param GetLogRequest
    * @return GetLogResponse
@@ -1225,7 +1226,7 @@ export class LoggingManagementClient {
   }
 
   /**
-   * Get unified agent configuration for an id
+   * Get the unified agent configuration for an ID.
    * @param GetUnifiedAgentConfigurationRequest
    * @return GetUnifiedAgentConfigurationResponse
    * @throws OciError when an error occurs
@@ -1704,7 +1705,7 @@ export class LoggingManagementClient {
   }
 
   /**
-   * Lists all services supporting logging.
+   * Lists all services that support logging.
    * @param ListServicesRequest
    * @return ListServicesResponse
    * @throws OciError when an error occurs
@@ -1769,7 +1770,7 @@ export class LoggingManagementClient {
   }
 
   /**
-   * Lists all unified agent configurations in the specified compartment
+   * Lists all unified agent configurations in the specified compartment.
    * @param ListUnifiedAgentConfigurationsRequest
    * @return ListUnifiedAgentConfigurationsResponse
    * @throws OciError when an error occurs
@@ -2132,8 +2133,8 @@ export class LoggingManagementClient {
   }
 
   /**
-   * Updates existing log object with the associated config. This call
-   *       fails if log object does not exist.
+   * Updates the existing log object with the associated configuration. This call
+   *       fails if the log object does not exist.
    *
    * @param UpdateLogRequest
    * @return UpdateLogResponse
@@ -2200,8 +2201,8 @@ export class LoggingManagementClient {
   }
 
   /**
-   * Updates existing log group with the associated config. This call
-   *       fails if log group does not exist.
+   * Updates the existing log group with the associated configuration. This call
+   *       fails if the log group does not exist.
    *
    * @param UpdateLogGroupRequest
    * @return UpdateLogGroupResponse
@@ -2338,7 +2339,7 @@ export class LoggingManagementClient {
 
   /**
    * Update an existing unified agent configuration. This call
-   *       fails if log group does not exist.
+   *       fails if the log group does not exist.
    *
    * @param UpdateUnifiedAgentConfigurationRequest
    * @return UpdateUnifiedAgentConfigurationResponse

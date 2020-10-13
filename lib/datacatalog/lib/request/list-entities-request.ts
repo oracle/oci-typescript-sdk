@@ -58,6 +58,10 @@ export interface ListEntitiesRequest extends common.BaseRequest {
    */
   "externalKey"?: string;
   /**
+   * Unique pattern key.
+   */
+  "patternKey"?: string;
+  /**
    * Last modified timestamp of this object in the external system.
    */
   "timeExternal"?: Date;

@@ -19,12 +19,12 @@ export interface CreateLogRequest extends common.BaseRequest {
    */
   "logGroupId": string;
   /**
-   * Log object config details.
+   * Log object configuration details.
    */
   "createLogDetails": model.CreateLogDetails;
   /**
    * A token that uniquely identifies a request so it can be retried in case
-   * of a timeout or server error without risk of executing that same action
+   * of a timeout or server error, without risk of executing that same action
    * again. Retry tokens expire after 24 hours, but can be invalidated
    * before then due to conflicting operations (e.g., if a resource has been
    * deleted and purged from the system, then a retry of the original

@@ -24,7 +24,7 @@ export interface PutLogsRequest extends common.BaseRequest {
   "putLogsDetails": model.PutLogsDetails;
   /**
    * Effective timestamp, for when the agent started processing the log
-   * segment being sent. An RFC3339 formatted datetime string.
+   * segment being sent. An RFC3339-formatted date-time string.
    *
    */
   "timestampOpcAgentProcessing"?: Date;

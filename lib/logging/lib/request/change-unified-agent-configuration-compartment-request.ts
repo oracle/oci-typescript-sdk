@@ -15,16 +15,16 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface ChangeUnifiedAgentConfigurationCompartmentRequest extends common.BaseRequest {
   /**
-   * The OCID of the unified agent configuration.
+   * The OCID of the Unified Agent configuration.
    */
   "unifiedAgentConfigurationId": string;
   /**
-   * Request to change the compartment of a given resource
+   * Request to change the compartment of a given resource.
    */
   "changeUnifiedAgentConfigurationCompartmentDetails": model.ChangeUnifiedAgentConfigurationCompartmentDetails;
   /**
    * A token that uniquely identifies a request so it can be retried in case
-   * of a timeout or server error without risk of executing that same action
+   * of a timeout or server error, without risk of executing that same action
    * again. Retry tokens expire after 24 hours, but can be invalidated
    * before then due to conflicting operations (e.g., if a resource has been
    * deleted and purged from the system, then a retry of the original

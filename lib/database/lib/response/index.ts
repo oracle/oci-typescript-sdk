@@ -116,6 +116,8 @@ import * as DownloadVmClusterNetworkConfigFileResponse from "./download-vm-clust
 export import DownloadVmClusterNetworkConfigFileResponse = DownloadVmClusterNetworkConfigFileResponse.DownloadVmClusterNetworkConfigFileResponse;
 import * as FailOverAutonomousDatabaseResponse from "./fail-over-autonomous-database-response";
 export import FailOverAutonomousDatabaseResponse = FailOverAutonomousDatabaseResponse.FailOverAutonomousDatabaseResponse;
+import * as FailoverAutonomousContainerDatabaseDataguardAssociationResponse from "./failover-autonomous-container-database-dataguard-association-response";
+export import FailoverAutonomousContainerDatabaseDataguardAssociationResponse = FailoverAutonomousContainerDatabaseDataguardAssociationResponse.FailoverAutonomousContainerDatabaseDataguardAssociationResponse;
 import * as FailoverDataGuardAssociationResponse from "./failover-data-guard-association-response";
 export import FailoverDataGuardAssociationResponse = FailoverDataGuardAssociationResponse.FailoverDataGuardAssociationResponse;
 import * as GenerateAutonomousDataWarehouseWalletResponse from "./generate-autonomous-data-warehouse-wallet-response";
@@ -126,6 +128,8 @@ import * as GenerateRecommendedVmClusterNetworkResponse from "./generate-recomme
 export import GenerateRecommendedVmClusterNetworkResponse = GenerateRecommendedVmClusterNetworkResponse.GenerateRecommendedVmClusterNetworkResponse;
 import * as GetAutonomousContainerDatabaseResponse from "./get-autonomous-container-database-response";
 export import GetAutonomousContainerDatabaseResponse = GetAutonomousContainerDatabaseResponse.GetAutonomousContainerDatabaseResponse;
+import * as GetAutonomousContainerDatabaseDataguardAssociationResponse from "./get-autonomous-container-database-dataguard-association-response";
+export import GetAutonomousContainerDatabaseDataguardAssociationResponse = GetAutonomousContainerDatabaseDataguardAssociationResponse.GetAutonomousContainerDatabaseDataguardAssociationResponse;
 import * as GetAutonomousDataWarehouseResponse from "./get-autonomous-data-warehouse-response";
 export import GetAutonomousDataWarehouseResponse = GetAutonomousDataWarehouseResponse.GetAutonomousDataWarehouseResponse;
 import * as GetAutonomousDataWarehouseBackupResponse from "./get-autonomous-data-warehouse-backup-response";
@@ -134,6 +138,8 @@ import * as GetAutonomousDatabaseResponse from "./get-autonomous-database-respon
 export import GetAutonomousDatabaseResponse = GetAutonomousDatabaseResponse.GetAutonomousDatabaseResponse;
 import * as GetAutonomousDatabaseBackupResponse from "./get-autonomous-database-backup-response";
 export import GetAutonomousDatabaseBackupResponse = GetAutonomousDatabaseBackupResponse.GetAutonomousDatabaseBackupResponse;
+import * as GetAutonomousDatabaseDataguardAssociationResponse from "./get-autonomous-database-dataguard-association-response";
+export import GetAutonomousDatabaseDataguardAssociationResponse = GetAutonomousDatabaseDataguardAssociationResponse.GetAutonomousDatabaseDataguardAssociationResponse;
 import * as GetAutonomousDatabaseRegionalWalletResponse from "./get-autonomous-database-regional-wallet-response";
 export import GetAutonomousDatabaseRegionalWalletResponse = GetAutonomousDatabaseRegionalWalletResponse.GetAutonomousDatabaseRegionalWalletResponse;
 import * as GetAutonomousDatabaseWalletResponse from "./get-autonomous-database-wallet-response";
@@ -202,6 +208,8 @@ import * as LaunchAutonomousExadataInfrastructureResponse from "./launch-autonom
 export import LaunchAutonomousExadataInfrastructureResponse = LaunchAutonomousExadataInfrastructureResponse.LaunchAutonomousExadataInfrastructureResponse;
 import * as LaunchDbSystemResponse from "./launch-db-system-response";
 export import LaunchDbSystemResponse = LaunchDbSystemResponse.LaunchDbSystemResponse;
+import * as ListAutonomousContainerDatabaseDataguardAssociationsResponse from "./list-autonomous-container-database-dataguard-associations-response";
+export import ListAutonomousContainerDatabaseDataguardAssociationsResponse = ListAutonomousContainerDatabaseDataguardAssociationsResponse.ListAutonomousContainerDatabaseDataguardAssociationsResponse;
 import * as ListAutonomousContainerDatabasesResponse from "./list-autonomous-container-databases-response";
 export import ListAutonomousContainerDatabasesResponse = ListAutonomousContainerDatabasesResponse.ListAutonomousContainerDatabasesResponse;
 import * as ListAutonomousDataWarehouseBackupsResponse from "./list-autonomous-data-warehouse-backups-response";
@@ -212,6 +220,8 @@ import * as ListAutonomousDatabaseBackupsResponse from "./list-autonomous-databa
 export import ListAutonomousDatabaseBackupsResponse = ListAutonomousDatabaseBackupsResponse.ListAutonomousDatabaseBackupsResponse;
 import * as ListAutonomousDatabaseClonesResponse from "./list-autonomous-database-clones-response";
 export import ListAutonomousDatabaseClonesResponse = ListAutonomousDatabaseClonesResponse.ListAutonomousDatabaseClonesResponse;
+import * as ListAutonomousDatabaseDataguardAssociationsResponse from "./list-autonomous-database-dataguard-associations-response";
+export import ListAutonomousDatabaseDataguardAssociationsResponse = ListAutonomousDatabaseDataguardAssociationsResponse.ListAutonomousDatabaseDataguardAssociationsResponse;
 import * as ListAutonomousDatabasesResponse from "./list-autonomous-databases-response";
 export import ListAutonomousDatabasesResponse = ListAutonomousDatabasesResponse.ListAutonomousDatabasesResponse;
 import * as ListAutonomousDbPreviewVersionsResponse from "./list-autonomous-db-preview-versions-response";
@@ -282,6 +292,8 @@ import * as MigrateExadataDbSystemResourceModelResponse from "./migrate-exadata-
 export import MigrateExadataDbSystemResourceModelResponse = MigrateExadataDbSystemResourceModelResponse.MigrateExadataDbSystemResourceModelResponse;
 import * as RegisterAutonomousDatabaseDataSafeResponse from "./register-autonomous-database-data-safe-response";
 export import RegisterAutonomousDatabaseDataSafeResponse = RegisterAutonomousDatabaseDataSafeResponse.RegisterAutonomousDatabaseDataSafeResponse;
+import * as ReinstateAutonomousContainerDatabaseDataguardAssociationResponse from "./reinstate-autonomous-container-database-dataguard-association-response";
+export import ReinstateAutonomousContainerDatabaseDataguardAssociationResponse = ReinstateAutonomousContainerDatabaseDataguardAssociationResponse.ReinstateAutonomousContainerDatabaseDataguardAssociationResponse;
 import * as ReinstateDataGuardAssociationResponse from "./reinstate-data-guard-association-response";
 export import ReinstateDataGuardAssociationResponse = ReinstateDataGuardAssociationResponse.ReinstateDataGuardAssociationResponse;
 import * as RestartAutonomousContainerDatabaseResponse from "./restart-autonomous-container-database-response";
@@ -306,6 +318,8 @@ import * as StopAutonomousDataWarehouseResponse from "./stop-autonomous-data-war
 export import StopAutonomousDataWarehouseResponse = StopAutonomousDataWarehouseResponse.StopAutonomousDataWarehouseResponse;
 import * as StopAutonomousDatabaseResponse from "./stop-autonomous-database-response";
 export import StopAutonomousDatabaseResponse = StopAutonomousDatabaseResponse.StopAutonomousDatabaseResponse;
+import * as SwitchoverAutonomousContainerDatabaseDataguardAssociationResponse from "./switchover-autonomous-container-database-dataguard-association-response";
+export import SwitchoverAutonomousContainerDatabaseDataguardAssociationResponse = SwitchoverAutonomousContainerDatabaseDataguardAssociationResponse.SwitchoverAutonomousContainerDatabaseDataguardAssociationResponse;
 import * as SwitchoverAutonomousDatabaseResponse from "./switchover-autonomous-database-response";
 export import SwitchoverAutonomousDatabaseResponse = SwitchoverAutonomousDatabaseResponse.SwitchoverAutonomousDatabaseResponse;
 import * as SwitchoverDataGuardAssociationResponse from "./switchover-data-guard-association-response";

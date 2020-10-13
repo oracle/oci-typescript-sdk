@@ -30,6 +30,12 @@ export interface UpdateAutonomousContainerDatabaseDetails {
   "patchModel"?: UpdateAutonomousContainerDatabaseDetails.PatchModel;
   "maintenanceWindowDetails"?: model.MaintenanceWindow;
   /**
+   * The scheduling detail for the quarterly maintenance window of the standby Autonomous Container Database.
+   * This value represents the number of days before the primary database maintenance schedule.
+   *
+   */
+  "standbyMaintenanceBufferInDays"?: number;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>

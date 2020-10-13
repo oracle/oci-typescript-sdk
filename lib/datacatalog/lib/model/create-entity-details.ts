@@ -45,6 +45,14 @@ export interface CreateEntityDetails {
    */
   "folderKey"?: string;
   /**
+   * Key of the associated pattern if this is a logical entity.
+   */
+  "patternKey"?: string;
+  /**
+   * The expression realized after resolving qualifiers . Used in deriving this logical entity
+   */
+  "realizedExpression"?: string;
+  /**
    * Status of the object as updated by the harvest process. When an entity object is created , it's harvest status
    * will indicate if the entity's metadata has been fully harvested or not. The harvest process can perform
    * shallow harvesting to allow users to browse the metadata and can on-demand deep harvest on any object
@@ -56,6 +64,10 @@ export interface CreateEntityDetails {
    * Key of the last harvest process to update this object.
    */
   "lastJobKey"?: string;
+  /**
+   * The list of customized properties along with the values for this object
+   */
+  "customPropertyMembers"?: Array<model.CustomPropertySetUsage>;
   /**
    * A map of maps that contains the properties which are specific to the entity type. Each entity type
    * definition defines it's set of required and optional properties. The map keys are category names and the
@@ -72,7 +84,16 @@ export interface CreateEntityDetails {
 
 export namespace CreateEntityDetails {
   export function getJsonObj(obj: CreateEntityDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customPropertyMembers": obj.customPropertyMembers
+          ? obj.customPropertyMembers.map(item => {
+              return model.CustomPropertySetUsage.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

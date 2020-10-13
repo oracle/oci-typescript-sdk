@@ -1,6 +1,6 @@
 /**
- * PublicLoggingDataplane API
- * PublicLoggingDataplane API specification
+ * Logging Ingestion API
+ * Use the Logging Ingestion API to ingest your application logs.
  * OpenAPI spec version: 20200831
  *
  *

@@ -36,14 +36,22 @@ export class ApiGatewayClient {
   protected "_defaultHeaders": any = {};
   protected "_waiters": ApiGatewayWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
 
   protected _httpClient: common.HttpClient;
 
-  constructor(params: common.AuthParams) {
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
-    this._httpClient = params.httpClient || new common.FetchHttpClient(requestSigner);
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+    }
+    this._httpClient =
+      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
     if (
       params.authenticationDetailsProvider &&
@@ -128,10 +136,69 @@ export class ApiGatewayClient {
   }
 
   /**
-   * Sets the client configuration for the client
+   * Changes the API compartment.
+   * @param ChangeApiCompartmentRequest
+   * @return ChangeApiCompartmentResponse
+   * @throws OciError when an error occurs
    */
-  public set clientConfiguration(clientConfiguration: common.ClientConfiguration) {
-    this._clientConfiguration = clientConfiguration;
+  public async changeApiCompartment(
+    changeApiCompartmentRequest: requests.ChangeApiCompartmentRequest
+  ): Promise<responses.ChangeApiCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#changeApiCompartment.");
+    const pathParams = {
+      "{apiId}": changeApiCompartmentRequest.apiId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeApiCompartmentRequest.opcRetryToken,
+      "if-match": changeApiCompartmentRequest.ifMatch,
+      "opc-request-id": changeApiCompartmentRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/apis/{apiId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeApiCompartmentRequest.changeApiCompartmentDetails,
+        "ChangeApiCompartmentDetails",
+        models.ChangeApiCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeApiCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeApiCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -185,6 +252,83 @@ export class ApiGatewayClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new API.
+   *
+   * @param CreateApiRequest
+   * @return CreateApiResponse
+   * @throws OciError when an error occurs
+   */
+  public async createApi(
+    createApiRequest: requests.CreateApiRequest
+  ): Promise<responses.CreateApiResponse> {
+    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#createApi.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createApiRequest.opcRetryToken,
+      "opc-request-id": createApiRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/apis",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createApiRequest.createApiDetails,
+        "CreateApiDetails",
+        models.CreateApiDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createApiRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateApiResponse>{},
+        body: await response.json(),
+        bodyKey: "api",
+        bodyModel: "model.Api",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
             dataType: "string"
           }
         ]
@@ -274,6 +418,66 @@ export class ApiGatewayClient {
   }
 
   /**
+   * Deletes the API with the given identifier.
+   * @param DeleteApiRequest
+   * @return DeleteApiResponse
+   * @throws OciError when an error occurs
+   */
+  public async deleteApi(
+    deleteApiRequest: requests.DeleteApiRequest
+  ): Promise<responses.DeleteApiResponse> {
+    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#deleteApi.");
+    const pathParams = {
+      "{apiId}": deleteApiRequest.apiId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteApiRequest.ifMatch,
+      "opc-request-id": deleteApiRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/apis/{apiId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteApiRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteApiResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the certificate with the given identifier.
    * @param DeleteCertificateRequest
    * @return DeleteCertificateResponse
@@ -317,6 +521,262 @@ export class ApiGatewayClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets an API by identifier.
+   * @param GetApiRequest
+   * @return GetApiResponse
+   * @throws OciError when an error occurs
+   */
+  public async getApi(getApiRequest: requests.GetApiRequest): Promise<responses.GetApiResponse> {
+    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#getApi.");
+    const pathParams = {
+      "{apiId}": getApiRequest.apiId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getApiRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/apis/{apiId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getApiRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetApiResponse>{},
+        body: await response.json(),
+        bodyKey: "api",
+        bodyModel: "model.Api",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the raw API content.
+   * @param GetApiContentRequest
+   * @return GetApiContentResponse
+   * @throws OciError when an error occurs
+   */
+  public async getApiContent(
+    getApiContentRequest: requests.GetApiContentRequest
+  ): Promise<responses.GetApiContentResponse> {
+    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#getApiContent.");
+    const pathParams = {
+      "{apiId}": getApiContentRequest.apiId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getApiContentRequest.opcRequestId,
+      "if-match": getApiContentRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/apis/{apiId}/content",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getApiContentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetApiContentResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("x-content-sha256"),
+            key: "xContentSha256",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets an API Deployment specification by identifier.
+   * @param GetApiDeploymentSpecificationRequest
+   * @return GetApiDeploymentSpecificationResponse
+   * @throws OciError when an error occurs
+   */
+  public async getApiDeploymentSpecification(
+    getApiDeploymentSpecificationRequest: requests.GetApiDeploymentSpecificationRequest
+  ): Promise<responses.GetApiDeploymentSpecificationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApiGatewayClient#getApiDeploymentSpecification.");
+    const pathParams = {
+      "{apiId}": getApiDeploymentSpecificationRequest.apiId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getApiDeploymentSpecificationRequest.opcRequestId,
+      "if-match": getApiDeploymentSpecificationRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/apis/{apiId}/deploymentSpecification",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getApiDeploymentSpecificationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetApiDeploymentSpecificationResponse>{},
+        body: await response.json(),
+        bodyKey: "apiSpecification",
+        bodyModel: "model.ApiSpecification",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the API validation results.
+   * @param GetApiValidationsRequest
+   * @return GetApiValidationsResponse
+   * @throws OciError when an error occurs
+   */
+  public async getApiValidations(
+    getApiValidationsRequest: requests.GetApiValidationsRequest
+  ): Promise<responses.GetApiValidationsResponse> {
+    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#getApiValidations.");
+    const pathParams = {
+      "{apiId}": getApiValidationsRequest.apiId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getApiValidationsRequest.opcRequestId,
+      "if-match": getApiValidationsRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/apis/{apiId}/validations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getApiValidationsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetApiValidationsResponse>{},
+        body: await response.json(),
+        bodyKey: "apiValidations",
+        bodyModel: "model.ApiValidations",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {
@@ -384,6 +844,80 @@ export class ApiGatewayClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of APIs.
+   *
+   * @param ListApisRequest
+   * @return ListApisResponse
+   * @throws OciError when an error occurs
+   */
+  public async listApis(
+    listApisRequest: requests.ListApisRequest
+  ): Promise<responses.ListApisResponse> {
+    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#listApis.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listApisRequest.compartmentId,
+      "displayName": listApisRequest.displayName,
+      "lifecycleState": listApisRequest.lifecycleState,
+      "limit": listApisRequest.limit,
+      "page": listApisRequest.page,
+      "sortOrder": listApisRequest.sortOrder,
+      "sortBy": listApisRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listApisRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/apis",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listApisRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListApisResponse>{},
+        body: await response.json(),
+        bodyKey: "apiCollection",
+        bodyModel: "model.ApiCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
             dataType: "string"
           }
         ]
@@ -470,6 +1004,71 @@ export class ApiGatewayClient {
   }
 
   /**
+   * Updates the API with the given identifier.
+   * @param UpdateApiRequest
+   * @return UpdateApiResponse
+   * @throws OciError when an error occurs
+   */
+  public async updateApi(
+    updateApiRequest: requests.UpdateApiRequest
+  ): Promise<responses.UpdateApiResponse> {
+    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#updateApi.");
+    const pathParams = {
+      "{apiId}": updateApiRequest.apiId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateApiRequest.ifMatch,
+      "opc-request-id": updateApiRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/apis/{apiId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateApiRequest.updateApiDetails,
+        "UpdateApiDetails",
+        models.UpdateApiDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateApiRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateApiResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates a certificate with the given identifier
    * @param UpdateCertificateRequest
    * @return UpdateCertificateResponse
@@ -542,14 +1141,22 @@ export class DeploymentClient {
   protected "_defaultHeaders": any = {};
   protected "_waiters": DeploymentWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
 
   protected _httpClient: common.HttpClient;
 
-  constructor(params: common.AuthParams) {
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
-    this._httpClient = params.httpClient || new common.FetchHttpClient(requestSigner);
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+    }
+    this._httpClient =
+      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
     if (
       params.authenticationDetailsProvider &&
@@ -631,13 +1238,6 @@ export class DeploymentClient {
       return this._waiters;
     }
     throw Error("Waiters do not exist. Please create waiters.");
-  }
-
-  /**
-   * Sets the client configuration for the client
-   */
-  public set clientConfiguration(clientConfiguration: common.ClientConfiguration) {
-    this._clientConfiguration = clientConfiguration;
   }
 
   /**
@@ -1054,14 +1654,22 @@ export class GatewayClient {
   protected "_defaultHeaders": any = {};
   protected "_waiters": GatewayWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
 
   protected _httpClient: common.HttpClient;
 
-  constructor(params: common.AuthParams) {
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
-    this._httpClient = params.httpClient || new common.FetchHttpClient(requestSigner);
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+    }
+    this._httpClient =
+      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
     if (
       params.authenticationDetailsProvider &&
@@ -1143,13 +1751,6 @@ export class GatewayClient {
       return this._waiters;
     }
     throw Error("Waiters do not exist. Please create waiters.");
-  }
-
-  /**
-   * Sets the client configuration for the client
-   */
-  public set clientConfiguration(clientConfiguration: common.ClientConfiguration) {
-    this._clientConfiguration = clientConfiguration;
   }
 
   /**
@@ -1565,14 +2166,22 @@ export class WorkRequestsClient {
   protected "_defaultHeaders": any = {};
   protected "_waiters": WorkRequestsWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
 
   protected _httpClient: common.HttpClient;
 
-  constructor(params: common.AuthParams) {
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
-    this._httpClient = params.httpClient || new common.FetchHttpClient(requestSigner);
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+    }
+    this._httpClient =
+      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
     if (
       params.authenticationDetailsProvider &&
@@ -1654,13 +2263,6 @@ export class WorkRequestsClient {
       return this._waiters;
     }
     throw Error("Waiters do not exist. Please create waiters.");
-  }
-
-  /**
-   * Sets the client configuration for the client
-   */
-  public set clientConfiguration(clientConfiguration: common.ClientConfiguration) {
-    this._clientConfiguration = clientConfiguration;
   }
 
   /**

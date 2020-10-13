@@ -14,16 +14,34 @@ For more information, see
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeApiCompartmentRequest from "./change-api-compartment-request";
+export import ChangeApiCompartmentRequest = ChangeApiCompartmentRequest.ChangeApiCompartmentRequest;
 import * as ChangeCertificateCompartmentRequest from "./change-certificate-compartment-request";
 export import ChangeCertificateCompartmentRequest = ChangeCertificateCompartmentRequest.ChangeCertificateCompartmentRequest;
+import * as CreateApiRequest from "./create-api-request";
+export import CreateApiRequest = CreateApiRequest.CreateApiRequest;
 import * as CreateCertificateRequest from "./create-certificate-request";
 export import CreateCertificateRequest = CreateCertificateRequest.CreateCertificateRequest;
+import * as DeleteApiRequest from "./delete-api-request";
+export import DeleteApiRequest = DeleteApiRequest.DeleteApiRequest;
 import * as DeleteCertificateRequest from "./delete-certificate-request";
 export import DeleteCertificateRequest = DeleteCertificateRequest.DeleteCertificateRequest;
+import * as GetApiRequest from "./get-api-request";
+export import GetApiRequest = GetApiRequest.GetApiRequest;
+import * as GetApiContentRequest from "./get-api-content-request";
+export import GetApiContentRequest = GetApiContentRequest.GetApiContentRequest;
+import * as GetApiDeploymentSpecificationRequest from "./get-api-deployment-specification-request";
+export import GetApiDeploymentSpecificationRequest = GetApiDeploymentSpecificationRequest.GetApiDeploymentSpecificationRequest;
+import * as GetApiValidationsRequest from "./get-api-validations-request";
+export import GetApiValidationsRequest = GetApiValidationsRequest.GetApiValidationsRequest;
 import * as GetCertificateRequest from "./get-certificate-request";
 export import GetCertificateRequest = GetCertificateRequest.GetCertificateRequest;
+import * as ListApisRequest from "./list-apis-request";
+export import ListApisRequest = ListApisRequest.ListApisRequest;
 import * as ListCertificatesRequest from "./list-certificates-request";
 export import ListCertificatesRequest = ListCertificatesRequest.ListCertificatesRequest;
+import * as UpdateApiRequest from "./update-api-request";
+export import UpdateApiRequest = UpdateApiRequest.UpdateApiRequest;
 import * as UpdateCertificateRequest from "./update-certificate-request";
 export import UpdateCertificateRequest = UpdateCertificateRequest.UpdateCertificateRequest;
 import * as ChangeDeploymentCompartmentRequest from "./change-deployment-compartment-request";

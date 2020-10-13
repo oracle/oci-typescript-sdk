@@ -16,6 +16,10 @@ For more information, see
 
 import * as AccessLogPolicy from "./access-log-policy";
 export import AccessLogPolicy = AccessLogPolicy.AccessLogPolicy;
+import * as Api from "./api";
+export import Api = Api.Api;
+import * as ApiCollection from "./api-collection";
+export import ApiCollection = ApiCollection.ApiCollection;
 import * as ApiSpecification from "./api-specification";
 export import ApiSpecification = ApiSpecification.ApiSpecification;
 import * as ApiSpecificationLoggingPolicies from "./api-specification-logging-policies";
@@ -30,6 +34,16 @@ import * as ApiSpecificationRouteRequestPolicies from "./api-specification-route
 export import ApiSpecificationRouteRequestPolicies = ApiSpecificationRouteRequestPolicies.ApiSpecificationRouteRequestPolicies;
 import * as ApiSpecificationRouteResponsePolicies from "./api-specification-route-response-policies";
 export import ApiSpecificationRouteResponsePolicies = ApiSpecificationRouteResponsePolicies.ApiSpecificationRouteResponsePolicies;
+import * as ApiSummary from "./api-summary";
+export import ApiSummary = ApiSummary.ApiSummary;
+import * as ApiValidationDetail from "./api-validation-detail";
+export import ApiValidationDetail = ApiValidationDetail.ApiValidationDetail;
+import * as ApiValidationDetails from "./api-validation-details";
+export import ApiValidationDetails = ApiValidationDetails.ApiValidationDetails;
+import * as ApiValidationResult from "./api-validation-result";
+export import ApiValidationResult = ApiValidationResult.ApiValidationResult;
+import * as ApiValidations from "./api-validations";
+export import ApiValidations = ApiValidations.ApiValidations;
 import * as AuthenticationPolicy from "./authentication-policy";
 export import AuthenticationPolicy = AuthenticationPolicy.AuthenticationPolicy;
 import * as Certificate from "./certificate";
@@ -38,6 +52,8 @@ import * as CertificateCollection from "./certificate-collection";
 export import CertificateCollection = CertificateCollection.CertificateCollection;
 import * as CertificateSummary from "./certificate-summary";
 export import CertificateSummary = CertificateSummary.CertificateSummary;
+import * as ChangeApiCompartmentDetails from "./change-api-compartment-details";
+export import ChangeApiCompartmentDetails = ChangeApiCompartmentDetails.ChangeApiCompartmentDetails;
 import * as ChangeCertificateCompartmentDetails from "./change-certificate-compartment-details";
 export import ChangeCertificateCompartmentDetails = ChangeCertificateCompartmentDetails.ChangeCertificateCompartmentDetails;
 import * as ChangeDeploymentCompartmentDetails from "./change-deployment-compartment-details";
@@ -46,6 +62,8 @@ import * as ChangeGatewayCompartmentDetails from "./change-gateway-compartment-d
 export import ChangeGatewayCompartmentDetails = ChangeGatewayCompartmentDetails.ChangeGatewayCompartmentDetails;
 import * as CorsPolicy from "./cors-policy";
 export import CorsPolicy = CorsPolicy.CorsPolicy;
+import * as CreateApiDetails from "./create-api-details";
+export import CreateApiDetails = CreateApiDetails.CreateApiDetails;
 import * as CreateCertificateDetails from "./create-certificate-details";
 export import CreateCertificateDetails = CreateCertificateDetails.CreateCertificateDetails;
 import * as CreateDeploymentDetails from "./create-deployment-details";
@@ -108,6 +126,8 @@ import * as SetQueryParameterPolicyItem from "./set-query-parameter-policy-item"
 export import SetQueryParameterPolicyItem = SetQueryParameterPolicyItem.SetQueryParameterPolicyItem;
 import * as StaticPublicKey from "./static-public-key";
 export import StaticPublicKey = StaticPublicKey.StaticPublicKey;
+import * as UpdateApiDetails from "./update-api-details";
+export import UpdateApiDetails = UpdateApiDetails.UpdateApiDetails;
 import * as UpdateCertificateDetails from "./update-certificate-details";
 export import UpdateCertificateDetails = UpdateCertificateDetails.UpdateCertificateDetails;
 import * as UpdateDeploymentDetails from "./update-deployment-details";

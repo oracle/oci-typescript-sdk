@@ -61,6 +61,10 @@ export interface ListAutonomousContainerDatabasesRequest extends common.BaseRequ
    * A filter to return only resources that match the entire display name given. The match is not case sensitive.
    */
   "displayName"?: string;
+  /**
+   * A filter to return only resources that match the given service-level agreement type exactly.
+   */
+  "serviceLevelAgreementType"?: string;
 }
 
 export namespace ListAutonomousContainerDatabasesRequest {

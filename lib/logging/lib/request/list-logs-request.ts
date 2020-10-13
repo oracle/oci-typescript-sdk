@@ -19,15 +19,15 @@ export interface ListLogsRequest extends common.BaseRequest {
    */
   "logGroupId": string;
   /**
-   * The logType that the log object is for, custom or service.
+   * The logType that the log object is for, whether custom or service.
    */
   "logType"?: ListLogsRequest.LogType;
   /**
-   * Service created the log object
+   * Service that created the log object.
    */
   "sourceService"?: string;
   /**
-   * Log object resource
+   * Log object resource.
    */
   "sourceResource"?: string;
   /**
@@ -56,7 +56,7 @@ export interface ListLogsRequest extends common.BaseRequest {
    */
   "sortBy"?: ListLogsRequest.SortBy;
   /**
-   * The sort order to use, either 'asc' or 'desc'
+   * The sort order to use, whether 'asc' or 'desc'.
    *
    */
   "sortOrder"?: ListLogsRequest.SortOrder;

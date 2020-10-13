@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface GetUnifiedAgentConfigurationRequest extends common.BaseRequest {
   /**
-   * The OCID of the unified agent configuration.
+   * The OCID of the Unified Agent configuration.
    */
   "unifiedAgentConfigurationId": string;
   /**

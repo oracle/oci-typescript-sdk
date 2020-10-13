@@ -24,6 +24,7 @@ import {
   URLBasedX509CertificateSupplier,
   ResourceDetails
 } from "./url-based-x509-certificate-supplier";
+import CircuitBreaker from "../circuit-breaker";
 
 export default abstract class AbstractFederationClientAuthenticationDetailsProviderBuilder<
   B extends AbstractFederationClientAuthenticationDetailsProviderBuilder<B, P>,
@@ -185,7 +186,7 @@ export default abstract class AbstractFederationClientAuthenticationDetailsProvi
       headers.append("accept", "text/plain");
       headers.append("Content-Type", "application/json");
       headers.append(this.AUTHORIZATION, this.METADATA_AUTH_HEADERS);
-      const httpClient = new FetchHttpClient(null);
+      const httpClient = new FetchHttpClient(null, CircuitBreaker.internalCircuit);
       const response = await httpClient.send({
         uri: url,
         method: "GET",

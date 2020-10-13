@@ -1,6 +1,6 @@
 /**
- * loggingManagementControlplane API
- * loggingManagementControlplane API specification
+ * Logging Management API
+ * Use the Logging Management API to create, read, list, update, and delete log groups, log objects, and agent configurations.
  * OpenAPI spec version: 20200531
  *
  *
@@ -56,6 +56,24 @@ export class LoggingManagementWaiter {
       this.config,
       () => this.client.getLogGroup(request),
       response => targetStates.exists(response.logGroup.lifecycleState)
+    );
+  }
+
+  /**
+   * Waits forLogSavedSearch till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetLogSavedSearchResponse
+   */
+  public async forLogSavedSearch(
+    request: serviceRequests.GetLogSavedSearchRequest,
+    ...targetStates: models.LogSavedSearchLifecycleState[]
+  ): Promise<serviceResponses.GetLogSavedSearchResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getLogSavedSearch(request),
+      response => targetStates.exists(response.logSavedSearch.lifecycleState)
     );
   }
 

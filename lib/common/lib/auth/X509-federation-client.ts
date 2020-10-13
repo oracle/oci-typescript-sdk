@@ -17,6 +17,7 @@ import { SignerRequest } from "../signer";
 import { FetchHttpClient } from "../http";
 import { PrivateKey } from "sshpk";
 import { getStringFromRequestBody } from "../helper";
+import CircuitBreaker from "../circuit-breaker";
 
 /**
  * This class gets a security token from the auth service by signing the request with a PKI issued leaf certificate,
@@ -192,7 +193,7 @@ export default class X509FederationClient implements FederationClient {
       const privateKey = certificateAndKeyPair.getPrivateKey() as PrivateKey;
       // Instantiate AuthTokenRequestSigner to sign the request
       const signer = new AuthTokenRequestSigner(this.tenancyId, fingerprint, privateKey);
-      const httpClient = new FetchHttpClient(signer);
+      const httpClient = new FetchHttpClient(signer, CircuitBreaker.internalCircuit);
 
       // Call Auth Service to get a JSON object which contains the auth token
       const response = await httpClient.send(requestObj);

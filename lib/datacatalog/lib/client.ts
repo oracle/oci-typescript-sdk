@@ -31,14 +31,22 @@ export class DataCatalogClient {
   protected "_defaultHeaders": any = {};
   protected "_waiters": DataCatalogWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
 
   protected _httpClient: common.HttpClient;
 
-  constructor(params: common.AuthParams) {
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
-    this._httpClient = params.httpClient || new common.FetchHttpClient(requestSigner);
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+    }
+    this._httpClient =
+      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
     if (
       params.authenticationDetailsProvider &&
@@ -123,10 +131,145 @@ export class DataCatalogClient {
   }
 
   /**
-   * Sets the client configuration for the client
+   * Add data selector pattern to the data asset.
+   * @param AddDataSelectorPatternsRequest
+   * @return AddDataSelectorPatternsResponse
+   * @throws OciError when an error occurs
    */
-  public set clientConfiguration(clientConfiguration: common.ClientConfiguration) {
-    this._clientConfiguration = clientConfiguration;
+  public async addDataSelectorPatterns(
+    addDataSelectorPatternsRequest: requests.AddDataSelectorPatternsRequest
+  ): Promise<responses.AddDataSelectorPatternsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#addDataSelectorPatterns.");
+    const pathParams = {
+      "{catalogId}": addDataSelectorPatternsRequest.catalogId,
+      "{dataAssetKey}": addDataSelectorPatternsRequest.dataAssetKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addDataSelectorPatternsRequest.opcRequestId,
+      "if-match": addDataSelectorPatternsRequest.ifMatch,
+      "opc-retry-token": addDataSelectorPatternsRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/dataAssets/{dataAssetKey}/actions/addDataSelectorPatterns",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addDataSelectorPatternsRequest.dataSelectorPatternDetails,
+        "DataSelectorPatternDetails",
+        models.DataSelectorPatternDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      addDataSelectorPatternsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddDataSelectorPatternsResponse>{},
+        body: await response.json(),
+        bodyKey: "dataAsset",
+        bodyModel: "model.DataAsset",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Associate the custom property for the given type
+   * @param AssociateCustomPropertyRequest
+   * @return AssociateCustomPropertyResponse
+   * @throws OciError when an error occurs
+   */
+  public async associateCustomProperty(
+    associateCustomPropertyRequest: requests.AssociateCustomPropertyRequest
+  ): Promise<responses.AssociateCustomPropertyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#associateCustomProperty.");
+    const pathParams = {
+      "{catalogId}": associateCustomPropertyRequest.catalogId,
+      "{typeKey}": associateCustomPropertyRequest.typeKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": associateCustomPropertyRequest.opcRequestId,
+      "if-match": associateCustomPropertyRequest.ifMatch,
+      "opc-retry-token": associateCustomPropertyRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/types/{typeKey}/actions/associateCustomProperties",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        associateCustomPropertyRequest.associateCustomPropertyDetails,
+        "TypeCustomPropertyDetails",
+        models.TypeCustomPropertyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      associateCustomPropertyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AssociateCustomPropertyResponse>{},
+        body: await response.json(),
+        bodyKey: "type",
+        bodyModel: "model.Type",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -651,6 +794,75 @@ export class DataCatalogClient {
         body: await response.json(),
         bodyKey: "connection",
         bodyModel: "model.Connection",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a new Custom Property
+   * @param CreateCustomPropertyRequest
+   * @return CreateCustomPropertyResponse
+   * @throws OciError when an error occurs
+   */
+  public async createCustomProperty(
+    createCustomPropertyRequest: requests.CreateCustomPropertyRequest
+  ): Promise<responses.CreateCustomPropertyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createCustomProperty.");
+    const pathParams = {
+      "{catalogId}": createCustomPropertyRequest.catalogId,
+      "{namespaceId}": createCustomPropertyRequest.namespaceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createCustomPropertyRequest.opcRequestId,
+      "opc-retry-token": createCustomPropertyRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/namespaces/{namespaceId}/customProperties",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createCustomPropertyRequest.createCustomPropertyDetails,
+        "CreateCustomPropertyDetails",
+        models.CreateCustomPropertyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createCustomPropertyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateCustomPropertyResponse>{},
+        body: await response.json(),
+        bodyKey: "customProperty",
+        bodyModel: "model.CustomProperty",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1360,6 +1572,142 @@ export class DataCatalogClient {
   }
 
   /**
+   * Create a new Namespace to be used by a custom property
+   * @param CreateNamespaceRequest
+   * @return CreateNamespaceResponse
+   * @throws OciError when an error occurs
+   */
+  public async createNamespace(
+    createNamespaceRequest: requests.CreateNamespaceRequest
+  ): Promise<responses.CreateNamespaceResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createNamespace.");
+    const pathParams = {
+      "{catalogId}": createNamespaceRequest.catalogId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createNamespaceRequest.opcRequestId,
+      "opc-retry-token": createNamespaceRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/namespaces",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createNamespaceRequest.createNamespaceDetails,
+        "CreateNamespaceDetails",
+        models.CreateNamespaceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createNamespaceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateNamespaceResponse>{},
+        body: await response.json(),
+        bodyKey: "namespace",
+        bodyModel: "model.Namespace",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a new pattern.
+   * @param CreatePatternRequest
+   * @return CreatePatternResponse
+   * @throws OciError when an error occurs
+   */
+  public async createPattern(
+    createPatternRequest: requests.CreatePatternRequest
+  ): Promise<responses.CreatePatternResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createPattern.");
+    const pathParams = {
+      "{catalogId}": createPatternRequest.catalogId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createPatternRequest.opcRequestId,
+      "opc-retry-token": createPatternRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/patterns",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createPatternRequest.createPatternDetails,
+        "CreatePatternDetails",
+        models.CreatePatternDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createPatternRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreatePatternResponse>{},
+        body: await response.json(),
+        bodyKey: "pattern",
+        bodyModel: "model.Pattern",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Create a new term within a glossary.
    * @param CreateTermRequest
    * @return CreateTermResponse
@@ -1781,6 +2129,63 @@ export class DataCatalogClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteConnectionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a specific custom property identified by it's key.
+   * @param DeleteCustomPropertyRequest
+   * @return DeleteCustomPropertyResponse
+   * @throws OciError when an error occurs
+   */
+  public async deleteCustomProperty(
+    deleteCustomPropertyRequest: requests.DeleteCustomPropertyRequest
+  ): Promise<responses.DeleteCustomPropertyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteCustomProperty.");
+    const pathParams = {
+      "{catalogId}": deleteCustomPropertyRequest.catalogId,
+      "{namespaceId}": deleteCustomPropertyRequest.namespaceId,
+      "{customPropertyKey}": deleteCustomPropertyRequest.customPropertyKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteCustomPropertyRequest.ifMatch,
+      "opc-request-id": deleteCustomPropertyRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/namespaces/{namespaceId}/customProperties/{customPropertyKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteCustomPropertyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteCustomPropertyResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2308,6 +2713,118 @@ export class DataCatalogClient {
   }
 
   /**
+   * Deletes a specific Namespace identified by it's key.
+   * @param DeleteNamespaceRequest
+   * @return DeleteNamespaceResponse
+   * @throws OciError when an error occurs
+   */
+  public async deleteNamespace(
+    deleteNamespaceRequest: requests.DeleteNamespaceRequest
+  ): Promise<responses.DeleteNamespaceResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteNamespace.");
+    const pathParams = {
+      "{catalogId}": deleteNamespaceRequest.catalogId,
+      "{namespaceId}": deleteNamespaceRequest.namespaceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteNamespaceRequest.ifMatch,
+      "opc-request-id": deleteNamespaceRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/namespaces/{namespaceId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteNamespaceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteNamespaceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a specific pattern identified by it's key.
+   * @param DeletePatternRequest
+   * @return DeletePatternResponse
+   * @throws OciError when an error occurs
+   */
+  public async deletePattern(
+    deletePatternRequest: requests.DeletePatternRequest
+  ): Promise<responses.DeletePatternResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deletePattern.");
+    const pathParams = {
+      "{catalogId}": deletePatternRequest.catalogId,
+      "{patternKey}": deletePatternRequest.patternKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deletePatternRequest.ifMatch,
+      "opc-request-id": deletePatternRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/patterns/{patternKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deletePatternRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeletePatternResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a specific glossary term.
    * @param DeleteTermRequest
    * @return DeleteTermResponse
@@ -2474,6 +2991,77 @@ export class DataCatalogClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove the custom property for the given type
+   * @param DisassociateCustomPropertyRequest
+   * @return DisassociateCustomPropertyResponse
+   * @throws OciError when an error occurs
+   */
+  public async disassociateCustomProperty(
+    disassociateCustomPropertyRequest: requests.DisassociateCustomPropertyRequest
+  ): Promise<responses.DisassociateCustomPropertyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#disassociateCustomProperty.");
+    const pathParams = {
+      "{catalogId}": disassociateCustomPropertyRequest.catalogId,
+      "{typeKey}": disassociateCustomPropertyRequest.typeKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": disassociateCustomPropertyRequest.opcRequestId,
+      "if-match": disassociateCustomPropertyRequest.ifMatch,
+      "opc-retry-token": disassociateCustomPropertyRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/types/{typeKey}/actions/disassociateCustomProperties",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        disassociateCustomPropertyRequest.disassociateCustomPropertyDetails,
+        "TypeCustomPropertyDetails",
+        models.TypeCustomPropertyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      disassociateCustomPropertyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisassociateCustomPropertyResponse>{},
+        body: await response.json(),
+        bodyKey: "type",
+        bodyModel: "model.Type",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {
@@ -2929,6 +3517,72 @@ export class DataCatalogClient {
         body: await response.json(),
         bodyKey: "connection",
         bodyModel: "model.Connection",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a specific custom property for the given key within a data catalog.
+   * @param GetCustomPropertyRequest
+   * @return GetCustomPropertyResponse
+   * @throws OciError when an error occurs
+   */
+  public async getCustomProperty(
+    getCustomPropertyRequest: requests.GetCustomPropertyRequest
+  ): Promise<responses.GetCustomPropertyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getCustomProperty.");
+    const pathParams = {
+      "{catalogId}": getCustomPropertyRequest.catalogId,
+      "{namespaceId}": getCustomPropertyRequest.namespaceId,
+      "{customPropertyKey}": getCustomPropertyRequest.customPropertyKey
+    };
+
+    const queryParams = {
+      "fields": getCustomPropertyRequest.fields
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCustomPropertyRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/namespaces/{namespaceId}/customProperties/{customPropertyKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getCustomPropertyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCustomPropertyResponse>{},
+        body: await response.json(),
+        bodyKey: "customProperty",
+        bodyModel: "model.CustomProperty",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3741,6 +4395,136 @@ export class DataCatalogClient {
   }
 
   /**
+   * Gets a specific namespace for the given key within a data catalog.
+   * @param GetNamespaceRequest
+   * @return GetNamespaceResponse
+   * @throws OciError when an error occurs
+   */
+  public async getNamespace(
+    getNamespaceRequest: requests.GetNamespaceRequest
+  ): Promise<responses.GetNamespaceResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getNamespace.");
+    const pathParams = {
+      "{catalogId}": getNamespaceRequest.catalogId,
+      "{namespaceId}": getNamespaceRequest.namespaceId
+    };
+
+    const queryParams = {
+      "fields": getNamespaceRequest.fields
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getNamespaceRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/namespaces/{namespaceId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getNamespaceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetNamespaceResponse>{},
+        body: await response.json(),
+        bodyKey: "namespace",
+        bodyModel: "model.Namespace",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a specific pattern for the given key within a data catalog.
+   * @param GetPatternRequest
+   * @return GetPatternResponse
+   * @throws OciError when an error occurs
+   */
+  public async getPattern(
+    getPatternRequest: requests.GetPatternRequest
+  ): Promise<responses.GetPatternResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getPattern.");
+    const pathParams = {
+      "{catalogId}": getPatternRequest.catalogId,
+      "{patternKey}": getPatternRequest.patternKey
+    };
+
+    const queryParams = {
+      "fields": getPatternRequest.fields
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPatternRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/patterns/{patternKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getPatternRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPatternResponse>{},
+        body: await response.json(),
+        bodyKey: "pattern",
+        bodyModel: "model.Pattern",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a specific glossary term by key.
    * @param GetTermRequest
    * @return GetTermResponse
@@ -4130,6 +4914,69 @@ export class DataCatalogClient {
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List the physical entities aggregated by this logical entity.
+   * @param ListAggregatedPhysicalEntitiesRequest
+   * @return ListAggregatedPhysicalEntitiesResponse
+   * @throws OciError when an error occurs
+   */
+  public async listAggregatedPhysicalEntities(
+    listAggregatedPhysicalEntitiesRequest: requests.ListAggregatedPhysicalEntitiesRequest
+  ): Promise<responses.ListAggregatedPhysicalEntitiesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#listAggregatedPhysicalEntities.");
+    const pathParams = {
+      "{catalogId}": listAggregatedPhysicalEntitiesRequest.catalogId,
+      "{dataAssetKey}": listAggregatedPhysicalEntitiesRequest.dataAssetKey,
+      "{entityKey}": listAggregatedPhysicalEntitiesRequest.entityKey
+    };
+
+    const queryParams = {
+      "fields": listAggregatedPhysicalEntitiesRequest.fields
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAggregatedPhysicalEntitiesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/catalogs/{catalogId}/dataAssets/{dataAssetKey}/entities/{entityKey}/actions/listAggregatedPhysicalEntities",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listAggregatedPhysicalEntitiesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAggregatedPhysicalEntitiesResponse>{},
+        body: await response.json(),
+        bodyKey: "entityCollection",
+        bodyModel: "model.EntityCollection",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -4577,6 +5424,84 @@ export class DataCatalogClient {
   }
 
   /**
+   * Returns a list of custom properties within a data catalog.
+   * @param ListCustomPropertiesRequest
+   * @return ListCustomPropertiesResponse
+   * @throws OciError when an error occurs
+   */
+  public async listCustomProperties(
+    listCustomPropertiesRequest: requests.ListCustomPropertiesRequest
+  ): Promise<responses.ListCustomPropertiesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listCustomProperties.");
+    const pathParams = {
+      "{catalogId}": listCustomPropertiesRequest.catalogId,
+      "{namespaceId}": listCustomPropertiesRequest.namespaceId
+    };
+
+    const queryParams = {
+      "displayName": listCustomPropertiesRequest.displayName,
+      "displayNameContains": listCustomPropertiesRequest.displayNameContains,
+      "dataTypes": listCustomPropertiesRequest.dataTypes,
+      "typeName": listCustomPropertiesRequest.typeName,
+      "lifecycleState": listCustomPropertiesRequest.lifecycleState,
+      "timeCreated": listCustomPropertiesRequest.timeCreated,
+      "timeUpdated": listCustomPropertiesRequest.timeUpdated,
+      "createdById": listCustomPropertiesRequest.createdById,
+      "updatedById": listCustomPropertiesRequest.updatedById,
+      "fields": listCustomPropertiesRequest.fields,
+      "sortOrder": listCustomPropertiesRequest.sortOrder,
+      "sortBy": listCustomPropertiesRequest.sortBy,
+      "limit": listCustomPropertiesRequest.limit,
+      "page": listCustomPropertiesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCustomPropertiesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/namespaces/{namespaceId}/customProperties",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listCustomPropertiesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCustomPropertiesResponse>{},
+        body: await response.json(),
+        bodyKey: "customPropertyCollection",
+        bodyModel: "model.CustomPropertyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of all tags for a data asset.
    * @param ListDataAssetTagsRequest
    * @return ListDataAssetTagsResponse
@@ -4729,6 +5654,67 @@ export class DataCatalogClient {
   }
 
   /**
+   * List logical entities derived from this pattern.
+   * @param ListDerivedLogicalEntitiesRequest
+   * @return ListDerivedLogicalEntitiesResponse
+   * @throws OciError when an error occurs
+   */
+  public async listDerivedLogicalEntities(
+    listDerivedLogicalEntitiesRequest: requests.ListDerivedLogicalEntitiesRequest
+  ): Promise<responses.ListDerivedLogicalEntitiesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#listDerivedLogicalEntities.");
+    const pathParams = {
+      "{catalogId}": listDerivedLogicalEntitiesRequest.catalogId,
+      "{patternKey}": listDerivedLogicalEntitiesRequest.patternKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDerivedLogicalEntitiesRequest.opcRequestId,
+      "if-match": listDerivedLogicalEntitiesRequest.ifMatch,
+      "opc-retry-token": listDerivedLogicalEntitiesRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/patterns/{patternKey}/actions/listDerivedLogicalEntities",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listDerivedLogicalEntitiesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDerivedLogicalEntitiesResponse>{},
+        body: await response.json(),
+        bodyKey: "entityCollection",
+        bodyModel: "model.EntityCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of all entities of a data asset.
    * @param ListEntitiesRequest
    * @return ListEntitiesResponse
@@ -4752,6 +5738,7 @@ export class DataCatalogClient {
       "createdById": listEntitiesRequest.createdById,
       "updatedById": listEntitiesRequest.updatedById,
       "externalKey": listEntitiesRequest.externalKey,
+      "patternKey": listEntitiesRequest.patternKey,
       "timeExternal": listEntitiesRequest.timeExternal,
       "timeStatusUpdated": listEntitiesRequest.timeStatusUpdated,
       "isLogical": listEntitiesRequest.isLogical,
@@ -5530,6 +6517,156 @@ export class DataCatalogClient {
   }
 
   /**
+   * Returns a list of namespaces within a data catalog.
+   * @param ListNamespacesRequest
+   * @return ListNamespacesResponse
+   * @throws OciError when an error occurs
+   */
+  public async listNamespaces(
+    listNamespacesRequest: requests.ListNamespacesRequest
+  ): Promise<responses.ListNamespacesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listNamespaces.");
+    const pathParams = {
+      "{catalogId}": listNamespacesRequest.catalogId
+    };
+
+    const queryParams = {
+      "displayName": listNamespacesRequest.displayName,
+      "displayNameContains": listNamespacesRequest.displayNameContains,
+      "lifecycleState": listNamespacesRequest.lifecycleState,
+      "timeCreated": listNamespacesRequest.timeCreated,
+      "timeUpdated": listNamespacesRequest.timeUpdated,
+      "createdById": listNamespacesRequest.createdById,
+      "updatedById": listNamespacesRequest.updatedById,
+      "sortBy": listNamespacesRequest.sortBy,
+      "sortOrder": listNamespacesRequest.sortOrder,
+      "fields": listNamespacesRequest.fields,
+      "limit": listNamespacesRequest.limit,
+      "page": listNamespacesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listNamespacesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/namespaces",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listNamespacesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListNamespacesResponse>{},
+        body: await response.json(),
+        bodyKey: "namespaceCollection",
+        bodyModel: "model.NamespaceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of patterns within a data catalog.
+   * @param ListPatternsRequest
+   * @return ListPatternsResponse
+   * @throws OciError when an error occurs
+   */
+  public async listPatterns(
+    listPatternsRequest: requests.ListPatternsRequest
+  ): Promise<responses.ListPatternsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listPatterns.");
+    const pathParams = {
+      "{catalogId}": listPatternsRequest.catalogId
+    };
+
+    const queryParams = {
+      "displayName": listPatternsRequest.displayName,
+      "displayNameContains": listPatternsRequest.displayNameContains,
+      "lifecycleState": listPatternsRequest.lifecycleState,
+      "timeCreated": listPatternsRequest.timeCreated,
+      "timeUpdated": listPatternsRequest.timeUpdated,
+      "createdById": listPatternsRequest.createdById,
+      "updatedById": listPatternsRequest.updatedById,
+      "fields": listPatternsRequest.fields,
+      "sortBy": listPatternsRequest.sortBy,
+      "sortOrder": listPatternsRequest.sortOrder,
+      "limit": listPatternsRequest.limit,
+      "page": listPatternsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPatternsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/patterns",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listPatternsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPatternsResponse>{},
+        body: await response.json(),
+        bodyKey: "patternCollection",
+        bodyModel: "model.PatternCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of all user created tags in the system.
    * @param ListTagsRequest
    * @return ListTagsResponse
@@ -6241,6 +7378,77 @@ export class DataCatalogClient {
   }
 
   /**
+   * Remove data selector pattern from the data asset.
+   * @param RemoveDataSelectorPatternsRequest
+   * @return RemoveDataSelectorPatternsResponse
+   * @throws OciError when an error occurs
+   */
+  public async removeDataSelectorPatterns(
+    removeDataSelectorPatternsRequest: requests.RemoveDataSelectorPatternsRequest
+  ): Promise<responses.RemoveDataSelectorPatternsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#removeDataSelectorPatterns.");
+    const pathParams = {
+      "{catalogId}": removeDataSelectorPatternsRequest.catalogId,
+      "{dataAssetKey}": removeDataSelectorPatternsRequest.dataAssetKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeDataSelectorPatternsRequest.opcRequestId,
+      "if-match": removeDataSelectorPatternsRequest.ifMatch,
+      "opc-retry-token": removeDataSelectorPatternsRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/dataAssets/{dataAssetKey}/actions/removeDataSelectorPatterns",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeDataSelectorPatternsRequest.dataSelectorPatternDetails,
+        "DataSelectorPatternDetails",
+        models.DataSelectorPatternDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      removeDataSelectorPatternsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveDataSelectorPatternsResponse>{},
+        body: await response.json(),
+        bodyKey: "dataAsset",
+        bodyModel: "model.DataAsset",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of search results within a data catalog.
    * @param SearchCriteriaRequest
    * @return SearchCriteriaResponse
@@ -6638,6 +7846,76 @@ export class DataCatalogClient {
         body: await response.json(),
         bodyKey: "connection",
         bodyModel: "model.Connection",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates a specific custom property identified by the given key.
+   * @param UpdateCustomPropertyRequest
+   * @return UpdateCustomPropertyResponse
+   * @throws OciError when an error occurs
+   */
+  public async updateCustomProperty(
+    updateCustomPropertyRequest: requests.UpdateCustomPropertyRequest
+  ): Promise<responses.UpdateCustomPropertyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateCustomProperty.");
+    const pathParams = {
+      "{catalogId}": updateCustomPropertyRequest.catalogId,
+      "{namespaceId}": updateCustomPropertyRequest.namespaceId,
+      "{customPropertyKey}": updateCustomPropertyRequest.customPropertyKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateCustomPropertyRequest.ifMatch,
+      "opc-request-id": updateCustomPropertyRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/namespaces/{namespaceId}/customProperties/{customPropertyKey}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCustomPropertyRequest.updateCustomPropertyDetails,
+        "UpdateCustomPropertyDetails",
+        models.UpdateCustomPropertyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateCustomPropertyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCustomPropertyResponse>{},
+        body: await response.json(),
+        bodyKey: "customProperty",
+        bodyModel: "model.CustomProperty",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -7075,6 +8353,144 @@ export class DataCatalogClient {
   }
 
   /**
+   * Updates a specific namespace identified by the given key.
+   * @param UpdateNamespaceRequest
+   * @return UpdateNamespaceResponse
+   * @throws OciError when an error occurs
+   */
+  public async updateNamespace(
+    updateNamespaceRequest: requests.UpdateNamespaceRequest
+  ): Promise<responses.UpdateNamespaceResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateNamespace.");
+    const pathParams = {
+      "{catalogId}": updateNamespaceRequest.catalogId,
+      "{namespaceId}": updateNamespaceRequest.namespaceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateNamespaceRequest.ifMatch,
+      "opc-request-id": updateNamespaceRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/namespaces/{namespaceId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateNamespaceRequest.updateNamespaceDetails,
+        "UpdateNamespaceDetails",
+        models.UpdateNamespaceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateNamespaceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateNamespaceResponse>{},
+        body: await response.json(),
+        bodyKey: "namespace",
+        bodyModel: "model.Namespace",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates a specific pattern identified by the given key.
+   * @param UpdatePatternRequest
+   * @return UpdatePatternResponse
+   * @throws OciError when an error occurs
+   */
+  public async updatePattern(
+    updatePatternRequest: requests.UpdatePatternRequest
+  ): Promise<responses.UpdatePatternResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updatePattern.");
+    const pathParams = {
+      "{catalogId}": updatePatternRequest.catalogId,
+      "{patternKey}": updatePatternRequest.patternKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updatePatternRequest.ifMatch,
+      "opc-request-id": updatePatternRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/patterns/{patternKey}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updatePatternRequest.updatePatternDetails,
+        "UpdatePatternDetails",
+        models.UpdatePatternDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updatePatternRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdatePatternResponse>{},
+        body: await response.json(),
+        bodyKey: "pattern",
+        bodyModel: "model.Pattern",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates a specific glossary term.
    * @param UpdateTermRequest
    * @return UpdateTermResponse
@@ -7409,6 +8825,70 @@ export class DataCatalogClient {
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Validate pattern by deriving file groups representing logical entities using the expression
+   * @param ValidatePatternRequest
+   * @return ValidatePatternResponse
+   * @throws OciError when an error occurs
+   */
+  public async validatePattern(
+    validatePatternRequest: requests.ValidatePatternRequest
+  ): Promise<responses.ValidatePatternResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#validatePattern.");
+    const pathParams = {
+      "{catalogId}": validatePatternRequest.catalogId,
+      "{patternKey}": validatePatternRequest.patternKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": validatePatternRequest.opcRequestId,
+      "opc-retry-token": validatePatternRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/patterns/{patternKey}/actions/validate",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        validatePatternRequest.validatePatternDetails,
+        "ValidatePatternDetails",
+        models.ValidatePatternDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      validatePatternRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ValidatePatternResponse>{},
+        body: await response.json(),
+        bodyKey: "validatePatternResult",
+        bodyModel: "model.ValidatePatternResult",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",

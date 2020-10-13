@@ -1,6 +1,6 @@
 /**
- * loggingManagementControlplane API
- * loggingManagementControlplane API specification
+ * Logging Management API
+ * Use the Logging Management API to create, read, list, update, and delete log groups, log objects, and agent configurations.
  * OpenAPI spec version: 20200531
  *
  *
@@ -19,23 +19,23 @@ import common = require("oci-common");
  */
 export interface UnifiedAgentParser {
   /**
-   * Specify time field for event time. If the event doesn't have this field, current time is used.
+   * Specify time field for the event time. If the event doesn't have this field, the current time is used.
    */
   "fieldTimeKey"?: string;
   /**
-   * Specify types for converting field into other type.
+   * Specify types for converting a field into another type.
    */
   "types"?: { [key: string]: string };
   /**
-   * Specify null value pattern
+   * Specify the null value pattern.
    */
   "nullValuePattern"?: string;
   /**
-   * If true, empty string field is replaced with nil
+   * If true, an empty string field is replaced with nil.
    */
   "isNullEmptyString"?: boolean;
   /**
-   * If true, use Fluent::EventTime.now(current time) as a timestamp when time_key is specified
+   * If true, use Fluent::EventTime.now(current time) as a timestamp when time_key is specified.
    */
   "isEstimateCurrentEvent"?: boolean;
   /**
@@ -43,7 +43,7 @@ export interface UnifiedAgentParser {
    */
   "isKeepTimeKey"?: boolean;
   /**
-   * Specify timeout for parse processing. This is mainly for detecting wrong regexp pattern.
+   * Specify the timeout for parse processing. This is mainly for detecting an incorrect regexp pattern.
    */
   "timeoutInMilliseconds"?: number;
 

@@ -86,6 +86,12 @@ export interface AutonomousContainerDatabase {
   "nextMaintenanceRunId"?: string;
   "maintenanceWindow"?: model.MaintenanceWindow;
   /**
+   * The scheduling detail for the quarterly maintenance window of standby Autonomous Container Database.
+   * This value represents the number of days before the primary database maintenance schedule.
+   *
+   */
+  "standbyMaintenanceBufferInDays"?: number;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
@@ -99,6 +105,10 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The role of the Autonomous Data Guard-enabled Autonomous Container Database.
+   */
+  "role"?: AutonomousContainerDatabase.Role;
   /**
    * The availability domain of the Autonomous Container Database.
    */
@@ -114,6 +124,7 @@ export namespace AutonomousContainerDatabase {
   export enum ServiceLevelAgreementType {
     Standard = "STANDARD",
     MissionCritical = "MISSION_CRITICAL",
+    AutonomousDataguard = "AUTONOMOUS_DATAGUARD",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -143,6 +154,7 @@ export namespace AutonomousContainerDatabase {
     RestoreFailed = "RESTORE_FAILED",
     Restarting = "RESTARTING",
     MaintenanceInProgress = "MAINTENANCE_IN_PROGRESS",
+    RoleChangeInProgress = "ROLE_CHANGE_IN_PROGRESS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -153,6 +165,17 @@ export namespace AutonomousContainerDatabase {
   export enum PatchModel {
     ReleaseUpdates = "RELEASE_UPDATES",
     ReleaseUpdateRevisions = "RELEASE_UPDATE_REVISIONS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum Role {
+    Primary = "PRIMARY",
+    Standby = "STANDBY",
+    DisabledStandby = "DISABLED_STANDBY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

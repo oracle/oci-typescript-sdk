@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface CreateUnifiedAgentConfigurationRequest extends common.BaseRequest {
   /**
-   * Unified Agent configuration creation object.
+   * Unified agent configuration creation object.
    */
   "createUnifiedAgentConfigurationDetails": model.CreateUnifiedAgentConfigurationDetails;
   /**
@@ -26,7 +26,7 @@ export interface CreateUnifiedAgentConfigurationRequest extends common.BaseReque
   "opcRequestId"?: string;
   /**
    * A token that uniquely identifies a request so it can be retried in case
-   * of a timeout or server error without risk of executing that same action
+   * of a timeout or server error, without risk of executing that same action
    * again. Retry tokens expire after 24 hours, but can be invalidated
    * before then due to conflicting operations (e.g., if a resource has been
    * deleted and purged from the system, then a retry of the original

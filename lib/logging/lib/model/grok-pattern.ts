@@ -1,6 +1,6 @@
 /**
- * loggingManagementControlplane API
- * loggingManagementControlplane API specification
+ * Logging Management API
+ * Use the Logging Management API to create, read, list, update, and delete log groups, log objects, and agent configurations.
  * OpenAPI spec version: 20200531
  *
  *
@@ -15,27 +15,27 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * grok pattern object
+ * grok pattern object.
  */
 export interface GrokPattern {
   /**
-   * The grok pattern
+   * The grok pattern.
    */
   "pattern": string;
   /**
-   * The name key to tag this grok pattern
+   * The name key to tag this grok pattern.
    */
   "name"?: string;
   /**
-   * Specify time field for event time. If the event doesn't have this field, current time is used.
+   * Specify the time field for the event time. If the event doesn't have this field, the current time is used.
    */
   "fieldTimeKey"?: string;
   /**
-   * Process value using specified format. This is available only when time_type is string.
+   * Process value using the specified format. This is available only when time_type is a string.
    */
   "fieldTimeFormat"?: string;
   /**
-   * Use specified timezone. One can parse/format the time value in the specified timezone.
+   * Use the specified time zone. The time value can be parsed or formatted in the specified time zone.
    */
   "fieldTimeZone"?: string;
 }

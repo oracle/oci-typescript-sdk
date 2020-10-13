@@ -80,6 +80,10 @@ export interface UpdateAttributeDetails {
    */
   "externalParentAttributeKey"?: string;
   /**
+   * The list of customized properties along with the values for this object
+   */
+  "customPropertyMembers"?: Array<model.CustomPropertySetUsage>;
+  /**
    * A map of maps that contains the properties which are specific to the attribute type. Each attribute type
    * definition defines it's set of required and optional properties. The map keys are category names and the
    * values are maps of property name to property value. Every property is contained inside of a category. Most
@@ -95,7 +99,16 @@ export interface UpdateAttributeDetails {
 
 export namespace UpdateAttributeDetails {
   export function getJsonObj(obj: UpdateAttributeDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customPropertyMembers": obj.customPropertyMembers
+          ? obj.customPropertyMembers.map(item => {
+              return model.CustomPropertySetUsage.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -8,6 +8,8 @@ import "isomorphic-fetch";
 import { RequestSigner } from "./signer";
 import { HttpRequest } from "./http-request";
 import { getSignerAndReqBody } from "./helper";
+const Breaker = require("opossum");
+import CircuitBreaker from "./circuit-breaker";
 
 promise.polyfill();
 
@@ -16,7 +18,12 @@ export interface HttpClient {
 }
 
 export class FetchHttpClient implements HttpClient {
-  constructor(private readonly signer: RequestSigner | null) {}
+  private circuitBreaker = (null as unknown) as typeof Breaker;
+  constructor(private readonly signer: RequestSigner | null, circuitBreaker?: typeof Breaker) {
+    if (circuitBreaker) {
+      this.circuitBreaker = circuitBreaker;
+    }
+  }
 
   public async send(req: HttpRequest, forceExcludeBody: boolean = false): Promise<Response> {
     // Get Request body
@@ -33,13 +40,28 @@ export class FetchHttpClient implements HttpClient {
         forceExcludeBody
       );
     }
-    // Send Request
-    return fetch(
-      new Request(req.uri, {
-        method: req.method,
-        headers: req.headers,
-        body: body.requestBody
-      })
-    );
+    const request = new Request(req.uri, {
+      method: req.method,
+      headers: req.headers,
+      body: body.requestBody
+    });
+
+    if (this.circuitBreaker) {
+      // The circuitBreaker library have .fire return as any, we need to cast it to a Promise<Response> to be consistent with
+      // a fetch response type.
+      return (this.circuitBreaker.fire(request) as unknown) as Promise<Response>;
+    } else if (CircuitBreaker.enableDefault) {
+      // else if we opt'd to use a default circuit breaker, an http call by default
+      // will use the default circuit breaker to make the call
+      return CircuitBreaker.defaultCircuit.fire(request);
+    } else {
+      return fetch(
+        new Request(req.uri, {
+          method: req.method,
+          headers: req.headers,
+          body: body.requestBody
+        })
+      );
+    }
   }
 }

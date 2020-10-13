@@ -44,6 +44,30 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forAutonomousContainerDatabaseDataguardAssociation till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetAutonomousContainerDatabaseDataguardAssociationResponse | null (null in case of 404 response)
+   */
+  public async forAutonomousContainerDatabaseDataguardAssociation(
+    request: serviceRequests.GetAutonomousContainerDatabaseDataguardAssociationRequest,
+    ...targetStates: models.AutonomousContainerDatabaseDataguardAssociation.LifecycleState[]
+  ): Promise<serviceResponses.GetAutonomousContainerDatabaseDataguardAssociationResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getAutonomousContainerDatabaseDataguardAssociation(request),
+      response =>
+        targetStates.exists(
+          response.autonomousContainerDatabaseDataguardAssociation.lifecycleState
+        ),
+      targetStates.includes(
+        models.AutonomousContainerDatabaseDataguardAssociation.LifecycleState.Terminated
+      )
+    );
+  }
+
+  /**
    * Waits forAutonomousDataWarehouse till it reaches any of the provided states
    *
    * @param request the request to send
@@ -116,6 +140,26 @@ export class DatabaseWaiter {
       () => this.client.getAutonomousDatabaseBackup(request),
       response => targetStates.exists(response.autonomousDatabaseBackup.lifecycleState),
       targetStates.includes(models.AutonomousDatabaseBackup.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forAutonomousDatabaseDataguardAssociation till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetAutonomousDatabaseDataguardAssociationResponse | null (null in case of 404 response)
+   */
+  public async forAutonomousDatabaseDataguardAssociation(
+    request: serviceRequests.GetAutonomousDatabaseDataguardAssociationRequest,
+    ...targetStates: models.AutonomousDatabaseDataguardAssociation.LifecycleState[]
+  ): Promise<serviceResponses.GetAutonomousDatabaseDataguardAssociationResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getAutonomousDatabaseDataguardAssociation(request),
+      response =>
+        targetStates.exists(response.autonomousDatabaseDataguardAssociation.lifecycleState),
+      targetStates.includes(models.AutonomousDatabaseDataguardAssociation.LifecycleState.Terminated)
     );
   }
 

@@ -1,6 +1,6 @@
 /**
- * loggingManagementControlplane API
- * loggingManagementControlplane API specification
+ * Logging Management API
+ * Use the Logging Management API to create, read, list, update, and delete log groups, log objects, and agent configurations.
  * OpenAPI spec version: 20200531
  *
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Parameters that a category of resource supports.
+ * Parameters that a resource category supports.
  */
 export interface Parameter {
   /**
@@ -27,7 +27,7 @@ export interface Parameter {
    */
   "type": Parameter.Type;
   /**
-   * Java regex pattern to validate parameter value.
+   * Java regex pattern to validate a parameter value.
    */
   "pattern"?: string;
 }
