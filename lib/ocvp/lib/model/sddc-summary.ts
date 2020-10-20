@@ -66,6 +66,14 @@ Therefore, if you upgrade the existing ESXi hosts in the SDDC to use a newer
    */
   "esxiHostsCount": number;
   /**
+   * HCX Fully Qualified Domain Name
+   */
+  "hcxFqdn"?: string;
+  /**
+   * HCX enabled or not
+   */
+  "isHcxEnabled"?: boolean;
+  /**
     * FQDN for vCenter
 * <p>
 Example: `vcenter-my-sddc.sddc.us-phoenix-1.oraclecloud.com`

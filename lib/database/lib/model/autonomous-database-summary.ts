@@ -195,6 +195,10 @@ To add the whitelist VCN specific subnet or IP, use a semicoln ';' as a delimina
    */
   "dataSafeStatus"?: AutonomousDatabaseSummary.DataSafeStatus;
   /**
+   * Status of the Operations Insights for this Autonomous Database.
+   */
+  "operationsInsightsStatus"?: AutonomousDatabaseSummary.OperationsInsightsStatus;
+  /**
    * The date and time when maintenance will begin.
    */
   "timeMaintenanceBegin"?: Date;
@@ -330,6 +334,20 @@ export namespace AutonomousDatabaseSummary {
     Deregistering = "DEREGISTERING",
     NotRegistered = "NOT_REGISTERED",
     Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum OperationsInsightsStatus {
+    Enabling = "ENABLING",
+    Enabled = "ENABLED",
+    Disabling = "DISABLING",
+    NotEnabled = "NOT_ENABLED",
+    FailedEnabling = "FAILED_ENABLING",
+    FailedDisabling = "FAILED_DISABLING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -2,7 +2,7 @@
  * Service Connector Hub API
  * Use the Service Connector Hub API to transfer data between services in Oracle Cloud Infrastructure.
 For more information about Service Connector Hub, see
-[Service Connector Hub Overview](/iaas/service-connector-hub/using/index.htm).
+[Service Connector Hub Overview](/iaas/Content/service-connector-hub/overview.htm).
 
  * OpenAPI spec version: 20200909
  * 
@@ -21,7 +21,7 @@ import common = require("oci-common");
  * An object that represents the target of the flow defined by the service connector.
  * An example target is a stream.
  * For more information about flows defined by service connectors, see
- * [Service Connector Hub Overview](https://docs.cloud.oracle.com/iaas/service-connector-hub/using/index.htm).
+ * [Service Connector Hub Overview](https://docs.cloud.oracle.com/iaas/Content/service-connector-hub/overview.htm).
  *
  */
 export interface TargetDetails {

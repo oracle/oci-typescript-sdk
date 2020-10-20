@@ -299,6 +299,34 @@ Therefore, if you change the existing ESXi hosts in the SDDC to use a different 
     */
   "nsxEdgeUplink2VlanId": string;
   /**
+   * HCX Private IP
+   *
+   */
+  "hcxPrivateIpId"?: string;
+  /**
+   * HCX Fully Qualified Domain Name
+   */
+  "hcxFqdn"?: string;
+  /**
+   * HCX initial password
+   *
+   */
+  "hcxInitialPassword"?: string;
+  /**
+   * HCX vlan id
+   *
+   */
+  "hcxVlanId"?: string;
+  /**
+   * HCX enabled or not
+   */
+  "isHcxEnabled"?: boolean;
+  /**
+   * HCX on-premise license key
+   *
+   */
+  "hcxOnPremKey"?: string;
+  /**
     * The date and time the SDDC was created, in the format defined by
 * [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>

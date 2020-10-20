@@ -2,7 +2,7 @@
  * Service Connector Hub API
  * Use the Service Connector Hub API to transfer data between services in Oracle Cloud Infrastructure.
 For more information about Service Connector Hub, see
-[Service Connector Hub Overview](/iaas/service-connector-hub/using/index.htm).
+[Service Connector Hub Overview](/iaas/Content/service-connector-hub/overview.htm).
 
  * OpenAPI spec version: 20200909
  * 
@@ -138,9 +138,9 @@ export class ServiceConnectorClient {
 * <p>
 After you send your request, the service connector's state is temporarily
 * UPDATING. When the state changes to ACTIVE, data begins transferring from the
-* source service to the target service. For instructions on deactivating and
-* activating service connectors, see
-* [To activate or deactivate a service connector](https://docs.cloud.oracle.com/iaas/service-connector-hub/using/index.htm).
+* source service to the target service. For instructions on activating service
+* connectors, see
+* [To activate a service connector](https://docs.cloud.oracle.com/iaas/Content/service-connector-hub/managingconnectors.htm#activate).
 * 
      * @param ActivateServiceConnectorRequest
      * @return ActivateServiceConnectorResponse
@@ -280,7 +280,7 @@ When provided, If-Match is checked against ETag values of the resource.
 * A service connector is a logically defined flow for moving data from
 * a source service to a destination service in Oracle Cloud Infrastructure.
 * For general information about service connectors, see
-* [Service Connector Hub Overview](https://docs.cloud.oracle.com/iaas/service-connector-hub/using/index.htm).
+* [Service Connector Hub Overview](https://docs.cloud.oracle.com/iaas/Content/service-connector-hub/overview.htm).
 * <p>
 For purposes of access control, you must provide the
 * [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where
@@ -293,7 +293,7 @@ After you send your request, the new service connector's state is temporarily
 * CREATING. When the state changes to ACTIVE, data begins transferring from the
 * source service to the target service. For instructions on deactivating and
 * activating service connectors, see
-* [To activate or deactivate a service connector](https://docs.cloud.oracle.com/iaas/service-connector-hub/using/index.htm).
+* [To activate or deactivate a service connector](https://docs.cloud.oracle.com/iaas/Content/service-connector-hub/overview.htm).
 * 
      * @param CreateServiceConnectorRequest
      * @return CreateServiceConnectorResponse
@@ -362,8 +362,8 @@ After you send your request, the new service connector's state is temporarily
 * <p>
 After you send your request, the service connector's state is temporarily
 * UPDATING and any data transfer stops. The state then changes to INACTIVE.
-* For instructions on deactivating and activating service connectors, see
-* [To activate or deactivate a service connector](https://docs.cloud.oracle.com/iaas/service-connector-hub/using/index.htm).
+* For instructions on deactivating service connectors, see
+* [To deactivate a service connector](https://docs.cloud.oracle.com/iaas/Content/service-connector-hub/managingconnectors.htm#deactivate).
 * 
      * @param DeactivateServiceConnectorRequest
      * @return DeactivateServiceConnectorResponse

@@ -110,10 +110,14 @@ import * as DeleteVmClusterNetworkResponse from "./delete-vm-cluster-network-res
 export import DeleteVmClusterNetworkResponse = DeleteVmClusterNetworkResponse.DeleteVmClusterNetworkResponse;
 import * as DeregisterAutonomousDatabaseDataSafeResponse from "./deregister-autonomous-database-data-safe-response";
 export import DeregisterAutonomousDatabaseDataSafeResponse = DeregisterAutonomousDatabaseDataSafeResponse.DeregisterAutonomousDatabaseDataSafeResponse;
+import * as DisableAutonomousDatabaseOperationsInsightsResponse from "./disable-autonomous-database-operations-insights-response";
+export import DisableAutonomousDatabaseOperationsInsightsResponse = DisableAutonomousDatabaseOperationsInsightsResponse.DisableAutonomousDatabaseOperationsInsightsResponse;
 import * as DownloadExadataInfrastructureConfigFileResponse from "./download-exadata-infrastructure-config-file-response";
 export import DownloadExadataInfrastructureConfigFileResponse = DownloadExadataInfrastructureConfigFileResponse.DownloadExadataInfrastructureConfigFileResponse;
 import * as DownloadVmClusterNetworkConfigFileResponse from "./download-vm-cluster-network-config-file-response";
 export import DownloadVmClusterNetworkConfigFileResponse = DownloadVmClusterNetworkConfigFileResponse.DownloadVmClusterNetworkConfigFileResponse;
+import * as EnableAutonomousDatabaseOperationsInsightsResponse from "./enable-autonomous-database-operations-insights-response";
+export import EnableAutonomousDatabaseOperationsInsightsResponse = EnableAutonomousDatabaseOperationsInsightsResponse.EnableAutonomousDatabaseOperationsInsightsResponse;
 import * as FailOverAutonomousDatabaseResponse from "./fail-over-autonomous-database-response";
 export import FailOverAutonomousDatabaseResponse = FailOverAutonomousDatabaseResponse.FailOverAutonomousDatabaseResponse;
 import * as FailoverAutonomousContainerDatabaseDataguardAssociationResponse from "./failover-autonomous-container-database-dataguard-association-response";
