@@ -144,3 +144,4 @@ export import managementagent = require("oci-managementagent");
 export import managementdashboard = require("oci-managementdashboard");
 export import sch = require("oci-sch");
 export import cloudguard = require("oci-cloudguard");
+export import opsi = require("oci-opsi");

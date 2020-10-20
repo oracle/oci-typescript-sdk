@@ -2,7 +2,7 @@
  * Service Connector Hub API
  * Use the Service Connector Hub API to transfer data between services in Oracle Cloud Infrastructure.
 For more information about Service Connector Hub, see
-[Service Connector Hub Overview](/iaas/service-connector-hub/using/index.htm).
+[Service Connector Hub Overview](/iaas/Content/service-connector-hub/overview.htm).
 
  * OpenAPI spec version: 20200909
  * 

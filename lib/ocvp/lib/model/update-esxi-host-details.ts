@@ -20,10 +20,12 @@ import common = require("oci-common");
  */
 export interface UpdateEsxiHostDetails {
   /**
-   * A descriptive name for the ESXi host. Does not have to be unique, and it's changeable.
-   * Avoid entering confidential information.
-   *
-   */
+    * A descriptive name for the ESXi host. It's changeable.
+* Esxi Host name requirements are 1-16 character length limit, Must start with a letter, Must be English letters, numbers, - only, No repeating hyphens, Must be unique within the SDDC.
+* <p>
+Avoid entering confidential information.
+* 
+    */
   "displayName"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no

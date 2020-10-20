@@ -28,6 +28,7 @@ import common = require("oci-common");
 export interface UpdateSddcDetails {
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the SDDC.
+   * SDDC name requirements are 1-16 character length limit, Must start with a letter, Must be English letters, numbers, - only, No repeating hyphens, Must be unique within the region.
    *
    */
   "displayName"?: string;
@@ -90,6 +91,11 @@ For the list of versions supported by the Oracle Cloud VMware Solution, see
    *
    */
   "nsxEdgeUplink2VlanId"?: string;
+  /**
+   * This id is editable only when hcxEnabled is true
+   *
+   */
+  "hcxVlanId"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).

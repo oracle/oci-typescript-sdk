@@ -3531,6 +3531,70 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
+   * Disables Operations Insights for the Autonomous Database resource.
+   *
+   * @param DisableAutonomousDatabaseOperationsInsightsRequest
+   * @return DisableAutonomousDatabaseOperationsInsightsResponse
+   * @throws OciError when an error occurs
+   */
+  public async disableAutonomousDatabaseOperationsInsights(
+    disableAutonomousDatabaseOperationsInsightsRequest: requests.DisableAutonomousDatabaseOperationsInsightsRequest
+  ): Promise<responses.DisableAutonomousDatabaseOperationsInsightsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#disableAutonomousDatabaseOperationsInsights."
+      );
+    const pathParams = {
+      "{autonomousDatabaseId}":
+        disableAutonomousDatabaseOperationsInsightsRequest.autonomousDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": disableAutonomousDatabaseOperationsInsightsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabases/{autonomousDatabaseId}/actions/disableOperationsInsights",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      disableAutonomousDatabaseOperationsInsightsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableAutonomousDatabaseOperationsInsightsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Downloads the configuration file for the specified Exadata Cloud@Customer infrastructure.
    *
    * @param DownloadExadataInfrastructureConfigFileRequest
@@ -3678,6 +3742,70 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
             value: response.headers.get("last-modified"),
             key: "lastModified",
             dataType: "Date"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enables the specified Autonomous Database with Operations Insights.
+   *
+   * @param EnableAutonomousDatabaseOperationsInsightsRequest
+   * @return EnableAutonomousDatabaseOperationsInsightsResponse
+   * @throws OciError when an error occurs
+   */
+  public async enableAutonomousDatabaseOperationsInsights(
+    enableAutonomousDatabaseOperationsInsightsRequest: requests.EnableAutonomousDatabaseOperationsInsightsRequest
+  ): Promise<responses.EnableAutonomousDatabaseOperationsInsightsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#enableAutonomousDatabaseOperationsInsights."
+      );
+    const pathParams = {
+      "{autonomousDatabaseId}":
+        enableAutonomousDatabaseOperationsInsightsRequest.autonomousDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": enableAutonomousDatabaseOperationsInsightsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabases/{autonomousDatabaseId}/actions/enableOperationsInsights",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      enableAutonomousDatabaseOperationsInsightsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableAutonomousDatabaseOperationsInsightsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
           }
         ]
       });

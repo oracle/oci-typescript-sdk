@@ -25,8 +25,8 @@ export interface CreateSddcDetails {
    */
   "computeAvailabilityDomain": string;
   /**
-   * A descriptive name for the SDDC. It must be unique, start with a letter, and contain only letters, digits,
-   * whitespaces, dashes and underscores.
+   * A descriptive name for the SDDC.
+   * SDDC name requirements are 1-16 character length limit, Must start with a letter, Must be English letters, numbers, - only, No repeating hyphens, Must be unique within the region.
    * Avoid entering confidential information.
    *
    */
@@ -63,6 +63,16 @@ For example, if the value is `mySDDC`, the ESXi hosts are named `mySDDC-1`,
    *
    */
   "esxiHostsCount": number;
+  /**
+   * This flag tells us if HCX is enabled or not.
+   *
+   */
+  "isHcxEnabled"?: boolean;
+  /**
+   * This id is required only when hcxEnabled is true
+   *
+   */
+  "hcxVlanId"?: string;
   /**
    * One or more public SSH keys to be included in the `~/.ssh/authorized_keys` file for
    * the default user on each ESXi host. Use a newline character to separate multiple keys.

@@ -110,10 +110,14 @@ import * as DeleteVmClusterNetworkRequest from "./delete-vm-cluster-network-requ
 export import DeleteVmClusterNetworkRequest = DeleteVmClusterNetworkRequest.DeleteVmClusterNetworkRequest;
 import * as DeregisterAutonomousDatabaseDataSafeRequest from "./deregister-autonomous-database-data-safe-request";
 export import DeregisterAutonomousDatabaseDataSafeRequest = DeregisterAutonomousDatabaseDataSafeRequest.DeregisterAutonomousDatabaseDataSafeRequest;
+import * as DisableAutonomousDatabaseOperationsInsightsRequest from "./disable-autonomous-database-operations-insights-request";
+export import DisableAutonomousDatabaseOperationsInsightsRequest = DisableAutonomousDatabaseOperationsInsightsRequest.DisableAutonomousDatabaseOperationsInsightsRequest;
 import * as DownloadExadataInfrastructureConfigFileRequest from "./download-exadata-infrastructure-config-file-request";
 export import DownloadExadataInfrastructureConfigFileRequest = DownloadExadataInfrastructureConfigFileRequest.DownloadExadataInfrastructureConfigFileRequest;
 import * as DownloadVmClusterNetworkConfigFileRequest from "./download-vm-cluster-network-config-file-request";
 export import DownloadVmClusterNetworkConfigFileRequest = DownloadVmClusterNetworkConfigFileRequest.DownloadVmClusterNetworkConfigFileRequest;
+import * as EnableAutonomousDatabaseOperationsInsightsRequest from "./enable-autonomous-database-operations-insights-request";
+export import EnableAutonomousDatabaseOperationsInsightsRequest = EnableAutonomousDatabaseOperationsInsightsRequest.EnableAutonomousDatabaseOperationsInsightsRequest;
 import * as FailOverAutonomousDatabaseRequest from "./fail-over-autonomous-database-request";
 export import FailOverAutonomousDatabaseRequest = FailOverAutonomousDatabaseRequest.FailOverAutonomousDatabaseRequest;
 import * as FailoverAutonomousContainerDatabaseDataguardAssociationRequest from "./failover-autonomous-container-database-dataguard-association-request";
