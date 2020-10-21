@@ -8,6 +8,8 @@
  *  <li>The first argument is the OCID of the compartment.</li>
  * </ul>
  * Refer https://docs.cloud.oracle.com/en-us/iaas/api/#/en/monitoring/20180401/MetricData/PostMetricData for more details.
+ * This example uses phoenix metric endpoint https://telemetry-ingestion.us-phoenix-1.oraclecloud.com 
+ * we can change this to a different region (refer https://docs.cloud.oracle.com/en-us/iaas/api/#/en/monitoring/20180401/).
  */
 
 const mt = require("oci-monitoring");
@@ -48,22 +50,22 @@ monitoringClient.endpoint = "https://telemetry-ingestion.us-phoenix-1.oracleclou
     */
 
     const MetricDataDetails = [{
-        "namespace": "mushopnamespace",
-        "resourceGroup": "mushop-rg",
+        "namespace": "<your_namespace_here>",
+        "resourceGroup": "<your_resourcegroup_here>",
         "compartmentId": compartmentId,
-        "name": "mushop-401-http-error",
+        "name": "<your_name_of_the_metric_here>",
         "dimensions": {
-            "appName": "Mushop",
-            "podName": "mushop-storefront"
+            "appName": "<your_dimensions>",
+            "podName": "<your_dimensions>"
         },
         "metadata": {
             "unit": "count",
-            "displayName": "MuShop Authorization errors"
+            "displayName": "<your_display_name>"
         },
         "datapoints": [{
             "timestamp": dateutc,
-            "value": 43,
-            "count": 43
+            "value": "<your_datapoint_value>",
+            "count": "<your_datapoint_count>"
         }
       ]
     }]
