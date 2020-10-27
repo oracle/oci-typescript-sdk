@@ -3,6 +3,20 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+/*
+ * This Sample take directory path as a commandline argument and
+ * uploads all the files present in te directory to objectstorage using upload manager.
+ *
+ * @param args Arguments to provide to the example. The following arguments are expected:
+ * <ul>
+ * <li>The first argument is the absloute directory path to read files from.</li>
+ * <li>The second argument is the namespaceName</li>
+ * <li>The third argument is the name of an existing bucket to uplod object</li>
+ * </ul>
+ * NodeJS V8 Engine have a buffer size limitation, 2GB for 64-bit machine and 1GB for 32-bit machine.
+ * Do not pass in a partSize option greater than the buffer size limitation.
+ */
+
 const common = require("oci-common");
 const os = require("oci-objectstorage");
 

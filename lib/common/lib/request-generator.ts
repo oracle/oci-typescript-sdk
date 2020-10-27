@@ -21,7 +21,7 @@ export type Method =
   | "TRACE"
   | "CONNECT";
 
-interface RequestParams {
+export interface RequestParams {
   readonly baseEndpoint: string;
   readonly path: string;
   readonly defaultHeaders: Params;
@@ -38,7 +38,7 @@ interface RequestParams {
  * @param RequestParams to create a request
  */
 export async function composeRequest(params: RequestParams): Promise<HttpRequest> {
-  const headers = computeHeaders(params.defaultHeaders, params.headerParams);
+  const headers = computeHeaders(params);
   const uri = computeUri(params);
   const body = params.bodyContent;
 
@@ -73,21 +73,21 @@ function validateAndComputePath(path: string, pathParams?: Params): string {
   return path;
 }
 
-function computeHeaders(defaultHeaders: Params, headerParams?: Params): Headers {
+function computeHeaders(params: RequestParams): Headers {
   const headers = new Headers();
 
-  for (const [key, value] of Object.entries(defaultHeaders)) {
+  for (const [key, value] of Object.entries(params.defaultHeaders)) {
     headers.append(key, String(value));
   }
 
-  if (headerParams) {
-    for (const [key, value] of Object.entries(headerParams)) {
+  if (params.headerParams) {
+    for (const [key, value] of Object.entries(params.headerParams)) {
       if (value) {
         headers.append(key, String(value));
       }
     }
   }
-  addAdditionalHeaders(headers);
+  addAdditionalHeaders(headers, params);
   return headers;
 }
 

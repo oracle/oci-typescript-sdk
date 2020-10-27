@@ -66,6 +66,7 @@ const NoRetryConfigurationDetails: RetryConfigurationDetails = {
 
 export class GenericRetrier {
   private retryConfiguration: RetryConfigurationDetails;
+  private _logger: Logger = (undefined as unknown) as Logger;
 
   constructor(retryConfiguration: RetryConfiguration) {
     const preferredRetryConfig = { ...NoRetryConfigurationDetails, ...retryConfiguration };
@@ -73,7 +74,7 @@ export class GenericRetrier {
   }
 
   public set logger(logger: Logger) {
-    this.logger = logger;
+    this._logger = logger;
   }
 
   public static createPreferredRetrier(
@@ -115,14 +116,14 @@ export class GenericRetrier {
         this.retryConfiguration.terminationStrategy.shouldTerminate(waitContext) ||
         !GenericRetrier.isRequestRetryable(request)
       ) {
-        if (this.logger) this.logger.debug("Not retrying the service call...");
+        if (this._logger) this._logger.debug("Not retrying the service call...");
         throw lastKnownError;
       }
       await delay(this.retryConfiguration.delayStrategy.delay(waitContext));
       waitContext.attemptCount++;
       GenericRetrier.refreshRequest(request);
-      if (this.logger)
-        this.logger.debug("Retrying the service call, attempt : ", waitContext.attemptCount);
+      if (this._logger)
+        this._logger.debug("Retrying the service call, attempt : ", waitContext.attemptCount);
     }
   }
 

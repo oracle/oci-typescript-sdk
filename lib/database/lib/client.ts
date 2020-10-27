@@ -1021,6 +1021,76 @@ export class DatabaseClient {
   }
 
   /**
+   * Move the key store resource to the specified compartment.
+   * For more information about moving key stores, see
+   * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
+   *
+   * @param ChangeKeyStoreCompartmentRequest
+   * @return ChangeKeyStoreCompartmentResponse
+   * @throws OciError when an error occurs
+   */
+  public async changeKeyStoreCompartment(
+    changeKeyStoreCompartmentRequest: requests.ChangeKeyStoreCompartmentRequest
+  ): Promise<responses.ChangeKeyStoreCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeKeyStoreCompartment.");
+    const pathParams = {
+      "{keyStoreId}": changeKeyStoreCompartmentRequest.keyStoreId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeKeyStoreCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeKeyStoreCompartmentRequest.opcRequestId,
+      "if-match": changeKeyStoreCompartmentRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/keyStores/{keyStoreId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeKeyStoreCompartmentRequest.changeKeyStoreCompartmentDetails,
+        "ChangeKeyStoreCompartmentDetails",
+        models.ChangeKeyStoreCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeKeyStoreCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeKeyStoreCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * To move an Exadata Cloud@Customer VM cluster and its dependent resources to another compartment, use the
    * {@link #changeVmClusterCompartment(ChangeVmClusterCompartmentRequest) changeVmClusterCompartment} operation.
    *
@@ -2385,6 +2455,73 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
+   * Creates a Key Store.
+   *
+   * @param CreateKeyStoreRequest
+   * @return CreateKeyStoreResponse
+   * @throws OciError when an error occurs
+   */
+  public async createKeyStore(
+    createKeyStoreRequest: requests.CreateKeyStoreRequest
+  ): Promise<responses.CreateKeyStoreResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createKeyStore.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createKeyStoreRequest.opcRetryToken,
+      "opc-request-id": createKeyStoreRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/keyStores",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createKeyStoreRequest.createKeyStoreDetails,
+        "CreateKeyStoreDetails",
+        models.CreateKeyStoreDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createKeyStoreRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateKeyStoreResponse>{},
+        body: await response.json(),
+        bodyKey: "keyStore",
+        bodyModel: "model.KeyStore",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates an Exadata Cloud@Customer VM cluster.
    *
    * @param CreateVmClusterRequest
@@ -3326,6 +3463,62 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
             key: "opcWorkRequestId",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a key store.
+   *
+   * @param DeleteKeyStoreRequest
+   * @return DeleteKeyStoreResponse
+   * @throws OciError when an error occurs
+   */
+  public async deleteKeyStore(
+    deleteKeyStoreRequest: requests.DeleteKeyStoreRequest
+  ): Promise<responses.DeleteKeyStoreResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteKeyStore.");
+    const pathParams = {
+      "{keyStoreId}": deleteKeyStoreRequest.keyStoreId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteKeyStoreRequest.ifMatch,
+      "opc-request-id": deleteKeyStoreRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/keyStores/{keyStoreId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteKeyStoreRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteKeyStoreResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -6373,6 +6566,69 @@ A failover might result in data loss depending on the protection mode in effect 
         body: await response.json(),
         bodyKey: "externalBackupJob",
         bodyModel: "model.ExternalBackupJob",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified key store.
+   *
+   * @param GetKeyStoreRequest
+   * @return GetKeyStoreResponse
+   * @throws OciError when an error occurs
+   */
+  public async getKeyStore(
+    getKeyStoreRequest: requests.GetKeyStoreRequest
+  ): Promise<responses.GetKeyStoreResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getKeyStore.");
+    const pathParams = {
+      "{keyStoreId}": getKeyStoreRequest.keyStoreId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getKeyStoreRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/keyStores/{keyStoreId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getKeyStoreRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetKeyStoreResponse>{},
+        body: await response.json(),
+        bodyKey: "keyStore",
+        bodyModel: "model.KeyStore",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -10113,6 +10369,96 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
+   * Gets a list of key stores in the specified compartment.
+   *
+   * @param ListKeyStoresRequest
+   * @return ListKeyStoresResponse
+   * @throws OciError when an error occurs
+   */
+  public async listKeyStores(
+    listKeyStoresRequest: requests.ListKeyStoresRequest
+  ): Promise<responses.ListKeyStoresResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listKeyStores.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listKeyStoresRequest.compartmentId,
+      "limit": listKeyStoresRequest.limit,
+      "page": listKeyStoresRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listKeyStoresRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/keyStores",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listKeyStoresRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListKeyStoresResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "KeyStoreSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.KeyStoreSummary objects
+   * contained in responses from the listKeyStores operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllKeyStores(
+    request: requests.ListKeyStoresRequest
+  ): AsyncIterableIterator<models.KeyStoreSummary> {
+    return paginateRecords(request, req => this.listKeyStores(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listKeyStores operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllKeyStoresResponses(
+    request: requests.ListKeyStoresRequest
+  ): AsyncIterableIterator<responses.ListKeyStoresResponse> {
+    return paginateResponses(request, req => this.listKeyStores(req));
+  }
+
+  /**
    * Gets a list of the maintenance runs in the specified compartment.
    *
    * @param ListMaintenanceRunsRequest
@@ -13262,6 +13608,75 @@ A switchover guarantees no data loss.
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * If no database is associated with the key store, edit the key store.
+   *
+   * @param UpdateKeyStoreRequest
+   * @return UpdateKeyStoreResponse
+   * @throws OciError when an error occurs
+   */
+  public async updateKeyStore(
+    updateKeyStoreRequest: requests.UpdateKeyStoreRequest
+  ): Promise<responses.UpdateKeyStoreResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateKeyStore.");
+    const pathParams = {
+      "{keyStoreId}": updateKeyStoreRequest.keyStoreId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateKeyStoreRequest.ifMatch,
+      "opc-request-id": updateKeyStoreRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/keyStores/{keyStoreId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateKeyStoreRequest.updateKeyStoreDetails,
+        "UpdateKeyStoreDetails",
+        models.UpdateKeyStoreDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateKeyStoreRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateKeyStoreResponse>{},
+        body: await response.json(),
+        bodyKey: "keyStore",
+        bodyModel: "model.KeyStore",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

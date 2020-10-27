@@ -69,6 +69,14 @@ export interface AutonomousDatabaseBackup {
    * Indicates whether the backup can be used to restore the associated Autonomous Database.
    */
   "isRestorable"?: boolean;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the key store.
+   */
+  "keyStoreId"?: string;
+  /**
+   * The wallet name for Oracle Key Vault.
+   */
+  "keyStoreWalletName"?: string;
 }
 
 export namespace AutonomousDatabaseBackup {

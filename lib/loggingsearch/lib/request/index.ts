@@ -1,6 +1,6 @@
 /**
  * Logging Search API
- * Search for logs in your compartements / log groups / log objects.
+ * Search for logs in your compartments, log groups, and log objects.
  * OpenAPI spec version: 20190909
  *
  *

@@ -139,9 +139,12 @@ export class ConfigFile {
           .get(key)!
       : null;
   }
+  public get profileCredentials(): ConfigAccumulator {
+    return this.accumulator;
+  }
 }
 
-class ConfigAccumulator {
+export class ConfigAccumulator {
   configurationsByProfile = new Map<string, Map<string, string>>();
   "currentProfile": string;
   "foundDefaultProfile": boolean = false;

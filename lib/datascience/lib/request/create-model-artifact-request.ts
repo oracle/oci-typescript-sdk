@@ -22,7 +22,7 @@ export interface CreateModelArtifactRequest extends common.BaseRequest {
   /**
    * The content length of the body.
    */
-  "contentLength": number;
+  "contentLength"?: number;
   /**
    * The model artifact to upload.
    */

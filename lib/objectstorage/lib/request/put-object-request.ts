@@ -34,7 +34,7 @@ export interface PutObjectRequest extends common.BaseRequest {
   /**
    * The content length of the body.
    */
-  "contentLength": number;
+  "contentLength"?: number;
   /**
    * The object to upload to the object store.
    */

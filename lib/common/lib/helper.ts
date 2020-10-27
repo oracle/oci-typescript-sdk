@@ -2,13 +2,14 @@
  * Copyright (c) 2020, Oracle and/or its affiliates.  All rights reserved.
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
-
+import { statSync } from "fs";
 import { OciError } from "./error";
 import { Range } from "./range";
 import { Readable, PassThrough } from "stream";
 import { addOpcRequestId, addUserAgent } from "./headers";
 import { addRetryToken } from "./retry-token-header";
 import { isEmpty } from "./utils";
+import { RequestParams } from "./request-generator";
 
 export function mapContainer(obj: { [k: string]: any }, getJsonObj: Function): object {
   const constructedObj: { [k: string]: any } = {};
@@ -191,10 +192,49 @@ export function getSignerAndReqBody(
   else throw new Error("Unable to read body content");
 }
 
-export function addAdditionalHeaders(headers: Headers) {
+export function addAdditionalHeaders(headers: Headers, params: RequestParams) {
   addOpcRequestId(headers);
   addUserAgent(headers);
   addRetryToken(headers);
+  autoDetectContentLength(headers, params);
+}
+
+function autoDetectContentLength(headers: Headers, params: RequestParams): void {
+  // Auto Detect content-length if needed
+  const reqHeaders = params.headerParams;
+  if (reqHeaders) {
+    if ("content-length" in reqHeaders && reqHeaders["content-length"] === undefined) {
+      headers.append("content-length", String(calculateContentLength(params.bodyContent!)));
+    } else if ("Content-Length" in reqHeaders && reqHeaders["Content-Length"] === undefined) {
+      headers.append("content-length", String(calculateContentLength(params.bodyContent!)));
+    }
+  }
+}
+
+// Helper method to auto detect content-length if not given.
+function calculateContentLength(body: any): number {
+  let start = 0;
+  let end = 0;
+  const bodyType = typeof body;
+
+  // If bodyType is a Readable object
+  if (bodyType == "object") {
+    const path = body.path as string;
+    start = body.start || 0;
+    if (body.end === Infinity) {
+      end = statSync(path).size;
+    } else if (!isNaN(body.end)) {
+      end = body.end + 1;
+    } else {
+      // Have the user calculate the request body content-length if SDK is unable to auto-calculate contentLength.
+      throw Error(
+        "SDK could not calculate contentLength from the request stream, please add contentLength and try again."
+      );
+    }
+    return end - start;
+  }
+  // bodyType must be a string.
+  return body.length;
 }
 
 // Helper method to format Date Objects to RFC3339 timestamp string.

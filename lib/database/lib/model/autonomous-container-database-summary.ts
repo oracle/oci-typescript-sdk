@@ -122,6 +122,14 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "dbVersion"?: string;
   "backupConfig"?: model.AutonomousContainerDatabaseBackupConfig;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the key store.
+   */
+  "keyStoreId"?: string;
+  /**
+   * The wallet name for Oracle Key Vault.
+   */
+  "keyStoreWalletName"?: string;
 }
 
 export namespace AutonomousContainerDatabaseSummary {

@@ -9,6 +9,8 @@
  * <li>The second is the name of bucket to create and later fetch</li>
  * <li>The third is the name of object to create inside bucket</li>
  * </ul>
+ * Note: there is a 2GB for 64-bit machine and 1GB for 32-bit machine buffer limitation from the NodeJS V8 Engine
+ * Cannot upload file size greater than the limit
  */
 
 const os = require("oci-objectstorage");
