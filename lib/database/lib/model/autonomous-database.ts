@@ -265,6 +265,14 @@ To add the whitelist VCN specific subnet or IP, use a semicoln ';' as a delimina
    * List of Oracle Database versions available for a database upgrade. If there are no version upgrades available, this list is empty.
    */
   "availableUpgradeVersions"?: Array<string>;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the key store.
+   */
+  "keyStoreId"?: string;
+  /**
+   * The wallet name for Oracle Key Vault.
+   */
+  "keyStoreWalletName"?: string;
 }
 
 export namespace AutonomousDatabase {

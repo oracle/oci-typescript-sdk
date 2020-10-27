@@ -9,7 +9,7 @@ import {
   RegionProvider
 } from "./auth";
 import { checkNotNull } from "../utils";
-import { ConfigFileReader, ConfigFile } from "../config-file-reader";
+import { ConfigFileReader, ConfigFile, ConfigAccumulator } from "../config-file-reader";
 import { readFileSync } from "fs";
 import { Region } from "../region";
 import { Realm } from "../realm";
@@ -100,13 +100,18 @@ export class ConfigFileAuthenticationDetailsProvider
     const pemFilePath = checkNotNull(file.get("key_file"), "missing key_file in config");
     const passPhrase = file.get("pass_phrase");
     const privateKey = this.getPvtKey(ConfigFileReader.expandUserHome(pemFilePath));
+    const profileCredentials = file.profileCredentials;
+
     return new SimpleAuthenticationDetailsProvider(
       tenantId,
       user,
       fingerprint,
       privateKey,
       passPhrase,
-      region
+      region,
+      undefined,
+      undefined,
+      profileCredentials
     );
   }
 
@@ -187,5 +192,9 @@ export class ConfigFileAuthenticationDetailsProvider
 
   public getDelegationToken(): string | undefined {
     return this.delegate.getDelegationToken();
+  }
+
+  public getProfileCredentials(): ConfigAccumulator | undefined {
+    return this.delegate.getProfileCredentials();
   }
 }

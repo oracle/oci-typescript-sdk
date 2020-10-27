@@ -36,6 +36,8 @@ import * as ChangeDbSystemCompartmentResponse from "./change-db-system-compartme
 export import ChangeDbSystemCompartmentResponse = ChangeDbSystemCompartmentResponse.ChangeDbSystemCompartmentResponse;
 import * as ChangeExadataInfrastructureCompartmentResponse from "./change-exadata-infrastructure-compartment-response";
 export import ChangeExadataInfrastructureCompartmentResponse = ChangeExadataInfrastructureCompartmentResponse.ChangeExadataInfrastructureCompartmentResponse;
+import * as ChangeKeyStoreCompartmentResponse from "./change-key-store-compartment-response";
+export import ChangeKeyStoreCompartmentResponse = ChangeKeyStoreCompartmentResponse.ChangeKeyStoreCompartmentResponse;
 import * as ChangeVmClusterCompartmentResponse from "./change-vm-cluster-compartment-response";
 export import ChangeVmClusterCompartmentResponse = ChangeVmClusterCompartmentResponse.ChangeVmClusterCompartmentResponse;
 import * as CompleteExternalBackupJobResponse from "./complete-external-backup-job-response";
@@ -74,6 +76,8 @@ import * as CreateExadataInfrastructureResponse from "./create-exadata-infrastru
 export import CreateExadataInfrastructureResponse = CreateExadataInfrastructureResponse.CreateExadataInfrastructureResponse;
 import * as CreateExternalBackupJobResponse from "./create-external-backup-job-response";
 export import CreateExternalBackupJobResponse = CreateExternalBackupJobResponse.CreateExternalBackupJobResponse;
+import * as CreateKeyStoreResponse from "./create-key-store-response";
+export import CreateKeyStoreResponse = CreateKeyStoreResponse.CreateKeyStoreResponse;
 import * as CreateVmClusterResponse from "./create-vm-cluster-response";
 export import CreateVmClusterResponse = CreateVmClusterResponse.CreateVmClusterResponse;
 import * as CreateVmClusterNetworkResponse from "./create-vm-cluster-network-response";
@@ -104,6 +108,8 @@ import * as DeleteDbHomeResponse from "./delete-db-home-response";
 export import DeleteDbHomeResponse = DeleteDbHomeResponse.DeleteDbHomeResponse;
 import * as DeleteExadataInfrastructureResponse from "./delete-exadata-infrastructure-response";
 export import DeleteExadataInfrastructureResponse = DeleteExadataInfrastructureResponse.DeleteExadataInfrastructureResponse;
+import * as DeleteKeyStoreResponse from "./delete-key-store-response";
+export import DeleteKeyStoreResponse = DeleteKeyStoreResponse.DeleteKeyStoreResponse;
 import * as DeleteVmClusterResponse from "./delete-vm-cluster-response";
 export import DeleteVmClusterResponse = DeleteVmClusterResponse.DeleteVmClusterResponse;
 import * as DeleteVmClusterNetworkResponse from "./delete-vm-cluster-network-response";
@@ -198,6 +204,8 @@ import * as GetExadataIormConfigResponse from "./get-exadata-iorm-config-respons
 export import GetExadataIormConfigResponse = GetExadataIormConfigResponse.GetExadataIormConfigResponse;
 import * as GetExternalBackupJobResponse from "./get-external-backup-job-response";
 export import GetExternalBackupJobResponse = GetExternalBackupJobResponse.GetExternalBackupJobResponse;
+import * as GetKeyStoreResponse from "./get-key-store-response";
+export import GetKeyStoreResponse = GetKeyStoreResponse.GetKeyStoreResponse;
 import * as GetMaintenanceRunResponse from "./get-maintenance-run-response";
 export import GetMaintenanceRunResponse = GetMaintenanceRunResponse.GetMaintenanceRunResponse;
 import * as GetVmClusterResponse from "./get-vm-cluster-response";
@@ -282,6 +290,8 @@ import * as ListExadataInfrastructuresResponse from "./list-exadata-infrastructu
 export import ListExadataInfrastructuresResponse = ListExadataInfrastructuresResponse.ListExadataInfrastructuresResponse;
 import * as ListGiVersionsResponse from "./list-gi-versions-response";
 export import ListGiVersionsResponse = ListGiVersionsResponse.ListGiVersionsResponse;
+import * as ListKeyStoresResponse from "./list-key-stores-response";
+export import ListKeyStoresResponse = ListKeyStoresResponse.ListKeyStoresResponse;
 import * as ListMaintenanceRunsResponse from "./list-maintenance-runs-response";
 export import ListMaintenanceRunsResponse = ListMaintenanceRunsResponse.ListMaintenanceRunsResponse;
 import * as ListVmClusterNetworksResponse from "./list-vm-cluster-networks-response";
@@ -368,6 +378,8 @@ import * as UpdateExadataInfrastructureResponse from "./update-exadata-infrastru
 export import UpdateExadataInfrastructureResponse = UpdateExadataInfrastructureResponse.UpdateExadataInfrastructureResponse;
 import * as UpdateExadataIormConfigResponse from "./update-exadata-iorm-config-response";
 export import UpdateExadataIormConfigResponse = UpdateExadataIormConfigResponse.UpdateExadataIormConfigResponse;
+import * as UpdateKeyStoreResponse from "./update-key-store-response";
+export import UpdateKeyStoreResponse = UpdateKeyStoreResponse.UpdateKeyStoreResponse;
 import * as UpdateMaintenanceRunResponse from "./update-maintenance-run-response";
 export import UpdateMaintenanceRunResponse = UpdateMaintenanceRunResponse.UpdateMaintenanceRunResponse;
 import * as UpdateVmClusterResponse from "./update-vm-cluster-response";

@@ -484,6 +484,25 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forKeyStore till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetKeyStoreResponse | null (null in case of 404 response)
+   */
+  public async forKeyStore(
+    request: serviceRequests.GetKeyStoreRequest,
+    ...targetStates: models.KeyStore.LifecycleState[]
+  ): Promise<serviceResponses.GetKeyStoreResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getKeyStore(request),
+      response => targetStates.exists(response.keyStore.lifecycleState),
+      targetStates.includes(models.KeyStore.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forMaintenanceRun till it reaches any of the provided states
    *
    * @param request the request to send

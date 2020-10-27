@@ -3,12 +3,12 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
- /* @param args Arguments to provide to the example. The following arguments are expected:
+/* @param args Arguments to provide to the example. The following arguments are expected:
  * <ul>
  *  <li>The first argument is the OCID of the compartment.</li>
  * </ul>
  * Refer https://docs.cloud.oracle.com/en-us/iaas/api/#/en/monitoring/20180401/MetricData/PostMetricData for more details.
- * This example uses phoenix metric endpoint https://telemetry-ingestion.us-phoenix-1.oraclecloud.com 
+ * This example uses phoenix metric endpoint https://telemetry-ingestion.us-phoenix-1.oraclecloud.com
  * we can change this to a different region (refer https://docs.cloud.oracle.com/en-us/iaas/api/#/en/monitoring/20180401/).
  */
 
@@ -43,47 +43,52 @@ monitoringClient.endpoint = "https://telemetry-ingestion.us-phoenix-1.oracleclou
 
 (async () => {
   try {
-
     var datenow = new Date();
     var dateutc = new Date(datenow.toUTCString());
     /* The timestamp datapoint format used is defined by RFC3339. 
     https://docs.cloud.oracle.com/en-us/iaas/api/#/en/monitoring/20180401/datatypes/Datapoint
     */
 
-    const MetricDataDetails: Array<mt.models.MetricDataDetails> = [{
+    const MetricDataDetails: Array<mt.models.MetricDataDetails> = [
+      {
         namespace: "<your_namespace_here>",
         resourceGroup: "<your_resourcegroup_here>",
         compartmentId: compartmentId,
         name: "<your_name_of_the_metric_here>",
         dimensions: {
-            "appName": "<your_dimensions>",
-            "podName": "<your_dimensions>"
+          "appName": "<your_dimensions>",
+          "podName": "<your_dimensions>"
         },
         metadata: {
-            "unit": "count",
-            "displayName": "<your_display_name>"
+          "unit": "count",
+          "displayName": "<your_display_name>"
         },
-        datapoints: [{
+        datapoints: [
+          {
             "timestamp": dateutc,
-            "value": "<your_datapoint_value>",
-            "count": "<your_datapoint_count>"
-        }
-      ]
-    }]
+            "value": 1,
+            "count": 1
+          }
+        ]
+      }
+    ];
 
     const PostMetricDataDetails: mt.models.PostMetricDataDetails = {
-      metricData : MetricDataDetails
-    }
+      metricData: MetricDataDetails
+    };
 
     const PostMetricDataRequest: mt.requests.PostMetricDataRequest = {
       postMetricDataDetails: PostMetricDataDetails
     };
 
-    const response =  await monitoringClient.postMetricData(PostMetricDataRequest);
+    const response = await monitoringClient.postMetricData(PostMetricDataRequest);
     //console.log("Retrieved :" + response.postMetricDataResponseDetails.failedMetricsCount);
 
-    console.log("Successfully posted custom metric with name: %s to namespace: %s ",MetricDataDetails[0].name,MetricDataDetails[0].namespace )
-
+    console.log(
+      "Successfully posted custom metric with name: %s to namespace: %s ",
+      MetricDataDetails[0].name,
+      MetricDataDetails[0].namespace
+    );
   } catch (error) {
     console.log(" Not able to run post metric monitoring example. Error: " + error);
   }

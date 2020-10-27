@@ -18,7 +18,7 @@ export interface RestoreKeyFromFileRequest extends common.BaseRequest {
   /**
    * The content length of the body.
    */
-  "contentLength": number;
+  "contentLength"?: number;
   /**
    * The encrypted backup file to upload to restore the key.
    */

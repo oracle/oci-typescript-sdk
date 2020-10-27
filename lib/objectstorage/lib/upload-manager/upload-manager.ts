@@ -29,6 +29,8 @@ import { UploadOptions } from "./upload-options";
  * An advantage of using multi-part uploads is the ability to be able to upload parts in parallel to reduce upload time.
  * <p>
  * Callers still have full control over how the UploadManager decides to perform the upload using UploadOptions.
+ * NodeJS V8 Engine have a buffer size limitation, 2GB for 64-bit machine and 1GB for 32-bit machine.
+ * Do not make the partSize greater than the buffer size limitation.
  */
 
 export class UploadManager {

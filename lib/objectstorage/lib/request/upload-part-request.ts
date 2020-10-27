@@ -42,7 +42,7 @@ export interface UploadPartRequest extends common.BaseRequest {
   /**
    * The content length of the body.
    */
-  "contentLength": number;
+  "contentLength"?: number;
   /**
    * The part being uploaded to the Object Storage service.
    */

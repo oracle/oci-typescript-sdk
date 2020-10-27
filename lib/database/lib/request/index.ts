@@ -36,6 +36,8 @@ import * as ChangeDbSystemCompartmentRequest from "./change-db-system-compartmen
 export import ChangeDbSystemCompartmentRequest = ChangeDbSystemCompartmentRequest.ChangeDbSystemCompartmentRequest;
 import * as ChangeExadataInfrastructureCompartmentRequest from "./change-exadata-infrastructure-compartment-request";
 export import ChangeExadataInfrastructureCompartmentRequest = ChangeExadataInfrastructureCompartmentRequest.ChangeExadataInfrastructureCompartmentRequest;
+import * as ChangeKeyStoreCompartmentRequest from "./change-key-store-compartment-request";
+export import ChangeKeyStoreCompartmentRequest = ChangeKeyStoreCompartmentRequest.ChangeKeyStoreCompartmentRequest;
 import * as ChangeVmClusterCompartmentRequest from "./change-vm-cluster-compartment-request";
 export import ChangeVmClusterCompartmentRequest = ChangeVmClusterCompartmentRequest.ChangeVmClusterCompartmentRequest;
 import * as CompleteExternalBackupJobRequest from "./complete-external-backup-job-request";
@@ -74,6 +76,8 @@ import * as CreateExadataInfrastructureRequest from "./create-exadata-infrastruc
 export import CreateExadataInfrastructureRequest = CreateExadataInfrastructureRequest.CreateExadataInfrastructureRequest;
 import * as CreateExternalBackupJobRequest from "./create-external-backup-job-request";
 export import CreateExternalBackupJobRequest = CreateExternalBackupJobRequest.CreateExternalBackupJobRequest;
+import * as CreateKeyStoreRequest from "./create-key-store-request";
+export import CreateKeyStoreRequest = CreateKeyStoreRequest.CreateKeyStoreRequest;
 import * as CreateVmClusterRequest from "./create-vm-cluster-request";
 export import CreateVmClusterRequest = CreateVmClusterRequest.CreateVmClusterRequest;
 import * as CreateVmClusterNetworkRequest from "./create-vm-cluster-network-request";
@@ -104,6 +108,8 @@ import * as DeleteDbHomeRequest from "./delete-db-home-request";
 export import DeleteDbHomeRequest = DeleteDbHomeRequest.DeleteDbHomeRequest;
 import * as DeleteExadataInfrastructureRequest from "./delete-exadata-infrastructure-request";
 export import DeleteExadataInfrastructureRequest = DeleteExadataInfrastructureRequest.DeleteExadataInfrastructureRequest;
+import * as DeleteKeyStoreRequest from "./delete-key-store-request";
+export import DeleteKeyStoreRequest = DeleteKeyStoreRequest.DeleteKeyStoreRequest;
 import * as DeleteVmClusterRequest from "./delete-vm-cluster-request";
 export import DeleteVmClusterRequest = DeleteVmClusterRequest.DeleteVmClusterRequest;
 import * as DeleteVmClusterNetworkRequest from "./delete-vm-cluster-network-request";
@@ -198,6 +204,8 @@ import * as GetExadataIormConfigRequest from "./get-exadata-iorm-config-request"
 export import GetExadataIormConfigRequest = GetExadataIormConfigRequest.GetExadataIormConfigRequest;
 import * as GetExternalBackupJobRequest from "./get-external-backup-job-request";
 export import GetExternalBackupJobRequest = GetExternalBackupJobRequest.GetExternalBackupJobRequest;
+import * as GetKeyStoreRequest from "./get-key-store-request";
+export import GetKeyStoreRequest = GetKeyStoreRequest.GetKeyStoreRequest;
 import * as GetMaintenanceRunRequest from "./get-maintenance-run-request";
 export import GetMaintenanceRunRequest = GetMaintenanceRunRequest.GetMaintenanceRunRequest;
 import * as GetVmClusterRequest from "./get-vm-cluster-request";
@@ -282,6 +290,8 @@ import * as ListExadataInfrastructuresRequest from "./list-exadata-infrastructur
 export import ListExadataInfrastructuresRequest = ListExadataInfrastructuresRequest.ListExadataInfrastructuresRequest;
 import * as ListGiVersionsRequest from "./list-gi-versions-request";
 export import ListGiVersionsRequest = ListGiVersionsRequest.ListGiVersionsRequest;
+import * as ListKeyStoresRequest from "./list-key-stores-request";
+export import ListKeyStoresRequest = ListKeyStoresRequest.ListKeyStoresRequest;
 import * as ListMaintenanceRunsRequest from "./list-maintenance-runs-request";
 export import ListMaintenanceRunsRequest = ListMaintenanceRunsRequest.ListMaintenanceRunsRequest;
 import * as ListVmClusterNetworksRequest from "./list-vm-cluster-networks-request";
@@ -368,6 +378,8 @@ import * as UpdateExadataInfrastructureRequest from "./update-exadata-infrastruc
 export import UpdateExadataInfrastructureRequest = UpdateExadataInfrastructureRequest.UpdateExadataInfrastructureRequest;
 import * as UpdateExadataIormConfigRequest from "./update-exadata-iorm-config-request";
 export import UpdateExadataIormConfigRequest = UpdateExadataIormConfigRequest.UpdateExadataIormConfigRequest;
+import * as UpdateKeyStoreRequest from "./update-key-store-request";
+export import UpdateKeyStoreRequest = UpdateKeyStoreRequest.UpdateKeyStoreRequest;
 import * as UpdateMaintenanceRunRequest from "./update-maintenance-run-request";
 export import UpdateMaintenanceRunRequest = UpdateMaintenanceRunRequest.UpdateMaintenanceRunRequest;
 import * as UpdateVmClusterRequest from "./update-vm-cluster-request";
