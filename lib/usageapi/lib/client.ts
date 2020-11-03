@@ -1,6 +1,6 @@
 /**
  * Usage API
- * A description of the UsageApi API.
+ * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the dimension of your choosing. The Usage API is used by the Cost Analysis tool in the Console.
  * OpenAPI spec version: 20200107
  *
  *
@@ -105,7 +105,7 @@ export class UsageapiClient {
   }
 
   /**
-   * Returns the list of config for UI dropdown list
+   * Returns the configurations list for the UI drop-down list.
    *
    * @param RequestSummarizedConfigurationsRequest
    * @return RequestSummarizedConfigurationsResponse
@@ -164,7 +164,7 @@ export class UsageapiClient {
   }
 
   /**
-   * Returns the usage for the given account
+   * Returns usage for the given account.
    *
    * @param RequestSummarizedUsagesRequest
    * @return RequestSummarizedUsagesResponse

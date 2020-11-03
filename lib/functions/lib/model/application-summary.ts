@@ -24,7 +24,7 @@ export interface ApplicationSummary {
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the application.
    *
    */
-  "id"?: string;
+  "id": string;
   /**
    * The OCID of the compartment that contains the application.
    *

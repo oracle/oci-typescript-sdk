@@ -1,6 +1,6 @@
 /**
  * Usage API
- * A description of the UsageApi API.
+ * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the dimension of your choosing. The Usage API is used by the Cost Analysis tool in the Console.
  * OpenAPI spec version: 20200107
  *
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The available configurations
+ * The available configurations.
  */
 export interface ConfigurationAggregation {
   /**
-   * The list of available configurations
+   * The list of available configurations.
    */
   "items": Array<model.Configuration>;
 }

@@ -252,44 +252,6 @@ export class VirtualNetworkWaiter {
   }
 
   /**
-   * Waits forFlowLogConfig till it reaches any of the provided states
-   *
-   * @param request the request to send
-   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
-   * @return response returns GetFlowLogConfigResponse | null (null in case of 404 response)
-   */
-  public async forFlowLogConfig(
-    request: serviceRequests.GetFlowLogConfigRequest,
-    ...targetStates: models.FlowLogConfig.LifecycleState[]
-  ): Promise<serviceResponses.GetFlowLogConfigResponse | null> {
-    return genericTerminalConditionWaiter(
-      this.config,
-      () => this.client.getFlowLogConfig(request),
-      response => targetStates.exists(response.flowLogConfig.lifecycleState),
-      targetStates.includes(models.FlowLogConfig.LifecycleState.Terminated)
-    );
-  }
-
-  /**
-   * Waits forFlowLogConfigAttachment till it reaches any of the provided states
-   *
-   * @param request the request to send
-   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
-   * @return response returns GetFlowLogConfigAttachmentResponse | null (null in case of 404 response)
-   */
-  public async forFlowLogConfigAttachment(
-    request: serviceRequests.GetFlowLogConfigAttachmentRequest,
-    ...targetStates: models.FlowLogConfigAttachment.LifecycleState[]
-  ): Promise<serviceResponses.GetFlowLogConfigAttachmentResponse | null> {
-    return genericTerminalConditionWaiter(
-      this.config,
-      () => this.client.getFlowLogConfigAttachment(request),
-      response => targetStates.exists(response.flowLogConfigAttachment.lifecycleState),
-      targetStates.includes(models.FlowLogConfigAttachment.LifecycleState.Terminated)
-    );
-  }
-
-  /**
    * Waits forIPSecConnection till it reaches any of the provided states
    *
    * @param request the request to send

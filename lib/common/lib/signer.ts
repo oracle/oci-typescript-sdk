@@ -137,7 +137,7 @@ export class DefaultRequestSigner implements RequestSigner {
         const bodyStringContent: string = await getStringFromRequestBody(request.body);
         shaObj.update(bodyStringContent);
         request.headers.set(HEADER_CONTENT_SHA, shaObj.getHash("B64"));
-        contentLen = bodyStringContent.length;
+        contentLen = Buffer.byteLength(bodyStringContent, "utf8");
       }
 
       if (contentLen == 0) {

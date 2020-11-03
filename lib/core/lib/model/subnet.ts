@@ -133,25 +133,6 @@ Example: `2001:0db8:0123:1111:89ab:cdef:1234:5678`
    */
   "lifecycleState": Subnet.LifecycleState;
   /**
-    * Whether learning mode is enabled for this subnet. The default is `false`.
-* <p>
-**Note:** When a subnet has learning mode enabled, only certain types
-* of resources can be launched in the subnet.
-* <p>
-Example: `true`
-* 
-    */
-  "isLearningEnabled"?: boolean;
-  /**
-    * The VLAN tag assigned to VNIC Attachments within this Subnet if the Subnet has learning enabled.
-* <p>
-**Note:** When a subnet does not have learning enabled, this field will be null.
-* <p>
-Example: `100`
-* 
-    */
-  "vlanTag"?: number;
-  /**
     * Whether VNICs within this subnet can have public IP addresses.
 * Defaults to false, which means VNICs created in this subnet will
 * automatically be assigned public IP addresses unless specified

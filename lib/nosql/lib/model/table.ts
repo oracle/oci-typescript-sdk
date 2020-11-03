@@ -1,5 +1,5 @@
 /**
- * ndcs-control-plane API
+ * NoSQL Database API
  * The control plane API for NoSQL Database Cloud Service HTTPS
 provides endpoints to perform NDCS operations, including creation
 and deletion of tables and indexes; population and access of data
@@ -52,6 +52,17 @@ export interface Table {
    */
   "lifecycleState"?: Table.LifecycleState;
   /**
+   * True if this table can be reclaimed after an idle period.
+   */
+  "isAutoReclaimable"?: boolean;
+  /**
+   * If lifecycleState is INACTIVE, indicates when
+   * this table will be automatically removed.
+   * An RFC3339 formatted datetime string.
+   *
+   */
+  "timeOfExpiration"?: Date;
+  /**
    * A message describing the current state in more detail.
    *
    */
@@ -75,6 +86,15 @@ export interface Table {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Read-only system tag. These predefined keys are scoped to
+   * namespaces.  At present the only supported namespace is
+   * `\"orcl-cloud\"`; and the only key in that namespace is
+   * `\"free-tier-retained\"`.
+   * Example: `{\"orcl-cloud\"\": {\"free-tier-retained\": \"true\"}}`
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace Table {
@@ -85,6 +105,7 @@ export namespace Table {
     Deleting = "DELETING",
     Deleted = "DELETED",
     Failed = "FAILED",
+    Inactive = "INACTIVE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

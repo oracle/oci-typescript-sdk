@@ -1,5 +1,5 @@
 /**
- * ndcs-control-plane API
+ * NoSQL Database API
  * The control plane API for NoSQL Database Cloud Service HTTPS
 provides endpoints to perform NDCS operations, including creation
 and deletion of tables and indexes; population and access of data
@@ -35,6 +35,10 @@ export interface CreateTableDetails {
    */
   "ddlStatement": string;
   "tableLimits": model.TableLimits;
+  /**
+   * True if table can be reclaimed after an idle period.
+   */
+  "isAutoReclaimable"?: boolean;
   /**
    * Simple key-value pair that is applied without any predefined
    * name, type or scope. Exists for cross-compatibility only.

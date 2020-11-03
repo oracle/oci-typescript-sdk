@@ -49,7 +49,7 @@ Default: 10
    */
   "displayName"?: string;
   /**
-   * A filter to return only applications with the specfied OCID.
+   * A filter to return only applications with the specified OCID.
    *
    */
   "id"?: string;

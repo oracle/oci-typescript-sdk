@@ -17,6 +17,7 @@ import * as requests from "./request";
 import * as models from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
+import { WorkRequestClient } from "oci-workrequests";
 import { DatabaseWaiter } from "./database-waiter";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 
@@ -111,11 +112,15 @@ export class DatabaseClient {
   /**
    * Creates a new DatabaseWaiter for resources for this service.
    *
+   * @param workRequestClient The work request service client used to query for work request status
    * @param config The waiter configuration for termination and delay strategy
    * @return The service waiters.
    */
-  public createWaiters(config?: common.WaiterConfiguration): DatabaseWaiter {
-    this._waiters = new DatabaseWaiter(this, config);
+  public createWaiters(
+    workRequestClient: WorkRequestClient,
+    config?: common.WaiterConfiguration
+  ): DatabaseWaiter {
+    this._waiters = new DatabaseWaiter(this, workRequestClient, config);
     return this._waiters;
   }
 

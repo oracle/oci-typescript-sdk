@@ -1,5 +1,5 @@
 /**
- * ndcs-control-plane API
+ * NoSQL Database API
  * The control plane API for NoSQL Database Cloud Service HTTPS
 provides endpoints to perform NDCS operations, including creation
 and deletion of tables and indexes; population and access of data

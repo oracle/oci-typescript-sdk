@@ -22,10 +22,4 @@ export interface ConnectLocalPeeringGatewaysRequest extends common.BaseRequest {
    * Details regarding the local peering gateway to connect.
    */
   "connectLocalPeeringGatewaysDetails": model.ConnectLocalPeeringGatewaysDetails;
-  /**
-   * A comma separated list of tenancy OCIDs that might be accessed by this request. Only required
-   * for cross tenancy requests. May be `null` for requests that do not cross tenancy boundaries.
-   *
-   */
-  "xCrossTenancyRequest"?: string;
 }

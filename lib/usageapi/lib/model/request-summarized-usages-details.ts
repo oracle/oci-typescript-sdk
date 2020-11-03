@@ -1,6 +1,6 @@
 /**
  * Usage API
- * A description of the UsageApi API.
+ * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the dimension of your choosing. The Usage API is used by the Cost Analysis tool in the Console.
  * OpenAPI spec version: 20200107
  *
  *
@@ -15,34 +15,34 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * details for the '/usage' query
+ * Details for the '/usage' query.
  */
 export interface RequestSummarizedUsagesDetails {
   /**
-   * tenant id
+   * Tenant ID
    */
   "tenantId": string;
   /**
-   * The start time of the usage.
+   * The usage start time.
    */
   "timeUsageStarted": Date;
   /**
-   * The end time of the usage.
+   * The usage end time.
    */
   "timeUsageEnded": Date;
   /**
-   * The granularity of the usage.
-   * HOURLY - Hourly aggregation of data
-   * DAILY - Daily aggregation of data
-   * MONTHLY - Monthly aggregation of data
-   * TOTAL - Not Supported Yet
+   * The usage granularity.
+   * HOURLY - Hourly data aggregation.
+   * DAILY - Daily data aggregation.
+   * MONTHLY - Monthly data aggregation.
+   * TOTAL - Not yet supported.
    *
    */
   "granularity": RequestSummarizedUsagesDetails.Granularity;
   /**
-   * The type of query of the usage.
+   * The query usage type.
    * Usage - Query the usage data.
-   * Cost - Query the cost / billing data.
+   * Cost - Query the cost/billing data.
    *
    */
   "queryType"?: RequestSummarizedUsagesDetails.QueryType;
@@ -54,7 +54,7 @@ export interface RequestSummarizedUsagesDetails {
    */
   "groupBy"?: Array<string>;
   /**
-   * The depth level of the compartment.
+   * The compartment depth level.
    */
   "compartmentDepth"?: number;
   "filter"?: model.Filter;

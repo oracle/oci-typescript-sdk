@@ -17,12 +17,1187 @@ import * as serviceResponses from "./response";
 import * as models from "./model";
 import { DatabaseClient } from "./client";
 import { genericWaiter, genericTerminalConditionWaiter, WaiterConfiguration } from "oci-common";
+import { waitForWorkRequest, WorkRequestClient, responses } from "oci-workrequests";
 
 export class DatabaseWaiter {
   public constructor(
     private client: DatabaseClient,
+    private workRequestClient: WorkRequestClient,
     private readonly config?: WaiterConfiguration
   ) {}
+
+  /**
+   * Waits forActivateExadataInfrastructure
+   *
+   * @param request the request to send
+   * @return response returns ActivateExadataInfrastructureResponse, GetWorkRequestResponse tuple
+   */
+  public async forActivateExadataInfrastructure(
+    request: serviceRequests.ActivateExadataInfrastructureRequest
+  ): Promise<{
+    response: serviceResponses.ActivateExadataInfrastructureResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const activateExadataInfrastructureResponse = await this.client.activateExadataInfrastructure(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      activateExadataInfrastructureResponse.opcWorkRequestId
+    );
+    return {
+      response: activateExadataInfrastructureResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forAutonomousDatabaseManualRefresh
+   *
+   * @param request the request to send
+   * @return response returns AutonomousDatabaseManualRefreshResponse, GetWorkRequestResponse tuple
+   */
+  public async forAutonomousDatabaseManualRefresh(
+    request: serviceRequests.AutonomousDatabaseManualRefreshRequest
+  ): Promise<{
+    response: serviceResponses.AutonomousDatabaseManualRefreshResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const autonomousDatabaseManualRefreshResponse = await this.client.autonomousDatabaseManualRefresh(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      autonomousDatabaseManualRefreshResponse.opcWorkRequestId
+    );
+    return {
+      response: autonomousDatabaseManualRefreshResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forChangeAutonomousContainerDatabaseCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeAutonomousContainerDatabaseCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeAutonomousContainerDatabaseCompartment(
+    request: serviceRequests.ChangeAutonomousContainerDatabaseCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeAutonomousContainerDatabaseCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeAutonomousContainerDatabaseCompartmentResponse = await this.client.changeAutonomousContainerDatabaseCompartment(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeAutonomousContainerDatabaseCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeAutonomousContainerDatabaseCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forChangeAutonomousDatabaseCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeAutonomousDatabaseCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeAutonomousDatabaseCompartment(
+    request: serviceRequests.ChangeAutonomousDatabaseCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeAutonomousDatabaseCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeAutonomousDatabaseCompartmentResponse = await this.client.changeAutonomousDatabaseCompartment(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeAutonomousDatabaseCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeAutonomousDatabaseCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forChangeAutonomousExadataInfrastructureCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeAutonomousExadataInfrastructureCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeAutonomousExadataInfrastructureCompartment(
+    request: serviceRequests.ChangeAutonomousExadataInfrastructureCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeAutonomousExadataInfrastructureCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeAutonomousExadataInfrastructureCompartmentResponse = await this.client.changeAutonomousExadataInfrastructureCompartment(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeAutonomousExadataInfrastructureCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeAutonomousExadataInfrastructureCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forChangeAutonomousVmClusterCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeAutonomousVmClusterCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeAutonomousVmClusterCompartment(
+    request: serviceRequests.ChangeAutonomousVmClusterCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeAutonomousVmClusterCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeAutonomousVmClusterCompartmentResponse = await this.client.changeAutonomousVmClusterCompartment(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeAutonomousVmClusterCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeAutonomousVmClusterCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forChangeBackupDestinationCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeBackupDestinationCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeBackupDestinationCompartment(
+    request: serviceRequests.ChangeBackupDestinationCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeBackupDestinationCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeBackupDestinationCompartmentResponse = await this.client.changeBackupDestinationCompartment(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeBackupDestinationCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeBackupDestinationCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forChangeCloudExadataInfrastructureCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeCloudExadataInfrastructureCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeCloudExadataInfrastructureCompartment(
+    request: serviceRequests.ChangeCloudExadataInfrastructureCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeCloudExadataInfrastructureCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeCloudExadataInfrastructureCompartmentResponse = await this.client.changeCloudExadataInfrastructureCompartment(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeCloudExadataInfrastructureCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeCloudExadataInfrastructureCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forChangeCloudVmClusterCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeCloudVmClusterCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeCloudVmClusterCompartment(
+    request: serviceRequests.ChangeCloudVmClusterCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeCloudVmClusterCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeCloudVmClusterCompartmentResponse = await this.client.changeCloudVmClusterCompartment(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeCloudVmClusterCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeCloudVmClusterCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forChangeDatabaseSoftwareImageCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeDatabaseSoftwareImageCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeDatabaseSoftwareImageCompartment(
+    request: serviceRequests.ChangeDatabaseSoftwareImageCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeDatabaseSoftwareImageCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeDatabaseSoftwareImageCompartmentResponse = await this.client.changeDatabaseSoftwareImageCompartment(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeDatabaseSoftwareImageCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeDatabaseSoftwareImageCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forChangeDbSystemCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeDbSystemCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeDbSystemCompartment(
+    request: serviceRequests.ChangeDbSystemCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeDbSystemCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeDbSystemCompartmentResponse = await this.client.changeDbSystemCompartment(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeDbSystemCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeDbSystemCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forChangeExadataInfrastructureCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeExadataInfrastructureCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeExadataInfrastructureCompartment(
+    request: serviceRequests.ChangeExadataInfrastructureCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeExadataInfrastructureCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeExadataInfrastructureCompartmentResponse = await this.client.changeExadataInfrastructureCompartment(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeExadataInfrastructureCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeExadataInfrastructureCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forChangeKeyStoreCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeKeyStoreCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeKeyStoreCompartment(
+    request: serviceRequests.ChangeKeyStoreCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeKeyStoreCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeKeyStoreCompartmentResponse = await this.client.changeKeyStoreCompartment(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeKeyStoreCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeKeyStoreCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forChangeVmClusterCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeVmClusterCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeVmClusterCompartment(
+    request: serviceRequests.ChangeVmClusterCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeVmClusterCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeVmClusterCompartmentResponse = await this.client.changeVmClusterCompartment(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeVmClusterCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeVmClusterCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forCompleteExternalBackupJob
+   *
+   * @param request the request to send
+   * @return response returns CompleteExternalBackupJobResponse, GetWorkRequestResponse tuple
+   */
+  public async forCompleteExternalBackupJob(
+    request: serviceRequests.CompleteExternalBackupJobRequest
+  ): Promise<{
+    response: serviceResponses.CompleteExternalBackupJobResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const completeExternalBackupJobResponse = await this.client.completeExternalBackupJob(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      completeExternalBackupJobResponse.opcWorkRequestId
+    );
+    return {
+      response: completeExternalBackupJobResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forCreateAutonomousContainerDatabase
+   *
+   * @param request the request to send
+   * @return response returns CreateAutonomousContainerDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateAutonomousContainerDatabase(
+    request: serviceRequests.CreateAutonomousContainerDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.CreateAutonomousContainerDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createAutonomousContainerDatabaseResponse = await this.client.createAutonomousContainerDatabase(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createAutonomousContainerDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: createAutonomousContainerDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forCreateAutonomousDatabase
+   *
+   * @param request the request to send
+   * @return response returns CreateAutonomousDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateAutonomousDatabase(
+    request: serviceRequests.CreateAutonomousDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.CreateAutonomousDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createAutonomousDatabaseResponse = await this.client.createAutonomousDatabase(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createAutonomousDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: createAutonomousDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forCreateAutonomousDatabaseBackup
+   *
+   * @param request the request to send
+   * @return response returns CreateAutonomousDatabaseBackupResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateAutonomousDatabaseBackup(
+    request: serviceRequests.CreateAutonomousDatabaseBackupRequest
+  ): Promise<{
+    response: serviceResponses.CreateAutonomousDatabaseBackupResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createAutonomousDatabaseBackupResponse = await this.client.createAutonomousDatabaseBackup(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createAutonomousDatabaseBackupResponse.opcWorkRequestId
+    );
+    return {
+      response: createAutonomousDatabaseBackupResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forCreateAutonomousVmCluster
+   *
+   * @param request the request to send
+   * @return response returns CreateAutonomousVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateAutonomousVmCluster(
+    request: serviceRequests.CreateAutonomousVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.CreateAutonomousVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createAutonomousVmClusterResponse = await this.client.createAutonomousVmCluster(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createAutonomousVmClusterResponse.opcWorkRequestId
+    );
+    return {
+      response: createAutonomousVmClusterResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forCreateBackup
+   *
+   * @param request the request to send
+   * @return response returns CreateBackupResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateBackup(
+    request: serviceRequests.CreateBackupRequest
+  ): Promise<{
+    response: serviceResponses.CreateBackupResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createBackupResponse = await this.client.createBackup(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createBackupResponse.opcWorkRequestId
+    );
+    return { response: createBackupResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forCreateCloudExadataInfrastructure
+   *
+   * @param request the request to send
+   * @return response returns CreateCloudExadataInfrastructureResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateCloudExadataInfrastructure(
+    request: serviceRequests.CreateCloudExadataInfrastructureRequest
+  ): Promise<{
+    response: serviceResponses.CreateCloudExadataInfrastructureResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createCloudExadataInfrastructureResponse = await this.client.createCloudExadataInfrastructure(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createCloudExadataInfrastructureResponse.opcWorkRequestId
+    );
+    return {
+      response: createCloudExadataInfrastructureResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forCreateCloudVmCluster
+   *
+   * @param request the request to send
+   * @return response returns CreateCloudVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateCloudVmCluster(
+    request: serviceRequests.CreateCloudVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.CreateCloudVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createCloudVmClusterResponse = await this.client.createCloudVmCluster(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createCloudVmClusterResponse.opcWorkRequestId
+    );
+    return { response: createCloudVmClusterResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forCreateDataGuardAssociation
+   *
+   * @param request the request to send
+   * @return response returns CreateDataGuardAssociationResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateDataGuardAssociation(
+    request: serviceRequests.CreateDataGuardAssociationRequest
+  ): Promise<{
+    response: serviceResponses.CreateDataGuardAssociationResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createDataGuardAssociationResponse = await this.client.createDataGuardAssociation(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createDataGuardAssociationResponse.opcWorkRequestId
+    );
+    return {
+      response: createDataGuardAssociationResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forCreateDatabase
+   *
+   * @param request the request to send
+   * @return response returns CreateDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateDatabase(
+    request: serviceRequests.CreateDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.CreateDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createDatabaseResponse = await this.client.createDatabase(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createDatabaseResponse.opcWorkRequestId
+    );
+    return { response: createDatabaseResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forCreateDatabaseSoftwareImage
+   *
+   * @param request the request to send
+   * @return response returns CreateDatabaseSoftwareImageResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateDatabaseSoftwareImage(
+    request: serviceRequests.CreateDatabaseSoftwareImageRequest
+  ): Promise<{
+    response: serviceResponses.CreateDatabaseSoftwareImageResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createDatabaseSoftwareImageResponse = await this.client.createDatabaseSoftwareImage(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createDatabaseSoftwareImageResponse.opcWorkRequestId
+    );
+    return {
+      response: createDatabaseSoftwareImageResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forCreateDbHome
+   *
+   * @param request the request to send
+   * @return response returns CreateDbHomeResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateDbHome(
+    request: serviceRequests.CreateDbHomeRequest
+  ): Promise<{
+    response: serviceResponses.CreateDbHomeResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createDbHomeResponse = await this.client.createDbHome(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createDbHomeResponse.opcWorkRequestId
+    );
+    return { response: createDbHomeResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forCreateExadataInfrastructure
+   *
+   * @param request the request to send
+   * @return response returns CreateExadataInfrastructureResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateExadataInfrastructure(
+    request: serviceRequests.CreateExadataInfrastructureRequest
+  ): Promise<{
+    response: serviceResponses.CreateExadataInfrastructureResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createExadataInfrastructureResponse = await this.client.createExadataInfrastructure(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createExadataInfrastructureResponse.opcWorkRequestId
+    );
+    return {
+      response: createExadataInfrastructureResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forCreateExternalBackupJob
+   *
+   * @param request the request to send
+   * @return response returns CreateExternalBackupJobResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateExternalBackupJob(
+    request: serviceRequests.CreateExternalBackupJobRequest
+  ): Promise<{
+    response: serviceResponses.CreateExternalBackupJobResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createExternalBackupJobResponse = await this.client.createExternalBackupJob(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createExternalBackupJobResponse.opcWorkRequestId
+    );
+    return {
+      response: createExternalBackupJobResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forCreateVmCluster
+   *
+   * @param request the request to send
+   * @return response returns CreateVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateVmCluster(
+    request: serviceRequests.CreateVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.CreateVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createVmClusterResponse = await this.client.createVmCluster(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createVmClusterResponse.opcWorkRequestId
+    );
+    return { response: createVmClusterResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forCreateVmClusterNetwork
+   *
+   * @param request the request to send
+   * @return response returns CreateVmClusterNetworkResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateVmClusterNetwork(
+    request: serviceRequests.CreateVmClusterNetworkRequest
+  ): Promise<{
+    response: serviceResponses.CreateVmClusterNetworkResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createVmClusterNetworkResponse = await this.client.createVmClusterNetwork(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createVmClusterNetworkResponse.opcWorkRequestId
+    );
+    return {
+      response: createVmClusterNetworkResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDbNodeAction
+   *
+   * @param request the request to send
+   * @return response returns DbNodeActionResponse, GetWorkRequestResponse tuple
+   */
+  public async forDbNodeAction(
+    request: serviceRequests.DbNodeActionRequest
+  ): Promise<{
+    response: serviceResponses.DbNodeActionResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const dbNodeActionResponse = await this.client.dbNodeAction(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      dbNodeActionResponse.opcWorkRequestId
+    );
+    return { response: dbNodeActionResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forDeleteAutonomousDatabase
+   *
+   * @param request the request to send
+   * @return response returns DeleteAutonomousDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteAutonomousDatabase(
+    request: serviceRequests.DeleteAutonomousDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.DeleteAutonomousDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteAutonomousDatabaseResponse = await this.client.deleteAutonomousDatabase(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteAutonomousDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: deleteAutonomousDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDeleteAutonomousVmCluster
+   *
+   * @param request the request to send
+   * @return response returns DeleteAutonomousVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteAutonomousVmCluster(
+    request: serviceRequests.DeleteAutonomousVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.DeleteAutonomousVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteAutonomousVmClusterResponse = await this.client.deleteAutonomousVmCluster(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteAutonomousVmClusterResponse.opcWorkRequestId
+    );
+    return {
+      response: deleteAutonomousVmClusterResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDeleteBackup
+   *
+   * @param request the request to send
+   * @return response returns DeleteBackupResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteBackup(
+    request: serviceRequests.DeleteBackupRequest
+  ): Promise<{
+    response: serviceResponses.DeleteBackupResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteBackupResponse = await this.client.deleteBackup(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteBackupResponse.opcWorkRequestId
+    );
+    return { response: deleteBackupResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forDeleteCloudExadataInfrastructure
+   *
+   * @param request the request to send
+   * @return response returns DeleteCloudExadataInfrastructureResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteCloudExadataInfrastructure(
+    request: serviceRequests.DeleteCloudExadataInfrastructureRequest
+  ): Promise<{
+    response: serviceResponses.DeleteCloudExadataInfrastructureResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteCloudExadataInfrastructureResponse = await this.client.deleteCloudExadataInfrastructure(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteCloudExadataInfrastructureResponse.opcWorkRequestId
+    );
+    return {
+      response: deleteCloudExadataInfrastructureResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDeleteCloudVmCluster
+   *
+   * @param request the request to send
+   * @return response returns DeleteCloudVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteCloudVmCluster(
+    request: serviceRequests.DeleteCloudVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.DeleteCloudVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteCloudVmClusterResponse = await this.client.deleteCloudVmCluster(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteCloudVmClusterResponse.opcWorkRequestId
+    );
+    return { response: deleteCloudVmClusterResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forDeleteDatabase
+   *
+   * @param request the request to send
+   * @return response returns DeleteDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteDatabase(
+    request: serviceRequests.DeleteDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.DeleteDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteDatabaseResponse = await this.client.deleteDatabase(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteDatabaseResponse.opcWorkRequestId
+    );
+    return { response: deleteDatabaseResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forDeleteDatabaseSoftwareImage
+   *
+   * @param request the request to send
+   * @return response returns DeleteDatabaseSoftwareImageResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteDatabaseSoftwareImage(
+    request: serviceRequests.DeleteDatabaseSoftwareImageRequest
+  ): Promise<{
+    response: serviceResponses.DeleteDatabaseSoftwareImageResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteDatabaseSoftwareImageResponse = await this.client.deleteDatabaseSoftwareImage(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteDatabaseSoftwareImageResponse.opcWorkRequestId
+    );
+    return {
+      response: deleteDatabaseSoftwareImageResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDeleteDbHome
+   *
+   * @param request the request to send
+   * @return response returns DeleteDbHomeResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteDbHome(
+    request: serviceRequests.DeleteDbHomeRequest
+  ): Promise<{
+    response: serviceResponses.DeleteDbHomeResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteDbHomeResponse = await this.client.deleteDbHome(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteDbHomeResponse.opcWorkRequestId
+    );
+    return { response: deleteDbHomeResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forDeleteExadataInfrastructure
+   *
+   * @param request the request to send
+   * @return response returns DeleteExadataInfrastructureResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteExadataInfrastructure(
+    request: serviceRequests.DeleteExadataInfrastructureRequest
+  ): Promise<{
+    response: serviceResponses.DeleteExadataInfrastructureResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteExadataInfrastructureResponse = await this.client.deleteExadataInfrastructure(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteExadataInfrastructureResponse.opcWorkRequestId
+    );
+    return {
+      response: deleteExadataInfrastructureResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDeleteVmCluster
+   *
+   * @param request the request to send
+   * @return response returns DeleteVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteVmCluster(
+    request: serviceRequests.DeleteVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.DeleteVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteVmClusterResponse = await this.client.deleteVmCluster(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteVmClusterResponse.opcWorkRequestId
+    );
+    return { response: deleteVmClusterResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forDeleteVmClusterNetwork
+   *
+   * @param request the request to send
+   * @return response returns DeleteVmClusterNetworkResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteVmClusterNetwork(
+    request: serviceRequests.DeleteVmClusterNetworkRequest
+  ): Promise<{
+    response: serviceResponses.DeleteVmClusterNetworkResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteVmClusterNetworkResponse = await this.client.deleteVmClusterNetwork(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteVmClusterNetworkResponse.opcWorkRequestId
+    );
+    return {
+      response: deleteVmClusterNetworkResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDeregisterAutonomousDatabaseDataSafe
+   *
+   * @param request the request to send
+   * @return response returns DeregisterAutonomousDatabaseDataSafeResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeregisterAutonomousDatabaseDataSafe(
+    request: serviceRequests.DeregisterAutonomousDatabaseDataSafeRequest
+  ): Promise<{
+    response: serviceResponses.DeregisterAutonomousDatabaseDataSafeResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deregisterAutonomousDatabaseDataSafeResponse = await this.client.deregisterAutonomousDatabaseDataSafe(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deregisterAutonomousDatabaseDataSafeResponse.opcWorkRequestId
+    );
+    return {
+      response: deregisterAutonomousDatabaseDataSafeResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDisableAutonomousDatabaseOperationsInsights
+   *
+   * @param request the request to send
+   * @return response returns DisableAutonomousDatabaseOperationsInsightsResponse, GetWorkRequestResponse tuple
+   */
+  public async forDisableAutonomousDatabaseOperationsInsights(
+    request: serviceRequests.DisableAutonomousDatabaseOperationsInsightsRequest
+  ): Promise<{
+    response: serviceResponses.DisableAutonomousDatabaseOperationsInsightsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const disableAutonomousDatabaseOperationsInsightsResponse = await this.client.disableAutonomousDatabaseOperationsInsights(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      disableAutonomousDatabaseOperationsInsightsResponse.opcWorkRequestId
+    );
+    return {
+      response: disableAutonomousDatabaseOperationsInsightsResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forEnableAutonomousDatabaseOperationsInsights
+   *
+   * @param request the request to send
+   * @return response returns EnableAutonomousDatabaseOperationsInsightsResponse, GetWorkRequestResponse tuple
+   */
+  public async forEnableAutonomousDatabaseOperationsInsights(
+    request: serviceRequests.EnableAutonomousDatabaseOperationsInsightsRequest
+  ): Promise<{
+    response: serviceResponses.EnableAutonomousDatabaseOperationsInsightsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const enableAutonomousDatabaseOperationsInsightsResponse = await this.client.enableAutonomousDatabaseOperationsInsights(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      enableAutonomousDatabaseOperationsInsightsResponse.opcWorkRequestId
+    );
+    return {
+      response: enableAutonomousDatabaseOperationsInsightsResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forFailOverAutonomousDatabase
+   *
+   * @param request the request to send
+   * @return response returns FailOverAutonomousDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forFailOverAutonomousDatabase(
+    request: serviceRequests.FailOverAutonomousDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.FailOverAutonomousDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const failOverAutonomousDatabaseResponse = await this.client.failOverAutonomousDatabase(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      failOverAutonomousDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: failOverAutonomousDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forFailoverAutonomousContainerDatabaseDataguardAssociation
+   *
+   * @param request the request to send
+   * @return response returns FailoverAutonomousContainerDatabaseDataguardAssociationResponse, GetWorkRequestResponse tuple
+   */
+  public async forFailoverAutonomousContainerDatabaseDataguardAssociation(
+    request: serviceRequests.FailoverAutonomousContainerDatabaseDataguardAssociationRequest
+  ): Promise<{
+    response: serviceResponses.FailoverAutonomousContainerDatabaseDataguardAssociationResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const failoverAutonomousContainerDatabaseDataguardAssociationResponse = await this.client.failoverAutonomousContainerDatabaseDataguardAssociation(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      failoverAutonomousContainerDatabaseDataguardAssociationResponse.opcWorkRequestId
+    );
+    return {
+      response: failoverAutonomousContainerDatabaseDataguardAssociationResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forFailoverDataGuardAssociation
+   *
+   * @param request the request to send
+   * @return response returns FailoverDataGuardAssociationResponse, GetWorkRequestResponse tuple
+   */
+  public async forFailoverDataGuardAssociation(
+    request: serviceRequests.FailoverDataGuardAssociationRequest
+  ): Promise<{
+    response: serviceResponses.FailoverDataGuardAssociationResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const failoverDataGuardAssociationResponse = await this.client.failoverDataGuardAssociation(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      failoverDataGuardAssociationResponse.opcWorkRequestId
+    );
+    return {
+      response: failoverDataGuardAssociationResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
 
   /**
    * Waits forAutonomousContainerDatabase till it reaches any of the provided states
@@ -557,5 +1732,909 @@ export class DatabaseWaiter {
       response => targetStates.exists(response.vmClusterNetwork.lifecycleState),
       targetStates.includes(models.VmClusterNetwork.LifecycleState.Terminated)
     );
+  }
+
+  /**
+   * Waits forLaunchAutonomousExadataInfrastructure
+   *
+   * @param request the request to send
+   * @return response returns LaunchAutonomousExadataInfrastructureResponse, GetWorkRequestResponse tuple
+   */
+  public async forLaunchAutonomousExadataInfrastructure(
+    request: serviceRequests.LaunchAutonomousExadataInfrastructureRequest
+  ): Promise<{
+    response: serviceResponses.LaunchAutonomousExadataInfrastructureResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const launchAutonomousExadataInfrastructureResponse = await this.client.launchAutonomousExadataInfrastructure(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      launchAutonomousExadataInfrastructureResponse.opcWorkRequestId
+    );
+    return {
+      response: launchAutonomousExadataInfrastructureResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forLaunchDbSystem
+   *
+   * @param request the request to send
+   * @return response returns LaunchDbSystemResponse, GetWorkRequestResponse tuple
+   */
+  public async forLaunchDbSystem(
+    request: serviceRequests.LaunchDbSystemRequest
+  ): Promise<{
+    response: serviceResponses.LaunchDbSystemResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const launchDbSystemResponse = await this.client.launchDbSystem(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      launchDbSystemResponse.opcWorkRequestId
+    );
+    return { response: launchDbSystemResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forMigrateExadataDbSystemResourceModel
+   *
+   * @param request the request to send
+   * @return response returns MigrateExadataDbSystemResourceModelResponse, GetWorkRequestResponse tuple
+   */
+  public async forMigrateExadataDbSystemResourceModel(
+    request: serviceRequests.MigrateExadataDbSystemResourceModelRequest
+  ): Promise<{
+    response: serviceResponses.MigrateExadataDbSystemResourceModelResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const migrateExadataDbSystemResourceModelResponse = await this.client.migrateExadataDbSystemResourceModel(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      migrateExadataDbSystemResourceModelResponse.opcWorkRequestId
+    );
+    return {
+      response: migrateExadataDbSystemResourceModelResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forRegisterAutonomousDatabaseDataSafe
+   *
+   * @param request the request to send
+   * @return response returns RegisterAutonomousDatabaseDataSafeResponse, GetWorkRequestResponse tuple
+   */
+  public async forRegisterAutonomousDatabaseDataSafe(
+    request: serviceRequests.RegisterAutonomousDatabaseDataSafeRequest
+  ): Promise<{
+    response: serviceResponses.RegisterAutonomousDatabaseDataSafeResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const registerAutonomousDatabaseDataSafeResponse = await this.client.registerAutonomousDatabaseDataSafe(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      registerAutonomousDatabaseDataSafeResponse.opcWorkRequestId
+    );
+    return {
+      response: registerAutonomousDatabaseDataSafeResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forReinstateAutonomousContainerDatabaseDataguardAssociation
+   *
+   * @param request the request to send
+   * @return response returns ReinstateAutonomousContainerDatabaseDataguardAssociationResponse, GetWorkRequestResponse tuple
+   */
+  public async forReinstateAutonomousContainerDatabaseDataguardAssociation(
+    request: serviceRequests.ReinstateAutonomousContainerDatabaseDataguardAssociationRequest
+  ): Promise<{
+    response: serviceResponses.ReinstateAutonomousContainerDatabaseDataguardAssociationResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const reinstateAutonomousContainerDatabaseDataguardAssociationResponse = await this.client.reinstateAutonomousContainerDatabaseDataguardAssociation(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      reinstateAutonomousContainerDatabaseDataguardAssociationResponse.opcWorkRequestId
+    );
+    return {
+      response: reinstateAutonomousContainerDatabaseDataguardAssociationResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forReinstateDataGuardAssociation
+   *
+   * @param request the request to send
+   * @return response returns ReinstateDataGuardAssociationResponse, GetWorkRequestResponse tuple
+   */
+  public async forReinstateDataGuardAssociation(
+    request: serviceRequests.ReinstateDataGuardAssociationRequest
+  ): Promise<{
+    response: serviceResponses.ReinstateDataGuardAssociationResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const reinstateDataGuardAssociationResponse = await this.client.reinstateDataGuardAssociation(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      reinstateDataGuardAssociationResponse.opcWorkRequestId
+    );
+    return {
+      response: reinstateDataGuardAssociationResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forRestartAutonomousContainerDatabase
+   *
+   * @param request the request to send
+   * @return response returns RestartAutonomousContainerDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forRestartAutonomousContainerDatabase(
+    request: serviceRequests.RestartAutonomousContainerDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.RestartAutonomousContainerDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const restartAutonomousContainerDatabaseResponse = await this.client.restartAutonomousContainerDatabase(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      restartAutonomousContainerDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: restartAutonomousContainerDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forRestartAutonomousDatabase
+   *
+   * @param request the request to send
+   * @return response returns RestartAutonomousDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forRestartAutonomousDatabase(
+    request: serviceRequests.RestartAutonomousDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.RestartAutonomousDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const restartAutonomousDatabaseResponse = await this.client.restartAutonomousDatabase(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      restartAutonomousDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: restartAutonomousDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forRestoreAutonomousDatabase
+   *
+   * @param request the request to send
+   * @return response returns RestoreAutonomousDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forRestoreAutonomousDatabase(
+    request: serviceRequests.RestoreAutonomousDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.RestoreAutonomousDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const restoreAutonomousDatabaseResponse = await this.client.restoreAutonomousDatabase(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      restoreAutonomousDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: restoreAutonomousDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forRestoreDatabase
+   *
+   * @param request the request to send
+   * @return response returns RestoreDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forRestoreDatabase(
+    request: serviceRequests.RestoreDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.RestoreDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const restoreDatabaseResponse = await this.client.restoreDatabase(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      restoreDatabaseResponse.opcWorkRequestId
+    );
+    return { response: restoreDatabaseResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forRotateAutonomousContainerDatabaseEncryptionKey
+   *
+   * @param request the request to send
+   * @return response returns RotateAutonomousContainerDatabaseEncryptionKeyResponse, GetWorkRequestResponse tuple
+   */
+  public async forRotateAutonomousContainerDatabaseEncryptionKey(
+    request: serviceRequests.RotateAutonomousContainerDatabaseEncryptionKeyRequest
+  ): Promise<{
+    response: serviceResponses.RotateAutonomousContainerDatabaseEncryptionKeyResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const rotateAutonomousContainerDatabaseEncryptionKeyResponse = await this.client.rotateAutonomousContainerDatabaseEncryptionKey(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      rotateAutonomousContainerDatabaseEncryptionKeyResponse.opcWorkRequestId
+    );
+    return {
+      response: rotateAutonomousContainerDatabaseEncryptionKeyResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forRotateAutonomousDatabaseEncryptionKey
+   *
+   * @param request the request to send
+   * @return response returns RotateAutonomousDatabaseEncryptionKeyResponse, GetWorkRequestResponse tuple
+   */
+  public async forRotateAutonomousDatabaseEncryptionKey(
+    request: serviceRequests.RotateAutonomousDatabaseEncryptionKeyRequest
+  ): Promise<{
+    response: serviceResponses.RotateAutonomousDatabaseEncryptionKeyResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const rotateAutonomousDatabaseEncryptionKeyResponse = await this.client.rotateAutonomousDatabaseEncryptionKey(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      rotateAutonomousDatabaseEncryptionKeyResponse.opcWorkRequestId
+    );
+    return {
+      response: rotateAutonomousDatabaseEncryptionKeyResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forStartAutonomousDatabase
+   *
+   * @param request the request to send
+   * @return response returns StartAutonomousDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forStartAutonomousDatabase(
+    request: serviceRequests.StartAutonomousDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.StartAutonomousDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const startAutonomousDatabaseResponse = await this.client.startAutonomousDatabase(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      startAutonomousDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: startAutonomousDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forStopAutonomousDatabase
+   *
+   * @param request the request to send
+   * @return response returns StopAutonomousDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forStopAutonomousDatabase(
+    request: serviceRequests.StopAutonomousDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.StopAutonomousDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const stopAutonomousDatabaseResponse = await this.client.stopAutonomousDatabase(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      stopAutonomousDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: stopAutonomousDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forSwitchoverAutonomousContainerDatabaseDataguardAssociation
+   *
+   * @param request the request to send
+   * @return response returns SwitchoverAutonomousContainerDatabaseDataguardAssociationResponse, GetWorkRequestResponse tuple
+   */
+  public async forSwitchoverAutonomousContainerDatabaseDataguardAssociation(
+    request: serviceRequests.SwitchoverAutonomousContainerDatabaseDataguardAssociationRequest
+  ): Promise<{
+    response: serviceResponses.SwitchoverAutonomousContainerDatabaseDataguardAssociationResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const switchoverAutonomousContainerDatabaseDataguardAssociationResponse = await this.client.switchoverAutonomousContainerDatabaseDataguardAssociation(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      switchoverAutonomousContainerDatabaseDataguardAssociationResponse.opcWorkRequestId
+    );
+    return {
+      response: switchoverAutonomousContainerDatabaseDataguardAssociationResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forSwitchoverAutonomousDatabase
+   *
+   * @param request the request to send
+   * @return response returns SwitchoverAutonomousDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forSwitchoverAutonomousDatabase(
+    request: serviceRequests.SwitchoverAutonomousDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.SwitchoverAutonomousDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const switchoverAutonomousDatabaseResponse = await this.client.switchoverAutonomousDatabase(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      switchoverAutonomousDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: switchoverAutonomousDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forSwitchoverDataGuardAssociation
+   *
+   * @param request the request to send
+   * @return response returns SwitchoverDataGuardAssociationResponse, GetWorkRequestResponse tuple
+   */
+  public async forSwitchoverDataGuardAssociation(
+    request: serviceRequests.SwitchoverDataGuardAssociationRequest
+  ): Promise<{
+    response: serviceResponses.SwitchoverDataGuardAssociationResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const switchoverDataGuardAssociationResponse = await this.client.switchoverDataGuardAssociation(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      switchoverDataGuardAssociationResponse.opcWorkRequestId
+    );
+    return {
+      response: switchoverDataGuardAssociationResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forTerminateAutonomousContainerDatabase
+   *
+   * @param request the request to send
+   * @return response returns TerminateAutonomousContainerDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forTerminateAutonomousContainerDatabase(
+    request: serviceRequests.TerminateAutonomousContainerDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.TerminateAutonomousContainerDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const terminateAutonomousContainerDatabaseResponse = await this.client.terminateAutonomousContainerDatabase(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      terminateAutonomousContainerDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: terminateAutonomousContainerDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forTerminateAutonomousExadataInfrastructure
+   *
+   * @param request the request to send
+   * @return response returns TerminateAutonomousExadataInfrastructureResponse, GetWorkRequestResponse tuple
+   */
+  public async forTerminateAutonomousExadataInfrastructure(
+    request: serviceRequests.TerminateAutonomousExadataInfrastructureRequest
+  ): Promise<{
+    response: serviceResponses.TerminateAutonomousExadataInfrastructureResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const terminateAutonomousExadataInfrastructureResponse = await this.client.terminateAutonomousExadataInfrastructure(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      terminateAutonomousExadataInfrastructureResponse.opcWorkRequestId
+    );
+    return {
+      response: terminateAutonomousExadataInfrastructureResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forTerminateDbSystem
+   *
+   * @param request the request to send
+   * @return response returns TerminateDbSystemResponse, GetWorkRequestResponse tuple
+   */
+  public async forTerminateDbSystem(
+    request: serviceRequests.TerminateDbSystemRequest
+  ): Promise<{
+    response: serviceResponses.TerminateDbSystemResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const terminateDbSystemResponse = await this.client.terminateDbSystem(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      terminateDbSystemResponse.opcWorkRequestId
+    );
+    return { response: terminateDbSystemResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUpdateAutonomousContainerDatabase
+   *
+   * @param request the request to send
+   * @return response returns UpdateAutonomousContainerDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateAutonomousContainerDatabase(
+    request: serviceRequests.UpdateAutonomousContainerDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.UpdateAutonomousContainerDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateAutonomousContainerDatabaseResponse = await this.client.updateAutonomousContainerDatabase(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateAutonomousContainerDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: updateAutonomousContainerDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateAutonomousDatabase
+   *
+   * @param request the request to send
+   * @return response returns UpdateAutonomousDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateAutonomousDatabase(
+    request: serviceRequests.UpdateAutonomousDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.UpdateAutonomousDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateAutonomousDatabaseResponse = await this.client.updateAutonomousDatabase(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateAutonomousDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: updateAutonomousDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateAutonomousDatabaseRegionalWallet
+   *
+   * @param request the request to send
+   * @return response returns UpdateAutonomousDatabaseRegionalWalletResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateAutonomousDatabaseRegionalWallet(
+    request: serviceRequests.UpdateAutonomousDatabaseRegionalWalletRequest
+  ): Promise<{
+    response: serviceResponses.UpdateAutonomousDatabaseRegionalWalletResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateAutonomousDatabaseRegionalWalletResponse = await this.client.updateAutonomousDatabaseRegionalWallet(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateAutonomousDatabaseRegionalWalletResponse.opcWorkRequestId
+    );
+    return {
+      response: updateAutonomousDatabaseRegionalWalletResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateAutonomousDatabaseWallet
+   *
+   * @param request the request to send
+   * @return response returns UpdateAutonomousDatabaseWalletResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateAutonomousDatabaseWallet(
+    request: serviceRequests.UpdateAutonomousDatabaseWalletRequest
+  ): Promise<{
+    response: serviceResponses.UpdateAutonomousDatabaseWalletResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateAutonomousDatabaseWalletResponse = await this.client.updateAutonomousDatabaseWallet(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateAutonomousDatabaseWalletResponse.opcWorkRequestId
+    );
+    return {
+      response: updateAutonomousDatabaseWalletResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateAutonomousExadataInfrastructure
+   *
+   * @param request the request to send
+   * @return response returns UpdateAutonomousExadataInfrastructureResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateAutonomousExadataInfrastructure(
+    request: serviceRequests.UpdateAutonomousExadataInfrastructureRequest
+  ): Promise<{
+    response: serviceResponses.UpdateAutonomousExadataInfrastructureResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateAutonomousExadataInfrastructureResponse = await this.client.updateAutonomousExadataInfrastructure(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateAutonomousExadataInfrastructureResponse.opcWorkRequestId
+    );
+    return {
+      response: updateAutonomousExadataInfrastructureResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateAutonomousVmCluster
+   *
+   * @param request the request to send
+   * @return response returns UpdateAutonomousVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateAutonomousVmCluster(
+    request: serviceRequests.UpdateAutonomousVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.UpdateAutonomousVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateAutonomousVmClusterResponse = await this.client.updateAutonomousVmCluster(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateAutonomousVmClusterResponse.opcWorkRequestId
+    );
+    return {
+      response: updateAutonomousVmClusterResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateCloudExadataInfrastructure
+   *
+   * @param request the request to send
+   * @return response returns UpdateCloudExadataInfrastructureResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateCloudExadataInfrastructure(
+    request: serviceRequests.UpdateCloudExadataInfrastructureRequest
+  ): Promise<{
+    response: serviceResponses.UpdateCloudExadataInfrastructureResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateCloudExadataInfrastructureResponse = await this.client.updateCloudExadataInfrastructure(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateCloudExadataInfrastructureResponse.opcWorkRequestId
+    );
+    return {
+      response: updateCloudExadataInfrastructureResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateCloudVmCluster
+   *
+   * @param request the request to send
+   * @return response returns UpdateCloudVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateCloudVmCluster(
+    request: serviceRequests.UpdateCloudVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.UpdateCloudVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateCloudVmClusterResponse = await this.client.updateCloudVmCluster(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateCloudVmClusterResponse.opcWorkRequestId
+    );
+    return { response: updateCloudVmClusterResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUpdateCloudVmClusterIormConfig
+   *
+   * @param request the request to send
+   * @return response returns UpdateCloudVmClusterIormConfigResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateCloudVmClusterIormConfig(
+    request: serviceRequests.UpdateCloudVmClusterIormConfigRequest
+  ): Promise<{
+    response: serviceResponses.UpdateCloudVmClusterIormConfigResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateCloudVmClusterIormConfigResponse = await this.client.updateCloudVmClusterIormConfig(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateCloudVmClusterIormConfigResponse.opcWorkRequestId
+    );
+    return {
+      response: updateCloudVmClusterIormConfigResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateDatabase
+   *
+   * @param request the request to send
+   * @return response returns UpdateDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateDatabase(
+    request: serviceRequests.UpdateDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.UpdateDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateDatabaseResponse = await this.client.updateDatabase(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateDatabaseResponse.opcWorkRequestId
+    );
+    return { response: updateDatabaseResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUpdateDbHome
+   *
+   * @param request the request to send
+   * @return response returns UpdateDbHomeResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateDbHome(
+    request: serviceRequests.UpdateDbHomeRequest
+  ): Promise<{
+    response: serviceResponses.UpdateDbHomeResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateDbHomeResponse = await this.client.updateDbHome(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateDbHomeResponse.opcWorkRequestId
+    );
+    return { response: updateDbHomeResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUpdateDbSystem
+   *
+   * @param request the request to send
+   * @return response returns UpdateDbSystemResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateDbSystem(
+    request: serviceRequests.UpdateDbSystemRequest
+  ): Promise<{
+    response: serviceResponses.UpdateDbSystemResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateDbSystemResponse = await this.client.updateDbSystem(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateDbSystemResponse.opcWorkRequestId
+    );
+    return { response: updateDbSystemResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUpdateExadataInfrastructure
+   *
+   * @param request the request to send
+   * @return response returns UpdateExadataInfrastructureResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateExadataInfrastructure(
+    request: serviceRequests.UpdateExadataInfrastructureRequest
+  ): Promise<{
+    response: serviceResponses.UpdateExadataInfrastructureResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateExadataInfrastructureResponse = await this.client.updateExadataInfrastructure(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateExadataInfrastructureResponse.opcWorkRequestId
+    );
+    return {
+      response: updateExadataInfrastructureResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateExadataIormConfig
+   *
+   * @param request the request to send
+   * @return response returns UpdateExadataIormConfigResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateExadataIormConfig(
+    request: serviceRequests.UpdateExadataIormConfigRequest
+  ): Promise<{
+    response: serviceResponses.UpdateExadataIormConfigResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateExadataIormConfigResponse = await this.client.updateExadataIormConfig(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateExadataIormConfigResponse.opcWorkRequestId
+    );
+    return {
+      response: updateExadataIormConfigResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateVmCluster
+   *
+   * @param request the request to send
+   * @return response returns UpdateVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateVmCluster(
+    request: serviceRequests.UpdateVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.UpdateVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateVmClusterResponse = await this.client.updateVmCluster(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateVmClusterResponse.opcWorkRequestId
+    );
+    return { response: updateVmClusterResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUpdateVmClusterNetwork
+   *
+   * @param request the request to send
+   * @return response returns UpdateVmClusterNetworkResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateVmClusterNetwork(
+    request: serviceRequests.UpdateVmClusterNetworkRequest
+  ): Promise<{
+    response: serviceResponses.UpdateVmClusterNetworkResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateVmClusterNetworkResponse = await this.client.updateVmClusterNetwork(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateVmClusterNetworkResponse.opcWorkRequestId
+    );
+    return {
+      response: updateVmClusterNetworkResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forValidateVmClusterNetwork
+   *
+   * @param request the request to send
+   * @return response returns ValidateVmClusterNetworkResponse, GetWorkRequestResponse tuple
+   */
+  public async forValidateVmClusterNetwork(
+    request: serviceRequests.ValidateVmClusterNetworkRequest
+  ): Promise<{
+    response: serviceResponses.ValidateVmClusterNetworkResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const validateVmClusterNetworkResponse = await this.client.validateVmClusterNetwork(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      validateVmClusterNetworkResponse.opcWorkRequestId
+    );
+    return {
+      response: validateVmClusterNetworkResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
   }
 }

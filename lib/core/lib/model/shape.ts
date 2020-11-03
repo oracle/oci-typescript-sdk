@@ -27,10 +27,6 @@ import common = require("oci-common");
  */
 export interface Shape {
   /**
-   * The shape's availability domain.
-   */
-  "availabilityDomain"?: string;
-  /**
    * The name of the shape. You can enumerate all available shapes by calling
    * {@link #listShapes(ListShapesRequest) listShapes}.
    *
