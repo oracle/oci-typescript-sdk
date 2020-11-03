@@ -73,6 +73,14 @@ export interface UpdateBucketDetails {
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Key Management master encryption key to associate
+   * with the specified bucket. If this value is empty, the Update operation will remove the associated key, if
+   * there is one, from the bucket. (The bucket will continue to be encrypted, but with an encryption key managed
+   * by Oracle.)
+   *
+   */
+  "kmsKeyId"?: string;
+  /**
    * The versioning status on the bucket. If in state `Enabled`, multiple versions of the same object can be kept in the bucket.
    * When the object is overwritten or deleted, previous versions will still be available. When versioning is `Suspended`, the previous versions will still remain but new versions will no longer be created when overwitten or deleted.
    * Versioning cannot be disabled on a bucket once enabled.

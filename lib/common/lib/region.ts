@@ -37,6 +37,7 @@ export class Region {
     "ams": "eu-amsterdam-1",
     "jed": "me-jeddah-1",
     "kix": "ap-osaka-1",
+    "cwl": "uk-cardiff-1",
     "ltn": "uk-gov-london-1",
     "nrt": "ap-tokyo-1",
     "icn": "ap-seoul-1",
@@ -94,6 +95,7 @@ export class Region {
   public static EU_FRANKFURT_1: Region = Region.register("eu-frankfurt-1", Realm.OC1);
   public static EU_ZURICH_1: Region = Region.register("eu-zurich-1", Realm.OC1);
   public static SA_SAOPAULO_1: Region = Region.register("sa-saopaulo-1", Realm.OC1);
+  public static UK_CARDIFF_1: Region = Region.register("uk-cardiff-1", Realm.OC1);
   public static UK_LONDON_1: Region = Region.register("uk-london-1", Realm.OC1);
   public static US_ASHBURN_1: Region = Region.register("us-ashburn-1", Realm.OC1);
   public static US_PHOENIX_1: Region = Region.register("us-phoenix-1", Realm.OC1);

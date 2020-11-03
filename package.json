@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -81,7 +81,9 @@
     "oci-sch": "file:lib/sch",
     "oci-cloudguard": "file:lib/cloudguard",
     "oci-opsi": "file:lib/opsi",
-    "oci-computeinstanceagent": "file:lib/computeinstanceagent"
+    "oci-computeinstanceagent": "file:lib/computeinstanceagent",
+    "oci-optimizer": "file:lib/optimizer",
+    "oci-tenantmanagercontrolplane": "file:lib/tenantmanagercontrolplane"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
@@ -131,8 +133,8 @@
     "sshpk": "1.16.1",
     "ts-node": "^8.0.2",
     "typedoc": "0.15.8",
-    "typedoc-neo-theme": "^1.0.8",
-    "typedoc-plugin-sourcefile-url": "^1.0.4",
+    "typedoc-neo-theme": "1.0.8",
+    "typedoc-plugin-sourcefile-url": "1.0.4",
     "typescript": "3.6.4",
     "uuid": "3.3.3",
     "webpack": "4.0.0",

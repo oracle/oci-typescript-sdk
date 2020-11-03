@@ -1,6 +1,6 @@
 /**
  * Usage API
- * A description of the UsageApi API.
+ * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the dimension of your choosing. The Usage API is used by the Cost Analysis tool in the Console.
  * OpenAPI spec version: 20200107
  *
  *
@@ -15,31 +15,39 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The result from usage store.
+ * The usage store result.
  */
 export interface UsageSummary {
   /**
-   * The OCID of the compartment.
+   * The tenancy OCID.
+   */
+  "tenantId"?: string;
+  /**
+   * The tenancy name.
+   */
+  "tenantName"?: string;
+  /**
+   * The compartment OCID.
    */
   "compartmentId"?: string;
   /**
-   * The path of the compartment, starting from root.
+   * The compartment path, starting from root.
    */
   "compartmentPath"?: string;
   /**
-   * The name of the compartment.
+   * The compartment name.
    */
   "compartmentName"?: string;
   /**
-   * The name of the service that is incurring the cost.
+   * The service name that is incurring the cost.
    */
   "service"?: string;
   /**
-   * The name of the resource that is incurring the cost.
+   * The resource name that is incurring the cost.
    */
   "resourceName"?: string;
   /**
-   * The Ocid of the resource that is incurring the cost.
+   * The resource OCID that is incurring the cost.
    */
   "resourceId"?: string;
   /**
@@ -51,23 +59,23 @@ export interface UsageSummary {
    */
   "ad"?: string;
   /**
-   * The size of resource being metered.
+   * The resource size being metered.
    */
   "weight"?: number;
   /**
-   * The shape of the resource.
+   * The resource shape.
    */
   "shape"?: string;
   /**
-   * The part number of the SKU.
+   * The SKU part number.
    */
   "skuPartNumber"?: string;
   /**
-   * The friendly name for the SKU.
+   * The SKU friendly name.
    */
   "skuName"?: string;
   /**
-   * The unit of the usage.
+   * The usage unit.
    */
   "unit"?: string;
   /**
@@ -75,7 +83,7 @@ export interface UsageSummary {
    */
   "discount"?: number;
   /**
-   * The list rate for the SKU (not discount).
+   * The SKU list rate (not discount).
    */
   "listRate"?: number;
   /**
@@ -83,11 +91,11 @@ export interface UsageSummary {
    */
   "platform"?: string;
   /**
-   * The start time of the usage.
+   * The usage start time.
    */
   "timeUsageStarted": Date;
   /**
-   * The end time of the usage.
+   * The usage end time.
    */
   "timeUsageEnded": Date;
   /**
@@ -107,11 +115,11 @@ export interface UsageSummary {
    */
   "unitPrice"?: number;
   /**
-   * The currency for the price.
+   * The price currency.
    */
   "currency"?: string;
   /**
-   * The subscription Id.
+   * The subscription ID.
    */
   "subscriptionId"?: string;
   /**
@@ -119,7 +127,7 @@ export interface UsageSummary {
    */
   "overage"?: string;
   /**
-   * For grouping, a tag definition. For filtering, a definition and key
+   * For grouping, a tag definition. For filtering, a definition and key.
    */
   "tags"?: Array<model.Tag>;
 }

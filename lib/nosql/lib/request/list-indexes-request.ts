@@ -70,7 +70,8 @@ export namespace ListIndexesRequest {
     Active = "ACTIVE",
     Deleting = "DELETING",
     Deleted = "DELETED",
-    Failed = "FAILED"
+    Failed = "FAILED",
+    Inactive = "INACTIVE"
   }
 
   export enum SortOrder {

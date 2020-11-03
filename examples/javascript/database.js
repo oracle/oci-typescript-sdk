@@ -59,7 +59,7 @@ const databaseClient = new database.DatabaseClient({ authenticationDetailsProvid
 databaseClient.regionId = region;
 // databaseClient._defaultHeaders = { "opc-host-serial": "FakeHostSerial" };
 
-const databaseWaiter = databaseClient.createWaiters();
+const databaseWaiter = databaseClient.createWaiters(workRequestClient);
 
 async function getAvailabilityDomain() {
   const request = {

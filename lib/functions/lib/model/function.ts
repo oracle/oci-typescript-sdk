@@ -24,7 +24,7 @@ export interface Function {
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the function.
    *
    */
-  "id"?: string;
+  "id": string;
   /**
    * The display name of the function. The display name is unique within the application containing the function.
    *

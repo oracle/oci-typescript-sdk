@@ -97,6 +97,12 @@ export interface Bucket {
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a master encryption key used to call the Key Management
+   * service to generate a data encryption key or to encrypt or decrypt a data encryption key.
+   *
+   */
+  "kmsKeyId"?: string;
+  /**
    * The entity tag (ETag) for the live object lifecycle policy on the bucket.
    */
   "objectLifecyclePolicyEtag"?: string;

@@ -25,6 +25,7 @@ describe("Test Region", () => {
     Region.EU_FRANKFURT_1,
     Region.EU_ZURICH_1,
     Region.SA_SAOPAULO_1,
+    Region.UK_CARDIFF_1,
     Region.UK_LONDON_1,
     Region.US_ASHBURN_1,
     Region.US_PHOENIX_1,

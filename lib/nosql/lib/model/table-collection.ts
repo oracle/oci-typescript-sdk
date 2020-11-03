@@ -1,5 +1,5 @@
 /**
- * ndcs-control-plane API
+ * NoSQL Database API
  * The control plane API for NoSQL Database Cloud Service HTTPS
 provides endpoints to perform NDCS operations, including creation
 and deletion of tables and indexes; population and access of data
@@ -26,6 +26,14 @@ export interface TableCollection {
    * A page of TableSummary objects.
    */
   "items"?: Array<model.TableSummary>;
+  /**
+   * The maximum number of reclaimable tables allowed in the tenancy.
+   */
+  "maxAutoReclaimableTables"?: number;
+  /**
+   * The current number of reclaimable tables in the tenancy.
+   */
+  "autoReclaimableTables"?: number;
 }
 
 export namespace TableCollection {

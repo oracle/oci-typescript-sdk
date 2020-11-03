@@ -1,6 +1,6 @@
 {
   "name": "oci-database",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "OCI NodeJS client for Database",
   "repository": {
     "type": "git",
@@ -15,7 +15,8 @@
   },
   "license": "(UPL-1.0 OR Apache-2.0)",
   "dependencies": {
-    "oci-common": "../common"
+    "oci-common": "../common",
+    "oci-workrequests": "../workrequests"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
