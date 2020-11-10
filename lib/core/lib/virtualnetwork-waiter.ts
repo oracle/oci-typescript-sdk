@@ -31,6 +31,27 @@ export class VirtualNetworkWaiter {
   ) {}
 
   /**
+   * Waits forAddVcnCidr
+   *
+   * @param request the request to send
+   * @return response returns AddVcnCidrResponse, GetWorkRequestResponse tuple
+   */
+  public async forAddVcnCidr(
+    request: serviceRequests.AddVcnCidrRequest
+  ): Promise<{
+    response: serviceResponses.AddVcnCidrResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const addVcnCidrResponse = await this.client.addVcnCidr(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      addVcnCidrResponse.opcWorkRequestId
+    );
+    return { response: addVcnCidrResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forChangeDrgCompartment
    *
    * @param request the request to send
@@ -575,6 +596,25 @@ export class VirtualNetworkWaiter {
   }
 
   /**
+   * Waits forVcnDnsResolverAssociation till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetVcnDnsResolverAssociationResponse | null (null in case of 404 response)
+   */
+  public async forVcnDnsResolverAssociation(
+    request: serviceRequests.GetVcnDnsResolverAssociationRequest,
+    ...targetStates: models.VcnDnsResolverAssociation.LifecycleState[]
+  ): Promise<serviceResponses.GetVcnDnsResolverAssociationResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getVcnDnsResolverAssociation(request),
+      response => targetStates.exists(response.vcnDnsResolverAssociation.lifecycleState),
+      targetStates.includes(models.VcnDnsResolverAssociation.LifecycleState.Terminated)
+    );
+  }
+
+  /**
    * Waits forVirtualCircuit till it reaches any of the provided states
    *
    * @param request the request to send
@@ -629,6 +669,48 @@ export class VirtualNetworkWaiter {
       response => targetStates.exists(response.vnic.lifecycleState),
       targetStates.includes(models.Vnic.LifecycleState.Terminated)
     );
+  }
+
+  /**
+   * Waits forModifyVcnCidr
+   *
+   * @param request the request to send
+   * @return response returns ModifyVcnCidrResponse, GetWorkRequestResponse tuple
+   */
+  public async forModifyVcnCidr(
+    request: serviceRequests.ModifyVcnCidrRequest
+  ): Promise<{
+    response: serviceResponses.ModifyVcnCidrResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const modifyVcnCidrResponse = await this.client.modifyVcnCidr(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      modifyVcnCidrResponse.opcWorkRequestId
+    );
+    return { response: modifyVcnCidrResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forRemoveVcnCidr
+   *
+   * @param request the request to send
+   * @return response returns RemoveVcnCidrResponse, GetWorkRequestResponse tuple
+   */
+  public async forRemoveVcnCidr(
+    request: serviceRequests.RemoveVcnCidrRequest
+  ): Promise<{
+    response: serviceResponses.RemoveVcnCidrResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const removeVcnCidrResponse = await this.client.removeVcnCidr(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      removeVcnCidrResponse.opcWorkRequestId
+    );
+    return { response: removeVcnCidrResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**

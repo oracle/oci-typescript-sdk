@@ -44,6 +44,15 @@ export interface DeleteZoneRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
+   * Specifies to operate only on resources that have a matching DNS scope.
+   *
+   */
+  "scope"?: model.Scope;
+  /**
+   * The OCID of the view the resource is associated with.
+   */
+  "viewId"?: string;
+  /**
    * The OCID of the compartment the resource belongs to.
    */
   "compartmentId"?: string;

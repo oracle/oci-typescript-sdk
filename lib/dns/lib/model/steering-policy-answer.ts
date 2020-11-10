@@ -46,7 +46,7 @@ export interface SteeringPolicyAnswer {
     */
   "name": string;
   /**
-   * The canonical name for the record's type. Only A, AAAA, and CNAME are supported. For more
+   * The type of DNS record, such as A or CNAME. Only A, AAAA, and CNAME are supported. For more
    * information, see [Supported DNS Resource Record Types](https://docs.cloud.oracle.com/iaas/Content/DNS/Reference/supporteddnsresource.htm).
    *
    */

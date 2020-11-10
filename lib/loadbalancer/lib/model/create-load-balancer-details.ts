@@ -70,6 +70,11 @@ Example: \"ipMode\":\"IPV6\"
 * 
     */
   "ipMode"?: CreateLoadBalancerDetails.IpMode;
+  /**
+   * An array of reserved Ips.
+   *
+   */
+  "reservedIps"?: Array<model.ReservedIP>;
   "listeners"?: { [key: string]: model.ListenerDetails };
   "hostnames"?: { [key: string]: model.HostnameDetails };
   "backendSets"?: { [key: string]: model.BackendSetDetails };
@@ -125,6 +130,11 @@ export namespace CreateLoadBalancerDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "reservedIps": obj.reservedIps
+          ? obj.reservedIps.map(item => {
+              return model.ReservedIP.getJsonObj(item);
+            })
+          : undefined,
         "listeners": obj.listeners
           ? common.mapContainer(obj.listeners, model.ListenerDetails.getJsonObj)
           : undefined,

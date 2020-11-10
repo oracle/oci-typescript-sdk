@@ -93,6 +93,8 @@ import * as PathRouteSetDetails from "./path-route-set-details";
 export import PathRouteSetDetails = PathRouteSetDetails.PathRouteSetDetails;
 import * as RedirectUri from "./redirect-uri";
 export import RedirectUri = RedirectUri.RedirectUri;
+import * as ReservedIP from "./reserved-ip";
+export import ReservedIP = ReservedIP.ReservedIP;
 import * as Rule from "./rule";
 export import Rule = Rule.Rule;
 import * as RuleCondition from "./rule-condition";

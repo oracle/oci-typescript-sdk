@@ -86,6 +86,11 @@ export interface ListSteeringPoliciesRequest extends common.BaseRequest {
    *
    */
   "sortOrder"?: model.SortOrder;
+  /**
+   * Specifies to operate only on resources that have a matching DNS scope.
+   *
+   */
+  "scope"?: model.Scope;
 }
 
 export namespace ListSteeringPoliciesRequest {

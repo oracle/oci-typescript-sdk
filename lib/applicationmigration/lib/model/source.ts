@@ -1,6 +1,9 @@
 /**
- * Application Migration Service API
- * API for the Application Migration service. Use this API to migrate applications from Oracle Cloud Infrastructure - Classic to Oracle Cloud Infrastructure.
+ * Application Migration API
+ * Application Migration simplifies the migration of applications from Oracle Cloud Infrastructure Classic to Oracle Cloud Infrastructure.
+You can use Application Migration API to migrate applications, such as Oracle Java Cloud Service, SOA Cloud Service, and Integration Classic
+instances, to Oracle Cloud Infrastructure. For more information, see
+[Overview of Application Migration](/iaas/application-migration/appmigrationoverview.htm).
 
  * OpenAPI spec version: 20191031
  * 
@@ -16,50 +19,54 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The Source object. Sources represent external locations from which
- * applications may be imported into an OCI tenancy.
- *
- */
+* The properties that define a source. Source refers to the source environment from which you migrate an application to Oracle Cloud
+* Infrastructure. For more information, see [Manage Sources](https://docs.cloud.oracle.com/iaas/application-migration/manage_sources.htm).
+* <p>
+To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized, talk to an administrator. If you're
+* an administrator who needs to write policies to give users access, see [Getting Started with
+* Policies](https://docs.cloud.oracle.com/Content/Identity/Concepts/policygetstarted.htm).
+* 
+*/
 export interface Source {
   /**
-   * Unique identifier (OCID) for the source
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the source.
    */
   "id"?: string;
   /**
-   * Unique idenfifier (OCID) for the compartment where the Source is located.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the source.
    *
    */
   "compartmentId"?: string;
   /**
-   * Human-readable name of the source.
+   * Name of the source. This helps you to identify the appropriate source environment when you have multiple sources defined.
    */
   "displayName"?: string;
   /**
-   * Description of the source.
+   * Description of the source. This helps you to identify the appropriate source environment when you have multiple sources defined.
    */
   "description"?: string;
   /**
-   * The date and time at which the source was created
+   * The date and time at which the source was created, in the format defined by RFC3339.
    */
   "timeCreated"?: Date;
   /**
-   * The current state of the Source
+   * The current state of the source.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.SourceLifecycleStates;
   /**
-   * Details about the current lifecycle state
+   * Details about the current lifecycle state of the source.
    */
   "lifecycleDetails"?: string;
   "sourceDetails"?: model.InternalSourceDetails | model.OcicSourceDetails;
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
+   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm). Example: `{\"Department\": \"Finance\"}`
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm). Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

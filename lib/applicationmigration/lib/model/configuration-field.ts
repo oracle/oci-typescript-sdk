@@ -1,6 +1,9 @@
 /**
- * Application Migration Service API
- * API for the Application Migration service. Use this API to migrate applications from Oracle Cloud Infrastructure - Classic to Oracle Cloud Infrastructure.
+ * Application Migration API
+ * Application Migration simplifies the migration of applications from Oracle Cloud Infrastructure Classic to Oracle Cloud Infrastructure.
+You can use Application Migration API to migrate applications, such as Oracle Java Cloud Service, SOA Cloud Service, and Integration Classic
+instances, to Oracle Cloud Infrastructure. For more information, see
+[Overview of Application Migration](/iaas/application-migration/appmigrationoverview.htm).
 
  * OpenAPI spec version: 20191031
  * 
@@ -16,12 +19,14 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Information required to migrate an application. Populated by the service as the source application is introspected
+ * Provide configuration information about the application in the target environment. Application Migration migrates the application to
+ * the target environment only after you provide this information. The information that you must provide varies depending on the type of
+ * application that you are migrating.
  *
  */
 export interface ConfigurationField {
   /**
-   * The name of the configuration field
+   * The name of the configuration field.
    */
   "name"?: string;
   /**
@@ -29,24 +34,24 @@ export interface ConfigurationField {
    */
   "group"?: string;
   /**
-   * The configuration field type
+   * The type of the configuration field.
    */
   "type"?: string;
   /**
-   * The value of the field
+   * The value of the field.
    */
   "value"?: string;
   /**
-   * Help text to guide the customer in setting the configuration value
+   * Help text to guide the user in setting the configuration value.
    */
   "description"?: string;
   /**
-   * Indicates whether or not the field is required (defaults to true)
+   * Indicates whether or not the field is required (defaults to `true`).
    *
    */
   "isRequired"?: boolean;
   /**
-   * Indicates whether or not the field may be modified (defaults to true)
+   * Indicates whether or not the field may be modified (defaults to `true`).
    *
    */
   "isMutable"?: boolean;

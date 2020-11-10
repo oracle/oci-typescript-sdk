@@ -27,7 +27,7 @@ export interface CreateDbHomeWithDbSystemIdDetails extends model.CreateDbHomeBas
   /**
    * A valid Oracle Database version. To get a list of supported versions, use the {@link #listDbVersions(ListDbVersionsRequest) listDbVersions} operation.
    */
-  "dbVersion": string;
+  "dbVersion"?: string;
   "database"?: model.CreateDatabaseDetails;
 
   "source": string;

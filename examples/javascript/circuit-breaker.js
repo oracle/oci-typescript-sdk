@@ -6,15 +6,10 @@
 const common = require("oci-common");
 const identity = require("oci-identity");
 const audit = require("oci-audit");
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
 
 /* This script demostrates how to create a circuit breaker and share the circuit breaker among clients.
  */
-const provider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider = new common.ConfigFileAuthenticationDetailsProvider();
 const compartmentId = provider.getTenantId();
 
 (async () => {

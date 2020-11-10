@@ -27,7 +27,7 @@ export interface CreateDbHomeWithVmClusterIdDetails extends model.CreateDbHomeBa
   /**
    * A valid Oracle Database version. To get a list of supported versions, use the {@link #listDbVersions(ListDbVersionsRequest) listDbVersions} operation.
    */
-  "dbVersion": string;
+  "dbVersion"?: string;
   "database"?: model.CreateDatabaseDetails;
 
   "source": string;

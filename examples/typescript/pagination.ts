@@ -7,13 +7,7 @@ import common = require("oci-common");
 import * as identity from "oci-identity";
 import { paginatedRecordsWithLimit, paginatedResponsesWithLimit } from "oci-common";
 
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
-
-const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider();
 const compartmentId = provider.getTenantId();
 
 (async () => {

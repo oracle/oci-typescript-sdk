@@ -9,13 +9,7 @@ import core = require("oci-core");
 import identity = require("oci-identity");
 import wr = require("oci-workrequests");
 
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
-
-const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider();
 /**
  * This class provides an example of how to create a Container Engine node pool in the SDK for TypeScript.
  * It will create a VCN and three subnets, one Container Engine cluster and add one node pool in the cluster.

@@ -11606,6 +11606,78 @@ export class VirtualNetworkClient {
   }
 
   /**
+     * Add a CIDR to a VCN. The new CIDR must maintain the following rules -
+* <p>
+a. The CIDR provided is valid
+* b. The new CIDR range should not overlap with any existing CIDRs
+* c. The new CIDR should not exceed the max limit of CIDRs per VCNs
+* d. The new CIDR range does not overlap with any peered VCNs
+* 
+     * @param AddVcnCidrRequest
+     * @return AddVcnCidrResponse
+     * @throws OciError when an error occurs
+     */
+  public async addVcnCidr(
+    addVcnCidrRequest: requests.AddVcnCidrRequest
+  ): Promise<responses.AddVcnCidrResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#addVcnCidr.");
+    const pathParams = {
+      "{vcnId}": addVcnCidrRequest.vcnId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addVcnCidrRequest.opcRequestId,
+      "opc-retry-token": addVcnCidrRequest.opcRetryToken,
+      "if-match": addVcnCidrRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vcns/{vcnId}/actions/addCidr",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addVcnCidrRequest.addVcnCidrDetails,
+        "AddVcnCidrDetails",
+        models.AddVcnCidrDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      addVcnCidrRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddVcnCidrResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * initiate route advertisements for the Byoip Range prefix.
    * the prefix must be in PROVISIONED state
    *
@@ -15067,10 +15139,17 @@ You can also add a DNS label for the subnet, which is required if you want the I
      * Creates a new virtual cloud network (VCN). For more information, see
 * [VCNs and Subnets](https://docs.cloud.oracle.com/Content/Network/Tasks/managingVCNs.htm).
 * <p>
-For the VCN you must specify a single, contiguous IPv4 CIDR block. Oracle recommends using one of the
-* private IP address ranges specified in [RFC 1918](https://tools.ietf.org/html/rfc1918) (10.0.0.0/8,
-* 172.16/12, and 192.168/16). Example: 172.16.0.0/16. The CIDR block can range from /16 to /30, and it
-* must not overlap with your on-premises network. You can't change the size of the VCN after creation.
+To create the VCN, you may specify a list of IPv4 CIDR blocks. The CIDRs must maintain
+* the following rules -
+* <p>
+a. The list of CIDRs provided are valid
+* b. There is no overlap between different CIDRs
+* c. The list of CIDRs does not exceed the max limit of CIDRs per VCN
+* <p>
+Oracle recommends using one of the private IP address ranges specified in [RFC 1918]
+* (https://tools.ietf.org/html/rfc1918) (10.0.0.0/8, 172.16/12, and 192.168/16). Example:
+* 172.16.0.0/16. The CIDR blocks can range from /16 to /30, and they must not overlap with
+* your on-premises network.
 * <p>
 For the purposes of access control, you must provide the OCID of the compartment where you want the VCN to
 * reside. Consult an Oracle Cloud Infrastructure administrator in your organization if you're not sure which
@@ -19328,6 +19407,69 @@ The operation returns configuration information for only the specified IPSec tun
   }
 
   /**
+   * Get the associated DNS resolver information with a vcn
+   * @param GetVcnDnsResolverAssociationRequest
+   * @return GetVcnDnsResolverAssociationResponse
+   * @throws OciError when an error occurs
+   */
+  public async getVcnDnsResolverAssociation(
+    getVcnDnsResolverAssociationRequest: requests.GetVcnDnsResolverAssociationRequest
+  ): Promise<responses.GetVcnDnsResolverAssociationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getVcnDnsResolverAssociation.");
+    const pathParams = {
+      "{vcnId}": getVcnDnsResolverAssociationRequest.vcnId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getVcnDnsResolverAssociationRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vcns/{vcnId}/dnsResolverAssociation",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getVcnDnsResolverAssociationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetVcnDnsResolverAssociationResponse>{},
+        body: await response.json(),
+        bodyKey: "vcnDnsResolverAssociation",
+        bodyModel: "model.VcnDnsResolverAssociation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the specified virtual circuit's information.
    * @param GetVirtualCircuitRequest
    * @return GetVirtualCircuitResponse
@@ -22880,6 +23022,80 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+     * Update a CIDR from a VCN. The new CIDR must maintain the following rules -
+* <p>
+a. The CIDR provided is valid
+* b. The new CIDR range should not overlap with any existing CIDRs
+* c. The new CIDR should not exceed the max limit of CIDRs per VCNs
+* d. The new CIDR range does not overlap with any peered VCNs
+* e. The new CIDR should overlap with any existing route rule within a VCN
+* f. All existing subnet CIDRs are subsets of the updated CIDR ranges
+* 
+     * @param ModifyVcnCidrRequest
+     * @return ModifyVcnCidrResponse
+     * @throws OciError when an error occurs
+     */
+  public async modifyVcnCidr(
+    modifyVcnCidrRequest: requests.ModifyVcnCidrRequest
+  ): Promise<responses.ModifyVcnCidrResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#modifyVcnCidr.");
+    const pathParams = {
+      "{vcnId}": modifyVcnCidrRequest.vcnId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": modifyVcnCidrRequest.opcRequestId,
+      "opc-retry-token": modifyVcnCidrRequest.opcRetryToken,
+      "if-match": modifyVcnCidrRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vcns/{vcnId}/actions/modifyCidr",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        modifyVcnCidrRequest.modifyVcnCidrDetails,
+        "ModifyVcnCidrDetails",
+        models.ModifyVcnCidrDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      modifyVcnCidrRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ModifyVcnCidrResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Removes one or more security rules from the specified network security group.
    *
    * @param RemoveNetworkSecurityGroupSecurityRulesRequest
@@ -23001,6 +23217,74 @@ To list the ephemeral public IPs assigned to private IPs:
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove a CIDR from a VCN. The CIDR being removed should not have
+   * any resources allocated from it.
+   *
+   * @param RemoveVcnCidrRequest
+   * @return RemoveVcnCidrResponse
+   * @throws OciError when an error occurs
+   */
+  public async removeVcnCidr(
+    removeVcnCidrRequest: requests.RemoveVcnCidrRequest
+  ): Promise<responses.RemoveVcnCidrResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#removeVcnCidr.");
+    const pathParams = {
+      "{vcnId}": removeVcnCidrRequest.vcnId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeVcnCidrRequest.opcRequestId,
+      "opc-retry-token": removeVcnCidrRequest.opcRetryToken,
+      "if-match": removeVcnCidrRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vcns/{vcnId}/actions/removeCidr",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeVcnCidrRequest.removeVcnCidrDetails,
+        "RemoveVcnCidrDetails",
+        models.RemoveVcnCidrDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      removeVcnCidrRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveVcnCidrResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]

@@ -48,4 +48,9 @@ export interface ChangeTsigKeyCompartmentRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Specifies to operate only on resources that have a matching DNS scope.
+   *
+   */
+  "scope"?: model.Scope;
 }

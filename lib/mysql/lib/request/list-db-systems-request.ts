@@ -26,6 +26,13 @@ export interface ListDbSystemsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
+   * If true, return only DB Systems with an Analytics Cluster attached, if false
+   * return only DB Systems with no Analytics Cluster attached. If not
+   * present, return all DB Systems.
+   *
+   */
+  "isAnalyticsClusterAttached"?: boolean;
+  /**
    * The DB System [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    */
   "dbSystemId"?: string;

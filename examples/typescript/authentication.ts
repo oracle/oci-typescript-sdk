@@ -5,9 +5,14 @@
 
 import common = require("oci-common");
 
-// TODO: Fill in config path / profile with appropriate values
-const configurationFilePath = "~/.oci/config";
-const profile = "DEFAULT";
+/*
+ * TODO: Fill in config path / profile with appropriate values to opt out of SDK
+ * default config path / profile. (~/.oci/config & DEFAULT respectively.)
+ *
+ * NOTE: SDK, will revert to using default profile if required fields are not found from specified profile.
+ */
+const configurationFilePath = "<your_config_file_path>";
+const profile = "<your_config_profile_name>";
 
 export const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider(
   configurationFilePath,

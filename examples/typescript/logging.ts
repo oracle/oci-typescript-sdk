@@ -15,13 +15,7 @@ var bunyan = require("bunyan");
 var bunLog = bunyan.createLogger({ name: "LoggingExample", level: "debug" });
 oci.LOG.logger = bunLog;
 
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
-
-const provider = new oci.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider = new oci.common.ConfigFileAuthenticationDetailsProvider();
 
 const tenancyId = {
   tenancyId: provider.getTenantId() || ""

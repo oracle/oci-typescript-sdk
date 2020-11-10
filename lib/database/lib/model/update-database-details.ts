@@ -28,6 +28,18 @@ export interface UpdateDatabaseDetails {
    */
   "dbHomeId"?: string;
   /**
+   * A new strong password for SYS, SYSTEM, and the plugbable database ADMIN user. The password must be at least nine characters and contain at least two uppercase, two lowercase, two numeric, and two special characters. The special characters must be _, \\#, or -.
+   */
+  "newAdminPassword"?: string;
+  /**
+   * The existing password to open the TDE wallet. It is required to set a new tde password.
+   */
+  "oldTdeWalletPassword"?: string;
+  /**
+   * The new password to open the TDE wallet. The password must be at least nine characters and contain at least two uppercase, two lowercase, two numeric, and two special characters. The special characters must be _, \\#, or -.
+   */
+  "newTdeWalletPassword"?: string;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>

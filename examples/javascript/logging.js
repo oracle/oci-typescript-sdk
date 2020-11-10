@@ -15,14 +15,7 @@ var bunyan = require("bunyan");
 // You can integrate with log4js, winston or any other logger as well.
 var bunLog = bunyan.createLogger({ name: "LoggingExample", level: "debug" });
 common.LOG.logger = bunLog;
-
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
-
-const provider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider = new common.ConfigFileAuthenticationDetailsProvider();
 
 const tenancyId = {
   tenancyId: provider.getTenantId() || ""

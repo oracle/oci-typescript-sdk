@@ -6,13 +6,7 @@
 import mt = require("oci-monitoring");
 import common = require("oci-common");
 
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
-
-const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider();
 /**
  * This class demonstrates how to use the Monitoring api in the SDK for TypeScript. This will cover:
  *

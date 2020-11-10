@@ -25,13 +25,7 @@ const { basename, join } = require("path");
 // import { readdir } from "fs";
 const { readdir } = require("fs");
 
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
-
-const provider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider = new common.ConfigFileAuthenticationDetailsProvider();
 /*
  * This Sample take directory path as a commandline argument and
  * uploads all the files present in te directory to objectstorage using upload manager.

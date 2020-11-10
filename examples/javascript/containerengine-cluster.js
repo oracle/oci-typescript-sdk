@@ -9,13 +9,7 @@ const identity = require("oci-identity");
 const wr = require("oci-workrequests");
 const common = require("oci-common");
 
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
-
-const provider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider = new common.ConfigFileAuthenticationDetailsProvider();
 /**
  * The entry point for the example.
  *

@@ -27,15 +27,15 @@ export interface TsigKeySummary {
    * hmac-sha512. For more information on these algorithms, see [RFC 4635](https://tools.ietf.org/html/rfc4635#section-2).
    *
    */
-  "algorithm"?: string;
+  "algorithm": string;
   /**
    * A globally unique domain name identifying the key for a given pair of hosts.
    */
-  "name"?: string;
+  "name": string;
   /**
    * The OCID of the compartment containing the TSIG key.
    */
-  "compartmentId"?: string;
+  "compartmentId": string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
@@ -44,7 +44,7 @@ export interface TsigKeySummary {
 * **Example:** `{\"Department\": \"Finance\"}`
 * 
     */
-  "freeformTags"?: { [key: string]: string };
+  "freeformTags": { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
@@ -53,26 +53,26 @@ export interface TsigKeySummary {
 * **Example:** `{\"Operations\": {\"CostCenter\": \"42\"}}`
 * 
     */
-  "definedTags"?: { [key: string]: { [key: string]: any } };
+  "definedTags": { [key: string]: { [key: string]: any } };
   /**
    * The OCID of the resource.
    */
-  "id"?: string;
+  "id": string;
   /**
    * The canonical absolute URL of the resource.
    */
-  "self"?: string;
+  "self": string;
   /**
    * The date and time the resource was created, expressed in RFC 3339 timestamp format.
    * <p>
    **Example:** `2016-07-22T17:23:59:60Z`
    *
    */
-  "timeCreated"?: Date;
+  "timeCreated": Date;
   /**
    * The current state of the resource.
    */
-  "lifecycleState"?: TsigKeySummary.LifecycleState;
+  "lifecycleState": TsigKeySummary.LifecycleState;
 }
 
 export namespace TsigKeySummary {

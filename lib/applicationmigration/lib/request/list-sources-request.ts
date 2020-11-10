@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface ListSourcesRequest extends common.BaseRequest {
   /**
-   * The compartment OCID on which to filter.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a compartment. Retrieves details of objects in the specified compartment.
    */
   "compartmentId": string;
   /**
@@ -25,7 +25,7 @@ export interface ListSourcesRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The OCID on which to query for a source.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) on which to query for a source.
    *
    */
   "id"?: string;
@@ -58,9 +58,9 @@ export interface ListSourcesRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * The lifecycle state on which to filter.
+   * Retrieves details of sources in the specified lifecycle state.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.SourceLifecycleStates;
 }
 
 export namespace ListSourcesRequest {

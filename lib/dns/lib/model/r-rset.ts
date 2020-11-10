@@ -22,7 +22,7 @@ import common = require("oci-common");
  *
  */
 export interface RRSet {
-  "items"?: Array<model.Record>;
+  "items": Array<model.Record>;
 }
 
 export namespace RRSet {

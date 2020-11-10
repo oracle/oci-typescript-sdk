@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface GetSourceRequest extends common.BaseRequest {
   /**
-   * The source OCID
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the source.
    */
   "sourceId": string;
   /**

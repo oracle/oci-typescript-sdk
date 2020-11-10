@@ -1,6 +1,9 @@
 /**
- * Application Migration Service API
- * API for the Application Migration service. Use this API to migrate applications from Oracle Cloud Infrastructure - Classic to Oracle Cloud Infrastructure.
+ * Application Migration API
+ * Application Migration simplifies the migration of applications from Oracle Cloud Infrastructure Classic to Oracle Cloud Infrastructure.
+You can use Application Migration API to migrate applications, such as Oracle Java Cloud Service, SOA Cloud Service, and Integration Classic
+instances, to Oracle Cloud Infrastructure. For more information, see
+[Overview of Application Migration](/iaas/application-migration/appmigrationoverview.htm).
 
  * OpenAPI spec version: 20191031
  * 
@@ -22,11 +25,11 @@ export interface WorkRequestSummary {
   /**
    * The asynchronous operation tracked by this work request.
    */
-  "operationType": string;
+  "operationType": model.OperationTypes;
   /**
    * The status of the work request.
    */
-  "status": string;
+  "status": model.OperationStatus;
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
    */
@@ -38,7 +41,7 @@ export interface WorkRequestSummary {
    */
   "compartmentId": string;
   /**
-   * The percentage complete of the operation tracked by this work request.
+   * The percentage completion of the operation tracked by this work request.
    */
   "percentComplete": number;
   /**

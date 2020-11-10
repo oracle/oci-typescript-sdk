@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface GetMigrationRequest extends common.BaseRequest {
   /**
-   * The application OCID
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the migration.
    */
   "migrationId": string;
   /**

@@ -41,6 +41,12 @@ export interface DbSystem {
    */
   "subnetId": string;
   /**
+   * If the DB System has an Analytics Cluster attached.
+   *
+   */
+  "isAnalyticsClusterAttached"?: boolean;
+  "analyticsCluster"?: model.AnalyticsClusterSummary;
+  /**
    * The Availability Domain where the primary DB System should be located.
    *
    */
@@ -155,6 +161,10 @@ export namespace DbSystem {
     const jsonObj = {
       ...obj,
       ...{
+        "analyticsCluster": obj.analyticsCluster
+          ? model.AnalyticsClusterSummary.getJsonObj(obj.analyticsCluster)
+          : undefined,
+
         "backupPolicy": obj.backupPolicy
           ? model.BackupPolicy.getJsonObj(obj.backupPolicy)
           : undefined,

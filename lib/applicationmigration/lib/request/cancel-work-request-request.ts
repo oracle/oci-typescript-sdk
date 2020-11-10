@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface CancelWorkRequestRequest extends common.BaseRequest {
   /**
-   * The OCID of the work request.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
    */
   "workRequestId": string;
   /**
@@ -26,7 +26,7 @@ export interface CancelWorkRequestRequest extends common.BaseRequest {
   "opcRequestId"?: string;
   /**
    * For optimistic concurrency control. In the `PUT` or `DELETE` call for a resource, set the `if-match`
-   * parameter to the value of the etag from a previous `GET` or `POST` response for that resource.  The resource
+   * parameter to the value of the etag from a previous `GET` or `POST` response for that resource. The resource
    * will be updated or deleted only if the etag you provide matches the resource's current etag value.
    *
    */

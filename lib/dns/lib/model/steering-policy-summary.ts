@@ -26,19 +26,19 @@ export interface SteeringPolicySummary {
   /**
    * The OCID of the compartment containing the steering policy.
    */
-  "compartmentId"?: string;
+  "compartmentId": string;
   /**
    * A user-friendly name for the steering policy. Does not have to be unique and can be changed.
    * Avoid entering confidential information.
    *
    */
-  "displayName"?: string;
+  "displayName": string;
   /**
    * The Time To Live (TTL) for responses from the steering policy, in seconds.
    * If not specified during creation, a value of 30 seconds will be used.
    *
    */
-  "ttl"?: number;
+  "ttl": number;
   /**
     * The OCID of the health check monitor providing health data about the answers of the
 * steering policy. A steering policy answer with `rdata` matching a monitored endpoint
@@ -96,7 +96,7 @@ export interface SteeringPolicySummary {
 * * `CUSTOM` - Allows a customized configuration of rules.
 * 
     */
-  "template"?: SteeringPolicySummary.Template;
+  "template": SteeringPolicySummary.Template;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
@@ -105,7 +105,7 @@ export interface SteeringPolicySummary {
 * **Example:** `{\"Department\": \"Finance\"}`
 * 
     */
-  "freeformTags"?: { [key: string]: string };
+  "freeformTags": { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
@@ -114,26 +114,26 @@ export interface SteeringPolicySummary {
 * **Example:** `{\"Operations\": {\"CostCenter\": \"42\"}}`
 * 
     */
-  "definedTags"?: { [key: string]: { [key: string]: any } };
+  "definedTags": { [key: string]: { [key: string]: any } };
   /**
    * The canonical absolute URL of the resource.
    */
-  "self"?: string;
+  "self": string;
   /**
    * The OCID of the resource.
    */
-  "id"?: string;
+  "id": string;
   /**
    * The date and time the resource was created, expressed in RFC 3339 timestamp format.
    * <p>
    **Example:** `2016-07-22T17:23:59:60Z`
    *
    */
-  "timeCreated"?: Date;
+  "timeCreated": Date;
   /**
    * The current state of the resource.
    */
-  "lifecycleState"?: SteeringPolicySummary.LifecycleState;
+  "lifecycleState": SteeringPolicySummary.LifecycleState;
 }
 
 export namespace SteeringPolicySummary {

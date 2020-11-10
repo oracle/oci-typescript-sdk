@@ -7,13 +7,7 @@ import common = require("oci-common");
 import { ResourceSearchClient } from "oci-resourcesearch";
 import * as resourceSearch from "oci-resourcesearch";
 
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
-
-const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider();
 let searchClient: ResourceSearchClient;
 
 async function resourceType() {

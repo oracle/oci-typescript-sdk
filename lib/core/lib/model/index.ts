@@ -24,6 +24,8 @@ import * as AddPublicIpPoolCapacityDetails from "./add-public-ip-pool-capacity-d
 export import AddPublicIpPoolCapacityDetails = AddPublicIpPoolCapacityDetails.AddPublicIpPoolCapacityDetails;
 import * as AddSecurityRuleDetails from "./add-security-rule-details";
 export import AddSecurityRuleDetails = AddSecurityRuleDetails.AddSecurityRuleDetails;
+import * as AddVcnCidrDetails from "./add-vcn-cidr-details";
+export import AddVcnCidrDetails = AddVcnCidrDetails.AddVcnCidrDetails;
 import * as AddedNetworkSecurityGroupSecurityRules from "./added-network-security-group-security-rules";
 export import AddedNetworkSecurityGroupSecurityRules = AddedNetworkSecurityGroupSecurityRules.AddedNetworkSecurityGroupSecurityRules;
 import * as AppCatalogListing from "./app-catalog-listing";
@@ -436,6 +438,8 @@ import * as LetterOfAuthority from "./letter-of-authority";
 export import LetterOfAuthority = LetterOfAuthority.LetterOfAuthority;
 import * as LocalPeeringGateway from "./local-peering-gateway";
 export import LocalPeeringGateway = LocalPeeringGateway.LocalPeeringGateway;
+import * as ModifyVcnCidrDetails from "./modify-vcn-cidr-details";
+export import ModifyVcnCidrDetails = ModifyVcnCidrDetails.ModifyVcnCidrDetails;
 import * as NatGateway from "./nat-gateway";
 export import NatGateway = NatGateway.NatGateway;
 import * as NetworkSecurityGroup from "./network-security-group";
@@ -462,6 +466,8 @@ import * as RemoveNetworkSecurityGroupSecurityRulesDetails from "./remove-networ
 export import RemoveNetworkSecurityGroupSecurityRulesDetails = RemoveNetworkSecurityGroupSecurityRulesDetails.RemoveNetworkSecurityGroupSecurityRulesDetails;
 import * as RemovePublicIpPoolCapacityDetails from "./remove-public-ip-pool-capacity-details";
 export import RemovePublicIpPoolCapacityDetails = RemovePublicIpPoolCapacityDetails.RemovePublicIpPoolCapacityDetails;
+import * as RemoveVcnCidrDetails from "./remove-vcn-cidr-details";
+export import RemoveVcnCidrDetails = RemoveVcnCidrDetails.RemoveVcnCidrDetails;
 import * as RouteRule from "./route-rule";
 export import RouteRule = RouteRule.RouteRule;
 import * as RouteTable from "./route-table";
@@ -612,6 +618,8 @@ import * as UpdatedNetworkSecurityGroupSecurityRules from "./updated-network-sec
 export import UpdatedNetworkSecurityGroupSecurityRules = UpdatedNetworkSecurityGroupSecurityRules.UpdatedNetworkSecurityGroupSecurityRules;
 import * as Vcn from "./vcn";
 export import Vcn = Vcn.Vcn;
+import * as VcnDnsResolverAssociation from "./vcn-dns-resolver-association";
+export import VcnDnsResolverAssociation = VcnDnsResolverAssociation.VcnDnsResolverAssociation;
 import * as VirtualCircuit from "./virtual-circuit";
 export import VirtualCircuit = VirtualCircuit.VirtualCircuit;
 import * as VirtualCircuitBandwidthShape from "./virtual-circuit-bandwidth-shape";

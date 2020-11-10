@@ -1,6 +1,9 @@
 /**
- * Application Migration Service API
- * API for the Application Migration service. Use this API to migrate applications from Oracle Cloud Infrastructure - Classic to Oracle Cloud Infrastructure.
+ * Application Migration API
+ * Application Migration simplifies the migration of applications from Oracle Cloud Infrastructure Classic to Oracle Cloud Infrastructure.
+You can use Application Migration API to migrate applications, such as Oracle Java Cloud Service, SOA Cloud Service, and Integration Classic
+instances, to Oracle Cloud Infrastructure. For more information, see
+[Overview of Application Migration](/iaas/application-migration/appmigrationoverview.htm).
 
  * OpenAPI spec version: 20191031
  * 
@@ -16,29 +19,38 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An application being migrated from a source environment to OCI.
- *
- */
+* While creating a migration, specify the source and the application that you want migrate.
+* Each migration moves a single application from a specified source to a specified Oracle Cloud Infrastructure tenancy.
+* If required, provide the credentials of the application administrator in the source environment.
+* Application Migration uses this information to access the application, as well as discover application artifacts,
+* such as the complete domain configuration along with data sources and other dependencies.
+* <p>
+You must also assign a name and provide a description for the migration.
+* This helps you to identify the appropriate source environment when you have multiple sources defined.
+* <p>
+**Warning:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.
+* 
+*/
 export interface CreateMigrationDetails {
   /**
-   * Unique idenfifier (OCID) for the compartment where the Source is located.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the source.
    *
    */
   "compartmentId": string;
   /**
-   * Human-readable name of the application.
+   * User-friendly name of the application. This will be the name of the migrated application in Oracle Cloud Infrastructure.
    */
   "displayName"?: string;
   /**
-   * Description of the application.
+   * Description of the application that you are migrating.
    */
   "description"?: string;
   /**
-   * Unique identifier (OCID) of the application source.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the source.
    */
   "sourceId": string;
   /**
-   * Name of the application being migrated from the source.
+   * Name of the application that you want to migrate from the source environment.
    */
   "applicationName": string;
   "discoveryDetails":
@@ -49,24 +61,34 @@ export interface CreateMigrationDetails {
     | model.JcsDiscoveryDetails
     | model.SoacsDiscoveryDetails;
   /**
-   * Configuration required to migrate the application. In addition to the key and value, additional fields are provided to describe type type and purpose of each field. Only the value for each key is required when passing configuration to the CreateMigration operation.
+   * The pre-existing database type to be used in this migration. Currently, Application migration only supports Oracle Cloud
+   * Infrastrure databases and this option is currently available only for `JAVA_CLOUD_SERVICE` and `WEBLOGIC_CLOUD_SERVICE` target instance types.
+   *
+   */
+  "preCreatedTargetDatabaseType"?: model.TargetDatabaseTypes;
+  /**
+   * Configuration required to migrate the application. In addition to the key and value, additional fields are provided
+   * to describe type type and purpose of each field. Only the value for each key is required when passing configuration to the
+   * CreateMigration operation.
    *
    */
   "serviceConfig"?: { [key: string]: model.ConfigurationField };
   /**
-   * Configuration required to migrate the application. In addition to the key and value, additional fields are provided to describe type type and purpose of each field. Only the value for each key is required when passing configuration to the CreateMigration operation.
+   * Configuration required to migrate the application. In addition to the key and value, additional fields are provided
+   * to describe type type and purpose of each field. Only the value for each key is required when passing configuration to the
+   * CreateMigration operation.
    *
    */
   "applicationConfig"?: { [key: string]: model.ConfigurationField };
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
+   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm). Example: `{\"Department\": \"Finance\"}`
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm). Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -80,6 +102,7 @@ export namespace CreateMigrationDetails {
         "discoveryDetails": obj.discoveryDetails
           ? model.DiscoveryDetails.getJsonObj(obj.discoveryDetails)
           : undefined,
+
         "serviceConfig": obj.serviceConfig
           ? common.mapContainer(obj.serviceConfig, model.ConfigurationField.getJsonObj)
           : undefined,

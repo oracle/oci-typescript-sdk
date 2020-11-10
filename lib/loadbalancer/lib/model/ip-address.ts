@@ -36,11 +36,17 @@ If \"false\", the IP address is private and accessible only from within the asso
 * 
     */
   "isPublic"?: boolean;
+  "reservedIp"?: model.ReservedIP;
 }
 
 export namespace IpAddress {
   export function getJsonObj(obj: IpAddress): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "reservedIp": obj.reservedIp ? model.ReservedIP.getJsonObj(obj.reservedIp) : undefined
+      }
+    };
 
     return jsonObj;
   }

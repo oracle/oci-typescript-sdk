@@ -23,6 +23,44 @@ export class DnsWaiter {
   public constructor(private client: DnsClient, private readonly config?: WaiterConfiguration) {}
 
   /**
+   * Waits forResolver till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetResolverResponse | null (null in case of 404 response)
+   */
+  public async forResolver(
+    request: serviceRequests.GetResolverRequest,
+    ...targetStates: models.Resolver.LifecycleState[]
+  ): Promise<serviceResponses.GetResolverResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getResolver(request),
+      response => targetStates.exists(response.resolver.lifecycleState),
+      targetStates.includes(models.Resolver.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forResolverEndpoint till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetResolverEndpointResponse | null (null in case of 404 response)
+   */
+  public async forResolverEndpoint(
+    request: serviceRequests.GetResolverEndpointRequest,
+    ...targetStates: models.ResolverEndpoint.LifecycleState[]
+  ): Promise<serviceResponses.GetResolverEndpointResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getResolverEndpoint(request),
+      response => targetStates.exists(response.resolverEndpoint.lifecycleState),
+      targetStates.includes(models.ResolverEndpoint.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forSteeringPolicy till it reaches any of the provided states
    *
    * @param request the request to send
@@ -74,6 +112,25 @@ export class DnsWaiter {
       this.config,
       () => this.client.getTsigKey(request),
       response => targetStates.exists(response.tsigKey.lifecycleState)
+    );
+  }
+
+  /**
+   * Waits forView till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetViewResponse | null (null in case of 404 response)
+   */
+  public async forView(
+    request: serviceRequests.GetViewRequest,
+    ...targetStates: models.View.LifecycleState[]
+  ): Promise<serviceResponses.GetViewResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getView(request),
+      response => targetStates.exists(response.view.lifecycleState),
+      targetStates.includes(models.View.LifecycleState.Deleted)
     );
   }
 

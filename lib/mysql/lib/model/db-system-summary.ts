@@ -36,6 +36,12 @@ export interface DbSystemSummary {
    */
   "compartmentId"?: string;
   /**
+   * If the DB System has an Analytics Cluster attached.
+   *
+   */
+  "isAnalyticsClusterAttached"?: boolean;
+  "analyticsCluster"?: model.AnalyticsClusterSummary;
+  /**
    * The Availability Domain where the primary DB System should be located.
    *
    */
@@ -85,6 +91,10 @@ export namespace DbSystemSummary {
     const jsonObj = {
       ...obj,
       ...{
+        "analyticsCluster": obj.analyticsCluster
+          ? model.AnalyticsClusterSummary.getJsonObj(obj.analyticsCluster)
+          : undefined,
+
         "endpoints": obj.endpoints
           ? obj.endpoints.map(item => {
               return model.DbSystemEndpoint.getJsonObj(item);

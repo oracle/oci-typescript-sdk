@@ -34,9 +34,24 @@ export interface ShapeSummary {
    * The amount of RAM the Instance provides. This is an IEC base-2 number.
    */
   "memorySizeInGBs": number;
+  /**
+   * What service features the shape is supported for.
+   *
+   */
+  "isSupportedFor"?: Array<ShapeSummary.IsSupportedFor>;
 }
 
 export namespace ShapeSummary {
+  export enum IsSupportedFor {
+    Dbsystem = "DBSYSTEM",
+    Analyticscluster = "ANALYTICSCLUSTER",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: ShapeSummary): object {
     const jsonObj = { ...obj, ...{} };
 

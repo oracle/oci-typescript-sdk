@@ -6,13 +6,7 @@
 const kms = require("oci-keymanagement");
 const common = require("oci-common");
 
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
-
-const provider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider = new common.ConfigFileAuthenticationDetailsProvider();
 
 /* These examples assume you already have a Vault in ACTIVE state. If you need to create a new Vault, please
  * refer to the createVaultTest method in this file. Please keep in mind that KMS does not support immediate
@@ -116,16 +110,16 @@ kmsVaultClient.region = common.Region.US_PHOENIX_1;
     // After scheduling deletion, the Key will stay in SCHEDULING_DELETION state shortly and then
     // transit to PENDING_DELETION state. Wait a bit for the transition to happen.
     console.log("Wait a bit for the deletion scheduling to finish");
-    delay(TRANSIENT_STATE_WAIT_TIME_MS);
+    await delay(TRANSIENT_STATE_WAIT_TIME_MS);
 
     await cancelKeyDetetionTest(kmsManagementClient, keyId);
     // After cancelling deletion, the Key will stay in CANCELLING_DELETION state shortly and then
     // transit to Enabled state. Wait a bit for the transition to happen.
     console.log("Wait a bit for the deletion cancelling to finish");
-    delay(TRANSIENT_STATE_WAIT_TIME_MS);
+    await delay(TRANSIENT_STATE_WAIT_TIME_MS);
 
     await createKeyVersionTest(kmsManagementClient, keyId);
-    delay(TRANSIENT_STATE_WAIT_TIME_MS);
+    await delay(TRANSIENT_STATE_WAIT_TIME_MS);
     await listKeyVersionsTest(kmsManagementClient, keyId);
 
     // Crypto Operations
