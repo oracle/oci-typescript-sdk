@@ -6,13 +6,7 @@
 const lb = require("oci-loadbalancer");
 const common = require("oci-common");
 
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
-
-const provider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider = new common.ConfigFileAuthenticationDetailsProvider();
 
 /**
  * Please refer to https://docs.cloud.oracle.com/iaas/api/#/en/loadbalancer/latest/RuleSet/CreateRuleSet

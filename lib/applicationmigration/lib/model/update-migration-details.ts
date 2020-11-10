@@ -1,6 +1,9 @@
 /**
- * Application Migration Service API
- * API for the Application Migration service. Use this API to migrate applications from Oracle Cloud Infrastructure - Classic to Oracle Cloud Infrastructure.
+ * Application Migration API
+ * Application Migration simplifies the migration of applications from Oracle Cloud Infrastructure Classic to Oracle Cloud Infrastructure.
+You can use Application Migration API to migrate applications, such as Oracle Java Cloud Service, SOA Cloud Service, and Integration Classic
+instances, to Oracle Cloud Infrastructure. For more information, see
+[Overview of Application Migration](/iaas/application-migration/appmigrationoverview.htm).
 
  * OpenAPI spec version: 20191031
  * 
@@ -16,12 +19,16 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Update the details and configuration of a migration.
+ * Provide configuration information about the application in the target environment. Application Migration migrates the
+ * application to the target environment only after you provide this information. The information that you must provide varies
+ * depending on the type of application that you are migrating.
+ * <p>
+ **Warning:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.
  *
  */
 export interface UpdateMigrationDetails {
   /**
-   * Human-readable name of the migration.
+   * User-friendly name of the migration.
    */
   "displayName"?: string;
   /**
@@ -36,24 +43,28 @@ export interface UpdateMigrationDetails {
     | model.JcsDiscoveryDetails
     | model.SoacsDiscoveryDetails;
   /**
-   * Configuration required to migrate the application. In addition to the key and value, additional fields are provided to describe type type and purpose of each field. Only the value for each key is required when passing configuration to the CreateMigration operation.
+   * Configuration required to migrate the application. In addition to the key and value, additional fields are provided
+   * to describe type type and purpose of each field. Only the value for each key is required when passing configuration to the
+   * CreateMigration operation.
    *
    */
   "serviceConfig"?: { [key: string]: model.ConfigurationField };
   /**
-   * Configuration required to migrate the application. In addition to the key and value, additional fields are provided to describe type type and purpose of each field. Only the value for each key is required when passing configuration to the CreateMigration operation.
+   * Configuration required to migrate the application. In addition to the key and value, additional fields are provided
+   * to describe type type and purpose of each field. Only the value for each key is required when passing configuration to the
+   * CreateMigration operation.
    *
    */
   "applicationConfig"?: { [key: string]: model.ConfigurationField };
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
+   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm). Example: `{\"Department\": \"Finance\"}`
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm). Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

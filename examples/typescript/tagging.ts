@@ -13,13 +13,7 @@ import * as identity from "oci-identity";
 import core = require("oci-core");
 import common = require("oci-common");
 
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
-
-const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider();
 
 (async () => {
   const compartmentId = provider.getTenantId();

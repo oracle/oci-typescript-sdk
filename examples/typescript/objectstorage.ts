@@ -20,13 +20,7 @@ import st = require("stream");
 import { createReadStream, statSync } from "fs";
 import { NodeFSBlob } from "oci-objectstorage";
 
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
-
-const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider();
 const args = process.argv.slice(2);
 console.log(args);
 if (args.length !== 3) {

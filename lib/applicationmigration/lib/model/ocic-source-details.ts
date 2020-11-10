@@ -1,6 +1,9 @@
 /**
- * Application Migration Service API
- * API for the Application Migration service. Use this API to migrate applications from Oracle Cloud Infrastructure - Classic to Oracle Cloud Infrastructure.
+ * Application Migration API
+ * Application Migration simplifies the migration of applications from Oracle Cloud Infrastructure Classic to Oracle Cloud Infrastructure.
+You can use Application Migration API to migrate applications, such as Oracle Java Cloud Service, SOA Cloud Service, and Integration Classic
+instances, to Oracle Cloud Infrastructure. For more information, see
+[Overview of Application Migration](/iaas/application-migration/appmigrationoverview.htm).
 
  * OpenAPI spec version: 20191031
  * 
@@ -16,17 +19,22 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specifies configuration specific to the source environment.
+ * Details about the Oracle Cloud Infrastructure Classic account, the source environment from which you want to migrate the application.
  *
  */
 export interface OcicSourceDetails extends model.SourceDetails {
   /**
-   * The Oracle Cloud Infrastructure - Classic region name (e.g. us2-z11 or uscom-central-1)
+   * The Oracle Cloud Infrastructure - Classic region from which you want to migrate your applications. For example, uscom-east-1 or uscom-central-1.
    */
   "region": string;
   /**
-   * The compute account id
-   */
+    * If you are using a Oracle Cloud Infrastructure - Classic account with Identity Cloud Service (IDCS), enter the service instance ID.
+* For example, if Compute-567890123 is the account name of your Oracle Cloud Infrastructure Classic Compute service entitlement,
+* then enter 567890123.
+* <p>
+If you are using a traditional Oracle Cloud Infrastructure - Classic account, enter your identity domain ID.
+* 
+    */
   "computeAccount": string;
 
   "type": string;

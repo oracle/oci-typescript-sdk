@@ -593,6 +593,81 @@ export class DbSystemClient {
   }
 
   /**
+   * Adds an Analytics Cluster to the DB System.
+   *
+   * @param AddAnalyticsClusterRequest
+   * @return AddAnalyticsClusterResponse
+   * @throws OciError when an error occurs
+   */
+  public async addAnalyticsCluster(
+    addAnalyticsClusterRequest: requests.AddAnalyticsClusterRequest
+  ): Promise<responses.AddAnalyticsClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#addAnalyticsCluster.");
+    const pathParams = {
+      "{dbSystemId}": addAnalyticsClusterRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addAnalyticsClusterRequest.ifMatch,
+      "opc-request-id": addAnalyticsClusterRequest.opcRequestId,
+      "opc-retry-token": addAnalyticsClusterRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/analyticsCluster/actions/add",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addAnalyticsClusterRequest.addAnalyticsClusterDetails,
+        "AddAnalyticsClusterDetails",
+        models.AddAnalyticsClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      addAnalyticsClusterRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddAnalyticsClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "analyticsCluster",
+        bodyModel: "model.AnalyticsCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates and launches a DB System.
    *
    * @param CreateDbSystemRequest
@@ -670,6 +745,68 @@ export class DbSystemClient {
   }
 
   /**
+   * Deletes the Analytics Cluster including terminating, detaching, removing, finalizing and
+   * otherwise deleting all related resources.
+   *
+   * @param DeleteAnalyticsClusterRequest
+   * @return DeleteAnalyticsClusterResponse
+   * @throws OciError when an error occurs
+   */
+  public async deleteAnalyticsCluster(
+    deleteAnalyticsClusterRequest: requests.DeleteAnalyticsClusterRequest
+  ): Promise<responses.DeleteAnalyticsClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#deleteAnalyticsCluster.");
+    const pathParams = {
+      "{dbSystemId}": deleteAnalyticsClusterRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteAnalyticsClusterRequest.ifMatch,
+      "opc-request-id": deleteAnalyticsClusterRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/analyticsCluster",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteAnalyticsClusterRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteAnalyticsClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Delete a DB System, including terminating, detaching,
    * removing, finalizing and otherwise deleting all related resources.
    *
@@ -720,6 +857,194 @@ export class DbSystemClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Sends a request to estimate the memory footprints of user tables when loaded to Analytics Cluster memory.
+   *
+   * @param GenerateAnalyticsClusterMemoryEstimateRequest
+   * @return GenerateAnalyticsClusterMemoryEstimateResponse
+   * @throws OciError when an error occurs
+   */
+  public async generateAnalyticsClusterMemoryEstimate(
+    generateAnalyticsClusterMemoryEstimateRequest: requests.GenerateAnalyticsClusterMemoryEstimateRequest
+  ): Promise<responses.GenerateAnalyticsClusterMemoryEstimateResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbSystemClient#generateAnalyticsClusterMemoryEstimate.");
+    const pathParams = {
+      "{dbSystemId}": generateAnalyticsClusterMemoryEstimateRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": generateAnalyticsClusterMemoryEstimateRequest.opcRequestId,
+      "opc-retry-token": generateAnalyticsClusterMemoryEstimateRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/analyticsClusterMemoryEstimate/actions/generate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      generateAnalyticsClusterMemoryEstimateRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateAnalyticsClusterMemoryEstimateResponse>{},
+        body: await response.json(),
+        bodyKey: "analyticsClusterMemoryEstimate",
+        bodyModel: "model.AnalyticsClusterMemoryEstimate",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the Analytics Cluster.
+   * @param GetAnalyticsClusterRequest
+   * @return GetAnalyticsClusterResponse
+   * @throws OciError when an error occurs
+   */
+  public async getAnalyticsCluster(
+    getAnalyticsClusterRequest: requests.GetAnalyticsClusterRequest
+  ): Promise<responses.GetAnalyticsClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#getAnalyticsCluster.");
+    const pathParams = {
+      "{dbSystemId}": getAnalyticsClusterRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAnalyticsClusterRequest.opcRequestId,
+      "if-none-match": getAnalyticsClusterRequest.ifNoneMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/analyticsCluster",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getAnalyticsClusterRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAnalyticsClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "analyticsCluster",
+        bodyModel: "model.AnalyticsCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the most recent Analytics Cluster memory estimate that can be used to determine a suitable
+   * Analytics Cluster size.
+   *
+   * @param GetAnalyticsClusterMemoryEstimateRequest
+   * @return GetAnalyticsClusterMemoryEstimateResponse
+   * @throws OciError when an error occurs
+   */
+  public async getAnalyticsClusterMemoryEstimate(
+    getAnalyticsClusterMemoryEstimateRequest: requests.GetAnalyticsClusterMemoryEstimateRequest
+  ): Promise<responses.GetAnalyticsClusterMemoryEstimateResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbSystemClient#getAnalyticsClusterMemoryEstimate.");
+    const pathParams = {
+      "{dbSystemId}": getAnalyticsClusterMemoryEstimateRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAnalyticsClusterMemoryEstimateRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/analyticsClusterMemoryEstimate",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getAnalyticsClusterMemoryEstimateRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAnalyticsClusterMemoryEstimateResponse>{},
+        body: await response.json(),
+        bodyKey: "analyticsClusterMemoryEstimate",
+        bodyModel: "model.AnalyticsClusterMemoryEstimate",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -809,6 +1134,7 @@ export class DbSystemClient {
     const pathParams = {};
 
     const queryParams = {
+      "isAnalyticsClusterAttached": listDbSystemsRequest.isAnalyticsClusterAttached,
       "compartmentId": listDbSystemsRequest.compartmentId,
       "dbSystemId": listDbSystemsRequest.dbSystemId,
       "displayName": listDbSystemsRequest.displayName,
@@ -893,6 +1219,67 @@ export class DbSystemClient {
   }
 
   /**
+   * Restarts the Analytics Cluster.
+   * @param RestartAnalyticsClusterRequest
+   * @return RestartAnalyticsClusterResponse
+   * @throws OciError when an error occurs
+   */
+  public async restartAnalyticsCluster(
+    restartAnalyticsClusterRequest: requests.RestartAnalyticsClusterRequest
+  ): Promise<responses.RestartAnalyticsClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#restartAnalyticsCluster.");
+    const pathParams = {
+      "{dbSystemId}": restartAnalyticsClusterRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": restartAnalyticsClusterRequest.ifMatch,
+      "opc-request-id": restartAnalyticsClusterRequest.opcRequestId,
+      "opc-retry-token": restartAnalyticsClusterRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/analyticsCluster/actions/restart",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      restartAnalyticsClusterRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RestartAnalyticsClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Restarts the specified DB System.
    * @param RestartDbSystemRequest
    * @return RestartDbSystemResponse
@@ -938,6 +1325,67 @@ export class DbSystemClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.RestartDbSystemResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Starts the Analytics Cluster.
+   * @param StartAnalyticsClusterRequest
+   * @return StartAnalyticsClusterResponse
+   * @throws OciError when an error occurs
+   */
+  public async startAnalyticsCluster(
+    startAnalyticsClusterRequest: requests.StartAnalyticsClusterRequest
+  ): Promise<responses.StartAnalyticsClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#startAnalyticsCluster.");
+    const pathParams = {
+      "{dbSystemId}": startAnalyticsClusterRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": startAnalyticsClusterRequest.ifMatch,
+      "opc-request-id": startAnalyticsClusterRequest.opcRequestId,
+      "opc-retry-token": startAnalyticsClusterRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/analyticsCluster/actions/start",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      startAnalyticsClusterRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StartAnalyticsClusterResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1020,6 +1468,67 @@ export class DbSystemClient {
   }
 
   /**
+   * Stops the Analytics Cluster.
+   * @param StopAnalyticsClusterRequest
+   * @return StopAnalyticsClusterResponse
+   * @throws OciError when an error occurs
+   */
+  public async stopAnalyticsCluster(
+    stopAnalyticsClusterRequest: requests.StopAnalyticsClusterRequest
+  ): Promise<responses.StopAnalyticsClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#stopAnalyticsCluster.");
+    const pathParams = {
+      "{dbSystemId}": stopAnalyticsClusterRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": stopAnalyticsClusterRequest.ifMatch,
+      "opc-request-id": stopAnalyticsClusterRequest.opcRequestId,
+      "opc-retry-token": stopAnalyticsClusterRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/analyticsCluster/actions/stop",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      stopAnalyticsClusterRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StopAnalyticsClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Stops the specified DB System.
 * <p>
 A stopped DB System is not billed.
@@ -1068,6 +1577,72 @@ A stopped DB System is not billed.
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.StopDbSystemResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Analytics Cluster.
+   *
+   * @param UpdateAnalyticsClusterRequest
+   * @return UpdateAnalyticsClusterResponse
+   * @throws OciError when an error occurs
+   */
+  public async updateAnalyticsCluster(
+    updateAnalyticsClusterRequest: requests.UpdateAnalyticsClusterRequest
+  ): Promise<responses.UpdateAnalyticsClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#updateAnalyticsCluster.");
+    const pathParams = {
+      "{dbSystemId}": updateAnalyticsClusterRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateAnalyticsClusterRequest.ifMatch,
+      "opc-request-id": updateAnalyticsClusterRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/analyticsCluster",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAnalyticsClusterRequest.updateAnalyticsClusterDetails,
+        "UpdateAnalyticsClusterDetails",
+        models.UpdateAnalyticsClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateAnalyticsClusterRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAnalyticsClusterResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1586,6 +2161,7 @@ The default sort order is a multi-part sort by:
     const pathParams = {};
 
     const queryParams = {
+      "isSupportedFor": listShapesRequest.isSupportedFor,
       "availabilityDomain": listShapesRequest.availabilityDomain,
       "compartmentId": listShapesRequest.compartmentId,
       "name": listShapesRequest.name

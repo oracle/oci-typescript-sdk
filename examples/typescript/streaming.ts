@@ -22,13 +22,8 @@
 
 import st = require("oci-streaming");
 import common = require("oci-common");
-const configurationFilePath = "~/.oci/config";
-const profile = "DEFAULT";
 
-const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  profile
-);
+const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider();
 const args = process.argv.slice(2);
 console.log(args);
 if (args.length !== 1) {

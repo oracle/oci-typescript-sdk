@@ -8,13 +8,7 @@ import { ObjectStorageClient, requests, models } from "oci-objectstorage";
 import { Region } from "oci-common";
 import { readdir } from "fs";
 
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
-
-const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider();
 /*
  * This Sample take directory path as a commandline argument and
  * generates urls for the files present in the directory to objectstorage using create preauthenticated request.

@@ -5,13 +5,8 @@
 
 import common = require("oci-common");
 import identity = require("oci-identity");
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
 
-const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider();
 
 //Register the new Realm
 const newRealm = common.Realm.register("ocx", "sample-realm.com");

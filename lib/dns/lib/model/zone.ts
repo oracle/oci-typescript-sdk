@@ -26,16 +26,27 @@ export interface Zone {
   /**
    * The name of the zone.
    */
-  "name"?: string;
+  "name": string;
   /**
-   * The type of the zone. Must be either `PRIMARY` or `SECONDARY`.
+   * The type of the zone. Must be either `PRIMARY` or `SECONDARY`. `SECONDARY` is only supported for GLOBAL zones.
    *
    */
-  "zoneType"?: Zone.ZoneType;
+  "zoneType": Zone.ZoneType;
   /**
    * The OCID of the compartment containing the zone.
    */
-  "compartmentId"?: string;
+  "compartmentId": string;
+  /**
+   * The OCID of the private view containing the zone. This value will
+   * be null for zones in the global DNS, which are publicly resolvable and
+   * not part of a private view.
+   *
+   */
+  "viewId"?: string;
+  /**
+   * The scope of the zone.
+   */
+  "scope": model.Scope;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
@@ -44,7 +55,7 @@ export interface Zone {
 * **Example:** `{\"Department\": \"Finance\"}`
 * 
     */
-  "freeformTags"?: { [key: string]: string };
+  "freeformTags": { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
@@ -53,49 +64,54 @@ export interface Zone {
 * **Example:** `{\"Operations\": {\"CostCenter\": \"42\"}}`
 * 
     */
-  "definedTags"?: { [key: string]: { [key: string]: any } };
+  "definedTags": { [key: string]: { [key: string]: any } };
   /**
    * External master servers for the zone. `externalMasters` becomes a
    * required parameter when the `zoneType` value is `SECONDARY`.
    *
    */
-  "externalMasters"?: Array<model.ExternalMaster>;
+  "externalMasters": Array<model.ExternalMaster>;
   /**
    * The canonical absolute URL of the resource.
    */
-  "self"?: string;
+  "self": string;
   /**
    * The OCID of the zone.
    */
-  "id"?: string;
+  "id": string;
   /**
-   * The date and time the resource was created in \"YYYY-MM-ddThh:mmZ\" format
+   * The date and time the resource was created in \"YYYY-MM-ddThh:mm:ssZ\" format
    * with a Z offset, as defined by RFC 3339.
    * <p>
    **Example:** `2016-07-22T17:23:59:60Z`
    *
    */
-  "timeCreated"?: Date;
+  "timeCreated": Date;
   /**
    * Version is the never-repeating, totally-orderable, version of the
    * zone, from which the serial field of the zone's SOA record is
    * derived.
    *
    */
-  "version"?: string;
+  "version": string;
   /**
    * The current serial of the zone. As seen in the zone's SOA record.
    *
    */
-  "serial"?: number;
+  "serial": number;
   /**
    * The current state of the zone resource.
    */
-  "lifecycleState"?: Zone.LifecycleState;
+  "lifecycleState": Zone.LifecycleState;
+  /**
+   * A Boolean flag indicating whether or not parts of the resource are unable to be explicitly managed.
+   *
+   */
+  "isProtected": boolean;
   /**
    * The authoritative nameservers for the zone.
    */
-  "nameservers"?: Array<model.Nameserver>;
+  "nameservers": Array<model.Nameserver>;
 }
 
 export namespace Zone {

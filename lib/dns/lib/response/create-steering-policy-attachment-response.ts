@@ -16,19 +16,24 @@ import common = require("oci-common");
 
 export interface CreateSteeringPolicyAttachmentResponse {
   /**
-   * Unique Oracle-assigned identifier for the request. If you need to
-   * contact Oracle about a particular request, please provide the request
-   * ID.
-   *
-   */
-  "opcRequestId": string;
-  /**
    * The current version of the resource, ending with a
    * representation-specific suffix. This value may be used in If-Match
    * and If-None-Match headers for later requests of the same resource.
    *
    */
   "eTag": string;
+  /**
+   * The full URI of the resource related to the request.
+   *
+   */
+  "location": string;
+  /**
+   * Unique Oracle-assigned identifier for the request. If you need to
+   * contact Oracle about a particular request, please provide the request
+   * ID.
+   *
+   */
+  "opcRequestId": string;
   /**
    * The returned model.SteeringPolicyAttachment instance.
    */

@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface ListWorkRequestsRequest extends common.BaseRequest {
   /**
-   * The compartment OCID on which to filter.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a compartment. Retrieves details of objects in the specified compartment.
    */
   "compartmentId": string;
   /**
-   * The OCID of the resource.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for a resource. Retrieves details of the specified resource.
    */
   "resourceId"?: string;
   /**

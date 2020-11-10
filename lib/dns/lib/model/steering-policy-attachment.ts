@@ -29,52 +29,52 @@ export interface SteeringPolicyAttachment {
   /**
    * The OCID of the attached steering policy.
    */
-  "steeringPolicyId"?: string;
+  "steeringPolicyId": string;
   /**
    * The OCID of the attached zone.
    */
-  "zoneId"?: string;
+  "zoneId": string;
   /**
    * The attached domain within the attached zone.
    */
-  "domainName"?: string;
+  "domainName": string;
   /**
    * A user-friendly name for the steering policy attachment.
    * Does not have to be unique and can be changed.
    * Avoid entering confidential information.
    *
    */
-  "displayName"?: string;
+  "displayName": string;
   /**
    * The record types covered by the attachment at the domain. The set of record types is
    * determined by aggregating the record types from the answers defined in the steering
    * policy.
    *
    */
-  "rtypes"?: Array<string>;
+  "rtypes": Array<string>;
   /**
    * The OCID of the compartment containing the steering policy attachment.
    */
-  "compartmentId"?: string;
+  "compartmentId": string;
   /**
    * The canonical absolute URL of the resource.
    */
-  "self"?: string;
+  "self": string;
   /**
    * The OCID of the resource.
    */
-  "id"?: string;
+  "id": string;
   /**
    * The date and time the resource was created, expressed in RFC 3339 timestamp format.
    * <p>
    **Example:** `2016-07-22T17:23:59:60Z`
    *
    */
-  "timeCreated"?: Date;
+  "timeCreated": Date;
   /**
    * The current state of the resource.
    */
-  "lifecycleState"?: SteeringPolicyAttachment.LifecycleState;
+  "lifecycleState": SteeringPolicyAttachment.LifecycleState;
 }
 
 export namespace SteeringPolicyAttachment {

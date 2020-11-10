@@ -138,6 +138,76 @@ export class DnsClient {
   }
 
   /**
+   * Moves a resolver into a different compartment along with its protected default view and any endpoints.
+   * Zones in the default view are not moved.
+   *
+   * @param ChangeResolverCompartmentRequest
+   * @return ChangeResolverCompartmentResponse
+   * @throws OciError when an error occurs
+   */
+  public async changeResolverCompartment(
+    changeResolverCompartmentRequest: requests.ChangeResolverCompartmentRequest
+  ): Promise<responses.ChangeResolverCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#changeResolverCompartment.");
+    const pathParams = {
+      "{resolverId}": changeResolverCompartmentRequest.resolverId
+    };
+
+    const queryParams = {
+      "scope": changeResolverCompartmentRequest.scope
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "If-Match": changeResolverCompartmentRequest.ifMatch,
+      "opc-retry-token": changeResolverCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeResolverCompartmentRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/resolvers/{resolverId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeResolverCompartmentRequest.changeResolverCompartmentDetails,
+        "ChangeResolverCompartmentDetails",
+        models.ChangeResolverCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeResolverCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeResolverCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a steering policy into a different compartment.
    * @param ChangeSteeringPolicyCompartmentRequest
    * @return ChangeSteeringPolicyCompartmentResponse
@@ -152,7 +222,9 @@ export class DnsClient {
       "{steeringPolicyId}": changeSteeringPolicyCompartmentRequest.steeringPolicyId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "scope": changeSteeringPolicyCompartmentRequest.scope
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -213,7 +285,9 @@ export class DnsClient {
       "{tsigKeyId}": changeTsigKeyCompartmentRequest.tsigKeyId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "scope": changeTsigKeyCompartmentRequest.scope
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -261,8 +335,79 @@ export class DnsClient {
   }
 
   /**
-   * Moves a zone into a different compartment.
-   * **Note:** All SteeringPolicyAttachment objects associated with this zone will also be moved into the provided compartment.
+   * Moves a view into a different compartment. Protected views cannot have their compartment changed.
+   *
+   * @param ChangeViewCompartmentRequest
+   * @return ChangeViewCompartmentResponse
+   * @throws OciError when an error occurs
+   */
+  public async changeViewCompartment(
+    changeViewCompartmentRequest: requests.ChangeViewCompartmentRequest
+  ): Promise<responses.ChangeViewCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#changeViewCompartment.");
+    const pathParams = {
+      "{viewId}": changeViewCompartmentRequest.viewId
+    };
+
+    const queryParams = {
+      "scope": changeViewCompartmentRequest.scope
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "If-Match": changeViewCompartmentRequest.ifMatch,
+      "opc-retry-token": changeViewCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeViewCompartmentRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/views/{viewId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeViewCompartmentRequest.changeViewCompartmentDetails,
+        "ChangeViewCompartmentDetails",
+        models.ChangeViewCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeViewCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeViewCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a zone into a different compartment. Protected zones cannot have their compartment changed.
+   * <p>
+   **Note:** All SteeringPolicyAttachment objects associated with this zone will also be moved into the provided compartment.
+   *
    * @param ChangeZoneCompartmentRequest
    * @return ChangeZoneCompartmentResponse
    * @throws OciError when an error occurs
@@ -275,7 +420,9 @@ export class DnsClient {
       "{zoneId}": changeZoneCompartmentRequest.zoneId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "scope": changeZoneCompartmentRequest.scope
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -312,6 +459,92 @@ export class DnsClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new resolver endpoint.
+   *
+   * @param CreateResolverEndpointRequest
+   * @return CreateResolverEndpointResponse
+   * @throws OciError when an error occurs
+   */
+  public async createResolverEndpoint(
+    createResolverEndpointRequest: requests.CreateResolverEndpointRequest
+  ): Promise<responses.CreateResolverEndpointResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#createResolverEndpoint.");
+    const pathParams = {
+      "{resolverId}": createResolverEndpointRequest.resolverId
+    };
+
+    const queryParams = {
+      "scope": createResolverEndpointRequest.scope
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createResolverEndpointRequest.opcRetryToken,
+      "opc-request-id": createResolverEndpointRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/resolvers/{resolverId}/endpoints",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createResolverEndpointRequest.createResolverEndpointDetails,
+        "CreateResolverEndpointDetails",
+        models.CreateResolverEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createResolverEndpointRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateResolverEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "resolverEndpoint",
+        bodyModel: "model.ResolverEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("Location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -336,7 +569,9 @@ export class DnsClient {
     if (this.logger) this.logger.debug("Calling operation DnsClient#createSteeringPolicy.");
     const pathParams = {};
 
-    const queryParams = {};
+    const queryParams = {
+      "scope": createSteeringPolicyRequest.scope
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -372,13 +607,18 @@ export class DnsClient {
         bodyModel: "model.SteeringPolicy",
         responseHeaders: [
           {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
+            value: response.headers.get("ETag"),
+            key: "eTag",
             dataType: "string"
           },
           {
-            value: response.headers.get("ETag"),
-            key: "eTag",
+            value: response.headers.get("Location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -409,7 +649,9 @@ For the purposes of access control, the attachment is automatically placed
       this.logger.debug("Calling operation DnsClient#createSteeringPolicyAttachment.");
     const pathParams = {};
 
-    const queryParams = {};
+    const queryParams = {
+      "scope": createSteeringPolicyAttachmentRequest.scope
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -445,13 +687,18 @@ For the purposes of access control, the attachment is automatically placed
         bodyModel: "model.SteeringPolicyAttachment",
         responseHeaders: [
           {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
+            value: response.headers.get("ETag"),
+            key: "eTag",
             dataType: "string"
           },
           {
-            value: response.headers.get("ETag"),
-            key: "eTag",
+            value: response.headers.get("Location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -477,7 +724,9 @@ For the purposes of access control, the attachment is automatically placed
     if (this.logger) this.logger.debug("Calling operation DnsClient#createTsigKey.");
     const pathParams = {};
 
-    const queryParams = {};
+    const queryParams = {
+      "scope": createTsigKeyRequest.scope
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -517,8 +766,18 @@ For the purposes of access control, the attachment is automatically placed
             dataType: "string"
           },
           {
+            value: response.headers.get("Location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -531,9 +790,88 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Creates a new zone in the specified compartment. The `compartmentId`
-   * query parameter is required if the `Content-Type` header for the
-   * request is `text/dns`.
+   * Creates a new view in the specified compartment.
+   *
+   * @param CreateViewRequest
+   * @return CreateViewResponse
+   * @throws OciError when an error occurs
+   */
+  public async createView(
+    createViewRequest: requests.CreateViewRequest
+  ): Promise<responses.CreateViewResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#createView.");
+    const pathParams = {};
+
+    const queryParams = {
+      "scope": createViewRequest.scope
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createViewRequest.opcRetryToken,
+      "opc-request-id": createViewRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/views",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createViewRequest.createViewDetails,
+        "CreateViewDetails",
+        models.CreateViewDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createViewRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateViewResponse>{},
+        body: await response.json(),
+        bodyKey: "view",
+        bodyModel: "model.View",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("Location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new zone in the specified compartment. If the `Content-Type` header for the request is `text/dns`, the
+   * `compartmentId` query parameter is required. Additionally, for `text/dns`, the `scope` and `viewId` query
+   * parameters are required to create a private zone.
    *
    * @param CreateZoneRequest
    * @return CreateZoneResponse
@@ -546,7 +884,9 @@ For the purposes of access control, the attachment is automatically placed
     const pathParams = {};
 
     const queryParams = {
-      "compartmentId": createZoneRequest.compartmentId
+      "compartmentId": createZoneRequest.compartmentId,
+      "scope": createZoneRequest.scope,
+      "viewId": createZoneRequest.viewId
     };
 
     let headerParams = {
@@ -582,13 +922,23 @@ For the purposes of access control, the attachment is automatically placed
         bodyModel: "model.Zone",
         responseHeaders: [
           {
+            value: response.headers.get("ETag"),
+            key: "eTag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("Location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
           },
           {
-            value: response.headers.get("ETag"),
-            key: "eTag",
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -616,6 +966,8 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     const queryParams = {
+      "scope": deleteDomainRecordsRequest.scope,
+      "viewId": deleteDomainRecordsRequest.viewId,
       "compartmentId": deleteDomainRecordsRequest.compartmentId
     };
 
@@ -677,7 +1029,9 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     const queryParams = {
-      "compartmentId": deleteRRSetRequest.compartmentId
+      "compartmentId": deleteRRSetRequest.compartmentId,
+      "scope": deleteRRSetRequest.scope,
+      "viewId": deleteRRSetRequest.viewId
     };
 
     let headerParams = {
@@ -721,6 +1075,73 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * Deletes the specified resolver endpoint. Note that attempting to delete a resolver endpoint in the
+   * DELETED lifecycle state will result in a 404 to be consistent with other operations of the API.
+   * Resolver endpoints may not be deleted if they are referenced by a resolver rule.
+   *
+   * @param DeleteResolverEndpointRequest
+   * @return DeleteResolverEndpointResponse
+   * @throws OciError when an error occurs
+   */
+  public async deleteResolverEndpoint(
+    deleteResolverEndpointRequest: requests.DeleteResolverEndpointRequest
+  ): Promise<responses.DeleteResolverEndpointResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#deleteResolverEndpoint.");
+    const pathParams = {
+      "{resolverId}": deleteResolverEndpointRequest.resolverId,
+      "{resolverEndpointName}": deleteResolverEndpointRequest.resolverEndpointName
+    };
+
+    const queryParams = {
+      "scope": deleteResolverEndpointRequest.scope
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "If-Match": deleteResolverEndpointRequest.ifMatch,
+      "If-Unmodified-Since": deleteResolverEndpointRequest.ifUnmodifiedSince,
+      "opc-request-id": deleteResolverEndpointRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/resolvers/{resolverId}/endpoints/{resolverEndpointName}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteResolverEndpointRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteResolverEndpointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified steering policy.
    * A `204` response indicates that the delete has been successful.
    * Deletion will fail if the policy is attached to any zones. To detach a
@@ -738,7 +1159,9 @@ For the purposes of access control, the attachment is automatically placed
       "{steeringPolicyId}": deleteSteeringPolicyRequest.steeringPolicyId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "scope": deleteSteeringPolicyRequest.scope
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -798,7 +1221,9 @@ For the purposes of access control, the attachment is automatically placed
         deleteSteeringPolicyAttachmentRequest.steeringPolicyAttachmentId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "scope": deleteSteeringPolicyAttachmentRequest.scope
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -855,7 +1280,9 @@ For the purposes of access control, the attachment is automatically placed
       "{tsigKeyId}": deleteTsigKeyRequest.tsigKeyId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "scope": deleteTsigKeyRequest.scope
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -903,8 +1330,77 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * Deletes the specified view. Note that attempting to delete a
+   * view in the DELETED lifecycleState will result in a 404 to be
+   * consistent with other operations of the API. Views can not be
+   * deleted if they are referenced by non-deleted zones or resolvers.
+   * Protected views cannot be deleted.
+   *
+   * @param DeleteViewRequest
+   * @return DeleteViewResponse
+   * @throws OciError when an error occurs
+   */
+  public async deleteView(
+    deleteViewRequest: requests.DeleteViewRequest
+  ): Promise<responses.DeleteViewResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#deleteView.");
+    const pathParams = {
+      "{viewId}": deleteViewRequest.viewId
+    };
+
+    const queryParams = {
+      "scope": deleteViewRequest.scope
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "If-Match": deleteViewRequest.ifMatch,
+      "If-Unmodified-Since": deleteViewRequest.ifUnmodifiedSince,
+      "opc-request-id": deleteViewRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/views/{viewId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteViewRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteViewResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified zone and all its steering policy attachments.
-   * A `204` response indicates that zone has been successfully deleted.
+   * A `204` response indicates that the zone has been successfully deleted.
+   * Protected zones cannot be deleted.
    *
    * @param DeleteZoneRequest
    * @return DeleteZoneResponse
@@ -919,6 +1415,8 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     const queryParams = {
+      "scope": deleteZoneRequest.scope,
+      "viewId": deleteZoneRequest.viewId,
       "compartmentId": deleteZoneRequest.compartmentId
     };
 
@@ -951,6 +1449,11 @@ For the purposes of access control, the attachment is automatically placed
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -985,6 +1488,8 @@ For the purposes of access control, the attachment is automatically placed
       "page": getDomainRecordsRequest.page,
       "zoneVersion": getDomainRecordsRequest.zoneVersion,
       "rtype": getDomainRecordsRequest.rtype,
+      "scope": getDomainRecordsRequest.scope,
+      "viewId": getDomainRecordsRequest.viewId,
       "sortBy": getDomainRecordsRequest.sortBy,
       "sortOrder": getDomainRecordsRequest.sortOrder,
       "compartmentId": getDomainRecordsRequest.compartmentId
@@ -1106,7 +1611,9 @@ For the purposes of access control, the attachment is automatically placed
       "limit": getRRSetRequest.limit,
       "page": getRRSetRequest.page,
       "zoneVersion": getRRSetRequest.zoneVersion,
-      "compartmentId": getRRSetRequest.compartmentId
+      "compartmentId": getRRSetRequest.compartmentId,
+      "scope": getRRSetRequest.scope,
+      "viewId": getRRSetRequest.viewId
     };
 
     let headerParams = {
@@ -1202,6 +1709,144 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * Get information about a specific resolver. Note that attempting to get a
+   * resolver in the DELETED lifecycleState will result in a 404 to be
+   * consistent with other operations of the API.
+   *
+   * @param GetResolverRequest
+   * @return GetResolverResponse
+   * @throws OciError when an error occurs
+   */
+  public async getResolver(
+    getResolverRequest: requests.GetResolverRequest
+  ): Promise<responses.GetResolverResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#getResolver.");
+    const pathParams = {
+      "{resolverId}": getResolverRequest.resolverId
+    };
+
+    const queryParams = {
+      "scope": getResolverRequest.scope
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "If-Modified-Since": getResolverRequest.ifModifiedSince,
+      "If-None-Match": getResolverRequest.ifNoneMatch,
+      "opc-request-id": getResolverRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/resolvers/{resolverId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getResolverRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetResolverResponse>{},
+        body: await response.json(),
+        bodyKey: "resolver",
+        bodyModel: "model.Resolver",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get information about a specific resolver endpoint. Note that attempting to get a resolver endpoint
+   * in the DELETED lifecycle state will result in a 404 to be consistent with other operations of the API.
+   *
+   * @param GetResolverEndpointRequest
+   * @return GetResolverEndpointResponse
+   * @throws OciError when an error occurs
+   */
+  public async getResolverEndpoint(
+    getResolverEndpointRequest: requests.GetResolverEndpointRequest
+  ): Promise<responses.GetResolverEndpointResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#getResolverEndpoint.");
+    const pathParams = {
+      "{resolverId}": getResolverEndpointRequest.resolverId,
+      "{resolverEndpointName}": getResolverEndpointRequest.resolverEndpointName
+    };
+
+    const queryParams = {
+      "scope": getResolverEndpointRequest.scope
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "If-Modified-Since": getResolverEndpointRequest.ifModifiedSince,
+      "If-None-Match": getResolverEndpointRequest.ifNoneMatch,
+      "opc-request-id": getResolverEndpointRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/resolvers/{resolverId}/endpoints/{resolverEndpointName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getResolverEndpointRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetResolverEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "resolverEndpoint",
+        bodyModel: "model.ResolverEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets information about the specified steering policy.
    *
    * @param GetSteeringPolicyRequest
@@ -1216,7 +1861,9 @@ For the purposes of access control, the attachment is automatically placed
       "{steeringPolicyId}": getSteeringPolicyRequest.steeringPolicyId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "scope": getSteeringPolicyRequest.scope
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1281,7 +1928,9 @@ For the purposes of access control, the attachment is automatically placed
       "{steeringPolicyAttachmentId}": getSteeringPolicyAttachmentRequest.steeringPolicyAttachmentId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "scope": getSteeringPolicyAttachmentRequest.scope
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1346,7 +1995,9 @@ For the purposes of access control, the attachment is automatically placed
       "{tsigKeyId}": getTsigKeyRequest.tsigKeyId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "scope": getTsigKeyRequest.scope
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1397,6 +2048,75 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * Get information about a specific view. Note that attempting to get a
+   * view in the DELETED lifecycleState will result in a 404 to be
+   * consistent with other operations of the API.
+   *
+   * @param GetViewRequest
+   * @return GetViewResponse
+   * @throws OciError when an error occurs
+   */
+  public async getView(
+    getViewRequest: requests.GetViewRequest
+  ): Promise<responses.GetViewResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#getView.");
+    const pathParams = {
+      "{viewId}": getViewRequest.viewId
+    };
+
+    const queryParams = {
+      "scope": getViewRequest.scope
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "If-Modified-Since": getViewRequest.ifModifiedSince,
+      "If-None-Match": getViewRequest.ifNoneMatch,
+      "opc-request-id": getViewRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/views/{viewId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getViewRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetViewResponse>{},
+        body: await response.json(),
+        bodyKey: "view",
+        bodyModel: "model.View",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets information about the specified zone, including its creation date,
    * zone type, and serial.
    *
@@ -1413,6 +2133,8 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     const queryParams = {
+      "scope": getZoneRequest.scope,
+      "viewId": getZoneRequest.viewId,
       "compartmentId": getZoneRequest.compartmentId
     };
 
@@ -1490,7 +2212,9 @@ For the purposes of access control, the attachment is automatically placed
       "rtype": getZoneRecordsRequest.rtype,
       "sortBy": getZoneRecordsRequest.sortBy,
       "sortOrder": getZoneRecordsRequest.sortOrder,
-      "compartmentId": getZoneRecordsRequest.compartmentId
+      "compartmentId": getZoneRecordsRequest.compartmentId,
+      "scope": getZoneRecordsRequest.scope,
+      "viewId": getZoneRecordsRequest.viewId
     };
 
     let headerParams = {
@@ -1588,6 +2312,206 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * Gets a list of all endpoints within a resolver. The collection can be filtered by name or lifecycle state.
+   * It can be sorted on creation time or name both in ASC or DESC order. Note that when no lifecycleState
+   * query parameter is provided that the collection does not include resolver endpoints in the DELETED
+   * lifecycle state to be consistent with other operations of the API.
+   *
+   * @param ListResolverEndpointsRequest
+   * @return ListResolverEndpointsResponse
+   * @throws OciError when an error occurs
+   */
+  public async listResolverEndpoints(
+    listResolverEndpointsRequest: requests.ListResolverEndpointsRequest
+  ): Promise<responses.ListResolverEndpointsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#listResolverEndpoints.");
+    const pathParams = {
+      "{resolverId}": listResolverEndpointsRequest.resolverId
+    };
+
+    const queryParams = {
+      "name": listResolverEndpointsRequest.name,
+      "page": listResolverEndpointsRequest.page,
+      "limit": listResolverEndpointsRequest.limit,
+      "sortOrder": listResolverEndpointsRequest.sortOrder,
+      "sortBy": listResolverEndpointsRequest.sortBy,
+      "lifecycleState": listResolverEndpointsRequest.lifecycleState,
+      "scope": listResolverEndpointsRequest.scope
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listResolverEndpointsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/resolvers/{resolverId}/endpoints",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listResolverEndpointsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListResolverEndpointsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "ResolverEndpointSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ResolverEndpointSummary objects
+   * contained in responses from the listResolverEndpoints operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllResolverEndpoints(
+    request: requests.ListResolverEndpointsRequest
+  ): AsyncIterableIterator<models.ResolverEndpointSummary> {
+    return paginateRecords(request, req => this.listResolverEndpoints(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listResolverEndpoints operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllResolverEndpointsResponses(
+    request: requests.ListResolverEndpointsRequest
+  ): AsyncIterableIterator<responses.ListResolverEndpointsResponse> {
+    return paginateResponses(request, req => this.listResolverEndpoints(req));
+  }
+
+  /**
+   * Gets a list of all resolvers within a compartment. The collection can
+   * be filtered by display name, id, or lifecycle state. It can be sorted
+   * on creation time or displayName both in ASC or DESC order. Note that
+   * when no lifecycleState query parameter is provided that the collection
+   * does not include resolvers in the DELETED lifecycleState to be consistent
+   * with other operations of the API.
+   *
+   * @param ListResolversRequest
+   * @return ListResolversResponse
+   * @throws OciError when an error occurs
+   */
+  public async listResolvers(
+    listResolversRequest: requests.ListResolversRequest
+  ): Promise<responses.ListResolversResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#listResolvers.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listResolversRequest.compartmentId,
+      "displayName": listResolversRequest.displayName,
+      "id": listResolversRequest.id,
+      "page": listResolversRequest.page,
+      "limit": listResolversRequest.limit,
+      "sortOrder": listResolversRequest.sortOrder,
+      "sortBy": listResolversRequest.sortBy,
+      "lifecycleState": listResolversRequest.lifecycleState,
+      "scope": listResolversRequest.scope
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listResolversRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/resolvers",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listResolversRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListResolversResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "ResolverSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ResolverSummary objects
+   * contained in responses from the listResolvers operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllResolvers(
+    request: requests.ListResolversRequest
+  ): AsyncIterableIterator<models.ResolverSummary> {
+    return paginateRecords(request, req => this.listResolvers(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listResolvers operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllResolversResponses(
+    request: requests.ListResolversRequest
+  ): AsyncIterableIterator<responses.ListResolversResponse> {
+    return paginateResponses(request, req => this.listResolvers(req));
+  }
+
+  /**
    * Gets a list of all steering policies in the specified compartment.
    *
    * @param ListSteeringPoliciesRequest
@@ -1614,7 +2538,8 @@ For the purposes of access control, the attachment is automatically placed
       "template": listSteeringPoliciesRequest.template,
       "lifecycleState": listSteeringPoliciesRequest.lifecycleState,
       "sortBy": listSteeringPoliciesRequest.sortBy,
-      "sortOrder": listSteeringPoliciesRequest.sortOrder
+      "sortOrder": listSteeringPoliciesRequest.sortOrder,
+      "scope": listSteeringPoliciesRequest.scope
     };
 
     let headerParams = {
@@ -1722,7 +2647,8 @@ For the purposes of access control, the attachment is automatically placed
       "timeCreatedLessThan": listSteeringPolicyAttachmentsRequest.timeCreatedLessThan,
       "lifecycleState": listSteeringPolicyAttachmentsRequest.lifecycleState,
       "sortBy": listSteeringPolicyAttachmentsRequest.sortBy,
-      "sortOrder": listSteeringPolicyAttachmentsRequest.sortOrder
+      "sortOrder": listSteeringPolicyAttachmentsRequest.sortOrder,
+      "scope": listSteeringPolicyAttachmentsRequest.scope
     };
 
     let headerParams = {
@@ -1822,7 +2748,8 @@ For the purposes of access control, the attachment is automatically placed
       "name": listTsigKeysRequest.name,
       "lifecycleState": listTsigKeysRequest.lifecycleState,
       "sortBy": listTsigKeysRequest.sortBy,
-      "sortOrder": listTsigKeysRequest.sortOrder
+      "sortOrder": listTsigKeysRequest.sortOrder,
+      "scope": listTsigKeysRequest.scope
     };
 
     let headerParams = {
@@ -1897,8 +2824,109 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * Gets a list of all views within a compartment. The collection can
+   * be filtered by display name, id, or lifecycle state. It can be sorted
+   * on creation time or displayName both in ASC or DESC order. Note that
+   * when no lifecycleState query parameter is provided that the collection
+   * does not include views in the DELETED lifecycleState to be consistent
+   * with other operations of the API.
+   *
+   * @param ListViewsRequest
+   * @return ListViewsResponse
+   * @throws OciError when an error occurs
+   */
+  public async listViews(
+    listViewsRequest: requests.ListViewsRequest
+  ): Promise<responses.ListViewsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#listViews.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listViewsRequest.compartmentId,
+      "displayName": listViewsRequest.displayName,
+      "id": listViewsRequest.id,
+      "page": listViewsRequest.page,
+      "limit": listViewsRequest.limit,
+      "sortOrder": listViewsRequest.sortOrder,
+      "sortBy": listViewsRequest.sortBy,
+      "lifecycleState": listViewsRequest.lifecycleState,
+      "scope": listViewsRequest.scope
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listViewsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/views",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listViewsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListViewsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "ViewSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ViewSummary objects
+   * contained in responses from the listViews operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllViews(
+    request: requests.ListViewsRequest
+  ): AsyncIterableIterator<models.ViewSummary> {
+    return paginateRecords(request, req => this.listViews(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listViews operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllViewsResponses(
+    request: requests.ListViewsRequest
+  ): AsyncIterableIterator<responses.ListViewsResponse> {
+    return paginateResponses(request, req => this.listViews(req));
+  }
+
+  /**
    * Gets a list of all zones in the specified compartment. The collection
-   * can be filtered by name, time created, and zone type.
+   * can be filtered by name, time created, scope, associated view, and zone type.
    *
    * @param ListZonesRequest
    * @return ListZonesResponse
@@ -1921,7 +2949,9 @@ For the purposes of access control, the attachment is automatically placed
       "timeCreatedLessThan": listZonesRequest.timeCreatedLessThan,
       "lifecycleState": listZonesRequest.lifecycleState,
       "sortBy": listZonesRequest.sortBy,
-      "sortOrder": listZonesRequest.sortOrder
+      "sortOrder": listZonesRequest.sortOrder,
+      "scope": listZonesRequest.scope,
+      "viewId": listZonesRequest.viewId
     };
 
     let headerParams = {
@@ -2020,6 +3050,8 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     const queryParams = {
+      "scope": patchDomainRecordsRequest.scope,
+      "viewId": patchDomainRecordsRequest.viewId,
       "compartmentId": patchDomainRecordsRequest.compartmentId
     };
 
@@ -2103,6 +3135,8 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     const queryParams = {
+      "scope": patchRRSetRequest.scope,
+      "viewId": patchRRSetRequest.viewId,
       "compartmentId": patchRRSetRequest.compartmentId
     };
 
@@ -2188,6 +3222,8 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     const queryParams = {
+      "scope": patchZoneRecordsRequest.scope,
+      "viewId": patchZoneRecordsRequest.viewId,
       "compartmentId": patchZoneRecordsRequest.compartmentId
     };
 
@@ -2276,6 +3312,8 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     const queryParams = {
+      "scope": updateDomainRecordsRequest.scope,
+      "viewId": updateDomainRecordsRequest.viewId,
       "compartmentId": updateDomainRecordsRequest.compartmentId
     };
 
@@ -2359,6 +3397,8 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     const queryParams = {
+      "scope": updateRRSetRequest.scope,
+      "viewId": updateRRSetRequest.viewId,
       "compartmentId": updateRRSetRequest.compartmentId
     };
 
@@ -2426,6 +3466,161 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * Updates the specified resolver with your new information.
+   *
+   * @param UpdateResolverRequest
+   * @return UpdateResolverResponse
+   * @throws OciError when an error occurs
+   */
+  public async updateResolver(
+    updateResolverRequest: requests.UpdateResolverRequest
+  ): Promise<responses.UpdateResolverResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#updateResolver.");
+    const pathParams = {
+      "{resolverId}": updateResolverRequest.resolverId
+    };
+
+    const queryParams = {
+      "scope": updateResolverRequest.scope
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "If-Match": updateResolverRequest.ifMatch,
+      "If-Unmodified-Since": updateResolverRequest.ifUnmodifiedSince,
+      "opc-request-id": updateResolverRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/resolvers/{resolverId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateResolverRequest.updateResolverDetails,
+        "UpdateResolverDetails",
+        models.UpdateResolverDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateResolverRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateResolverResponse>{},
+        body: await response.json(),
+        bodyKey: "resolver",
+        bodyModel: "model.Resolver",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified resolver endpoint with your new information.
+   *
+   * @param UpdateResolverEndpointRequest
+   * @return UpdateResolverEndpointResponse
+   * @throws OciError when an error occurs
+   */
+  public async updateResolverEndpoint(
+    updateResolverEndpointRequest: requests.UpdateResolverEndpointRequest
+  ): Promise<responses.UpdateResolverEndpointResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#updateResolverEndpoint.");
+    const pathParams = {
+      "{resolverId}": updateResolverEndpointRequest.resolverId,
+      "{resolverEndpointName}": updateResolverEndpointRequest.resolverEndpointName
+    };
+
+    const queryParams = {
+      "scope": updateResolverEndpointRequest.scope
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "If-Match": updateResolverEndpointRequest.ifMatch,
+      "If-Unmodified-Since": updateResolverEndpointRequest.ifUnmodifiedSince,
+      "opc-request-id": updateResolverEndpointRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/resolvers/{resolverId}/endpoints/{resolverEndpointName}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateResolverEndpointRequest.updateResolverEndpointDetails,
+        "UpdateResolverEndpointDetails",
+        models.UpdateResolverEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateResolverEndpointRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateResolverEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "resolverEndpoint",
+        bodyModel: "model.ResolverEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the configuration of the specified steering policy.
    *
    * @param UpdateSteeringPolicyRequest
@@ -2440,7 +3635,9 @@ For the purposes of access control, the attachment is automatically placed
       "{steeringPolicyId}": updateSteeringPolicyRequest.steeringPolicyId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "scope": updateSteeringPolicyRequest.scope
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -2512,7 +3709,9 @@ For the purposes of access control, the attachment is automatically placed
         updateSteeringPolicyAttachmentRequest.steeringPolicyAttachmentId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "scope": updateSteeringPolicyAttachmentRequest.scope
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -2582,7 +3781,9 @@ For the purposes of access control, the attachment is automatically placed
       "{tsigKeyId}": updateTsigKeyRequest.tsigKeyId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "scope": updateTsigKeyRequest.scope
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -2638,6 +3839,83 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * Updates the specified view with your new information.
+   *
+   * @param UpdateViewRequest
+   * @return UpdateViewResponse
+   * @throws OciError when an error occurs
+   */
+  public async updateView(
+    updateViewRequest: requests.UpdateViewRequest
+  ): Promise<responses.UpdateViewResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#updateView.");
+    const pathParams = {
+      "{viewId}": updateViewRequest.viewId
+    };
+
+    const queryParams = {
+      "scope": updateViewRequest.scope
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "If-Match": updateViewRequest.ifMatch,
+      "If-Unmodified-Since": updateViewRequest.ifUnmodifiedSince,
+      "opc-request-id": updateViewRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/views/{viewId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateViewRequest.updateViewDetails,
+        "UpdateViewDetails",
+        models.UpdateViewDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateViewRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateViewResponse>{},
+        body: await response.json(),
+        bodyKey: "view",
+        bodyModel: "model.View",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the specified secondary zone with your new external master
    * server information. For more information about secondary zone, see
    * [Manage DNS Service Zone](https://docs.cloud.oracle.com/iaas/Content/DNS/Tasks/managingdnszones.htm).
@@ -2655,6 +3933,8 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     const queryParams = {
+      "scope": updateZoneRequest.scope,
+      "viewId": updateZoneRequest.viewId,
       "compartmentId": updateZoneRequest.compartmentId
     };
 
@@ -2693,13 +3973,18 @@ For the purposes of access control, the attachment is automatically placed
         bodyModel: "model.Zone",
         responseHeaders: [
           {
+            value: response.headers.get("ETag"),
+            key: "eTag",
+            dataType: "string"
+          },
+          {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
           },
           {
-            value: response.headers.get("ETag"),
-            key: "eTag",
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -2731,6 +4016,8 @@ For the purposes of access control, the attachment is automatically placed
     };
 
     const queryParams = {
+      "scope": updateZoneRecordsRequest.scope,
+      "viewId": updateZoneRecordsRequest.viewId,
       "compartmentId": updateZoneRecordsRequest.compartmentId
     };
 

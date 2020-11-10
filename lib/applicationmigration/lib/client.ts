@@ -1,6 +1,9 @@
 /**
- * Application Migration Service API
- * API for the Application Migration service. Use this API to migrate applications from Oracle Cloud Infrastructure - Classic to Oracle Cloud Infrastructure.
+ * Application Migration API
+ * Application Migration simplifies the migration of applications from Oracle Cloud Infrastructure Classic to Oracle Cloud Infrastructure.
+You can use Application Migration API to migrate applications, such as Oracle Java Cloud Service, SOA Cloud Service, and Integration Classic
+instances, to Oracle Cloud Infrastructure. For more information, see
+[Overview of Application Migration](/iaas/application-migration/appmigrationoverview.htm).
 
  * OpenAPI spec version: 20191031
  * 
@@ -134,11 +137,15 @@ export class ApplicationMigrationClient {
   }
 
   /**
-   * Cancels the specified work request
-   * @param CancelWorkRequestRequest
-   * @return CancelWorkRequestResponse
-   * @throws OciError when an error occurs
-   */
+     * Cancels the specified work request. When you cancel a work request, it causes the in-progress task to be canceled.
+* For example, if the create migration work request is in the accepted or in progress state for a long time, you can cancel the work request.
+* <p>
+When you cancel a work request, the state of the work request changes to cancelling, and then to the cancelled state.
+* 
+     * @param CancelWorkRequestRequest
+     * @return CancelWorkRequestResponse
+     * @throws OciError when an error occurs
+     */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
@@ -190,7 +197,9 @@ export class ApplicationMigrationClient {
   }
 
   /**
-   * Moves a Migration into a different compartment.
+   * Moves the specified migration into a different compartment within the same tenancy. For information about moving resources between compartments,
+   * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
    * @param ChangeMigrationCompartmentRequest
    * @return ChangeMigrationCompartmentResponse
    * @throws OciError when an error occurs
@@ -257,7 +266,9 @@ export class ApplicationMigrationClient {
   }
 
   /**
-   * Moves a Source into a different compartment.
+   * Moves the specified source into a different compartment within the same tenancy. For information about moving resources
+   * between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
    * @param ChangeSourceCompartmentRequest
    * @return ChangeSourceCompartmentResponse
    * @throws OciError when an error occurs
@@ -324,13 +335,32 @@ export class ApplicationMigrationClient {
   }
 
   /**
-   * Creates an application migration in the specified compartment.
-   * Specify the compartment using the compartment ID.
-   *
-   * @param CreateMigrationRequest
-   * @return CreateMigrationResponse
-   * @throws OciError when an error occurs
-   */
+     * Creates a migration. A migration represents the end-to-end workflow of moving an application from a source environment to Oracle Cloud
+* Infrastructure. Each migration moves a single application to Oracle Cloud Infrastructure. For more information,
+* see [Manage Migrations](https://docs.cloud.oracle.com/iaas/application-migration/manage_migrations.htm).
+* <p>
+When you create a migration, provide the required information to let Application Migration access the source environment.
+* Application Migration uses this information to access the application in the source environment and discover application artifacts.
+* <p>
+All Oracle Cloud Infrastructure resources, including migrations, get an Oracle-assigned, unique ID called an Oracle Cloud Identifier (OCID).
+* When you create a resource, you can find its OCID in the response. You can also retrieve a resource's OCID by using a List API operation on
+* that resource type, or by viewing the resource in the Console. For more information, see Resource Identifiers.
+* <p>
+After you send your request, a migration is created in the compartment that contains the source. The new migration's lifecycle state 
+* will temporarily be <code>CREATING</code> and the state of the migration will be <code>DISCOVERING_APPLICATION</code>. During this phase, 
+* Application Migration sets the template for the <code>serviceConfig</code> and <code>applicationConfig</code> fields of the migration. 
+* When this operation is complete, the state of the migration changes to <code>MISSING_CONFIG_VALUES</code>.
+* Next, you'll need to update the migration to provide configuration values. Before updating the 
+* migration, ensure that its state has changed to <code>MISSING_CONFIG_VALUES</code>.
+* <p>
+To track the progress of this operation, you can monitor the status of the Create Migration and Discover Application work requests
+* by using the <code>{@link #getWorkRequest(GetWorkRequestRequest) getWorkRequest}</code> REST API operation on the work request or by viewing the status of the work request in
+* the console.
+* 
+     * @param CreateMigrationRequest
+     * @return CreateMigrationResponse
+     * @throws OciError when an error occurs
+     */
   public async createMigration(
     createMigrationRequest: requests.CreateMigrationRequest
   ): Promise<responses.CreateMigrationResponse> {
@@ -398,13 +428,28 @@ export class ApplicationMigrationClient {
   }
 
   /**
-   * Creates a migration source in the specified compartment.
-   * Specify the compartment using the compartment ID.
-   *
-   * @param CreateSourceRequest
-   * @return CreateSourceResponse
-   * @throws OciError when an error occurs
-   */
+     * Creates a source in the specified compartment. In Application Migration, a source refers to the environment from which the application 
+* is being migrated. For more information, see [Manage Sources](https://docs.cloud.oracle.com/iaas/application-migration/manage_sources.htm).
+* <p>
+All Oracle Cloud Infrastructure resources, including sources, get an Oracle-assigned, unique ID called an Oracle Cloud Identifier (OCID).
+* When you create a resource, you can find its OCID in the response. You can also retrieve a resource's OCID by using a List API operation
+* on that resource type, or by viewing the resource in the Console.
+* <p>
+After you send your request, a source is created in the specified compartment. The new source's lifecycle state will temporarily be 
+* <code>CREATING</code>. Application Migration connects to the source environment with the authentication credentials that you have provided. 
+* If the connection is established, the status of the source changes to <code>ACTIVE</code> and Application Migration fetches the list of
+* applications that are available for migration in the source environment. 
+* <p>
+To track the progress of the operation, you can monitor the status of the Create Source work request by using the
+* <code>{@link #getWorkRequest(GetWorkRequestRequest) getWorkRequest}</code> REST API operation on the work request or by viewing the status of the work request in the console.
+* <p>
+Ensure that the state of the source has changed to <code>ACTIVE</code>, before you retrieve the list of applications from 
+* the source environment using the <code>{@link #listSourceApplications(ListSourceApplicationsRequest) listSourceApplications}</code> REST API call.        
+* 
+     * @param CreateSourceRequest
+     * @return CreateSourceResponse
+     * @throws OciError when an error occurs
+     */
   public async createSource(
     createSourceRequest: requests.CreateSourceRequest
   ): Promise<responses.CreateSourceResponse> {
@@ -472,11 +517,16 @@ export class ApplicationMigrationClient {
   }
 
   /**
-   * Deletes the specified Application object.
-   * @param DeleteMigrationRequest
-   * @return DeleteMigrationResponse
-   * @throws OciError when an error occurs
-   */
+     * Deletes the specified migration. 
+* <p>
+If you have migrated the application or for any other reason if you no longer require a migration, then you can delete the
+* relevant migration. You can delete a migration, irrespective of its state. If any work request is being processed for the migration
+* that you want to delete, then the associated work requests are cancelled and then the migration is deleted.
+* 
+     * @param DeleteMigrationRequest
+     * @return DeleteMigrationResponse
+     * @throws OciError when an error occurs
+     */
   public async deleteMigration(
     deleteMigrationRequest: requests.DeleteMigrationRequest
   ): Promise<responses.DeleteMigrationResponse> {
@@ -533,11 +583,16 @@ export class ApplicationMigrationClient {
   }
 
   /**
-   * Deletes the specified Source object.
-   * @param DeleteSourceRequest
-   * @return DeleteSourceResponse
-   * @throws OciError when an error occurs
-   */
+     * Deletes the specified source. 
+* <p>
+Before deleting a source, you must delete all the migrations associated with the source.
+* If you have migrated all the required applications in a source or for any other reason you no longer require a source, then you can
+* delete the relevant source.
+* 
+     * @param DeleteSourceRequest
+     * @return DeleteSourceResponse
+     * @throws OciError when an error occurs
+     */
   public async deleteSource(
     deleteSourceRequest: requests.DeleteSourceRequest
   ): Promise<responses.DeleteSourceResponse> {
@@ -594,7 +649,7 @@ export class ApplicationMigrationClient {
   }
 
   /**
-   * Gets an application migration using the ID.
+   * Retrieves details of the specified migration.
    * @param GetMigrationRequest
    * @return GetMigrationResponse
    * @throws OciError when an error occurs
@@ -657,7 +712,8 @@ export class ApplicationMigrationClient {
   }
 
   /**
-   * Gets a migration source using the source ID.
+   * Retrieves details of the specified source. Specify the OCID of the source for which you want to retrieve details.
+   *
    * @param GetSourceRequest
    * @return GetSourceResponse
    * @throws OciError when an error occurs
@@ -719,7 +775,7 @@ export class ApplicationMigrationClient {
   }
 
   /**
-   * Gets the details of a work request.
+   * Gets the details of the specified work request.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -782,7 +838,7 @@ export class ApplicationMigrationClient {
   }
 
   /**
-   * Returns a list of migrations in a given compartment.
+   * Retrieves details of all the migrations that are available in the specified compartment.
    *
    * @param ListMigrationsRequest
    * @return ListMigrationsResponse
@@ -878,7 +934,9 @@ export class ApplicationMigrationClient {
   }
 
   /**
-   * Returns a list of applications running in the source environment. This list is generated dynamically by interrogating the source and changes as applications are started or stopped in that environment.
+   * Retrieves details of all the applications associated with the specified source.
+   * This list is generated dynamically by interrogating the source and the list changes as applications are started or
+   * stopped in the source environment.
    *
    * @param ListSourceApplicationsRequest
    * @return ListSourceApplicationsResponse
@@ -974,7 +1032,10 @@ export class ApplicationMigrationClient {
   }
 
   /**
-   * Returns a list of migration sources in a specified compartment.
+   * Retrieves details of all the sources that are available in the specified compartment and match the specified query criteria.
+   * If you don't specify any query criteria, then details of all the sources are displayed.
+   * To filter the retrieved results, you can pass one or more of the following query parameters, by appending them to the URI
+   * as shown in the following example.
    *
    * @param ListSourcesRequest
    * @return ListSourcesResponse
@@ -1069,7 +1130,7 @@ export class ApplicationMigrationClient {
   }
 
   /**
-   * Gets the errors for a work request.
+   * Retrieves details of the errors encountered while executing an operation that is tracked by the specified work request.
    *
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
@@ -1162,7 +1223,7 @@ export class ApplicationMigrationClient {
   }
 
   /**
-   * Gets the logs for a work request.
+   * Retrieves logs for the specified work request.
    *
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
@@ -1255,7 +1316,7 @@ export class ApplicationMigrationClient {
   }
 
   /**
-   * Lists the work requests in a compartment or for a specified resource.
+   * Retrieves details of all the work requests and match the specified query criteria. To filter the retrieved results, you can pass one or more of the following query parameters, by appending them to the URI as shown in the following example.
    *
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
@@ -1347,12 +1408,22 @@ export class ApplicationMigrationClient {
   }
 
   /**
-   * Validates target configuration and migrates a PaaS application running in a Source environment into the customers Oracle Cloud Infrastructure tenancy. This an optional action and only required if automatic start of migration was not selected when creating the migration.
-   *
-   * @param MigrateApplicationRequest
-   * @return MigrateApplicationResponse
-   * @throws OciError when an error occurs
-   */
+     * Starts migrating the specified application to Oracle Cloud Infrastructure.
+* <p>
+Before sending this request, ensure that you have provided configuration details to update the migration and the state of the migration 
+* is <code>READY</code>.
+* <p>
+After you send this request, the migration's state will temporarily be <code>MIGRATING</code>. 
+* <p>
+To track the progress of the operation, you can monitor the status of the Migrate Application work request by using the
+* <code>{@link #getWorkRequest(GetWorkRequestRequest) getWorkRequest}</code> REST API operation on the work request or by viewing the status of the work request in the console.
+* When this work request is processed successfully, Application Migration creates the required resources in the target environment
+* and the state of the migration changes to <code>MIGRATION_SUCCEEDED</code>.
+* 
+     * @param MigrateApplicationRequest
+     * @return MigrateApplicationResponse
+     * @throws OciError when an error occurs
+     */
   public async migrateApplication(
     migrateApplicationRequest: requests.MigrateApplicationRequest
   ): Promise<responses.MigrateApplicationResponse> {
@@ -1366,7 +1437,9 @@ export class ApplicationMigrationClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": migrateApplicationRequest.opcRequestId
+      "opc-request-id": migrateApplicationRequest.opcRequestId,
+      "if-match": migrateApplicationRequest.ifMatch,
+      "opc-retry-token": migrateApplicationRequest.opcRetryToken
     };
 
     const request = await composeRequest({
@@ -1408,11 +1481,40 @@ export class ApplicationMigrationClient {
   }
 
   /**
-   * Update the configuration for an application migration.
-   * @param UpdateMigrationRequest
-   * @return UpdateMigrationResponse
-   * @throws OciError when an error occurs
-   */
+     * Updates the configuration details for the specified migration.
+* <p>
+When you create a migration, Application Migration sets the template for the <code>serviceConfig</code> and <code>applicationConfig</code>
+* attributes of the migration. 
+* When you update the migration, you must provide values for these fields to specify configuration information for the application in the
+* target environment.
+* <p>
+
+* <p>
+Before updating the migration, complete the following tasks:
+* <ol>
+* <li>Identify the migration that you want to update and ensure that the migration is in the <code>MISSING_CONFIG_VALUES</code> state.</li>
+* <li>Get details of the migration using the <code>GetMigration</code> command. This returns the  template for the <code>serviceConfig</code>
+* and <code>applicationConfig</code> attributes of the migration.</li>
+* <li>You must fill out the required details for the <code>serviceConfig</code> and <code>applicationConfig</code> attributes.
+* The <code>isRequired</code> attribute of a configuration property indicates whether it is mandatory to provide a value.</li>
+* <li>You can provide values for the optional configuration properties or you can delete the optional properties for which you do not
+* provide values. Note that you cannot add any property that is not present in the template.</li>
+* </ol>
+* <p>
+To update the migration, pass the configuration values in the request body. The information that you must provide depends on the type 
+* of application that you are migrating. For reference information about configuration fields, see
+* [Provide Configuration Information](https://docs.cloud.oracle.com/iaas/application-migration/manage_migrations.htm#provide_configuration_details).
+* <p>
+To track the progress of the operation, you can monitor the status of the Update Migration work request by using the
+* <code>{@link #getWorkRequest(GetWorkRequestRequest) getWorkRequest}</code> REST API operation on the work request or by viewing the status of the work request in the console.
+* <p>
+When the migration has been updated, the state of the migration changes to <code>READY</code>. After updating the migration,
+* you can start the migration whenever you are ready.
+* 
+     * @param UpdateMigrationRequest
+     * @return UpdateMigrationResponse
+     * @throws OciError when an error occurs
+     */
   public async updateMigration(
     updateMigrationRequest: requests.UpdateMigrationRequest
   ): Promise<responses.UpdateMigrationResponse> {
@@ -1475,7 +1577,11 @@ export class ApplicationMigrationClient {
   }
 
   /**
-   * Update source details.
+   * You can update the authorization details to access the source environment from which you want to migrate applications to Oracle Cloud
+   * Infrastructure. You can also update the description and tags of a source.
+   * <p>
+   **Warning:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.
+   *
    * @param UpdateSourceRequest
    * @return UpdateSourceResponse
    * @throws OciError when an error occurs

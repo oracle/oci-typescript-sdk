@@ -7,13 +7,7 @@ import common = require("oci-common");
 import { ObjectStorageClient, requests } from "oci-objectstorage";
 import { Region } from "oci-common";
 
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
-
-const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider();
 /*
  * This Sample take filename as a commandline argument and
  * deltes the files present in te directory to objectstorage using delete object.

@@ -13,13 +13,7 @@
 const identity = require("oci-identity");
 const common = require("oci-common");
 
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
-
-const provider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider = new common.ConfigFileAuthenticationDetailsProvider();
 const args = process.argv.slice(2);
 console.log(args);
 if (args.length !== 2) {

@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface ListSourceApplicationsRequest extends common.BaseRequest {
   /**
-   * The source OCID
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the source.
    */
   "sourceId": string;
   /**
-   * The compartment OCID on which to filter.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a compartment. Retrieves details of objects in the specified compartment.
    */
   "compartmentId": string;
   /**

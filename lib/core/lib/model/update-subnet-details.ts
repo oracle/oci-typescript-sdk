@@ -60,6 +60,19 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "securityListIds"?: Array<string>;
+  /**
+    * The CIDR IP address block of the Subnet. The CIDR must maintain the following rules -
+* <p>
+a. The CIDR block is valid and correctly formatted.
+* b. The new range is within one of the parent VCN ranges.
+* c. The old and new CIDR ranges both use the same base address. Example: 10.0.0.0/25 and 10.0.0.0/24.
+* d. The new CIDR range contains all previously allocated private IP addresses in the old CIDR range.
+* e. No previously allocated IP address overlaps the broadcast address (the last IP of a subnet CIDR range) of the new CIDR range.
+* <p>
+Example: `172.16.0.0/16`
+* 
+    */
+  "cidrBlock"?: string;
 }
 
 export namespace UpdateSubnetDetails {

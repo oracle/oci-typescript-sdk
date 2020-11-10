@@ -8,13 +8,7 @@ const promise = require("es6-promise");
 require("isomorphic-fetch");
 promise.polyfill();
 
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
-
-const provider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider = new common.ConfigFileAuthenticationDetailsProvider();
 
 const userID = "<INSERT_SAMPLE_USER_OCID_HERE>";
 (async () => {

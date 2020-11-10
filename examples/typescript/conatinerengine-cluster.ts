@@ -9,13 +9,7 @@ import identity = require("oci-identity");
 import wr = require("oci-workrequests");
 import common = require("oci-common");
 
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
-
-const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider();
 /**
  * The entry point for the example.
  *

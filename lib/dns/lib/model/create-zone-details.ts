@@ -24,10 +24,20 @@ import common = require("oci-common");
  */
 export interface CreateZoneDetails extends model.CreateZoneBaseDetails {
   /**
-   * The type of the zone. Must be either `PRIMARY` or `SECONDARY`.
+   * The type of the zone. Must be either `PRIMARY` or `SECONDARY`. `SECONDARY` is only supported for GLOBAL
+   * zones.
    *
    */
   "zoneType"?: CreateZoneDetails.ZoneType;
+  /**
+   * This value will be null for zones in the global DNS.
+   *
+   */
+  "viewId"?: string;
+  /**
+   * The scope of the zone.
+   */
+  "scope"?: model.Scope;
   /**
    * External master servers for the zone. `externalMasters` becomes a
    * required parameter when the `zoneType` value is `SECONDARY`.

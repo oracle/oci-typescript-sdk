@@ -26,6 +26,11 @@ export interface ListShapesRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
+   * Return shapes that are supported by the service feature.
+   *
+   */
+  "isSupportedFor"?: Array<ListShapesRequest.IsSupportedFor>;
+  /**
    * The name of the Availability Domain.
    */
   "availabilityDomain"?: string;
@@ -33,4 +38,11 @@ export interface ListShapesRequest extends common.BaseRequest {
    * Name
    */
   "name"?: string;
+}
+
+export namespace ListShapesRequest {
+  export enum IsSupportedFor {
+    Dbsystem = "DBSYSTEM",
+    Analyticscluster = "ANALYTICSCLUSTER"
+  }
 }

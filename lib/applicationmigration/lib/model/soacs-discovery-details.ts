@@ -1,6 +1,9 @@
 /**
- * Application Migration Service API
- * API for the Application Migration service. Use this API to migrate applications from Oracle Cloud Infrastructure - Classic to Oracle Cloud Infrastructure.
+ * Application Migration API
+ * Application Migration simplifies the migration of applications from Oracle Cloud Infrastructure Classic to Oracle Cloud Infrastructure.
+You can use Application Migration API to migrate applications, such as Oracle Java Cloud Service, SOA Cloud Service, and Integration Classic
+instances, to Oracle Cloud Infrastructure. For more information, see
+[Overview of Application Migration](/iaas/application-migration/appmigrationoverview.htm).
 
  * OpenAPI spec version: 20191031
  * 
@@ -16,16 +19,18 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specifies the credentials to access the source SOACS instance
+ * Credentials to access the Oracle SOA Cloud Service application in the source environment. When you create and update a migration,
+ * Application Migration connects to the application in the source environment with the supplied credentials and exports the domain
+ * configuration.
  *
  */
 export interface SoacsDiscoveryDetails extends model.DiscoveryDetails {
   /**
-   * The SOACS instance weblogic admin user
+   * WebLogic administrator username for the Oracle SOA Cloud Service application in the source environment.
    */
   "weblogicUser": string;
   /**
-   * The SOACS instance weblogic admin password
+   * Password for this user.
    */
   "weblogicPassword": string;
 

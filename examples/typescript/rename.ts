@@ -7,13 +7,7 @@ import common = require("oci-common");
 import { ObjectStorageClient, requests, models } from "oci-objectstorage";
 import { Region } from "oci-common";
 
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
-
-const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider();
 /*
  * This Sample takes filename as a commandline argument and
  * rename the file name to the new file name using rename object.

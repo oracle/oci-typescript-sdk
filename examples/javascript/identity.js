@@ -6,13 +6,7 @@
 const common = require("oci-common");
 const identity = require("oci-identity");
 
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
-
-const provider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider = new common.ConfigFileAuthenticationDetailsProvider();
 
 const tenancyId = {
   tenancyId: provider.getTenantId() || ""

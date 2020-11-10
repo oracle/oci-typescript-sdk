@@ -1,6 +1,9 @@
 /**
- * Application Migration Service API
- * API for the Application Migration service. Use this API to migrate applications from Oracle Cloud Infrastructure - Classic to Oracle Cloud Infrastructure.
+ * Application Migration API
+ * Application Migration simplifies the migration of applications from Oracle Cloud Infrastructure Classic to Oracle Cloud Infrastructure.
+You can use Application Migration API to migrate applications, such as Oracle Java Cloud Service, SOA Cloud Service, and Integration Classic
+instances, to Oracle Cloud Infrastructure. For more information, see
+[Overview of Application Migration](/iaas/application-migration/appmigrationoverview.htm).
 
  * OpenAPI spec version: 20191031
  * 
@@ -16,21 +19,27 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An application being migrated from a source environment to OCI.
- *
- */
+* The properties that define a migration. A migration represents the end-to-end workflow of moving an application from a source
+* environment to Oracle Cloud Infrastructure. Each migration moves a single application to Oracle Cloud Infrastructure.
+* For more information, see [Manage Migrations](https://docs.cloud.oracle.com/iaas/application-migration/manage_migrations.htm).
+* <p>
+To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized, talk to an administrator.
+* If you're an administrator who needs to write policies to give users access, see
+* [Getting Started with Policies](https://docs.cloud.oracle.com/Content/Identity/Concepts/policygetstarted.htm).
+* 
+*/
 export interface Migration {
   /**
-   * Unique identifier (OCID) for the application
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the migration.
    */
   "id"?: string;
   /**
-   * Unique idenfifier (OCID) for the compartment where the Source is located.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the migration.
    *
    */
   "compartmentId"?: string;
   /**
-   * Human-readable name of the migration.
+   * User-friendly name of the migration.
    */
   "displayName"?: string;
   /**
@@ -38,15 +47,15 @@ export interface Migration {
    */
   "description"?: string;
   /**
-   * The date and time at which the migration was created.
+   * The date and time at which the migration was created, in the format defined by RFC3339.
    */
   "timeCreated"?: Date;
   /**
-   * Unique identifier (OCID) of the application source.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the source with which this migration is associated.
    */
   "sourceId"?: string;
   /**
-   * Name of the application being migrated from the source.
+   * Name of the application which is being migrated. This is the name of the application in the source environment.
    */
   "applicationName"?: string;
   /**
@@ -54,36 +63,46 @@ export interface Migration {
    */
   "applicationType"?: model.MigrationTypes;
   /**
-   * Configuration required to migrate the application. In addition to the key and value, additional fields are provided to describe type type and purpose of each field. Only the value for each key is required when passing configuration to the CreateMigration operation.
+   * The pre-existing database type to be used in this migration. Currently, Application migration only supports Oracle Cloud
+   * Infrastrure databases and this option is currently available only for `JAVA_CLOUD_SERVICE` and `WEBLOGIC_CLOUD_SERVICE` target instance types.
+   *
+   */
+  "preCreatedTargetDatabaseType"?: model.TargetDatabaseTypes;
+  /**
+   * Configuration required to migrate the application. In addition to the key and value, additional fields are provided
+   * to describe type type and purpose of each field. Only the value for each key is required when passing configuration to the
+   * CreateMigration operation.
    *
    */
   "serviceConfig"?: { [key: string]: model.ConfigurationField };
   /**
-   * Configuration required to migrate the application. In addition to the key and value, additional fields are provided to describe type type and purpose of each field. Only the value for each key is required when passing configuration to the CreateMigration operation.
+   * Configuration required to migrate the application. In addition to the key and value, additional fields are provided
+   * to describe type type and purpose of each field. Only the value for each key is required when passing configuration to the
+   * CreateMigration operation.
    *
    */
   "applicationConfig"?: { [key: string]: model.ConfigurationField };
   /**
-   * The current state of the Migration
+   * The current state of the migration.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.MigrationLifecycleStates;
   /**
-   * Details about the current lifecycle state
+   * Details about the current lifecycle state of the migration.
    */
   "lifecycleDetails"?: string;
   /**
-   * The current state of the overall Migration process
+   * The current state of the overall migration process.
    */
-  "migrationState"?: string;
+  "migrationState"?: model.MigrationStates;
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
+   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm). Example: `{\"Department\": \"Finance\"}`
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm). Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

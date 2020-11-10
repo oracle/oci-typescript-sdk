@@ -23,6 +23,10 @@ import common = require("oci-common");
  */
 export interface CreateDataGuardAssociationDetails {
   /**
+   * The database software image [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   */
+  "databaseSoftwareImageId"?: string;
+  /**
     * A strong password for the `SYS`, `SYSTEM`, and `PDB Admin` users to apply during standby creation.
 * <p>
 The password must contain no fewer than nine characters and include:

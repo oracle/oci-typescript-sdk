@@ -1,6 +1,9 @@
 /**
- * Application Migration Service API
- * API for the Application Migration service. Use this API to migrate applications from Oracle Cloud Infrastructure - Classic to Oracle Cloud Infrastructure.
+ * Application Migration API
+ * Application Migration simplifies the migration of applications from Oracle Cloud Infrastructure Classic to Oracle Cloud Infrastructure.
+You can use Application Migration API to migrate applications, such as Oracle Java Cloud Service, SOA Cloud Service, and Integration Classic
+instances, to Oracle Cloud Infrastructure. For more information, see
+[Overview of Application Migration](/iaas/application-migration/appmigrationoverview.htm).
 
  * OpenAPI spec version: 20191031
  * 
@@ -16,21 +19,21 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An application being migrated from a source environment to OCI.
+ * Details about the migration. Each migration moves a single application from a specified source to Oracle Cloud Infrastructure.
  *
  */
 export interface MigrationSummary {
   /**
-   * Unique identifier (OCID) for the application
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the migration.
    */
   "id"?: string;
   /**
-   * Unique idenfifier (OCID) for the compartment where the Source is located.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the migration.
    *
    */
   "compartmentId"?: string;
   /**
-   * Human-readable name of the migration.
+   * User-friendly name of the migration.
    */
   "displayName"?: string;
   /**
@@ -38,15 +41,15 @@ export interface MigrationSummary {
    */
   "description"?: string;
   /**
-   * The date and time at which the migration was created.
+   * The date and time at which the migration was created, in the format defined by RFC3339.
    */
   "timeCreated"?: Date;
   /**
-   * Unique identifier (OCID) of the source.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the source.
    */
   "sourceId"?: string;
   /**
-   * Name of the application being migrated from the source.
+   * Name of the application which is being migrated from the source environment.
    */
   "applicationName"?: string;
   /**
@@ -54,26 +57,26 @@ export interface MigrationSummary {
    */
   "applicationType"?: model.MigrationTypes;
   /**
-   * The current state of the Migration
+   * The current state of the migration.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.MigrationLifecycleStates;
   /**
-   * Details about the current lifecycle state
+   * Details about the current lifecycle state.
    */
   "lifecycleDetails"?: string;
   /**
-   * The current state of the overall Migration process
+   * The current state of the overall migration process.
    */
-  "migrationState"?: string;
+  "migrationState"?: model.MigrationStates;
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
+   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm). Example: `{\"Department\": \"Finance\"}`
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm). Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

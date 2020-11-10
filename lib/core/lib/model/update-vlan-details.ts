@@ -55,6 +55,17 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "routeTableId"?: string;
+  /**
+    * The CIDR IP address block of the Vlan. The CIDR must maintain the following rules -
+* <p>
+a. The CIDR block is valid and correctly formatted.
+* b. The new range is within one of the parent VCN ranges.
+* c. The old and new CIDR ranges both use the same base address. Example: 10.0.0.0/25 and 10.0.0.0/24.
+* d. The new CIDR range contains all previously allocated private IP addresses in the old CIDR range.
+* e. No previously allocated IP address overlaps the broadcast address (the last IP of a subnet CIDR range) of the new CIDR range.
+* 
+    */
+  "cidrBlock"?: string;
 }
 
 export namespace UpdateVlanDetails {

@@ -20,7 +20,7 @@ import common = require("oci-common");
  * A collection of DNS resource records.
  */
 export interface RecordCollection {
-  "items"?: Array<model.Record>;
+  "items": Array<model.Record>;
 }
 
 export namespace RecordCollection {

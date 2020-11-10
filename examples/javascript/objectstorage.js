@@ -17,14 +17,7 @@ const os = require("oci-objectstorage");
 const common = require("oci-common");
 const fs = require("fs");
 
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
-
-const provider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
-
+const provider = new common.ConfigFileAuthenticationDetailsProvider();
 const args = process.argv.slice(2);
 console.log(args);
 if (args.length !== 3) {

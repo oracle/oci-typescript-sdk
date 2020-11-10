@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface ListMigrationsRequest extends common.BaseRequest {
   /**
-   * The compartment OCID on which to filter.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a compartment. Retrieves details of objects in the specified compartment.
    */
   "compartmentId": string;
   /**
@@ -25,7 +25,7 @@ export interface ListMigrationsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The OCID on which to query for an application.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) on which to query for a migration.
    *
    */
   "id"?: string;
@@ -58,9 +58,9 @@ export interface ListMigrationsRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * The lifecycle state on which to filter.
+   * This field is not supported. Do not use.
    */
-  "lifecycleState"?: string;
+  "lifecycleState"?: model.MigrationLifecycleStates;
 }
 
 export namespace ListMigrationsRequest {

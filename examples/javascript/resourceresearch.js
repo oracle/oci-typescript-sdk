@@ -5,13 +5,8 @@
 
 const resourceSearch = require("oci-resourcesearch");
 const common = require("oci-common");
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
 
-const provider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider = new common.ConfigFileAuthenticationDetailsProvider();
 // import ResourceSearchClient from "../../../../target/lib/resourcesearch/lib/client.js";
 let searchClient;
 

@@ -33,12 +33,17 @@ To use any of the API operations, you must be authorized in an IAM policy. If yo
 */
 export interface Vcn {
   /**
-    * The CIDR IP address block of the VCN.
+    * Deprecated. The first CIDR IP address from cidrBlocks.
 * <p>
 Example: `172.16.0.0/16`
 * 
     */
   "cidrBlock": string;
+  /**
+   * The list of IPv4 CIDR blocks the VCN will use.
+   *
+   */
+  "cidrBlocks": Array<string>;
   /**
    * The OCID of the compartment containing the VCN.
    */
@@ -152,6 +157,7 @@ export namespace Vcn {
     Available = "AVAILABLE",
     Terminating = "TERMINATING",
     Terminated = "TERMINATED",
+    Updating = "UPDATING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

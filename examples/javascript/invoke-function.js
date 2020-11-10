@@ -8,13 +8,7 @@ const core = require("oci-core");
 const identity = require("oci-identity");
 const common = require("oci-common");
 
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
-
-const provider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider = new common.ConfigFileAuthenticationDetailsProvider();
 
 /**
  * This is a basic example of how to register and invoke a serverless Function

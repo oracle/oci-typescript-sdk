@@ -46,6 +46,18 @@ export interface AutonomousDbVersionSummary {
    * True if this version of the Oracle Database software can be used for Always-Free Autonomous Databases.
    */
   "isFreeTierEnabled"?: boolean;
+  /**
+   * True if this version of the Oracle Database software has payments enabled.
+   */
+  "isPaidEnabled"?: boolean;
+  /**
+   * True if this version of the Oracle Database software's default is free.
+   */
+  "isDefaultForFree"?: boolean;
+  /**
+   * True if this version of the Oracle Database software's default is paid.
+   */
+  "isDefaultForPaid"?: boolean;
 }
 
 export namespace AutonomousDbVersionSummary {

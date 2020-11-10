@@ -9,13 +9,7 @@ import { Region } from "oci-common";
 import { basename, join } from "path";
 import { readdir } from "fs";
 
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
-
-const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider();
 /*
  * This Sample take directory path as a commandline argument and
  * uploads all the files present in te directory to objectstorage using upload manager.

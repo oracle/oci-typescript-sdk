@@ -11,13 +11,7 @@ import common = require("oci-common");
 
 var randomNumber = require("random-number-csprng");
 
-const configurationFilePath = "~/.oci/config";
-const configProfile = "DEFAULT";
-
-const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider();
 
 /**
  * This file provides an example of how to use the File Storage service in the SDK for TypeScript.
