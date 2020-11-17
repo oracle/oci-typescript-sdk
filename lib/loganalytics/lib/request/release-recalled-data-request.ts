@@ -15,12 +15,12 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface ReleaseRecalledDataRequest extends common.BaseRequest {
   /**
-   * The Log Analytics namespace used for the request.
+   * The Logging Analytics namespace used for the request.
    *
    */
   "namespaceName": string;
   /**
-   * release recalled data request details
+   * This is the input to release recalled data
    */
   "releaseRecalledDataDetails": model.ReleaseRecalledDataDetails;
   /**

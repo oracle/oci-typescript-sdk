@@ -15,6 +15,9 @@
 import * as model from "../model";
 import common = require("oci-common");
 
+/**
+ * log field path values
+ */
 export interface ExtractLogFieldResults {
   /**
    * log field path values

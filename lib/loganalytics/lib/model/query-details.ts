@@ -31,12 +31,12 @@ export interface QueryDetails {
    */
   "compartmentIdInSubtree"?: boolean;
   /**
-   * Saved search OCID for this query if known, used to track usage of saved search queryString.
+   * Saved search OCID for this query if known.
    *
    */
   "savedSearchId"?: string;
   /**
-   * Query to perform.
+   * Query to perform. Must conform to logging analytic querylanguage syntax. Syntax errors will be returned if present.
    */
   "queryString": string;
   /**
@@ -60,12 +60,12 @@ export interface QueryDetails {
    */
   "queryTimeoutInSeconds"?: number;
   /**
-   * Option to run the query asynchronously. This will lead to a LogAnalyticsQueryJobWorkRequest being submitted and the {workRequestId} will be returned to fetch the results.
+   * Option to run the query asynchronously. This will lead to a LogAnalyticsQueryJobWorkRequest being submitted and the {workRequestId} will be returned to use for fetching the results.
    *
    */
   "shouldRunAsync"?: boolean;
   /**
-   * Execution mode for the query if running asynchronously  (shouldRunAsync is true).
+   * Execution mode for the query if running asynchronously i.e (shouldRunAsync is set to true).
    */
   "asyncMode"?: model.JobMode;
   /**
@@ -81,7 +81,7 @@ export interface QueryDetails {
    */
   "shouldIncludeFields"?: boolean;
   /**
-   * Controls if query should ignore pre-calculated results if available and only use raw data.
+   * Controls if query should ignore pre-calculated results if available and only use raw data. If set and no acceleration data is found it will fallback to raw data.
    *
    */
   "shouldUseAcceleration"?: boolean;

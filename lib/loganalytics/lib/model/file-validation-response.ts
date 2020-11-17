@@ -20,15 +20,15 @@ import common = require("oci-common");
  */
 export interface FileValidationResponse {
   /**
-   * Input File
+   * Input File Name.
    */
   "inputFile": string;
   /**
-   * Object Location
+   * Object Location where file content is available.
    */
   "objectLocation": string;
   /**
-   * Files
+   * List of files inside the given archive file and their corresponding status information.
    */
   "files"?: Array<model.UploadFileStatus>;
 }

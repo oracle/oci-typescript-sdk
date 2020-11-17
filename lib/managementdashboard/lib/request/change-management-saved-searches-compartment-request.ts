@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface ChangeManagementSavedSearchesCompartmentRequest extends common.BaseRequest {
   /**
-   * unique saved search identifier
+   * A unique saved search identifier.
    */
   "managementSavedSearchId": string;
   /**
-   * Compartment id to move the saved search to.
+   * ID of the saved search that is being moved.
    */
   "changeManagementSavedSearchesCompartmentDetails": model.ChangeManagementSavedSearchesCompartmentDetails;
   /**

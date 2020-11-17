@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface DeleteManagementSavedSearchRequest extends common.BaseRequest {
   /**
-   * unique saved search identifier
+   * A unique saved search identifier.
    */
   "managementSavedSearchId": string;
   /**

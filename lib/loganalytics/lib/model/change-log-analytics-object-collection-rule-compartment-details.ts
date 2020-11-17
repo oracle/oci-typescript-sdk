@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Log Analytics Object Storage based collection rule compartment to be updated to.
+ * The new compartment this Object Collection Rule will be moved to.
  *
  */
 export interface ChangeLogAnalyticsObjectCollectionRuleCompartmentDetails {

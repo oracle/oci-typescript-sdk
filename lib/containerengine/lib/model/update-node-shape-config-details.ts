@@ -27,6 +27,11 @@ export interface UpdateNodeShapeConfigDetails {
    *
    */
   "ocpus"?: number;
+  /**
+   * The total amount of memory available to each node, in gigabytes.
+   *
+   */
+  "memoryInGBs"?: number;
 }
 
 export namespace UpdateNodeShapeConfigDetails {

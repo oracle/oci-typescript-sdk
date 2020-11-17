@@ -1,7 +1,6 @@
 /**
  * ManagementDashboard API
- * Management Dashboard micro-service provides a set of CRUD, import, export, and compartment related APIs (such as change compartment)   to support dashboard and saved search metadata preservation.  These APIs are mainly for client UIs, for various UI activities such as get list of all saved searches in a compartment, create a dashboard, open a saved search, etc.  Use export to retrieve  dashboards and their saved searches, then edit the Json if necessary (for example change compartmentIds), then import the result to  destination dashboard service.
-APIs validate all required properties to ensure properties are present and have correct type and values.
+ * API for the Management Dashboard micro-service. Use this API for dashboard and saved search metadata preservation and to perform  tasks such as creating a dashboard, creating a saved search, and obtaining a list of dashboards and saved searches in a compartment.
     
 
  * OpenAPI spec version: 20200901
@@ -22,55 +21,55 @@ import common = require("oci-common");
  */
 export interface ManagementSavedSearchForImportDetails {
   /**
-   * id for saved search.  Must be provided if OOB, otherwise must not be provided.
+   * ID of the saved search.
    */
   "id": string;
   /**
-   * Display name for saved search.
+   * Display name of the saved search.
    */
   "displayName": string;
   /**
-   * Id for application (LA, APM, etc.) that owners this saved search.  Each owner has a unique Id.
+   * ID of the service (for example log-analytics) that owns the saved search. Each service has a unique ID.
    */
   "providerId": string;
   /**
-   * Version.
+   * Version of the service that owns this saved search.
    */
   "providerVersion": string;
   /**
-   * Name for application (LA, APM, etc.) that owners this saved search.
+   * Name of the service (for example, Logging Analytics) that owns the saved search.
    */
   "providerName": string;
   /**
-   * The ocid of the compartment that owns the saved search.
+   * OCID of the compartment in which the saved search resides.
    */
   "compartmentId": string;
   /**
-   * String boolean (\"true\" or \"false\") to indicate Out Of the Box saved search.
+   * Determines whether the saved search is an Out-of-the-Box (OOB) saved search. Note that OOB saved searches are only provided by Oracle and cannot be modified.
    */
   "isOobSavedSearch": boolean;
   /**
-   * Description.
+   * Description of the saved search.
    */
   "description": string;
   /**
-   * Json for internationalization.
+   * JSON that contains internationalization options.
    */
   "nls": any;
   /**
-   * How to show the saved search.
+   * Determines how the saved search is displayed in a dashboard.
    */
   "type": model.SavedSearchTypes;
   /**
-   * Json to contain options for UI.
+   * JSON that contains user interface options.
    */
   "uiConfig": any;
   /**
-   * Array of Json to contain options for source of data.
+   * Array of JSON that contain data source options.
    */
   "dataConfig": Array<any>;
   /**
-   * Screenshot.
+   * Screen image of the saved search.
    */
   "screenImage": string;
   /**
@@ -78,11 +77,11 @@ export interface ManagementSavedSearchForImportDetails {
    */
   "metadataVersion": string;
   /**
-   * Template.
+   * Reference to the HTML file of the widget.
    */
   "widgetTemplate": string;
   /**
-   * View Model
+   * Reference to the view model of the widget.
    */
   "widgetVM": string;
   /**

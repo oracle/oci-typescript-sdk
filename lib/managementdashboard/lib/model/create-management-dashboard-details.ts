@@ -1,7 +1,6 @@
 /**
  * ManagementDashboard API
- * Management Dashboard micro-service provides a set of CRUD, import, export, and compartment related APIs (such as change compartment)   to support dashboard and saved search metadata preservation.  These APIs are mainly for client UIs, for various UI activities such as get list of all saved searches in a compartment, create a dashboard, open a saved search, etc.  Use export to retrieve  dashboards and their saved searches, then edit the Json if necessary (for example change compartmentIds), then import the result to  destination dashboard service.
-APIs validate all required properties to ensure properties are present and have correct type and values.
+ * API for the Management Dashboard micro-service. Use this API for dashboard and saved search metadata preservation and to perform  tasks such as creating a dashboard, creating a saved search, and obtaining a list of dashboards and saved searches in a compartment.
     
 
  * OpenAPI spec version: 20200901
@@ -18,47 +17,47 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Properties for a dashboard.  Id is not required if not Out Of the Box dashboard.
+ * Properties of a dashboard.  ID of the dashboard must only be provided for Out-of-the-Box (OOB) dashboards.
  */
 export interface CreateManagementDashboardDetails {
   /**
-   * Dashboard Id. Must be providied if OOB, otherwise must not be provided.
+   * ID of the dashboard, which must only be provided for Out-of-the-Box (OOB) dashboards.
    */
   "dashboardId"?: string;
   /**
-   * Provider Id.
+   * ID of the service (for example, log-analytics) that owns the dashboard. Each service has a unique ID.
    */
   "providerId": string;
   /**
-   * Provider name.
+   * Name of the service (for example, Logging Analytics) that owns the dashboard.
    */
   "providerName": string;
   /**
-   * Provider version.
+   * Version of the service that owns the dashboard.
    */
   "providerVersion": string;
   /**
-   * Dashboard tiles array.
+   * Array of dashboard tiles.
    */
   "tiles": Array<model.ManagementDashboardTileDetails>;
   /**
-   * Display name for dashboard.
+   * Display name of the dashboard.
    */
   "displayName": string;
   /**
-   * Dashboard's description.
+   * Description of the dashboard.
    */
   "description": string;
   /**
-   * The ocid of the compartment that owns the dashboard.
+   * OCID of the compartment in which the dashboard resides.
    */
   "compartmentId": string;
   /**
-   * String boolean (\"true\" or \"false\").  OOB (Out of the Box) dashboards are only provided by Oracle.  They cannot be modified by non-Oracle.
+   * Determines whether the dashboard is an Out-of-the-Box (OOB) dashboard. Note that OOB dashboards are only provided by Oracle and cannot be modified.
    */
   "isOobDashboard": boolean;
   /**
-   * String boolean (\"true\" or \"false\").  When false, dashboard is not shown in dashboard home.
+   * Determines whether the dashboard will be displayed in Dashboard Home.
    */
   "isShowInHome": boolean;
   /**
@@ -66,31 +65,31 @@ export interface CreateManagementDashboardDetails {
    */
   "metadataVersion": string;
   /**
-   * String boolean (\"true\" or \"false\").  Whether to show the dashboard description.
+   * Determines whether the description of the dashboard is displayed.
    */
   "isShowDescription": boolean;
   /**
-   * screen image.
+   * Screen image of the dashboard.
    */
   "screenImage": string;
   /**
-   * Json for internationalization.
+   * JSON that contains internationalization options.
    */
   "nls": any;
   /**
-   * Json to contain options for UI.
+   * JSON that contains user interface options.
    */
   "uiConfig": any;
   /**
-   * Array of Json to contain options for source of data.
+   * Array of JSON that contain data source options.
    */
   "dataConfig": Array<any>;
   /**
-   * NORMAL means single dashboard, or SET means dashboard set.
+   * Type of dashboard. NORMAL denotes a single dashboard and SET denotes a dashboard set.
    */
   "type": string;
   /**
-   * String boolean (\"true\" or \"false\").
+   * Determines whether the dashboard is set as favorite.
    */
   "isFavorite": boolean;
   /**

@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface UpdateManagementSavedSearchRequest extends common.BaseRequest {
   /**
-   * unique saved search identifier
+   * A unique saved search identifier.
    */
   "managementSavedSearchId": string;
   /**
-   * Json metadata for changed properties in existing saved search.
+   * JSON metadata for changed saved search properties.
    */
   "updateManagementSavedSearchDetails": model.UpdateManagementSavedSearchDetails;
   /**

@@ -27,15 +27,15 @@ export interface UpdateLogAnalyticsObjectCollectionRuleDetails {
    */
   "description"?: string;
   /**
-   * Log Analytics Log group OCID to associate the processed logs with.
+   * Logging Analytics Log group OCID to associate the processed logs with.
    */
   "logGroupId"?: string;
   /**
-   * Name of the Log Analytics Source to use for the processing.
+   * Name of the Logging Analytics Source to use for the processing.
    */
   "logSourceName"?: string;
   /**
-   * Log Analytics entity OCID. Associates the processed logs with the given entity (optional).
+   * Logging Analytics entity OCID. Associates the processed logs with the given entity (optional).
    */
   "entityId"?: string;
   /**

@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Asynchronous operation name for a storage work Request
+ * These are the asynchronous operation name for a storage work Request
  *
  **/
 export enum StorageOperationType {

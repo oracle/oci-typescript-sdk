@@ -23,6 +23,9 @@ export interface ExportContent {
    * fieldNames
    */
   "fieldNames"?: Array<string>;
+  /**
+   * parserNames
+   */
   "parserNames"?: Array<string>;
   /**
    * sourceNames

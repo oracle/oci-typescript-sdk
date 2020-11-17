@@ -21,6 +21,8 @@ import * as BulkDeleteResourcesResponse from "./bulk-delete-resources-response";
 export import BulkDeleteResourcesResponse = BulkDeleteResourcesResponse.BulkDeleteResourcesResponse;
 import * as BulkDeleteTagsResponse from "./bulk-delete-tags-response";
 export import BulkDeleteTagsResponse = BulkDeleteTagsResponse.BulkDeleteTagsResponse;
+import * as BulkEditTagsResponse from "./bulk-edit-tags-response";
+export import BulkEditTagsResponse = BulkEditTagsResponse.BulkEditTagsResponse;
 import * as BulkMoveResourcesResponse from "./bulk-move-resources-response";
 export import BulkMoveResourcesResponse = BulkMoveResourcesResponse.BulkMoveResourcesResponse;
 import * as CascadeDeleteTagNamespaceResponse from "./cascade-delete-tag-namespace-response";
@@ -147,6 +149,8 @@ import * as ListAvailabilityDomainsResponse from "./list-availability-domains-re
 export import ListAvailabilityDomainsResponse = ListAvailabilityDomainsResponse.ListAvailabilityDomainsResponse;
 import * as ListBulkActionResourceTypesResponse from "./list-bulk-action-resource-types-response";
 export import ListBulkActionResourceTypesResponse = ListBulkActionResourceTypesResponse.ListBulkActionResourceTypesResponse;
+import * as ListBulkEditTagsResourceTypesResponse from "./list-bulk-edit-tags-resource-types-response";
+export import ListBulkEditTagsResourceTypesResponse = ListBulkEditTagsResourceTypesResponse.ListBulkEditTagsResourceTypesResponse;
 import * as ListCompartmentsResponse from "./list-compartments-response";
 export import ListCompartmentsResponse = ListCompartmentsResponse.ListCompartmentsResponse;
 import * as ListCostTrackingTagsResponse from "./list-cost-tracking-tags-response";

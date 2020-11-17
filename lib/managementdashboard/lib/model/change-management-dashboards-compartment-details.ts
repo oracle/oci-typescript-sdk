@@ -1,7 +1,6 @@
 /**
  * ManagementDashboard API
- * Management Dashboard micro-service provides a set of CRUD, import, export, and compartment related APIs (such as change compartment)   to support dashboard and saved search metadata preservation.  These APIs are mainly for client UIs, for various UI activities such as get list of all saved searches in a compartment, create a dashboard, open a saved search, etc.  Use export to retrieve  dashboards and their saved searches, then edit the Json if necessary (for example change compartmentIds), then import the result to  destination dashboard service.
-APIs validate all required properties to ensure properties are present and have correct type and values.
+ * API for the Management Dashboard micro-service. Use this API for dashboard and saved search metadata preservation and to perform  tasks such as creating a dashboard, creating a saved search, and obtaining a list of dashboards and saved searches in a compartment.
     
 
  * OpenAPI spec version: 20200901
@@ -18,11 +17,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Compartment to move the dashboard to.
+ * Compartment to which the dashboard is being moved.
  */
 export interface ChangeManagementDashboardsCompartmentDetails {
   /**
-   * Compartment Identifier
+   * OCID of the compartment to which the dashboard is being moved.
    */
   "compartmentId": string;
 }

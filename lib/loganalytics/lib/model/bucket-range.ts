@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Represents querylanguage bucket command input arguments in parse endpoint output.
+ * Represents querylanguage bucket command input arguments in parse output.
  *
  */
 export interface BucketRange {

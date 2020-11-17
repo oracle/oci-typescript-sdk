@@ -407,18 +407,18 @@ After you send your request, the new object's `lifecycleState` will temporarily 
 
   /**
      * Deletes the specified tag key definitions. This operation triggers a process that removes the
-* tags from all resources in your tenancy. 
+* tags from all resources in your tenancy. The tag key definitions must be within the same tag namespace.
 * <p>
 The following actions happen immediately:
 * \u00A0
-*   * If the tag is a cost-tracking tag, the tag no longer counts against your   
+*   * If the tag is a cost-tracking tag, the tag no longer counts against your
 *   10 cost-tracking tags limit, even if you do not disable the tag before running this operation.
-*   * If the tag is used with dynamic groups, the rules that contain the tag are no longer 
-*   evaluated against the tag. 
+*   * If the tag is used with dynamic groups, the rules that contain the tag are no longer
+*   evaluated against the tag.
 * <p>
 After you start this operation, the state of the tag changes to DELETING, and tag removal
 * from resources begins. This process can take up to 48 hours depending on the number of resources that
-* are tagged and the regions in which those resources reside. 
+* are tagged and the regions in which those resources reside.
 * <p>
 When all tags have been removed, the state changes to DELETED. You cannot restore a deleted tag. After the tag state
 * changes to DELETED, you can use the same tag name again.
@@ -426,7 +426,7 @@ When all tags have been removed, the state changes to DELETED. You cannot restor
 After you start this operation, you cannot start either the {@link #deleteTag(DeleteTagRequest) deleteTag} or the {@link #cascadeDeleteTagNamespace(CascadeDeleteTagNamespaceRequest) cascadeDeleteTagNamespace} operation until this process completes.
 * <p>
 In order to delete tags, you must first retire the tags. Use {@link #updateTag(UpdateTagRequest) updateTag}
-* to retire a tag. 
+* to retire a tag.
 * 
      * @param BulkDeleteTagsRequest
      * @return BulkDeleteTagsResponse
@@ -469,6 +469,83 @@ In order to delete tags, you must first retire the tags. Use {@link #updateTag(U
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.BulkDeleteTagsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Edits the specified list of tag key definitions for the selected resources. 
+* This operation triggers a process that edits the tags on all selected resources. The possible actions are:
+* <p>
+  * Add a defined tag when the tag does not already exist on the resource.
+*   * Update the value for a defined tag when the tag is present on the resource.
+*   * Add a defined tag when it does not already exist on the resource or update the value for a defined tag when the tag is present on the resource.
+*   * Remove a defined tag from a resource. The tag is removed from the resource regardless of the tag value.
+* <p>
+See {@link #bulkEditOperationDetails(BulkEditOperationDetailsRequest) bulkEditOperationDetails} for more information.
+* <p>
+The edits can include a combination of operations and tag sets. 
+* However, multiple operations cannot apply to one key definition in the same request.
+* For example, if one request adds `tag set-1` to a resource and sets a tag value to `tag set-2`, 
+* `tag set-1` and `tag set-2` cannot have any common tag definitions.
+* 
+     * @param BulkEditTagsRequest
+     * @return BulkEditTagsResponse
+     * @throws OciError when an error occurs
+     */
+  public async bulkEditTags(
+    bulkEditTagsRequest: requests.BulkEditTagsRequest
+  ): Promise<responses.BulkEditTagsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#bulkEditTags.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": bulkEditTagsRequest.opcRequestId,
+      "opc-retry-token": bulkEditTagsRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/tags/actions/bulkEdit",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        bulkEditTagsRequest.bulkEditTagsDetails,
+        "BulkEditTagsDetails",
+        models.BulkEditTagsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      bulkEditTagsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BulkEditTagsResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -560,19 +637,19 @@ In order to delete tags, you must first retire the tags. Use {@link #updateTag(U
   }
 
   /**
-     * Deletes the specified tag namespace. This operation triggers a process that removes all of the tags 
+     * Deletes the specified tag namespace. This operation triggers a process that removes all of the tags
 * defined in the specified tag namespace from all resources in your tenancy and then deletes the tag namespace.
 * <p>
-After you start the delete operation: 
+After you start the delete operation:
 * <p>
-  * New tag key definitions cannot be created under the namespace. 
+  * New tag key definitions cannot be created under the namespace.
 *   * The state of the tag namespace changes to DELETING.
-*   * Tag removal from the resources begins. 
+*   * Tag removal from the resources begins.
 * <p>
-This process can take up to 48 hours depending on the number of tag definitions in the namespace, the number of resources 
+This process can take up to 48 hours depending on the number of tag definitions in the namespace, the number of resources
 * that are tagged, and the locations of the regions in which those resources reside.
 * <p>
-After all tags are removed, the state changes to DELETED. You cannot restore a deleted tag namespace. After the deleted tag namespace 
+After all tags are removed, the state changes to DELETED. You cannot restore a deleted tag namespace. After the deleted tag namespace
 * changes its state to DELETED, you can use the name of the deleted tag namespace again.
 * <p>
 After you start this operation, you cannot start either the {@link #deleteTag(DeleteTagRequest) deleteTag} or the {@link #bulkDeleteTags(BulkDeleteTagsRequest) bulkDeleteTags} operation until this process completes.
@@ -869,7 +946,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
 
   /**
      * Creates a new secret key for the specified user. Secret keys are used for authentication with the Object Storage Service's Amazon S3
-* compatible API. For information, see
+* compatible API. The secret key consists of an Access Key/Secret Key pair. For information, see
 * [Managing User Credentials](https://docs.cloud.oracle.com/Content/Identity/Tasks/managingcredentials.htm).
 * <p>
 You must specify a *description* for the secret key (although it can be an empty string). It does not
@@ -1349,7 +1426,7 @@ You must also specify a *description* for the network source (although it can be
 After you send your request, the new object's `lifecycleState` will temporarily be CREATING. Before using the
 * object, first make sure its `lifecycleState` has changed to ACTIVE.
 * <p>
-After your network resource is created, you can use it in policy to restrict access to only requests made from an allowed 
+After your network resource is created, you can use it in policy to restrict access to only requests made from an allowed
 * IP address specified in your network source. For more information, see [Managing Network Sources](https://docs.cloud.oracle.com/Content/Identity/Tasks/managingnetworksources.htm).
 * 
      * @param CreateNetworkSourceRequest
@@ -1856,7 +1933,7 @@ Every user has permission to create a Swift password for *their own user ID*. An
   /**
      * Creates a new tag in the specified tag namespace.
 * <p>
-The tag requires either the OCID or the name of the tag namespace that will contain this 
+The tag requires either the OCID or the name of the tag namespace that will contain this
 * tag definition.
 * <p>
 You must specify a *name* for the tag, which must be unique across all tags in the tag namespace
@@ -1867,13 +1944,13 @@ You must specify a *name* for the tag, which must be unique across all tags in t
 The tag must have a *description*. It does not have to be unique, and you can change it with
 * {@link #updateTag(UpdateTagRequest) updateTag}.
 * <p>
-The tag must have a value type, which is specified with a validator. Tags can use either a 
+The tag must have a value type, which is specified with a validator. Tags can use either a
 * static value or a list of possible values. Static values are entered by a user applying the tag
-* to a resource. Lists are created by you and the user must apply a value from the list. Lists 
-* are validiated. 
+* to a resource. Lists are created by you and the user must apply a value from the list. Lists
+* are validiated.
 * <p>
-* If no `validator` is set, the user applying the tag to a resource can type in a static 
-* value or leave the tag value empty. 
+* If no `validator` is set, the user applying the tag to a resource can type in a static
+* value or leave the tag value empty.
 * * If a `validator` is set, the user applying the tag to a resource must select from a list
 * of values that you supply with {@link #enumTagDefinitionValidator(EnumTagDefinitionValidatorRequest) enumTagDefinitionValidator}.
 * 
@@ -1945,8 +2022,8 @@ The tag must have a value type, which is specified with a validator. Tags can us
   /**
      * Creates a new tag default in the specified compartment for the specified tag definition.
 * <p>
-If you specify that a value is required, a value is set during resource creation (either by 
-* the user creating the resource or another tag defualt). If no value is set, resource creation 
+If you specify that a value is required, a value is set during resource creation (either by
+* the user creating the resource or another tag defualt). If no value is set, resource creation
 * is blocked.
 * <p>
 * If the `isRequired` flag is set to \"true\", the value is set during resource creation.
@@ -2982,14 +3059,14 @@ Deletes the specified Swift password for the specified user.
 
   /**
      * Deletes the specified tag definition. This operation triggers a process that removes the
-* tag from all resources in your tenancy. 
+* tag from all resources in your tenancy.
 * <p>
 These things happen immediately:
 * \u00A0
-*   * If the tag was a cost-tracking tag, it no longer counts against your 10 cost-tracking 
+*   * If the tag was a cost-tracking tag, it no longer counts against your 10 cost-tracking
 *   tags limit, whether you first disabled it or not.
-*   * If the tag was used with dynamic groups, none of the rules that contain the tag will 
-*   be evaluated against the tag. 
+*   * If the tag was used with dynamic groups, none of the rules that contain the tag will
+*   be evaluated against the tag.
 * <p>
 When you start the delete operation, the state of the tag changes to DELETING and tag removal
 * from resources begins. This can take up to 48 hours depending on the number of resources that
@@ -2998,10 +3075,10 @@ When you start the delete operation, the state of the tag changes to DELETING an
 When all tags have been removed, the state changes to DELETED. You cannot restore a deleted tag. Once the deleted tag
 * changes its state to DELETED, you can use the same tag name again.
 * <p>
-After you start this operation, you cannot start either the {@link #bulkDeleteTags(BulkDeleteTagsRequest) bulkDeleteTags} or the {@link #cascadeDeleteTagNamespace(CascadeDeleteTagNamespaceRequest) cascadeDeleteTagNamespace} operation until this process completes. 
+After you start this operation, you cannot start either the {@link #bulkDeleteTags(BulkDeleteTagsRequest) bulkDeleteTags} or the {@link #cascadeDeleteTagNamespace(CascadeDeleteTagNamespaceRequest) cascadeDeleteTagNamespace} operation until this process completes.
 * <p>
 To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagRequest) updateTag}
-* to retire a tag. 
+* to retire a tag.
 * 
      * @param DeleteTagRequest
      * @return DeleteTagResponse
@@ -3118,11 +3195,11 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
   }
 
   /**
-     * Deletes the specified tag namespace. Only an empty tag namespace can be deleted with this operation. To use this operation 
-* to delete a tag namespace that contains tag definitions, first delete all of its tag definitions. 
+     * Deletes the specified tag namespace. Only an empty tag namespace can be deleted with this operation. To use this operation
+* to delete a tag namespace that contains tag definitions, first delete all of its tag definitions.
 * <p>
 Use {@link #cascadeDeleteTagNamespace(CascadeDeleteTagNamespaceRequest) cascadeDeleteTagNamespace} to delete a tag namespace along with all of
-* the tag definitions contained within that namespace. 
+* the tag definitions contained within that namespace.
 * <p>
 Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
 * 
@@ -4658,6 +4735,70 @@ Every user has permission to use this API call for *their own user ID*.  An admi
         body: await response.json(),
         bodyKey: "bulkActionResourceTypeCollection",
         bodyModel: "model.BulkActionResourceTypeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the resource types that support bulk tag editing.
+   *
+   * @param ListBulkEditTagsResourceTypesRequest
+   * @return ListBulkEditTagsResourceTypesResponse
+   * @throws OciError when an error occurs
+   */
+  public async listBulkEditTagsResourceTypes(
+    listBulkEditTagsResourceTypesRequest: requests.ListBulkEditTagsResourceTypesRequest
+  ): Promise<responses.ListBulkEditTagsResourceTypesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityClient#listBulkEditTagsResourceTypes.");
+    const pathParams = {};
+
+    const queryParams = {
+      "page": listBulkEditTagsResourceTypesRequest.page,
+      "limit": listBulkEditTagsResourceTypesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/tags/bulkEditResourceTypes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listBulkEditTagsResourceTypesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListBulkEditTagsResourceTypesResponse>{},
+        body: await response.json(),
+        bodyKey: "bulkEditTagsResourceTypeCollection",
+        bodyModel: "model.BulkEditTagsResourceTypeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8067,13 +8208,13 @@ Updates the specified Swift password's description.
   /**
      * Updates the specified tag definition.
 * <p>
-Setting `validator` determines the value type. Tags can use either a static value or a 
-* list of possible values. Static values are entered by a user applying the tag to a resource. 
+Setting `validator` determines the value type. Tags can use either a static value or a
+* list of possible values. Static values are entered by a user applying the tag to a resource.
 * Lists are created by you and the user must apply a value from the list. On update, any values
-* in a list that were previously set do not change, but new values must pass validation. Values 
-* already applied to a resource do not change. 
+* in a list that were previously set do not change, but new values must pass validation. Values
+* already applied to a resource do not change.
 * <p>
-You cannot remove list values that appear in a TagDefault. To remove a list value that 
+You cannot remove list values that appear in a TagDefault. To remove a list value that
 * appears in a TagDefault, first update the TagDefault to use a different value.
 * 
      * @param UpdateTagRequest

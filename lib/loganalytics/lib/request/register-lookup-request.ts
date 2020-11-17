@@ -16,7 +16,7 @@ import common = require("oci-common");
 import stream = require("stream");
 export interface RegisterLookupRequest extends common.BaseRequest {
   /**
-   * The Log Analytics namespace used for the request.
+   * The Logging Analytics namespace used for the request.
    *
    */
   "namespaceName": string;
@@ -39,7 +39,7 @@ export interface RegisterLookupRequest extends common.BaseRequest {
    */
   "description"?: string;
   /**
-   * character Encoding
+   * Character Encoding
    */
   "charEncoding"?: string;
   /**

@@ -15,6 +15,9 @@
 import * as model from "../model";
 import common = require("oci-common");
 
+/**
+ * log header values
+ */
 export interface ExtractLogHeaderResults {
   /**
    * log header json paths

@@ -1035,10 +1035,12 @@ export class LogAnalyticsClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAssociationsResponse>{},
-        body: await response.json(),
-        bodyKey: "errorDetails",
-        bodyModel: "model.ErrorDetails",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -1765,7 +1767,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * disable archiving
+   * This API disables archiving.
    *
    * @param DisableArchivingRequest
    * @return DisableArchivingResponse
@@ -1829,7 +1831,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * enable archiving.
+   * THis API enables archiving.
    *
    * @param EnableArchivingRequest
    * @return EnableArchivingResponse
@@ -1893,7 +1895,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * estimate the size of data to be purged based on query parameters.
+   * This API estimates the size of data to be purged based based on time interval, purge query etc.
    *
    * @param EstimatePurgeDataSizeRequest
    * @return EstimatePurgeDataSizeResponse
@@ -2223,7 +2225,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Each filter specifies an operator, a field and one or more values.
+   * Each filter specifies an operator, a field and one or more values to be inserted into the provided query as criteria.
    * @param FilterRequest
    * @return FilterResponse
    * @throws OciError when an error occurs
@@ -2384,6 +2386,9 @@ export class LogAnalyticsClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.GetColumnNamesResponse>{},
+        body: await response.json(),
+        bodyKey: "columnNameCollection",
+        bodyModel: "model.ColumnNameCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3081,7 +3086,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Get Namespace of a tenancy already onboarded in Log Analytics Application
+   * This API gets the namespace details of a tenancy already onboarded in Logging Analytics Application
    *
    * @param GetNamespaceRequest
    * @return GetNamespaceResponse
@@ -3598,7 +3603,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Storage configuration and status.
+   * This API gets the storage configuration of a tenancy
    *
    * @param GetStorageRequest
    * @return GetStorageResponse
@@ -3661,7 +3666,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Storage usage info includes active, archived or recalled data.  The unit of return value is in bytes.
+   * This API gets storage usage information of a tenancy.  Storage usage information includes active, archived or recalled
+   * data.  The unit of return data is in bytes.
    *
    * @param GetStorageUsageRequest
    * @return GetStorageUsageResponse
@@ -3719,8 +3725,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Retrieve work request details by key. This endpoint can be polled for status tracking of work request.
-   * Clients should poll using the interval returned in retry-after header.
+   * This API returns work request details specified by {workRequestId}. This API can be polled for status tracking of
+   * work request.  Clients should poll using the interval returned in retry-after header.
    *
    * @param GetStorageWorkRequestRequest
    * @return GetStorageWorkRequestResponse
@@ -4949,7 +4955,9 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * List Namespaces.
+   * Given a tenancy OCID, this API returns the namespace of the tenancy if it is valid and subscribed to the region.  The
+   * result also indicates if the tenancy is onboarded with Logging Analytics.
+   *
    * @param ListNamespacesRequest
    * @return ListNamespacesResponse
    * @throws OciError when an error occurs
@@ -5831,7 +5839,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Retrieve work request errors if any
+   * This API returns the list of work request errors if any.
    * @param ListStorageWorkRequestErrorsRequest
    * @return ListStorageWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -5906,7 +5914,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * List non-expired storage manager work requests.
+   * This API lists storage work requests.  Use query parameters to narrow down or sort the result list.
+   *
    * @param ListStorageWorkRequestsRequest
    * @return ListStorageWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -6559,7 +6568,8 @@ export class LogAnalyticsClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": offboardNamespaceRequest.opcRequestId
+      "opc-request-id": offboardNamespaceRequest.opcRequestId,
+      "opc-retry-token": offboardNamespaceRequest.opcRetryToken
     };
 
     const request = await composeRequest({
@@ -6724,7 +6734,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * submit work requests to purge old data based on the type.
+   * This API submits a work request to purge data. Only data from log groups that the user has permission to delete
+   * will be purged.  To purge all data, the user must have permission to all log groups.
    *
    * @param PurgeStorageDataRequest
    * @return PurgeStorageDataResponse
@@ -6796,7 +6807,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Put the work request specified by {workRequestId} into the background.
+   * Put the work request specified by {workRequestId} into the background. Backgrounded queries will preserve query results on query completion for up to 7 days for recall. After 7 days the results and query expire.
    * @param PutQueryWorkRequestBackgroundRequest
    * @return PutQueryWorkRequestBackgroundResponse
    * @throws OciError when an error occurs
@@ -6945,7 +6956,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * submit work requests to recall archived data.
+   * This API submits a work request to recall archived data based on time interval and data type.
    *
    * @param RecallArchivedDataRequest
    * @return RecallArchivedDataResponse
@@ -7086,7 +7097,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * submit work requests to release recalled data.
+   * This API submits a work request to release recalled data based on time interval and data type.
    *
    * @param ReleaseRecalledDataRequest
    * @return ReleaseRecalledDataResponse
@@ -7282,7 +7293,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Returns a context specific list of either commands, fields, or values to add to the end of the query string.
+   * Returns a context specific list of either commands, fields, or values to append to the end of the specified query string if applicable.
    * @param SuggestRequest
    * @return SuggestResponse
    * @throws OciError when an error occurs
@@ -7755,7 +7766,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * update the archiving configuration
+   * This API updates the archiving configuration
    *
    * @param UpdateStorageRequest
    * @return UpdateStorageResponse
@@ -7824,7 +7835,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Accepts log data for processing by Log Analytics.
+   * Accepts log data for processing by Logging Analytics.
    *
    * @param UploadLogFileRequest
    * @return UploadLogFileResponse

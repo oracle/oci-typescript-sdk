@@ -19,7 +19,7 @@ export interface ListStorageWorkRequestsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * The Log Analytics namespace used for the request.
+   * The Logging Analytics namespace used for the request.
    *
    */
   "namespaceName": string;
@@ -41,32 +41,33 @@ export interface ListStorageWorkRequestsRequest extends common.BaseRequest {
    */
   "sortOrder"?: ListStorageWorkRequestsRequest.SortOrder;
   /**
-   * The field to sort by. Only one sort order may be provided. Default order for timeAccepted is descending. If no value is specified timeAccepted is default.
+   * This is the query parameter of which field to sort by. Only one sort order may be provided. Default order for timeAccepted
+   * is descending. If no value is specified timeAccepted is default.
    *
    */
   "sortBy"?: ListStorageWorkRequestsRequest.SortBy;
   /**
-   * storage operation type
+   * The is the work request type query parameter
    */
   "operationType"?: model.StorageOperationType;
   /**
-   * storage operation status
+   * The is the work request status query parameter
    */
   "status"?: model.WorkRequestStatus;
   /**
-   * storage operation started time
+   * The is the query parameter of when the processing of work request was started
    */
   "timeStarted"?: Date;
   /**
-   * storage operation time finished
+   * The is the query parameter of when the processing of work request was finished
    */
   "timeFinished"?: Date;
   /**
-   * policy name e.g. purge policy
+   * This is the query parameter of purge policy name
    */
   "policyName"?: string;
   /**
-   * policy ID e.g. purge policy ID
+   * This is the query parameter of purge policy ID
    */
   "policyId"?: string;
 }

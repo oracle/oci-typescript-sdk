@@ -24,7 +24,7 @@ export interface UploadWarningSummary {
    */
   "reference": string;
   /**
-   * Status
+   * Status of the upload. Ex - Failed
    */
   "status"?: string;
   /**

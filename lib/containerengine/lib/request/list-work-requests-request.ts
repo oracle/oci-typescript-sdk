@@ -33,7 +33,7 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
   /**
    * A work request status to filter on. Can have multiple parameters of this name.
    */
-  "status"?: Array<model.WorkRequestStatus>;
+  "status"?: Array<string>;
   /**
    * For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call.
    * 1 is the minimum, 1000 is the maximum. For important details about how pagination works,

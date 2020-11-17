@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Update storage configuration of a tenancy in Logan Analytics application
+ * This is the input to update storage configuration of a tenancy in Logan Analytics application
  */
 export interface UpdateStorageDetails {
   "archivingConfiguration": model.ArchivingConfiguration;

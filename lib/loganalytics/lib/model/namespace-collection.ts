@@ -16,12 +16,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * List of NamespaceSummary: there is at most one item.
+ * This is a list of NamespaceSummary: there is at most one item in the list.
  *
  */
 export interface NamespaceCollection {
   /**
-   * List of NamespaceSummary: there is at most one item.
+   * There is at most one item in the items array.
    *
    */
   "items": Array<model.NamespaceSummary>;

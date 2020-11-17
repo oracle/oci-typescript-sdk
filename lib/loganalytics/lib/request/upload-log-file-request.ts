@@ -16,7 +16,7 @@ import common = require("oci-common");
 import stream = require("stream");
 export interface UploadLogFileRequest extends common.BaseRequest {
   /**
-   * The Log Analytics namespace used for the request.
+   * The Logging Analytics namespace used for the request.
    *
    */
   "namespaceName": string;
@@ -37,7 +37,6 @@ export interface UploadLogFileRequest extends common.BaseRequest {
   "filename": string;
   /**
    * The log group OCID to which the log data in this upload will be mapped to.
-   *   Example: `ocid1.loganalyticsloggroup.oc1..aaaaaaaad3q4sosi5i7z7onw2kgbwyk1581620537198`
    *
    */
   "opcMetaLoggrpid": string;
@@ -56,7 +55,7 @@ export interface UploadLogFileRequest extends common.BaseRequest {
    */
   "timezone"?: string;
   /**
-   * character Encoding
+   * Character Encoding
    */
   "charEncoding"?: string;
   /**
@@ -78,7 +77,7 @@ export interface UploadLogFileRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
- * The base-64 encoded MD5 hash of the body. If the Content-MD5 header is present, Log Analytics performs an integrity check
+ * The base-64 encoded MD5 hash of the body. If the Content-MD5 header is present, Logging Analytics performs an integrity check
 * on the body of the HTTP request by computing the MD5 hash for the body and comparing it to the MD5 hash supplied in the header.
 * If the two hashes do not match, the log data is rejected and an HTTP-400 Unmatched Content MD5 error is returned with the message:
 * <p>
@@ -87,7 +86,7 @@ export interface UploadLogFileRequest extends common.BaseRequest {
  */
   "contentMd5"?: string;
   /**
-   * The content type of the log data. Defaults to 'application/octet-stream' if not overridden during the UploadLogFile call.
+   * The content type of the log data.
    */
   "contentType"?: string;
   /**

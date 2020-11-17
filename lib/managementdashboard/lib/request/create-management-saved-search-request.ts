@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface CreateManagementSavedSearchRequest extends common.BaseRequest {
   /**
-   * Json metadata for the saved search.
+   * JSON metadata for the saved search.
    */
   "createManagementSavedSearchDetails": model.CreateManagementSavedSearchDetails;
   /**

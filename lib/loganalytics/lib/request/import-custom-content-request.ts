@@ -16,7 +16,7 @@ import common = require("oci-common");
 import stream = require("stream");
 export interface ImportCustomContentRequest extends common.BaseRequest {
   /**
-   * The Log Analytics namespace used for the request.
+   * The Logging Analytics namespace used for the request.
    *
    */
   "namespaceName": string;

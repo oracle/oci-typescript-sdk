@@ -16,24 +16,24 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Work request details to recall archived data
+ * This is the input used to recall archived data
  *
  */
 export interface RecallArchivedDataDetails {
   /**
-   * the compartment OCID for permission checking
+   * This is the compartment OCID for permission checking
    */
   "compartmentId": string;
   /**
-   * the end of the time interval
+   * This is the end of the time interval
    */
   "timeDataEnded": Date;
   /**
-   * the start of the time interval
+   * This is the start of the time interval
    */
   "timeDataStarted": Date;
   /**
-   * the type of the log data to be purged
+   * This is the type of the log data to be recalled
    */
   "dataType"?: model.StorageDataType;
 }

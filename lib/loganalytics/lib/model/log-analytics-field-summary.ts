@@ -15,6 +15,9 @@
 import * as model from "../model";
 import common = require("oci-common");
 
+/**
+ * summary of fields
+ */
 export interface LogAnalyticsFieldSummary {
   /**
    * The name this field is given in the common event expression standard from mitre.org.

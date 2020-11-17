@@ -120,6 +120,7 @@ export namespace DatabaseSummary {
     Available = "AVAILABLE",
     Updating = "UPDATING",
     BackupInProgress = "BACKUP_IN_PROGRESS",
+    Upgrading = "UPGRADING",
     Terminating = "TERMINATING",
     Terminated = "TERMINATED",
     RestoreFailed = "RESTORE_FAILED",

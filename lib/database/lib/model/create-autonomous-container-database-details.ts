@@ -52,6 +52,18 @@ export interface CreateAutonomousContainerDatabaseDetails {
    */
   "protectionMode"?: CreateAutonomousContainerDatabaseDetails.ProtectionMode;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the peer Autonomous VM cluster for Autonomous Data Guard. Required to enable Data Guard.
+   *
+   */
+  "peerAutonomousVmClusterId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment where the standby Autonomous Container Database
+   * will be created.
+   *
+   */
+  "peerAutonomousContainerDatabaseCompartmentId"?: string;
+  "peerAutonomousContainerDatabaseBackupConfig"?: model.PeerAutonomousContainerDatabaseBackupConfig;
+  /**
    * The OCID of the Autonomous VM Cluster.
    */
   "autonomousVmClusterId"?: string;
@@ -124,6 +136,12 @@ export namespace CreateAutonomousContainerDatabaseDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "peerAutonomousContainerDatabaseBackupConfig": obj.peerAutonomousContainerDatabaseBackupConfig
+          ? model.PeerAutonomousContainerDatabaseBackupConfig.getJsonObj(
+              obj.peerAutonomousContainerDatabaseBackupConfig
+            )
+          : undefined,
+
         "maintenanceWindowDetails": obj.maintenanceWindowDetails
           ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindowDetails)
           : undefined,

@@ -16,15 +16,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A log message from the execution of a work request.
+ * This is a log message from the execution of a work request.
  */
 export interface WorkRequestLog {
   /**
-   * Human-readable log message.
+   * This is a human-readable log message.
    */
   "message": string;
   /**
-   * The time the log message was written. An RFC3339 formatted datetime string
+   * This is the time the log message was written. An RFC3339 formatted datetime string
    */
   "timestamp": Date;
 }

@@ -16,12 +16,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Storage work request summary for list operation.
+ * This is the summary of a storage work request.
  *
  */
 export interface StorageWorkRequestSummary {
   /**
-   * Unique OCID identifier to reference this storage work Request with.
+   * This is the OCID of the storage work Request.
    *
    */
   "id": string;
@@ -52,52 +52,52 @@ export interface StorageWorkRequestSummary {
    */
   "percentComplete"?: number;
   /**
-   * Work request status.
+   * This is the work request status.
    *
    */
   "status": model.WorkRequestStatus;
   /**
-   * the start of the time interval
+   * This is the start of the time interval
    */
   "timeDataStarted"?: Date;
   /**
-   * the end of the time interval
+   * This is the end of the time interval
    */
   "timeDataEnded": Date;
   /**
-   * the solr data filter query, '*' means all
+   * This is the solr query used to filter data for purge, '*' means all
    */
   "purgeQueryString"?: string;
   /**
-   * the type of the log data to be purged
+   * Thie is the type of data to be purged
    */
   "dataType": model.StorageDataType;
   /**
-   * more detailed status if applicable
+   * This provides more detailed status if applicable
    */
   "statusDetails"?: string;
   /**
-   * more detailed info about this operation if applicable
+   * This provides more detailed info about the work request if applicable
    */
   "operationDetails"?: string;
   /**
-   * policy name if applicable (e.g. purge policy)
+   * This is the policy name if applicable (e.g. purge policy)
    */
   "policyName"?: string;
   /**
-   * purge policy ID
+   * This is the purge policy ID if applicable
    */
   "policyId"?: string;
   /**
-   * storage usage in bytes if applicable
+   * This is the data usage in bytes if applicable
    */
   "storageUsageInBytes"?: number;
   /**
-   * if true, purge child compartments data, only applicable to purge request
+   * If true, purge child compartments data, only applicable to purge request
    */
   "compartmentIdInSubtree"?: boolean;
   /**
-   * Asynchronous storage request name.
+   * This is the type of the work request.
    *
    */
   "operationType": model.StorageOperationType;

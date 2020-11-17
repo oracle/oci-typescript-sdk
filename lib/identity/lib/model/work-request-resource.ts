@@ -44,6 +44,7 @@ export namespace WorkRequestResource {
     Deleted = "DELETED",
     Related = "RELATED",
     InProgress = "IN_PROGRESS",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

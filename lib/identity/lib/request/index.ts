@@ -21,6 +21,8 @@ import * as BulkDeleteResourcesRequest from "./bulk-delete-resources-request";
 export import BulkDeleteResourcesRequest = BulkDeleteResourcesRequest.BulkDeleteResourcesRequest;
 import * as BulkDeleteTagsRequest from "./bulk-delete-tags-request";
 export import BulkDeleteTagsRequest = BulkDeleteTagsRequest.BulkDeleteTagsRequest;
+import * as BulkEditTagsRequest from "./bulk-edit-tags-request";
+export import BulkEditTagsRequest = BulkEditTagsRequest.BulkEditTagsRequest;
 import * as BulkMoveResourcesRequest from "./bulk-move-resources-request";
 export import BulkMoveResourcesRequest = BulkMoveResourcesRequest.BulkMoveResourcesRequest;
 import * as CascadeDeleteTagNamespaceRequest from "./cascade-delete-tag-namespace-request";
@@ -147,6 +149,8 @@ import * as ListAvailabilityDomainsRequest from "./list-availability-domains-req
 export import ListAvailabilityDomainsRequest = ListAvailabilityDomainsRequest.ListAvailabilityDomainsRequest;
 import * as ListBulkActionResourceTypesRequest from "./list-bulk-action-resource-types-request";
 export import ListBulkActionResourceTypesRequest = ListBulkActionResourceTypesRequest.ListBulkActionResourceTypesRequest;
+import * as ListBulkEditTagsResourceTypesRequest from "./list-bulk-edit-tags-resource-types-request";
+export import ListBulkEditTagsResourceTypesRequest = ListBulkEditTagsResourceTypesRequest.ListBulkEditTagsResourceTypesRequest;
 import * as ListCompartmentsRequest from "./list-compartments-request";
 export import ListCompartmentsRequest = ListCompartmentsRequest.ListCompartmentsRequest;
 import * as ListCostTrackingTagsRequest from "./list-cost-tracking-tags-request";

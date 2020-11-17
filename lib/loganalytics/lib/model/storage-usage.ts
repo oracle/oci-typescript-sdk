@@ -16,19 +16,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Storage usage of a tenancy in Logan Analytics application
+ * This is the storage usage information of a tenancy in Logan Analytics application
  */
 export interface StorageUsage {
   /**
-   * number of bytes
+   * This is the number of bytes of active data (non-archived)
    */
   "activeDataSizeInBytes": number;
   /**
-   * number of bytes archived in object store
+   * This is the number of bytes of archived data in object storage
    */
   "archivedDataSizeInBytes": number;
   /**
-   * number of bytes recalled from archived data in object store
+   * This is the number of bytes of recalled data from archived in object store
    */
   "recalledArchivedDataSizeInBytes": number;
 }

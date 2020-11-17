@@ -16,12 +16,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * List of logs for the specified work request if any.
+ * This is a list of logs for the work request.
  *
  */
 export interface WorkRequestLogCollection {
   /**
-   * List of logs for the specified work request if any.
+   * This is an array of logs for the work request.
    *
    */
   "items": Array<model.WorkRequestLog>;

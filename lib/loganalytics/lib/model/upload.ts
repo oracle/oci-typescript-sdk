@@ -45,7 +45,7 @@ export interface Upload {
    */
   "timeLatestLogEntry"?: Date;
   /**
-   * Warnings summary.
+   * Number of warnings associated to the upload.
    */
   "warningsCount"?: number;
 }

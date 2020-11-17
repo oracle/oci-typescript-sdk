@@ -19,7 +19,7 @@ export interface GetStorageWorkRequestRequest extends common.BaseRequest {
    */
   "workRequestId": string;
   /**
-   * The Log Analytics namespace used for the request.
+   * The Logging Analytics namespace used for the request.
    *
    */
   "namespaceName": string;
