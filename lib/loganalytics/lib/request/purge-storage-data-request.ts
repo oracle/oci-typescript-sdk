@@ -15,12 +15,12 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface PurgeStorageDataRequest extends common.BaseRequest {
   /**
-   * The Log Analytics namespace used for the request.
+   * The Logging Analytics namespace used for the request.
    *
    */
   "namespaceName": string;
   /**
-   * purge old data request details
+   * This is the input to purge old data.
    */
   "purgeStorageDataDetails": model.PurgeStorageDataDetails;
   /**

@@ -15,6 +15,9 @@
 import * as model from "../model";
 import common = require("oci-common");
 
+/**
+ * source summary
+ */
 export interface LabelSourceSummary {
   /**
    * display name

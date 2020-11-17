@@ -36,7 +36,7 @@ export interface QueryAggregation {
    */
   "arePartialResults"?: boolean;
   /**
-   * Explanation of why results may be partial. Only set if isPartialResults is true.
+   * Explanation of why results may be partial. Only set if arePartialResults is true.
    *
    */
   "partialResultReason"?: string;

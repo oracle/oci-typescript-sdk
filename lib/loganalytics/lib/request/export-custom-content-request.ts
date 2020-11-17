@@ -15,12 +15,12 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface ExportCustomContentRequest extends common.BaseRequest {
   /**
-   * The Log Analytics namespace used for the request.
+   * The Logging Analytics namespace used for the request.
    *
    */
   "namespaceName": string;
   /**
-   *
+   * content to export
    */
   "exportCustomContentDetails": model.ExportContent;
   /**

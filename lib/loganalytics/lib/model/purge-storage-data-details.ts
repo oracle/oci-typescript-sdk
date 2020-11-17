@@ -16,28 +16,28 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Work request details to purge old data
+ * This is the input used to purge data
  *
  */
 export interface PurgeStorageDataDetails {
   /**
-   * the compartment OCID under which the data will be purged and required permission will be checked
+   * This is the compartment OCID under which the data will be purged and required permission will be checked
    */
   "compartmentId": string;
   /**
-   * if true, purge child compartments data
+   * If true, purge child compartments data
    */
   "compartmentIdInSubtree"?: boolean;
   /**
-   * the end of the time interval
+   * This is the end of the purge time interval
    */
   "timeDataEnded": Date;
   /**
-   * the solr data filter query, '*' means all
+   * This is the solr query used to filter data, '*' means all
    */
   "purgeQueryString"?: string;
   /**
-   * the type of the log data to be purged
+   * This is the type of the log data to be purged
    */
   "dataType"?: model.StorageDataType;
 }

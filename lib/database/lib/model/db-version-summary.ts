@@ -38,6 +38,10 @@ export interface DbVersionSummary {
    * True if this version of the Oracle Database software is the preview version.
    */
   "isPreviewDbVersion"?: boolean;
+  /**
+   * True if this version of the Oracle Database software is supported for Upgrade.
+   */
+  "isUpgradeSupported"?: boolean;
 }
 
 export namespace DbVersionSummary {

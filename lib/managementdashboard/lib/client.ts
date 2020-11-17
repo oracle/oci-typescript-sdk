@@ -1,7 +1,6 @@
 /**
  * ManagementDashboard API
- * Management Dashboard micro-service provides a set of CRUD, import, export, and compartment related APIs (such as change compartment)   to support dashboard and saved search metadata preservation.  These APIs are mainly for client UIs, for various UI activities such as get list of all saved searches in a compartment, create a dashboard, open a saved search, etc.  Use export to retrieve  dashboards and their saved searches, then edit the Json if necessary (for example change compartmentIds), then import the result to  destination dashboard service.
-APIs validate all required properties to ensure properties are present and have correct type and values.
+ * API for the Management Dashboard micro-service. Use this API for dashboard and saved search metadata preservation and to perform  tasks such as creating a dashboard, creating a saved search, and obtaining a list of dashboards and saved searches in a compartment.
     
 
  * OpenAPI spec version: 20200901
@@ -109,7 +108,7 @@ export class DashxApisClient {
   }
 
   /**
-   * Move the dashboard from existing compartment to a new compartment.
+   * Moves the dashboard from the existing compartment to a new compartment.
    *
    * @param ChangeManagementDashboardsCompartmentRequest
    * @return ChangeManagementDashboardsCompartmentResponse
@@ -177,7 +176,7 @@ export class DashxApisClient {
   }
 
   /**
-   * Move the saved search from existing compartment to a new compartment.
+   * Moves the saved search from the existing compartment to a new compartment.
    *
    * @param ChangeManagementSavedSearchesCompartmentRequest
    * @return ChangeManagementSavedSearchesCompartmentResponse
@@ -394,7 +393,7 @@ export class DashxApisClient {
   }
 
   /**
-   * Deletes a Dashboard by id.
+   * Deletes a Dashboard by ID.
    * @param DeleteManagementDashboardRequest
    * @return DeleteManagementDashboardResponse
    * @throws OciError when an error occurs
@@ -455,7 +454,7 @@ export class DashxApisClient {
   }
 
   /**
-   * Deletes a saved search by Id
+   * Deletes a saved search by ID.
    * @param DeleteManagementSavedSearchRequest
    * @return DeleteManagementSavedSearchResponse
    * @throws OciError when an error occurs
@@ -579,7 +578,7 @@ export class DashxApisClient {
   }
 
   /**
-   * Get a Dashboard and its saved searches by id.  Deleted or unauthorized saved searches are marked by tile's state property.
+   * Gets a dashboard and its saved searches by ID.  Deleted or unauthorized saved searches are marked by tile's state property.
    * @param GetManagementDashboardRequest
    * @return GetManagementDashboardResponse
    * @throws OciError when an error occurs
@@ -647,7 +646,7 @@ export class DashxApisClient {
   }
 
   /**
-   * Get a saved search by Id.
+   * Gets a saved search by ID.
    * @param GetManagementSavedSearchRequest
    * @return GetManagementSavedSearchResponse
    * @throws OciError when an error occurs
@@ -716,7 +715,7 @@ export class DashxApisClient {
   }
 
   /**
-   * Import an array of dashboards and their saved searches.
+   * Imports an array of dashboards and their saved searches.
    *
    * @param ImportDashboardRequest
    * @return ImportDashboardResponse
@@ -781,7 +780,7 @@ export class DashxApisClient {
   }
 
   /**
-   * Gets list of dashboards and their saved searches for compartment with pagination.  Returned properties are a summary.
+   * Gets the list of dashboards and their saved searches in a compartment with pagination.  Returned properties are the summary.
    * @param ListManagementDashboardsRequest
    * @return ListManagementDashboardsResponse
    * @throws OciError when an error occurs
@@ -849,7 +848,7 @@ export class DashxApisClient {
   }
 
   /**
-   * Gets list of saved searches with pagination.  Returned properties are a summary.
+   * Gets the list of saved searches in a compartment with pagination.  Returned properties are the summary.
    * @param ListManagementSavedSearchesRequest
    * @return ListManagementSavedSearchesResponse
    * @throws OciError when an error occurs
@@ -917,7 +916,7 @@ export class DashxApisClient {
   }
 
   /**
-   * Updates an existing dashboard identified by id path parameter.  Limit for number of saved searches in a dashboard is 20.
+   * Updates an existing dashboard identified by ID path parameter.  CompartmentId can be modified only by the changeCompartment API. Limit for number of saved searches in a dashboard is 20.
    *
    * @param UpdateManagementDashboardRequest
    * @return UpdateManagementDashboardResponse
@@ -993,7 +992,7 @@ export class DashxApisClient {
   }
 
   /**
-   * Update an existing saved search.  Id cannot be updated.
+   * Updates an existing saved search identified by ID path parameter.  CompartmentId can be modified only by the changeCompartment API.
    *
    * @param UpdateManagementSavedSearchRequest
    * @return UpdateManagementSavedSearchResponse

@@ -1565,6 +1565,24 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forDatabaseUpgradeHistoryEntry till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDatabaseUpgradeHistoryEntryResponse
+   */
+  public async forDatabaseUpgradeHistoryEntry(
+    request: serviceRequests.GetDatabaseUpgradeHistoryEntryRequest,
+    ...targetStates: models.DatabaseUpgradeHistoryEntry.LifecycleState[]
+  ): Promise<serviceResponses.GetDatabaseUpgradeHistoryEntryResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getDatabaseUpgradeHistoryEntry(request),
+      response => targetStates.exists(response.databaseUpgradeHistoryEntry.lifecycleState)
+    );
+  }
+
+  /**
    * Waits forDbHome till it reaches any of the provided states
    *
    * @param request the request to send
@@ -2612,6 +2630,27 @@ export class DatabaseWaiter {
       response: updateVmClusterNetworkResponse,
       workRequestResponse: getWorkRequestResponse
     };
+  }
+
+  /**
+   * Waits forUpgradeDatabase
+   *
+   * @param request the request to send
+   * @return response returns UpgradeDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpgradeDatabase(
+    request: serviceRequests.UpgradeDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.UpgradeDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const upgradeDatabaseResponse = await this.client.upgradeDatabase(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      upgradeDatabaseResponse.opcWorkRequestId
+    );
+    return { response: upgradeDatabaseResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**

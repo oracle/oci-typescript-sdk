@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface GetManagementDashboardRequest extends common.BaseRequest {
   /**
-   * unique dashboard identifier
+   * A unique dashboard identifier.
    */
   "managementDashboardId": string;
   /**

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface ListUploadFilesRequest extends common.BaseRequest {
   /**
-   * The Log Analytics namespace used for the request.
+   * The Logging Analytics namespace used for the request.
    *
    */
   "namespaceName": string;
@@ -42,11 +42,11 @@ export interface ListUploadFilesRequest extends common.BaseRequest {
    */
   "sortBy"?: ListUploadFilesRequest.SortBy;
   /**
-   * Search string
+   * Search string used to filtering uploads based on file name, log group name and log source name.
    */
   "searchStr"?: string;
   /**
-   * Status
+   * Upload Status.
    */
   "status"?: Array<ListUploadFilesRequest.Status>;
   /**

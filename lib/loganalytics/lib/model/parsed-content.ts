@@ -32,11 +32,11 @@ export interface ParsedContent {
    */
   "parsedFieldValues"?: Array<model.ParsedField>;
   /**
-   * Log Content
+   * Sample log entries picked up from the given file for validation
    */
   "logContent"?: string;
   /**
-   * Sample Size
+   * Sample Size taken for validation
    */
   "sampleSize"?: number;
   /**

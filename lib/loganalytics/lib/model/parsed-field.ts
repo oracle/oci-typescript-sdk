@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface ParsedField {
   /**
-   * Log Content
+   * Sample log entries picked up from the given file for validation
    */
   "logContent"?: string;
   /**

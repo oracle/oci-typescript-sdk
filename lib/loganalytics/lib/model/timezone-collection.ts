@@ -16,11 +16,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Set of supported timezones.
+ * List of supported timezones.
  */
 export interface TimezoneCollection {
   /**
-   * timezones.
+   * List of supported timezones.
    */
   "items": Array<string>;
 }

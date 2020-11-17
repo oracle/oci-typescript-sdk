@@ -1,7 +1,6 @@
 /**
  * ManagementDashboard API
- * Management Dashboard micro-service provides a set of CRUD, import, export, and compartment related APIs (such as change compartment)   to support dashboard and saved search metadata preservation.  These APIs are mainly for client UIs, for various UI activities such as get list of all saved searches in a compartment, create a dashboard, open a saved search, etc.  Use export to retrieve  dashboards and their saved searches, then edit the Json if necessary (for example change compartmentIds), then import the result to  destination dashboard service.
-APIs validate all required properties to ensure properties are present and have correct type and values.
+ * API for the Management Dashboard micro-service. Use this API for dashboard and saved search metadata preservation and to perform  tasks such as creating a dashboard, creating a saved search, and obtaining a list of dashboards and saved searches in a compartment.
     
 
  * OpenAPI spec version: 20200901
@@ -18,43 +17,43 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of properties for a dashboard.
+ * Summary of the properties of a dashboard.
  */
 export interface ManagementDashboardSummary {
   /**
-   * Dashboard Id. Must be providied if OOB, otherwise must not be provided.
+   * ID of the dashboard.
    */
   "dashboardId": string;
   /**
-   * Display name for dashboard.
+   * Display name of the dashboard.
    */
   "displayName": string;
   /**
-   * Dashboard's description.
+   * Description of the dashboard.
    */
   "description": string;
   /**
-   * The ocid of the compartment that owns the dashboard.
+   * OCID of the compartment in which the dashboard resides.
    */
   "compartmentId": string;
   /**
-   * String boolean (\"true\" or \"false\").  OOB (Out of the Box) dashboards are only provided by Oracle.  They cannot be modified by non-Oracle.
+   * Determines whether the dashboard is an Out-of-the-Box (OOB) dashboard. Note that OOB dashboards are only provided by Oracle and cannot be modified.
    */
   "isOobDashboard": boolean;
   /**
-   * Created by which user.
+   * User who created the dashboard.
    */
   "createdBy": string;
   /**
-   * Time created.
+   * Date and time the dashboard was created.
    */
   "timeCreated": Date;
   /**
-   * Updated by which user.
+   * User who updated the dashboard.
    */
   "updatedBy": string;
   /**
-   * Time updated.
+   * Date and time the dashboard was updated.
    */
   "timeUpdated": Date;
   /**
@@ -62,19 +61,19 @@ export interface ManagementDashboardSummary {
    */
   "metadataVersion": string;
   /**
-   * screen image.
+   * Screen image of the dashboard.
    */
   "screenImage": string;
   /**
-   * Json for internationalization.
+   * JSON that contains internationalization options.
    */
   "nls": any;
   /**
-   * NORMAL means single dashboard, SET means dashboard set.
+   * Type of dashboard. NORMAL denotes a single dashboard and SET denotes a dashboard set.
    */
   "type": string;
   /**
-   * State of dashboard.
+   * Current lifecycle state of the dashboard.
    */
   "lifecycleState": model.LifecycleStates;
   /**

@@ -31,9 +31,6 @@ export interface LogAnalyticsImportCustomContent {
    * fieldNames
    */
   "fieldNames"?: Array<string>;
-  /**
-   * changeList
-   */
   "changeList"?: model.LogAnalyticsImportCustomChangeList;
   /**
    * contentName

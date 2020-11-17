@@ -117,6 +117,36 @@ Example: `{\"Department\": \"Finance\"}`
    * Flag indicates if MFA has been activated for the user.
    */
   "isMfaActivated": boolean;
+  /**
+    * The date and time of when the user most recently logged in the
+* format defined by RFC3339 (ex. `2016-08-25T21:10:29.600Z`).
+* If there is no login history, this field is null.
+* <p>
+For illustrative purposes, suppose we have a user who has logged in
+* at July 1st, 2020 at 1200 PST and logged out 30 minutes later.
+* They then login again on July 2nd, 2020 at 1500 PST.
+* <p>
+Their previousSuccessfulLoginTime would be `2020-07-01:19:00.000Z`.
+* <p>
+Their lastSuccessfulLoginTime would be `2020-07-02:22:00.000Z`.
+* 
+    */
+  "lastSuccessfulLoginTime"?: Date;
+  /**
+    * The date and time of when the user most recently logged in the
+* format defined by RFC3339 (ex. `2016-08-25T21:10:29.600Z`).
+* If there is no login history, this field is null.
+* <p>
+For illustrative purposes, suppose we have a user who has logged in
+* at July 1st, 2020 at 1200 PST and logged out 30 minutes later.
+* They then login again on July 2nd, 2020 at 1500 PST.
+* <p>
+Their previousSuccessfulLoginTime would be `2020-07-01:19:00.000Z`.
+* <p>
+Their lastSuccessfulLoginTime would be `2020-07-02:22:00.000Z`.
+* 
+    */
+  "previousSuccessfulLoginTime"?: Date;
 }
 
 export namespace User {

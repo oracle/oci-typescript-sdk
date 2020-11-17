@@ -15,12 +15,12 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface RecallArchivedDataRequest extends common.BaseRequest {
   /**
-   * The Log Analytics namespace used for the request.
+   * The Logging Analytics namespace used for the request.
    *
    */
   "namespaceName": string;
   /**
-   * recall archived data request details
+   * This is the input to recall archived data.
    */
   "recallArchivedDataDetails": model.RecallArchivedDataDetails;
   /**

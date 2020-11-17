@@ -16,28 +16,28 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Parameters used to estimate purge data size
+ * This is the input used to estimate the size of data that might be purged
  *
  */
 export interface EstimatePurgeDataSizeDetails {
   /**
-   * the compartment OCID under which the data will be purged
+   * This is the compartment OCID under which the data will be purged
    */
   "compartmentId": string;
   /**
-   * if true, purge child compartments data
+   * If true, purge child compartments data
    */
   "compartmentIdInSubtree"?: boolean;
   /**
-   * the time before which data will be purged
+   * This is the time before which data will be purged
    */
   "timeDataEnded": Date;
   /**
-   * the solr data filter query, '*' means all
+   * This is the solr data filter query, '*' means all
    */
   "purgeQueryString"?: string;
   /**
-   * the type of the log data to be purged
+   * This is the type of the log data to be purged
    */
   "dataType"?: model.StorageDataType;
 }

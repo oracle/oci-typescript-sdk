@@ -22,7 +22,7 @@ export interface LogAnalyticsParserFilter {
   /**
    * id
    */
-  "id"?: any;
+  "id"?: string;
   "parser"?: model.LogAnalyticsParser;
   /**
    * agent version

@@ -80,6 +80,18 @@ Example: `180 Mb per second`
     */
   "applyRate"?: string;
   /**
+    * The approximate number of seconds of redo data not yet available on the standby Autonomous Container Database,
+* as computed by the reporting database.
+* <p>
+Example: `7 seconds`
+* 
+    */
+  "transportLag"?: string;
+  /**
+   * The date and time of the last update to the apply lag, apply rate, and transport lag values.
+   */
+  "timeLastSynced"?: Date;
+  /**
    * The date and time the Data Guard association was created.
    */
   "timeCreated"?: Date;

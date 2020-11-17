@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface ListLogAnalyticsLogGroupsRequest extends common.BaseRequest {
   /**
-   * The Log Analytics namespace used for the request.
+   * The Logging Analytics namespace used for the request.
    *
    */
   "namespaceName": string;
@@ -24,7 +24,7 @@ export interface ListLogAnalyticsLogGroupsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * A filter to return only log analytics entities whose displayName matches the entire display name given.
+   * A filter to return only log analytics log groups whose displayName matches the entire display name given.
    * The match is case-insensitive.
    *
    */

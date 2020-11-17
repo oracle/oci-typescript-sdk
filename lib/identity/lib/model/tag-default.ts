@@ -72,8 +72,8 @@ Example: `2016-08-25T21:10:29.600Z`
    */
   "lifecycleState"?: TagDefault.LifecycleState;
   /**
-    * If you specify that a value is required, a value is set during resource creation (either by the 
-* user creating the resource or another tag defualt). If no value is set, resource creation is 
+    * If you specify that a value is required, a value is set during resource creation (either by the
+* user creating the resource or another tag defualt). If no value is set, resource creation is
 * blocked.
 * <p>
 * If the `isRequired` flag is set to \"true\", the value is set during resource creation.

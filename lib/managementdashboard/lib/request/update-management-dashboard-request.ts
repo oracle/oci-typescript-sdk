@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface UpdateManagementDashboardRequest extends common.BaseRequest {
   /**
-   * unique dashboard identifier
+   * A unique dashboard identifier.
    */
   "managementDashboardId": string;
   /**
-   * Json Metadata for changed dashboard properties.
+   * JSON metadata for changed dashboard properties.
    */
   "updateManagementDashboardDetails": model.UpdateManagementDashboardDetails;
   /**

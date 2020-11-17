@@ -16,19 +16,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Namespace summary of a tenancy in Logan Analytics application
+ * The is the namespace summary of a tenancy in Logan Analytics application
  */
 export interface NamespaceSummary {
   /**
-   * namespace name
+   * This is the namespace name of a tenancy
    */
   "namespaceName": string;
   /**
-   * Tenancy ID
+   * The is the tenancy ID
    */
   "compartmentId": string;
   /**
-   * if tenancy is onboarded to logging analytics
+   * This indicates if the tenancy is onboarded to Logging Analytics
    */
   "isOnboarded": boolean;
 }

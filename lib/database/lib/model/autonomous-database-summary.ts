@@ -63,6 +63,7 @@ export interface AutonomousDatabaseSummary {
    *
    */
   "timeDeletionOfFreeAutonomousDatabase"?: Date;
+  "backupConfig"?: model.AutonomousDatabaseBackupConfig;
   /**
    * The number of OCPU cores to be made available to the database.
    */
@@ -433,6 +434,10 @@ export namespace AutonomousDatabaseSummary {
     const jsonObj = {
       ...obj,
       ...{
+        "backupConfig": obj.backupConfig
+          ? model.AutonomousDatabaseBackupConfig.getJsonObj(obj.backupConfig)
+          : undefined,
+
         "connectionStrings": obj.connectionStrings
           ? model.AutonomousDatabaseConnectionStrings.getJsonObj(obj.connectionStrings)
           : undefined,

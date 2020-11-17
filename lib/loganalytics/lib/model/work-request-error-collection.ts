@@ -16,12 +16,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * List of errors for the specified work request if any.
+ * This is a list of errors for the work request.
  *
  */
 export interface WorkRequestErrorCollection {
   /**
-   * List of errors for the specified work request if any.
+   * This is an array of errors for the work request.
    *
    */
   "items": Array<model.WorkRequestError>;

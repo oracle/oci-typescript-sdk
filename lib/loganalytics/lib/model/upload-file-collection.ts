@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface UploadFileCollection {
   /**
-   * list of UploadFileSummary objects.
+   * List of UploadFileSummary objects.
    */
   "items": Array<model.UploadFileSummary>;
 }

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface CreateManagementDashboardRequest extends common.BaseRequest {
   /**
-   * Json metadata for creating a new dashboard.
+   * JSON metadata for creating a new dashboard.
    */
   "createManagementDashboardDetails": model.CreateManagementDashboardDetails;
   /**

@@ -1,7 +1,6 @@
 /**
  * ManagementDashboard API
- * Management Dashboard micro-service provides a set of CRUD, import, export, and compartment related APIs (such as change compartment)   to support dashboard and saved search metadata preservation.  These APIs are mainly for client UIs, for various UI activities such as get list of all saved searches in a compartment, create a dashboard, open a saved search, etc.  Use export to retrieve  dashboards and their saved searches, then edit the Json if necessary (for example change compartmentIds), then import the result to  destination dashboard service.
-APIs validate all required properties to ensure properties are present and have correct type and values.
+ * API for the Management Dashboard micro-service. Use this API for dashboard and saved search metadata preservation and to perform  tasks such as creating a dashboard, creating a saved search, and obtaining a list of dashboards and saved searches in a compartment.
     
 
  * OpenAPI spec version: 20200901
@@ -18,51 +17,53 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Properties of dashboard tile representing a saved search.
+ * Properties of the dashboard tile representing a saved search.
+ * Tiles are laid out in a twelve column grid system with (0,0) at upper left corner.
+ *
  */
 export interface ManagementDashboardTileDetails {
   /**
-   * Display name for saved search.
+   * Display name of the saved search.
    */
   "displayName": string;
   /**
-   * Id of saved search.
+   * ID of the saved search.
    */
   "savedSearchId": string;
   /**
-   * Row, Y position
+   * Tile's row number.
    */
   "row": number;
   /**
-   * Column, X position
+   * Tile's column number.
    */
   "column": number;
   /**
-   * Height position
+   * The number of rows the tile occupies.
    */
   "height": number;
   /**
-   * Width position
+   * The number of columns the tile occupies.
    */
   "width": number;
   /**
-   * Json for internationalization.
+   * JSON that contains internationalization options.
    */
   "nls": any;
   /**
-   * Json to contain options for UI.
+   * JSON that contains user interface options.
    */
   "uiConfig": any;
   /**
-   * Array of Json to contain options for source of data.
+   * Array of JSON that contain data source options.
    */
   "dataConfig": Array<any>;
   /**
-   * State of saved search.
+   * Current state of the saved search.
    */
   "state": ManagementDashboardTileDetails.State;
   /**
-   * Drill down configuration
+   * Drill-down configuration to define the destination of a drill-down action.
    */
   "drilldownConfig": any;
 }

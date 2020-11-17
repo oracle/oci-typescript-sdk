@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface DeleteLogAnalyticsLogGroupRequest extends common.BaseRequest {
   /**
-   * The Log Analytics namespace used for the request.
+   * The Logging Analytics namespace used for the request.
    *
    */
   "namespaceName": string;

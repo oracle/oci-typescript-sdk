@@ -15,6 +15,9 @@
 import * as model from "../model";
 import common = require("oci-common");
 
+/**
+ * results of source validation
+ */
 export interface SourceValidateResults {
   /**
    * items

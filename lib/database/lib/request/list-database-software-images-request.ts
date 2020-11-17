@@ -51,6 +51,10 @@ export interface ListDatabaseSoftwareImagesRequest extends common.BaseRequest {
    * A filter to return only resources that match the given image shape family exactly.
    */
   "imageShapeFamily"?: string;
+  /**
+   * If provided, filters the results to the set of database versions which are supported for Upgrade.
+   */
+  "isUpgradeSupported"?: boolean;
 }
 
 export namespace ListDatabaseSoftwareImagesRequest {

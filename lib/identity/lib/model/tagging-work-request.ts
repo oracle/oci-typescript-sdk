@@ -69,6 +69,9 @@ export interface TaggingWorkRequest {
 export namespace TaggingWorkRequest {
   export enum OperationType {
     DeleteTagDefinition = "DELETE_TAG_DEFINITION",
+    DeleteNonEmptyTagNamespace = "DELETE_NON_EMPTY_TAG_NAMESPACE",
+    BulkDeleteTagDefinition = "BULK_DELETE_TAG_DEFINITION",
+    BulkEditOfTags = "BULK_EDIT_OF_TAGS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -81,6 +84,7 @@ export namespace TaggingWorkRequest {
     InProgress = "IN_PROGRESS",
     Failed = "FAILED",
     Succeeded = "SUCCEEDED",
+    PartiallySucceeded = "PARTIALLY_SUCCEEDED",
     Canceling = "CANCELING",
     Canceled = "CANCELED",
     /**

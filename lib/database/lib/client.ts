@@ -5919,6 +5919,66 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
+   * gets the upgrade history for a specified database.
+   *
+   * @param GetDatabaseUpgradeHistoryEntryRequest
+   * @return GetDatabaseUpgradeHistoryEntryResponse
+   * @throws OciError when an error occurs
+   */
+  public async getDatabaseUpgradeHistoryEntry(
+    getDatabaseUpgradeHistoryEntryRequest: requests.GetDatabaseUpgradeHistoryEntryRequest
+  ): Promise<responses.GetDatabaseUpgradeHistoryEntryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getDatabaseUpgradeHistoryEntry.");
+    const pathParams = {
+      "{databaseId}": getDatabaseUpgradeHistoryEntryRequest.databaseId,
+      "{upgradeHistoryEntryId}": getDatabaseUpgradeHistoryEntryRequest.upgradeHistoryEntryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDatabaseUpgradeHistoryEntryRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/upgradeHistoryEntries/{upgradeHistoryEntryId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getDatabaseUpgradeHistoryEntryRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDatabaseUpgradeHistoryEntryResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseUpgradeHistoryEntry",
+        bodyModel: "model.DatabaseUpgradeHistoryEntry",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets information about the specified Database Home.
    * @param GetDbHomeRequest
    * @return GetDbHomeResponse
@@ -9192,7 +9252,8 @@ An initial database is created on the DB system based on the request parameters 
       "lifecycleState": listDatabaseSoftwareImagesRequest.lifecycleState,
       "displayName": listDatabaseSoftwareImagesRequest.displayName,
       "imageType": listDatabaseSoftwareImagesRequest.imageType,
-      "imageShapeFamily": listDatabaseSoftwareImagesRequest.imageShapeFamily
+      "imageShapeFamily": listDatabaseSoftwareImagesRequest.imageShapeFamily,
+      "isUpgradeSupported": listDatabaseSoftwareImagesRequest.isUpgradeSupported
     };
 
     let headerParams = {
@@ -9263,6 +9324,102 @@ An initial database is created on the DB system based on the request parameters 
     request: requests.ListDatabaseSoftwareImagesRequest
   ): AsyncIterableIterator<responses.ListDatabaseSoftwareImagesResponse> {
     return paginateResponses(request, req => this.listDatabaseSoftwareImages(req));
+  }
+
+  /**
+   * gets the upgrade history for a specified database.
+   *
+   * @param ListDatabaseUpgradeHistoryEntriesRequest
+   * @return ListDatabaseUpgradeHistoryEntriesResponse
+   * @throws OciError when an error occurs
+   */
+  public async listDatabaseUpgradeHistoryEntries(
+    listDatabaseUpgradeHistoryEntriesRequest: requests.ListDatabaseUpgradeHistoryEntriesRequest
+  ): Promise<responses.ListDatabaseUpgradeHistoryEntriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listDatabaseUpgradeHistoryEntries.");
+    const pathParams = {
+      "{databaseId}": listDatabaseUpgradeHistoryEntriesRequest.databaseId
+    };
+
+    const queryParams = {
+      "upgradeAction": listDatabaseUpgradeHistoryEntriesRequest.upgradeAction,
+      "lifecycleState": listDatabaseUpgradeHistoryEntriesRequest.lifecycleState,
+      "sortBy": listDatabaseUpgradeHistoryEntriesRequest.sortBy,
+      "sortOrder": listDatabaseUpgradeHistoryEntriesRequest.sortOrder,
+      "limit": listDatabaseUpgradeHistoryEntriesRequest.limit,
+      "page": listDatabaseUpgradeHistoryEntriesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDatabaseUpgradeHistoryEntriesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/upgradeHistoryEntries",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listDatabaseUpgradeHistoryEntriesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDatabaseUpgradeHistoryEntriesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "DatabaseUpgradeHistoryEntrySummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DatabaseUpgradeHistoryEntrySummary objects
+   * contained in responses from the listDatabaseUpgradeHistoryEntries operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDatabaseUpgradeHistoryEntries(
+    request: requests.ListDatabaseUpgradeHistoryEntriesRequest
+  ): AsyncIterableIterator<models.DatabaseUpgradeHistoryEntrySummary> {
+    return paginateRecords(request, req => this.listDatabaseUpgradeHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDatabaseUpgradeHistoryEntries operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDatabaseUpgradeHistoryEntriesResponses(
+    request: requests.ListDatabaseUpgradeHistoryEntriesRequest
+  ): AsyncIterableIterator<responses.ListDatabaseUpgradeHistoryEntriesResponse> {
+    return paginateResponses(request, req => this.listDatabaseUpgradeHistoryEntries(req));
   }
 
   /**
@@ -10115,7 +10272,8 @@ An initial database is created on the DB system based on the request parameters 
       "page": listDbVersionsRequest.page,
       "dbSystemShape": listDbVersionsRequest.dbSystemShape,
       "dbSystemId": listDbVersionsRequest.dbSystemId,
-      "storageManagement": listDbVersionsRequest.storageManagement
+      "storageManagement": listDbVersionsRequest.storageManagement,
+      "isUpgradeSupported": listDbVersionsRequest.isUpgradeSupported
     };
 
     let headerParams = {
@@ -13885,6 +14043,80 @@ A switchover guarantees no data loss.
         body: await response.json(),
         bodyKey: "vmClusterNetwork",
         bodyModel: "model.VmClusterNetwork",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Upgrade the specified database.
+   *
+   * @param UpgradeDatabaseRequest
+   * @return UpgradeDatabaseResponse
+   * @throws OciError when an error occurs
+   */
+  public async upgradeDatabase(
+    upgradeDatabaseRequest: requests.UpgradeDatabaseRequest
+  ): Promise<responses.UpgradeDatabaseResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#upgradeDatabase.");
+    const pathParams = {
+      "{databaseId}": upgradeDatabaseRequest.databaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": upgradeDatabaseRequest.ifMatch,
+      "opc-request-id": upgradeDatabaseRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/actions/upgrade",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        upgradeDatabaseRequest.upgradeDatabaseDetails,
+        "UpgradeDatabaseDetails",
+        models.UpgradeDatabaseDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      upgradeDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpgradeDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "database",
+        bodyModel: "model.Database",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

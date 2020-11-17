@@ -16,11 +16,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Storage configuration and status of a tenancy in Logan Analytics application
+ * This is the storage configuration and status of a tenancy in Logan Analytics application
  */
 export interface Storage {
   /**
-   * if old data can be archived for a tenancy
+   * This indicates if old data can be archived for a tenancy
    */
   "isArchivingEnabled": boolean;
   "archivingConfiguration": model.ArchivingConfiguration;

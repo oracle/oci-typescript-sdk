@@ -44,9 +44,7 @@ export interface CreateLogAnalyticsObjectCollectionRuleDetails {
   "osBucketName": string;
   /**
    * The type of collection.
-   * Accepted values are: LIVE.
-   * Collection type LIVE indicates to enable log collection from the time of this rule creation,
-   * and continue until the rule exists.
+   * Supported collection types: LIVE, HISTORIC, HISTORIC_LIVE
    *
    */
   "collectionType"?: model.ObjectCollectionRuleCollectionTypes;
@@ -65,15 +63,15 @@ export interface CreateLogAnalyticsObjectCollectionRuleDetails {
    */
   "pollTill"?: string;
   /**
-   * Log Analytics Log group OCID to associate the processed logs with.
+   * Logging Analytics Log group OCID to associate the processed logs with.
    */
   "logGroupId": string;
   /**
-   * Name of the Log Analytics Source to use for the processing.
+   * Name of the Logging Analytics Source to use for the processing.
    */
   "logSourceName": string;
   /**
-   * Log Analytics entity OCID. Associates the processed logs with the given entity (optional).
+   * Logging Analytics entity OCID. Associates the processed logs with the given entity (optional).
    */
   "entityId"?: string;
   /**

@@ -15,12 +15,12 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface EstimatePurgeDataSizeRequest extends common.BaseRequest {
   /**
-   * The Log Analytics namespace used for the request.
+   * The Logging Analytics namespace used for the request.
    *
    */
   "namespaceName": string;
   /**
-   * Parameters used to estimate purge data size
+   * This is the input to estimate the size of data to be purged.
    */
   "estimatePurgeDataSizeDetails": model.EstimatePurgeDataSizeDetails;
   /**

@@ -90,6 +90,10 @@ Example: `{\"Department\": \"Finance\"}`
    * output from lsinventory which will get passed as a string
    */
   "lsInventory"?: string;
+  /**
+   * True if this Database software image is supported for Upgrade.
+   */
+  "isUpgradeSupported"?: boolean;
 }
 
 export namespace DatabaseSoftwareImage {

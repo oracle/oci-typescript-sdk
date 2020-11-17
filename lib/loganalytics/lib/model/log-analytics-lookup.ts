@@ -59,13 +59,7 @@ export interface LogAnalyticsLookup {
    * name
    */
   "lookupDisplayName"?: string;
-  /**
-   * sources using
-   */
   "referringSources"?: model.AutoLookups;
-  /**
-   * status summary
-   */
   "statusSummary"?: model.StatusSummary;
   /**
    * last updated date

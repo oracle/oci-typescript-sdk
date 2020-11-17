@@ -15,12 +15,12 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface UpdateLogAnalyticsObjectCollectionRuleRequest extends common.BaseRequest {
   /**
-   * The Log Analytics namespace used for the request.
+   * The Logging Analytics namespace used for the request.
    *
    */
   "namespaceName": string;
   /**
-   * The log analytics os collection rule [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)
+   * The Logging Analytics Object Collection Rule [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)
    */
   "logAnalyticsObjectCollectionRuleId": string;
   /**

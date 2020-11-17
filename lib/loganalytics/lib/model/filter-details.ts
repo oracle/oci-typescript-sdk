@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface FilterDetails {
   /**
-   * Query to update.
+   * Query to apply edits to.
    */
   "queryString": string;
   /**

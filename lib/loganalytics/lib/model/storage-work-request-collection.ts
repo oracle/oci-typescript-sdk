@@ -16,12 +16,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * List of work request summaries.
+ * This is a list of work request summaries.
  *
  */
 export interface StorageWorkRequestCollection {
   /**
-   * List of work request summaries.
+   * This is an array of work request summaries.
    *
    */
   "items": Array<model.StorageWorkRequestSummary>;
