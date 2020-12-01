@@ -29,6 +29,8 @@ import * as GetManagementAgentInstallKeyContentRequest from "./get-management-ag
 export import GetManagementAgentInstallKeyContentRequest = GetManagementAgentInstallKeyContentRequest.GetManagementAgentInstallKeyContentRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";
 export import GetWorkRequestRequest = GetWorkRequestRequest.GetWorkRequestRequest;
+import * as ListAvailabilityHistoriesRequest from "./list-availability-histories-request";
+export import ListAvailabilityHistoriesRequest = ListAvailabilityHistoriesRequest.ListAvailabilityHistoriesRequest;
 import * as ListManagementAgentImagesRequest from "./list-management-agent-images-request";
 export import ListManagementAgentImagesRequest = ListManagementAgentImagesRequest.ListManagementAgentImagesRequest;
 import * as ListManagementAgentInstallKeysRequest from "./list-management-agent-install-keys-request";

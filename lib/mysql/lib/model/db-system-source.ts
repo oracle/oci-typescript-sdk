@@ -33,6 +33,11 @@ export namespace DbSystemSource {
             <model.DbSystemSourceFromBackup>(<object>jsonObj),
             true
           );
+        case "NONE":
+          return model.DbSystemSourceFromNone.getJsonObj(
+            <model.DbSystemSourceFromNone>(<object>jsonObj),
+            true
+          );
         case "IMPORTURL":
           return model.DbSystemSourceImportFromUrl.getJsonObj(
             <model.DbSystemSourceImportFromUrl>(<object>jsonObj),

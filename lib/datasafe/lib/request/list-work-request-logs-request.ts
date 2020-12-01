@@ -23,7 +23,7 @@ export interface ListWorkRequestLogsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The beginning page from which the results start retrieving.
+   * For list pagination. The page token representing the page at which to start retrieving results. It is usually retrieved from a previous \"List\" call. For details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/usingapi.htm#nine).
    */
   "page"?: string;
   /**

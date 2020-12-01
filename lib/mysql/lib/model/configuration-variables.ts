@@ -59,7 +59,7 @@ export interface ConfigurationVariables {
    */
   "mysqlFirewallMode"?: boolean;
   /**
-   * (\"mysqlx_enable_hello_notice\")
+   * (\"mysqlx_enable_hello_notice\") DEPRECATED -- variable should not be settable and will be ignored
    */
   "mysqlxEnableHelloNotice"?: boolean;
   /**
@@ -71,7 +71,7 @@ export interface ConfigurationVariables {
    */
   "sqlWarnings"?: boolean;
   /**
-   * (\"binlog_expire_logs_seconds\")
+   * (\"binlog_expire_logs_seconds\") DEPRECATED -- variable should not be settable and will be ignored
    */
   "binlogExpireLogsSeconds"?: number;
   /**
@@ -99,7 +99,7 @@ export interface ConfigurationVariables {
    */
   "cteMaxRecursionDepth"?: number;
   /**
-   * (\"generated_random_password_length\")
+   * (\"generated_random_password_length\") DEPRECATED -- variable should not be settable and will be ignored
    */
   "generatedRandomPasswordLength"?: number;
   /**
@@ -139,39 +139,39 @@ export interface ConfigurationVariables {
    */
   "maxExecutionTime"?: number;
   /**
-   * (\"mysqlx_connect_timeout\")
+   * (\"mysqlx_connect_timeout\") DEPRECATED -- variable should not be settable and will be ignored
    */
   "mysqlxConnectTimeout"?: number;
   /**
-   * (\"mysqlx_document_id_unique_prefix\")
+   * (\"mysqlx_document_id_unique_prefix\") DEPRECATED -- variable should not be settable and will be ignored
    */
   "mysqlxDocumentIdUniquePrefix"?: number;
   /**
-   * (\"mysqlx_idle_worker_thread_timeout\")
+   * (\"mysqlx_idle_worker_thread_timeout\") DEPRECATED -- variable should not be settable and will be ignored
    */
   "mysqlxIdleWorkerThreadTimeout"?: number;
   /**
-   * (\"mysqlx_interactive_timeout\")
+   * (\"mysqlx_interactive_timeout\") DEPRECATED -- variable should not be settable and will be ignored
    */
   "mysqlxInteractiveTimeout"?: number;
   /**
-   * (\"mysqlx_max_allowed_packet\")
+   * (\"mysqlx_max_allowed_packet\") DEPRECATED -- variable should not be settable and will be ignored
    */
   "mysqlxMaxAllowedPacket"?: number;
   /**
-   * (\"mysqlx_min_worker_threads\")
+   * (\"mysqlx_min_worker_threads\") DEPRECATED -- variable should not be settable and will be ignored
    */
   "mysqlxMinWorkerThreads"?: number;
   /**
-   * (\"mysqlx_read_timeout\")
+   * (\"mysqlx_read_timeout\") DEPRECATED -- variable should not be settable and will be ignored
    */
   "mysqlxReadTimeout"?: number;
   /**
-   * (\"mysqlx_wait_timeout\")
+   * (\"mysqlx_wait_timeout\") DEPRECATED -- variable should not be settable and will be ignored
    */
   "mysqlxWaitTimeout"?: number;
   /**
-   * (\"mysqlx_write_timeout\")
+   * (\"mysqlx_write_timeout\") DEPRECATED -- variable should not be settable and will be ignored
    */
   "mysqlxWriteTimeout"?: number;
   /**
@@ -179,11 +179,11 @@ export interface ConfigurationVariables {
    */
   "parserMaxMemSize"?: number;
   /**
-   * (\"query_alloc_block_size\")
+   * (\"query_alloc_block_size\") DEPRECATED -- variable should not be settable and will be ignored
    */
   "queryAllocBlockSize"?: number;
   /**
-   * (\"query_prealloc_size\")
+   * (\"query_prealloc_size\") DEPRECATED -- variable should not be settable and will be ignored
    */
   "queryPreallocSize"?: number;
   /**
@@ -212,6 +212,10 @@ export interface ConfigurationVariables {
   "mysqlxZstdMaxClientCompressionLevel"?: number;
   /**
    * Set the default compression level for the zstd algorithm. (\"mysqlx_zstd_default_compression_level\")
+   */
+  "mysqlxZstdDefaultCompressionLevel"?: number;
+  /**
+   * DEPRECATED -- typo of mysqlx_zstd_default_compression_level. variable will be ignored.
    */
   "mysqlZstdDefaultCompressionLevel"?: number;
 }
@@ -242,6 +246,7 @@ export namespace ConfigurationVariables {
   export enum TransactionIsolation {
     ReadUncommitted = "READ-UNCOMMITTED",
     ReadCommited = "READ-COMMITED",
+    ReadCommitted = "READ-COMMITTED",
     RepeatableRead = "REPEATABLE-READ",
     Serializable = "SERIALIZABLE",
     /**

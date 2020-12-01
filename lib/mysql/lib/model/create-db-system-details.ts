@@ -44,7 +44,7 @@ export interface CreateDbSystemDetails {
   /**
    * The OCID of the Configuration to be used for this DB System.
    */
-  "configurationId": string;
+  "configurationId"?: string;
   /**
    * The name of the shape. The shape determines the resources allocated
    * - CPU cores and memory for VM shapes; CPU cores, memory and storage
@@ -112,6 +112,7 @@ Must be unique across all VNICs in the subnet and comply with RFC 952 and RFC 11
   "backupPolicy"?: model.CreateBackupPolicyDetails;
   "source"?:
     | model.CreateDbSystemSourceFromBackupDetails
+    | model.CreateDbSystemSourceFromNoneDetails
     | model.CreateDbSystemSourceImportFromUrlDetails;
   "maintenance"?: model.CreateMaintenanceDetails;
   /**

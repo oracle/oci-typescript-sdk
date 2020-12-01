@@ -15,12 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An error encountered while executing an operation that is tracked by a work request.
+ * An error related to a work request.
  */
 export interface WorkRequestError {
   /**
-   * A machine-usable code for the error that occured. Error codes are listed on
-   * (https://docs.us-phoenix-1.oraclecloud.com/Content/API/References/apierrors.htm)
+   * A machine-usable error code. For a list of common errors, see [API Errors](https://docs.us-phoenix-1.oraclecloud.com/Content/API/References/apierrors.htm).
    *
    */
   "code": string;
@@ -29,7 +28,7 @@ export interface WorkRequestError {
    */
   "message": string;
   /**
-   * The date and time the error occurred, in the format defined by RFC3339.
+   * The date and time the error occurred, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    */
   "timestamp": Date;
 }

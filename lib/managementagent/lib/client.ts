@@ -702,6 +702,103 @@ export class ManagementAgentClient {
   }
 
   /**
+   * Lists the availability history records of Management Agent
+   * @param ListAvailabilityHistoriesRequest
+   * @return ListAvailabilityHistoriesResponse
+   * @throws OciError when an error occurs
+   */
+  public async listAvailabilityHistories(
+    listAvailabilityHistoriesRequest: requests.ListAvailabilityHistoriesRequest
+  ): Promise<responses.ListAvailabilityHistoriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementAgentClient#listAvailabilityHistories.");
+    const pathParams = {
+      "{managementAgentId}": listAvailabilityHistoriesRequest.managementAgentId
+    };
+
+    const queryParams = {
+      "timeAvailabilityStatusEndedGreaterThan":
+        listAvailabilityHistoriesRequest.timeAvailabilityStatusEndedGreaterThan,
+      "timeAvailabilityStatusStartedLessThan":
+        listAvailabilityHistoriesRequest.timeAvailabilityStatusStartedLessThan,
+      "limit": listAvailabilityHistoriesRequest.limit,
+      "page": listAvailabilityHistoriesRequest.page,
+      "sortOrder": listAvailabilityHistoriesRequest.sortOrder,
+      "sortBy": listAvailabilityHistoriesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAvailabilityHistoriesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managementAgents/{managementAgentId}/availabilityHistories",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listAvailabilityHistoriesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAvailabilityHistoriesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "AvailabilityHistorySummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AvailabilityHistorySummary objects
+   * contained in responses from the listAvailabilityHistories operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllAvailabilityHistories(
+    request: requests.ListAvailabilityHistoriesRequest
+  ): AsyncIterableIterator<models.AvailabilityHistorySummary> {
+    return paginateRecords(request, req => this.listAvailabilityHistories(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAvailabilityHistories operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllAvailabilityHistoriesResponses(
+    request: requests.ListAvailabilityHistoriesRequest
+  ): AsyncIterableIterator<responses.ListAvailabilityHistoriesResponse> {
+    return paginateResponses(request, req => this.listAvailabilityHistories(req));
+  }
+
+  /**
    * Get supported agent image information
    *
    * @param ListManagementAgentImagesRequest

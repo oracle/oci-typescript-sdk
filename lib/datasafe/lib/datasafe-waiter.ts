@@ -62,6 +62,25 @@ export class DataSafeWaiter {
   }
 
   /**
+   * Waits forOnPremConnector till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetOnPremConnectorResponse | null (null in case of 404 response)
+   */
+  public async forOnPremConnector(
+    request: serviceRequests.GetOnPremConnectorRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetOnPremConnectorResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getOnPremConnector(request),
+      response => targetStates.exists(response.onPremConnector.lifecycleState),
+      targetStates.includes(models.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forWorkRequest
    *
    * @param request the request to send

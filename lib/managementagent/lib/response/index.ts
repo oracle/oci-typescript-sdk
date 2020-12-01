@@ -29,6 +29,8 @@ import * as GetManagementAgentInstallKeyContentResponse from "./get-management-a
 export import GetManagementAgentInstallKeyContentResponse = GetManagementAgentInstallKeyContentResponse.GetManagementAgentInstallKeyContentResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";
 export import GetWorkRequestResponse = GetWorkRequestResponse.GetWorkRequestResponse;
+import * as ListAvailabilityHistoriesResponse from "./list-availability-histories-response";
+export import ListAvailabilityHistoriesResponse = ListAvailabilityHistoriesResponse.ListAvailabilityHistoriesResponse;
 import * as ListManagementAgentImagesResponse from "./list-management-agent-images-response";
 export import ListManagementAgentImagesResponse = ListManagementAgentImagesResponse.ListManagementAgentImagesResponse;
 import * as ListManagementAgentInstallKeysResponse from "./list-management-agent-install-keys-response";

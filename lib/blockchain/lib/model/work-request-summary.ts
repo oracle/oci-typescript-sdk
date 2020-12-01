@@ -74,6 +74,7 @@ export namespace WorkRequestSummary {
     StartPlatform = "START_PLATFORM",
     StopPlatform = "STOP_PLATFORM",
     CustomizePlatform = "CUSTOMIZE_PLATFORM",
+    ScaleStorage = "SCALE_STORAGE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

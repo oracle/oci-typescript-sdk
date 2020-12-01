@@ -11,6 +11,20 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as CreateChannelResponse from "./create-channel-response";
+export import CreateChannelResponse = CreateChannelResponse.CreateChannelResponse;
+import * as DeleteChannelResponse from "./delete-channel-response";
+export import DeleteChannelResponse = DeleteChannelResponse.DeleteChannelResponse;
+import * as GetChannelResponse from "./get-channel-response";
+export import GetChannelResponse = GetChannelResponse.GetChannelResponse;
+import * as ListChannelsResponse from "./list-channels-response";
+export import ListChannelsResponse = ListChannelsResponse.ListChannelsResponse;
+import * as ResetChannelResponse from "./reset-channel-response";
+export import ResetChannelResponse = ResetChannelResponse.ResetChannelResponse;
+import * as ResumeChannelResponse from "./resume-channel-response";
+export import ResumeChannelResponse = ResumeChannelResponse.ResumeChannelResponse;
+import * as UpdateChannelResponse from "./update-channel-response";
+export import UpdateChannelResponse = UpdateChannelResponse.UpdateChannelResponse;
 import * as CreateBackupResponse from "./create-backup-response";
 export import CreateBackupResponse = CreateBackupResponse.CreateBackupResponse;
 import * as DeleteBackupResponse from "./delete-backup-response";

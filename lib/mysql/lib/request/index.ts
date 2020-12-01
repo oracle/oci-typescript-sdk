@@ -11,6 +11,20 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as CreateChannelRequest from "./create-channel-request";
+export import CreateChannelRequest = CreateChannelRequest.CreateChannelRequest;
+import * as DeleteChannelRequest from "./delete-channel-request";
+export import DeleteChannelRequest = DeleteChannelRequest.DeleteChannelRequest;
+import * as GetChannelRequest from "./get-channel-request";
+export import GetChannelRequest = GetChannelRequest.GetChannelRequest;
+import * as ListChannelsRequest from "./list-channels-request";
+export import ListChannelsRequest = ListChannelsRequest.ListChannelsRequest;
+import * as ResetChannelRequest from "./reset-channel-request";
+export import ResetChannelRequest = ResetChannelRequest.ResetChannelRequest;
+import * as ResumeChannelRequest from "./resume-channel-request";
+export import ResumeChannelRequest = ResumeChannelRequest.ResumeChannelRequest;
+import * as UpdateChannelRequest from "./update-channel-request";
+export import UpdateChannelRequest = UpdateChannelRequest.UpdateChannelRequest;
 import * as CreateBackupRequest from "./create-backup-request";
 export import CreateBackupRequest = CreateBackupRequest.CreateBackupRequest;
 import * as DeleteBackupRequest from "./delete-backup-request";

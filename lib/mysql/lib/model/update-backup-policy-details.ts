@@ -38,10 +38,13 @@ At some point in the window, the system may incur a brief service disruption as 
    */
   "retentionInDays"?: number;
   /**
-   * Simple key-value pair applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
-   *
-   */
+    * Simple key-value pair applied without any predefined name, type or scope. Exists for cross-compatibility only.
+* <p>
+Tags defined here will be copied verbatim as tags on the Backup resource created by this BackupPolicy.
+* <p>
+Example: `{\"bar-key\": \"value\"}`
+* 
+    */
   "freeformTags"?: { [key: string]: string };
   /**
     * Usage of predefined tag keys. These predefined keys are scoped to namespaces.

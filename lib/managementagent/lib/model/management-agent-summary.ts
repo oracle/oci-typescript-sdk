@@ -67,6 +67,14 @@ export interface ManagementAgentSummary {
    */
   "compartmentId": string;
   /**
+   * The time the Management Agent has last recorded its heartbeat. An RFC3339 formatted datetime string
+   */
+  "timeLastHeartbeat"?: Date;
+  /**
+   * The current availability status of managementAgent
+   */
+  "availabilityStatus"?: model.AvailabilityStatus;
+  /**
    * The current state of managementAgent
    */
   "lifecycleState"?: model.LifecycleStates;

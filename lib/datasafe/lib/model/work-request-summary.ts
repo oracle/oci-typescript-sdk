@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A summary of the work request status.
+ * Summary of a work request.
  */
 export interface WorkRequestSummary {
   /**
@@ -23,7 +23,7 @@ export interface WorkRequestSummary {
    */
   "operationType": WorkRequestSummary.OperationType;
   /**
-   * The status of the work request.
+   * The current status of the work request.
    */
   "status": WorkRequestSummary.Status;
   /**
@@ -31,30 +31,30 @@ export interface WorkRequestSummary {
    */
   "id": string;
   /**
-   * The OCID of the compartment containing this work request.
+   * The OCID of the compartment that contains the work request.
    *
    */
   "compartmentId": string;
   /**
-   * The resources impacted by the work request.
+   * The resources that are affected by the work request.
    */
   "resources": Array<model.WorkRequestResource>;
   /**
-   * Progress of the request in percentage.
+   * Progress of the work request in percentage.
    */
   "percentComplete": number;
   /**
-   * The date and time the work request was created, in the format defined by RFC3339.
+   * The date and time the work request was accepted, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    *
    */
   "timeAccepted": Date;
   /**
-   * The date and time the work request transitioned from ACCEPTED to IN_PROGRESS, in the format defined by RFC3339.
+   * The date and time the work request transitioned from ACCEPTED to IN_PROGRESS, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    *
    */
   "timeStarted"?: Date;
   /**
-   * The date and time the work request reached a terminal state, either FAILED or SUCCEEDED, in the format defined by RFC3339.
+   * The date and time the work request reached a terminal state, either FAILED or SUCCEEDED, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    *
    */
   "timeFinished"?: Date;
@@ -67,6 +67,11 @@ export namespace WorkRequestSummary {
     UpdatePrivateEndpoint = "UPDATE_PRIVATE_ENDPOINT",
     DeletePrivateEndpoint = "DELETE_PRIVATE_ENDPOINT",
     ChangePrivateEndpointCompartment = "CHANGE_PRIVATE_ENDPOINT_COMPARTMENT",
+    CreateOnpremConnector = "CREATE_ONPREM_CONNECTOR",
+    UpdateOnpremConnector = "UPDATE_ONPREM_CONNECTOR",
+    DeleteOnpremConnector = "DELETE_ONPREM_CONNECTOR",
+    UpdateOnpremConnectorWallet = "UPDATE_ONPREM_CONNECTOR_WALLET",
+    ChangeOnpremConnectorCompartment = "CHANGE_ONPREM_CONNECTOR_COMPARTMENT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

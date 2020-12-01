@@ -47,7 +47,7 @@ export interface DataSafePrivateEndpointSummary {
    */
   "description"?: string;
   /**
-   * The date and time the private endpoint was created, in the format defined by RFC3339.
+   * The date and time the private endpoint was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    */
   "timeCreated"?: Date;
   /**

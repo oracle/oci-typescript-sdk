@@ -42,6 +42,10 @@ export interface ListBackupsRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
+   * Backup creationType
+   */
+  "creationType"?: string;
+  /**
    * The field to sort by. Only one sort order may be provided. Time fields are default ordered as descending.
    *
    */

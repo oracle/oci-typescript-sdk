@@ -79,6 +79,10 @@ export interface ManagementAgent {
    */
   "timeLastHeartbeat"?: Date;
   /**
+   * The current availability status of managementAgent
+   */
+  "availabilityStatus"?: model.AvailabilityStatus;
+  /**
    * The current state of managementAgent
    */
   "lifecycleState"?: model.LifecycleStates;
