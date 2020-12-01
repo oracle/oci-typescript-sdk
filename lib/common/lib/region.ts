@@ -48,6 +48,7 @@ export class Region {
     "mel": "ap-melbourne-1",
     "yul": "ca-montreal-1",
     "zrh": "eu-zurich-1",
+    "scl": "sa-santiago-1",
     "lfi": "us-langley-1",
     "luf": "us-luke-1",
     "ric": "us-gov-ashburn-1",
@@ -103,6 +104,7 @@ export class Region {
   public static ME_JEDDAH_1: Region = Region.register("me-jeddah-1", Realm.OC1);
   public static US_SANJOSE_1: Region = Region.register("us-sanjose-1", Realm.OC1);
   public static ME_DUBAI_1: Region = Region.register("me-dubai-1", Realm.OC1);
+  public static SA_SANTIAGO_1: Region = Region.register("sa-santiago-1", Realm.OC1);
 
   // OC2
   public static US_LANGLEY_1: Region = Region.register("us-langley-1", Realm.OC2);

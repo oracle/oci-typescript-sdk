@@ -16,6 +16,8 @@ import common = require("oci-common");
 
 /**
  * A DB System is the core logical unit of MySQL Database Service.
+ * # NOTE: definitions/DbSystemSnapshot is a snapshot version of DbSystem which is stored during backup. Any
+ * # addition/deletion of properties should also consider snapshot's definition
  *
  */
 export interface DbSystem {
@@ -70,7 +72,10 @@ export interface DbSystem {
    */
   "mysqlVersion": string;
   "backupPolicy"?: model.BackupPolicy;
-  "source"?: model.DbSystemSourceFromBackup | model.DbSystemSourceImportFromUrl;
+  "source"?:
+    | model.DbSystemSourceFromBackup
+    | model.DbSystemSourceFromNone
+    | model.DbSystemSourceImportFromUrl;
   /**
    * The OCID of the Configuration to be used for Instances in this DB System.
    */
@@ -111,6 +116,10 @@ export interface DbSystem {
    */
   "endpoints"?: Array<model.DbSystemEndpoint>;
   /**
+   * A list with a summary of all the Channels attached to the DB System.
+   */
+  "channels"?: Array<model.ChannelSummary>;
+  /**
    * The current state of the DB System.
    */
   "lifecycleState": DbSystem.LifecycleState;
@@ -128,13 +137,13 @@ export interface DbSystem {
    */
   "timeUpdated": Date;
   /**
-   * Simple key-value pair applied without any predefined name, type or scope. Exists for cross-compatibility only.
+   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Usage of predefined tag keys. These predefined keys are scoped to namespaces.
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
    *
    */
@@ -173,6 +182,11 @@ export namespace DbSystem {
         "endpoints": obj.endpoints
           ? obj.endpoints.map(item => {
               return model.DbSystemEndpoint.getJsonObj(item);
+            })
+          : undefined,
+        "channels": obj.channels
+          ? obj.channels.map(item => {
+              return model.ChannelSummary.getJsonObj(item);
             })
           : undefined,
 

@@ -200,6 +200,68 @@ export class DataSafeClient {
   }
 
   /**
+   * Moves the specified on-premises connector into a different compartment.
+   * @param ChangeOnPremConnectorCompartmentRequest
+   * @return ChangeOnPremConnectorCompartmentResponse
+   * @throws OciError when an error occurs
+   */
+  public async changeOnPremConnectorCompartment(
+    changeOnPremConnectorCompartmentRequest: requests.ChangeOnPremConnectorCompartmentRequest
+  ): Promise<responses.ChangeOnPremConnectorCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeOnPremConnectorCompartment.");
+    const pathParams = {
+      "{onPremConnectorId}": changeOnPremConnectorCompartmentRequest.onPremConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeOnPremConnectorCompartmentRequest.opcRequestId,
+      "if-match": changeOnPremConnectorCompartmentRequest.ifMatch,
+      "opc-retry-token": changeOnPremConnectorCompartmentRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/onPremConnectors/{onPremConnectorId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeOnPremConnectorCompartmentRequest.changeOnPremConnectorCompartmentDetails,
+        "ChangeOnPremConnectorCompartmentDetails",
+        models.ChangeOnPremConnectorCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeOnPremConnectorCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeOnPremConnectorCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new Data Safe private endpoint.
    *
    * @param CreateDataSafePrivateEndpointRequest
@@ -244,7 +306,15 @@ export class DataSafeClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDataSafePrivateEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "dataSafePrivateEndpoint",
+        bodyModel: "model.DataSafePrivateEndpoint",
         responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
@@ -253,6 +323,88 @@ export class DataSafeClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new on-premises connector.
+   *
+   * @param CreateOnPremConnectorRequest
+   * @return CreateOnPremConnectorResponse
+   * @throws OciError when an error occurs
+   */
+  public async createOnPremConnector(
+    createOnPremConnectorRequest: requests.CreateOnPremConnectorRequest
+  ): Promise<responses.CreateOnPremConnectorResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createOnPremConnector.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createOnPremConnectorRequest.opcRetryToken,
+      "opc-request-id": createOnPremConnectorRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/onPremConnectors",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createOnPremConnectorRequest.createOnPremConnectorDetails,
+        "CreateOnPremConnectorDetails",
+        models.CreateOnPremConnectorDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createOnPremConnectorRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateOnPremConnectorResponse>{},
+        body: await response.json(),
+        bodyKey: "onPremConnector",
+        bodyModel: "model.OnPremConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
             dataType: "string"
           }
         ]
@@ -305,6 +457,66 @@ export class DataSafeClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDataSafePrivateEndpointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified on-premises connector.
+   * @param DeleteOnPremConnectorRequest
+   * @return DeleteOnPremConnectorResponse
+   * @throws OciError when an error occurs
+   */
+  public async deleteOnPremConnector(
+    deleteOnPremConnectorRequest: requests.DeleteOnPremConnectorRequest
+  ): Promise<responses.DeleteOnPremConnectorResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteOnPremConnector.");
+    const pathParams = {
+      "{onPremConnectorId}": deleteOnPremConnectorRequest.onPremConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteOnPremConnectorRequest.ifMatch,
+      "opc-request-id": deleteOnPremConnectorRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/onPremConnectors/{onPremConnectorId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteOnPremConnectorRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteOnPremConnectorResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -382,6 +594,83 @@ export class DataSafeClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates and downloads the configuration of the specified on-premises connector.
+   *
+   * @param GenerateOnPremConnectorConfigurationRequest
+   * @return GenerateOnPremConnectorConfigurationResponse
+   * @throws OciError when an error occurs
+   */
+  public async generateOnPremConnectorConfiguration(
+    generateOnPremConnectorConfigurationRequest: requests.GenerateOnPremConnectorConfigurationRequest
+  ): Promise<responses.GenerateOnPremConnectorConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#generateOnPremConnectorConfiguration.");
+    const pathParams = {
+      "{onPremConnectorId}": generateOnPremConnectorConfigurationRequest.onPremConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": generateOnPremConnectorConfigurationRequest.opcRetryToken,
+      "opc-request-id": generateOnPremConnectorConfigurationRequest.opcRequestId,
+      "if-match": generateOnPremConnectorConfigurationRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/onPremConnectors/{onPremConnectorId}/actions/generateConfiguration",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        generateOnPremConnectorConfigurationRequest.generateOnPremConnectorConfigurationDetails,
+        "GenerateOnPremConnectorConfigurationDetails",
+        models.GenerateOnPremConnectorConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      generateOnPremConnectorConfigurationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateOnPremConnectorConfigurationResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("last-modified"),
+            key: "lastModified",
+            dataType: "Date"
           }
         ]
       });
@@ -498,6 +787,68 @@ export class DataSafeClient {
         body: await response.json(),
         bodyKey: "dataSafePrivateEndpoint",
         bodyModel: "model.DataSafePrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified on-premises connector.
+   * @param GetOnPremConnectorRequest
+   * @return GetOnPremConnectorResponse
+   * @throws OciError when an error occurs
+   */
+  public async getOnPremConnector(
+    getOnPremConnectorRequest: requests.GetOnPremConnectorRequest
+  ): Promise<responses.GetOnPremConnectorResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getOnPremConnector.");
+    const pathParams = {
+      "{onPremConnectorId}": getOnPremConnectorRequest.onPremConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOnPremConnectorRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/onPremConnectors/{onPremConnectorId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getOnPremConnectorRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOnPremConnectorResponse>{},
+        body: await response.json(),
+        bodyKey: "onPremConnector",
+        bodyModel: "model.OnPremConnector",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -679,6 +1030,101 @@ export class DataSafeClient {
     request: requests.ListDataSafePrivateEndpointsRequest
   ): AsyncIterableIterator<responses.ListDataSafePrivateEndpointsResponse> {
     return paginateResponses(request, req => this.listDataSafePrivateEndpoints(req));
+  }
+
+  /**
+   * Gets a list of on-premises connectors.
+   *
+   * @param ListOnPremConnectorsRequest
+   * @return ListOnPremConnectorsResponse
+   * @throws OciError when an error occurs
+   */
+  public async listOnPremConnectors(
+    listOnPremConnectorsRequest: requests.ListOnPremConnectorsRequest
+  ): Promise<responses.ListOnPremConnectorsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listOnPremConnectors.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listOnPremConnectorsRequest.compartmentId,
+      "onPremConnectorId": listOnPremConnectorsRequest.onPremConnectorId,
+      "displayName": listOnPremConnectorsRequest.displayName,
+      "onPremConnectorLifecycleState": listOnPremConnectorsRequest.onPremConnectorLifecycleState,
+      "limit": listOnPremConnectorsRequest.limit,
+      "page": listOnPremConnectorsRequest.page,
+      "sortOrder": listOnPremConnectorsRequest.sortOrder,
+      "sortBy": listOnPremConnectorsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOnPremConnectorsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/onPremConnectors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listOnPremConnectorsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOnPremConnectorsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "OnPremConnectorSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.OnPremConnectorSummary objects
+   * contained in responses from the listOnPremConnectors operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllOnPremConnectors(
+    request: requests.ListOnPremConnectorsRequest
+  ): AsyncIterableIterator<models.OnPremConnectorSummary> {
+    return paginateRecords(request, req => this.listOnPremConnectors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listOnPremConnectors operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllOnPremConnectorsResponses(
+    request: requests.ListOnPremConnectorsRequest
+  ): AsyncIterableIterator<responses.ListOnPremConnectorsResponse> {
+    return paginateResponses(request, req => this.listOnPremConnectors(req));
   }
 
   /**
@@ -1000,6 +1446,139 @@ export class DataSafeClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDataSafePrivateEndpointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more attributes of the specified on-premises connector.
+   * @param UpdateOnPremConnectorRequest
+   * @return UpdateOnPremConnectorResponse
+   * @throws OciError when an error occurs
+   */
+  public async updateOnPremConnector(
+    updateOnPremConnectorRequest: requests.UpdateOnPremConnectorRequest
+  ): Promise<responses.UpdateOnPremConnectorResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateOnPremConnector.");
+    const pathParams = {
+      "{onPremConnectorId}": updateOnPremConnectorRequest.onPremConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateOnPremConnectorRequest.ifMatch,
+      "opc-request-id": updateOnPremConnectorRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/onPremConnectors/{onPremConnectorId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateOnPremConnectorRequest.updateOnPremConnectorDetails,
+        "UpdateOnPremConnectorDetails",
+        models.UpdateOnPremConnectorDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateOnPremConnectorRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateOnPremConnectorResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the wallet for the specified on-premises connector to a new version.
+   *
+   * @param UpdateOnPremConnectorWalletRequest
+   * @return UpdateOnPremConnectorWalletResponse
+   * @throws OciError when an error occurs
+   */
+  public async updateOnPremConnectorWallet(
+    updateOnPremConnectorWalletRequest: requests.UpdateOnPremConnectorWalletRequest
+  ): Promise<responses.UpdateOnPremConnectorWalletResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updateOnPremConnectorWallet.");
+    const pathParams = {
+      "{onPremConnectorId}": updateOnPremConnectorWalletRequest.onPremConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": updateOnPremConnectorWalletRequest.opcRetryToken,
+      "if-match": updateOnPremConnectorWalletRequest.ifMatch,
+      "opc-request-id": updateOnPremConnectorWalletRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/onPremConnectors/{onPremConnectorId}/wallet",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateOnPremConnectorWalletRequest.updateOnPremConnectorWalletDetails,
+        "UpdateOnPremConnectorWalletDetails",
+        models.UpdateOnPremConnectorWalletDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateOnPremConnectorWalletRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateOnPremConnectorWalletResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

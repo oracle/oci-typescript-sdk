@@ -1,6 +1,6 @@
 {
   "name": "oci-resourcesearch",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "OCI NodeJS client for resource research Service",
   "repository": {
     "type": "git",

@@ -16,7 +16,12 @@ import common = require("oci-common");
 
 export interface CreateDataSafePrivateEndpointResponse {
   /**
-   * The OCID of the work request. Use GetWorkRequest with this OCID to track the status of the request.
+   * For optimistic concurrency control. For more information, see [ETags for Optimistic Concurrency Control](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#eleven)
+   *
+   */
+  "etag": string;
+  /**
+   * The OCID of the work request. Use {@link #getWorkRequest(GetWorkRequestRequest) getWorkRequest} with this OCID to track the status of the request.
    *
    */
   "opcWorkRequestId": string;
@@ -25,4 +30,13 @@ export interface CreateDataSafePrivateEndpointResponse {
    *
    */
   "opcRequestId": string;
+  /**
+   * The full URI of the Data Safe private endpoint.
+   *
+   */
+  "location": string;
+  /**
+   * The returned model.DataSafePrivateEndpoint instance.
+   */
+  "dataSafePrivateEndpoint": model.DataSafePrivateEndpoint;
 }

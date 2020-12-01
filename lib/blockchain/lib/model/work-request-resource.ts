@@ -38,6 +38,10 @@ export interface WorkRequestResource {
    * The URI path that the user can do a GET on to access the resource metadata
    */
   "entityUri"?: string;
+  /**
+   * Collection of SubType information for a work request resource\u00A9
+   */
+  "subTypeDetails"?: Array<model.WorkRequestResourceSubTypeDetail>;
 }
 
 export namespace WorkRequestResource {
@@ -55,7 +59,16 @@ export namespace WorkRequestResource {
   }
 
   export function getJsonObj(obj: WorkRequestResource): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "subTypeDetails": obj.subTypeDetails
+          ? obj.subTypeDetails.map(item => {
+              return model.WorkRequestResourceSubTypeDetail.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

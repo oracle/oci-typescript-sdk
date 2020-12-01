@@ -56,7 +56,7 @@ export interface DataSafePrivateEndpoint {
    */
   "description"?: string;
   /**
-   * The date and time the private endpoint was created, in the format defined by RFC3339.
+   * The date and time the private endpoint was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    */
   "timeCreated"?: Date;
   /**
@@ -78,7 +78,7 @@ Example: `{\"Department\": \"Finance\"}`
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
 * <p>
-Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };

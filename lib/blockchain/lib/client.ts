@@ -1460,7 +1460,8 @@ export class BlockchainPlatformClient {
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": startBlockchainPlatformRequest.ifMatch,
-      "opc-request-id": startBlockchainPlatformRequest.opcRequestId
+      "opc-request-id": startBlockchainPlatformRequest.opcRequestId,
+      "opc-retry-token": startBlockchainPlatformRequest.opcRetryToken
     };
 
     const request = await composeRequest({
@@ -1521,7 +1522,8 @@ export class BlockchainPlatformClient {
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": stopBlockchainPlatformRequest.ifMatch,
-      "opc-request-id": stopBlockchainPlatformRequest.opcRequestId
+      "opc-request-id": stopBlockchainPlatformRequest.opcRequestId,
+      "opc-retry-token": stopBlockchainPlatformRequest.opcRetryToken
     };
 
     const request = await composeRequest({
@@ -1582,7 +1584,8 @@ export class BlockchainPlatformClient {
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateBlockchainPlatformRequest.opcRequestId,
-      "if-match": updateBlockchainPlatformRequest.ifMatch
+      "if-match": updateBlockchainPlatformRequest.ifMatch,
+      "opc-retry-token": updateBlockchainPlatformRequest.opcRetryToken
     };
 
     const request = await composeRequest({
@@ -1715,7 +1718,8 @@ export class BlockchainPlatformClient {
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updatePeerRequest.ifMatch,
-      "opc-request-id": updatePeerRequest.opcRequestId
+      "opc-request-id": updatePeerRequest.opcRequestId,
+      "opc-retry-token": updatePeerRequest.opcRetryToken
     };
 
     const request = await composeRequest({

@@ -13,6 +13,10 @@
 
 import * as ActionTypes from "./action-types";
 export import ActionTypes = ActionTypes.ActionTypes;
+import * as AvailabilityHistorySummary from "./availability-history-summary";
+export import AvailabilityHistorySummary = AvailabilityHistorySummary.AvailabilityHistorySummary;
+import * as AvailabilityStatus from "./availability-status";
+export import AvailabilityStatus = AvailabilityStatus.AvailabilityStatus;
 import * as CreateManagementAgentInstallKeyDetails from "./create-management-agent-install-key-details";
 export import CreateManagementAgentInstallKeyDetails = CreateManagementAgentInstallKeyDetails.CreateManagementAgentInstallKeyDetails;
 import * as Datatypes from "./datatypes";

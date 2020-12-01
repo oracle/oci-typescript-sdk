@@ -70,6 +70,7 @@ export interface Backup {
    * The OCID of the DB System the backup is associated with.
    */
   "dbSystemId": string;
+  "dbSystemSnapshot"?: model.DbSystemSnapshot;
   /**
    * The size of the backup in base-2 (IEC) gibibytes. (GiB).
    */
@@ -92,13 +93,13 @@ export interface Backup {
    */
   "shapeName"?: string;
   /**
-   * Simple key-value pair applied without any predefined name, type or scope. Exists for cross-compatibility only.
+   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Usage of predefined tag keys. These predefined keys are scoped to namespaces.
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
    *
    */
@@ -142,7 +143,14 @@ export namespace Backup {
   }
 
   export function getJsonObj(obj: Backup): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dbSystemSnapshot": obj.dbSystemSnapshot
+          ? model.DbSystemSnapshot.getJsonObj(obj.dbSystemSnapshot)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

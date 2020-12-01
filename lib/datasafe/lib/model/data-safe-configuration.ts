@@ -15,13 +15,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A Data Safe Configuration that allows customer to enable Data Safe in their tenancy.
+ * A Data Safe configuration for a tenancy and region.
  */
 export interface DataSafeConfiguration {
   /**
    * Indicates if Data Safe is enabled.
    */
-  "isEnabled"?: boolean;
+  "isEnabled": boolean;
   /**
    * The URL of the Data Safe service.
    */
@@ -31,11 +31,11 @@ export interface DataSafeConfiguration {
    */
   "compartmentId"?: string;
   /**
-   * The specific time when Data Safe configuration was enabled.
+   * The date and time Data Safe was enabled, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    */
   "timeEnabled"?: Date;
   /**
-   * The current state of Data Safe configuration.
+   * The current state of Data Safe.
    */
   "lifecycleState"?: model.LifecycleState;
   /**
@@ -48,7 +48,7 @@ Example: `{\"Department\": \"Finance\"}`
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
 * <p>
-Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };

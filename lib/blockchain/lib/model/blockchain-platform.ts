@@ -51,13 +51,17 @@ export interface BlockchainPlatform {
    */
   "serviceVersion"?: string;
   /**
-   * Role of platform - founder or participant
+   * Role of platform - FOUNDER or PARTICIPANT
    */
   "platformRole": BlockchainPlatform.PlatformRole;
   /**
-   * Type of compute shape - one of Standard, (Enterprise) Small, Medium, Large or Extra Large
+   * Compute shape - STANDARD or ENTERPRISE_SMALL or ENTERPRISE_MEDIUM or ENTERPRISE_LARGE or ENTERPRISE_EXTRA_LARGE or ENTERPRISE_CUSTOM
    */
   "computeShape": BlockchainPlatform.ComputeShape;
+  /**
+   * Type of Platform shape - DEFAULT or CUSTOM
+   */
+  "platformShapeType"?: BlockchainPlatform.PlatformShapeType;
   /**
    * Service endpoint URL, valid post-provisioning
    */
@@ -124,6 +128,16 @@ export namespace BlockchainPlatform {
     EnterpriseLarge = "ENTERPRISE_LARGE",
     EnterpriseExtraLarge = "ENTERPRISE_EXTRA_LARGE",
     EnterpriseCustom = "ENTERPRISE_CUSTOM",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum PlatformShapeType {
+    Default = "DEFAULT",
+    Custom = "CUSTOM",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

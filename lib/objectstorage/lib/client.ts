@@ -3595,8 +3595,8 @@ Calling this API starts a work request task to re-encrypt the data encryption ke
   }
 
   /**
-     * Re-encrypts the data encryption keys that encrypt the object and its chunks. By default, when you create a bucket, the Object Storage 
-* service manages the master encryption key used to encrypt each object's data encryption keys. The encryption mechanism that you specify for 
+     * Re-encrypts the data encryption keys that encrypt the object and its chunks. By default, when you create a bucket, the Object Storage
+* service manages the master encryption key used to encrypt each object's data encryption keys. The encryption mechanism that you specify for
 * the bucket applies to the objects it contains.
 * <p>
 You can alternatively employ one of these encryption strategies for an object:

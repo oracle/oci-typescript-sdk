@@ -3,6 +3,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 1.9.0 - 2020-12-01
+### Added
+- Support for calling Oracle Cloud Infrastructure services in the sa-santiago-1 region
+- Support for peer and OSN resources, as well as retry tokens, in the Blockchain Platform service
+- Support for getting the availability status of management agents in the Management Agent service
+- Support for the on-prem-connector resource type in the Data Safe service
+- Support for service channels in the MySQL Database service
+- Support for getting the creation type of backups, and for filtering backups by creation type in the MySQL Database service
+
+
+### Breaking
+- Update the property `compartmentId` from optional to required in `ListDataSafePrivateEndpointsRequest` and `ListWorkRequestsRequest` in datasafe service.
+- Deleted the property `freeformTags` and `definedTags` from `EnableDataSafeConfigurationDetails` model in datasafe service
+
 ## 1.8.0 - 2020-11-17
 ### Added
 - Support for specifying memory for AMD E3 shapes during node pool creation and update in the Container Engine for Kubernetes service

@@ -83,5 +83,7 @@ import * as WorkRequestLogEntryCollection from "./work-request-log-entry-collect
 export import WorkRequestLogEntryCollection = WorkRequestLogEntryCollection.WorkRequestLogEntryCollection;
 import * as WorkRequestResource from "./work-request-resource";
 export import WorkRequestResource = WorkRequestResource.WorkRequestResource;
+import * as WorkRequestResourceSubTypeDetail from "./work-request-resource-sub-type-detail";
+export import WorkRequestResourceSubTypeDetail = WorkRequestResourceSubTypeDetail.WorkRequestResourceSubTypeDetail;
 import * as WorkRequestSummary from "./work-request-summary";
 export import WorkRequestSummary = WorkRequestSummary.WorkRequestSummary;

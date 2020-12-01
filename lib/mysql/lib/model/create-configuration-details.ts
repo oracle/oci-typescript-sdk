@@ -35,20 +35,20 @@ export interface CreateConfigurationDetails {
    * The name of the associated Shape.
    */
   "shapeName": string;
-  "variables": model.ConfigurationVariables;
+  "variables"?: model.ConfigurationVariables;
   /**
    * The OCID of the Configuration from which the new Configuration is derived. The values in CreateConfigurationDetails.variables supersede the variables of the parent Configuration.
    *
    */
   "parentConfigurationId"?: string;
   /**
-   * Simple key-value pair applied without any predefined name, type or scope. Exists for cross-compatibility only.
+   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Usage of predefined tag keys. These predefined keys are scoped to namespaces.
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
    *
    */

@@ -57,7 +57,7 @@ Example: `{\"Department\": \"Finance\"}`
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
 * <p>
-Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };

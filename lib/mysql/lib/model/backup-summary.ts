@@ -49,6 +49,10 @@ export interface BackupSummary {
    */
   "backupType": string;
   /**
+   * If the backup was created automatically, or by a manual request.
+   */
+  "creationType": string;
+  /**
    * The OCID of the DB System the Backup is associated with.
    */
   "dbSystemId": string;
@@ -73,13 +77,13 @@ export interface BackupSummary {
    */
   "shapeName"?: string;
   /**
-   * Simple key-value pair applied without any predefined name, type or scope. Exists for cross-compatibility only.
+   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Usage of predefined tag keys. These predefined keys are scoped to namespaces.
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
    *
    */
