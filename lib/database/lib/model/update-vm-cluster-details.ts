@@ -16,7 +16,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details for updating the Exadata Cloud@Customer VM cluster.
+ * Details for updating the VM cluster. Applies to Exadata Cloud@Customer instances only.
+ * For details on updating a cloud VM cluster in an Exadata Cloud Service instance, see {@link #updateCloudVmClusterDetails(UpdateCloudVmClusterDetailsRequest) updateCloudVmClusterDetails}
+ *
  */
 export interface UpdateVmClusterDetails {
   /**

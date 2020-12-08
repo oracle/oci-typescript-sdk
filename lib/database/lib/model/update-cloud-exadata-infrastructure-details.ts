@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Updates the cloud Exadata infrastructure.
+ * Updates the cloud Exadata infrastructure. Applies to Exadata Cloud Service instances only.
  *
  */
 export interface UpdateCloudExadataInfrastructureDetails {

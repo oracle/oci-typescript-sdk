@@ -2051,6 +2051,48 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forRotateOrdsCerts
+   *
+   * @param request the request to send
+   * @return response returns RotateOrdsCertsResponse, GetWorkRequestResponse tuple
+   */
+  public async forRotateOrdsCerts(
+    request: serviceRequests.RotateOrdsCertsRequest
+  ): Promise<{
+    response: serviceResponses.RotateOrdsCertsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const rotateOrdsCertsResponse = await this.client.rotateOrdsCerts(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      rotateOrdsCertsResponse.opcWorkRequestId
+    );
+    return { response: rotateOrdsCertsResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forRotateSslCerts
+   *
+   * @param request the request to send
+   * @return response returns RotateSslCertsResponse, GetWorkRequestResponse tuple
+   */
+  public async forRotateSslCerts(
+    request: serviceRequests.RotateSslCertsRequest
+  ): Promise<{
+    response: serviceResponses.RotateSslCertsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const rotateSslCertsResponse = await this.client.rotateSslCerts(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      rotateSslCertsResponse.opcWorkRequestId
+    );
+    return { response: rotateSslCertsResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forStartAutonomousDatabase
    *
    * @param request the request to send

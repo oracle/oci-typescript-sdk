@@ -16,7 +16,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The record of an update action on a specified target.
+ * The record of an maintenance update action on a specified cloud VM cluster. Applies to Exadata Cloud Service instances only.
+ *
  */
 export interface UpdateHistoryEntrySummary {
   /**

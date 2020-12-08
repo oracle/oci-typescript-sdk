@@ -57,6 +57,11 @@ export interface SqlInsightThresholds {
    *
    */
   "increaseInInefficientWaitInPct": number;
+  /**
+   * Improved Percent Threshold is used to derive improving SQLs.
+   *
+   */
+  "improvedInPct": number;
 }
 
 export namespace SqlInsightThresholds {

@@ -13,12 +13,18 @@
 
 import * as ChangeIntegrationInstanceCompartmentDetails from "./change-integration-instance-compartment-details";
 export import ChangeIntegrationInstanceCompartmentDetails = ChangeIntegrationInstanceCompartmentDetails.ChangeIntegrationInstanceCompartmentDetails;
+import * as CreateCustomEndpointDetails from "./create-custom-endpoint-details";
+export import CreateCustomEndpointDetails = CreateCustomEndpointDetails.CreateCustomEndpointDetails;
 import * as CreateIntegrationInstanceDetails from "./create-integration-instance-details";
 export import CreateIntegrationInstanceDetails = CreateIntegrationInstanceDetails.CreateIntegrationInstanceDetails;
+import * as CustomEndpointDetails from "./custom-endpoint-details";
+export import CustomEndpointDetails = CustomEndpointDetails.CustomEndpointDetails;
 import * as IntegrationInstance from "./integration-instance";
 export import IntegrationInstance = IntegrationInstance.IntegrationInstance;
 import * as IntegrationInstanceSummary from "./integration-instance-summary";
 export import IntegrationInstanceSummary = IntegrationInstanceSummary.IntegrationInstanceSummary;
+import * as UpdateCustomEndpointDetails from "./update-custom-endpoint-details";
+export import UpdateCustomEndpointDetails = UpdateCustomEndpointDetails.UpdateCustomEndpointDetails;
 import * as UpdateIntegrationInstanceDetails from "./update-integration-instance-details";
 export import UpdateIntegrationInstanceDetails = UpdateIntegrationInstanceDetails.UpdateIntegrationInstanceDetails;
 import * as WorkRequest from "./work-request";

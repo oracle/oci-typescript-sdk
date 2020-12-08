@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Information about the Exadata DB system migration. The migration is used to move the system to the Exadata infrastructure resource model.
+ * Information about the Exadata DB system migration. The migration is used to move the Exadata Cloud Service instance from the DB system resource model to the new cloud Exadata infrastructure resource model.
  *
  */
 export interface ExadataDbSystemMigration {

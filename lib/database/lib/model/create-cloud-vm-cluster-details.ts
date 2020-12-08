@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details for the create cloud VM cluster operation.
+ * Details for the create cloud VM cluster operation. Applies to Exadata Cloud Service instances only.
  *
  */
 export interface CreateCloudVmClusterDetails {
@@ -81,6 +81,7 @@ The maximum length of the combined hostname and domain is 63 characters.
    * A domain name used for the cloud VM cluster. If the Oracle-provided internet and VCN
    * resolver is enabled for the specified subnet, the domain name for the subnet is used
    * (do not provide one). Otherwise, provide a valid DNS domain name. Hyphens (-) are not permitted.
+   * Applies to Exadata Cloud Service instances only.
    *
    */
   "domain"?: string;

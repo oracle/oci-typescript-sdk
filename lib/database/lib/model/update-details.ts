@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details specifying which maintenance update to apply to the target and which actions are to be performed by the maintenance update.
+ * Details specifying which maintenance update to apply to the cloud VM cluster and which actions are to be performed by the maintenance update. Applies to Exadata Cloud Service instances only.
  *
  */
 export interface UpdateDetails {

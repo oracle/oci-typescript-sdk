@@ -16,7 +16,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Updates the Exadata Cloud@Customer infrastructure.
+ * Updates the Exadata infrastructure. Applies to Exadata Cloud@Customer instances only.
+ * See {@link #updateCloudExadataInfrastructureDetails(UpdateCloudExadataInfrastructureDetailsRequest) updateCloudExadataInfrastructureDetails} for information on updating Exadata Cloud Service cloud Exadata infrastructure resources.
  *
  */
 export interface UpdateExadataInfrastructureDetails {
@@ -52,6 +53,7 @@ export interface UpdateExadataInfrastructureDetails {
    * The list of contacts for the Exadata infrastructure.
    */
   "contacts"?: Array<model.ExadataInfrastructureContact>;
+  "maintenanceWindow"?: model.MaintenanceWindow;
   /**
    * The list of DNS server IP addresses. Maximum of 3 allowed.
    */
@@ -90,6 +92,9 @@ export namespace UpdateExadataInfrastructureDetails {
           ? obj.contacts.map(item => {
               return model.ExadataInfrastructureContact.getJsonObj(item);
             })
+          : undefined,
+        "maintenanceWindow": obj.maintenanceWindow
+          ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
           : undefined
       }
     };

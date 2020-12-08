@@ -129,6 +129,7 @@ export interface ExadataInfrastructure {
    * The list of contacts for the Exadata infrastructure.
    */
   "contacts"?: Array<model.ExadataInfrastructureContact>;
+  "maintenanceWindow"?: model.MaintenanceWindow;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
@@ -157,6 +158,7 @@ export namespace ExadataInfrastructure {
     Deleting = "DELETING",
     Deleted = "DELETED",
     Disconnected = "DISCONNECTED",
+    MaintenanceInProgress = "MAINTENANCE_IN_PROGRESS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -172,6 +174,9 @@ export namespace ExadataInfrastructure {
           ? obj.contacts.map(item => {
               return model.ExadataInfrastructureContact.getJsonObj(item);
             })
+          : undefined,
+        "maintenanceWindow": obj.maintenanceWindow
+          ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
           : undefined
       }
     };

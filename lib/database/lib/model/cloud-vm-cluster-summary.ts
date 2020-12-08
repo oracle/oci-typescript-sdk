@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of the cloud VM cluster.
+ * Details of the cloud VM cluster. Applies to Exadata Cloud Service instances only.
  *
  */
 export interface CloudVmClusterSummary {

@@ -28,6 +28,11 @@ export interface Saml2IdentityProvider extends model.IdentityProvider {
    */
   "metadataUrl": string;
   /**
+   * The XML that contains the information required for federating Identity with SAML2 Identity Provider.
+   *
+   */
+  "metadata"?: string;
+  /**
    * The identity provider's signing certificate used by the IAM Service
    * to validate the SAML2 token.
    *

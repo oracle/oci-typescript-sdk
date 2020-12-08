@@ -16,7 +16,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Request to create Exadata Cloud@Customer infrastructure resource.
+ * Request to create Exadata infrastructure resource. Applies to Exadata Cloud@Customer instances only.
+ * See {@link #createCloudExadataInfrastructureDetails(CreateCloudExadataInfrastructureDetailsRequest) createCloudExadataInfrastructureDetails} for information on creating a cloud Exadata infrastructure resource in an Exadata Cloud Service instance.
  *
  */
 export interface CreateExadataInfrastructureDetails {
@@ -74,6 +75,7 @@ export interface CreateExadataInfrastructureDetails {
    * The list of contacts for the Exadata infrastructure.
    */
   "contacts"?: Array<model.ExadataInfrastructureContact>;
+  "maintenanceWindow"?: model.MaintenanceWindow;
   /**
    * The list of DNS server IP addresses. Maximum of 3 allowed.
    */
@@ -107,6 +109,9 @@ export namespace CreateExadataInfrastructureDetails {
           ? obj.contacts.map(item => {
               return model.ExadataInfrastructureContact.getJsonObj(item);
             })
+          : undefined,
+        "maintenanceWindow": obj.maintenanceWindow
+          ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
           : undefined
       }
     };
