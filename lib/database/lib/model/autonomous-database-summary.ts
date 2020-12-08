@@ -211,7 +211,7 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
    */
   "dataSafeStatus"?: AutonomousDatabaseSummary.DataSafeStatus;
   /**
-   * Status of the Operations Insights for this Autonomous Database.
+   * Status of Operations Insights for this Autonomous Database.
    */
   "operationsInsightsStatus"?: AutonomousDatabaseSummary.OperationsInsightsStatus;
   /**

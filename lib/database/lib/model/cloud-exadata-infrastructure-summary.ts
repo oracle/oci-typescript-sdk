@@ -16,7 +16,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of the cloud Exadata infrastructure resource.
+ * Details of the cloud Exadata infrastructure resource. Applies to Exadata Cloud Service instances only.
+ *
  */
 export interface CloudExadataInfrastructureSummary {
   /**

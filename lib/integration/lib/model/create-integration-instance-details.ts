@@ -57,6 +57,17 @@ export interface CreateIntegrationInstanceDetails {
    */
   "messagePacks": number;
   /**
+   * Visual Builder is enabled or not.
+   */
+  "isVisualBuilderEnabled"?: boolean;
+  "customEndpoint"?: model.CreateCustomEndpointDetails;
+  /**
+   * A list of alternate custom endpoints to be used for the integration instance URL
+   * (contact Oracle for alternateCustomEndpoints availability for a specific instance).
+   *
+   */
+  "alternateCustomEndpoints"?: Array<model.CreateCustomEndpointDetails>;
+  /**
    * Optional parameter specifying which entitlement to use for billing purposes. Only required if the account possesses more than one entitlement.
    */
   "consumptionModel"?: CreateIntegrationInstanceDetails.ConsumptionModel;
@@ -79,7 +90,19 @@ export namespace CreateIntegrationInstanceDetails {
   }
 
   export function getJsonObj(obj: CreateIntegrationInstanceDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customEndpoint": obj.customEndpoint
+          ? model.CreateCustomEndpointDetails.getJsonObj(obj.customEndpoint)
+          : undefined,
+        "alternateCustomEndpoints": obj.alternateCustomEndpoints
+          ? obj.alternateCustomEndpoints.map(item => {
+              return model.CreateCustomEndpointDetails.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

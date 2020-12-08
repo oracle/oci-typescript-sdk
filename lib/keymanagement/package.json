@@ -1,6 +1,6 @@
 {
   "name": "oci-keymanagement",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "description": "OCI NodeJS client for Key Management",
   "repository": {
     "type": "git",

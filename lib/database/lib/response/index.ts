@@ -328,6 +328,10 @@ import * as RotateAutonomousContainerDatabaseEncryptionKeyResponse from "./rotat
 export import RotateAutonomousContainerDatabaseEncryptionKeyResponse = RotateAutonomousContainerDatabaseEncryptionKeyResponse.RotateAutonomousContainerDatabaseEncryptionKeyResponse;
 import * as RotateAutonomousDatabaseEncryptionKeyResponse from "./rotate-autonomous-database-encryption-key-response";
 export import RotateAutonomousDatabaseEncryptionKeyResponse = RotateAutonomousDatabaseEncryptionKeyResponse.RotateAutonomousDatabaseEncryptionKeyResponse;
+import * as RotateOrdsCertsResponse from "./rotate-ords-certs-response";
+export import RotateOrdsCertsResponse = RotateOrdsCertsResponse.RotateOrdsCertsResponse;
+import * as RotateSslCertsResponse from "./rotate-ssl-certs-response";
+export import RotateSslCertsResponse = RotateSslCertsResponse.RotateSslCertsResponse;
 import * as StartAutonomousDataWarehouseResponse from "./start-autonomous-data-warehouse-response";
 export import StartAutonomousDataWarehouseResponse = StartAutonomousDataWarehouseResponse.StartAutonomousDataWarehouseResponse;
 import * as StartAutonomousDatabaseResponse from "./start-autonomous-database-response";

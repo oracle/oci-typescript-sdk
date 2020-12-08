@@ -16,7 +16,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The activation details for the Exadata Cloud@Customer infrastructure.
+ * The activation details for the Exadata Cloud@Customer infrastructure. Applies to Exadata Cloud@Customer instances only.
+ *
  */
 export interface ActivateExadataInfrastructureDetails {
   /**

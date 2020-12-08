@@ -48,8 +48,11 @@ export default class InstancePrincipalsAuthenticationDetailsProviderBuilder exte
   InstancePrincipalsAuthenticationDetailsProviderBuilder,
   InstancePrincipalsAuthenticationDetailsProvider
 > {
-  constructor() {
+  constructor(purpose?: string) {
     super();
+    if (purpose) {
+      this.purpose = purpose;
+    }
   }
 
   async build(): Promise<InstancePrincipalsAuthenticationDetailsProvider> {

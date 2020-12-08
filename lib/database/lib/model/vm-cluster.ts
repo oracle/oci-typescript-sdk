@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of the Exadata Cloud@Customer VM cluster.
+ * Details of the VM cluster resource. Applies to Exadata Cloud@Customer instances only.
  *
  */
 export interface VmCluster {
@@ -129,6 +129,7 @@ export namespace VmCluster {
     Terminating = "TERMINATING",
     Terminated = "TERMINATED",
     Failed = "FAILED",
+    MaintenanceInProgress = "MAINTENANCE_IN_PROGRESS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

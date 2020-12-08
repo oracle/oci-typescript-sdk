@@ -86,8 +86,8 @@ export interface AutonomousContainerDatabase {
   "nextMaintenanceRunId"?: string;
   "maintenanceWindow"?: model.MaintenanceWindow;
   /**
-   * The scheduling detail for the quarterly maintenance window of standby Autonomous Container Database.
-   * This value represents the number of days before the primary database maintenance schedule.
+   * The scheduling detail for the quarterly maintenance window of the standby Autonomous Container Database.
+   * This value represents the number of days before scheduled maintenance of the primary database.
    *
    */
   "standbyMaintenanceBufferInDays"?: number;

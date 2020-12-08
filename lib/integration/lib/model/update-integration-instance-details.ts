@@ -52,6 +52,17 @@ export interface UpdateIntegrationInstanceDetails {
    * The file server is enabled or not.
    */
   "isFileServerEnabled"?: boolean;
+  /**
+   * Visual Builder is enabled or not.
+   */
+  "isVisualBuilderEnabled"?: boolean;
+  "customEndpoint"?: model.UpdateCustomEndpointDetails;
+  /**
+   * A list of alternate custom endpoints to be used for the integration instance URL
+   * (contact Oracle for alternateCustomEndpoints availability for a specific instance).
+   *
+   */
+  "alternateCustomEndpoints"?: Array<model.UpdateCustomEndpointDetails>;
 }
 
 export namespace UpdateIntegrationInstanceDetails {
@@ -61,7 +72,19 @@ export namespace UpdateIntegrationInstanceDetails {
   }
 
   export function getJsonObj(obj: UpdateIntegrationInstanceDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customEndpoint": obj.customEndpoint
+          ? model.UpdateCustomEndpointDetails.getJsonObj(obj.customEndpoint)
+          : undefined,
+        "alternateCustomEndpoints": obj.alternateCustomEndpoints
+          ? obj.alternateCustomEndpoints.map(item => {
+              return model.UpdateCustomEndpointDetails.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

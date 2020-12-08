@@ -137,7 +137,8 @@ export class DatabaseClient {
   }
 
   /**
-   * Activates the specified Exadata Cloud@Customer infrastructure.
+   * Activates the specified Exadata infrastructure resource. Applies to Exadata Cloud@Customer instances only.
+   *
    * @param ActivateExadataInfrastructureRequest
    * @return ActivateExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -664,8 +665,7 @@ export class DatabaseClient {
   }
 
   /**
-   * To move a cloud Exadata infrastructure resource and its dependent resources to another compartment, use the
-   * {@link #changeCloudExadataInfrastructureCompartment(ChangeCloudExadataInfrastructureCompartmentRequest) changeCloudExadataInfrastructureCompartment} operation.
+   * Moves a cloud Exadata infrastructure resource and its dependent resources to another compartment. Applies to Exadata Cloud Service instances only. For more information about moving resources to a different compartment, see [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
    * @param ChangeCloudExadataInfrastructureCompartmentRequest
    * @return ChangeCloudExadataInfrastructureCompartmentResponse
@@ -736,8 +736,7 @@ export class DatabaseClient {
   }
 
   /**
-   * To move a cloud VM cluster and its dependent resources to another compartment, use the
-   * {@link #changeCloudVmClusterCompartment(ChangeCloudVmClusterCompartmentRequest) changeCloudVmClusterCompartment} operation.
+   * Moves a cloud VM cluster and its dependent resources to another compartment. Applies to Exadata Cloud Service instances only.
    *
    * @param ChangeCloudVmClusterCompartmentRequest
    * @return ChangeCloudVmClusterCompartmentResponse
@@ -881,7 +880,7 @@ export class DatabaseClient {
   }
 
   /**
-   * Move the DB system and its dependent resources to the specified compartment.
+   * Moves the DB system and its dependent resources to the specified compartment.
    * For more information about moving DB systems, see
    * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
@@ -956,8 +955,8 @@ export class DatabaseClient {
   }
 
   /**
-   * To move an Exadata Cloud@Customer infrastructure resource and its dependent resources to another compartment, use the
-   * {@link #changeExadataInfrastructureCompartment(ChangeExadataInfrastructureCompartmentRequest) changeExadataInfrastructureCompartment} operation.
+   * Moves an Exadata infrastructure resource and its dependent resources to another compartment. Applies to Exadata Cloud@Customer instances only.
+   * To move an Exadata Cloud Service infrastructure resource to another compartment, use the  {@link #changeCloudExadataInfrastructureCompartment(ChangeCloudExadataInfrastructureCompartmentRequest) changeCloudExadataInfrastructureCompartment} operation.
    *
    * @param ChangeExadataInfrastructureCompartmentRequest
    * @return ChangeExadataInfrastructureCompartmentResponse
@@ -1096,8 +1095,8 @@ export class DatabaseClient {
   }
 
   /**
-   * To move an Exadata Cloud@Customer VM cluster and its dependent resources to another compartment, use the
-   * {@link #changeVmClusterCompartment(ChangeVmClusterCompartmentRequest) changeVmClusterCompartment} operation.
+   * Moves a VM cluster and its dependent resources to another compartment. Applies to Exadata Cloud@Customer instances only.
+   * To move a cloud VM cluster in an Exadata Cloud Service instance to another compartment, use the {@link #changeCloudVmClusterCompartment(ChangeCloudVmClusterCompartmentRequest) changeCloudVmClusterCompartment} operation.
    *
    * @param ChangeVmClusterCompartmentRequest
    * @return ChangeVmClusterCompartmentResponse
@@ -1805,7 +1804,8 @@ export class DatabaseClient {
   }
 
   /**
-   * Creates a cloud Exadata infrastructure resource.
+   * Creates a cloud Exadata infrastructure resource. This resource is used to create an [Exadata Cloud Service](https://docs.cloud.oracle.com/Content/Database/Concepts/exaoverview.htm) instance.
+   *
    * @param CreateCloudExadataInfrastructureRequest
    * @return CreateCloudExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -2315,7 +2315,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * Creates Exadata Cloud@Customer infrastructure.
+   * Creates an Exadata infrastructure resource. Applies to Exadata Cloud@Customer instances only.
+   * To create an Exadata Cloud Service infrastructure resource, use the  {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructureRequest) createCloudExadataInfrastructure} operation.
+   *
    * @param CreateExadataInfrastructureRequest
    * @return CreateExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -2599,7 +2601,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * Creates the Exadata Cloud@Customer VM cluster network.
+   * Creates the VM cluster network. Applies to Exadata Cloud@Customer instances only.
+   * To create a cloud VM cluster in an Exadata Cloud Service instance, use the {@link #createCloudVmCluster(CreateCloudVmClusterRequest) createCloudVmCluster} operation.
    *
    * @param CreateVmClusterNetworkRequest
    * @return CreateVmClusterNetworkResponse
@@ -3051,7 +3054,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * Deletes the cloud Exadata infrastructure resource.
+   * Deletes the cloud Exadata infrastructure resource. Applies to Exadata Cloud Service instances only.
    *
    * @param DeleteCloudExadataInfrastructureRequest
    * @return DeleteCloudExadataInfrastructureResponse
@@ -3116,7 +3119,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * Deletes the specified cloud VM cluster.
+   * Deletes the specified cloud VM cluster. Applies to Exadata Cloud Service instances only.
    *
    * @param DeleteCloudVmClusterRequest
    * @return DeleteCloudVmClusterResponse
@@ -3539,7 +3542,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
-   * Deletes the specified Exadata Cloud@Customer VM cluster.
+   * Deletes the specified VM cluster. Applies to Exadata Cloud@Customer instances only.
    *
    * @param DeleteVmClusterRequest
    * @return DeleteVmClusterResponse
@@ -3600,7 +3603,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
-   * Deletes the specified Exadata Cloud@Customer VM cluster network.
+   * Deletes the specified VM cluster network. Applies to Exadata Cloud@Customer instances only.
+   * To delete a cloud VM cluster in an Exadata Cloud Service instance, use the {@link #deleteCloudVmCluster(DeleteCloudVmClusterRequest) deleteCloudVmCluster} operation.
    *
    * @param DeleteVmClusterNetworkRequest
    * @return DeleteVmClusterNetworkResponse
@@ -3872,7 +3876,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
-   * Downloads the configuration file for the specified Exadata Cloud@Customer VM cluster network.
+   * Downloads the configuration file for the specified VM cluster network. Applies to Exadata Cloud@Customer instances only.
    *
    * @param DownloadVmClusterNetworkConfigFileRequest
    * @return DownloadVmClusterNetworkConfigFileResponse
@@ -5356,7 +5360,8 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about the specified cloud Exadata infrastructure resource.
+   * Gets information about the specified cloud Exadata infrastructure resource. Applies to Exadata Cloud Service instances only.
+   *
    * @param GetCloudExadataInfrastructureRequest
    * @return GetCloudExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -5420,7 +5425,8 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about the specified cloud VM cluster.
+   * Gets information about the specified cloud VM cluster. Applies to Exadata Cloud Service instances only.
+   *
    * @param GetCloudVmClusterRequest
    * @return GetCloudVmClusterResponse
    * @throws OciError when an error occurs
@@ -5482,7 +5488,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets the IORM configuration for the specified cloud VM cluster.
+   * Gets the IORM configuration for the specified cloud VM cluster in an Exadata Cloud Service instance.
    * If you have not specified an IORM configuration, the default configuration is returned.
    *
    * @param GetCloudVmClusterIormConfigRequest
@@ -5547,7 +5553,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about a specified maintenance update package.
+   * Gets information about a specified maintenance update package for a cloud VM cluster. Applies to Exadata Cloud Service instances only.
    *
    * @param GetCloudVmClusterUpdateRequest
    * @return GetCloudVmClusterUpdateResponse
@@ -5606,7 +5612,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets the maintenance update history details for the specified update history entry.
+   * Gets the maintenance update history details for the specified update history entry. Applies to Exadata Cloud Service instances only.
    *
    * @param GetCloudVmClusterUpdateHistoryEntryRequest
    * @return GetCloudVmClusterUpdateHistoryEntryResponse
@@ -6406,7 +6412,9 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about the specified Exadata Cloud@Customer infrastructure.
+   * Gets information about the specified Exadata infrastructure. Applies to Exadata Cloud@Customer instances only.
+   * To get information on an Exadata Cloud Service infrastructure resource, use the  {@link #getCloudExadataInfrastructure(GetCloudExadataInfrastructureRequest) getCloudExadataInfrastructure} operation.
+   *
    * @param GetExadataInfrastructureRequest
    * @return GetExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -6776,7 +6784,8 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about the specified Exadata Cloud@Customer VM cluster.
+   * Gets information about the VM cluster. Applies to Exadata Cloud@Customer instances only.
+   *
    * @param GetVmClusterRequest
    * @return GetVmClusterResponse
    * @throws OciError when an error occurs
@@ -6838,7 +6847,9 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about the specified Exadata Cloud@Customer VM cluster network.
+   * Gets information about the specified VM cluster network. Applies to Exadata Cloud@Customer instances only.
+   * To get information about a cloud VM cluster in an Exadata Cloud Service instance, use the {@link #getCloudVmCluster(GetCloudVmClusterRequest) getCloudVmCluster} operation.
+   *
    * @param GetVmClusterNetworkRequest
    * @return GetVmClusterNetworkResponse
    * @throws OciError when an error occurs
@@ -7174,7 +7185,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Gets a list of the Autonomous Container Databases with Autonomous Data Guard enabled associated with the specified Autonomous Container Database.
+   * Gets a list of the Autonomous Container Databases with Autonomous Data Guard-enabled associated with the specified Autonomous Container Database.
    *
    * @param ListAutonomousContainerDatabaseDataguardAssociationsRequest
    * @return ListAutonomousContainerDatabaseDataguardAssociationsResponse
@@ -8608,7 +8619,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Gets a list of the cloud Exadata infrastructure in the specified compartment.
+   * Gets a list of the cloud Exadata infrastructure resources in the specified compartment. Applies to Exadata Cloud Service instances only.
    *
    * @param ListCloudExadataInfrastructuresRequest
    * @return ListCloudExadataInfrastructuresResponse
@@ -8703,7 +8714,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Gets the history of the maintenance update actions performed on the specified cloud VM cluster.
+   * Gets the history of the maintenance update actions performed on the specified cloud VM cluster. Applies to Exadata Cloud Service instances only.
    *
    * @param ListCloudVmClusterUpdateHistoryEntriesRequest
    * @return ListCloudVmClusterUpdateHistoryEntriesResponse
@@ -8796,7 +8807,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Lists the maintenance updates that can be applied to the requested cloud VM cluster.
+   * Lists the maintenance updates that can be applied to the specified cloud VM cluster. Applies to Exadata Cloud Service instances only.
    *
    * @param ListCloudVmClusterUpdatesRequest
    * @return ListCloudVmClusterUpdatesResponse
@@ -8889,7 +8900,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Gets a list of the cloud VM clusters in the specified compartment.
+   * Gets a list of the cloud VM clusters in the specified compartment. Applies to Exadata Cloud Service instances only.
    *
    * @param ListCloudVmClustersRequest
    * @return ListCloudVmClustersResponse
@@ -10347,7 +10358,8 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Gets a list of the Exadata Cloud@Customer infrastructure resources in the specified compartment.
+   * Lists the Exadata infrastructure resources in the specified compartment. Applies to Exadata Cloud@Customer instances only.
+   * To list the Exadata Cloud Service infrastructure resources in a compartment, use the  {@link #listCloudExadataInfrastructures(ListCloudExadataInfrastructuresRequest) listCloudExadataInfrastructures} operation.
    *
    * @param ListExadataInfrastructuresRequest
    * @return ListExadataInfrastructuresResponse
@@ -10718,7 +10730,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Gets a list of the Exadata Cloud@Customer VM cluster networks in the specified compartment.
+   * Gets a list of the VM cluster networks in the specified compartment. Applies to Exadata Cloud@Customer instances only.
    *
    * @param ListVmClusterNetworksRequest
    * @return ListVmClusterNetworksResponse
@@ -10995,7 +11007,8 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Gets a list of the Exadata Cloud@Customer VM clusters in the specified compartment.
+   * Lists the VM clusters in the specified compartment. Applies to Exadata Cloud@Customer instances only.
+   * To list the cloud VM clusters in an Exadata Cloud Service instance, use the {@link #listCloudVmClusters(ListCloudVmClustersRequest) listCloudVmClusters} operation.
    *
    * @param ListVmClustersRequest
    * @return ListVmClustersResponse
@@ -11879,6 +11892,133 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
+   * Rotates Oracle REST Data Services (ORDS) certs for an Autonomous Exadata Infrastructure resource.
+   *
+   * @param RotateOrdsCertsRequest
+   * @return RotateOrdsCertsResponse
+   * @throws OciError when an error occurs
+   */
+  public async rotateOrdsCerts(
+    rotateOrdsCertsRequest: requests.RotateOrdsCertsRequest
+  ): Promise<responses.RotateOrdsCertsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#rotateOrdsCerts.");
+    const pathParams = {
+      "{autonomousExadataInfrastructureId}":
+        rotateOrdsCertsRequest.autonomousExadataInfrastructureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": rotateOrdsCertsRequest.opcRequestId,
+      "opc-retry-token": rotateOrdsCertsRequest.opcRetryToken,
+      "if-match": rotateOrdsCertsRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/autonomousExadataInfrastructures/{autonomousExadataInfrastructureId}/actions/rotateOrdsCerts",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      rotateOrdsCertsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RotateOrdsCertsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Rotates SSL certs for an Autonomous Exadata Infrastructure resource.
+   *
+   * @param RotateSslCertsRequest
+   * @return RotateSslCertsResponse
+   * @throws OciError when an error occurs
+   */
+  public async rotateSslCerts(
+    rotateSslCertsRequest: requests.RotateSslCertsRequest
+  ): Promise<responses.RotateSslCertsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#rotateSslCerts.");
+    const pathParams = {
+      "{autonomousExadataInfrastructureId}": rotateSslCertsRequest.autonomousExadataInfrastructureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": rotateSslCertsRequest.opcRequestId,
+      "opc-retry-token": rotateSslCertsRequest.opcRetryToken,
+      "if-match": rotateSslCertsRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/autonomousExadataInfrastructures/{autonomousExadataInfrastructureId}/actions/rotateSslCerts",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      rotateSslCertsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RotateSslCertsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * **Deprecated.** To start an Autonomous Data Warehouse, use the {@link #startAutonomousDatabase(StartAutonomousDatabaseRequest) startAutonomousDatabase} operation.
    *
    * @param StartAutonomousDataWarehouseRequest
@@ -12144,7 +12284,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-     * Switches over the primary Autonomous Container Database of an Autonomous Data Guard peer association into a standby role. The standby Autonomous Container Database associated with autonomousContainerDatabaseDataguardAssociationId assumes the primary Autonomous Container Database role.
+     * Switches over the primary Autonomous Container Database of an Autonomous Data Guard peer association to standby role. The standby Autonomous Container Database associated with autonomousContainerDatabaseDataguardAssociationId assumes the primary Autonomous Container Database role.
 * <p>
 A switchover incurs no data loss.
 * 
@@ -13124,7 +13264,7 @@ A switchover guarantees no data loss.
   }
 
   /**
-   * Updates the Cloud Exadata infrastructure resource.
+   * Updates the Cloud Exadata infrastructure resource. Applies to Exadata Cloud Service instances only.
    *
    * @param UpdateCloudExadataInfrastructureRequest
    * @return UpdateCloudExadataInfrastructureResponse
@@ -13200,7 +13340,7 @@ A switchover guarantees no data loss.
   }
 
   /**
-   * Updates the specified cloud VM cluster.
+   * Updates the specified cloud VM cluster. Applies to Exadata Cloud Service instances only.
    *
    * @param UpdateCloudVmClusterRequest
    * @return UpdateCloudVmClusterResponse
@@ -13274,7 +13414,7 @@ A switchover guarantees no data loss.
   }
 
   /**
-   * Updates the IORM settings for the specified cloud VM cluster.
+   * Updates the IORM settings for the specified cloud VM cluster in an Exadata Cloud Service instance.
    *
    * @param UpdateCloudVmClusterIormConfigRequest
    * @return UpdateCloudVmClusterIormConfigResponse
@@ -13634,7 +13774,8 @@ A switchover guarantees no data loss.
   }
 
   /**
-   * Updates the Exadata Cloud@Customer infrastructure.
+   * Updates the Exadata infrastructure resource. Applies to Exadata Cloud@Customer instances only.
+   * To update an Exadata Cloud Service infrastructure resource, use the  {@link #updateCloudExadataInfrastructure(UpdateCloudExadataInfrastructureRequest) updateCloudExadataInfrastructure} operation.
    *
    * @param UpdateExadataInfrastructureRequest
    * @return UpdateExadataInfrastructureResponse
@@ -13919,7 +14060,7 @@ A switchover guarantees no data loss.
   }
 
   /**
-   * Updates the specified Exadata Cloud@Customer VM cluster.
+   * Updates the specified VM cluster. Applies to Exadata Cloud@Customer instances only.
    *
    * @param UpdateVmClusterRequest
    * @return UpdateVmClusterResponse
@@ -13993,7 +14134,8 @@ A switchover guarantees no data loss.
   }
 
   /**
-   * Updates the specified Exadata Cloud@Customer VM cluster network.
+   * Updates the specified VM cluster network. Applies to Exadata Cloud@Customer instances only.
+   * To update a cloud VM cluster in an Exadata Cloud Service instance, use the {@link #updateCloudVmCluster(UpdateCloudVmClusterRequest) updateCloudVmCluster} operation.
    *
    * @param UpdateVmClusterNetworkRequest
    * @return UpdateVmClusterNetworkResponse
@@ -14143,7 +14285,7 @@ A switchover guarantees no data loss.
   }
 
   /**
-   * Validates the specified Exadata Cloud@Customer VM cluster network.
+   * Validates the specified VM cluster network. Applies to Exadata Cloud@Customer instances only.
    *
    * @param ValidateVmClusterNetworkRequest
    * @return ValidateVmClusterNetworkResponse

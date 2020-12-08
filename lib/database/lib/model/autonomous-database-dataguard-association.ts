@@ -36,7 +36,7 @@ export interface AutonomousDatabaseDataguardAssociation {
    */
   "role": AutonomousDatabaseDataguardAssociation.Role;
   /**
-   * The current state of the Autonomous Data Guard.
+   * The current state of Autonomous Data Guard.
    */
   "lifecycleState": AutonomousDatabaseDataguardAssociation.LifecycleState;
   /**
@@ -54,7 +54,7 @@ export interface AutonomousDatabaseDataguardAssociation {
    */
   "peerAutonomousDatabaseId"?: string;
   /**
-   * The current state of the Autonomous Data Guard.
+   * The current state of Autonomous Data Guard.
    */
   "peerAutonomousDatabaseLifeCycleState"?: AutonomousDatabaseDataguardAssociation.PeerAutonomousDatabaseLifeCycleState;
   /**

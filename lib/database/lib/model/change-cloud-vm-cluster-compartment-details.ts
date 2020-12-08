@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The configuration details for moving the cloud VM cluster to another compartment.
+ * The configuration details for moving the cloud VM cluster to another compartment. Applies to Exadata Cloud Service instances only.
  *
  */
 export interface ChangeCloudVmClusterCompartmentDetails {

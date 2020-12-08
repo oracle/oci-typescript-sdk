@@ -140,6 +140,7 @@ export namespace SummarizeSqlStatisticsRequest {
     Variant = "VARIANT",
     Inefficient = "INEFFICIENT",
     ChangingPlans = "CHANGING_PLANS",
+    Improving = "IMPROVING",
     DegradingVariant = "DEGRADING_VARIANT",
     DegradingInefficient = "DEGRADING_INEFFICIENT",
     DegradingChangingPlans = "DEGRADING_CHANGING_PLANS",

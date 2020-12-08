@@ -15,7 +15,8 @@ import * as model from "../model";
 import common = require("oci-common");
 export interface CreateCloudExadataInfrastructureRequest extends common.BaseRequest {
   /**
-   * Request to create cloud Exadata infrastructure.
+   * Request to create a cloud Exadata infrastructure resource in an [Exadata Cloud Service](https://docs.cloud.oracle.com/Content/Database/Concepts/exaoverview.htm) instance.
+   *
    */
   "createCloudExadataInfrastructureDetails": model.CreateCloudExadataInfrastructureDetails;
   /**

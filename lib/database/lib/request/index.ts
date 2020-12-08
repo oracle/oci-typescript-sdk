@@ -328,6 +328,10 @@ import * as RotateAutonomousContainerDatabaseEncryptionKeyRequest from "./rotate
 export import RotateAutonomousContainerDatabaseEncryptionKeyRequest = RotateAutonomousContainerDatabaseEncryptionKeyRequest.RotateAutonomousContainerDatabaseEncryptionKeyRequest;
 import * as RotateAutonomousDatabaseEncryptionKeyRequest from "./rotate-autonomous-database-encryption-key-request";
 export import RotateAutonomousDatabaseEncryptionKeyRequest = RotateAutonomousDatabaseEncryptionKeyRequest.RotateAutonomousDatabaseEncryptionKeyRequest;
+import * as RotateOrdsCertsRequest from "./rotate-ords-certs-request";
+export import RotateOrdsCertsRequest = RotateOrdsCertsRequest.RotateOrdsCertsRequest;
+import * as RotateSslCertsRequest from "./rotate-ssl-certs-request";
+export import RotateSslCertsRequest = RotateSslCertsRequest.RotateSslCertsRequest;
 import * as StartAutonomousDataWarehouseRequest from "./start-autonomous-data-warehouse-request";
 export import StartAutonomousDataWarehouseRequest = StartAutonomousDataWarehouseRequest.StartAutonomousDataWarehouseRequest;
 import * as StartAutonomousDatabaseRequest from "./start-autonomous-database-request";

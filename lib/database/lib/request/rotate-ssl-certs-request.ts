@@ -13,12 +13,16 @@
 
 import * as model from "../model";
 import common = require("oci-common");
-export interface CreateCloudVmClusterRequest extends common.BaseRequest {
+export interface RotateSslCertsRequest extends common.BaseRequest {
   /**
-   * Request to create a cloud VM cluster. Applies to Exadata Cloud Service instances only. See [The New Exadata Cloud Service Resource Model](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) for information on this resource type.
+   * The Autonomous Exadata Infrastructure  [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   */
+  "autonomousExadataInfrastructureId": string;
+  /**
+   * Unique identifier for the request.
    *
    */
-  "createCloudVmClusterDetails": model.CreateCloudVmClusterDetails;
+  "opcRequestId"?: string;
   /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or
    * server error without risk of executing that same action again. Retry tokens expire after 24
@@ -29,8 +33,10 @@ export interface CreateCloudVmClusterRequest extends common.BaseRequest {
    */
   "opcRetryToken"?: string;
   /**
-   * Unique identifier for the request.
+   * For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match`
+   * parameter to the value of the etag from a previous GET or POST response for that resource.  The resource
+   * will be updated or deleted only if the etag you provide matches the resource's current etag value.
    *
    */
-  "opcRequestId"?: string;
+  "ifMatch"?: string;
 }

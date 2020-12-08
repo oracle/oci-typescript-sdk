@@ -67,6 +67,16 @@ export interface IntegrationInstanceSummary {
    */
   "isFileServerEnabled"?: boolean;
   /**
+   * Visual Builder is enabled or not.
+   */
+  "isVisualBuilderEnabled"?: boolean;
+  "customEndpoint"?: model.CustomEndpointDetails;
+  /**
+   * A list of alternate custom endpoints used for the integration instance URL.
+   *
+   */
+  "alternateCustomEndpoints"?: Array<model.CustomEndpointDetails>;
+  /**
    * The entitlement used for billing purposes.
    */
   "consumptionModel"?: IntegrationInstanceSummary.ConsumptionModel;
@@ -110,7 +120,19 @@ export namespace IntegrationInstanceSummary {
   }
 
   export function getJsonObj(obj: IntegrationInstanceSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customEndpoint": obj.customEndpoint
+          ? model.CustomEndpointDetails.getJsonObj(obj.customEndpoint)
+          : undefined,
+        "alternateCustomEndpoints": obj.alternateCustomEndpoints
+          ? obj.alternateCustomEndpoints.map(item => {
+              return model.CustomEndpointDetails.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
