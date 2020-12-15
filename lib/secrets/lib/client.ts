@@ -113,6 +113,7 @@ export class SecretsClient {
    * @param GetSecretBundleRequest
    * @return GetSecretBundleResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/secrets/GetSecretBundle.ts.html |here} to see how to use GetSecretBundle API.
    */
   public async getSecretBundle(
     getSecretBundleRequest: requests.GetSecretBundleRequest
@@ -179,6 +180,7 @@ export class SecretsClient {
    * @param ListSecretBundleVersionsRequest
    * @return ListSecretBundleVersionsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/secrets/ListSecretBundleVersions.ts.html |here} to see how to use ListSecretBundleVersions API.
    */
   public async listSecretBundleVersions(
     listSecretBundleVersionsRequest: requests.ListSecretBundleVersionsRequest

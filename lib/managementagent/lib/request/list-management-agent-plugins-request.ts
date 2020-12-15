@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/ListManagementAgentPlugins.ts.html |here} to see how to use ListManagementAgentPluginsRequest.
+ */
 export interface ListManagementAgentPluginsRequest extends common.BaseRequest {
   /**
    * The ID of the compartment from which the Management Agents to be listed.

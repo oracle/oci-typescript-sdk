@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetConfigWorkRequest.ts.html |here} to see how to use GetConfigWorkRequestRequest.
+ */
 export interface GetConfigWorkRequestRequest extends common.BaseRequest {
   /**
    * The Logging Analytics namespace used for the request.

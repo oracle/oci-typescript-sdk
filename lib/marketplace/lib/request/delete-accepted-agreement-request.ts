@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/DeleteAcceptedAgreement.ts.html |here} to see how to use DeleteAcceptedAgreementRequest.
+ */
 export interface DeleteAcceptedAgreementRequest extends common.BaseRequest {
   /**
    * The unique identifier for the accepted terms of use agreement.

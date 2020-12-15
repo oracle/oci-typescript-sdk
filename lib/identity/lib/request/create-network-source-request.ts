@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateNetworkSource.ts.html |here} to see how to use CreateNetworkSourceRequest.
+ */
 export interface CreateNetworkSourceRequest extends common.BaseRequest {
   /**
    * Request object for creating a new network source.

@@ -33,7 +33,7 @@ The service that produces the event can also add, remove, or change the meaning 
 Example: `com.oraclecloud.ComputeApi.GetInstance`
 * 
     */
-  "eventType"?: string;
+  "eventType": string;
   /**
     * The version of the CloudEvents specification. The structure of the envelope follows the 
 * [CloudEvents](https://github.com/cloudevents/spec) industry standard format hosted by the
@@ -44,7 +44,7 @@ Audit uses version 0.1 specification of the CloudEvents event envelope.
 Example: `0.1`
 * 
     */
-  "cloudEventsVersion"?: string;
+  "cloudEventsVersion": string;
   /**
     * The version of the event type. This version applies to the payload of the event, not the envelope.
 * Use `cloudEventsVersion` to determine the version of the envelope.
@@ -52,34 +52,34 @@ Example: `0.1`
 Example: `2.0`
 * 
     */
-  "eventTypeVersion"?: string;
+  "eventTypeVersion": string;
   /**
     * The source of the event.
 * <p>
 Example: `ComputeApi`
 * 
     */
-  "source"?: string;
+  "source": string;
   /**
    * The GUID of the event.
    *
    */
-  "eventId"?: string;
+  "eventId": string;
   /**
     * The time the event occurred, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
 * <p>
 Example: `2019-09-18T00:10:59.252Z`
 * 
     */
-  "eventTime"?: Date;
+  "eventTime": Date;
   /**
     * The content type of the data contained in `data`.
 * <p>
 Example: `application/json`
 * 
     */
-  "contentType"?: string;
-  "data"?: model.Data;
+  "contentType": string;
+  "data": model.Data;
 }
 
 export namespace AuditEvent {

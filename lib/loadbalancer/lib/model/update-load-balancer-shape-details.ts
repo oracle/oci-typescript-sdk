@@ -25,14 +25,29 @@ Allowed values are :
 *   *  100Mbps
 *   *  400Mbps
 *   *  8000Mbps
+*   *  Flexible
+* <p>
+  Example: `Flexible`
 * 
     */
   "shapeName": string;
+  /**
+   * The configuration details to update load balancer to a different profile.
+   *
+   */
+  "shapeDetails"?: model.ShapeDetails;
 }
 
 export namespace UpdateLoadBalancerShapeDetails {
   export function getJsonObj(obj: UpdateLoadBalancerShapeDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "shapeDetails": obj.shapeDetails
+          ? model.ShapeDetails.getJsonObj(obj.shapeDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

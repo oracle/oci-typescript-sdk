@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeVolumeGroupBackupCompartment.ts.html |here} to see how to use ChangeVolumeGroupBackupCompartmentRequest.
+ */
 export interface ChangeVolumeGroupBackupCompartmentRequest extends common.BaseRequest {
   /**
    * The Oracle Cloud ID (OCID) that uniquely identifies the volume group backup.

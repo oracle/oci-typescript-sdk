@@ -139,6 +139,7 @@ export class ContainerEngineClient {
    * @param CreateClusterRequest
    * @return CreateClusterResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/CreateCluster.ts.html |here} to see how to use CreateCluster API.
    */
   public async createCluster(
     createClusterRequest: requests.CreateClusterRequest
@@ -202,6 +203,7 @@ export class ContainerEngineClient {
    * @param CreateKubeconfigRequest
    * @return CreateKubeconfigResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/CreateKubeconfig.ts.html |here} to see how to use CreateKubeconfig API.
    */
   public async createKubeconfig(
     createKubeconfigRequest: requests.CreateKubeconfigRequest
@@ -265,6 +267,7 @@ export class ContainerEngineClient {
    * @param CreateNodePoolRequest
    * @return CreateNodePoolResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/CreateNodePool.ts.html |here} to see how to use CreateNodePool API.
    */
   public async createNodePool(
     createNodePoolRequest: requests.CreateNodePoolRequest
@@ -328,6 +331,7 @@ export class ContainerEngineClient {
    * @param DeleteClusterRequest
    * @return DeleteClusterResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/DeleteCluster.ts.html |here} to see how to use DeleteCluster API.
    */
   public async deleteCluster(
     deleteClusterRequest: requests.DeleteClusterRequest
@@ -388,6 +392,7 @@ export class ContainerEngineClient {
    * @param DeleteNodePoolRequest
    * @return DeleteNodePoolResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/DeleteNodePool.ts.html |here} to see how to use DeleteNodePool API.
    */
   public async deleteNodePool(
     deleteNodePoolRequest: requests.DeleteNodePoolRequest
@@ -448,6 +453,7 @@ export class ContainerEngineClient {
    * @param DeleteWorkRequestRequest
    * @return DeleteWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/DeleteWorkRequest.ts.html |here} to see how to use DeleteWorkRequest API.
    */
   public async deleteWorkRequest(
     deleteWorkRequestRequest: requests.DeleteWorkRequestRequest
@@ -504,6 +510,7 @@ export class ContainerEngineClient {
    * @param GetClusterRequest
    * @return GetClusterResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetCluster.ts.html |here} to see how to use GetCluster API.
    */
   public async getCluster(
     getClusterRequest: requests.GetClusterRequest
@@ -566,6 +573,7 @@ export class ContainerEngineClient {
    * @param GetClusterOptionsRequest
    * @return GetClusterOptionsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetClusterOptions.ts.html |here} to see how to use GetClusterOptions API.
    */
   public async getClusterOptions(
     getClusterOptionsRequest: requests.GetClusterOptionsRequest
@@ -626,6 +634,7 @@ export class ContainerEngineClient {
    * @param GetNodePoolRequest
    * @return GetNodePoolResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetNodePool.ts.html |here} to see how to use GetNodePool API.
    */
   public async getNodePool(
     getNodePoolRequest: requests.GetNodePoolRequest
@@ -688,6 +697,7 @@ export class ContainerEngineClient {
    * @param GetNodePoolOptionsRequest
    * @return GetNodePoolOptionsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetNodePoolOptions.ts.html |here} to see how to use GetNodePoolOptions API.
    */
   public async getNodePoolOptions(
     getNodePoolOptionsRequest: requests.GetNodePoolOptionsRequest
@@ -748,6 +758,7 @@ export class ContainerEngineClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -815,6 +826,7 @@ export class ContainerEngineClient {
    * @param ListClustersRequest
    * @return ListClustersResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListClusters.ts.html |here} to see how to use ListClusters API.
    */
   public async listClusters(
     listClustersRequest: requests.ListClustersRequest
@@ -908,6 +920,7 @@ export class ContainerEngineClient {
    * @param ListNodePoolsRequest
    * @return ListNodePoolsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListNodePools.ts.html |here} to see how to use ListNodePools API.
    */
   public async listNodePools(
     listNodePoolsRequest: requests.ListNodePoolsRequest
@@ -1001,6 +1014,7 @@ export class ContainerEngineClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1061,6 +1075,7 @@ export class ContainerEngineClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1121,6 +1136,7 @@ export class ContainerEngineClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1216,6 +1232,7 @@ export class ContainerEngineClient {
    * @param UpdateClusterRequest
    * @return UpdateClusterResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/UpdateCluster.ts.html |here} to see how to use UpdateCluster API.
    */
   public async updateCluster(
     updateClusterRequest: requests.UpdateClusterRequest
@@ -1281,6 +1298,7 @@ export class ContainerEngineClient {
    * @param UpdateNodePoolRequest
    * @return UpdateNodePoolResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/UpdateNodePool.ts.html |here} to see how to use UpdateNodePool API.
    */
   public async updateNodePool(
     updateNodePoolRequest: requests.UpdateNodePoolRequest

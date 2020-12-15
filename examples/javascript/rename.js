@@ -16,21 +16,15 @@
  * </ul>
  */
 
-const os = require('oci-objectstorage');
-const common = require('oci-common');
+const os = require("oci-objectstorage");
+const common = require("oci-common");
 
-const configurationFilePath = '~/.oci/config';
-const configProfile = 'DEFAULT';
-
-const provider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider = new common.ConfigFileAuthenticationDetailsProvider();
 
 const args = process.argv.slice(2);
 if (args.length !== 4) {
   console.error(
-    'Unexpected number of arguments received. Consult the script header comments for expected arguments'
+    "Unexpected number of arguments received. Consult the script header comments for expected arguments"
   );
   process.exit(-1);
 }
@@ -41,31 +35,29 @@ const namespaceName = args[2];
 const bucketName = args[3];
 
 const client = new os.ObjectStorageClient({
-    authenticationDetailsProvider: provider
+  authenticationDetailsProvider: provider
 });
-client.region = common.Region.US_PHOENIX_1;
 
 (async () => {
-    try {
-        //building the rename object request
-        const renameObjectDetails = {
-          sourceName: sourceName,
-          newName: newName
-        };
-        const renameObject = {
-          namespaceName: namespaceName,
-          bucketName: bucketName,
-          renameObjectDetails: renameObjectDetails
-        };
-        // rename the file name to the new filename
-        const resp = await client.renameObject(renameObject);
-        console.log(resp);
-        console.log(`Renamed ${sourceName} to ${newName}.`);
-      } catch (ex) {
-        console.error(`Failed due to ${ex}`);
-        console.error(
-          `The object '${sourceName}' may not exist in bucket '${bucketName}' with namespace '${namespaceName}'`
-        );
-      }
-
+  try {
+    //building the rename object request
+    const renameObjectDetails = {
+      sourceName: sourceName,
+      newName: newName
+    };
+    const renameObject = {
+      namespaceName: namespaceName,
+      bucketName: bucketName,
+      renameObjectDetails: renameObjectDetails
+    };
+    // rename the file name to the new filename
+    const resp = await client.renameObject(renameObject);
+    console.log(resp);
+    console.log(`Renamed ${sourceName} to ${newName}.`);
+  } catch (ex) {
+    console.error(`Failed due to ${ex}`);
+    console.error(
+      `The object '${sourceName}' may not exist in bucket '${bucketName}' with namespace '${namespaceName}'`
+    );
+  }
 })();

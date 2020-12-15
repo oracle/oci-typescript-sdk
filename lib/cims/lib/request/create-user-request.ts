@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/CreateUser.ts.html |here} to see how to use CreateUserRequest.
+ */
 export interface CreateUserRequest extends common.BaseRequest {
   /**
    * User information

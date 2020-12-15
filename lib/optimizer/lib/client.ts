@@ -135,6 +135,7 @@ export class OptimizerClient {
    * @param BulkApplyRecommendationsRequest
    * @return BulkApplyRecommendationsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/BulkApplyRecommendations.ts.html |here} to see how to use BulkApplyRecommendations API.
    */
   public async bulkApplyRecommendations(
     bulkApplyRecommendationsRequest: requests.BulkApplyRecommendationsRequest
@@ -202,6 +203,7 @@ export class OptimizerClient {
    * @param CreateProfileRequest
    * @return CreateProfileResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/CreateProfile.ts.html |here} to see how to use CreateProfile API.
    */
   public async createProfile(
     createProfileRequest: requests.CreateProfileRequest
@@ -269,6 +271,7 @@ export class OptimizerClient {
    * @param DeleteProfileRequest
    * @return DeleteProfileResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/DeleteProfile.ts.html |here} to see how to use DeleteProfile API.
    */
   public async deleteProfile(
     deleteProfileRequest: requests.DeleteProfileRequest
@@ -325,6 +328,7 @@ export class OptimizerClient {
    * @param GetCategoryRequest
    * @return GetCategoryResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/GetCategory.ts.html |here} to see how to use GetCategory API.
    */
   public async getCategory(
     getCategoryRequest: requests.GetCategoryRequest
@@ -383,6 +387,7 @@ export class OptimizerClient {
    * @param GetEnrollmentStatusRequest
    * @return GetEnrollmentStatusResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/GetEnrollmentStatus.ts.html |here} to see how to use GetEnrollmentStatus API.
    */
   public async getEnrollmentStatus(
     getEnrollmentStatusRequest: requests.GetEnrollmentStatusRequest
@@ -446,6 +451,7 @@ export class OptimizerClient {
    * @param GetProfileRequest
    * @return GetProfileResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/GetProfile.ts.html |here} to see how to use GetProfile API.
    */
   public async getProfile(
     getProfileRequest: requests.GetProfileRequest
@@ -509,6 +515,7 @@ export class OptimizerClient {
    * @param GetRecommendationRequest
    * @return GetRecommendationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/GetRecommendation.ts.html |here} to see how to use GetRecommendation API.
    */
   public async getRecommendation(
     getRecommendationRequest: requests.GetRecommendationRequest
@@ -572,6 +579,7 @@ export class OptimizerClient {
    * @param GetResourceActionRequest
    * @return GetResourceActionResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/GetResourceAction.ts.html |here} to see how to use GetResourceAction API.
    */
   public async getResourceAction(
     getResourceActionRequest: requests.GetResourceActionRequest
@@ -634,6 +642,7 @@ export class OptimizerClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -697,6 +706,7 @@ export class OptimizerClient {
    * @param ListCategoriesRequest
    * @return ListCategoriesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/ListCategories.ts.html |here} to see how to use ListCategories API.
    */
   public async listCategories(
     listCategoriesRequest: requests.ListCategoriesRequest
@@ -772,6 +782,7 @@ export class OptimizerClient {
    * @param ListEnrollmentStatusesRequest
    * @return ListEnrollmentStatusesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/ListEnrollmentStatuses.ts.html |here} to see how to use ListEnrollmentStatuses API.
    */
   public async listEnrollmentStatuses(
     listEnrollmentStatusesRequest: requests.ListEnrollmentStatusesRequest
@@ -847,6 +858,7 @@ export class OptimizerClient {
    * @param ListHistoriesRequest
    * @return ListHistoriesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/ListHistories.ts.html |here} to see how to use ListHistories API.
    */
   public async listHistories(
     listHistoriesRequest: requests.ListHistoriesRequest
@@ -926,6 +938,7 @@ export class OptimizerClient {
    * @param ListProfilesRequest
    * @return ListProfilesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/ListProfiles.ts.html |here} to see how to use ListProfiles API.
    */
   public async listProfiles(
     listProfilesRequest: requests.ListProfilesRequest
@@ -1000,6 +1013,7 @@ export class OptimizerClient {
    * @param ListRecommendationsRequest
    * @return ListRecommendationsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/ListRecommendations.ts.html |here} to see how to use ListRecommendations API.
    */
   public async listRecommendations(
     listRecommendationsRequest: requests.ListRecommendationsRequest
@@ -1077,6 +1091,7 @@ export class OptimizerClient {
    * @param ListResourceActionsRequest
    * @return ListResourceActionsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/ListResourceActions.ts.html |here} to see how to use ListResourceActions API.
    */
   public async listResourceActions(
     listResourceActionsRequest: requests.ListResourceActionsRequest
@@ -1155,6 +1170,7 @@ export class OptimizerClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1221,6 +1237,7 @@ export class OptimizerClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1287,6 +1304,7 @@ export class OptimizerClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1352,6 +1370,7 @@ export class OptimizerClient {
    * @param UpdateEnrollmentStatusRequest
    * @return UpdateEnrollmentStatusResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/UpdateEnrollmentStatus.ts.html |here} to see how to use UpdateEnrollmentStatus API.
    */
   public async updateEnrollmentStatus(
     updateEnrollmentStatusRequest: requests.UpdateEnrollmentStatusRequest
@@ -1421,6 +1440,7 @@ export class OptimizerClient {
    * @param UpdateProfileRequest
    * @return UpdateProfileResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/UpdateProfile.ts.html |here} to see how to use UpdateProfile API.
    */
   public async updateProfile(
     updateProfileRequest: requests.UpdateProfileRequest
@@ -1495,6 +1515,7 @@ export class OptimizerClient {
    * @param UpdateRecommendationRequest
    * @return UpdateRecommendationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/UpdateRecommendation.ts.html |here} to see how to use UpdateRecommendation API.
    */
   public async updateRecommendation(
     updateRecommendationRequest: requests.UpdateRecommendationRequest
@@ -1569,6 +1590,7 @@ export class OptimizerClient {
    * @param UpdateResourceActionRequest
    * @return UpdateResourceActionResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/UpdateResourceAction.ts.html |here} to see how to use UpdateResourceAction API.
    */
   public async updateResourceAction(
     updateResourceActionRequest: requests.UpdateResourceActionRequest

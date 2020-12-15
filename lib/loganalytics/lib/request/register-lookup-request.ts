@@ -14,6 +14,10 @@
 import * as model from "../model";
 import common = require("oci-common");
 import stream = require("stream");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/RegisterLookup.ts.html |here} to see how to use RegisterLookupRequest.
+ */
 export interface RegisterLookupRequest extends common.BaseRequest {
   /**
    * The Logging Analytics namespace used for the request.

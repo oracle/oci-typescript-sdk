@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/UpdateSSLCipherSuite.ts.html |here} to see how to use UpdateSSLCipherSuiteRequest.
+ */
 export interface UpdateSSLCipherSuiteRequest extends common.BaseRequest {
   /**
    * The configuration details to update an SSL cipher suite.

@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ListKeys.ts.html |here} to see how to use ListKeysRequest.
+ */
 export interface ListKeysRequest extends common.BaseRequest {
   /**
    * The OCID of the compartment.
@@ -57,6 +61,16 @@ export interface ListKeysRequest extends common.BaseRequest {
    *
    */
   "protectionMode"?: ListKeysRequest.ProtectionMode;
+  /**
+   * The algorithm used by a key's key versions to encrypt or decrypt. Currently, only AES is supported.
+   *
+   */
+  "algorithm"?: ListKeysRequest.Algorithm;
+  /**
+   * The length of the key in bytes, expressed as an integer. Values of 16, 24, or 32 are supported.
+   *
+   */
+  "length"?: number;
 }
 
 export namespace ListKeysRequest {
@@ -73,5 +87,9 @@ export namespace ListKeysRequest {
   export enum ProtectionMode {
     Hsm = "HSM",
     Software = "SOFTWARE"
+  }
+
+  export enum Algorithm {
+    Aes = "AES"
   }
 }

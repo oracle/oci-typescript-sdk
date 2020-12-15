@@ -30,6 +30,15 @@ export interface CreateDatabaseBase {
    * A valid Oracle Database version. To get a list of supported versions, use the {@link #listDbVersions(ListDbVersionsRequest) listDbVersions} operation.
    */
   "dbVersion"?: string;
+  /**
+   * The OCID of the key container that is used as the master encryption key in database transparent data encryption (TDE) operations.
+   */
+  "kmsKeyId"?: string;
+  /**
+   * The OCID of the key container version that is used in database transparent data encryption (TDE) operations KMS Key can have multiple key versions. If none is specified, the current key version (latest) of the Key Id is used for the operation.
+   *
+   */
+  "kmsKeyVersionId"?: string;
 
   "source": string;
 }

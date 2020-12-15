@@ -45,7 +45,7 @@ export interface Backup {
    */
   "timeEnded"?: Date;
   /**
-   * Additional information about the current lifecycleState.
+   * Additional information about the current lifecycle state.
    */
   "lifecycleDetails"?: string;
   /**
@@ -74,6 +74,10 @@ export interface Backup {
    * Version of the backup's source database
    */
   "version"?: string;
+  /**
+   * The OCID of the key container that is used as the master encryption key in database transparent data encryption (TDE) operations.
+   */
+  "kmsKeyId"?: string;
 }
 
 export namespace Backup {

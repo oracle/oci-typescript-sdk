@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/ListLimitValues.ts.html |here} to see how to use ListLimitValuesRequest.
+ */
 export interface ListLimitValuesRequest extends common.BaseRequest {
   /**
    * The OCID of the parent compartment (remember that the tenancy is simply the root compartment).

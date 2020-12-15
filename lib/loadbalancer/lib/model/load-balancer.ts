@@ -71,6 +71,7 @@ Example: `100Mbps`
 * 
     */
   "shapeName": string;
+  "shapeDetails"?: model.ShapeDetails;
   /**
     * Whether the load balancer has a VCN-local (private) IP address.
 * <p>
@@ -163,6 +164,10 @@ export namespace LoadBalancer {
           ? obj.ipAddresses.map(item => {
               return model.IpAddress.getJsonObj(item);
             })
+          : undefined,
+
+        "shapeDetails": obj.shapeDetails
+          ? model.ShapeDetails.getJsonObj(obj.shapeDetails)
           : undefined,
 
         "listeners": obj.listeners

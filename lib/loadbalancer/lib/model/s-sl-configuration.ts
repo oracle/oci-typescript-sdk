@@ -47,7 +47,7 @@ Example: `true`
 Example: `example_certificate_bundle`
 * 
     */
-  "certificateName": string;
+  "certificateName"?: string;
   /**
    * When this attribute is set to ENABLED, the system gives preference to the server ciphers over the client
    * ciphers.

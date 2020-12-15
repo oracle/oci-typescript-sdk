@@ -8,8 +8,7 @@
  * <ul>
  *  <li>The first argument is the OCID of the tenancy.</li>
  *  <li>The second argument is the OCID of the compartment.</li>
- *  <li>The third argument is region.</li>
- *  <li>The fourth argument is new password for DB System.</li>
+ *  <li>The third argument is new password for DB System.</li>
  * </ul>
  */
 import common = require("oci-common");
@@ -32,8 +31,7 @@ if (args.length !== 4) {
 
 const tenancyId: string = args[0];
 const compartmentId: string = args[1];
-const region: string = args[2];
-const adminPassword: string = args[3];
+const adminPassword: string = args[2];
 
 let subnetId: string | null = null;
 let vcnId: string | null = null;
@@ -42,18 +40,14 @@ let dbSystemId: string | null = null;
 const virtualNetworkClient = new core.VirtualNetworkClient({
   authenticationDetailsProvider: provider
 });
-virtualNetworkClient.regionId = region;
 
 const workRequestClient = new wr.WorkRequestClient({ authenticationDetailsProvider: provider });
-workRequestClient.regionId = region;
 
 const virtualNetworkWaiter = virtualNetworkClient.createWaiters(workRequestClient);
 
 const identityClient = new identity.IdentityClient({ authenticationDetailsProvider: provider });
-identityClient.regionId = region;
 
 const databaseClient = new database.DatabaseClient({ authenticationDetailsProvider: provider });
-databaseClient.regionId = region;
 // databaseClient._defaultHeaders = { "opc-host-serial": "FakeHostSerial" };
 
 const databaseWaiter = databaseClient.createWaiters(workRequestClient);

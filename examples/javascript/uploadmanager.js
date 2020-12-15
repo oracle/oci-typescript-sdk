@@ -50,7 +50,6 @@ const namespaceName = args[1];
 const bucketName = args[2];
 
 const client = new os.ObjectStorageClient({ authenticationDetailsProvider: provider });
-client.region = common.Region.US_PHOENIX_1;
 
 const uploadManager = new os.UploadManager(client, { enforceMD5: true });
 

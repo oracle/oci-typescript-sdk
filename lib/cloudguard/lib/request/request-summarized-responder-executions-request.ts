@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSummarizedResponderExecutions.ts.html |here} to see how to use RequestSummarizedResponderExecutionsRequest.
+ */
 export interface RequestSummarizedResponderExecutionsRequest extends common.BaseRequest {
   /**
    * The possible attributes based on which the responder executions can be distinguished

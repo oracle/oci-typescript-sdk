@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateAppCatalogSubscription.ts.html |here} to see how to use CreateAppCatalogSubscriptionRequest.
+ */
 export interface CreateAppCatalogSubscriptionRequest extends common.BaseRequest {
   /**
    * Request for the creation of a subscription for listing resource version for a compartment.

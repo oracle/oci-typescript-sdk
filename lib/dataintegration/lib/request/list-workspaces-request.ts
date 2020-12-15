@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListWorkspaces.ts.html |here} to see how to use ListWorkspacesRequest.
+ */
 export interface ListWorkspacesRequest extends common.BaseRequest {
   /**
    * The OCID of the compartment containing the resources you want to list.

@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetClusterOptions.ts.html |here} to see how to use GetClusterOptionsRequest.
+ */
 export interface GetClusterOptionsRequest extends common.BaseRequest {
   /**
    * The id of the option set to retrieve. Only \"all\" is supported.

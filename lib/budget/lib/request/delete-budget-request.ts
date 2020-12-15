@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/budget/DeleteBudget.ts.html |here} to see how to use DeleteBudgetRequest.
+ */
 export interface DeleteBudgetRequest extends common.BaseRequest {
   /**
    * The unique Budget OCID

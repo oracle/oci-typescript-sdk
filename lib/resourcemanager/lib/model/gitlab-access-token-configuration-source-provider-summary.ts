@@ -26,8 +26,8 @@ import common = require("oci-common");
 export interface GitlabAccessTokenConfigurationSourceProviderSummary
   extends model.ConfigurationSourceProviderSummary {
   /**
-   * The Git service API endpoint.
-   * Example: `https://gitlab.com/api/v4/`
+   * The Git service endpoint.
+   * Example: `https://gitlab.com`
    *
    */
   "apiEndpoint"?: string;

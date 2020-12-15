@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateOAuthClientCredential.ts.html |here} to see how to use UpdateOAuthClientCredentialRequest.
+ */
 export interface UpdateOAuthClientCredentialRequest extends common.BaseRequest {
   /**
    * The OCID of the user.

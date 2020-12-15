@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/SummarizeStatement.ts.html |here} to see how to use SummarizeStatementRequest.
+ */
 export interface SummarizeStatementRequest extends common.BaseRequest {
   /**
    * The ID of a table's compartment.

@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeDbSystemCompartment.ts.html |here} to see how to use ChangeDbSystemCompartmentRequest.
+ */
 export interface ChangeDbSystemCompartmentRequest extends common.BaseRequest {
   /**
    * Request to move the DB system to a different compartment.

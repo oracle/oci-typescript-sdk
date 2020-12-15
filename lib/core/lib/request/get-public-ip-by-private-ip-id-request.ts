@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetPublicIpByPrivateIpId.ts.html |here} to see how to use GetPublicIpByPrivateIpIdRequest.
+ */
 export interface GetPublicIpByPrivateIpIdRequest extends common.BaseRequest {
   /**
    * Private IP details for fetching the public IP.

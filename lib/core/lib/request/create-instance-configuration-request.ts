@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateInstanceConfiguration.ts.html |here} to see how to use CreateInstanceConfigurationRequest.
+ */
 export interface CreateInstanceConfigurationRequest extends common.BaseRequest {
   /**
    * Instance configuration creation details

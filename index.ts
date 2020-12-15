@@ -148,3 +148,4 @@ export import opsi = require("oci-opsi");
 export import computeinstanceagent = require("oci-computeinstanceagent");
 export import optimizer = require("oci-optimizer");
 export import tenantmanagercontrolplane = require("oci-tenantmanagercontrolplane");
+export import rover = require("oci-rover");

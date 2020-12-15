@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/CreateManagementSavedSearch.ts.html |here} to see how to use CreateManagementSavedSearchRequest.
+ */
 export interface CreateManagementSavedSearchRequest extends common.BaseRequest {
   /**
    * JSON metadata for the saved search.

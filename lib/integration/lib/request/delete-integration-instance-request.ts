@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/integration/DeleteIntegrationInstance.ts.html |here} to see how to use DeleteIntegrationInstanceRequest.
+ */
 export interface DeleteIntegrationInstanceRequest extends common.BaseRequest {
   /**
    * Unique Integration Instance identifier.

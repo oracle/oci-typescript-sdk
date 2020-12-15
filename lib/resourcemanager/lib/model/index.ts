@@ -102,6 +102,8 @@ import * as CreateDestroyJobOperationDetails from "./create-destroy-job-operatio
 export import CreateDestroyJobOperationDetails = CreateDestroyJobOperationDetails.CreateDestroyJobOperationDetails;
 import * as CreateGitConfigSourceDetails from "./create-git-config-source-details";
 export import CreateGitConfigSourceDetails = CreateGitConfigSourceDetails.CreateGitConfigSourceDetails;
+import * as CreateGithubAccessTokenConfigurationSourceProviderDetails from "./create-github-access-token-configuration-source-provider-details";
+export import CreateGithubAccessTokenConfigurationSourceProviderDetails = CreateGithubAccessTokenConfigurationSourceProviderDetails.CreateGithubAccessTokenConfigurationSourceProviderDetails;
 import * as CreateGitlabAccessTokenConfigurationSourceProviderDetails from "./create-gitlab-access-token-configuration-source-provider-details";
 export import CreateGitlabAccessTokenConfigurationSourceProviderDetails = CreateGitlabAccessTokenConfigurationSourceProviderDetails.CreateGitlabAccessTokenConfigurationSourceProviderDetails;
 import * as CreateImportTfStateJobOperationDetails from "./create-import-tf-state-job-operation-details";
@@ -118,6 +120,10 @@ import * as GitConfigSource from "./git-config-source";
 export import GitConfigSource = GitConfigSource.GitConfigSource;
 import * as GitConfigSourceRecord from "./git-config-source-record";
 export import GitConfigSourceRecord = GitConfigSourceRecord.GitConfigSourceRecord;
+import * as GithubAccessTokenConfigurationSourceProvider from "./github-access-token-configuration-source-provider";
+export import GithubAccessTokenConfigurationSourceProvider = GithubAccessTokenConfigurationSourceProvider.GithubAccessTokenConfigurationSourceProvider;
+import * as GithubAccessTokenConfigurationSourceProviderSummary from "./github-access-token-configuration-source-provider-summary";
+export import GithubAccessTokenConfigurationSourceProviderSummary = GithubAccessTokenConfigurationSourceProviderSummary.GithubAccessTokenConfigurationSourceProviderSummary;
 import * as GitlabAccessTokenConfigurationSourceProvider from "./gitlab-access-token-configuration-source-provider";
 export import GitlabAccessTokenConfigurationSourceProvider = GitlabAccessTokenConfigurationSourceProvider.GitlabAccessTokenConfigurationSourceProvider;
 import * as GitlabAccessTokenConfigurationSourceProviderSummary from "./gitlab-access-token-configuration-source-provider-summary";
@@ -132,6 +138,8 @@ import * as PlanJobOperationDetailsSummary from "./plan-job-operation-details-su
 export import PlanJobOperationDetailsSummary = PlanJobOperationDetailsSummary.PlanJobOperationDetailsSummary;
 import * as UpdateGitConfigSourceDetails from "./update-git-config-source-details";
 export import UpdateGitConfigSourceDetails = UpdateGitConfigSourceDetails.UpdateGitConfigSourceDetails;
+import * as UpdateGithubAccessTokenConfigurationSourceProviderDetails from "./update-github-access-token-configuration-source-provider-details";
+export import UpdateGithubAccessTokenConfigurationSourceProviderDetails = UpdateGithubAccessTokenConfigurationSourceProviderDetails.UpdateGithubAccessTokenConfigurationSourceProviderDetails;
 import * as UpdateGitlabAccessTokenConfigurationSourceProviderDetails from "./update-gitlab-access-token-configuration-source-provider-details";
 export import UpdateGitlabAccessTokenConfigurationSourceProviderDetails = UpdateGitlabAccessTokenConfigurationSourceProviderDetails.UpdateGitlabAccessTokenConfigurationSourceProviderDetails;
 import * as UpdateZipUploadConfigSourceDetails from "./update-zip-upload-config-source-details";

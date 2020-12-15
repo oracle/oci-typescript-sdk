@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateInternetGateway.ts.html |here} to see how to use CreateInternetGatewayRequest.
+ */
 export interface CreateInternetGatewayRequest extends common.BaseRequest {
   /**
    * Details for creating a new internet gateway.

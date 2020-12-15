@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateIpv6.ts.html |here} to see how to use CreateIpv6Request.
+ */
 export interface CreateIpv6Request extends common.BaseRequest {
   /**
    * Create IPv6 details.

@@ -141,6 +141,7 @@ export class BdsClient {
    * @param AddBlockStorageRequest
    * @return AddBlockStorageResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/AddBlockStorage.ts.html |here} to see how to use AddBlockStorage API.
    */
   public async addBlockStorage(
     addBlockStorageRequest: requests.AddBlockStorageRequest
@@ -209,6 +210,7 @@ export class BdsClient {
    * @param AddCloudSqlRequest
    * @return AddCloudSqlResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/AddCloudSql.ts.html |here} to see how to use AddCloudSql API.
    */
   public async addCloudSql(
     addCloudSqlRequest: requests.AddCloudSqlRequest
@@ -277,6 +279,7 @@ export class BdsClient {
    * @param AddWorkerNodesRequest
    * @return AddWorkerNodesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/AddWorkerNodes.ts.html |here} to see how to use AddWorkerNodes API.
    */
   public async addWorkerNodes(
     addWorkerNodesRequest: requests.AddWorkerNodesRequest
@@ -344,6 +347,7 @@ export class BdsClient {
    * @param ChangeBdsInstanceCompartmentRequest
    * @return ChangeBdsInstanceCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ChangeBdsInstanceCompartment.ts.html |here} to see how to use ChangeBdsInstanceCompartment API.
    */
   public async changeBdsInstanceCompartment(
     changeBdsInstanceCompartmentRequest: requests.ChangeBdsInstanceCompartmentRequest
@@ -413,6 +417,7 @@ export class BdsClient {
    * @param ChangeShapeRequest
    * @return ChangeShapeResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ChangeShape.ts.html |here} to see how to use ChangeShape API.
    */
   public async changeShape(
     changeShapeRequest: requests.ChangeShapeRequest
@@ -480,6 +485,7 @@ export class BdsClient {
    * @param CreateBdsInstanceRequest
    * @return CreateBdsInstanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateBdsInstance.ts.html |here} to see how to use CreateBdsInstance API.
    */
   public async createBdsInstance(
     createBdsInstanceRequest: requests.CreateBdsInstanceRequest
@@ -543,6 +549,7 @@ export class BdsClient {
    * @param DeleteBdsInstanceRequest
    * @return DeleteBdsInstanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeleteBdsInstance.ts.html |here} to see how to use DeleteBdsInstance API.
    */
   public async deleteBdsInstance(
     deleteBdsInstanceRequest: requests.DeleteBdsInstanceRequest
@@ -603,6 +610,7 @@ export class BdsClient {
    * @param GetBdsInstanceRequest
    * @return GetBdsInstanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetBdsInstance.ts.html |here} to see how to use GetBdsInstance API.
    */
   public async getBdsInstance(
     getBdsInstanceRequest: requests.GetBdsInstanceRequest
@@ -665,6 +673,7 @@ export class BdsClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -728,6 +737,7 @@ export class BdsClient {
    * @param ListBdsInstancesRequest
    * @return ListBdsInstancesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListBdsInstances.ts.html |here} to see how to use ListBdsInstances API.
    */
   public async listBdsInstances(
     listBdsInstancesRequest: requests.ListBdsInstancesRequest
@@ -822,6 +832,7 @@ export class BdsClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -915,6 +926,7 @@ export class BdsClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1008,6 +1020,7 @@ export class BdsClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1101,6 +1114,7 @@ export class BdsClient {
    * @param RemoveCloudSqlRequest
    * @return RemoveCloudSqlResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RemoveCloudSql.ts.html |here} to see how to use RemoveCloudSql API.
    */
   public async removeCloudSql(
     removeCloudSqlRequest: requests.RemoveCloudSqlRequest
@@ -1167,6 +1181,7 @@ export class BdsClient {
    * @param RestartNodeRequest
    * @return RestartNodeResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RestartNode.ts.html |here} to see how to use RestartNode API.
    */
   public async restartNode(
     restartNodeRequest: requests.RestartNodeRequest
@@ -1233,6 +1248,7 @@ export class BdsClient {
    * @param UpdateBdsInstanceRequest
    * @return UpdateBdsInstanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/UpdateBdsInstance.ts.html |here} to see how to use UpdateBdsInstance API.
    */
   public async updateBdsInstance(
     updateBdsInstanceRequest: requests.UpdateBdsInstanceRequest

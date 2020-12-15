@@ -31,7 +31,6 @@ const compartmentId = args[1];
 const monitoringClient = new mt.MonitoringClient({
   authenticationDetailsProvider: provider
 });
-monitoringClient.region = common.Region.US_PHOENIX_1;
 monitoringClient.endpoint = "https://telemetry-ingestion.us-phoenix-1.oraclecloud.com";
 
 (async () => {
@@ -81,7 +80,7 @@ monitoringClient.endpoint = "https://telemetry-ingestion.us-phoenix-1.oracleclou
       "Successfully posted custom metric with name: %s to namespace: %s in region: %s",
       MetricDataDetails[0].name,
       MetricDataDetails[0].namespace,
-      common.Region.US_PHOENIX_1._regionId
+      monitoringClient.regionId
     );
   } catch (error) {
     console.log(" Not able to run post metric monitoring example. Error: " + error);

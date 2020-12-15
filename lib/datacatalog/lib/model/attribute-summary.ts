@@ -97,9 +97,24 @@ export interface AttributeSummary {
    * Full path of the attribute.
    */
   "path"?: string;
+  /**
+   * Rule types associated with attribute.
+   */
+  "associatedRuleTypes"?: Array<AttributeSummary.AssociatedRuleTypes>;
 }
 
 export namespace AttributeSummary {
+  export enum AssociatedRuleTypes {
+    Primarykey = "PRIMARYKEY",
+    Foreignkey = "FOREIGNKEY",
+    Uniquekey = "UNIQUEKEY",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: AttributeSummary): object {
     const jsonObj = { ...obj, ...{} };
 

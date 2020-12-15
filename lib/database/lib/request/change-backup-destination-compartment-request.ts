@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeBackupDestinationCompartment.ts.html |here} to see how to use ChangeBackupDestinationCompartmentRequest.
+ */
 export interface ChangeBackupDestinationCompartmentRequest extends common.BaseRequest {
   /**
    * Request to move backup destination to a different compartment.

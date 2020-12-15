@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/DeleteChannel.ts.html |here} to see how to use DeleteChannelRequest.
+ */
 export interface DeleteChannelRequest extends common.BaseRequest {
   /**
    * The Channel [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).

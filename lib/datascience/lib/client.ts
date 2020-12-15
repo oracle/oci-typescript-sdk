@@ -136,6 +136,7 @@ export class DataScienceClient {
    * @param ActivateModelRequest
    * @return ActivateModelResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ActivateModel.ts.html |here} to see how to use ActivateModel API.
    */
   public async activateModel(
     activateModelRequest: requests.ActivateModelRequest
@@ -199,6 +200,7 @@ export class DataScienceClient {
    * @param ActivateNotebookSessionRequest
    * @return ActivateNotebookSessionResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ActivateNotebookSession.ts.html |here} to see how to use ActivateNotebookSession API.
    */
   public async activateNotebookSession(
     activateNotebookSessionRequest: requests.ActivateNotebookSessionRequest
@@ -260,6 +262,7 @@ export class DataScienceClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -315,6 +318,7 @@ export class DataScienceClient {
    * @param ChangeModelCompartmentRequest
    * @return ChangeModelCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ChangeModelCompartment.ts.html |here} to see how to use ChangeModelCompartment API.
    */
   public async changeModelCompartment(
     changeModelCompartmentRequest: requests.ChangeModelCompartmentRequest
@@ -377,6 +381,7 @@ export class DataScienceClient {
    * @param ChangeNotebookSessionCompartmentRequest
    * @return ChangeNotebookSessionCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ChangeNotebookSessionCompartment.ts.html |here} to see how to use ChangeNotebookSessionCompartment API.
    */
   public async changeNotebookSessionCompartment(
     changeNotebookSessionCompartmentRequest: requests.ChangeNotebookSessionCompartmentRequest
@@ -439,6 +444,7 @@ export class DataScienceClient {
    * @param ChangeProjectCompartmentRequest
    * @return ChangeProjectCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ChangeProjectCompartment.ts.html |here} to see how to use ChangeProjectCompartment API.
    */
   public async changeProjectCompartment(
     changeProjectCompartmentRequest: requests.ChangeProjectCompartmentRequest
@@ -501,6 +507,7 @@ export class DataScienceClient {
    * @param CreateModelRequest
    * @return CreateModelResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreateModel.ts.html |here} to see how to use CreateModel API.
    */
   public async createModel(
     createModelRequest: requests.CreateModelRequest
@@ -567,6 +574,7 @@ export class DataScienceClient {
    * @param CreateModelArtifactRequest
    * @return CreateModelArtifactResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreateModelArtifact.ts.html |here} to see how to use CreateModelArtifact API.
    */
   public async createModelArtifact(
     createModelArtifactRequest: requests.CreateModelArtifactRequest
@@ -629,6 +637,7 @@ export class DataScienceClient {
    * @param CreateModelProvenanceRequest
    * @return CreateModelProvenanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreateModelProvenance.ts.html |here} to see how to use CreateModelProvenance API.
    */
   public async createModelProvenance(
     createModelProvenanceRequest: requests.CreateModelProvenanceRequest
@@ -698,6 +707,7 @@ export class DataScienceClient {
    * @param CreateNotebookSessionRequest
    * @return CreateNotebookSessionResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreateNotebookSession.ts.html |here} to see how to use CreateNotebookSession API.
    */
   public async createNotebookSession(
     createNotebookSessionRequest: requests.CreateNotebookSessionRequest
@@ -775,6 +785,7 @@ export class DataScienceClient {
    * @param CreateProjectRequest
    * @return CreateProjectResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreateProject.ts.html |here} to see how to use CreateProject API.
    */
   public async createProject(
     createProjectRequest: requests.CreateProjectRequest
@@ -841,6 +852,7 @@ export class DataScienceClient {
    * @param DeactivateModelRequest
    * @return DeactivateModelResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeactivateModel.ts.html |here} to see how to use DeactivateModel API.
    */
   public async deactivateModel(
     deactivateModelRequest: requests.DeactivateModelRequest
@@ -904,6 +916,7 @@ export class DataScienceClient {
    * @param DeactivateNotebookSessionRequest
    * @return DeactivateNotebookSessionResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeactivateNotebookSession.ts.html |here} to see how to use DeactivateNotebookSession API.
    */
   public async deactivateNotebookSession(
     deactivateNotebookSessionRequest: requests.DeactivateNotebookSessionRequest
@@ -965,6 +978,7 @@ export class DataScienceClient {
    * @param DeleteModelRequest
    * @return DeleteModelResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeleteModel.ts.html |here} to see how to use DeleteModel API.
    */
   public async deleteModel(
     deleteModelRequest: requests.DeleteModelRequest
@@ -1020,6 +1034,7 @@ export class DataScienceClient {
    * @param DeleteNotebookSessionRequest
    * @return DeleteNotebookSessionResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeleteNotebookSession.ts.html |here} to see how to use DeleteNotebookSession API.
    */
   public async deleteNotebookSession(
     deleteNotebookSessionRequest: requests.DeleteNotebookSessionRequest
@@ -1081,6 +1096,7 @@ export class DataScienceClient {
    * @param DeleteProjectRequest
    * @return DeleteProjectResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeleteProject.ts.html |here} to see how to use DeleteProject API.
    */
   public async deleteProject(
     deleteProjectRequest: requests.DeleteProjectRequest
@@ -1141,6 +1157,7 @@ export class DataScienceClient {
    * @param GetModelRequest
    * @return GetModelResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetModel.ts.html |here} to see how to use GetModel API.
    */
   public async getModel(
     getModelRequest: requests.GetModelRequest
@@ -1203,6 +1220,7 @@ export class DataScienceClient {
    * @param GetModelArtifactContentRequest
    * @return GetModelArtifactContentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetModelArtifactContent.ts.html |here} to see how to use GetModelArtifactContent API.
    */
   public async getModelArtifactContent(
     getModelArtifactContentRequest: requests.GetModelArtifactContentRequest
@@ -1288,6 +1306,7 @@ export class DataScienceClient {
    * @param GetModelProvenanceRequest
    * @return GetModelProvenanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetModelProvenance.ts.html |here} to see how to use GetModelProvenance API.
    */
   public async getModelProvenance(
     getModelProvenanceRequest: requests.GetModelProvenanceRequest
@@ -1350,6 +1369,7 @@ export class DataScienceClient {
    * @param GetNotebookSessionRequest
    * @return GetNotebookSessionResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetNotebookSession.ts.html |here} to see how to use GetNotebookSession API.
    */
   public async getNotebookSession(
     getNotebookSessionRequest: requests.GetNotebookSessionRequest
@@ -1412,6 +1432,7 @@ export class DataScienceClient {
    * @param GetProjectRequest
    * @return GetProjectResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetProject.ts.html |here} to see how to use GetProject API.
    */
   public async getProject(
     getProjectRequest: requests.GetProjectRequest
@@ -1474,6 +1495,7 @@ export class DataScienceClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1541,6 +1563,7 @@ export class DataScienceClient {
    * @param HeadModelArtifactRequest
    * @return HeadModelArtifactResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/HeadModelArtifact.ts.html |here} to see how to use HeadModelArtifact API.
    */
   public async headModelArtifact(
     headModelArtifactRequest: requests.HeadModelArtifactRequest
@@ -1620,6 +1643,7 @@ export class DataScienceClient {
    * @param ListModelsRequest
    * @return ListModelsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListModels.ts.html |here} to see how to use ListModels API.
    */
   public async listModels(
     listModelsRequest: requests.ListModelsRequest
@@ -1721,6 +1745,7 @@ export class DataScienceClient {
    * @param ListNotebookSessionShapesRequest
    * @return ListNotebookSessionShapesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListNotebookSessionShapes.ts.html |here} to see how to use ListNotebookSessionShapes API.
    */
   public async listNotebookSessionShapes(
     listNotebookSessionShapesRequest: requests.ListNotebookSessionShapesRequest
@@ -1816,6 +1841,7 @@ export class DataScienceClient {
    * @param ListNotebookSessionsRequest
    * @return ListNotebookSessionsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListNotebookSessions.ts.html |here} to see how to use ListNotebookSessions API.
    */
   public async listNotebookSessions(
     listNotebookSessionsRequest: requests.ListNotebookSessionsRequest
@@ -1917,6 +1943,7 @@ export class DataScienceClient {
    * @param ListProjectsRequest
    * @return ListProjectsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListProjects.ts.html |here} to see how to use ListProjects API.
    */
   public async listProjects(
     listProjectsRequest: requests.ListProjectsRequest
@@ -2017,6 +2044,7 @@ export class DataScienceClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -2075,6 +2103,7 @@ export class DataScienceClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -2132,6 +2161,7 @@ export class DataScienceClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -2231,6 +2261,7 @@ export class DataScienceClient {
    * @param UpdateModelRequest
    * @return UpdateModelResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/UpdateModel.ts.html |here} to see how to use UpdateModel API.
    */
   public async updateModel(
     updateModelRequest: requests.UpdateModelRequest
@@ -2299,6 +2330,7 @@ export class DataScienceClient {
    * @param UpdateModelProvenanceRequest
    * @return UpdateModelProvenanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/UpdateModelProvenance.ts.html |here} to see how to use UpdateModelProvenance API.
    */
   public async updateModelProvenance(
     updateModelProvenanceRequest: requests.UpdateModelProvenanceRequest
@@ -2371,6 +2403,7 @@ export class DataScienceClient {
    * @param UpdateNotebookSessionRequest
    * @return UpdateNotebookSessionResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/UpdateNotebookSession.ts.html |here} to see how to use UpdateNotebookSession API.
    */
   public async updateNotebookSession(
     updateNotebookSessionRequest: requests.UpdateNotebookSessionRequest
@@ -2440,6 +2473,7 @@ export class DataScienceClient {
    * @param UpdateProjectRequest
    * @return UpdateProjectResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/UpdateProject.ts.html |here} to see how to use UpdateProject API.
    */
   public async updateProject(
     updateProjectRequest: requests.UpdateProjectRequest

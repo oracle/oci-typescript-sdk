@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ListLogGroups.ts.html |here} to see how to use ListLogGroupsRequest.
+ */
 export interface ListLogGroupsRequest extends common.BaseRequest {
   /**
    * Compartment OCID to list resources in. See compartmentIdInSubtree

@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListCustomProperties.ts.html |here} to see how to use ListCustomPropertiesRequest.
+ */
 export interface ListCustomPropertiesRequest extends common.BaseRequest {
   /**
    * Unique catalog identifier.
@@ -115,7 +119,9 @@ export namespace ListCustomPropertiesRequest {
     Term = "TERM",
     Category = "CATEGORY",
     File = "FILE",
-    Bucket = "BUCKET"
+    Bucket = "BUCKET",
+    Message = "MESSAGE",
+    UnrecognizedFile = "UNRECOGNIZED_FILE"
   }
 
   export enum Fields {

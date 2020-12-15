@@ -15,22 +15,16 @@
  * </ul>
  */
 
-const os = require('oci-objectstorage');
-const common = require('oci-common');
-const { readdir } = require('fs');
+const os = require("oci-objectstorage");
+const common = require("oci-common");
+const { readdir } = require("fs");
 
-const configurationFilePath = '~/.oci/config';
-const configProfile = 'DEFAULT';
-
-const provider = new common.ConfigFileAuthenticationDetailsProvider(
-  configurationFilePath,
-  configProfile
-);
+const provider = new common.ConfigFileAuthenticationDetailsProvider();
 
 const args = process.argv.slice(2);
 if (args.length !== 3) {
   console.error(
-    'Unexpected number of arguments received. Consult the script header comments for expected arguments'
+    "Unexpected number of arguments received. Consult the script header comments for expected arguments"
   );
   process.exit(-1);
 }
@@ -39,25 +33,23 @@ const fileName = args[0]; //  for eg : "download.jpg";
 const namespaceName = args[1];
 const bucketName = args[2];
 
-
 const client = new os.ObjectStorageClient({
-    authenticationDetailsProvider: provider
+  authenticationDetailsProvider: provider
 });
-client.region = common.Region.US_PHOENIX_1;
 
 (async () => {
-    try {
-        // build delete object request
-        const deleteObjectRequest = {
-          bucketName: bucketName,
-          namespaceName: namespaceName,
-          objectName: fileName
-        };
-        // delete object
-        const resp = await client.deleteObject(deleteObjectRequest);
-        console.log(resp);
-        console.log(`Deleted ${fileName}.`);
-      } catch (ex) {
-        console.error(`Failed due to ${ex}`);
-      }
+  try {
+    // build delete object request
+    const deleteObjectRequest = {
+      bucketName: bucketName,
+      namespaceName: namespaceName,
+      objectName: fileName
+    };
+    // delete object
+    const resp = await client.deleteObject(deleteObjectRequest);
+    console.log(resp);
+    console.log(`Deleted ${fileName}.`);
+  } catch (ex) {
+    console.error(`Failed due to ${ex}`);
+  }
 })();

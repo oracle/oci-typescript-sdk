@@ -17,24 +17,28 @@ const provider: common.ConfigFileAuthenticationDetailsProvider = new common.Conf
  * <ul>
  * <li>The first argument is the absloute directory path to read files from.</li>
  * <li>The second argument is the name of an existing bucket name to generate the url.</li>
+ * <li>The third argument is the name of the namespace</li>
+ * <li>The fourth argument is the regionId, i.e: "us-phoenix-1"</li>
+ * <li>The fifth argument is second level domain i.e: "oraclecloud.com"</li>
  * </ul>
  */
 
 const args = process.argv.slice(2);
-if (args.length !== 3) {
+if (args.length !== 5) {
   console.error(
     "Unexpected number of arguments received. Please pass absloute directory path to read files from"
   );
   process.exit(-1);
 }
 
-const filePath: string = args[0]; //  for eg : "/Users/Abc/upload-manager";
+const filePath = args[0];
 const bucketName = args[1];
 const namespaceName = args[2];
+const regionId = args[3];
+const secondLevelDomain = args[4];
 const serviceName = "objectstorage";
 
 const client = new ObjectStorageClient({ authenticationDetailsProvider: provider });
-client.region = Region.US_PHOENIX_1;
 
 (async () => {
   try {
@@ -61,7 +65,7 @@ client.region = Region.US_PHOENIX_1;
     };
     // create pre authenticated request to generate the url
     const resp = await client.createPreauthenticatedRequest(createPreauthenticatedRequest);
-    const baseUrl = `https://${serviceName}.${common.Region.US_PHOENIX_1.regionId}.${common.Realm.OC1.secondLevelDomain}`;
+    const baseUrl = `https://${serviceName}.${regionId}.${secondLevelDomain}`;
     const downloadUrl = resp.preauthenticatedRequest.accessUri;
     console.log("download url for the file " + filePath + " is " + baseUrl + downloadUrl);
 

@@ -58,7 +58,6 @@ const destination: string = args[2]; // Note: This is a topic OCID i.e: ocid1.on
 const monitoringClient: mt.MonitoringClient = new mt.MonitoringClient({
   authenticationDetailsProvider: provider
 });
-monitoringClient.region = common.Region.US_PHOENIX_1;
 let alarmId: any;
 
 (async () => {

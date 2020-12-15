@@ -140,6 +140,7 @@ export class EmailClient {
    * @param ChangeSenderCompartmentRequest
    * @return ChangeSenderCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ChangeSenderCompartment.ts.html |here} to see how to use ChangeSenderCompartment API.
    */
   public async changeSenderCompartment(
     changeSenderCompartmentRequest: requests.ChangeSenderCompartmentRequest
@@ -200,6 +201,7 @@ export class EmailClient {
    * @param CreateSenderRequest
    * @return CreateSenderResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/CreateSender.ts.html |here} to see how to use CreateSender API.
    */
   public async createSender(
     createSenderRequest: requests.CreateSenderRequest
@@ -269,6 +271,7 @@ export class EmailClient {
    * @param CreateSuppressionRequest
    * @return CreateSuppressionResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/CreateSuppression.ts.html |here} to see how to use CreateSuppression API.
    */
   public async createSuppression(
     createSuppressionRequest: requests.CreateSuppressionRequest
@@ -331,6 +334,7 @@ export class EmailClient {
    * @param DeleteSenderRequest
    * @return DeleteSenderResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/DeleteSender.ts.html |here} to see how to use DeleteSender API.
    */
   public async deleteSender(
     deleteSenderRequest: requests.DeleteSenderRequest
@@ -388,6 +392,7 @@ export class EmailClient {
    * @param DeleteSuppressionRequest
    * @return DeleteSuppressionResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/DeleteSuppression.ts.html |here} to see how to use DeleteSuppression API.
    */
   public async deleteSuppression(
     deleteSuppressionRequest: requests.DeleteSuppressionRequest
@@ -442,6 +447,7 @@ export class EmailClient {
    * @param GetSenderRequest
    * @return GetSenderResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/GetSender.ts.html |here} to see how to use GetSender API.
    */
   public async getSender(
     getSenderRequest: requests.GetSenderRequest
@@ -506,6 +512,7 @@ export class EmailClient {
    * @param GetSuppressionRequest
    * @return GetSuppressionResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/GetSuppression.ts.html |here} to see how to use GetSuppression API.
    */
   public async getSuppression(
     getSuppressionRequest: requests.GetSuppressionRequest
@@ -564,6 +571,7 @@ export class EmailClient {
    * @param ListSendersRequest
    * @return ListSendersResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListSenders.ts.html |here} to see how to use ListSenders API.
    */
   public async listSenders(
     listSendersRequest: requests.ListSendersRequest
@@ -670,6 +678,7 @@ export class EmailClient {
    * @param ListSuppressionsRequest
    * @return ListSuppressionsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListSuppressions.ts.html |here} to see how to use ListSuppressions API.
    */
   public async listSuppressions(
     listSuppressionsRequest: requests.ListSuppressionsRequest
@@ -773,6 +782,7 @@ export class EmailClient {
    * @param UpdateSenderRequest
    * @return UpdateSenderResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/UpdateSender.ts.html |here} to see how to use UpdateSender API.
    */
   public async updateSender(
     updateSenderRequest: requests.UpdateSenderRequest

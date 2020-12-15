@@ -6,8 +6,7 @@
  * <ul>
  *  <li>The first argument is the OCID of the tenancy.</li>
  *  <li>The second argument is the OCID of the compartment.</li>
- *  <li>The third argument is region.</li>
- *  <li>The fourth argument is new password for DB System.</li>
+ *  <li>The third argument is new password for DB System.</li>
  * </ul>
  */
 const common = require("oci-common");
@@ -20,7 +19,7 @@ const provider = new common.ConfigFileAuthenticationDetailsProvider();
 
 const args = process.argv.slice(2);
 console.log(args);
-if (args.length !== 4) {
+if (args.length !== 3) {
   console.error(
     "Unexpected number of arguments received. Consult the script header comments for expected arguments"
   );
@@ -29,8 +28,7 @@ if (args.length !== 4) {
 
 const tenancyId = args[0];
 const compartmentId = args[1];
-const region = args[2];
-const adminPassword = args[3];
+const adminPassword = args[2];
 
 let subnetId = null;
 let vcnId = null;
@@ -39,18 +37,14 @@ let dbSystemId = null;
 const virtualNetworkClient = new core.VirtualNetworkClient({
   authenticationDetailsProvider: provider
 });
-virtualNetworkClient.regionId = region;
 
 const workRequestClient = new wr.WorkRequestClient({ authenticationDetailsProvider: provider });
-workRequestClient.regionId = region;
 
 const virtualNetworkWaiter = virtualNetworkClient.createWaiters(workRequestClient);
 
 const identityClient = new identity.IdentityClient({ authenticationDetailsProvider: provider });
-identityClient.regionId = region;
 
 const databaseClient = new database.DatabaseClient({ authenticationDetailsProvider: provider });
-databaseClient.regionId = region;
 // databaseClient._defaultHeaders = { "opc-host-serial": "FakeHostSerial" };
 
 const databaseWaiter = databaseClient.createWaiters(workRequestClient);

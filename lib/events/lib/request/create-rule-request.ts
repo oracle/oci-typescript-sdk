@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/events/CreateRule.ts.html |here} to see how to use CreateRuleRequest.
+ */
 export interface CreateRuleRequest extends common.BaseRequest {
   /**
    * Specification of the rule to create

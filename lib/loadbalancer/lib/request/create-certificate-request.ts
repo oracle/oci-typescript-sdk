@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/CreateCertificate.ts.html |here} to see how to use CreateCertificateRequest.
+ */
 export interface CreateCertificateRequest extends common.BaseRequest {
   /**
    * The details of the certificate bundle to add.

@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/SearchSoftwarePackages.ts.html |here} to see how to use SearchSoftwarePackagesRequest.
+ */
 export interface SearchSoftwarePackagesRequest extends common.BaseRequest {
   /**
    * the identifier for the software package (not an OCID)

@@ -26,9 +26,30 @@ export interface FacetedSearchAggregation {
    * Count of number of data objects having property.
    */
   "aggregation"?: { [key: string]: number };
+  /**
+   * Data type of object property.
+   */
+  "dataType"?: string;
+  /**
+   * Type of property that indicates if it was defined by the user or system.
+   * CUSTOM_PROPERTY is defined by the user on a data object.
+   * DEFAULT_PROPERTY is defined by the system on a data object.
+   *
+   */
+  "propertyType"?: FacetedSearchAggregation.PropertyType;
 }
 
 export namespace FacetedSearchAggregation {
+  export enum PropertyType {
+    CustomProperty = "CUSTOM_PROPERTY",
+    DefaultProperty = "DEFAULT_PROPERTY",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: FacetedSearchAggregation): object {
     const jsonObj = { ...obj, ...{} };
 

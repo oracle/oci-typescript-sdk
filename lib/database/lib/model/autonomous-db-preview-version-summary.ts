@@ -38,6 +38,7 @@ export interface AutonomousDbPreviewVersionSummary {
 - OLTP - indicates an Autonomous Transaction Processing database
 * - DW - indicates an Autonomous Data Warehouse database
 * - AJD - indicates an Autonomous JSON Database
+* - APEX - indicates an Autonomous Database with the Oracle Application Express (APEX) workload type.
 * 
     */
   "dbWorkload"?: AutonomousDbPreviewVersionSummary.DbWorkload;
@@ -52,6 +53,7 @@ export namespace AutonomousDbPreviewVersionSummary {
     Oltp = "OLTP",
     Dw = "DW",
     Ajd = "AJD",
+    Apex = "APEX",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

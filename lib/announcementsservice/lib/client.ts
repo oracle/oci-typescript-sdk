@@ -110,6 +110,7 @@ export class AnnouncementClient {
    * @param GetAnnouncementRequest
    * @return GetAnnouncementResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/GetAnnouncement.ts.html |here} to see how to use GetAnnouncement API.
    */
   public async getAnnouncement(
     getAnnouncementRequest: requests.GetAnnouncementRequest
@@ -168,6 +169,7 @@ export class AnnouncementClient {
    * @param GetAnnouncementUserStatusRequest
    * @return GetAnnouncementUserStatusResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/GetAnnouncementUserStatus.ts.html |here} to see how to use GetAnnouncementUserStatus API.
    */
   public async getAnnouncementUserStatus(
     getAnnouncementUserStatusRequest: requests.GetAnnouncementUserStatusRequest
@@ -227,6 +229,7 @@ export class AnnouncementClient {
    * @param ListAnnouncementsRequest
    * @return ListAnnouncementsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/ListAnnouncements.ts.html |here} to see how to use ListAnnouncements API.
    */
   public async listAnnouncements(
     listAnnouncementsRequest: requests.ListAnnouncementsRequest
@@ -299,6 +302,7 @@ export class AnnouncementClient {
    * @param UpdateAnnouncementUserStatusRequest
    * @return UpdateAnnouncementUserStatusResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/UpdateAnnouncementUserStatus.ts.html |here} to see how to use UpdateAnnouncementUserStatus API.
    */
   public async updateAnnouncementUserStatus(
     updateAnnouncementUserStatusRequest: requests.UpdateAnnouncementUserStatusRequest

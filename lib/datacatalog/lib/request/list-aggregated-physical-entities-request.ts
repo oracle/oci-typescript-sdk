@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListAggregatedPhysicalEntities.ts.html |here} to see how to use ListAggregatedPhysicalEntitiesRequest.
+ */
 export interface ListAggregatedPhysicalEntitiesRequest extends common.BaseRequest {
   /**
    * Unique catalog identifier.
@@ -31,6 +35,30 @@ export interface ListAggregatedPhysicalEntitiesRequest extends common.BaseReques
    *
    */
   "fields"?: Array<ListAggregatedPhysicalEntitiesRequest.Fields>;
+  /**
+   * A filter to return only resources that match display name pattern given. The match is not case sensitive.
+   * For Example : /folders?displayNameContains=Cu.*
+   * The above would match all folders with display name that starts with \"Cu\".
+   *
+   */
+  "displayNameContains"?: string;
+  /**
+   * The field to sort by. Only one sort order may be provided. Default order for TIMECREATED is descending. Default order for DISPLAYNAME is ascending. If no value is specified TIMECREATED is default.
+   *
+   */
+  "sortBy"?: ListAggregatedPhysicalEntitiesRequest.SortBy;
+  /**
+   * The sort order to use, either 'asc' or 'desc'.
+   */
+  "sortOrder"?: ListAggregatedPhysicalEntitiesRequest.SortOrder;
+  /**
+   * The maximum number of items to return.
+   */
+  "limit"?: number;
+  /**
+   * The page token representing the page at which to start retrieving results. This is usually retrieved from a previous list call.
+   */
+  "page"?: string;
   /**
    * The client request ID for tracing.
    */
@@ -61,5 +89,15 @@ export namespace ListAggregatedPhysicalEntitiesRequest {
     LastJobKey = "lastJobKey",
     Uri = "uri",
     Properties = "properties"
+  }
+
+  export enum SortBy {
+    Timecreated = "TIMECREATED",
+    Displayname = "DISPLAYNAME"
+  }
+
+  export enum SortOrder {
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

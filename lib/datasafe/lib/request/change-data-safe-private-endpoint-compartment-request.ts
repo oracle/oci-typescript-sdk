@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeDataSafePrivateEndpointCompartment.ts.html |here} to see how to use ChangeDataSafePrivateEndpointCompartmentRequest.
+ */
 export interface ChangeDataSafePrivateEndpointCompartmentRequest extends common.BaseRequest {
   /**
    * The OCID of the private endpoint.

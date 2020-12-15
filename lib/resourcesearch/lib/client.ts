@@ -111,6 +111,7 @@ export class ResourceSearchClient {
    * @param GetResourceTypeRequest
    * @return GetResourceTypeResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcesearch/GetResourceType.ts.html |here} to see how to use GetResourceType API.
    */
   public async getResourceType(
     getResourceTypeRequest: requests.GetResourceTypeRequest
@@ -169,6 +170,7 @@ export class ResourceSearchClient {
    * @param ListResourceTypesRequest
    * @return ListResourceTypesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcesearch/ListResourceTypes.ts.html |here} to see how to use ListResourceTypes API.
    */
   public async listResourceTypes(
     listResourceTypesRequest: requests.ListResourceTypesRequest
@@ -260,6 +262,7 @@ export class ResourceSearchClient {
    * @param SearchResourcesRequest
    * @return SearchResourcesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcesearch/SearchResources.ts.html |here} to see how to use SearchResources API.
    */
   public async searchResources(
     searchResourcesRequest: requests.SearchResourcesRequest

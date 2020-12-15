@@ -32,7 +32,7 @@ export interface UpdateDatabaseDetails {
    */
   "newAdminPassword"?: string;
   /**
-   * The existing password to open the TDE wallet. It is required to set a new tde password.
+   * The existing TDE wallet password. You must provide the existing password in order to set a new TDE wallet password.
    */
   "oldTdeWalletPassword"?: string;
   /**

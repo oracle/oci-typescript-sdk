@@ -13,4 +13,8 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListAllowedPeerRegionsForRemotePeering.ts.html |here} to see how to use ListAllowedPeerRegionsForRemotePeeringRequest.
+ */
 export interface ListAllowedPeerRegionsForRemotePeeringRequest extends common.BaseRequest {}

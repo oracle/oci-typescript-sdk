@@ -6,7 +6,6 @@
  @param args Arguments to provide to the example. The following arguments are expected:
  * <ul>
  *  <li>The first argument is the OCID of the tenancy.</li>
- *  <li>The second argument is region.</li>
  * </ul>
  */
 
@@ -16,7 +15,7 @@ const common = require("oci-common");
 const provider = new common.ConfigFileAuthenticationDetailsProvider();
 const args = process.argv.slice(2);
 console.log(args);
-if (args.length !== 2) {
+if (args.length !== 1) {
   console.error(
     "Unexpected number of arguments received. Consult the script header comments for expected arguments"
   );
@@ -24,12 +23,10 @@ if (args.length !== 2) {
 }
 
 const tenancyId = args[0];
-const region = args[1];
 
 const identityClient = new identity.IdentityClient({
   authenticationDetailsProvider: provider
 });
-identityClient.regionId = region;
 
 async function getAvailabilityDomain() {
   const request = {

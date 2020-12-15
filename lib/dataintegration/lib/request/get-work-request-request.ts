@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetWorkRequest.ts.html |here} to see how to use GetWorkRequestRequest.
+ */
 export interface GetWorkRequestRequest extends common.BaseRequest {
   /**
    * The ID of the asynchronous work request to retrieve.

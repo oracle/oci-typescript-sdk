@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListCompartments.ts.html |here} to see how to use ListCompartmentsRequest.
+ */
 export interface ListCompartmentsRequest extends common.BaseRequest {
   /**
    * The OCID of the compartment (remember that the tenancy is simply the root compartment).

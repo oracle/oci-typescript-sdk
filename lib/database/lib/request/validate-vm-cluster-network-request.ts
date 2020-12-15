@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ValidateVmClusterNetwork.ts.html |here} to see how to use ValidateVmClusterNetworkRequest.
+ */
 export interface ValidateVmClusterNetworkRequest extends common.BaseRequest {
   /**
    * The Exadata infrastructure [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).

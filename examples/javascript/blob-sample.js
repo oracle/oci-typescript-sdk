@@ -17,7 +17,6 @@ import { Region } from "oci-common";
  */
 async function uploadBlob(blob, objName) {
   const client = new ObjectStorageClient({ authenticationDetailsProvider: provider });
-  client.region = Region.US_PHOENIX_1;
 
   const uploadManager = new UploadManager(client, { enforceMD5: false });
   const namespaceName = "dex-us-phoenix-1";

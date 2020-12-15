@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListTagDefaults.ts.html |here} to see how to use ListTagDefaultsRequest.
+ */
 export interface ListTagDefaultsRequest extends common.BaseRequest {
   /**
    * The value of the `opc-next-page` response header from the previous \"List\" call.

@@ -149,9 +149,24 @@ export interface Attribute {
    *
    */
   "properties"?: { [key: string]: { [key: string]: string } };
+  /**
+   * Rule types associated with attribute.
+   */
+  "associatedRuleTypes"?: Array<Attribute.AssociatedRuleTypes>;
 }
 
 export namespace Attribute {
+  export enum AssociatedRuleTypes {
+    Primarykey = "PRIMARYKEY",
+    Foreignkey = "FOREIGNKEY",
+    Uniquekey = "UNIQUEKEY",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: Attribute): object {
     const jsonObj = {
       ...obj,

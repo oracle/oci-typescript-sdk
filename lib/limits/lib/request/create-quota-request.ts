@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/CreateQuota.ts.html |here} to see how to use CreateQuotaRequest.
+ */
 export interface CreateQuotaRequest extends common.BaseRequest {
   /**
    * Request object for creating a new quota.

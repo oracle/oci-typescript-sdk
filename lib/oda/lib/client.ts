@@ -138,6 +138,7 @@ export class OdaClient {
    * @param ChangeOdaInstanceCompartmentRequest
    * @return ChangeOdaInstanceCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ChangeOdaInstanceCompartment.ts.html |here} to see how to use ChangeOdaInstanceCompartment API.
    */
   public async changeOdaInstanceCompartment(
     changeOdaInstanceCompartmentRequest: requests.ChangeOdaInstanceCompartmentRequest
@@ -208,6 +209,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
      * @param CreateOdaInstanceRequest
      * @return CreateOdaInstanceResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateOdaInstance.ts.html |here} to see how to use CreateOdaInstance API.
      */
   public async createOdaInstance(
     createOdaInstanceRequest: requests.CreateOdaInstanceRequest
@@ -285,6 +287,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param DeleteOdaInstanceRequest
    * @return DeleteOdaInstanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteOdaInstance.ts.html |here} to see how to use DeleteOdaInstance API.
    */
   public async deleteOdaInstance(
     deleteOdaInstanceRequest: requests.DeleteOdaInstanceRequest
@@ -345,6 +348,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param GetOdaInstanceRequest
    * @return GetOdaInstanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetOdaInstance.ts.html |here} to see how to use GetOdaInstance API.
    */
   public async getOdaInstance(
     getOdaInstanceRequest: requests.GetOdaInstanceRequest
@@ -411,6 +415,7 @@ You can use this operation to monitor the status of jobs that you
      * @param GetWorkRequestRequest
      * @return GetWorkRequestResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
      */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -479,6 +484,7 @@ If the `opc-next-page` header appears in the response, then
      * @param ListOdaInstancesRequest
      * @return ListOdaInstancesResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListOdaInstances.ts.html |here} to see how to use ListOdaInstances API.
      */
   public async listOdaInstances(
     listOdaInstancesRequest: requests.ListOdaInstancesRequest
@@ -577,6 +583,7 @@ If the `opc-next-page` header appears in the response, then
      * @param ListWorkRequestErrorsRequest
      * @return ListWorkRequestErrorsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
      */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -674,6 +681,7 @@ If the `opc-next-page` header appears in the response, then
      * @param ListWorkRequestLogsRequest
      * @return ListWorkRequestLogsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
      */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -771,6 +779,7 @@ If the `opc-next-page` header appears in the response, then
      * @param ListWorkRequestsRequest
      * @return ListWorkRequestsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
      */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -865,6 +874,7 @@ If the `opc-next-page` header appears in the response, then
    * @param StartOdaInstanceRequest
    * @return StartOdaInstanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/StartOdaInstance.ts.html |here} to see how to use StartOdaInstance API.
    */
   public async startOdaInstance(
     startOdaInstanceRequest: requests.StartOdaInstanceRequest
@@ -929,6 +939,7 @@ If the `opc-next-page` header appears in the response, then
    * @param StopOdaInstanceRequest
    * @return StopOdaInstanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/StopOdaInstance.ts.html |here} to see how to use StopOdaInstance API.
    */
   public async stopOdaInstance(
     stopOdaInstanceRequest: requests.StopOdaInstanceRequest
@@ -990,6 +1001,7 @@ If the `opc-next-page` header appears in the response, then
    * @param UpdateOdaInstanceRequest
    * @return UpdateOdaInstanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateOdaInstance.ts.html |here} to see how to use UpdateOdaInstance API.
    */
   public async updateOdaInstance(
     updateOdaInstanceRequest: requests.UpdateOdaInstanceRequest

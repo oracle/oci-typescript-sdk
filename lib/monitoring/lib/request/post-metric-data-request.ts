@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/PostMetricData.ts.html |here} to see how to use PostMetricDataRequest.
+ */
 export interface PostMetricDataRequest extends common.BaseRequest {
   /**
    * An array of metric objects containing raw metric data points to be posted to the Monitoring service.

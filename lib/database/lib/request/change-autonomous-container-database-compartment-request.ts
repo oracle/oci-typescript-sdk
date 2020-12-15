@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeAutonomousContainerDatabaseCompartment.ts.html |here} to see how to use ChangeAutonomousContainerDatabaseCompartmentRequest.
+ */
 export interface ChangeAutonomousContainerDatabaseCompartmentRequest extends common.BaseRequest {
   /**
    * Request to move Autonomous Container Database to a different compartment

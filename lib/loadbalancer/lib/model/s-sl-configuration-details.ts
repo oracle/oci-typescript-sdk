@@ -45,7 +45,7 @@ Example: `true`
 Example: `example_certificate_bundle`
 * 
     */
-  "certificateName": string;
+  "certificateName"?: string;
   /**
     * A list of SSL protocols the load balancer must support for HTTPS or SSL connections.
 * <p>

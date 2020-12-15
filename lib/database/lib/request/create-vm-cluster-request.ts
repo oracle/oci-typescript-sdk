@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateVmCluster.ts.html |here} to see how to use CreateVmClusterRequest.
+ */
 export interface CreateVmClusterRequest extends common.BaseRequest {
   /**
    * Request to create a VM cluster. Applies to Exadata Cloud@Customer instances only.

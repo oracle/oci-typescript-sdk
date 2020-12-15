@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/applicationmigration/CreateMigration.ts.html |here} to see how to use CreateMigrationRequest.
+ */
 export interface CreateMigrationRequest extends common.BaseRequest {
   /**
    * The properties for creating a migration.

@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteTargetResponderRecipe.ts.html |here} to see how to use DeleteTargetResponderRecipeRequest.
+ */
 export interface DeleteTargetResponderRecipeRequest extends common.BaseRequest {
   /**
    * OCID of target

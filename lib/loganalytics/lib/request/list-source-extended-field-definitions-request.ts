@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListSourceExtendedFieldDefinitions.ts.html |here} to see how to use ListSourceExtendedFieldDefinitionsRequest.
+ */
 export interface ListSourceExtendedFieldDefinitionsRequest extends common.BaseRequest {
   /**
    * The Logging Analytics namespace used for the request.

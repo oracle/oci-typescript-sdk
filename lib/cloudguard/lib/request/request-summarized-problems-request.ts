@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSummarizedProblems.ts.html |here} to see how to use RequestSummarizedProblemsRequest.
+ */
 export interface RequestSummarizedProblemsRequest extends common.BaseRequest {
   /**
    * The possible attributes based on which the problems can be distinguished.

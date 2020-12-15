@@ -119,6 +119,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
      * @param ChangeTopicCompartmentRequest
      * @return ChangeTopicCompartmentResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ons/ChangeTopicCompartment.ts.html |here} to see how to use ChangeTopicCompartment API.
      */
   public async changeTopicCompartment(
     changeTopicCompartmentRequest: requests.ChangeTopicCompartmentRequest
@@ -195,6 +196,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
      * @param CreateTopicRequest
      * @return CreateTopicResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ons/CreateTopic.ts.html |here} to see how to use CreateTopic API.
      */
   public async createTopic(
     createTopicRequest: requests.CreateTopicRequest
@@ -265,6 +267,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
      * @param DeleteTopicRequest
      * @return DeleteTopicResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ons/DeleteTopic.ts.html |here} to see how to use DeleteTopic API.
      */
   public async deleteTopic(
     deleteTopicRequest: requests.DeleteTopicRequest
@@ -322,6 +325,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
    * @param GetTopicRequest
    * @return GetTopicResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ons/GetTopic.ts.html |here} to see how to use GetTopic API.
    */
   public async getTopic(
     getTopicRequest: requests.GetTopicRequest
@@ -388,6 +392,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 120.
      * @param ListTopicsRequest
      * @return ListTopicsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ons/ListTopics.ts.html |here} to see how to use ListTopics API.
      */
   public async listTopics(
     listTopicsRequest: requests.ListTopicsRequest
@@ -486,6 +491,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
      * @param UpdateTopicRequest
      * @return UpdateTopicResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ons/UpdateTopic.ts.html |here} to see how to use UpdateTopic API.
      */
   public async updateTopic(
     updateTopicRequest: requests.UpdateTopicRequest
@@ -668,6 +674,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
      * @param ChangeSubscriptionCompartmentRequest
      * @return ChangeSubscriptionCompartmentResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ons/ChangeSubscriptionCompartment.ts.html |here} to see how to use ChangeSubscriptionCompartment API.
      */
   public async changeSubscriptionCompartment(
     changeSubscriptionCompartmentRequest: requests.ChangeSubscriptionCompartmentRequest
@@ -737,6 +744,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
      * @param CreateSubscriptionRequest
      * @return CreateSubscriptionResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ons/CreateSubscription.ts.html |here} to see how to use CreateSubscription API.
      */
   public async createSubscription(
     createSubscriptionRequest: requests.CreateSubscriptionRequest
@@ -807,6 +815,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
      * @param DeleteSubscriptionRequest
      * @return DeleteSubscriptionResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ons/DeleteSubscription.ts.html |here} to see how to use DeleteSubscription API.
      */
   public async deleteSubscription(
     deleteSubscriptionRequest: requests.DeleteSubscriptionRequest
@@ -866,6 +875,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
      * @param GetConfirmSubscriptionRequest
      * @return GetConfirmSubscriptionResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ons/GetConfirmSubscription.ts.html |here} to see how to use GetConfirmSubscription API.
      */
   public async getConfirmSubscription(
     getConfirmSubscriptionRequest: requests.GetConfirmSubscriptionRequest
@@ -935,6 +945,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
      * @param GetSubscriptionRequest
      * @return GetSubscriptionResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ons/GetSubscription.ts.html |here} to see how to use GetSubscription API.
      */
   public async getSubscription(
     getSubscriptionRequest: requests.GetSubscriptionRequest
@@ -1001,6 +1012,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
      * @param GetUnsubscriptionRequest
      * @return GetUnsubscriptionResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ons/GetUnsubscription.ts.html |here} to see how to use GetUnsubscription API.
      */
   public async getUnsubscription(
     getUnsubscriptionRequest: requests.GetUnsubscriptionRequest
@@ -1065,6 +1077,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
      * @param ListSubscriptionsRequest
      * @return ListSubscriptionsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ons/ListSubscriptions.ts.html |here} to see how to use ListSubscriptions API.
      */
   public async listSubscriptions(
     listSubscriptionsRequest: requests.ListSubscriptionsRequest
@@ -1173,6 +1186,7 @@ For more information about publishing messages, see [Publishing Messages](https:
      * @param PublishMessageRequest
      * @return PublishMessageResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ons/PublishMessage.ts.html |here} to see how to use PublishMessage API.
      */
   public async publishMessage(
     publishMessageRequest: requests.PublishMessageRequest
@@ -1240,6 +1254,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
      * @param ResendSubscriptionConfirmationRequest
      * @return ResendSubscriptionConfirmationResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ons/ResendSubscriptionConfirmation.ts.html |here} to see how to use ResendSubscriptionConfirmation API.
      */
   public async resendSubscriptionConfirmation(
     resendSubscriptionConfirmationRequest: requests.ResendSubscriptionConfirmationRequest
@@ -1303,6 +1318,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
      * @param UpdateSubscriptionRequest
      * @return UpdateSubscriptionResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ons/UpdateSubscription.ts.html |here} to see how to use UpdateSubscription API.
      */
   public async updateSubscription(
     updateSubscriptionRequest: requests.UpdateSubscriptionRequest

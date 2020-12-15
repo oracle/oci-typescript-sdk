@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/CreateStreamPool.ts.html |here} to see how to use CreateStreamPoolRequest.
+ */
 export interface CreateStreamPoolRequest extends common.BaseRequest {
   /**
    * The stream pool to create.

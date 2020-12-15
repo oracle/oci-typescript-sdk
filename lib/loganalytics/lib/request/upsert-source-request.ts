@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpsertSource.ts.html |here} to see how to use UpsertSourceRequest.
+ */
 export interface UpsertSourceRequest extends common.BaseRequest {
   /**
    * The Logging Analytics namespace used for the request.

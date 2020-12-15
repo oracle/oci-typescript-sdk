@@ -139,6 +139,7 @@ export class LoadBalancerClient {
    * @param ChangeLoadBalancerCompartmentRequest
    * @return ChangeLoadBalancerCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/ChangeLoadBalancerCompartment.ts.html |here} to see how to use ChangeLoadBalancerCompartment API.
    */
   public async changeLoadBalancerCompartment(
     changeLoadBalancerCompartmentRequest: requests.ChangeLoadBalancerCompartmentRequest
@@ -206,6 +207,7 @@ export class LoadBalancerClient {
    * @param CreateBackendRequest
    * @return CreateBackendResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/CreateBackend.ts.html |here} to see how to use CreateBackend API.
    */
   public async createBackend(
     createBackendRequest: requests.CreateBackendRequest
@@ -272,6 +274,7 @@ export class LoadBalancerClient {
    * @param CreateBackendSetRequest
    * @return CreateBackendSetResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/CreateBackendSet.ts.html |here} to see how to use CreateBackendSet API.
    */
   public async createBackendSet(
     createBackendSetRequest: requests.CreateBackendSetRequest
@@ -337,6 +340,7 @@ export class LoadBalancerClient {
    * @param CreateCertificateRequest
    * @return CreateCertificateResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/CreateCertificate.ts.html |here} to see how to use CreateCertificate API.
    */
   public async createCertificate(
     createCertificateRequest: requests.CreateCertificateRequest
@@ -404,6 +408,7 @@ export class LoadBalancerClient {
    * @param CreateHostnameRequest
    * @return CreateHostnameResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/CreateHostname.ts.html |here} to see how to use CreateHostname API.
    */
   public async createHostname(
     createHostnameRequest: requests.CreateHostnameRequest
@@ -469,6 +474,7 @@ export class LoadBalancerClient {
    * @param CreateListenerRequest
    * @return CreateListenerResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/CreateListener.ts.html |here} to see how to use CreateListener API.
    */
   public async createListener(
     createListenerRequest: requests.CreateListenerRequest
@@ -561,6 +567,7 @@ When you create a load balancer, the system assigns an IP address.
      * @param CreateLoadBalancerRequest
      * @return CreateLoadBalancerResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/CreateLoadBalancer.ts.html |here} to see how to use CreateLoadBalancer API.
      */
   public async createLoadBalancer(
     createLoadBalancerRequest: requests.CreateLoadBalancerRequest
@@ -626,6 +633,7 @@ When you create a load balancer, the system assigns an IP address.
    * @param CreatePathRouteSetRequest
    * @return CreatePathRouteSetResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/CreatePathRouteSet.ts.html |here} to see how to use CreatePathRouteSet API.
    */
   public async createPathRouteSet(
     createPathRouteSetRequest: requests.CreatePathRouteSetRequest
@@ -693,6 +701,7 @@ When you create a load balancer, the system assigns an IP address.
    * @param CreateRuleSetRequest
    * @return CreateRuleSetResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/CreateRuleSet.ts.html |here} to see how to use CreateRuleSet API.
    */
   public async createRuleSet(
     createRuleSetRequest: requests.CreateRuleSetRequest
@@ -757,6 +766,7 @@ When you create a load balancer, the system assigns an IP address.
    * @param CreateSSLCipherSuiteRequest
    * @return CreateSSLCipherSuiteResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/CreateSSLCipherSuite.ts.html |here} to see how to use CreateSSLCipherSuite API.
    */
   public async createSSLCipherSuite(
     createSSLCipherSuiteRequest: requests.CreateSSLCipherSuiteRequest
@@ -823,6 +833,7 @@ When you create a load balancer, the system assigns an IP address.
    * @param DeleteBackendRequest
    * @return DeleteBackendResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/DeleteBackend.ts.html |here} to see how to use DeleteBackend API.
    */
   public async deleteBackend(
     deleteBackendRequest: requests.DeleteBackendRequest
@@ -887,6 +898,7 @@ Before you can delete a backend set, you must remove it from any active listener
      * @param DeleteBackendSetRequest
      * @return DeleteBackendSetResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/DeleteBackendSet.ts.html |here} to see how to use DeleteBackendSet API.
      */
   public async deleteBackendSet(
     deleteBackendSetRequest: requests.DeleteBackendSetRequest
@@ -947,6 +959,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param DeleteCertificateRequest
    * @return DeleteCertificateResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/DeleteCertificate.ts.html |here} to see how to use DeleteCertificate API.
    */
   public async deleteCertificate(
     deleteCertificateRequest: requests.DeleteCertificateRequest
@@ -1008,6 +1021,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param DeleteHostnameRequest
    * @return DeleteHostnameResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/DeleteHostname.ts.html |here} to see how to use DeleteHostname API.
    */
   public async deleteHostname(
     deleteHostnameRequest: requests.DeleteHostnameRequest
@@ -1068,6 +1082,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param DeleteListenerRequest
    * @return DeleteListenerResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/DeleteListener.ts.html |here} to see how to use DeleteListener API.
    */
   public async deleteListener(
     deleteListenerRequest: requests.DeleteListenerRequest
@@ -1128,6 +1143,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param DeleteLoadBalancerRequest
    * @return DeleteLoadBalancerResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/DeleteLoadBalancer.ts.html |here} to see how to use DeleteLoadBalancer API.
    */
   public async deleteLoadBalancer(
     deleteLoadBalancerRequest: requests.DeleteLoadBalancerRequest
@@ -1191,6 +1207,7 @@ To delete a path route rule from a path route set, use the
      * @param DeletePathRouteSetRequest
      * @return DeletePathRouteSetResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/DeletePathRouteSet.ts.html |here} to see how to use DeletePathRouteSet API.
      */
   public async deletePathRouteSet(
     deletePathRouteSetRequest: requests.DeletePathRouteSetRequest
@@ -1255,6 +1272,7 @@ To delete a rule from a rule set, use the
      * @param DeleteRuleSetRequest
      * @return DeleteRuleSetResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/DeleteRuleSet.ts.html |here} to see how to use DeleteRuleSet API.
      */
   public async deleteRuleSet(
     deleteRuleSetRequest: requests.DeleteRuleSetRequest
@@ -1315,6 +1333,7 @@ To delete a rule from a rule set, use the
    * @param DeleteSSLCipherSuiteRequest
    * @return DeleteSSLCipherSuiteResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/DeleteSSLCipherSuite.ts.html |here} to see how to use DeleteSSLCipherSuite API.
    */
   public async deleteSSLCipherSuite(
     deleteSSLCipherSuiteRequest: requests.DeleteSSLCipherSuiteRequest
@@ -1376,6 +1395,7 @@ To delete a rule from a rule set, use the
    * @param GetBackendRequest
    * @return GetBackendResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/GetBackend.ts.html |here} to see how to use GetBackend API.
    */
   public async getBackend(
     getBackendRequest: requests.GetBackendRequest
@@ -1435,6 +1455,7 @@ To delete a rule from a rule set, use the
    * @param GetBackendHealthRequest
    * @return GetBackendHealthResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/GetBackendHealth.ts.html |here} to see how to use GetBackendHealth API.
    */
   public async getBackendHealth(
     getBackendHealthRequest: requests.GetBackendHealthRequest
@@ -1495,6 +1516,7 @@ To delete a rule from a rule set, use the
    * @param GetBackendSetRequest
    * @return GetBackendSetResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/GetBackendSet.ts.html |here} to see how to use GetBackendSet API.
    */
   public async getBackendSet(
     getBackendSetRequest: requests.GetBackendSetRequest
@@ -1553,6 +1575,7 @@ To delete a rule from a rule set, use the
    * @param GetBackendSetHealthRequest
    * @return GetBackendSetHealthResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/GetBackendSetHealth.ts.html |here} to see how to use GetBackendSetHealth API.
    */
   public async getBackendSetHealth(
     getBackendSetHealthRequest: requests.GetBackendSetHealthRequest
@@ -1611,6 +1634,7 @@ To delete a rule from a rule set, use the
    * @param GetHealthCheckerRequest
    * @return GetHealthCheckerResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/GetHealthChecker.ts.html |here} to see how to use GetHealthChecker API.
    */
   public async getHealthChecker(
     getHealthCheckerRequest: requests.GetHealthCheckerRequest
@@ -1669,6 +1693,7 @@ To delete a rule from a rule set, use the
    * @param GetHostnameRequest
    * @return GetHostnameResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/GetHostname.ts.html |here} to see how to use GetHostname API.
    */
   public async getHostname(
     getHostnameRequest: requests.GetHostnameRequest
@@ -1727,6 +1752,7 @@ To delete a rule from a rule set, use the
    * @param GetLoadBalancerRequest
    * @return GetLoadBalancerResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/GetLoadBalancer.ts.html |here} to see how to use GetLoadBalancer API.
    */
   public async getLoadBalancer(
     getLoadBalancerRequest: requests.GetLoadBalancerRequest
@@ -1784,6 +1810,7 @@ To delete a rule from a rule set, use the
    * @param GetLoadBalancerHealthRequest
    * @return GetLoadBalancerHealthResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/GetLoadBalancerHealth.ts.html |here} to see how to use GetLoadBalancerHealth API.
    */
   public async getLoadBalancerHealth(
     getLoadBalancerHealthRequest: requests.GetLoadBalancerHealthRequest
@@ -1842,6 +1869,7 @@ To delete a rule from a rule set, use the
    * @param GetPathRouteSetRequest
    * @return GetPathRouteSetResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/GetPathRouteSet.ts.html |here} to see how to use GetPathRouteSet API.
    */
   public async getPathRouteSet(
     getPathRouteSetRequest: requests.GetPathRouteSetRequest
@@ -1900,6 +1928,7 @@ To delete a rule from a rule set, use the
    * @param GetRuleSetRequest
    * @return GetRuleSetResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/GetRuleSet.ts.html |here} to see how to use GetRuleSet API.
    */
   public async getRuleSet(
     getRuleSetRequest: requests.GetRuleSetRequest
@@ -1958,6 +1987,7 @@ To delete a rule from a rule set, use the
    * @param GetSSLCipherSuiteRequest
    * @return GetSSLCipherSuiteResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/GetSSLCipherSuite.ts.html |here} to see how to use GetSSLCipherSuite API.
    */
   public async getSSLCipherSuite(
     getSSLCipherSuiteRequest: requests.GetSSLCipherSuiteRequest
@@ -2016,6 +2046,7 @@ To delete a rule from a rule set, use the
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -2073,6 +2104,7 @@ To delete a rule from a rule set, use the
    * @param ListBackendSetsRequest
    * @return ListBackendSetsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/ListBackendSets.ts.html |here} to see how to use ListBackendSets API.
    */
   public async listBackendSets(
     listBackendSetsRequest: requests.ListBackendSetsRequest
@@ -2130,6 +2162,7 @@ To delete a rule from a rule set, use the
    * @param ListBackendsRequest
    * @return ListBackendsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/ListBackends.ts.html |here} to see how to use ListBackends API.
    */
   public async listBackends(
     listBackendsRequest: requests.ListBackendsRequest
@@ -2188,6 +2221,7 @@ To delete a rule from a rule set, use the
    * @param ListCertificatesRequest
    * @return ListCertificatesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/ListCertificates.ts.html |here} to see how to use ListCertificates API.
    */
   public async listCertificates(
     listCertificatesRequest: requests.ListCertificatesRequest
@@ -2245,6 +2279,7 @@ To delete a rule from a rule set, use the
    * @param ListHostnamesRequest
    * @return ListHostnamesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/ListHostnames.ts.html |here} to see how to use ListHostnames API.
    */
   public async listHostnames(
     listHostnamesRequest: requests.ListHostnamesRequest
@@ -2309,6 +2344,7 @@ To delete a rule from a rule set, use the
    * @param ListListenerRulesRequest
    * @return ListListenerRulesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/ListListenerRules.ts.html |here} to see how to use ListListenerRules API.
    */
   public async listListenerRules(
     listListenerRulesRequest: requests.ListListenerRulesRequest
@@ -2367,6 +2403,7 @@ To delete a rule from a rule set, use the
    * @param ListLoadBalancerHealthsRequest
    * @return ListLoadBalancerHealthsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/ListLoadBalancerHealths.ts.html |here} to see how to use ListLoadBalancerHealths API.
    */
   public async listLoadBalancerHealths(
     listLoadBalancerHealthsRequest: requests.ListLoadBalancerHealthsRequest
@@ -2457,6 +2494,7 @@ To delete a rule from a rule set, use the
    * @param ListLoadBalancersRequest
    * @return ListLoadBalancersResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/ListLoadBalancers.ts.html |here} to see how to use ListLoadBalancers API.
    */
   public async listLoadBalancers(
     listLoadBalancersRequest: requests.ListLoadBalancersRequest
@@ -2551,6 +2589,7 @@ To delete a rule from a rule set, use the
    * @param ListPathRouteSetsRequest
    * @return ListPathRouteSetsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/ListPathRouteSets.ts.html |here} to see how to use ListPathRouteSets API.
    */
   public async listPathRouteSets(
     listPathRouteSetsRequest: requests.ListPathRouteSetsRequest
@@ -2608,6 +2647,7 @@ To delete a rule from a rule set, use the
    * @param ListPoliciesRequest
    * @return ListPoliciesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/ListPolicies.ts.html |here} to see how to use ListPolicies API.
    */
   public async listPolicies(
     listPoliciesRequest: requests.ListPoliciesRequest
@@ -2697,6 +2737,7 @@ To delete a rule from a rule set, use the
    * @param ListProtocolsRequest
    * @return ListProtocolsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/ListProtocols.ts.html |here} to see how to use ListProtocols API.
    */
   public async listProtocols(
     listProtocolsRequest: requests.ListProtocolsRequest
@@ -2786,6 +2827,7 @@ To delete a rule from a rule set, use the
    * @param ListRuleSetsRequest
    * @return ListRuleSetsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/ListRuleSets.ts.html |here} to see how to use ListRuleSets API.
    */
   public async listRuleSets(
     listRuleSetsRequest: requests.ListRuleSetsRequest
@@ -2843,6 +2885,7 @@ To delete a rule from a rule set, use the
    * @param ListSSLCipherSuitesRequest
    * @return ListSSLCipherSuitesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/ListSSLCipherSuites.ts.html |here} to see how to use ListSSLCipherSuites API.
    */
   public async listSSLCipherSuites(
     listSSLCipherSuitesRequest: requests.ListSSLCipherSuitesRequest
@@ -2900,6 +2943,7 @@ To delete a rule from a rule set, use the
    * @param ListShapesRequest
    * @return ListShapesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/ListShapes.ts.html |here} to see how to use ListShapes API.
    */
   public async listShapes(
     listShapesRequest: requests.ListShapesRequest
@@ -2989,6 +3033,7 @@ To delete a rule from a rule set, use the
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -3079,6 +3124,7 @@ To delete a rule from a rule set, use the
    * @param UpdateBackendRequest
    * @return UpdateBackendResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/UpdateBackend.ts.html |here} to see how to use UpdateBackend API.
    */
   public async updateBackend(
     updateBackendRequest: requests.UpdateBackendRequest
@@ -3146,6 +3192,7 @@ To delete a rule from a rule set, use the
    * @param UpdateBackendSetRequest
    * @return UpdateBackendSetResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/UpdateBackendSet.ts.html |here} to see how to use UpdateBackendSet API.
    */
   public async updateBackendSet(
     updateBackendSetRequest: requests.UpdateBackendSetRequest
@@ -3212,6 +3259,7 @@ To delete a rule from a rule set, use the
    * @param UpdateHealthCheckerRequest
    * @return UpdateHealthCheckerResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/UpdateHealthChecker.ts.html |here} to see how to use UpdateHealthChecker API.
    */
   public async updateHealthChecker(
     updateHealthCheckerRequest: requests.UpdateHealthCheckerRequest
@@ -3280,6 +3328,7 @@ To delete a rule from a rule set, use the
    * @param UpdateHostnameRequest
    * @return UpdateHostnameResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/UpdateHostname.ts.html |here} to see how to use UpdateHostname API.
    */
   public async updateHostname(
     updateHostnameRequest: requests.UpdateHostnameRequest
@@ -3345,6 +3394,7 @@ To delete a rule from a rule set, use the
    * @param UpdateListenerRequest
    * @return UpdateListenerResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/UpdateListener.ts.html |here} to see how to use UpdateListener API.
    */
   public async updateListener(
     updateListenerRequest: requests.UpdateListenerRequest
@@ -3411,6 +3461,7 @@ To delete a rule from a rule set, use the
    * @param UpdateLoadBalancerRequest
    * @return UpdateLoadBalancerResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/UpdateLoadBalancer.ts.html |here} to see how to use UpdateLoadBalancer API.
    */
   public async updateLoadBalancer(
     updateLoadBalancerRequest: requests.UpdateLoadBalancerRequest
@@ -3482,6 +3533,7 @@ To delete a rule from a rule set, use the
    * @param UpdateLoadBalancerShapeRequest
    * @return UpdateLoadBalancerShapeResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/UpdateLoadBalancerShape.ts.html |here} to see how to use UpdateLoadBalancerShape API.
    */
   public async updateLoadBalancerShape(
     updateLoadBalancerShapeRequest: requests.UpdateLoadBalancerShapeRequest
@@ -3548,6 +3600,7 @@ To delete a rule from a rule set, use the
    * @param UpdateNetworkSecurityGroupsRequest
    * @return UpdateNetworkSecurityGroupsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/UpdateNetworkSecurityGroups.ts.html |here} to see how to use UpdateNetworkSecurityGroups API.
    */
   public async updateNetworkSecurityGroups(
     updateNetworkSecurityGroupsRequest: requests.UpdateNetworkSecurityGroupsRequest
@@ -3620,6 +3673,7 @@ To add a new path route rule to a path route set, the `pathRoutes` in the
      * @param UpdatePathRouteSetRequest
      * @return UpdatePathRouteSetResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/UpdatePathRouteSet.ts.html |here} to see how to use UpdatePathRouteSet API.
      */
   public async updatePathRouteSet(
     updatePathRouteSetRequest: requests.UpdatePathRouteSetRequest
@@ -3690,6 +3744,7 @@ To add a new rule to a set, the body must include both the new rule to add and t
      * @param UpdateRuleSetRequest
      * @return UpdateRuleSetResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/UpdateRuleSet.ts.html |here} to see how to use UpdateRuleSet API.
      */
   public async updateRuleSet(
     updateRuleSetRequest: requests.UpdateRuleSetRequest
@@ -3755,6 +3810,7 @@ To add a new rule to a set, the body must include both the new rule to add and t
    * @param UpdateSSLCipherSuiteRequest
    * @return UpdateSSLCipherSuiteResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/UpdateSSLCipherSuite.ts.html |here} to see how to use UpdateSSLCipherSuite API.
    */
   public async updateSSLCipherSuite(
     updateSSLCipherSuiteRequest: requests.UpdateSSLCipherSuiteRequest

@@ -136,6 +136,7 @@ export class IdentityClient {
    * @param ActivateMfaTotpDeviceRequest
    * @return ActivateMfaTotpDeviceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ActivateMfaTotpDevice.ts.html |here} to see how to use ActivateMfaTotpDevice API.
    */
   public async activateMfaTotpDevice(
     activateMfaTotpDeviceRequest: requests.ActivateMfaTotpDeviceRequest
@@ -209,6 +210,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
      * @param AddUserToGroupRequest
      * @return AddUserToGroupResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/AddUserToGroup.ts.html |here} to see how to use AddUserToGroup API.
      */
   public async addUserToGroup(
     addUserToGroupRequest: requests.AddUserToGroupRequest
@@ -278,6 +280,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
    * @param AssembleEffectiveTagSetRequest
    * @return AssembleEffectiveTagSetResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/AssembleEffectiveTagSet.ts.html |here} to see how to use AssembleEffectiveTagSet API.
    */
   public async assembleEffectiveTagSet(
     assembleEffectiveTagSetRequest: requests.AssembleEffectiveTagSetRequest
@@ -345,6 +348,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
    * @param BulkDeleteResourcesRequest
    * @return BulkDeleteResourcesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/BulkDeleteResources.ts.html |here} to see how to use BulkDeleteResources API.
    */
   public async bulkDeleteResources(
     bulkDeleteResourcesRequest: requests.BulkDeleteResourcesRequest
@@ -431,6 +435,7 @@ In order to delete tags, you must first retire the tags. Use {@link #updateTag(U
      * @param BulkDeleteTagsRequest
      * @return BulkDeleteTagsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/BulkDeleteTags.ts.html |here} to see how to use BulkDeleteTags API.
      */
   public async bulkDeleteTags(
     bulkDeleteTagsRequest: requests.BulkDeleteTagsRequest
@@ -508,6 +513,7 @@ The edits can include a combination of operations and tag sets.
      * @param BulkEditTagsRequest
      * @return BulkEditTagsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/BulkEditTags.ts.html |here} to see how to use BulkEditTags API.
      */
   public async bulkEditTags(
     bulkEditTagsRequest: requests.BulkEditTagsRequest
@@ -576,6 +582,7 @@ The edits can include a combination of operations and tag sets.
    * @param BulkMoveResourcesRequest
    * @return BulkMoveResourcesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/BulkMoveResources.ts.html |here} to see how to use BulkMoveResources API.
    */
   public async bulkMoveResources(
     bulkMoveResourcesRequest: requests.BulkMoveResourcesRequest
@@ -660,6 +667,7 @@ To delete a tag namespace, you must first retire it. Use {@link #updateTagNamesp
      * @param CascadeDeleteTagNamespaceRequest
      * @return CascadeDeleteTagNamespaceResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CascadeDeleteTagNamespace.ts.html |here} to see how to use CascadeDeleteTagNamespace API.
      */
   public async cascadeDeleteTagNamespace(
     cascadeDeleteTagNamespaceRequest: requests.CascadeDeleteTagNamespaceRequest
@@ -728,6 +736,7 @@ Moving a tag namespace moves all the tag key definitions contained in the tag na
      * @param ChangeTagNamespaceCompartmentRequest
      * @return ChangeTagNamespaceCompartmentResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ChangeTagNamespaceCompartment.ts.html |here} to see how to use ChangeTagNamespaceCompartment API.
      */
   public async changeTagNamespaceCompartment(
     changeTagNamespaceCompartmentRequest: requests.ChangeTagNamespaceCompartmentRequest
@@ -798,6 +807,7 @@ Every user has permission to create an auth token for *their own user ID*. An ad
      * @param CreateAuthTokenRequest
      * @return CreateAuthTokenResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateAuthToken.ts.html |here} to see how to use CreateAuthToken API.
      */
   public async createAuthToken(
     createAuthTokenRequest: requests.CreateAuthTokenRequest
@@ -884,6 +894,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
      * @param CreateCompartmentRequest
      * @return CreateCompartmentResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateCompartment.ts.html |here} to see how to use CreateCompartment API.
      */
   public async createCompartment(
     createCompartmentRequest: requests.CreateCompartmentRequest
@@ -960,6 +971,7 @@ Every user has permission to create a secret key for *their own user ID*. An adm
      * @param CreateCustomerSecretKeyRequest
      * @return CreateCustomerSecretKeyResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateCustomerSecretKey.ts.html |here} to see how to use CreateCustomerSecretKey API.
      */
   public async createCustomerSecretKey(
     createCustomerSecretKeyRequest: requests.CreateCustomerSecretKeyRequest
@@ -1045,6 +1057,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
      * @param CreateDynamicGroupRequest
      * @return CreateDynamicGroupResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateDynamicGroup.ts.html |here} to see how to use CreateDynamicGroup API.
      */
   public async createDynamicGroup(
     createDynamicGroupRequest: requests.CreateDynamicGroupRequest
@@ -1131,6 +1144,7 @@ After creating the group, you need to put users in it and write policies for it.
      * @param CreateGroupRequest
      * @return CreateGroupResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateGroup.ts.html |here} to see how to use CreateGroup API.
      */
   public async createGroup(
     createGroupRequest: requests.CreateGroupRequest
@@ -1214,6 +1228,7 @@ After you send your request, the new object's `lifecycleState` will temporarily
      * @param CreateIdentityProviderRequest
      * @return CreateIdentityProviderResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateIdentityProvider.ts.html |here} to see how to use CreateIdentityProvider API.
      */
   public async createIdentityProvider(
     createIdentityProviderRequest: requests.CreateIdentityProviderRequest
@@ -1281,6 +1296,7 @@ After you send your request, the new object's `lifecycleState` will temporarily
    * @param CreateIdpGroupMappingRequest
    * @return CreateIdpGroupMappingResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateIdpGroupMapping.ts.html |here} to see how to use CreateIdpGroupMapping API.
    */
   public async createIdpGroupMapping(
     createIdpGroupMappingRequest: requests.CreateIdpGroupMappingRequest
@@ -1349,6 +1365,7 @@ After you send your request, the new object's `lifecycleState` will temporarily
    * @param CreateMfaTotpDeviceRequest
    * @return CreateMfaTotpDeviceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateMfaTotpDevice.ts.html |here} to see how to use CreateMfaTotpDevice API.
    */
   public async createMfaTotpDevice(
     createMfaTotpDeviceRequest: requests.CreateMfaTotpDeviceRequest
@@ -1432,6 +1449,7 @@ After your network resource is created, you can use it in policy to restrict acc
      * @param CreateNetworkSourceRequest
      * @return CreateNetworkSourceResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateNetworkSource.ts.html |here} to see how to use CreateNetworkSource API.
      */
   public async createNetworkSource(
     createNetworkSourceRequest: requests.CreateNetworkSourceRequest
@@ -1498,6 +1516,7 @@ After your network resource is created, you can use it in policy to restrict acc
    * @param CreateOAuthClientCredentialRequest
    * @return CreateOAuthClientCredentialResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateOAuthClientCredential.ts.html |here} to see how to use CreateOAuthClientCredential API.
    */
   public async createOAuthClientCredential(
     createOAuthClientCredentialRequest: requests.CreateOAuthClientCredentialRequest
@@ -1577,6 +1596,7 @@ Use this operation after creating a new user, or if a user forgets their passwor
      * @param CreateOrResetUIPasswordRequest
      * @return CreateOrResetUIPasswordResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateOrResetUIPassword.ts.html |here} to see how to use CreateOrResetUIPassword API.
      */
   public async createOrResetUIPassword(
     createOrResetUIPasswordRequest: requests.CreateOrResetUIPasswordRequest
@@ -1656,6 +1676,7 @@ New policies take effect typically within 10 seconds.
      * @param CreatePolicyRequest
      * @return CreatePolicyResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreatePolicy.ts.html |here} to see how to use CreatePolicy API.
      */
   public async createPolicy(
     createPolicyRequest: requests.CreatePolicyRequest
@@ -1722,6 +1743,7 @@ New policies take effect typically within 10 seconds.
    * @param CreateRegionSubscriptionRequest
    * @return CreateRegionSubscriptionResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateRegionSubscription.ts.html |here} to see how to use CreateRegionSubscription API.
    */
   public async createRegionSubscription(
     createRegionSubscriptionRequest: requests.CreateRegionSubscriptionRequest
@@ -1789,6 +1811,7 @@ New policies take effect typically within 10 seconds.
    * @param CreateSmtpCredentialRequest
    * @return CreateSmtpCredentialResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateSmtpCredential.ts.html |here} to see how to use CreateSmtpCredential API.
    */
   public async createSmtpCredential(
     createSmtpCredentialRequest: requests.CreateSmtpCredentialRequest
@@ -1868,6 +1891,7 @@ Every user has permission to create a Swift password for *their own user ID*. An
      * @param CreateSwiftPasswordRequest
      * @return CreateSwiftPasswordResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateSwiftPassword.ts.html |here} to see how to use CreateSwiftPassword API.
      */
   public async createSwiftPassword(
     createSwiftPasswordRequest: requests.CreateSwiftPasswordRequest
@@ -1957,6 +1981,7 @@ The tag must have a value type, which is specified with a validator. Tags can us
      * @param CreateTagRequest
      * @return CreateTagResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateTag.ts.html |here} to see how to use CreateTag API.
      */
   public async createTag(
     createTagRequest: requests.CreateTagRequest
@@ -2032,6 +2057,7 @@ If you specify that a value is required, a value is set during resource creation
      * @param CreateTagDefaultRequest
      * @return CreateTagDefaultResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateTagDefault.ts.html |here} to see how to use CreateTagDefault API.
      */
   public async createTagDefault(
     createTagDefaultRequest: requests.CreateTagDefaultRequest
@@ -2112,6 +2138,7 @@ You must also specify a *description* for the namespace.
      * @param CreateTagNamespaceRequest
      * @return CreateTagNamespaceResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateTagNamespace.ts.html |here} to see how to use CreateTagNamespace API.
      */
   public async createTagNamespace(
     createTagNamespaceRequest: requests.CreateTagNamespaceRequest
@@ -2207,6 +2234,7 @@ A new user has no permissions until you place the user in one or more groups (se
      * @param CreateUserRequest
      * @return CreateUserResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateUser.ts.html |here} to see how to use CreateUser API.
      */
   public async createUser(
     createUserRequest: requests.CreateUserRequest
@@ -2278,6 +2306,7 @@ Every user has permission to use this operation to delete a key for *their own u
      * @param DeleteApiKeyRequest
      * @return DeleteApiKeyResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteApiKey.ts.html |here} to see how to use DeleteApiKey API.
      */
   public async deleteApiKey(
     deleteApiKeyRequest: requests.DeleteApiKeyRequest
@@ -2334,6 +2363,7 @@ Every user has permission to use this operation to delete a key for *their own u
    * @param DeleteAuthTokenRequest
    * @return DeleteAuthTokenResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteAuthToken.ts.html |here} to see how to use DeleteAuthToken API.
    */
   public async deleteAuthToken(
     deleteAuthTokenRequest: requests.DeleteAuthTokenRequest
@@ -2390,6 +2420,7 @@ Every user has permission to use this operation to delete a key for *their own u
    * @param DeleteCompartmentRequest
    * @return DeleteCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteCompartment.ts.html |here} to see how to use DeleteCompartment API.
    */
   public async deleteCompartment(
     deleteCompartmentRequest: requests.DeleteCompartmentRequest
@@ -2450,6 +2481,7 @@ Every user has permission to use this operation to delete a key for *their own u
    * @param DeleteCustomerSecretKeyRequest
    * @return DeleteCustomerSecretKeyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteCustomerSecretKey.ts.html |here} to see how to use DeleteCustomerSecretKey API.
    */
   public async deleteCustomerSecretKey(
     deleteCustomerSecretKeyRequest: requests.DeleteCustomerSecretKeyRequest
@@ -2506,6 +2538,7 @@ Every user has permission to use this operation to delete a key for *their own u
    * @param DeleteDynamicGroupRequest
    * @return DeleteDynamicGroupResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteDynamicGroup.ts.html |here} to see how to use DeleteDynamicGroup API.
    */
   public async deleteDynamicGroup(
     deleteDynamicGroupRequest: requests.DeleteDynamicGroupRequest
@@ -2561,6 +2594,7 @@ Every user has permission to use this operation to delete a key for *their own u
    * @param DeleteGroupRequest
    * @return DeleteGroupResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteGroup.ts.html |here} to see how to use DeleteGroup API.
    */
   public async deleteGroup(
     deleteGroupRequest: requests.DeleteGroupRequest
@@ -2617,6 +2651,7 @@ Every user has permission to use this operation to delete a key for *their own u
    * @param DeleteIdentityProviderRequest
    * @return DeleteIdentityProviderResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteIdentityProvider.ts.html |here} to see how to use DeleteIdentityProvider API.
    */
   public async deleteIdentityProvider(
     deleteIdentityProviderRequest: requests.DeleteIdentityProviderRequest
@@ -2671,6 +2706,7 @@ Every user has permission to use this operation to delete a key for *their own u
    * @param DeleteIdpGroupMappingRequest
    * @return DeleteIdpGroupMappingResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteIdpGroupMapping.ts.html |here} to see how to use DeleteIdpGroupMapping API.
    */
   public async deleteIdpGroupMapping(
     deleteIdpGroupMappingRequest: requests.DeleteIdpGroupMappingRequest
@@ -2727,6 +2763,7 @@ Every user has permission to use this operation to delete a key for *their own u
    * @param DeleteMfaTotpDeviceRequest
    * @return DeleteMfaTotpDeviceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteMfaTotpDevice.ts.html |here} to see how to use DeleteMfaTotpDevice API.
    */
   public async deleteMfaTotpDevice(
     deleteMfaTotpDeviceRequest: requests.DeleteMfaTotpDeviceRequest
@@ -2783,6 +2820,7 @@ Every user has permission to use this operation to delete a key for *their own u
    * @param DeleteNetworkSourceRequest
    * @return DeleteNetworkSourceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteNetworkSource.ts.html |here} to see how to use DeleteNetworkSource API.
    */
   public async deleteNetworkSource(
     deleteNetworkSourceRequest: requests.DeleteNetworkSourceRequest
@@ -2838,6 +2876,7 @@ Every user has permission to use this operation to delete a key for *their own u
    * @param DeleteOAuthClientCredentialRequest
    * @return DeleteOAuthClientCredentialResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteOAuthClientCredential.ts.html |here} to see how to use DeleteOAuthClientCredential API.
    */
   public async deleteOAuthClientCredential(
     deleteOAuthClientCredentialRequest: requests.DeleteOAuthClientCredentialRequest
@@ -2894,6 +2933,7 @@ Every user has permission to use this operation to delete a key for *their own u
    * @param DeletePolicyRequest
    * @return DeletePolicyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeletePolicy.ts.html |here} to see how to use DeletePolicy API.
    */
   public async deletePolicy(
     deletePolicyRequest: requests.DeletePolicyRequest
@@ -2949,6 +2989,7 @@ Every user has permission to use this operation to delete a key for *their own u
    * @param DeleteSmtpCredentialRequest
    * @return DeleteSmtpCredentialResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteSmtpCredential.ts.html |here} to see how to use DeleteSmtpCredential API.
    */
   public async deleteSmtpCredential(
     deleteSmtpCredentialRequest: requests.DeleteSmtpCredentialRequest
@@ -3007,6 +3048,7 @@ Deletes the specified Swift password for the specified user.
      * @param DeleteSwiftPasswordRequest
      * @return DeleteSwiftPasswordResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteSwiftPassword.ts.html |here} to see how to use DeleteSwiftPassword API.
      */
   public async deleteSwiftPassword(
     deleteSwiftPasswordRequest: requests.DeleteSwiftPasswordRequest
@@ -3083,6 +3125,7 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
      * @param DeleteTagRequest
      * @return DeleteTagResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteTag.ts.html |here} to see how to use DeleteTag API.
      */
   public async deleteTag(
     deleteTagRequest: requests.DeleteTagRequest
@@ -3144,6 +3187,7 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
    * @param DeleteTagDefaultRequest
    * @return DeleteTagDefaultResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteTagDefault.ts.html |here} to see how to use DeleteTagDefault API.
    */
   public async deleteTagDefault(
     deleteTagDefaultRequest: requests.DeleteTagDefaultRequest
@@ -3206,6 +3250,7 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
      * @param DeleteTagNamespaceRequest
      * @return DeleteTagNamespaceResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteTagNamespace.ts.html |here} to see how to use DeleteTagNamespace API.
      */
   public async deleteTagNamespace(
     deleteTagNamespaceRequest: requests.DeleteTagNamespaceRequest
@@ -3261,6 +3306,7 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
    * @param DeleteUserRequest
    * @return DeleteUserResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteUser.ts.html |here} to see how to use DeleteUser API.
    */
   public async deleteUser(
     deleteUserRequest: requests.DeleteUserRequest
@@ -3316,6 +3362,7 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
    * @param GenerateTotpSeedRequest
    * @return GenerateTotpSeedResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GenerateTotpSeed.ts.html |here} to see how to use GenerateTotpSeed API.
    */
   public async generateTotpSeed(
     generateTotpSeedRequest: requests.GenerateTotpSeedRequest
@@ -3381,6 +3428,7 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
    * @param GetAuthenticationPolicyRequest
    * @return GetAuthenticationPolicyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetAuthenticationPolicy.ts.html |here} to see how to use GetAuthenticationPolicy API.
    */
   public async getAuthenticationPolicy(
     getAuthenticationPolicyRequest: requests.GetAuthenticationPolicyRequest
@@ -3450,6 +3498,7 @@ This operation does not return a list of all the resources inside the compartmen
      * @param GetCompartmentRequest
      * @return GetCompartmentResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetCompartment.ts.html |here} to see how to use GetCompartment API.
      */
   public async getCompartment(
     getCompartmentRequest: requests.GetCompartmentRequest
@@ -3512,6 +3561,7 @@ This operation does not return a list of all the resources inside the compartmen
    * @param GetDynamicGroupRequest
    * @return GetDynamicGroupResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetDynamicGroup.ts.html |here} to see how to use GetDynamicGroup API.
    */
   public async getDynamicGroup(
     getDynamicGroupRequest: requests.GetDynamicGroupRequest
@@ -3578,6 +3628,7 @@ This operation does not return a list of all the users in the group. To do that,
      * @param GetGroupRequest
      * @return GetGroupResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetGroup.ts.html |here} to see how to use GetGroup API.
      */
   public async getGroup(
     getGroupRequest: requests.GetGroupRequest
@@ -3639,6 +3690,7 @@ This operation does not return a list of all the users in the group. To do that,
    * @param GetIdentityProviderRequest
    * @return GetIdentityProviderResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetIdentityProvider.ts.html |here} to see how to use GetIdentityProvider API.
    */
   public async getIdentityProvider(
     getIdentityProviderRequest: requests.GetIdentityProviderRequest
@@ -3700,6 +3752,7 @@ This operation does not return a list of all the users in the group. To do that,
    * @param GetIdpGroupMappingRequest
    * @return GetIdpGroupMappingResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetIdpGroupMapping.ts.html |here} to see how to use GetIdpGroupMapping API.
    */
   public async getIdpGroupMapping(
     getIdpGroupMappingRequest: requests.GetIdpGroupMappingRequest
@@ -3763,6 +3816,7 @@ This operation does not return a list of all the users in the group. To do that,
    * @param GetMfaTotpDeviceRequest
    * @return GetMfaTotpDeviceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetMfaTotpDevice.ts.html |here} to see how to use GetMfaTotpDevice API.
    */
   public async getMfaTotpDevice(
     getMfaTotpDeviceRequest: requests.GetMfaTotpDeviceRequest
@@ -3826,6 +3880,7 @@ This operation does not return a list of all the users in the group. To do that,
    * @param GetNetworkSourceRequest
    * @return GetNetworkSourceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetNetworkSource.ts.html |here} to see how to use GetNetworkSource API.
    */
   public async getNetworkSource(
     getNetworkSourceRequest: requests.GetNetworkSourceRequest
@@ -3887,6 +3942,7 @@ This operation does not return a list of all the users in the group. To do that,
    * @param GetPolicyRequest
    * @return GetPolicyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetPolicy.ts.html |here} to see how to use GetPolicy API.
    */
   public async getPolicy(
     getPolicyRequest: requests.GetPolicyRequest
@@ -3948,6 +4004,7 @@ This operation does not return a list of all the users in the group. To do that,
    * @param GetTagRequest
    * @return GetTagResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetTag.ts.html |here} to see how to use GetTag API.
    */
   public async getTag(getTagRequest: requests.GetTagRequest): Promise<responses.GetTagResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#getTag.");
@@ -4009,6 +4066,7 @@ This operation does not return a list of all the users in the group. To do that,
    * @param GetTagDefaultRequest
    * @return GetTagDefaultResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetTagDefault.ts.html |here} to see how to use GetTagDefault API.
    */
   public async getTagDefault(
     getTagDefaultRequest: requests.GetTagDefaultRequest
@@ -4071,6 +4129,7 @@ This operation does not return a list of all the users in the group. To do that,
    * @param GetTagNamespaceRequest
    * @return GetTagNamespaceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetTagNamespace.ts.html |here} to see how to use GetTagNamespace API.
    */
   public async getTagNamespace(
     getTagNamespaceRequest: requests.GetTagNamespaceRequest
@@ -4129,6 +4188,7 @@ This operation does not return a list of all the users in the group. To do that,
    * @param GetTaggingWorkRequestRequest
    * @return GetTaggingWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetTaggingWorkRequest.ts.html |here} to see how to use GetTaggingWorkRequest API.
    */
   public async getTaggingWorkRequest(
     getTaggingWorkRequestRequest: requests.GetTaggingWorkRequestRequest
@@ -4190,6 +4250,7 @@ This operation does not return a list of all the users in the group. To do that,
    * @param GetTenancyRequest
    * @return GetTenancyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetTenancy.ts.html |here} to see how to use GetTenancy API.
    */
   public async getTenancy(
     getTenancyRequest: requests.GetTenancyRequest
@@ -4246,6 +4307,7 @@ This operation does not return a list of all the users in the group. To do that,
    * @param GetUserRequest
    * @return GetUserResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetUser.ts.html |here} to see how to use GetUser API.
    */
   public async getUser(
     getUserRequest: requests.GetUserRequest
@@ -4307,6 +4369,7 @@ This operation does not return a list of all the users in the group. To do that,
    * @param GetUserGroupMembershipRequest
    * @return GetUserGroupMembershipResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetUserGroupMembership.ts.html |here} to see how to use GetUserGroupMembership API.
    */
   public async getUserGroupMembership(
     getUserGroupMembershipRequest: requests.GetUserGroupMembershipRequest
@@ -4370,6 +4433,7 @@ This operation does not return a list of all the users in the group. To do that,
    * @param GetUserUIPasswordInformationRequest
    * @return GetUserUIPasswordInformationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetUserUIPasswordInformation.ts.html |here} to see how to use GetUserUIPasswordInformation API.
    */
   public async getUserUIPasswordInformation(
     getUserUIPasswordInformationRequest: requests.GetUserUIPasswordInformationRequest
@@ -4434,6 +4498,7 @@ This operation does not return a list of all the users in the group. To do that,
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -4499,6 +4564,7 @@ Every user has permission to use this API call for *their own user ID*.  An admi
      * @param ListApiKeysRequest
      * @return ListApiKeysResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListApiKeys.ts.html |here} to see how to use ListApiKeys API.
      */
   public async listApiKeys(
     listApiKeysRequest: requests.ListApiKeysRequest
@@ -4562,6 +4628,7 @@ Every user has permission to use this API call for *their own user ID*.  An admi
    * @param ListAuthTokensRequest
    * @return ListAuthTokensResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListAuthTokens.ts.html |here} to see how to use ListAuthTokens API.
    */
   public async listAuthTokens(
     listAuthTokensRequest: requests.ListAuthTokensRequest
@@ -4628,6 +4695,7 @@ Every user has permission to use this API call for *their own user ID*.  An admi
    * @param ListAvailabilityDomainsRequest
    * @return ListAvailabilityDomainsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListAvailabilityDomains.ts.html |here} to see how to use ListAvailabilityDomains API.
    */
   public async listAvailabilityDomains(
     listAvailabilityDomainsRequest: requests.ListAvailabilityDomainsRequest
@@ -4696,6 +4764,7 @@ Every user has permission to use this API call for *their own user ID*.  An admi
    * @param ListBulkActionResourceTypesRequest
    * @return ListBulkActionResourceTypesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListBulkActionResourceTypes.ts.html |here} to see how to use ListBulkActionResourceTypes API.
    */
   public async listBulkActionResourceTypes(
     listBulkActionResourceTypesRequest: requests.ListBulkActionResourceTypesRequest
@@ -4761,6 +4830,7 @@ Every user has permission to use this API call for *their own user ID*.  An admi
    * @param ListBulkEditTagsResourceTypesRequest
    * @return ListBulkEditTagsResourceTypesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListBulkEditTagsResourceTypes.ts.html |here} to see how to use ListBulkEditTagsResourceTypes API.
    */
   public async listBulkEditTagsResourceTypes(
     listBulkEditTagsResourceTypesRequest: requests.ListBulkEditTagsResourceTypesRequest
@@ -4842,6 +4912,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
      * @param ListCompartmentsRequest
      * @return ListCompartmentsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListCompartments.ts.html |here} to see how to use ListCompartments API.
      */
   public async listCompartments(
     listCompartmentsRequest: requests.ListCompartmentsRequest
@@ -4938,6 +5009,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    * @param ListCostTrackingTagsRequest
    * @return ListCostTrackingTagsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListCostTrackingTags.ts.html |here} to see how to use ListCostTrackingTags API.
    */
   public async listCostTrackingTags(
     listCostTrackingTagsRequest: requests.ListCostTrackingTagsRequest
@@ -5028,6 +5100,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    * @param ListCustomerSecretKeysRequest
    * @return ListCustomerSecretKeysResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListCustomerSecretKeys.ts.html |here} to see how to use ListCustomerSecretKeys API.
    */
   public async listCustomerSecretKeys(
     listCustomerSecretKeysRequest: requests.ListCustomerSecretKeysRequest
@@ -5092,6 +5165,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    * @param ListDynamicGroupsRequest
    * @return ListDynamicGroupsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListDynamicGroups.ts.html |here} to see how to use ListDynamicGroups API.
    */
   public async listDynamicGroups(
     listDynamicGroupsRequest: requests.ListDynamicGroupsRequest
@@ -5187,6 +5261,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    * @param ListFaultDomainsRequest
    * @return ListFaultDomainsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListFaultDomains.ts.html |here} to see how to use ListFaultDomains API.
    */
   public async listFaultDomains(
     listFaultDomainsRequest: requests.ListFaultDomainsRequest
@@ -5247,6 +5322,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    * @param ListGroupsRequest
    * @return ListGroupsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListGroups.ts.html |here} to see how to use ListGroups API.
    */
   public async listGroups(
     listGroupsRequest: requests.ListGroupsRequest
@@ -5337,6 +5413,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    * @param ListIdentityProviderGroupsRequest
    * @return ListIdentityProviderGroupsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListIdentityProviderGroups.ts.html |here} to see how to use ListIdentityProviderGroups API.
    */
   public async listIdentityProviderGroups(
     listIdentityProviderGroupsRequest: requests.ListIdentityProviderGroupsRequest
@@ -5433,6 +5510,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    * @param ListIdentityProvidersRequest
    * @return ListIdentityProvidersResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListIdentityProviders.ts.html |here} to see how to use ListIdentityProviders API.
    */
   public async listIdentityProviders(
     listIdentityProvidersRequest: requests.ListIdentityProvidersRequest
@@ -5527,6 +5605,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    * @param ListIdpGroupMappingsRequest
    * @return ListIdpGroupMappingsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListIdpGroupMappings.ts.html |here} to see how to use ListIdpGroupMappings API.
    */
   public async listIdpGroupMappings(
     listIdpGroupMappingsRequest: requests.ListIdpGroupMappingsRequest
@@ -5618,6 +5697,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    * @param ListMfaTotpDevicesRequest
    * @return ListMfaTotpDevicesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListMfaTotpDevices.ts.html |here} to see how to use ListMfaTotpDevices API.
    */
   public async listMfaTotpDevices(
     listMfaTotpDevicesRequest: requests.ListMfaTotpDevicesRequest
@@ -5712,6 +5792,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    * @param ListNetworkSourcesRequest
    * @return ListNetworkSourcesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListNetworkSources.ts.html |here} to see how to use ListNetworkSources API.
    */
   public async listNetworkSources(
     listNetworkSourcesRequest: requests.ListNetworkSourcesRequest
@@ -5805,6 +5886,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    * @param ListOAuthClientCredentialsRequest
    * @return ListOAuthClientCredentialsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListOAuthClientCredentials.ts.html |here} to see how to use ListOAuthClientCredentials API.
    */
   public async listOAuthClientCredentials(
     listOAuthClientCredentialsRequest: requests.ListOAuthClientCredentialsRequest
@@ -5901,6 +5983,7 @@ To determine which policies apply to a particular group or compartment, you must
      * @param ListPoliciesRequest
      * @return ListPoliciesResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListPolicies.ts.html |here} to see how to use ListPolicies API.
      */
   public async listPolicies(
     listPoliciesRequest: requests.ListPoliciesRequest
@@ -5993,6 +6076,7 @@ To determine which policies apply to a particular group or compartment, you must
    * @param ListRegionSubscriptionsRequest
    * @return ListRegionSubscriptionsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListRegionSubscriptions.ts.html |here} to see how to use ListRegionSubscriptions API.
    */
   public async listRegionSubscriptions(
     listRegionSubscriptionsRequest: requests.ListRegionSubscriptionsRequest
@@ -6049,6 +6133,7 @@ To determine which policies apply to a particular group or compartment, you must
    * @param ListRegionsRequest
    * @return ListRegionsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListRegions.ts.html |here} to see how to use ListRegions API.
    */
   public async listRegions(
     listRegionsRequest: requests.ListRegionsRequest
@@ -6105,6 +6190,7 @@ To determine which policies apply to a particular group or compartment, you must
    * @param ListSmtpCredentialsRequest
    * @return ListSmtpCredentialsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListSmtpCredentials.ts.html |here} to see how to use ListSmtpCredentials API.
    */
   public async listSmtpCredentials(
     listSmtpCredentialsRequest: requests.ListSmtpCredentialsRequest
@@ -6170,6 +6256,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
      * @param ListSwiftPasswordsRequest
      * @return ListSwiftPasswordsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListSwiftPasswords.ts.html |here} to see how to use ListSwiftPasswords API.
      */
   public async listSwiftPasswords(
     listSwiftPasswordsRequest: requests.ListSwiftPasswordsRequest
@@ -6232,6 +6319,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * @param ListTagDefaultsRequest
    * @return ListTagDefaultsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListTagDefaults.ts.html |here} to see how to use ListTagDefaults API.
    */
   public async listTagDefaults(
     listTagDefaultsRequest: requests.ListTagDefaultsRequest
@@ -6324,6 +6412,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * @param ListTagNamespacesRequest
    * @return ListTagNamespacesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListTagNamespaces.ts.html |here} to see how to use ListTagNamespaces API.
    */
   public async listTagNamespaces(
     listTagNamespacesRequest: requests.ListTagNamespacesRequest
@@ -6415,6 +6504,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * @param ListTaggingWorkRequestErrorsRequest
    * @return ListTaggingWorkRequestErrorsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListTaggingWorkRequestErrors.ts.html |here} to see how to use ListTaggingWorkRequestErrors API.
    */
   public async listTaggingWorkRequestErrors(
     listTaggingWorkRequestErrorsRequest: requests.ListTaggingWorkRequestErrorsRequest
@@ -6511,6 +6601,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * @param ListTaggingWorkRequestLogsRequest
    * @return ListTaggingWorkRequestLogsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListTaggingWorkRequestLogs.ts.html |here} to see how to use ListTaggingWorkRequestLogs API.
    */
   public async listTaggingWorkRequestLogs(
     listTaggingWorkRequestLogsRequest: requests.ListTaggingWorkRequestLogsRequest
@@ -6607,6 +6698,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * @param ListTaggingWorkRequestsRequest
    * @return ListTaggingWorkRequestsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListTaggingWorkRequests.ts.html |here} to see how to use ListTaggingWorkRequests API.
    */
   public async listTaggingWorkRequests(
     listTaggingWorkRequestsRequest: requests.ListTaggingWorkRequestsRequest
@@ -6697,6 +6789,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * @param ListTagsRequest
    * @return ListTagsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListTags.ts.html |here} to see how to use ListTags API.
    */
   public async listTags(
     listTagsRequest: requests.ListTagsRequest
@@ -6795,6 +6888,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
      * @param ListUserGroupMembershipsRequest
      * @return ListUserGroupMembershipsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListUserGroupMemberships.ts.html |here} to see how to use ListUserGroupMemberships API.
      */
   public async listUserGroupMemberships(
     listUserGroupMembershipsRequest: requests.ListUserGroupMembershipsRequest
@@ -6889,6 +6983,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * @param ListUsersRequest
    * @return ListUsersResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListUsers.ts.html |here} to see how to use ListUsers API.
    */
   public async listUsers(
     listUsersRequest: requests.ListUsersRequest
@@ -6982,6 +7077,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -7079,6 +7175,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * @param MoveCompartmentRequest
    * @return MoveCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/MoveCompartment.ts.html |here} to see how to use MoveCompartment API.
    */
   public async moveCompartment(
     moveCompartmentRequest: requests.MoveCompartmentRequest
@@ -7146,6 +7243,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * @param RecoverCompartmentRequest
    * @return RecoverCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/RecoverCompartment.ts.html |here} to see how to use RecoverCompartment API.
    */
   public async recoverCompartment(
     recoverCompartmentRequest: requests.RecoverCompartmentRequest
@@ -7209,6 +7307,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * @param RemoveUserFromGroupRequest
    * @return RemoveUserFromGroupResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/RemoveUserFromGroup.ts.html |here} to see how to use RemoveUserFromGroup API.
    */
   public async removeUserFromGroup(
     removeUserFromGroupRequest: requests.RemoveUserFromGroupRequest
@@ -7264,6 +7363,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * @param ResetIdpScimClientRequest
    * @return ResetIdpScimClientResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ResetIdpScimClient.ts.html |here} to see how to use ResetIdpScimClient API.
    */
   public async resetIdpScimClient(
     resetIdpScimClientRequest: requests.ResetIdpScimClientRequest
@@ -7321,6 +7421,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * @param UpdateAuthTokenRequest
    * @return UpdateAuthTokenResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateAuthToken.ts.html |here} to see how to use UpdateAuthToken API.
    */
   public async updateAuthToken(
     updateAuthTokenRequest: requests.UpdateAuthTokenRequest
@@ -7390,6 +7491,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * @param UpdateAuthenticationPolicyRequest
    * @return UpdateAuthenticationPolicyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateAuthenticationPolicy.ts.html |here} to see how to use UpdateAuthenticationPolicy API.
    */
   public async updateAuthenticationPolicy(
     updateAuthenticationPolicyRequest: requests.UpdateAuthenticationPolicyRequest
@@ -7458,6 +7560,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * @param UpdateCompartmentRequest
    * @return UpdateCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateCompartment.ts.html |here} to see how to use UpdateCompartment API.
    */
   public async updateCompartment(
     updateCompartmentRequest: requests.UpdateCompartmentRequest
@@ -7526,6 +7629,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * @param UpdateCustomerSecretKeyRequest
    * @return UpdateCustomerSecretKeyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateCustomerSecretKey.ts.html |here} to see how to use UpdateCustomerSecretKey API.
    */
   public async updateCustomerSecretKey(
     updateCustomerSecretKeyRequest: requests.UpdateCustomerSecretKeyRequest
@@ -7594,6 +7698,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * @param UpdateDynamicGroupRequest
    * @return UpdateDynamicGroupResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateDynamicGroup.ts.html |here} to see how to use UpdateDynamicGroup API.
    */
   public async updateDynamicGroup(
     updateDynamicGroupRequest: requests.UpdateDynamicGroupRequest
@@ -7661,6 +7766,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * @param UpdateGroupRequest
    * @return UpdateGroupResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateGroup.ts.html |here} to see how to use UpdateGroup API.
    */
   public async updateGroup(
     updateGroupRequest: requests.UpdateGroupRequest
@@ -7728,6 +7834,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * @param UpdateIdentityProviderRequest
    * @return UpdateIdentityProviderResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateIdentityProvider.ts.html |here} to see how to use UpdateIdentityProvider API.
    */
   public async updateIdentityProvider(
     updateIdentityProviderRequest: requests.UpdateIdentityProviderRequest
@@ -7795,6 +7902,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * @param UpdateIdpGroupMappingRequest
    * @return UpdateIdpGroupMappingResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateIdpGroupMapping.ts.html |here} to see how to use UpdateIdpGroupMapping API.
    */
   public async updateIdpGroupMapping(
     updateIdpGroupMappingRequest: requests.UpdateIdpGroupMappingRequest
@@ -7863,6 +7971,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * @param UpdateNetworkSourceRequest
    * @return UpdateNetworkSourceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateNetworkSource.ts.html |here} to see how to use UpdateNetworkSource API.
    */
   public async updateNetworkSource(
     updateNetworkSourceRequest: requests.UpdateNetworkSourceRequest
@@ -7931,6 +8040,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * @param UpdateOAuthClientCredentialRequest
    * @return UpdateOAuthClientCredentialResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateOAuthClientCredential.ts.html |here} to see how to use UpdateOAuthClientCredential API.
    */
   public async updateOAuthClientCredential(
     updateOAuthClientCredentialRequest: requests.UpdateOAuthClientCredentialRequest
@@ -8003,6 +8113,7 @@ Policy changes take effect typically within 10 seconds.
      * @param UpdatePolicyRequest
      * @return UpdatePolicyResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdatePolicy.ts.html |here} to see how to use UpdatePolicy API.
      */
   public async updatePolicy(
     updatePolicyRequest: requests.UpdatePolicyRequest
@@ -8071,6 +8182,7 @@ Policy changes take effect typically within 10 seconds.
    * @param UpdateSmtpCredentialRequest
    * @return UpdateSmtpCredentialResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateSmtpCredential.ts.html |here} to see how to use UpdateSmtpCredential API.
    */
   public async updateSmtpCredential(
     updateSmtpCredentialRequest: requests.UpdateSmtpCredentialRequest
@@ -8142,6 +8254,7 @@ Updates the specified Swift password's description.
      * @param UpdateSwiftPasswordRequest
      * @return UpdateSwiftPasswordResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateSwiftPassword.ts.html |here} to see how to use UpdateSwiftPassword API.
      */
   public async updateSwiftPassword(
     updateSwiftPasswordRequest: requests.UpdateSwiftPasswordRequest
@@ -8220,6 +8333,7 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
      * @param UpdateTagRequest
      * @return UpdateTagResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateTag.ts.html |here} to see how to use UpdateTag API.
      */
   public async updateTag(
     updateTagRequest: requests.UpdateTagRequest
@@ -8294,6 +8408,7 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
    * @param UpdateTagDefaultRequest
    * @return UpdateTagDefaultResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateTagDefault.ts.html |here} to see how to use UpdateTagDefault API.
    */
   public async updateTagDefault(
     updateTagDefaultRequest: requests.UpdateTagDefaultRequest
@@ -8371,6 +8486,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
      * @param UpdateTagNamespaceRequest
      * @return UpdateTagNamespaceResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateTagNamespace.ts.html |here} to see how to use UpdateTagNamespace API.
      */
   public async updateTagNamespace(
     updateTagNamespaceRequest: requests.UpdateTagNamespaceRequest
@@ -8432,6 +8548,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
    * @param UpdateUserRequest
    * @return UpdateUserResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateUser.ts.html |here} to see how to use UpdateUser API.
    */
   public async updateUser(
     updateUserRequest: requests.UpdateUserRequest
@@ -8500,6 +8617,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
    * @param UpdateUserCapabilitiesRequest
    * @return UpdateUserCapabilitiesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateUserCapabilities.ts.html |here} to see how to use UpdateUserCapabilities API.
    */
   public async updateUserCapabilities(
     updateUserCapabilitiesRequest: requests.UpdateUserCapabilitiesRequest
@@ -8568,6 +8686,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
    * @param UpdateUserStateRequest
    * @return UpdateUserStateResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateUserState.ts.html |here} to see how to use UpdateUserState API.
    */
   public async updateUserState(
     updateUserStateRequest: requests.UpdateUserStateRequest
@@ -8650,6 +8769,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
      * @param UploadApiKeyRequest
      * @return UploadApiKeyResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UploadApiKey.ts.html |here} to see how to use UploadApiKey API.
      */
   public async uploadApiKey(
     uploadApiKeyRequest: requests.UploadApiKeyRequest

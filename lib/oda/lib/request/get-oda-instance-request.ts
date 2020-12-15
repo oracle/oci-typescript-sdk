@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetOdaInstance.ts.html |here} to see how to use GetOdaInstanceRequest.
+ */
 export interface GetOdaInstanceRequest extends common.BaseRequest {
   /**
    * Unique Digital Assistant instance identifier.
