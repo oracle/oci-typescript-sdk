@@ -137,6 +137,7 @@ export class ComputeInstanceAgentClient {
    * @param CancelInstanceAgentCommandRequest
    * @return CancelInstanceAgentCommandResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/CancelInstanceAgentCommand.ts.html |here} to see how to use CancelInstanceAgentCommand API.
    */
   public async cancelInstanceAgentCommand(
     cancelInstanceAgentCommandRequest: requests.CancelInstanceAgentCommandRequest
@@ -194,6 +195,7 @@ export class ComputeInstanceAgentClient {
    * @param CreateInstanceAgentCommandRequest
    * @return CreateInstanceAgentCommandResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/CreateInstanceAgentCommand.ts.html |here} to see how to use CreateInstanceAgentCommand API.
    */
   public async createInstanceAgentCommand(
     createInstanceAgentCommandRequest: requests.CreateInstanceAgentCommandRequest
@@ -261,6 +263,7 @@ export class ComputeInstanceAgentClient {
    * @param GetInstanceAgentCommandRequest
    * @return GetInstanceAgentCommandResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/GetInstanceAgentCommand.ts.html |here} to see how to use GetInstanceAgentCommand API.
    */
   public async getInstanceAgentCommand(
     getInstanceAgentCommandRequest: requests.GetInstanceAgentCommandRequest
@@ -324,6 +327,7 @@ export class ComputeInstanceAgentClient {
    * @param GetInstanceAgentCommandExecutionRequest
    * @return GetInstanceAgentCommandExecutionResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/GetInstanceAgentCommandExecution.ts.html |here} to see how to use GetInstanceAgentCommandExecution API.
    */
   public async getInstanceAgentCommandExecution(
     getInstanceAgentCommandExecutionRequest: requests.GetInstanceAgentCommandExecutionRequest
@@ -393,6 +397,7 @@ export class ComputeInstanceAgentClient {
    * @param ListInstanceAgentCommandExecutionsRequest
    * @return ListInstanceAgentCommandExecutionsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/ListInstanceAgentCommandExecutions.ts.html |here} to see how to use ListInstanceAgentCommandExecutions API.
    */
   public async listInstanceAgentCommandExecutions(
     listInstanceAgentCommandExecutionsRequest: requests.ListInstanceAgentCommandExecutionsRequest
@@ -491,6 +496,7 @@ export class ComputeInstanceAgentClient {
    * @param ListInstanceAgentCommandsRequest
    * @return ListInstanceAgentCommandsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/ListInstanceAgentCommands.ts.html |here} to see how to use ListInstanceAgentCommands API.
    */
   public async listInstanceAgentCommands(
     listInstanceAgentCommandsRequest: requests.ListInstanceAgentCommandsRequest

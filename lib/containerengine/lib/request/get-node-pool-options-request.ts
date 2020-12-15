@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetNodePoolOptions.ts.html |here} to see how to use GetNodePoolOptionsRequest.
+ */
 export interface GetNodePoolOptionsRequest extends common.BaseRequest {
   /**
    * The id of the option set to retrieve. Use \"all\" get all options, or use a cluster ID to get options specific to the provided cluster.

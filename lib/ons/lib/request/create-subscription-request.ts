@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ons/CreateSubscription.ts.html |here} to see how to use CreateSubscriptionRequest.
+ */
 export interface CreateSubscriptionRequest extends common.BaseRequest {
   /**
    * The subscription to create.

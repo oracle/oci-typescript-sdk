@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListPackages.ts.html |here} to see how to use ListPackagesRequest.
+ */
 export interface ListPackagesRequest extends common.BaseRequest {
   /**
    * The unique identifier for the listing.

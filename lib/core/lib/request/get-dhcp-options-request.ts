@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetDhcpOptions.ts.html |here} to see how to use GetDhcpOptionsRequest.
+ */
 export interface GetDhcpOptionsRequest extends common.BaseRequest {
   /**
    * The OCID for the set of DHCP options.

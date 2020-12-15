@@ -135,6 +135,7 @@ export class DataSafeClient {
    * @param ChangeDataSafePrivateEndpointCompartmentRequest
    * @return ChangeDataSafePrivateEndpointCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeDataSafePrivateEndpointCompartment.ts.html |here} to see how to use ChangeDataSafePrivateEndpointCompartment API.
    */
   public async changeDataSafePrivateEndpointCompartment(
     changeDataSafePrivateEndpointCompartmentRequest: requests.ChangeDataSafePrivateEndpointCompartmentRequest
@@ -204,6 +205,7 @@ export class DataSafeClient {
    * @param ChangeOnPremConnectorCompartmentRequest
    * @return ChangeOnPremConnectorCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeOnPremConnectorCompartment.ts.html |here} to see how to use ChangeOnPremConnectorCompartment API.
    */
   public async changeOnPremConnectorCompartment(
     changeOnPremConnectorCompartmentRequest: requests.ChangeOnPremConnectorCompartmentRequest
@@ -267,6 +269,7 @@ export class DataSafeClient {
    * @param CreateDataSafePrivateEndpointRequest
    * @return CreateDataSafePrivateEndpointResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateDataSafePrivateEndpoint.ts.html |here} to see how to use CreateDataSafePrivateEndpoint API.
    */
   public async createDataSafePrivateEndpoint(
     createDataSafePrivateEndpointRequest: requests.CreateDataSafePrivateEndpointRequest
@@ -345,6 +348,7 @@ export class DataSafeClient {
    * @param CreateOnPremConnectorRequest
    * @return CreateOnPremConnectorResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateOnPremConnector.ts.html |here} to see how to use CreateOnPremConnector API.
    */
   public async createOnPremConnector(
     createOnPremConnectorRequest: requests.CreateOnPremConnectorRequest
@@ -421,6 +425,7 @@ export class DataSafeClient {
    * @param DeleteDataSafePrivateEndpointRequest
    * @return DeleteDataSafePrivateEndpointResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteDataSafePrivateEndpoint.ts.html |here} to see how to use DeleteDataSafePrivateEndpoint API.
    */
   public async deleteDataSafePrivateEndpoint(
     deleteDataSafePrivateEndpointRequest: requests.DeleteDataSafePrivateEndpointRequest
@@ -482,6 +487,7 @@ export class DataSafeClient {
    * @param DeleteOnPremConnectorRequest
    * @return DeleteOnPremConnectorResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteOnPremConnector.ts.html |here} to see how to use DeleteOnPremConnector API.
    */
   public async deleteOnPremConnector(
     deleteOnPremConnectorRequest: requests.DeleteOnPremConnectorRequest
@@ -543,6 +549,7 @@ export class DataSafeClient {
    * @param EnableDataSafeConfigurationRequest
    * @return EnableDataSafeConfigurationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/EnableDataSafeConfiguration.ts.html |here} to see how to use EnableDataSafeConfiguration API.
    */
   public async enableDataSafeConfiguration(
     enableDataSafeConfigurationRequest: requests.EnableDataSafeConfigurationRequest
@@ -610,6 +617,7 @@ export class DataSafeClient {
    * @param GenerateOnPremConnectorConfigurationRequest
    * @return GenerateOnPremConnectorConfigurationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateOnPremConnectorConfiguration.ts.html |here} to see how to use GenerateOnPremConnectorConfiguration API.
    */
   public async generateOnPremConnectorConfiguration(
     generateOnPremConnectorConfigurationRequest: requests.GenerateOnPremConnectorConfigurationRequest
@@ -686,6 +694,7 @@ export class DataSafeClient {
    * @param GetDataSafeConfigurationRequest
    * @return GetDataSafeConfigurationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetDataSafeConfiguration.ts.html |here} to see how to use GetDataSafeConfiguration API.
    */
   public async getDataSafeConfiguration(
     getDataSafeConfigurationRequest: requests.GetDataSafeConfigurationRequest
@@ -749,6 +758,7 @@ export class DataSafeClient {
    * @param GetDataSafePrivateEndpointRequest
    * @return GetDataSafePrivateEndpointResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetDataSafePrivateEndpoint.ts.html |here} to see how to use GetDataSafePrivateEndpoint API.
    */
   public async getDataSafePrivateEndpoint(
     getDataSafePrivateEndpointRequest: requests.GetDataSafePrivateEndpointRequest
@@ -812,6 +822,7 @@ export class DataSafeClient {
    * @param GetOnPremConnectorRequest
    * @return GetOnPremConnectorResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetOnPremConnector.ts.html |here} to see how to use GetOnPremConnector API.
    */
   public async getOnPremConnector(
     getOnPremConnectorRequest: requests.GetOnPremConnectorRequest
@@ -874,6 +885,7 @@ export class DataSafeClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -942,6 +954,7 @@ export class DataSafeClient {
    * @param ListDataSafePrivateEndpointsRequest
    * @return ListDataSafePrivateEndpointsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDataSafePrivateEndpoints.ts.html |here} to see how to use ListDataSafePrivateEndpoints API.
    */
   public async listDataSafePrivateEndpoints(
     listDataSafePrivateEndpointsRequest: requests.ListDataSafePrivateEndpointsRequest
@@ -1038,6 +1051,7 @@ export class DataSafeClient {
    * @param ListOnPremConnectorsRequest
    * @return ListOnPremConnectorsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListOnPremConnectors.ts.html |here} to see how to use ListOnPremConnectors API.
    */
   public async listOnPremConnectors(
     listOnPremConnectorsRequest: requests.ListOnPremConnectorsRequest
@@ -1133,6 +1147,7 @@ export class DataSafeClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1224,6 +1239,7 @@ export class DataSafeClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1315,6 +1331,7 @@ export class DataSafeClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1405,6 +1422,7 @@ export class DataSafeClient {
    * @param UpdateDataSafePrivateEndpointRequest
    * @return UpdateDataSafePrivateEndpointResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateDataSafePrivateEndpoint.ts.html |here} to see how to use UpdateDataSafePrivateEndpoint API.
    */
   public async updateDataSafePrivateEndpoint(
     updateDataSafePrivateEndpointRequest: requests.UpdateDataSafePrivateEndpointRequest
@@ -1471,6 +1489,7 @@ export class DataSafeClient {
    * @param UpdateOnPremConnectorRequest
    * @return UpdateOnPremConnectorResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateOnPremConnector.ts.html |here} to see how to use UpdateOnPremConnector API.
    */
   public async updateOnPremConnector(
     updateOnPremConnectorRequest: requests.UpdateOnPremConnectorRequest
@@ -1537,6 +1556,7 @@ export class DataSafeClient {
    * @param UpdateOnPremConnectorWalletRequest
    * @return UpdateOnPremConnectorWalletResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateOnPremConnectorWallet.ts.html |here} to see how to use UpdateOnPremConnectorWallet API.
    */
   public async updateOnPremConnectorWallet(
     updateOnPremConnectorWalletRequest: requests.UpdateOnPremConnectorWalletRequest

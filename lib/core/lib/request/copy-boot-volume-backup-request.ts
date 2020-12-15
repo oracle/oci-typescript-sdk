@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CopyBootVolumeBackup.ts.html |here} to see how to use CopyBootVolumeBackupRequest.
+ */
 export interface CopyBootVolumeBackupRequest extends common.BaseRequest {
   /**
    * The OCID of the boot volume backup.

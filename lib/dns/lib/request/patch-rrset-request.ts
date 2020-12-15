@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/PatchRRSet.ts.html |here} to see how to use PatchRRSetRequest.
+ */
 export interface PatchRRSetRequest extends common.BaseRequest {
   /**
    * The name or OCID of the target zone.

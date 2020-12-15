@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateVolumeBackupPolicyAssignment.ts.html |here} to see how to use CreateVolumeBackupPolicyAssignmentRequest.
+ */
 export interface CreateVolumeBackupPolicyAssignmentRequest extends common.BaseRequest {
   /**
    * Request to assign a specified policy to a particular volume.

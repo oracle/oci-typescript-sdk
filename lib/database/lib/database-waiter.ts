@@ -1243,44 +1243,6 @@ export class DatabaseWaiter {
   }
 
   /**
-   * Waits forAutonomousDataWarehouse till it reaches any of the provided states
-   *
-   * @param request the request to send
-   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
-   * @return response returns GetAutonomousDataWarehouseResponse | null (null in case of 404 response)
-   */
-  public async forAutonomousDataWarehouse(
-    request: serviceRequests.GetAutonomousDataWarehouseRequest,
-    ...targetStates: models.AutonomousDataWarehouse.LifecycleState[]
-  ): Promise<serviceResponses.GetAutonomousDataWarehouseResponse | null> {
-    return genericTerminalConditionWaiter(
-      this.config,
-      () => this.client.getAutonomousDataWarehouse(request),
-      response => targetStates.exists(response.autonomousDataWarehouse.lifecycleState),
-      targetStates.includes(models.AutonomousDataWarehouse.LifecycleState.Terminated)
-    );
-  }
-
-  /**
-   * Waits forAutonomousDataWarehouseBackup till it reaches any of the provided states
-   *
-   * @param request the request to send
-   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
-   * @return response returns GetAutonomousDataWarehouseBackupResponse | null (null in case of 404 response)
-   */
-  public async forAutonomousDataWarehouseBackup(
-    request: serviceRequests.GetAutonomousDataWarehouseBackupRequest,
-    ...targetStates: models.AutonomousDataWarehouseBackup.LifecycleState[]
-  ): Promise<serviceResponses.GetAutonomousDataWarehouseBackupResponse | null> {
-    return genericTerminalConditionWaiter(
-      this.config,
-      () => this.client.getAutonomousDataWarehouseBackup(request),
-      response => targetStates.exists(response.autonomousDataWarehouseBackup.lifecycleState),
-      targetStates.includes(models.AutonomousDataWarehouseBackup.LifecycleState.Deleted)
-    );
-  }
-
-  /**
    * Waits forAutonomousDatabase till it reaches any of the provided states
    *
    * @param request the request to send
@@ -1826,6 +1788,27 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forMigrateVaultKey
+   *
+   * @param request the request to send
+   * @return response returns MigrateVaultKeyResponse, GetWorkRequestResponse tuple
+   */
+  public async forMigrateVaultKey(
+    request: serviceRequests.MigrateVaultKeyRequest
+  ): Promise<{
+    response: serviceResponses.MigrateVaultKeyResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const migrateVaultKeyResponse = await this.client.migrateVaultKey(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      migrateVaultKeyResponse.opcWorkRequestId
+    );
+    return { response: migrateVaultKeyResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forRegisterAutonomousDatabaseDataSafe
    *
    * @param request the request to send
@@ -2090,6 +2073,27 @@ export class DatabaseWaiter {
       rotateSslCertsResponse.opcWorkRequestId
     );
     return { response: rotateSslCertsResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forRotateVaultKey
+   *
+   * @param request the request to send
+   * @return response returns RotateVaultKeyResponse, GetWorkRequestResponse tuple
+   */
+  public async forRotateVaultKey(
+    request: serviceRequests.RotateVaultKeyRequest
+  ): Promise<{
+    response: serviceResponses.RotateVaultKeyResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const rotateVaultKeyResponse = await this.client.rotateVaultKey(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      rotateVaultKeyResponse.opcWorkRequestId
+    );
+    return { response: rotateVaultKeyResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**

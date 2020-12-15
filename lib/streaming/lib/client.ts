@@ -76,6 +76,7 @@ export class StreamClient {
    * @param ConsumerCommitRequest
    * @return ConsumerCommitResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/ConsumerCommit.ts.html |here} to see how to use ConsumerCommit API.
    */
   public async consumerCommit(
     consumerCommitRequest: requests.ConsumerCommitRequest
@@ -136,6 +137,7 @@ export class StreamClient {
    * @param ConsumerHeartbeatRequest
    * @return ConsumerHeartbeatResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/ConsumerHeartbeat.ts.html |here} to see how to use ConsumerHeartbeat API.
    */
   public async consumerHeartbeat(
     consumerHeartbeatRequest: requests.ConsumerHeartbeatRequest
@@ -200,6 +202,7 @@ export class StreamClient {
    * @param CreateCursorRequest
    * @return CreateCursorResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/CreateCursor.ts.html |here} to see how to use CreateCursor API.
    */
   public async createCursor(
     createCursorRequest: requests.CreateCursorRequest
@@ -263,6 +266,7 @@ export class StreamClient {
    * @param CreateGroupCursorRequest
    * @return CreateGroupCursorResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/CreateGroupCursor.ts.html |here} to see how to use CreateGroupCursor API.
    */
   public async createGroupCursor(
     createGroupCursorRequest: requests.CreateGroupCursorRequest
@@ -326,6 +330,7 @@ export class StreamClient {
    * @param GetGroupRequest
    * @return GetGroupResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/GetGroup.ts.html |here} to see how to use GetGroup API.
    */
   public async getGroup(
     getGroupRequest: requests.GetGroupRequest
@@ -387,6 +392,7 @@ export class StreamClient {
    * @param GetMessagesRequest
    * @return GetMessagesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/GetMessages.ts.html |here} to see how to use GetMessages API.
    */
   public async getMessages(
     getMessagesRequest: requests.GetMessagesRequest
@@ -456,6 +462,7 @@ export class StreamClient {
    * @param PutMessagesRequest
    * @return PutMessagesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/PutMessages.ts.html |here} to see how to use PutMessages API.
    */
   public async putMessages(
     putMessagesRequest: requests.PutMessagesRequest
@@ -519,6 +526,7 @@ export class StreamClient {
    * @param UpdateGroupRequest
    * @return UpdateGroupResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/UpdateGroup.ts.html |here} to see how to use UpdateGroup API.
    */
   public async updateGroup(
     updateGroupRequest: requests.UpdateGroupRequest
@@ -686,6 +694,7 @@ export class StreamAdminClient {
    * @param ChangeConnectHarnessCompartmentRequest
    * @return ChangeConnectHarnessCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/ChangeConnectHarnessCompartment.ts.html |here} to see how to use ChangeConnectHarnessCompartment API.
    */
   public async changeConnectHarnessCompartment(
     changeConnectHarnessCompartmentRequest: requests.ChangeConnectHarnessCompartmentRequest
@@ -750,6 +759,7 @@ export class StreamAdminClient {
    * @param ChangeStreamCompartmentRequest
    * @return ChangeStreamCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/ChangeStreamCompartment.ts.html |here} to see how to use ChangeStreamCompartment API.
    */
   public async changeStreamCompartment(
     changeStreamCompartmentRequest: requests.ChangeStreamCompartmentRequest
@@ -811,6 +821,7 @@ export class StreamAdminClient {
    * @param ChangeStreamPoolCompartmentRequest
    * @return ChangeStreamPoolCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/ChangeStreamPoolCompartment.ts.html |here} to see how to use ChangeStreamPoolCompartment API.
    */
   public async changeStreamPoolCompartment(
     changeStreamPoolCompartmentRequest: requests.ChangeStreamPoolCompartmentRequest
@@ -874,6 +885,7 @@ export class StreamAdminClient {
    * @param CreateConnectHarnessRequest
    * @return CreateConnectHarnessResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/CreateConnectHarness.ts.html |here} to see how to use CreateConnectHarness API.
    */
   public async createConnectHarness(
     createConnectHarnessRequest: requests.CreateConnectHarnessRequest
@@ -945,6 +957,7 @@ export class StreamAdminClient {
    * @param CreateStreamRequest
    * @return CreateStreamResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/CreateStream.ts.html |here} to see how to use CreateStream API.
    */
   public async createStream(
     createStreamRequest: requests.CreateStreamRequest
@@ -1013,6 +1026,7 @@ export class StreamAdminClient {
    * @param CreateStreamPoolRequest
    * @return CreateStreamPoolResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/CreateStreamPool.ts.html |here} to see how to use CreateStreamPool API.
    */
   public async createStreamPool(
     createStreamPoolRequest: requests.CreateStreamPoolRequest
@@ -1084,6 +1098,7 @@ export class StreamAdminClient {
    * @param DeleteConnectHarnessRequest
    * @return DeleteConnectHarnessResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/DeleteConnectHarness.ts.html |here} to see how to use DeleteConnectHarness API.
    */
   public async deleteConnectHarness(
     deleteConnectHarnessRequest: requests.DeleteConnectHarnessRequest
@@ -1144,6 +1159,7 @@ export class StreamAdminClient {
    * @param DeleteStreamRequest
    * @return DeleteStreamResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/DeleteStream.ts.html |here} to see how to use DeleteStream API.
    */
   public async deleteStream(
     deleteStreamRequest: requests.DeleteStreamRequest
@@ -1201,6 +1217,7 @@ export class StreamAdminClient {
    * @param DeleteStreamPoolRequest
    * @return DeleteStreamPoolResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/DeleteStreamPool.ts.html |here} to see how to use DeleteStreamPool API.
    */
   public async deleteStreamPool(
     deleteStreamPoolRequest: requests.DeleteStreamPoolRequest
@@ -1256,6 +1273,7 @@ export class StreamAdminClient {
    * @param GetConnectHarnessRequest
    * @return GetConnectHarnessResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/GetConnectHarness.ts.html |here} to see how to use GetConnectHarness API.
    */
   public async getConnectHarness(
     getConnectHarnessRequest: requests.GetConnectHarnessRequest
@@ -1318,6 +1336,7 @@ export class StreamAdminClient {
    * @param GetStreamRequest
    * @return GetStreamResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/GetStream.ts.html |here} to see how to use GetStream API.
    */
   public async getStream(
     getStreamRequest: requests.GetStreamRequest
@@ -1380,6 +1399,7 @@ export class StreamAdminClient {
    * @param GetStreamPoolRequest
    * @return GetStreamPoolResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/GetStreamPool.ts.html |here} to see how to use GetStreamPool API.
    */
   public async getStreamPool(
     getStreamPoolRequest: requests.GetStreamPoolRequest
@@ -1442,6 +1462,7 @@ export class StreamAdminClient {
    * @param ListConnectHarnessesRequest
    * @return ListConnectHarnessesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/ListConnectHarnesses.ts.html |here} to see how to use ListConnectHarnesses API.
    */
   public async listConnectHarnesses(
     listConnectHarnessesRequest: requests.ListConnectHarnessesRequest
@@ -1541,6 +1562,7 @@ export class StreamAdminClient {
    * @param ListStreamPoolsRequest
    * @return ListStreamPoolsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/ListStreamPools.ts.html |here} to see how to use ListStreamPools API.
    */
   public async listStreamPools(
     listStreamPoolsRequest: requests.ListStreamPoolsRequest
@@ -1644,6 +1666,7 @@ export class StreamAdminClient {
    * @param ListStreamsRequest
    * @return ListStreamsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/ListStreams.ts.html |here} to see how to use ListStreams API.
    */
   public async listStreams(
     listStreamsRequest: requests.ListStreamsRequest
@@ -1745,6 +1768,7 @@ export class StreamAdminClient {
    * @param UpdateConnectHarnessRequest
    * @return UpdateConnectHarnessResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/UpdateConnectHarness.ts.html |here} to see how to use UpdateConnectHarness API.
    */
   public async updateConnectHarness(
     updateConnectHarnessRequest: requests.UpdateConnectHarnessRequest
@@ -1814,6 +1838,7 @@ export class StreamAdminClient {
    * @param UpdateStreamRequest
    * @return UpdateStreamResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/UpdateStream.ts.html |here} to see how to use UpdateStream API.
    */
   public async updateStream(
     updateStreamRequest: requests.UpdateStreamRequest
@@ -1883,6 +1908,7 @@ export class StreamAdminClient {
    * @param UpdateStreamPoolRequest
    * @return UpdateStreamPoolResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/UpdateStreamPool.ts.html |here} to see how to use UpdateStreamPool API.
    */
   public async updateStreamPool(
     updateStreamPoolRequest: requests.UpdateStreamPoolRequest

@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/GetIncident.ts.html |here} to see how to use GetIncidentRequest.
+ */
 export interface GetIncidentRequest extends common.BaseRequest {
   /**
    * Unique identifier for the support ticket.

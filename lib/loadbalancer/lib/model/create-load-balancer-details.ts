@@ -45,6 +45,11 @@ Example: `100Mbps`
     */
   "shapeName": string;
   /**
+   * The configuration details to create load balancer using Flexible shape. This is required only if shapeName is `Flexible`.
+   *
+   */
+  "shapeDetails"?: model.ShapeDetails;
+  /**
     * Whether the load balancer has a VCN-local (private) IP address.
 * <p>
 If \"true\", the service assigns a private IP address to the load balancer.
@@ -130,6 +135,10 @@ export namespace CreateLoadBalancerDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "shapeDetails": obj.shapeDetails
+          ? model.ShapeDetails.getJsonObj(obj.shapeDetails)
+          : undefined,
+
         "reservedIps": obj.reservedIps
           ? obj.reservedIps.map(item => {
               return model.ReservedIP.getJsonObj(item);

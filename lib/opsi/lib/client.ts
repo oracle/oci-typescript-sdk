@@ -113,6 +113,7 @@ export class OperationsInsightsClient {
    * @param IngestSqlBucketRequest
    * @return IngestSqlBucketResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestSqlBucket.ts.html |here} to see how to use IngestSqlBucket API.
    */
   public async ingestSqlBucket(
     ingestSqlBucketRequest: requests.IngestSqlBucketRequest
@@ -184,6 +185,7 @@ export class OperationsInsightsClient {
    * @param IngestSqlPlanLinesRequest
    * @return IngestSqlPlanLinesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestSqlPlanLines.ts.html |here} to see how to use IngestSqlPlanLines API.
    */
   public async ingestSqlPlanLines(
     ingestSqlPlanLinesRequest: requests.IngestSqlPlanLinesRequest
@@ -257,6 +259,7 @@ export class OperationsInsightsClient {
    * @param IngestSqlTextRequest
    * @return IngestSqlTextResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestSqlText.ts.html |here} to see how to use IngestSqlText API.
    */
   public async ingestSqlText(
     ingestSqlTextRequest: requests.IngestSqlTextRequest
@@ -327,6 +330,7 @@ export class OperationsInsightsClient {
    * @param ListDatabaseInsightsRequest
    * @return ListDatabaseInsightsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListDatabaseInsights.ts.html |here} to see how to use ListDatabaseInsights API.
    */
   public async listDatabaseInsights(
     listDatabaseInsightsRequest: requests.ListDatabaseInsightsRequest
@@ -402,6 +406,7 @@ export class OperationsInsightsClient {
    * @param ListSqlPlansRequest
    * @return ListSqlPlansResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListSqlPlans.ts.html |here} to see how to use ListSqlPlans API.
    */
   public async listSqlPlans(
     listSqlPlansRequest: requests.ListSqlPlansRequest
@@ -468,6 +473,7 @@ export class OperationsInsightsClient {
    * @param ListSqlSearchesRequest
    * @return ListSqlSearchesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListSqlSearches.ts.html |here} to see how to use ListSqlSearches API.
    */
   public async listSqlSearches(
     listSqlSearchesRequest: requests.ListSqlSearchesRequest
@@ -536,6 +542,7 @@ export class OperationsInsightsClient {
    * @param ListSqlTextsRequest
    * @return ListSqlTextsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListSqlTexts.ts.html |here} to see how to use ListSqlTexts API.
    */
   public async listSqlTexts(
     listSqlTextsRequest: requests.ListSqlTextsRequest
@@ -603,6 +610,7 @@ export class OperationsInsightsClient {
    * @param SummarizeDatabaseInsightResourceCapacityTrendRequest
    * @return SummarizeDatabaseInsightResourceCapacityTrendResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeDatabaseInsightResourceCapacityTrend.ts.html |here} to see how to use SummarizeDatabaseInsightResourceCapacityTrend API.
    */
   public async summarizeDatabaseInsightResourceCapacityTrend(
     summarizeDatabaseInsightResourceCapacityTrendRequest: requests.SummarizeDatabaseInsightResourceCapacityTrendRequest
@@ -680,6 +688,7 @@ export class OperationsInsightsClient {
    * @param SummarizeDatabaseInsightResourceForecastTrendRequest
    * @return SummarizeDatabaseInsightResourceForecastTrendResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeDatabaseInsightResourceForecastTrend.ts.html |here} to see how to use SummarizeDatabaseInsightResourceForecastTrend API.
    */
   public async summarizeDatabaseInsightResourceForecastTrend(
     summarizeDatabaseInsightResourceForecastTrendRequest: requests.SummarizeDatabaseInsightResourceForecastTrendRequest
@@ -758,6 +767,7 @@ export class OperationsInsightsClient {
    * @param SummarizeDatabaseInsightResourceStatisticsRequest
    * @return SummarizeDatabaseInsightResourceStatisticsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeDatabaseInsightResourceStatistics.ts.html |here} to see how to use SummarizeDatabaseInsightResourceStatistics API.
    */
   public async summarizeDatabaseInsightResourceStatistics(
     summarizeDatabaseInsightResourceStatisticsRequest: requests.SummarizeDatabaseInsightResourceStatisticsRequest
@@ -840,6 +850,7 @@ export class OperationsInsightsClient {
    * @param SummarizeDatabaseInsightResourceUsageRequest
    * @return SummarizeDatabaseInsightResourceUsageResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeDatabaseInsightResourceUsage.ts.html |here} to see how to use SummarizeDatabaseInsightResourceUsage API.
    */
   public async summarizeDatabaseInsightResourceUsage(
     summarizeDatabaseInsightResourceUsageRequest: requests.SummarizeDatabaseInsightResourceUsageRequest
@@ -915,6 +926,7 @@ export class OperationsInsightsClient {
    * @param SummarizeDatabaseInsightResourceUsageTrendRequest
    * @return SummarizeDatabaseInsightResourceUsageTrendResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeDatabaseInsightResourceUsageTrend.ts.html |here} to see how to use SummarizeDatabaseInsightResourceUsageTrend API.
    */
   public async summarizeDatabaseInsightResourceUsageTrend(
     summarizeDatabaseInsightResourceUsageTrendRequest: requests.SummarizeDatabaseInsightResourceUsageTrendRequest
@@ -990,6 +1002,7 @@ export class OperationsInsightsClient {
    * @param SummarizeDatabaseInsightResourceUtilizationInsightRequest
    * @return SummarizeDatabaseInsightResourceUtilizationInsightResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeDatabaseInsightResourceUtilizationInsight.ts.html |here} to see how to use SummarizeDatabaseInsightResourceUtilizationInsight API.
    */
   public async summarizeDatabaseInsightResourceUtilizationInsight(
     summarizeDatabaseInsightResourceUtilizationInsightRequest: requests.SummarizeDatabaseInsightResourceUtilizationInsightRequest
@@ -1065,6 +1078,7 @@ export class OperationsInsightsClient {
    * @param SummarizeSqlInsightsRequest
    * @return SummarizeSqlInsightsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeSqlInsights.ts.html |here} to see how to use SummarizeSqlInsights API.
    */
   public async summarizeSqlInsights(
     summarizeSqlInsightsRequest: requests.SummarizeSqlInsightsRequest
@@ -1135,6 +1149,7 @@ export class OperationsInsightsClient {
    * @param SummarizeSqlPlanInsightsRequest
    * @return SummarizeSqlPlanInsightsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeSqlPlanInsights.ts.html |here} to see how to use SummarizeSqlPlanInsights API.
    */
   public async summarizeSqlPlanInsights(
     summarizeSqlPlanInsightsRequest: requests.SummarizeSqlPlanInsightsRequest
@@ -1204,6 +1219,7 @@ export class OperationsInsightsClient {
    * @param SummarizeSqlResponseTimeDistributionsRequest
    * @return SummarizeSqlResponseTimeDistributionsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeSqlResponseTimeDistributions.ts.html |here} to see how to use SummarizeSqlResponseTimeDistributions API.
    */
   public async summarizeSqlResponseTimeDistributions(
     summarizeSqlResponseTimeDistributionsRequest: requests.SummarizeSqlResponseTimeDistributionsRequest
@@ -1275,6 +1291,7 @@ export class OperationsInsightsClient {
    * @param SummarizeSqlStatisticsRequest
    * @return SummarizeSqlStatisticsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeSqlStatistics.ts.html |here} to see how to use SummarizeSqlStatistics API.
    */
   public async summarizeSqlStatistics(
     summarizeSqlStatisticsRequest: requests.SummarizeSqlStatisticsRequest
@@ -1350,6 +1367,7 @@ export class OperationsInsightsClient {
    * @param SummarizeSqlStatisticsTimeSeriesRequest
    * @return SummarizeSqlStatisticsTimeSeriesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeSqlStatisticsTimeSeries.ts.html |here} to see how to use SummarizeSqlStatisticsTimeSeries API.
    */
   public async summarizeSqlStatisticsTimeSeries(
     summarizeSqlStatisticsTimeSeriesRequest: requests.SummarizeSqlStatisticsTimeSeriesRequest
@@ -1421,6 +1439,7 @@ export class OperationsInsightsClient {
    * @param SummarizeSqlStatisticsTimeSeriesByPlanRequest
    * @return SummarizeSqlStatisticsTimeSeriesByPlanResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeSqlStatisticsTimeSeriesByPlan.ts.html |here} to see how to use SummarizeSqlStatisticsTimeSeriesByPlan API.
    */
   public async summarizeSqlStatisticsTimeSeriesByPlan(
     summarizeSqlStatisticsTimeSeriesByPlanRequest: requests.SummarizeSqlStatisticsTimeSeriesByPlanRequest

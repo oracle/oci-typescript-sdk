@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetNetworkSource.ts.html |here} to see how to use GetNetworkSourceRequest.
+ */
 export interface GetNetworkSourceRequest extends common.BaseRequest {
   /**
    * The OCID of the network source.

@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateOnPremConnector.ts.html |here} to see how to use CreateOnPremConnectorRequest.
+ */
 export interface CreateOnPremConnectorRequest extends common.BaseRequest {
   /**
    * The details used to create a new on-premises connector.

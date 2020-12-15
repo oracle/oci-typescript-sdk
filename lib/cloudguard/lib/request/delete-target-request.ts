@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteTarget.ts.html |here} to see how to use DeleteTargetRequest.
+ */
 export interface DeleteTargetRequest extends common.BaseRequest {
   /**
    * OCID of target

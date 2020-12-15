@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateConfiguration.ts.html |here} to see how to use UpdateConfigurationRequest.
+ */
 export interface UpdateConfigurationRequest extends common.BaseRequest {
   /**
    * Update Configuration Details of Cloud Guard for a Tenancy.

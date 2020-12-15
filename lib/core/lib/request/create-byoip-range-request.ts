@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateByoipRange.ts.html |here} to see how to use CreateByoipRangeRequest.
+ */
 export interface CreateByoipRangeRequest extends common.BaseRequest {
   /**
    * Create Byoip Range details.

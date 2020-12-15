@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeKeyStoreCompartment.ts.html |here} to see how to use ChangeKeyStoreCompartmentRequest.
+ */
 export interface ChangeKeyStoreCompartmentRequest extends common.BaseRequest {
   /**
    * Request to move key store to a different compartment

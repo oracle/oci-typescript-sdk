@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListConditionMetadataTypes.ts.html |here} to see how to use ListConditionMetadataTypesRequest.
+ */
 export interface ListConditionMetadataTypesRequest extends common.BaseRequest {
   /**
    * The ID of the compartment in which to list resources.

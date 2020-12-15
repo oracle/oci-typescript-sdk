@@ -144,6 +144,7 @@ export class DnsClient {
    * @param ChangeResolverCompartmentRequest
    * @return ChangeResolverCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ChangeResolverCompartment.ts.html |here} to see how to use ChangeResolverCompartment API.
    */
   public async changeResolverCompartment(
     changeResolverCompartmentRequest: requests.ChangeResolverCompartmentRequest
@@ -212,6 +213,7 @@ export class DnsClient {
    * @param ChangeSteeringPolicyCompartmentRequest
    * @return ChangeSteeringPolicyCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ChangeSteeringPolicyCompartment.ts.html |here} to see how to use ChangeSteeringPolicyCompartment API.
    */
   public async changeSteeringPolicyCompartment(
     changeSteeringPolicyCompartmentRequest: requests.ChangeSteeringPolicyCompartmentRequest
@@ -276,6 +278,7 @@ export class DnsClient {
    * @param ChangeTsigKeyCompartmentRequest
    * @return ChangeTsigKeyCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ChangeTsigKeyCompartment.ts.html |here} to see how to use ChangeTsigKeyCompartment API.
    */
   public async changeTsigKeyCompartment(
     changeTsigKeyCompartmentRequest: requests.ChangeTsigKeyCompartmentRequest
@@ -340,6 +343,7 @@ export class DnsClient {
    * @param ChangeViewCompartmentRequest
    * @return ChangeViewCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ChangeViewCompartment.ts.html |here} to see how to use ChangeViewCompartment API.
    */
   public async changeViewCompartment(
     changeViewCompartmentRequest: requests.ChangeViewCompartmentRequest
@@ -411,6 +415,7 @@ export class DnsClient {
    * @param ChangeZoneCompartmentRequest
    * @return ChangeZoneCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ChangeZoneCompartment.ts.html |here} to see how to use ChangeZoneCompartment API.
    */
   public async changeZoneCompartment(
     changeZoneCompartmentRequest: requests.ChangeZoneCompartmentRequest
@@ -480,6 +485,7 @@ export class DnsClient {
    * @param CreateResolverEndpointRequest
    * @return CreateResolverEndpointResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/CreateResolverEndpoint.ts.html |here} to see how to use CreateResolverEndpoint API.
    */
   public async createResolverEndpoint(
     createResolverEndpointRequest: requests.CreateResolverEndpointRequest
@@ -562,6 +568,7 @@ export class DnsClient {
    * @param CreateSteeringPolicyRequest
    * @return CreateSteeringPolicyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/CreateSteeringPolicy.ts.html |here} to see how to use CreateSteeringPolicy API.
    */
   public async createSteeringPolicy(
     createSteeringPolicyRequest: requests.CreateSteeringPolicyRequest
@@ -641,6 +648,7 @@ For the purposes of access control, the attachment is automatically placed
      * @param CreateSteeringPolicyAttachmentRequest
      * @return CreateSteeringPolicyAttachmentResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/CreateSteeringPolicyAttachment.ts.html |here} to see how to use CreateSteeringPolicyAttachment API.
      */
   public async createSteeringPolicyAttachment(
     createSteeringPolicyAttachmentRequest: requests.CreateSteeringPolicyAttachmentRequest
@@ -717,6 +725,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param CreateTsigKeyRequest
    * @return CreateTsigKeyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/CreateTsigKey.ts.html |here} to see how to use CreateTsigKey API.
    */
   public async createTsigKey(
     createTsigKeyRequest: requests.CreateTsigKeyRequest
@@ -795,6 +804,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param CreateViewRequest
    * @return CreateViewResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/CreateView.ts.html |here} to see how to use CreateView API.
    */
   public async createView(
     createViewRequest: requests.CreateViewRequest
@@ -876,6 +886,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param CreateZoneRequest
    * @return CreateZoneResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/CreateZone.ts.html |here} to see how to use CreateZone API.
    */
   public async createZone(
     createZoneRequest: requests.CreateZoneRequest
@@ -955,6 +966,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param DeleteDomainRecordsRequest
    * @return DeleteDomainRecordsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteDomainRecords.ts.html |here} to see how to use DeleteDomainRecords API.
    */
   public async deleteDomainRecords(
     deleteDomainRecordsRequest: requests.DeleteDomainRecordsRequest
@@ -1017,6 +1029,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param DeleteRRSetRequest
    * @return DeleteRRSetResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteRRSet.ts.html |here} to see how to use DeleteRRSet API.
    */
   public async deleteRRSet(
     deleteRRSetRequest: requests.DeleteRRSetRequest
@@ -1082,6 +1095,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param DeleteResolverEndpointRequest
    * @return DeleteResolverEndpointResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteResolverEndpoint.ts.html |here} to see how to use DeleteResolverEndpoint API.
    */
   public async deleteResolverEndpoint(
     deleteResolverEndpointRequest: requests.DeleteResolverEndpointRequest
@@ -1150,6 +1164,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param DeleteSteeringPolicyRequest
    * @return DeleteSteeringPolicyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteSteeringPolicy.ts.html |here} to see how to use DeleteSteeringPolicy API.
    */
   public async deleteSteeringPolicy(
     deleteSteeringPolicyRequest: requests.DeleteSteeringPolicyRequest
@@ -1210,6 +1225,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param DeleteSteeringPolicyAttachmentRequest
    * @return DeleteSteeringPolicyAttachmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteSteeringPolicyAttachment.ts.html |here} to see how to use DeleteSteeringPolicyAttachment API.
    */
   public async deleteSteeringPolicyAttachment(
     deleteSteeringPolicyAttachmentRequest: requests.DeleteSteeringPolicyAttachmentRequest
@@ -1271,6 +1287,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param DeleteTsigKeyRequest
    * @return DeleteTsigKeyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteTsigKey.ts.html |here} to see how to use DeleteTsigKey API.
    */
   public async deleteTsigKey(
     deleteTsigKeyRequest: requests.DeleteTsigKeyRequest
@@ -1339,6 +1356,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param DeleteViewRequest
    * @return DeleteViewResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteView.ts.html |here} to see how to use DeleteView API.
    */
   public async deleteView(
     deleteViewRequest: requests.DeleteViewRequest
@@ -1405,6 +1423,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param DeleteZoneRequest
    * @return DeleteZoneResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteZone.ts.html |here} to see how to use DeleteZone API.
    */
   public async deleteZone(
     deleteZoneRequest: requests.DeleteZoneRequest
@@ -1473,6 +1492,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param GetDomainRecordsRequest
    * @return GetDomainRecordsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetDomainRecords.ts.html |here} to see how to use GetDomainRecords API.
    */
   public async getDomainRecords(
     getDomainRecordsRequest: requests.GetDomainRecordsRequest
@@ -1596,6 +1616,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param GetRRSetRequest
    * @return GetRRSetResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetRRSet.ts.html |here} to see how to use GetRRSet API.
    */
   public async getRRSet(
     getRRSetRequest: requests.GetRRSetRequest
@@ -1716,6 +1737,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param GetResolverRequest
    * @return GetResolverResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetResolver.ts.html |here} to see how to use GetResolver API.
    */
   public async getResolver(
     getResolverRequest: requests.GetResolverRequest
@@ -1784,6 +1806,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param GetResolverEndpointRequest
    * @return GetResolverEndpointResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetResolverEndpoint.ts.html |here} to see how to use GetResolverEndpoint API.
    */
   public async getResolverEndpoint(
     getResolverEndpointRequest: requests.GetResolverEndpointRequest
@@ -1852,6 +1875,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param GetSteeringPolicyRequest
    * @return GetSteeringPolicyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetSteeringPolicy.ts.html |here} to see how to use GetSteeringPolicy API.
    */
   public async getSteeringPolicy(
     getSteeringPolicyRequest: requests.GetSteeringPolicyRequest
@@ -1919,6 +1943,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param GetSteeringPolicyAttachmentRequest
    * @return GetSteeringPolicyAttachmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetSteeringPolicyAttachment.ts.html |here} to see how to use GetSteeringPolicyAttachment API.
    */
   public async getSteeringPolicyAttachment(
     getSteeringPolicyAttachmentRequest: requests.GetSteeringPolicyAttachmentRequest
@@ -1986,6 +2011,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param GetTsigKeyRequest
    * @return GetTsigKeyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetTsigKey.ts.html |here} to see how to use GetTsigKey API.
    */
   public async getTsigKey(
     getTsigKeyRequest: requests.GetTsigKeyRequest
@@ -2055,6 +2081,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param GetViewRequest
    * @return GetViewResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetView.ts.html |here} to see how to use GetView API.
    */
   public async getView(
     getViewRequest: requests.GetViewRequest
@@ -2123,6 +2150,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param GetZoneRequest
    * @return GetZoneResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetZone.ts.html |here} to see how to use GetZone API.
    */
   public async getZone(
     getZoneRequest: requests.GetZoneRequest
@@ -2194,6 +2222,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param GetZoneRecordsRequest
    * @return GetZoneRecordsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetZoneRecords.ts.html |here} to see how to use GetZoneRecords API.
    */
   public async getZoneRecords(
     getZoneRecordsRequest: requests.GetZoneRecordsRequest
@@ -2320,6 +2349,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param ListResolverEndpointsRequest
    * @return ListResolverEndpointsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListResolverEndpoints.ts.html |here} to see how to use ListResolverEndpoints API.
    */
   public async listResolverEndpoints(
     listResolverEndpointsRequest: requests.ListResolverEndpointsRequest
@@ -2421,6 +2451,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param ListResolversRequest
    * @return ListResolversResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListResolvers.ts.html |here} to see how to use ListResolvers API.
    */
   public async listResolvers(
     listResolversRequest: requests.ListResolversRequest
@@ -2517,6 +2548,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param ListSteeringPoliciesRequest
    * @return ListSteeringPoliciesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListSteeringPolicies.ts.html |here} to see how to use ListSteeringPolicies API.
    */
   public async listSteeringPolicies(
     listSteeringPoliciesRequest: requests.ListSteeringPoliciesRequest
@@ -2624,6 +2656,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param ListSteeringPolicyAttachmentsRequest
    * @return ListSteeringPolicyAttachmentsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListSteeringPolicyAttachments.ts.html |here} to see how to use ListSteeringPolicyAttachments API.
    */
   public async listSteeringPolicyAttachments(
     listSteeringPolicyAttachmentsRequest: requests.ListSteeringPolicyAttachmentsRequest
@@ -2733,6 +2766,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param ListTsigKeysRequest
    * @return ListTsigKeysResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListTsigKeys.ts.html |here} to see how to use ListTsigKeys API.
    */
   public async listTsigKeys(
     listTsigKeysRequest: requests.ListTsigKeysRequest
@@ -2834,6 +2868,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param ListViewsRequest
    * @return ListViewsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListViews.ts.html |here} to see how to use ListViews API.
    */
   public async listViews(
     listViewsRequest: requests.ListViewsRequest
@@ -2931,6 +2966,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param ListZonesRequest
    * @return ListZonesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListZones.ts.html |here} to see how to use ListZones API.
    */
   public async listZones(
     listZonesRequest: requests.ListZonesRequest
@@ -3039,6 +3075,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param PatchDomainRecordsRequest
    * @return PatchDomainRecordsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/PatchDomainRecords.ts.html |here} to see how to use PatchDomainRecords API.
    */
   public async patchDomainRecords(
     patchDomainRecordsRequest: requests.PatchDomainRecordsRequest
@@ -3123,6 +3160,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param PatchRRSetRequest
    * @return PatchRRSetResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/PatchRRSet.ts.html |here} to see how to use PatchRRSet API.
    */
   public async patchRRSet(
     patchRRSetRequest: requests.PatchRRSetRequest
@@ -3212,6 +3250,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param PatchZoneRecordsRequest
    * @return PatchZoneRecordsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/PatchZoneRecords.ts.html |here} to see how to use PatchZoneRecords API.
    */
   public async patchZoneRecords(
     patchZoneRecordsRequest: requests.PatchZoneRecordsRequest
@@ -3301,6 +3340,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param UpdateDomainRecordsRequest
    * @return UpdateDomainRecordsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateDomainRecords.ts.html |here} to see how to use UpdateDomainRecords API.
    */
   public async updateDomainRecords(
     updateDomainRecordsRequest: requests.UpdateDomainRecordsRequest
@@ -3385,6 +3425,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param UpdateRRSetRequest
    * @return UpdateRRSetResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateRRSet.ts.html |here} to see how to use UpdateRRSet API.
    */
   public async updateRRSet(
     updateRRSetRequest: requests.UpdateRRSetRequest
@@ -3471,6 +3512,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param UpdateResolverRequest
    * @return UpdateResolverResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateResolver.ts.html |here} to see how to use UpdateResolver API.
    */
   public async updateResolver(
     updateResolverRequest: requests.UpdateResolverRequest
@@ -3548,6 +3590,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param UpdateResolverEndpointRequest
    * @return UpdateResolverEndpointResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateResolverEndpoint.ts.html |here} to see how to use UpdateResolverEndpoint API.
    */
   public async updateResolverEndpoint(
     updateResolverEndpointRequest: requests.UpdateResolverEndpointRequest
@@ -3626,6 +3669,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param UpdateSteeringPolicyRequest
    * @return UpdateSteeringPolicyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateSteeringPolicy.ts.html |here} to see how to use UpdateSteeringPolicy API.
    */
   public async updateSteeringPolicy(
     updateSteeringPolicyRequest: requests.UpdateSteeringPolicyRequest
@@ -3698,6 +3742,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param UpdateSteeringPolicyAttachmentRequest
    * @return UpdateSteeringPolicyAttachmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateSteeringPolicyAttachment.ts.html |here} to see how to use UpdateSteeringPolicyAttachment API.
    */
   public async updateSteeringPolicyAttachment(
     updateSteeringPolicyAttachmentRequest: requests.UpdateSteeringPolicyAttachmentRequest
@@ -3772,6 +3817,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param UpdateTsigKeyRequest
    * @return UpdateTsigKeyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateTsigKey.ts.html |here} to see how to use UpdateTsigKey API.
    */
   public async updateTsigKey(
     updateTsigKeyRequest: requests.UpdateTsigKeyRequest
@@ -3844,6 +3890,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param UpdateViewRequest
    * @return UpdateViewResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateView.ts.html |here} to see how to use UpdateView API.
    */
   public async updateView(
     updateViewRequest: requests.UpdateViewRequest
@@ -3923,6 +3970,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param UpdateZoneRequest
    * @return UpdateZoneResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateZone.ts.html |here} to see how to use UpdateZone API.
    */
   public async updateZone(
     updateZoneRequest: requests.UpdateZoneRequest
@@ -4006,6 +4054,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param UpdateZoneRecordsRequest
    * @return UpdateZoneRecordsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateZoneRecords.ts.html |here} to see how to use UpdateZoneRecords API.
    */
   public async updateZoneRecords(
     updateZoneRecordsRequest: requests.UpdateZoneRecordsRequest

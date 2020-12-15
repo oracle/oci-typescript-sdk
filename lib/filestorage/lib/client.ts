@@ -137,6 +137,7 @@ export class FileStorageClient {
    * @param ChangeFileSystemCompartmentRequest
    * @return ChangeFileSystemCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ChangeFileSystemCompartment.ts.html |here} to see how to use ChangeFileSystemCompartment API.
    */
   public async changeFileSystemCompartment(
     changeFileSystemCompartmentRequest: requests.ChangeFileSystemCompartmentRequest
@@ -199,6 +200,7 @@ export class FileStorageClient {
    * @param ChangeMountTargetCompartmentRequest
    * @return ChangeMountTargetCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ChangeMountTargetCompartment.ts.html |here} to see how to use ChangeMountTargetCompartment API.
    */
   public async changeMountTargetCompartment(
     changeMountTargetCompartmentRequest: requests.ChangeMountTargetCompartmentRequest
@@ -262,6 +264,7 @@ export class FileStorageClient {
    * @param CreateExportRequest
    * @return CreateExportResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CreateExport.ts.html |here} to see how to use CreateExport API.
    */
   public async createExport(
     createExportRequest: requests.CreateExportRequest
@@ -357,6 +360,7 @@ All Oracle Cloud Infrastructure resources, including
      * @param CreateFileSystemRequest
      * @return CreateFileSystemResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CreateFileSystem.ts.html |here} to see how to use CreateFileSystem API.
      */
   public async createFileSystem(
     createFileSystemRequest: requests.CreateFileSystemRequest
@@ -455,6 +459,7 @@ All Oracle Cloud Infrastructure Services resources, including
      * @param CreateMountTargetRequest
      * @return CreateMountTargetResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CreateMountTarget.ts.html |here} to see how to use CreateMountTarget API.
      */
   public async createMountTarget(
     createMountTargetRequest: requests.CreateMountTargetRequest
@@ -523,6 +528,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param CreateSnapshotRequest
    * @return CreateSnapshotResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CreateSnapshot.ts.html |here} to see how to use CreateSnapshot API.
    */
   public async createSnapshot(
     createSnapshotRequest: requests.CreateSnapshotRequest
@@ -590,6 +596,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param DeleteExportRequest
    * @return DeleteExportResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteExport.ts.html |here} to see how to use DeleteExport API.
    */
   public async deleteExport(
     deleteExportRequest: requests.DeleteExportRequest
@@ -648,6 +655,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param DeleteFileSystemRequest
    * @return DeleteFileSystemResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteFileSystem.ts.html |here} to see how to use DeleteFileSystem API.
    */
   public async deleteFileSystem(
     deleteFileSystemRequest: requests.DeleteFileSystemRequest
@@ -705,6 +713,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param DeleteMountTargetRequest
    * @return DeleteMountTargetResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteMountTarget.ts.html |here} to see how to use DeleteMountTarget API.
    */
   public async deleteMountTarget(
     deleteMountTargetRequest: requests.DeleteMountTargetRequest
@@ -761,6 +770,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param DeleteSnapshotRequest
    * @return DeleteSnapshotResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteSnapshot.ts.html |here} to see how to use DeleteSnapshot API.
    */
   public async deleteSnapshot(
     deleteSnapshotRequest: requests.DeleteSnapshotRequest
@@ -816,6 +826,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param GetExportRequest
    * @return GetExportResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetExport.ts.html |here} to see how to use GetExport API.
    */
   public async getExport(
     getExportRequest: requests.GetExportRequest
@@ -878,6 +889,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param GetExportSetRequest
    * @return GetExportSetResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetExportSet.ts.html |here} to see how to use GetExportSet API.
    */
   public async getExportSet(
     getExportSetRequest: requests.GetExportSetRequest
@@ -940,6 +952,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param GetFileSystemRequest
    * @return GetFileSystemResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetFileSystem.ts.html |here} to see how to use GetFileSystem API.
    */
   public async getFileSystem(
     getFileSystemRequest: requests.GetFileSystemRequest
@@ -1002,6 +1015,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param GetMountTargetRequest
    * @return GetMountTargetResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetMountTarget.ts.html |here} to see how to use GetMountTarget API.
    */
   public async getMountTarget(
     getMountTargetRequest: requests.GetMountTargetRequest
@@ -1064,6 +1078,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param GetSnapshotRequest
    * @return GetSnapshotResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetSnapshot.ts.html |here} to see how to use GetSnapshot API.
    */
   public async getSnapshot(
     getSnapshotRequest: requests.GetSnapshotRequest
@@ -1127,6 +1142,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param ListExportSetsRequest
    * @return ListExportSetsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListExportSets.ts.html |here} to see how to use ListExportSets API.
    */
   public async listExportSets(
     listExportSetsRequest: requests.ListExportSetsRequest
@@ -1225,6 +1241,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param ListExportsRequest
    * @return ListExportsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListExports.ts.html |here} to see how to use ListExports API.
    */
   public async listExports(
     listExportsRequest: requests.ListExportsRequest
@@ -1321,6 +1338,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param ListFileSystemsRequest
    * @return ListFileSystemsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListFileSystems.ts.html |here} to see how to use ListFileSystems API.
    */
   public async listFileSystems(
     listFileSystemsRequest: requests.ListFileSystemsRequest
@@ -1417,6 +1435,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param ListMountTargetsRequest
    * @return ListMountTargetsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListMountTargets.ts.html |here} to see how to use ListMountTargets API.
    */
   public async listMountTargets(
     listMountTargetsRequest: requests.ListMountTargetsRequest
@@ -1514,6 +1533,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param ListSnapshotsRequest
    * @return ListSnapshotsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListSnapshots.ts.html |here} to see how to use ListSnapshots API.
    */
   public async listSnapshots(
     listSnapshotsRequest: requests.ListSnapshotsRequest
@@ -1606,6 +1626,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param UpdateExportRequest
    * @return UpdateExportResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateExport.ts.html |here} to see how to use UpdateExport API.
    */
   public async updateExport(
     updateExportRequest: requests.UpdateExportRequest
@@ -1674,6 +1695,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param UpdateExportSetRequest
    * @return UpdateExportSetResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateExportSet.ts.html |here} to see how to use UpdateExportSet API.
    */
   public async updateExportSet(
     updateExportSetRequest: requests.UpdateExportSetRequest
@@ -1744,6 +1766,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param UpdateFileSystemRequest
    * @return UpdateFileSystemResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateFileSystem.ts.html |here} to see how to use UpdateFileSystem API.
    */
   public async updateFileSystem(
     updateFileSystemRequest: requests.UpdateFileSystemRequest
@@ -1812,6 +1835,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param UpdateMountTargetRequest
    * @return UpdateMountTargetResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateMountTarget.ts.html |here} to see how to use UpdateMountTarget API.
    */
   public async updateMountTarget(
     updateMountTargetRequest: requests.UpdateMountTargetRequest
@@ -1880,6 +1904,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param UpdateSnapshotRequest
    * @return UpdateSnapshotResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateSnapshot.ts.html |here} to see how to use UpdateSnapshot API.
    */
   public async updateSnapshot(
     updateSnapshotRequest: requests.UpdateSnapshotRequest

@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateDedicatedVmHost.ts.html |here} to see how to use CreateDedicatedVmHostRequest.
+ */
 export interface CreateDedicatedVmHostRequest extends common.BaseRequest {
   /**
    * The details for creating a new dedicated virtual machine host.

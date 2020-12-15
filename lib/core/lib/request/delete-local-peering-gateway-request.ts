@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteLocalPeeringGateway.ts.html |here} to see how to use DeleteLocalPeeringGatewayRequest.
+ */
 export interface DeleteLocalPeeringGatewayRequest extends common.BaseRequest {
   /**
    * The OCID of the local peering gateway.

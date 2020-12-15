@@ -52,11 +52,6 @@ const identityClient: identity.IdentityClient = new identity.IdentityClient({
 });
 const workRequestClient = new wr.WorkRequestClient({ authenticationDetailsProvider: provider });
 
-containerEngineClient.regionId = "Sample-region";
-vcnClient.regionId = "Sample-region";
-identityClient.regionId = "Sample-region";
-workRequestClient.regionId = "Sample-region";
-
 const VirtualNetworkWaiter = new core.VirtualNetworkWaiter(vcnClient, workRequestClient);
 
 async function main() {

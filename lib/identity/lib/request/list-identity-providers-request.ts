@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListIdentityProviders.ts.html |here} to see how to use ListIdentityProvidersRequest.
+ */
 export interface ListIdentityProvidersRequest extends common.BaseRequest {
   /**
    * The protocol used for federation.

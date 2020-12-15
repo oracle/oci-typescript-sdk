@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/GetTransferApplianceEntitlement.ts.html |here} to see how to use GetTransferApplianceEntitlementRequest.
+ */
 export interface GetTransferApplianceEntitlementRequest extends common.BaseRequest {
   /**
    * Id of the Transfer Appliance Entitlement

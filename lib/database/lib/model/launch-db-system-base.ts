@@ -164,6 +164,15 @@ This parameter is not used for virtual machine DB systems because virtual machin
    */
   "initialDataStorageSizeInGB"?: number;
   /**
+   * The OCID of the key container that is used as the master encryption key in database transparent data encryption (TDE) operations.
+   */
+  "kmsKeyId"?: string;
+  /**
+   * The OCID of the key container version that is used in database transparent data encryption (TDE) operations KMS Key can have multiple key versions. If none is specified, the current key version (latest) of the Key Id is used for the operation.
+   *
+   */
+  "kmsKeyVersionId"?: string;
+  /**
    * The number of nodes to launch for a 2-node RAC virtual machine DB system. Specify either 1 or 2.
    *
    */

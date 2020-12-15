@@ -141,6 +141,7 @@ For information about moving resources between compartments, see [Moving Resourc
      * @param ChangeAlarmCompartmentRequest
      * @return ChangeAlarmCompartmentResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/ChangeAlarmCompartment.ts.html |here} to see how to use ChangeAlarmCompartment API.
      */
   public async changeAlarmCompartment(
     changeAlarmCompartmentRequest: requests.ChangeAlarmCompartmentRequest
@@ -209,6 +210,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * @param CreateAlarmRequest
      * @return CreateAlarmResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/CreateAlarm.ts.html |here} to see how to use CreateAlarm API.
      */
   public async createAlarm(
     createAlarmRequest: requests.CreateAlarmRequest
@@ -281,6 +283,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * @param DeleteAlarmRequest
      * @return DeleteAlarmResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/DeleteAlarm.ts.html |here} to see how to use DeleteAlarm API.
      */
   public async deleteAlarm(
     deleteAlarmRequest: requests.DeleteAlarmRequest
@@ -342,6 +345,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * @param GetAlarmRequest
      * @return GetAlarmResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/GetAlarm.ts.html |here} to see how to use GetAlarm API.
      */
   public async getAlarm(
     getAlarmRequest: requests.GetAlarmRequest
@@ -410,6 +414,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * @param GetAlarmHistoryRequest
      * @return GetAlarmHistoryResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/GetAlarmHistory.ts.html |here} to see how to use GetAlarmHistory API.
      */
   public async getAlarmHistory(
     getAlarmHistoryRequest: requests.GetAlarmHistoryRequest
@@ -484,6 +489,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * @param ListAlarmsRequest
      * @return ListAlarmsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/ListAlarms.ts.html |here} to see how to use ListAlarms API.
      */
   public async listAlarms(
     listAlarmsRequest: requests.ListAlarmsRequest
@@ -584,6 +590,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * @param ListAlarmsStatusRequest
      * @return ListAlarmsStatusResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/ListAlarmsStatus.ts.html |here} to see how to use ListAlarmsStatus API.
      */
   public async listAlarmsStatus(
     listAlarmsStatusRequest: requests.ListAlarmsStatusRequest
@@ -682,6 +689,7 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
      * @param ListMetricsRequest
      * @return ListMetricsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/ListMetrics.ts.html |here} to see how to use ListMetrics API.
      */
   public async listMetrics(
     listMetricsRequest: requests.ListMetricsRequest
@@ -795,6 +803,7 @@ https://telemetry-ingestion.eu-frankfurt-1.oraclecloud.com
      * @param PostMetricDataRequest
      * @return PostMetricDataResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/PostMetricData.ts.html |here} to see how to use PostMetricData API.
      */
   public async postMetricData(
     postMetricDataRequest: requests.PostMetricDataRequest
@@ -861,6 +870,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * @param RemoveAlarmSuppressionRequest
      * @return RemoveAlarmSuppressionResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/RemoveAlarmSuppression.ts.html |here} to see how to use RemoveAlarmSuppression API.
      */
   public async removeAlarmSuppression(
     removeAlarmSuppressionRequest: requests.RemoveAlarmSuppressionRequest
@@ -922,6 +932,7 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
      * @param SummarizeMetricsDataRequest
      * @return SummarizeMetricsDataResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/SummarizeMetricsData.ts.html |here} to see how to use SummarizeMetricsData API.
      */
   public async summarizeMetricsData(
     summarizeMetricsDataRequest: requests.SummarizeMetricsDataRequest
@@ -991,6 +1002,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * @param UpdateAlarmRequest
      * @return UpdateAlarmResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/UpdateAlarm.ts.html |here} to see how to use UpdateAlarm API.
      */
   public async updateAlarm(
     updateAlarmRequest: requests.UpdateAlarmRequest

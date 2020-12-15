@@ -113,6 +113,8 @@ import * as SSLConfigurationDetails from "./s-sl-configuration-details";
 export import SSLConfigurationDetails = SSLConfigurationDetails.SSLConfigurationDetails;
 import * as SessionPersistenceConfigurationDetails from "./session-persistence-configuration-details";
 export import SessionPersistenceConfigurationDetails = SessionPersistenceConfigurationDetails.SessionPersistenceConfigurationDetails;
+import * as ShapeDetails from "./shape-details";
+export import ShapeDetails = ShapeDetails.ShapeDetails;
 import * as UpdateBackendDetails from "./update-backend-details";
 export import UpdateBackendDetails = UpdateBackendDetails.UpdateBackendDetails;
 import * as UpdateBackendSetDetails from "./update-backend-set-details";

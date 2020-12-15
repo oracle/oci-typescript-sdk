@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcesearch/ListResourceTypes.ts.html |here} to see how to use ListResourceTypesRequest.
+ */
 export interface ListResourceTypesRequest extends common.BaseRequest {
   /**
    * The maximum number of items to return. The value must be between 1 and 1000.

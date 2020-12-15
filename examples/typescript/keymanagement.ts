@@ -48,8 +48,6 @@ const kmsManagementClient = new kms.KmsManagementClient({
 });
 const kmsCryptoClient = new kms.KmsCryptoClient({ authenticationDetailsProvider: provider });
 
-kmsVaultClient.region = common.Region.US_PHOENIX_1;
-
 (async () => {
   try {
     // Get the details of the given Vault

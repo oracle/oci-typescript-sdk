@@ -73,11 +73,6 @@ const identityClient = new identity.IdentityClient({
 });
 const workRequestClient = new wr.WorkRequestClient({ authenticationDetailsProvider: provider });
 
-fsClient.regionId = "us-phoenix-1";
-vcnClient.regionId = "us-phoenix-1";
-identityClient.regionId = "us-phoenix-1";
-workRequestClient.regionId = "us-phoenix-1";
-
 const filestorageWaiter = fsClient.createWaiters();
 const vcnWaiter = vcnClient.createWaiters(workRequestClient);
 let vcn;

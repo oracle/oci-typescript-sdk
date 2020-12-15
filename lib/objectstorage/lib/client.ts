@@ -143,6 +143,7 @@ export class ObjectStorageClient {
    * @param AbortMultipartUploadRequest
    * @return AbortMultipartUploadResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/AbortMultipartUpload.ts.html |here} to see how to use AbortMultipartUpload API.
    */
   public async abortMultipartUpload(
     abortMultipartUploadRequest: requests.AbortMultipartUploadRequest
@@ -208,6 +209,7 @@ export class ObjectStorageClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -268,6 +270,7 @@ export class ObjectStorageClient {
    * @param CommitMultipartUploadRequest
    * @return CommitMultipartUploadResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/CommitMultipartUpload.ts.html |here} to see how to use CommitMultipartUpload API.
    */
   public async commitMultipartUpload(
     commitMultipartUploadRequest: requests.CommitMultipartUploadRequest
@@ -360,6 +363,7 @@ export class ObjectStorageClient {
    * @param CopyObjectRequest
    * @return CopyObjectResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/CopyObject.ts.html |here} to see how to use CopyObject API.
    */
   public async copyObject(
     copyObjectRequest: requests.CopyObjectRequest
@@ -438,6 +442,7 @@ export class ObjectStorageClient {
    * @param CreateBucketRequest
    * @return CreateBucketResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/CreateBucket.ts.html |here} to see how to use CreateBucket API.
    */
   public async createBucket(
     createBucketRequest: requests.CreateBucketRequest
@@ -516,6 +521,7 @@ export class ObjectStorageClient {
    * @param CreateMultipartUploadRequest
    * @return CreateMultipartUploadResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/CreateMultipartUpload.ts.html |here} to see how to use CreateMultipartUpload API.
    */
   public async createMultipartUpload(
     createMultipartUploadRequest: requests.CreateMultipartUploadRequest
@@ -596,6 +602,7 @@ export class ObjectStorageClient {
    * @param CreatePreauthenticatedRequestRequest
    * @return CreatePreauthenticatedRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/CreatePreauthenticatedRequest.ts.html |here} to see how to use CreatePreauthenticatedRequest API.
    */
   public async createPreauthenticatedRequest(
     createPreauthenticatedRequestRequest: requests.CreatePreauthenticatedRequestRequest
@@ -666,6 +673,7 @@ export class ObjectStorageClient {
    * @param CreateReplicationPolicyRequest
    * @return CreateReplicationPolicyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/CreateReplicationPolicy.ts.html |here} to see how to use CreateReplicationPolicy API.
    */
   public async createReplicationPolicy(
     createReplicationPolicyRequest: requests.CreateReplicationPolicyRequest
@@ -737,6 +745,7 @@ export class ObjectStorageClient {
    * @param CreateRetentionRuleRequest
    * @return CreateRetentionRuleResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/CreateRetentionRule.ts.html |here} to see how to use CreateRetentionRule API.
    */
   public async createRetentionRule(
     createRetentionRuleRequest: requests.CreateRetentionRuleRequest
@@ -815,6 +824,7 @@ export class ObjectStorageClient {
    * @param DeleteBucketRequest
    * @return DeleteBucketResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/DeleteBucket.ts.html |here} to see how to use DeleteBucket API.
    */
   public async deleteBucket(
     deleteBucketRequest: requests.DeleteBucketRequest
@@ -877,6 +887,7 @@ export class ObjectStorageClient {
    * @param DeleteObjectRequest
    * @return DeleteObjectResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/DeleteObject.ts.html |here} to see how to use DeleteObject API.
    */
   public async deleteObject(
     deleteObjectRequest: requests.DeleteObjectRequest
@@ -957,6 +968,7 @@ export class ObjectStorageClient {
    * @param DeleteObjectLifecyclePolicyRequest
    * @return DeleteObjectLifecyclePolicyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/DeleteObjectLifecyclePolicy.ts.html |here} to see how to use DeleteObjectLifecyclePolicy API.
    */
   public async deleteObjectLifecyclePolicy(
     deleteObjectLifecyclePolicyRequest: requests.DeleteObjectLifecyclePolicyRequest
@@ -1019,6 +1031,7 @@ export class ObjectStorageClient {
    * @param DeletePreauthenticatedRequestRequest
    * @return DeletePreauthenticatedRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/DeletePreauthenticatedRequest.ts.html |here} to see how to use DeletePreauthenticatedRequest API.
    */
   public async deletePreauthenticatedRequest(
     deletePreauthenticatedRequestRequest: requests.DeletePreauthenticatedRequestRequest
@@ -1082,6 +1095,7 @@ export class ObjectStorageClient {
    * @param DeleteReplicationPolicyRequest
    * @return DeleteReplicationPolicyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/DeleteReplicationPolicy.ts.html |here} to see how to use DeleteReplicationPolicy API.
    */
   public async deleteReplicationPolicy(
     deleteReplicationPolicyRequest: requests.DeleteReplicationPolicyRequest
@@ -1144,6 +1158,7 @@ export class ObjectStorageClient {
    * @param DeleteRetentionRuleRequest
    * @return DeleteRetentionRuleResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/DeleteRetentionRule.ts.html |here} to see how to use DeleteRetentionRule API.
    */
   public async deleteRetentionRule(
     deleteRetentionRuleRequest: requests.DeleteRetentionRuleRequest
@@ -1208,6 +1223,7 @@ export class ObjectStorageClient {
    * @param GetBucketRequest
    * @return GetBucketResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/GetBucket.ts.html |here} to see how to use GetBucket API.
    */
   public async getBucket(
     getBucketRequest: requests.GetBucketRequest
@@ -1287,6 +1303,7 @@ GetNamespace returns the name of the Object Storage namespace for the user makin
      * @param GetNamespaceRequest
      * @return GetNamespaceResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/GetNamespace.ts.html |here} to see how to use GetNamespace API.
      */
   public async getNamespace(
     getNamespaceRequest: requests.GetNamespaceRequest
@@ -1345,6 +1362,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
      * @param GetNamespaceMetadataRequest
      * @return GetNamespaceMetadataResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/GetNamespaceMetadata.ts.html |here} to see how to use GetNamespaceMetadata API.
      */
   public async getNamespaceMetadata(
     getNamespaceMetadataRequest: requests.GetNamespaceMetadataRequest
@@ -1409,6 +1427,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
    * @param GetObjectRequest
    * @return GetObjectResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/GetObject.ts.html |here} to see how to use GetObject API.
    */
   public async getObject(
     getObjectRequest: requests.GetObjectRequest
@@ -1572,6 +1591,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
    * @param GetObjectLifecyclePolicyRequest
    * @return GetObjectLifecyclePolicyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/GetObjectLifecyclePolicy.ts.html |here} to see how to use GetObjectLifecyclePolicy API.
    */
   public async getObjectLifecyclePolicy(
     getObjectLifecyclePolicyRequest: requests.GetObjectLifecyclePolicyRequest
@@ -1641,6 +1661,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
    * @param GetPreauthenticatedRequestRequest
    * @return GetPreauthenticatedRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/GetPreauthenticatedRequest.ts.html |here} to see how to use GetPreauthenticatedRequest API.
    */
   public async getPreauthenticatedRequest(
     getPreauthenticatedRequestRequest: requests.GetPreauthenticatedRequestRequest
@@ -1707,6 +1728,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
    * @param GetReplicationPolicyRequest
    * @return GetReplicationPolicyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/GetReplicationPolicy.ts.html |here} to see how to use GetReplicationPolicy API.
    */
   public async getReplicationPolicy(
     getReplicationPolicyRequest: requests.GetReplicationPolicyRequest
@@ -1772,6 +1794,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
    * @param GetRetentionRuleRequest
    * @return GetRetentionRuleResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/GetRetentionRule.ts.html |here} to see how to use GetRetentionRule API.
    */
   public async getRetentionRule(
     getRetentionRuleRequest: requests.GetRetentionRuleRequest
@@ -1846,6 +1869,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1914,6 +1938,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
    * @param HeadBucketRequest
    * @return HeadBucketResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/HeadBucket.ts.html |here} to see how to use HeadBucket API.
    */
   public async headBucket(
     headBucketRequest: requests.HeadBucketRequest
@@ -1982,6 +2007,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
    * @param HeadObjectRequest
    * @return HeadObjectResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/HeadObject.ts.html |here} to see how to use HeadObject API.
    */
   public async headObject(
     headObjectRequest: requests.HeadObjectRequest
@@ -2129,6 +2155,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
      * @param ListBucketsRequest
      * @return ListBucketsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/ListBuckets.ts.html |here} to see how to use ListBuckets API.
      */
   public async listBuckets(
     listBucketsRequest: requests.ListBucketsRequest
@@ -2227,6 +2254,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
    * @param ListMultipartUploadPartsRequest
    * @return ListMultipartUploadPartsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/ListMultipartUploadParts.ts.html |here} to see how to use ListMultipartUploadParts API.
    */
   public async listMultipartUploadParts(
     listMultipartUploadPartsRequest: requests.ListMultipartUploadPartsRequest
@@ -2327,6 +2355,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
    * @param ListMultipartUploadsRequest
    * @return ListMultipartUploadsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/ListMultipartUploads.ts.html |here} to see how to use ListMultipartUploads API.
    */
   public async listMultipartUploads(
     listMultipartUploadsRequest: requests.ListMultipartUploadsRequest
@@ -2429,6 +2458,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
      * @param ListObjectVersionsRequest
      * @return ListObjectVersionsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/ListObjectVersions.ts.html |here} to see how to use ListObjectVersions API.
      */
   public async listObjectVersions(
     listObjectVersionsRequest: requests.ListObjectVersionsRequest
@@ -2511,6 +2541,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
      * @param ListObjectsRequest
      * @return ListObjectsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/ListObjects.ts.html |here} to see how to use ListObjects API.
      */
   public async listObjects(
     listObjectsRequest: requests.ListObjectsRequest
@@ -2619,6 +2650,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
    * @param ListPreauthenticatedRequestsRequest
    * @return ListPreauthenticatedRequestsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/ListPreauthenticatedRequests.ts.html |here} to see how to use ListPreauthenticatedRequests API.
    */
   public async listPreauthenticatedRequests(
     listPreauthenticatedRequestsRequest: requests.ListPreauthenticatedRequestsRequest
@@ -2718,6 +2750,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
    * @param ListReplicationPoliciesRequest
    * @return ListReplicationPoliciesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/ListReplicationPolicies.ts.html |here} to see how to use ListReplicationPolicies API.
    */
   public async listReplicationPolicies(
     listReplicationPoliciesRequest: requests.ListReplicationPoliciesRequest
@@ -2816,6 +2849,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
    * @param ListReplicationSourcesRequest
    * @return ListReplicationSourcesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/ListReplicationSources.ts.html |here} to see how to use ListReplicationSources API.
    */
   public async listReplicationSources(
     listReplicationSourcesRequest: requests.ListReplicationSourcesRequest
@@ -2915,6 +2949,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
    * @param ListRetentionRulesRequest
    * @return ListRetentionRulesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/ListRetentionRules.ts.html |here} to see how to use ListRetentionRules API.
    */
   public async listRetentionRules(
     listRetentionRulesRequest: requests.ListRetentionRulesRequest
@@ -2984,6 +3019,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -3080,6 +3116,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -3177,6 +3214,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -3275,6 +3313,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
    * @param MakeBucketWritableRequest
    * @return MakeBucketWritableResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/MakeBucketWritable.ts.html |here} to see how to use MakeBucketWritable API.
    */
   public async makeBucketWritable(
     makeBucketWritableRequest: requests.MakeBucketWritableRequest
@@ -3343,6 +3382,7 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
      * @param PutObjectRequest
      * @return PutObjectResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/PutObject.ts.html |here} to see how to use PutObject API.
      */
   public async putObject(
     putObjectRequest: requests.PutObjectRequest
@@ -3443,6 +3483,7 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
    * @param PutObjectLifecyclePolicyRequest
    * @return PutObjectLifecyclePolicyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/PutObjectLifecyclePolicy.ts.html |here} to see how to use PutObjectLifecyclePolicy API.
    */
   public async putObjectLifecyclePolicy(
     putObjectLifecyclePolicyRequest: requests.PutObjectLifecyclePolicyRequest
@@ -3534,6 +3575,7 @@ Calling this API starts a work request task to re-encrypt the data encryption ke
      * @param ReencryptBucketRequest
      * @return ReencryptBucketResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/ReencryptBucket.ts.html |here} to see how to use ReencryptBucket API.
      */
   public async reencryptBucket(
     reencryptBucketRequest: requests.ReencryptBucketRequest
@@ -3608,6 +3650,7 @@ You can alternatively employ one of these encryption strategies for an object:
      * @param ReencryptObjectRequest
      * @return ReencryptObjectResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/ReencryptObject.ts.html |here} to see how to use ReencryptObject API.
      */
   public async reencryptObject(
     reencryptObjectRequest: requests.ReencryptObjectRequest
@@ -3680,6 +3723,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
      * @param RenameObjectRequest
      * @return RenameObjectResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/RenameObject.ts.html |here} to see how to use RenameObject API.
      */
   public async renameObject(
     renameObjectRequest: requests.RenameObjectRequest
@@ -3762,6 +3806,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
    * @param RestoreObjectsRequest
    * @return RestoreObjectsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/RestoreObjects.ts.html |here} to see how to use RestoreObjects API.
    */
   public async restoreObjects(
     restoreObjectsRequest: requests.RestoreObjectsRequest
@@ -3832,6 +3877,7 @@ Use UpdateBucket to move a bucket from one compartment to another within the sam
      * @param UpdateBucketRequest
      * @return UpdateBucketResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/UpdateBucket.ts.html |here} to see how to use UpdateBucket API.
      */
   public async updateBucket(
     updateBucketRequest: requests.UpdateBucketRequest
@@ -3913,6 +3959,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
      * @param UpdateNamespaceMetadataRequest
      * @return UpdateNamespaceMetadataResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/UpdateNamespaceMetadata.ts.html |here} to see how to use UpdateNamespaceMetadata API.
      */
   public async updateNamespaceMetadata(
     updateNamespaceMetadataRequest: requests.UpdateNamespaceMetadataRequest
@@ -3982,6 +4029,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
    * @param UpdateRetentionRuleRequest
    * @return UpdateRetentionRuleResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/UpdateRetentionRule.ts.html |here} to see how to use UpdateRetentionRule API.
    */
   public async updateRetentionRule(
     updateRetentionRuleRequest: requests.UpdateRetentionRuleRequest
@@ -4059,6 +4107,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
    * @param UploadPartRequest
    * @return UploadPartResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/UploadPart.ts.html |here} to see how to use UploadPart API.
    */
   public async uploadPart(
     uploadPartRequest: requests.UploadPartRequest

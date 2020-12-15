@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateIdpGroupMapping.ts.html |here} to see how to use CreateIdpGroupMappingRequest.
+ */
 export interface CreateIdpGroupMappingRequest extends common.BaseRequest {
   /**
    * Add a mapping from an SAML2.0 identity provider group to a BMC group.

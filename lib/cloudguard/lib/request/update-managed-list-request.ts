@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateManagedList.ts.html |here} to see how to use UpdateManagedListRequest.
+ */
 export interface UpdateManagedListRequest extends common.BaseRequest {
   /**
    * The cloudguard list OCID to be passed in the request.

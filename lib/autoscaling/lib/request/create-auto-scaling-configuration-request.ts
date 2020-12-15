@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/CreateAutoScalingConfiguration.ts.html |here} to see how to use CreateAutoScalingConfigurationRequest.
+ */
 export interface CreateAutoScalingConfigurationRequest extends common.BaseRequest {
   /**
    * Creation details for an autoscaling configuration.

@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/CreateRun.ts.html |here} to see how to use CreateRunRequest.
+ */
 export interface CreateRunRequest extends common.BaseRequest {
   /**
    * Details for creating a run of an application.

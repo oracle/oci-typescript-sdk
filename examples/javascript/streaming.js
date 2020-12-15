@@ -39,7 +39,6 @@ const partitions = 1;
 
 const adminClient = new st.StreamAdminClient({ authenticationDetailsProvider: provider });
 const client = new st.StreamClient({ authenticationDetailsProvider: provider });
-adminClient.region = common.Region.US_PHOENIX_1;
 const waiters = adminClient.createWaiters();
 
 (async () => {

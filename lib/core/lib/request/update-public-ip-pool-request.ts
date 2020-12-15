@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdatePublicIpPool.ts.html |here} to see how to use UpdatePublicIpPoolRequest.
+ */
 export interface UpdatePublicIpPoolRequest extends common.BaseRequest {
   /**
    * The OCID of the Public Ip Pool object.

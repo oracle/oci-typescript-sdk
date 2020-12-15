@@ -61,7 +61,7 @@ export interface AutonomousContainerDatabase {
    */
   "lifecycleState": AutonomousContainerDatabase.LifecycleState;
   /**
-   * Additional information about the current lifecycleState.
+   * Additional information about the current lifecycle state.
    */
   "lifecycleDetails"?: string;
   /**

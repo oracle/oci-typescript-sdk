@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateAutonomousContainerDatabase.ts.html |here} to see how to use CreateAutonomousContainerDatabaseRequest.
+ */
 export interface CreateAutonomousContainerDatabaseRequest extends common.BaseRequest {
   /**
    * Request to create an Autonomous Container Database in a specified Autonomous Exadata Infrastructure.

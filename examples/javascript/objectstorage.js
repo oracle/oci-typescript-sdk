@@ -8,6 +8,7 @@
  * <li>The first argument is the OCID of the compartment.</li>
  * <li>The second is the name of bucket to create and later fetch</li>
  * <li>The third is the name of object to create inside bucket</li>
+ * <li>The fourth is the path of the file. i.e: "/Users/File/location";
  * </ul>
  * Note: there is a 2GB for 64-bit machine and 1GB for 32-bit machine buffer limitation from the NodeJS V8 Engine
  * Cannot upload file size greater than the limit
@@ -20,7 +21,7 @@ const fs = require("fs");
 const provider = new common.ConfigFileAuthenticationDetailsProvider();
 const args = process.argv.slice(2);
 console.log(args);
-if (args.length !== 3) {
+if (args.length !== 4) {
   console.error(
     "Unexpected number of arguments received. Consult the script header comments for expected arguments"
   );
@@ -30,11 +31,11 @@ if (args.length !== 3) {
 const compartmentId = args[0];
 const bucket = args[1];
 const object = args[2];
+const fileLocation = args[3];
 
 const client = new os.ObjectStorageClient({
   authenticationDetailsProvider: provider
 });
-client.region = common.Region.US_PHOENIX_1;
 
 (async () => {
   try {
@@ -64,7 +65,6 @@ client.region = common.Region.US_PHOENIX_1;
     console.log("Get bucket executed successfully." + getBucketResponse.bucket);
 
     // Create stream to upload
-    const fileLocation = "/Users/File/location";
     const stats = fs.statSync(fileLocation);
     const nodeFsBlob = new os.NodeFSBlob(fileLocation, stats.size);
     const objectData = await nodeFsBlob.getData();

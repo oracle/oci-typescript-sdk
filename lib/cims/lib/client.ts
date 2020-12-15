@@ -111,6 +111,7 @@ export class IncidentClient {
    * @param CreateIncidentRequest
    * @return CreateIncidentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/CreateIncident.ts.html |here} to see how to use CreateIncident API.
    */
   public async createIncident(
     createIncidentRequest: requests.CreateIncidentRequest
@@ -173,6 +174,7 @@ export class IncidentClient {
    * @param GetIncidentRequest
    * @return GetIncidentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/GetIncident.ts.html |here} to see how to use GetIncident API.
    */
   public async getIncident(
     getIncidentRequest: requests.GetIncidentRequest
@@ -234,6 +236,7 @@ export class IncidentClient {
    * @param GetStatusRequest
    * @return GetStatusResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/GetStatus.ts.html |here} to see how to use GetStatus API.
    */
   public async getStatus(
     getStatusRequest: requests.GetStatusRequest
@@ -293,6 +296,7 @@ export class IncidentClient {
    * @param ListIncidentResourceTypesRequest
    * @return ListIncidentResourceTypesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/ListIncidentResourceTypes.ts.html |here} to see how to use ListIncidentResourceTypes API.
    */
   public async listIncidentResourceTypes(
     listIncidentResourceTypesRequest: requests.ListIncidentResourceTypesRequest
@@ -390,6 +394,7 @@ export class IncidentClient {
    * @param ListIncidentsRequest
    * @return ListIncidentsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/ListIncidents.ts.html |here} to see how to use ListIncidents API.
    */
   public async listIncidents(
     listIncidentsRequest: requests.ListIncidentsRequest
@@ -486,6 +491,7 @@ export class IncidentClient {
    * @param UpdateIncidentRequest
    * @return UpdateIncidentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/UpdateIncident.ts.html |here} to see how to use UpdateIncident API.
    */
   public async updateIncident(
     updateIncidentRequest: requests.UpdateIncidentRequest
@@ -552,6 +558,7 @@ export class IncidentClient {
    * @param ValidateUserRequest
    * @return ValidateUserResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/ValidateUser.ts.html |here} to see how to use ValidateUser API.
    */
   public async validateUser(
     validateUserRequest: requests.ValidateUserRequest
@@ -696,6 +703,7 @@ export class UserClient {
    * @param CreateUserRequest
    * @return CreateUserResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/CreateUser.ts.html |here} to see how to use CreateUser API.
    */
   public async createUser(
     createUserRequest: requests.CreateUserRequest

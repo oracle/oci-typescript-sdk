@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/CreateManagementAgentInstallKey.ts.html |here} to see how to use CreateManagementAgentInstallKeyRequest.
+ */
 export interface CreateManagementAgentInstallKeyRequest extends common.BaseRequest {
   /**
    * Details of the Agent install Key

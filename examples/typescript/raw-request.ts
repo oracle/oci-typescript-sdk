@@ -4,12 +4,13 @@
  */
 
 import { DefaultRequestSigner, HttpRequest } from "oci-common";
-import { provider } from "./authentication";
+import common = require("oci-common");
 import * as promise from "es6-promise";
 import "isomorphic-fetch";
 promise.polyfill();
 
 const userID = "Add User OCID here";
+const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider();
 (async () => {
   // 1. Create Request Signing instance
   const signer = new DefaultRequestSigner(provider);
@@ -22,7 +23,7 @@ const userID = "Add User OCID here";
   };
 
   // 3. sign request
-  signer.signHttpRequest(httpRequest);
+  await signer.signHttpRequest(httpRequest);
 
   // 4. Make the call
   const response = await fetch(

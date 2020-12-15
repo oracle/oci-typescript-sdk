@@ -88,6 +88,11 @@ export namespace ConfigurationSourceProvider {
 
     if ("configSourceProviderType" in obj && obj.configSourceProviderType) {
       switch (obj.configSourceProviderType) {
+        case "GITHUB_ACCESS_TOKEN":
+          return model.GithubAccessTokenConfigurationSourceProvider.getJsonObj(
+            <model.GithubAccessTokenConfigurationSourceProvider>(<object>jsonObj),
+            true
+          );
         case "GITLAB_ACCESS_TOKEN":
           return model.GitlabAccessTokenConfigurationSourceProvider.getJsonObj(
             <model.GitlabAccessTokenConfigurationSourceProvider>(<object>jsonObj),

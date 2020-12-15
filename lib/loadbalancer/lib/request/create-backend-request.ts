@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/CreateBackend.ts.html |here} to see how to use CreateBackendRequest.
+ */
 export interface CreateBackendRequest extends common.BaseRequest {
   /**
    * The details to add a backend server to a backend set.

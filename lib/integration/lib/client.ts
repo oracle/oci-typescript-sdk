@@ -137,6 +137,7 @@ export class IntegrationInstanceClient {
    * @param ChangeIntegrationInstanceCompartmentRequest
    * @return ChangeIntegrationInstanceCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/integration/ChangeIntegrationInstanceCompartment.ts.html |here} to see how to use ChangeIntegrationInstanceCompartment API.
    */
   public async changeIntegrationInstanceCompartment(
     changeIntegrationInstanceCompartmentRequest: requests.ChangeIntegrationInstanceCompartmentRequest
@@ -207,6 +208,7 @@ export class IntegrationInstanceClient {
    * @param CreateIntegrationInstanceRequest
    * @return CreateIntegrationInstanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/integration/CreateIntegrationInstance.ts.html |here} to see how to use CreateIntegrationInstance API.
    */
   public async createIntegrationInstance(
     createIntegrationInstanceRequest: requests.CreateIntegrationInstanceRequest
@@ -271,6 +273,7 @@ export class IntegrationInstanceClient {
    * @param DeleteIntegrationInstanceRequest
    * @return DeleteIntegrationInstanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/integration/DeleteIntegrationInstance.ts.html |here} to see how to use DeleteIntegrationInstance API.
    */
   public async deleteIntegrationInstance(
     deleteIntegrationInstanceRequest: requests.DeleteIntegrationInstanceRequest
@@ -332,6 +335,7 @@ export class IntegrationInstanceClient {
    * @param GetIntegrationInstanceRequest
    * @return GetIntegrationInstanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/integration/GetIntegrationInstance.ts.html |here} to see how to use GetIntegrationInstance API.
    */
   public async getIntegrationInstance(
     getIntegrationInstanceRequest: requests.GetIntegrationInstanceRequest
@@ -395,6 +399,7 @@ export class IntegrationInstanceClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/integration/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -464,6 +469,7 @@ export class IntegrationInstanceClient {
    * @param ListIntegrationInstancesRequest
    * @return ListIntegrationInstancesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/integration/ListIntegrationInstances.ts.html |here} to see how to use ListIntegrationInstances API.
    */
   public async listIntegrationInstances(
     listIntegrationInstancesRequest: requests.ListIntegrationInstancesRequest
@@ -563,6 +569,7 @@ export class IntegrationInstanceClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/integration/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -660,6 +667,7 @@ export class IntegrationInstanceClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/integration/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -758,6 +766,7 @@ export class IntegrationInstanceClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/integration/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -855,6 +864,7 @@ export class IntegrationInstanceClient {
    * @param StartIntegrationInstanceRequest
    * @return StartIntegrationInstanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/integration/StartIntegrationInstance.ts.html |here} to see how to use StartIntegrationInstance API.
    */
   public async startIntegrationInstance(
     startIntegrationInstanceRequest: requests.StartIntegrationInstanceRequest
@@ -918,6 +928,7 @@ export class IntegrationInstanceClient {
    * @param StopIntegrationInstanceRequest
    * @return StopIntegrationInstanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/integration/StopIntegrationInstance.ts.html |here} to see how to use StopIntegrationInstance API.
    */
   public async stopIntegrationInstance(
     stopIntegrationInstanceRequest: requests.StopIntegrationInstanceRequest
@@ -980,6 +991,7 @@ export class IntegrationInstanceClient {
    * @param UpdateIntegrationInstanceRequest
    * @return UpdateIntegrationInstanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/integration/UpdateIntegrationInstance.ts.html |here} to see how to use UpdateIntegrationInstance API.
    */
   public async updateIntegrationInstance(
     updateIntegrationInstanceRequest: requests.UpdateIntegrationInstanceRequest

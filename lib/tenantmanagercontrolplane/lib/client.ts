@@ -138,6 +138,7 @@ export class LinkClient {
    * @param DeleteLinkRequest
    * @return DeleteLinkResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/DeleteLink.ts.html |here} to see how to use DeleteLink API.
    */
   public async deleteLink(
     deleteLinkRequest: requests.DeleteLinkRequest
@@ -193,6 +194,7 @@ export class LinkClient {
    * @param GetLinkRequest
    * @return GetLinkResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetLink.ts.html |here} to see how to use GetLink API.
    */
   public async getLink(
     getLinkRequest: requests.GetLinkRequest
@@ -255,6 +257,7 @@ export class LinkClient {
    * @param ListLinksRequest
    * @return ListLinksResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListLinks.ts.html |here} to see how to use ListLinks API.
    */
   public async listLinks(
     listLinksRequest: requests.ListLinksRequest
@@ -431,6 +434,7 @@ export class RecipientInvitationClient {
    * @param AcceptRecipientInvitationRequest
    * @return AcceptRecipientInvitationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/AcceptRecipientInvitation.ts.html |here} to see how to use AcceptRecipientInvitation API.
    */
   public async acceptRecipientInvitation(
     acceptRecipientInvitationRequest: requests.AcceptRecipientInvitationRequest
@@ -493,6 +497,7 @@ export class RecipientInvitationClient {
    * @param GetRecipientInvitationRequest
    * @return GetRecipientInvitationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetRecipientInvitation.ts.html |here} to see how to use GetRecipientInvitation API.
    */
   public async getRecipientInvitation(
     getRecipientInvitationRequest: requests.GetRecipientInvitationRequest
@@ -556,6 +561,7 @@ export class RecipientInvitationClient {
    * @param IgnoreRecipientInvitationRequest
    * @return IgnoreRecipientInvitationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/IgnoreRecipientInvitation.ts.html |here} to see how to use IgnoreRecipientInvitation API.
    */
   public async ignoreRecipientInvitation(
     ignoreRecipientInvitationRequest: requests.IgnoreRecipientInvitationRequest
@@ -622,6 +628,7 @@ export class RecipientInvitationClient {
    * @param ListRecipientInvitationsRequest
    * @return ListRecipientInvitationsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListRecipientInvitations.ts.html |here} to see how to use ListRecipientInvitations API.
    */
   public async listRecipientInvitations(
     listRecipientInvitationsRequest: requests.ListRecipientInvitationsRequest
@@ -689,6 +696,7 @@ export class RecipientInvitationClient {
    * @param UpdateRecipientInvitationRequest
    * @return UpdateRecipientInvitationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/UpdateRecipientInvitation.ts.html |here} to see how to use UpdateRecipientInvitation API.
    */
   public async updateRecipientInvitation(
     updateRecipientInvitationRequest: requests.UpdateRecipientInvitationRequest
@@ -866,6 +874,7 @@ export class SenderInvitationClient {
    * @param CancelSenderInvitationRequest
    * @return CancelSenderInvitationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/CancelSenderInvitation.ts.html |here} to see how to use CancelSenderInvitation API.
    */
   public async cancelSenderInvitation(
     cancelSenderInvitationRequest: requests.CancelSenderInvitationRequest
@@ -928,6 +937,7 @@ export class SenderInvitationClient {
    * @param CreateSenderInvitationRequest
    * @return CreateSenderInvitationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/CreateSenderInvitation.ts.html |here} to see how to use CreateSenderInvitation API.
    */
   public async createSenderInvitation(
     createSenderInvitationRequest: requests.CreateSenderInvitationRequest
@@ -1000,6 +1010,7 @@ export class SenderInvitationClient {
    * @param GetSenderInvitationRequest
    * @return GetSenderInvitationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetSenderInvitation.ts.html |here} to see how to use GetSenderInvitation API.
    */
   public async getSenderInvitation(
     getSenderInvitationRequest: requests.GetSenderInvitationRequest
@@ -1064,6 +1075,7 @@ export class SenderInvitationClient {
    * @param ListSenderInvitationsRequest
    * @return ListSenderInvitationsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListSenderInvitations.ts.html |here} to see how to use ListSenderInvitations API.
    */
   public async listSenderInvitations(
     listSenderInvitationsRequest: requests.ListSenderInvitationsRequest
@@ -1135,6 +1147,7 @@ export class SenderInvitationClient {
    * @param UpdateSenderInvitationRequest
    * @return UpdateSenderInvitationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/UpdateSenderInvitation.ts.html |here} to see how to use UpdateSenderInvitation API.
    */
   public async updateSenderInvitation(
     updateSenderInvitationRequest: requests.UpdateSenderInvitationRequest
@@ -1312,6 +1325,7 @@ export class WorkRequestClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1375,6 +1389,7 @@ export class WorkRequestClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1444,6 +1459,7 @@ export class WorkRequestClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1512,6 +1528,7 @@ export class WorkRequestClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest

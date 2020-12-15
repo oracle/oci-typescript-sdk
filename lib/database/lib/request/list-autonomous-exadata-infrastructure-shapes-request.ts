@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousExadataInfrastructureShapes.ts.html |here} to see how to use ListAutonomousExadataInfrastructureShapesRequest.
+ */
 export interface ListAutonomousExadataInfrastructureShapesRequest extends common.BaseRequest {
   /**
    * The name of the Availability Domain.

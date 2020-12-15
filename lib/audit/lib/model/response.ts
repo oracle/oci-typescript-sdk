@@ -19,43 +19,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* A container object for response attributes.
-* <p>
-Example:
-* <p>
-  -----
-*     {
-*       \"status\": \"200\",
-*       \"responseTime\": \"2019-09-18T00:10:59.278Z\",
-*       \"headers\": {
-*         \"ETag\": [
-*           \"<unique_ID>\"
-*         ],
-*         \"Connection\": [
-*           \"close\"
-*         ],
-*         \"Content-Length\": [
-*           \"1828\"
-*         ],
-*         \"opc-request-id\": [
-*           \"<unique_ID>\"
-*         ],
-*         \"Date\": [
-*           \"Wed, 18 Sep 2019 00:10:59 GMT\"
-*         ],
-*         \"Content-Type\": [
-*           \"application/json\"
-*         ]
-*       },
-*       \"payload\": {
-*         \"resourceName\": \"my_instance\",
-*         \"id\": \"ocid1.instance.oc1.phx.<unique_ID>\"
-*       },
-*       \"message\": null
-*     }
-*   -----
-* 
-*/
+ * A container object for response attributes.
+ *
+ */
 export interface Response {
   /**
     * The status code of the response.

@@ -73,6 +73,10 @@ export interface AutonomousDatabaseSummary {
    */
   "dataStorageSizeInTBs": number;
   /**
+   * The quantity of data in the database, in gigabytes.
+   */
+  "dataStorageSizeInGBs"?: number;
+  /**
    * The infrastructure type this resource belongs to.
    */
   "infrastructureType"?: AutonomousDatabaseSummary.InfrastructureType;
@@ -103,7 +107,9 @@ export interface AutonomousDatabaseSummary {
   "connectionStrings"?: model.AutonomousDatabaseConnectionStrings;
   "connectionUrls"?: model.AutonomousDatabaseConnectionUrls;
   /**
-   * The Oracle license model that applies to the Oracle Autonomous Database. Note that when provisioning an Autonomous Database on [dedicated Exadata infrastructure](https://docs.cloud.oracle.com/Content/Database/Concepts/adbddoverview.htm), this attribute must be null because the attribute is already set at the
+   * The Oracle license model that applies to the Oracle Autonomous Database. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle PaaS and IaaS services in the cloud.
+   * License Included allows you to subscribe to new Oracle Database software licenses and the Database service.
+   * Note that when provisioning an Autonomous Database on [dedicated Exadata infrastructure](https://docs.cloud.oracle.com/Content/Database/Concepts/adbddoverview.htm), this attribute must be null because the attribute is already set at the
    * Autonomous Exadata Infrastructure level. When using [shared Exadata infrastructure](https://docs.cloud.oracle.com/Content/Database/Concepts/adboverview.htm#AEI), if a value is not specified, the system will supply the value of `BRING_YOUR_OWN_LICENSE`.
    *
    */
@@ -173,6 +179,7 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
 - OLTP - indicates an Autonomous Transaction Processing database
 * - DW - indicates an Autonomous Data Warehouse database
 * - AJD - indicates an Autonomous JSON Database
+* - APEX - indicates an Autonomous Database with the Oracle Application Express (APEX) workload type.
 * 
     */
   "dbWorkload"?: AutonomousDatabaseSummary.DbWorkload;
@@ -201,6 +208,10 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
 * 
     */
   "whitelistedIps"?: Array<string>;
+  /**
+   * Information about Autonomous Application Express.
+   */
+  "apexDetails"?: model.AutonomousDatabaseApex;
   /**
    * Indicates if auto scaling is enabled for the Autonomous Database CPU core count.
    *
@@ -345,6 +356,7 @@ export namespace AutonomousDatabaseSummary {
     Oltp = "OLTP",
     Dw = "DW",
     Ajd = "AJD",
+    Apex = "APEX",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -443,6 +455,10 @@ export namespace AutonomousDatabaseSummary {
           : undefined,
         "connectionUrls": obj.connectionUrls
           ? model.AutonomousDatabaseConnectionUrls.getJsonObj(obj.connectionUrls)
+          : undefined,
+
+        "apexDetails": obj.apexDetails
+          ? model.AutonomousDatabaseApex.getJsonObj(obj.apexDetails)
           : undefined,
 
         "standbyDb": obj.standbyDb

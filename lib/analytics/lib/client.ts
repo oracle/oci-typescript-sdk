@@ -138,6 +138,7 @@ export class AnalyticsClient {
    * @param ChangeAnalyticsInstanceCompartmentRequest
    * @return ChangeAnalyticsInstanceCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/ChangeAnalyticsInstanceCompartment.ts.html |here} to see how to use ChangeAnalyticsInstanceCompartment API.
    */
   public async changeAnalyticsInstanceCompartment(
     changeAnalyticsInstanceCompartmentRequest: requests.ChangeAnalyticsInstanceCompartmentRequest
@@ -207,6 +208,7 @@ export class AnalyticsClient {
    * @param ChangeAnalyticsInstanceNetworkEndpointRequest
    * @return ChangeAnalyticsInstanceNetworkEndpointResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/ChangeAnalyticsInstanceNetworkEndpoint.ts.html |here} to see how to use ChangeAnalyticsInstanceNetworkEndpoint API.
    */
   public async changeAnalyticsInstanceNetworkEndpoint(
     changeAnalyticsInstanceNetworkEndpointRequest: requests.ChangeAnalyticsInstanceNetworkEndpointRequest
@@ -278,6 +280,7 @@ export class AnalyticsClient {
    * @param CreateAnalyticsInstanceRequest
    * @return CreateAnalyticsInstanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/CreateAnalyticsInstance.ts.html |here} to see how to use CreateAnalyticsInstance API.
    */
   public async createAnalyticsInstance(
     createAnalyticsInstanceRequest: requests.CreateAnalyticsInstanceRequest
@@ -357,6 +360,7 @@ export class AnalyticsClient {
    * @param DeleteAnalyticsInstanceRequest
    * @return DeleteAnalyticsInstanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/DeleteAnalyticsInstance.ts.html |here} to see how to use DeleteAnalyticsInstance API.
    */
   public async deleteAnalyticsInstance(
     deleteAnalyticsInstanceRequest: requests.DeleteAnalyticsInstanceRequest
@@ -420,6 +424,7 @@ export class AnalyticsClient {
    * @param DeleteWorkRequestRequest
    * @return DeleteWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/DeleteWorkRequest.ts.html |here} to see how to use DeleteWorkRequest API.
    */
   public async deleteWorkRequest(
     deleteWorkRequestRequest: requests.DeleteWorkRequestRequest
@@ -476,6 +481,7 @@ export class AnalyticsClient {
    * @param GetAnalyticsInstanceRequest
    * @return GetAnalyticsInstanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/GetAnalyticsInstance.ts.html |here} to see how to use GetAnalyticsInstance API.
    */
   public async getAnalyticsInstance(
     getAnalyticsInstanceRequest: requests.GetAnalyticsInstanceRequest
@@ -539,6 +545,7 @@ export class AnalyticsClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -607,6 +614,7 @@ export class AnalyticsClient {
    * @param ListAnalyticsInstancesRequest
    * @return ListAnalyticsInstancesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/ListAnalyticsInstances.ts.html |here} to see how to use ListAnalyticsInstances API.
    */
   public async listAnalyticsInstances(
     listAnalyticsInstancesRequest: requests.ListAnalyticsInstancesRequest
@@ -703,6 +711,7 @@ export class AnalyticsClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -794,6 +803,7 @@ export class AnalyticsClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -885,6 +895,7 @@ export class AnalyticsClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -981,6 +992,7 @@ export class AnalyticsClient {
    * @param ScaleAnalyticsInstanceRequest
    * @return ScaleAnalyticsInstanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/ScaleAnalyticsInstance.ts.html |here} to see how to use ScaleAnalyticsInstance API.
    */
   public async scaleAnalyticsInstance(
     scaleAnalyticsInstanceRequest: requests.ScaleAnalyticsInstanceRequest
@@ -1049,6 +1061,7 @@ export class AnalyticsClient {
    * @param StartAnalyticsInstanceRequest
    * @return StartAnalyticsInstanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/StartAnalyticsInstance.ts.html |here} to see how to use StartAnalyticsInstance API.
    */
   public async startAnalyticsInstance(
     startAnalyticsInstanceRequest: requests.StartAnalyticsInstanceRequest
@@ -1112,6 +1125,7 @@ export class AnalyticsClient {
    * @param StopAnalyticsInstanceRequest
    * @return StopAnalyticsInstanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/StopAnalyticsInstance.ts.html |here} to see how to use StopAnalyticsInstance API.
    */
   public async stopAnalyticsInstance(
     stopAnalyticsInstanceRequest: requests.StopAnalyticsInstanceRequest
@@ -1175,6 +1189,7 @@ export class AnalyticsClient {
    * @param UpdateAnalyticsInstanceRequest
    * @return UpdateAnalyticsInstanceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/UpdateAnalyticsInstance.ts.html |here} to see how to use UpdateAnalyticsInstance API.
    */
   public async updateAnalyticsInstance(
     updateAnalyticsInstanceRequest: requests.UpdateAnalyticsInstanceRequest

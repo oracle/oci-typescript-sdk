@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "1.9.1",
+  "version": "1.10.0",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -83,7 +83,8 @@
     "oci-opsi": "file:lib/opsi",
     "oci-computeinstanceagent": "file:lib/computeinstanceagent",
     "oci-optimizer": "file:lib/optimizer",
-    "oci-tenantmanagercontrolplane": "file:lib/tenantmanagercontrolplane"
+    "oci-tenantmanagercontrolplane": "file:lib/tenantmanagercontrolplane",
+    "oci-rover": "file:lib/rover"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

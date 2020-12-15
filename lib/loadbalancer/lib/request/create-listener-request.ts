@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/CreateListener.ts.html |here} to see how to use CreateListenerRequest.
+ */
 export interface CreateListenerRequest extends common.BaseRequest {
   /**
    * Details to add a listener.

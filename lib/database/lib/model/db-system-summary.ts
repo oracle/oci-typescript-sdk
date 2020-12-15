@@ -113,6 +113,10 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    */
   "domain": string;
   /**
+   * The OCID of the key container that is used as the master encryption key in database transparent data encryption (TDE) operations.
+   */
+  "kmsKeyId"?: string;
+  /**
    * The Oracle Database version of the DB system.
    */
   "version"?: string;
@@ -153,7 +157,7 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    */
   "timeCreated"?: Date;
   /**
-   * Additional information about the current lifecycleState.
+   * Additional information about the current lifecycle state.
    */
   "lifecycleDetails"?: string;
   /**

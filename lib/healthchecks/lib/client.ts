@@ -116,6 +116,7 @@ export class HealthChecksClient {
    * @param ChangeHttpMonitorCompartmentRequest
    * @return ChangeHttpMonitorCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/healthchecks/ChangeHttpMonitorCompartment.ts.html |here} to see how to use ChangeHttpMonitorCompartment API.
    */
   public async changeHttpMonitorCompartment(
     changeHttpMonitorCompartmentRequest: requests.ChangeHttpMonitorCompartmentRequest
@@ -180,6 +181,7 @@ export class HealthChecksClient {
    * @param ChangePingMonitorCompartmentRequest
    * @return ChangePingMonitorCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/healthchecks/ChangePingMonitorCompartment.ts.html |here} to see how to use ChangePingMonitorCompartment API.
    */
   public async changePingMonitorCompartment(
     changePingMonitorCompartmentRequest: requests.ChangePingMonitorCompartmentRequest
@@ -245,6 +247,7 @@ export class HealthChecksClient {
    * @param CreateHttpMonitorRequest
    * @return CreateHttpMonitorResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/healthchecks/CreateHttpMonitor.ts.html |here} to see how to use CreateHttpMonitor API.
    */
   public async createHttpMonitor(
     createHttpMonitorRequest: requests.CreateHttpMonitorRequest
@@ -320,6 +323,7 @@ export class HealthChecksClient {
    * @param CreateOnDemandHttpProbeRequest
    * @return CreateOnDemandHttpProbeResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/healthchecks/CreateOnDemandHttpProbe.ts.html |here} to see how to use CreateOnDemandHttpProbe API.
    */
   public async createOnDemandHttpProbe(
     createOnDemandHttpProbeRequest: requests.CreateOnDemandHttpProbeRequest
@@ -390,6 +394,7 @@ export class HealthChecksClient {
    * @param CreateOnDemandPingProbeRequest
    * @return CreateOnDemandPingProbeResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/healthchecks/CreateOnDemandPingProbe.ts.html |here} to see how to use CreateOnDemandPingProbe API.
    */
   public async createOnDemandPingProbe(
     createOnDemandPingProbeRequest: requests.CreateOnDemandPingProbeRequest
@@ -459,6 +464,7 @@ export class HealthChecksClient {
    * @param CreatePingMonitorRequest
    * @return CreatePingMonitorResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/healthchecks/CreatePingMonitor.ts.html |here} to see how to use CreatePingMonitor API.
    */
   public async createPingMonitor(
     createPingMonitorRequest: requests.CreatePingMonitorRequest
@@ -532,6 +538,7 @@ export class HealthChecksClient {
    * @param DeleteHttpMonitorRequest
    * @return DeleteHttpMonitorResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/healthchecks/DeleteHttpMonitor.ts.html |here} to see how to use DeleteHttpMonitor API.
    */
   public async deleteHttpMonitor(
     deleteHttpMonitorRequest: requests.DeleteHttpMonitorRequest
@@ -589,6 +596,7 @@ export class HealthChecksClient {
    * @param DeletePingMonitorRequest
    * @return DeletePingMonitorResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/healthchecks/DeletePingMonitor.ts.html |here} to see how to use DeletePingMonitor API.
    */
   public async deletePingMonitor(
     deletePingMonitorRequest: requests.DeletePingMonitorRequest
@@ -645,6 +653,7 @@ export class HealthChecksClient {
    * @param GetHttpMonitorRequest
    * @return GetHttpMonitorResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/healthchecks/GetHttpMonitor.ts.html |here} to see how to use GetHttpMonitor API.
    */
   public async getHttpMonitor(
     getHttpMonitorRequest: requests.GetHttpMonitorRequest
@@ -709,6 +718,7 @@ export class HealthChecksClient {
    * @param GetPingMonitorRequest
    * @return GetPingMonitorResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/healthchecks/GetPingMonitor.ts.html |here} to see how to use GetPingMonitor API.
    */
   public async getPingMonitor(
     getPingMonitorRequest: requests.GetPingMonitorRequest
@@ -773,6 +783,7 @@ export class HealthChecksClient {
    * @param ListHealthChecksVantagePointsRequest
    * @return ListHealthChecksVantagePointsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/healthchecks/ListHealthChecksVantagePoints.ts.html |here} to see how to use ListHealthChecksVantagePoints API.
    */
   public async listHealthChecksVantagePoints(
     listHealthChecksVantagePointsRequest: requests.ListHealthChecksVantagePointsRequest
@@ -867,6 +878,7 @@ export class HealthChecksClient {
    * @param ListHttpMonitorsRequest
    * @return ListHttpMonitorsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/healthchecks/ListHttpMonitors.ts.html |here} to see how to use ListHttpMonitors API.
    */
   public async listHttpMonitors(
     listHttpMonitorsRequest: requests.ListHttpMonitorsRequest
@@ -963,6 +975,7 @@ export class HealthChecksClient {
    * @param ListHttpProbeResultsRequest
    * @return ListHttpProbeResultsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/healthchecks/ListHttpProbeResults.ts.html |here} to see how to use ListHttpProbeResults API.
    */
   public async listHttpProbeResults(
     listHttpProbeResultsRequest: requests.ListHttpProbeResultsRequest
@@ -1062,6 +1075,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
      * @param ListPingMonitorsRequest
      * @return ListPingMonitorsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/healthchecks/ListPingMonitors.ts.html |here} to see how to use ListPingMonitors API.
      */
   public async listPingMonitors(
     listPingMonitorsRequest: requests.ListPingMonitorsRequest
@@ -1162,6 +1176,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
      * @param ListPingProbeResultsRequest
      * @return ListPingProbeResultsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/healthchecks/ListPingProbeResults.ts.html |here} to see how to use ListPingProbeResults API.
      */
   public async listPingProbeResults(
     listPingProbeResultsRequest: requests.ListPingProbeResultsRequest
@@ -1260,6 +1275,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
    * @param UpdateHttpMonitorRequest
    * @return UpdateHttpMonitorResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/healthchecks/UpdateHttpMonitor.ts.html |here} to see how to use UpdateHttpMonitor API.
    */
   public async updateHttpMonitor(
     updateHttpMonitorRequest: requests.UpdateHttpMonitorRequest
@@ -1331,6 +1347,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
    * @param UpdatePingMonitorRequest
    * @return UpdatePingMonitorResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/healthchecks/UpdatePingMonitor.ts.html |here} to see how to use UpdatePingMonitor API.
    */
   public async updatePingMonitor(
     updatePingMonitorRequest: requests.UpdatePingMonitorRequest

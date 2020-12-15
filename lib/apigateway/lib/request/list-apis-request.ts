@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/ListApis.ts.html |here} to see how to use ListApisRequest.
+ */
 export interface ListApisRequest extends common.BaseRequest {
   /**
    * The ocid of the compartment in which to list resources.

@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateSubnet.ts.html |here} to see how to use CreateSubnetRequest.
+ */
 export interface CreateSubnetRequest extends common.BaseRequest {
   /**
    * Details for creating a subnet.

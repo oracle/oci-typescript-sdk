@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/CreateAddressList.ts.html |here} to see how to use CreateAddressListRequest.
+ */
 export interface CreateAddressListRequest extends common.BaseRequest {
   /**
    * The details of the address list resource to create.

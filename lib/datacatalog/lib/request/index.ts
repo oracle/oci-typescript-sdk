@@ -203,6 +203,8 @@ import * as ListNamespacesRequest from "./list-namespaces-request";
 export import ListNamespacesRequest = ListNamespacesRequest.ListNamespacesRequest;
 import * as ListPatternsRequest from "./list-patterns-request";
 export import ListPatternsRequest = ListPatternsRequest.ListPatternsRequest;
+import * as ListRulesRequest from "./list-rules-request";
+export import ListRulesRequest = ListRulesRequest.ListRulesRequest;
 import * as ListTagsRequest from "./list-tags-request";
 export import ListTagsRequest = ListTagsRequest.ListTagsRequest;
 import * as ListTermRelationshipsRequest from "./list-term-relationships-request";

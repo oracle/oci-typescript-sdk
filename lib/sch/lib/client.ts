@@ -145,6 +145,7 @@ After you send your request, the service connector's state is temporarily
      * @param ActivateServiceConnectorRequest
      * @return ActivateServiceConnectorResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/ActivateServiceConnector.ts.html |here} to see how to use ActivateServiceConnector API.
      */
   public async activateServiceConnector(
     activateServiceConnectorRequest: requests.ActivateServiceConnectorRequest
@@ -212,6 +213,7 @@ When provided, If-Match is checked against ETag values of the resource.
      * @param ChangeServiceConnectorCompartmentRequest
      * @return ChangeServiceConnectorCompartmentResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/ChangeServiceConnectorCompartment.ts.html |here} to see how to use ChangeServiceConnectorCompartment API.
      */
   public async changeServiceConnectorCompartment(
     changeServiceConnectorCompartmentRequest: requests.ChangeServiceConnectorCompartmentRequest
@@ -298,6 +300,7 @@ After you send your request, the new service connector's state is temporarily
      * @param CreateServiceConnectorRequest
      * @return CreateServiceConnectorResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/CreateServiceConnector.ts.html |here} to see how to use CreateServiceConnector API.
      */
   public async createServiceConnector(
     createServiceConnectorRequest: requests.CreateServiceConnectorRequest
@@ -368,6 +371,7 @@ After you send your request, the service connector's state is temporarily
      * @param DeactivateServiceConnectorRequest
      * @return DeactivateServiceConnectorResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/DeactivateServiceConnector.ts.html |here} to see how to use DeactivateServiceConnector API.
      */
   public async deactivateServiceConnector(
     deactivateServiceConnectorRequest: requests.DeactivateServiceConnectorRequest
@@ -434,6 +438,7 @@ After you send your request, the service connector's state is temporarily
      * @param DeleteServiceConnectorRequest
      * @return DeleteServiceConnectorResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/DeleteServiceConnector.ts.html |here} to see how to use DeleteServiceConnector API.
      */
   public async deleteServiceConnector(
     deleteServiceConnectorRequest: requests.DeleteServiceConnectorRequest
@@ -496,6 +501,7 @@ After you send your request, the service connector's state is temporarily
    * @param GetServiceConnectorRequest
    * @return GetServiceConnectorResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/GetServiceConnector.ts.html |here} to see how to use GetServiceConnector API.
    */
   public async getServiceConnector(
     getServiceConnectorRequest: requests.GetServiceConnectorRequest
@@ -560,6 +566,7 @@ After you send your request, the service connector's state is temporarily
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -623,6 +630,7 @@ After you send your request, the service connector's state is temporarily
    * @param ListServiceConnectorsRequest
    * @return ListServiceConnectorsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/ListServiceConnectors.ts.html |here} to see how to use ListServiceConnectors API.
    */
   public async listServiceConnectors(
     listServiceConnectorsRequest: requests.ListServiceConnectorsRequest
@@ -698,6 +706,7 @@ After you send your request, the service connector's state is temporarily
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -770,6 +779,7 @@ After you send your request, the service connector's state is temporarily
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -842,6 +852,7 @@ After you send your request, the service connector's state is temporarily
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -917,6 +928,7 @@ After you send your request, the service connector's state is temporarily
      * @param UpdateServiceConnectorRequest
      * @return UpdateServiceConnectorResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/UpdateServiceConnector.ts.html |here} to see how to use UpdateServiceConnector API.
      */
   public async updateServiceConnector(
     updateServiceConnectorRequest: requests.UpdateServiceConnectorRequest

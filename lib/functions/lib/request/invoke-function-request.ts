@@ -14,6 +14,10 @@
 import * as model from "../model";
 import common = require("oci-common");
 import stream = require("stream");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/functions/InvokeFunction.ts.html |here} to see how to use InvokeFunctionRequest.
+ */
 export interface InvokeFunctionRequest extends common.BaseRequest {
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of this function.

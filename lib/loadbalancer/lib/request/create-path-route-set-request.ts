@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/CreatePathRouteSet.ts.html |here} to see how to use CreatePathRouteSetRequest.
+ */
 export interface CreatePathRouteSetRequest extends common.BaseRequest {
   /**
    * The details of the path route set to add.

@@ -8,6 +8,9 @@ import common = require("oci-common");
 import * as identity from "oci-identity";
 import { HttpRequest } from "oci-common";
 
+// Please input your region here. i.e: common.Region.US_PHOENIX_1
+const region = common.Region.US_PHOENIX_1;
+
 class ConsoleFetchHttp implements common.HttpClient {
   public async send(req: HttpRequest): Promise<Response> {
     // Just call console.fetch API which do http signing and send request.
@@ -34,7 +37,7 @@ class ConsoleFetchHttp implements common.HttpClient {
 
 const httpClient: ConsoleFetchHttp = new ConsoleFetchHttp();
 const identityClient = new identity.IdentityClient({ httpClient: httpClient });
-identityClient.region = common.Region.US_PHOENIX_1;
+identityClient.region = region;
 
 const listUsersRequest: identity.requests.ListUsersRequest = {
   compartmentId:

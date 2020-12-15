@@ -110,6 +110,7 @@ export class UsageapiClient {
    * @param RequestSummarizedConfigurationsRequest
    * @return RequestSummarizedConfigurationsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/RequestSummarizedConfigurations.ts.html |here} to see how to use RequestSummarizedConfigurations API.
    */
   public async requestSummarizedConfigurations(
     requestSummarizedConfigurationsRequest: requests.RequestSummarizedConfigurationsRequest
@@ -169,6 +170,7 @@ export class UsageapiClient {
    * @param RequestSummarizedUsagesRequest
    * @return RequestSummarizedUsagesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/RequestSummarizedUsages.ts.html |here} to see how to use RequestSummarizedUsages API.
    */
   public async requestSummarizedUsages(
     requestSummarizedUsagesRequest: requests.RequestSummarizedUsagesRequest

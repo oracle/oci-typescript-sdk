@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListOnPremConnectors.ts.html |here} to see how to use ListOnPremConnectorsRequest.
+ */
 export interface ListOnPremConnectorsRequest extends common.BaseRequest {
   /**
    * A filter to return only resources that match the specified compartment OCID.

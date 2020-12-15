@@ -5,7 +5,6 @@
 
 import common = require("oci-common");
 import { ObjectStorageClient, requests } from "oci-objectstorage";
-import { Region } from "oci-common";
 
 const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider();
 /*
@@ -34,7 +33,6 @@ const namespaceName = args[1];
 const bucketName = args[2];
 
 const client = new ObjectStorageClient({ authenticationDetailsProvider: provider });
-client.region = Region.US_PHOENIX_1;
 
 (async () => {
   try {

@@ -203,6 +203,8 @@ import * as ListNamespacesResponse from "./list-namespaces-response";
 export import ListNamespacesResponse = ListNamespacesResponse.ListNamespacesResponse;
 import * as ListPatternsResponse from "./list-patterns-response";
 export import ListPatternsResponse = ListPatternsResponse.ListPatternsResponse;
+import * as ListRulesResponse from "./list-rules-response";
+export import ListRulesResponse = ListRulesResponse.ListRulesResponse;
 import * as ListTagsResponse from "./list-tags-response";
 export import ListTagsResponse = ListTagsResponse.ListTagsResponse;
 import * as ListTermRelationshipsResponse from "./list-term-relationships-response";

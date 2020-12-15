@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExadataInfrastructureCompartment.ts.html |here} to see how to use ChangeExadataInfrastructureCompartmentRequest.
+ */
 export interface ChangeExadataInfrastructureCompartmentRequest extends common.BaseRequest {
   /**
    * Request to move Exadata infrastructure to a different compartment

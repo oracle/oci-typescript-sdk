@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrorsRequest.
+ */
 export interface ListWorkRequestErrorsRequest extends common.BaseRequest {
   /**
    * The ID of the asynchronous request.

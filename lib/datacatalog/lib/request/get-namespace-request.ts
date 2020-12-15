@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetNamespace.ts.html |here} to see how to use GetNamespaceRequest.
+ */
 export interface GetNamespaceRequest extends common.BaseRequest {
   /**
    * Unique catalog identifier.

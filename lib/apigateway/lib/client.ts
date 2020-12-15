@@ -140,6 +140,7 @@ export class ApiGatewayClient {
    * @param ChangeApiCompartmentRequest
    * @return ChangeApiCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/ChangeApiCompartment.ts.html |here} to see how to use ChangeApiCompartment API.
    */
   public async changeApiCompartment(
     changeApiCompartmentRequest: requests.ChangeApiCompartmentRequest
@@ -206,6 +207,7 @@ export class ApiGatewayClient {
    * @param ChangeCertificateCompartmentRequest
    * @return ChangeCertificateCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/ChangeCertificateCompartment.ts.html |here} to see how to use ChangeCertificateCompartment API.
    */
   public async changeCertificateCompartment(
     changeCertificateCompartmentRequest: requests.ChangeCertificateCompartmentRequest
@@ -269,6 +271,7 @@ export class ApiGatewayClient {
    * @param CreateApiRequest
    * @return CreateApiResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/CreateApi.ts.html |here} to see how to use CreateApi API.
    */
   public async createApi(
     createApiRequest: requests.CreateApiRequest
@@ -346,6 +349,7 @@ export class ApiGatewayClient {
    * @param CreateCertificateRequest
    * @return CreateCertificateResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/CreateCertificate.ts.html |here} to see how to use CreateCertificate API.
    */
   public async createCertificate(
     createCertificateRequest: requests.CreateCertificateRequest
@@ -422,6 +426,7 @@ export class ApiGatewayClient {
    * @param DeleteApiRequest
    * @return DeleteApiResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/DeleteApi.ts.html |here} to see how to use DeleteApi API.
    */
   public async deleteApi(
     deleteApiRequest: requests.DeleteApiRequest
@@ -482,6 +487,7 @@ export class ApiGatewayClient {
    * @param DeleteCertificateRequest
    * @return DeleteCertificateResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/DeleteCertificate.ts.html |here} to see how to use DeleteCertificate API.
    */
   public async deleteCertificate(
     deleteCertificateRequest: requests.DeleteCertificateRequest
@@ -542,6 +548,7 @@ export class ApiGatewayClient {
    * @param GetApiRequest
    * @return GetApiResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/GetApi.ts.html |here} to see how to use GetApi API.
    */
   public async getApi(getApiRequest: requests.GetApiRequest): Promise<responses.GetApiResponse> {
     if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#getApi.");
@@ -602,6 +609,7 @@ export class ApiGatewayClient {
    * @param GetApiContentRequest
    * @return GetApiContentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/GetApiContent.ts.html |here} to see how to use GetApiContent API.
    */
   public async getApiContent(
     getApiContentRequest: requests.GetApiContentRequest
@@ -671,6 +679,7 @@ export class ApiGatewayClient {
    * @param GetApiDeploymentSpecificationRequest
    * @return GetApiDeploymentSpecificationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/GetApiDeploymentSpecification.ts.html |here} to see how to use GetApiDeploymentSpecification API.
    */
   public async getApiDeploymentSpecification(
     getApiDeploymentSpecificationRequest: requests.GetApiDeploymentSpecificationRequest
@@ -735,6 +744,7 @@ export class ApiGatewayClient {
    * @param GetApiValidationsRequest
    * @return GetApiValidationsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/GetApiValidations.ts.html |here} to see how to use GetApiValidations API.
    */
   public async getApiValidations(
     getApiValidationsRequest: requests.GetApiValidationsRequest
@@ -798,6 +808,7 @@ export class ApiGatewayClient {
    * @param GetCertificateRequest
    * @return GetCertificateResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/GetCertificate.ts.html |here} to see how to use GetCertificate API.
    */
   public async getCertificate(
     getCertificateRequest: requests.GetCertificateRequest
@@ -861,6 +872,7 @@ export class ApiGatewayClient {
    * @param ListApisRequest
    * @return ListApisResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/ListApis.ts.html |here} to see how to use ListApis API.
    */
   public async listApis(
     listApisRequest: requests.ListApisRequest
@@ -935,6 +947,7 @@ export class ApiGatewayClient {
    * @param ListCertificatesRequest
    * @return ListCertificatesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/ListCertificates.ts.html |here} to see how to use ListCertificates API.
    */
   public async listCertificates(
     listCertificatesRequest: requests.ListCertificatesRequest
@@ -1008,6 +1021,7 @@ export class ApiGatewayClient {
    * @param UpdateApiRequest
    * @return UpdateApiResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/UpdateApi.ts.html |here} to see how to use UpdateApi API.
    */
   public async updateApi(
     updateApiRequest: requests.UpdateApiRequest
@@ -1073,6 +1087,7 @@ export class ApiGatewayClient {
    * @param UpdateCertificateRequest
    * @return UpdateCertificateResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/UpdateCertificate.ts.html |here} to see how to use UpdateCertificate API.
    */
   public async updateCertificate(
     updateCertificateRequest: requests.UpdateCertificateRequest
@@ -1245,6 +1260,7 @@ export class DeploymentClient {
    * @param ChangeDeploymentCompartmentRequest
    * @return ChangeDeploymentCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/ChangeDeploymentCompartment.ts.html |here} to see how to use ChangeDeploymentCompartment API.
    */
   public async changeDeploymentCompartment(
     changeDeploymentCompartmentRequest: requests.ChangeDeploymentCompartmentRequest
@@ -1313,6 +1329,7 @@ export class DeploymentClient {
    * @param CreateDeploymentRequest
    * @return CreateDeploymentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/CreateDeployment.ts.html |here} to see how to use CreateDeployment API.
    */
   public async createDeployment(
     createDeploymentRequest: requests.CreateDeploymentRequest
@@ -1389,6 +1406,7 @@ export class DeploymentClient {
    * @param DeleteDeploymentRequest
    * @return DeleteDeploymentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/DeleteDeployment.ts.html |here} to see how to use DeleteDeployment API.
    */
   public async deleteDeployment(
     deleteDeploymentRequest: requests.DeleteDeploymentRequest
@@ -1449,6 +1467,7 @@ export class DeploymentClient {
    * @param GetDeploymentRequest
    * @return GetDeploymentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/GetDeployment.ts.html |here} to see how to use GetDeployment API.
    */
   public async getDeployment(
     getDeploymentRequest: requests.GetDeploymentRequest
@@ -1512,6 +1531,7 @@ export class DeploymentClient {
    * @param ListDeploymentsRequest
    * @return ListDeploymentsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/ListDeployments.ts.html |here} to see how to use ListDeployments API.
    */
   public async listDeployments(
     listDeploymentsRequest: requests.ListDeploymentsRequest
@@ -1586,6 +1606,7 @@ export class DeploymentClient {
    * @param UpdateDeploymentRequest
    * @return UpdateDeploymentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/UpdateDeployment.ts.html |here} to see how to use UpdateDeployment API.
    */
   public async updateDeployment(
     updateDeploymentRequest: requests.UpdateDeploymentRequest
@@ -1758,6 +1779,7 @@ export class GatewayClient {
    * @param ChangeGatewayCompartmentRequest
    * @return ChangeGatewayCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/ChangeGatewayCompartment.ts.html |here} to see how to use ChangeGatewayCompartment API.
    */
   public async changeGatewayCompartment(
     changeGatewayCompartmentRequest: requests.ChangeGatewayCompartmentRequest
@@ -1825,6 +1847,7 @@ export class GatewayClient {
    * @param CreateGatewayRequest
    * @return CreateGatewayResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/CreateGateway.ts.html |here} to see how to use CreateGateway API.
    */
   public async createGateway(
     createGatewayRequest: requests.CreateGatewayRequest
@@ -1901,6 +1924,7 @@ export class GatewayClient {
    * @param DeleteGatewayRequest
    * @return DeleteGatewayResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/DeleteGateway.ts.html |here} to see how to use DeleteGateway API.
    */
   public async deleteGateway(
     deleteGatewayRequest: requests.DeleteGatewayRequest
@@ -1961,6 +1985,7 @@ export class GatewayClient {
    * @param GetGatewayRequest
    * @return GetGatewayResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/GetGateway.ts.html |here} to see how to use GetGateway API.
    */
   public async getGateway(
     getGatewayRequest: requests.GetGatewayRequest
@@ -2024,6 +2049,7 @@ export class GatewayClient {
    * @param ListGatewaysRequest
    * @return ListGatewaysResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/ListGateways.ts.html |here} to see how to use ListGateways API.
    */
   public async listGateways(
     listGatewaysRequest: requests.ListGatewaysRequest
@@ -2098,6 +2124,7 @@ export class GatewayClient {
    * @param UpdateGatewayRequest
    * @return UpdateGatewayResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/UpdateGateway.ts.html |here} to see how to use UpdateGateway API.
    */
   public async updateGateway(
     updateGatewayRequest: requests.UpdateGatewayRequest
@@ -2270,6 +2297,7 @@ export class WorkRequestsClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -2326,6 +2354,7 @@ export class WorkRequestsClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -2394,6 +2423,7 @@ export class WorkRequestsClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -2468,6 +2498,7 @@ export class WorkRequestsClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -2541,6 +2572,7 @@ export class WorkRequestsClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest

@@ -145,6 +145,7 @@ When you cancel a work request, the state of the work request changes to cancell
      * @param CancelWorkRequestRequest
      * @return CancelWorkRequestResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/applicationmigration/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
      */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -203,6 +204,7 @@ When you cancel a work request, the state of the work request changes to cancell
    * @param ChangeMigrationCompartmentRequest
    * @return ChangeMigrationCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/applicationmigration/ChangeMigrationCompartment.ts.html |here} to see how to use ChangeMigrationCompartment API.
    */
   public async changeMigrationCompartment(
     changeMigrationCompartmentRequest: requests.ChangeMigrationCompartmentRequest
@@ -272,6 +274,7 @@ When you cancel a work request, the state of the work request changes to cancell
    * @param ChangeSourceCompartmentRequest
    * @return ChangeSourceCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/applicationmigration/ChangeSourceCompartment.ts.html |here} to see how to use ChangeSourceCompartment API.
    */
   public async changeSourceCompartment(
     changeSourceCompartmentRequest: requests.ChangeSourceCompartmentRequest
@@ -360,6 +363,7 @@ To track the progress of this operation, you can monitor the status of the Creat
      * @param CreateMigrationRequest
      * @return CreateMigrationResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/applicationmigration/CreateMigration.ts.html |here} to see how to use CreateMigration API.
      */
   public async createMigration(
     createMigrationRequest: requests.CreateMigrationRequest
@@ -449,6 +453,7 @@ Ensure that the state of the source has changed to <code>ACTIVE</code>, before y
      * @param CreateSourceRequest
      * @return CreateSourceResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/applicationmigration/CreateSource.ts.html |here} to see how to use CreateSource API.
      */
   public async createSource(
     createSourceRequest: requests.CreateSourceRequest
@@ -526,6 +531,7 @@ If you have migrated the application or for any other reason if you no longer re
      * @param DeleteMigrationRequest
      * @return DeleteMigrationResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/applicationmigration/DeleteMigration.ts.html |here} to see how to use DeleteMigration API.
      */
   public async deleteMigration(
     deleteMigrationRequest: requests.DeleteMigrationRequest
@@ -592,6 +598,7 @@ Before deleting a source, you must delete all the migrations associated with the
      * @param DeleteSourceRequest
      * @return DeleteSourceResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/applicationmigration/DeleteSource.ts.html |here} to see how to use DeleteSource API.
      */
   public async deleteSource(
     deleteSourceRequest: requests.DeleteSourceRequest
@@ -653,6 +660,7 @@ Before deleting a source, you must delete all the migrations associated with the
    * @param GetMigrationRequest
    * @return GetMigrationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/applicationmigration/GetMigration.ts.html |here} to see how to use GetMigration API.
    */
   public async getMigration(
     getMigrationRequest: requests.GetMigrationRequest
@@ -717,6 +725,7 @@ Before deleting a source, you must delete all the migrations associated with the
    * @param GetSourceRequest
    * @return GetSourceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/applicationmigration/GetSource.ts.html |here} to see how to use GetSource API.
    */
   public async getSource(
     getSourceRequest: requests.GetSourceRequest
@@ -779,6 +788,7 @@ Before deleting a source, you must delete all the migrations associated with the
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/applicationmigration/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -843,6 +853,7 @@ Before deleting a source, you must delete all the migrations associated with the
    * @param ListMigrationsRequest
    * @return ListMigrationsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/applicationmigration/ListMigrations.ts.html |here} to see how to use ListMigrations API.
    */
   public async listMigrations(
     listMigrationsRequest: requests.ListMigrationsRequest
@@ -941,6 +952,7 @@ Before deleting a source, you must delete all the migrations associated with the
    * @param ListSourceApplicationsRequest
    * @return ListSourceApplicationsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/applicationmigration/ListSourceApplications.ts.html |here} to see how to use ListSourceApplications API.
    */
   public async listSourceApplications(
     listSourceApplicationsRequest: requests.ListSourceApplicationsRequest
@@ -1040,6 +1052,7 @@ Before deleting a source, you must delete all the migrations associated with the
    * @param ListSourcesRequest
    * @return ListSourcesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/applicationmigration/ListSources.ts.html |here} to see how to use ListSources API.
    */
   public async listSources(
     listSourcesRequest: requests.ListSourcesRequest
@@ -1135,6 +1148,7 @@ Before deleting a source, you must delete all the migrations associated with the
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/applicationmigration/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1228,6 +1242,7 @@ Before deleting a source, you must delete all the migrations associated with the
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/applicationmigration/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1321,6 +1336,7 @@ Before deleting a source, you must delete all the migrations associated with the
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/applicationmigration/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1423,6 +1439,7 @@ To track the progress of the operation, you can monitor the status of the Migrat
      * @param MigrateApplicationRequest
      * @return MigrateApplicationResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/applicationmigration/MigrateApplication.ts.html |here} to see how to use MigrateApplication API.
      */
   public async migrateApplication(
     migrateApplicationRequest: requests.MigrateApplicationRequest
@@ -1514,6 +1531,7 @@ When the migration has been updated, the state of the migration changes to <code
      * @param UpdateMigrationRequest
      * @return UpdateMigrationResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/applicationmigration/UpdateMigration.ts.html |here} to see how to use UpdateMigration API.
      */
   public async updateMigration(
     updateMigrationRequest: requests.UpdateMigrationRequest
@@ -1585,6 +1603,7 @@ When the migration has been updated, the state of the migration changes to <code
    * @param UpdateSourceRequest
    * @return UpdateSourceResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/applicationmigration/UpdateSource.ts.html |here} to see how to use UpdateSource API.
    */
   public async updateSource(
     updateSourceRequest: requests.UpdateSourceRequest

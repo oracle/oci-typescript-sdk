@@ -32,7 +32,6 @@ const compartmentId: string = args[1];
 const monitoringClient: mt.MonitoringClient = new mt.MonitoringClient({
   authenticationDetailsProvider: provider
 });
-monitoringClient.region = common.Region.US_PHOENIX_1;
 monitoringClient.endpoint = "https://telemetry-ingestion.us-phoenix-1.oraclecloud.com";
 
 (async () => {

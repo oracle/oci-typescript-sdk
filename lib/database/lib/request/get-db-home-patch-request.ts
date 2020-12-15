@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbHomePatch.ts.html |here} to see how to use GetDbHomePatchRequest.
+ */
 export interface GetDbHomePatchRequest extends common.BaseRequest {
   /**
    * The Database Home [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).

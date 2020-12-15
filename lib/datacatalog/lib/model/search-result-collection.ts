@@ -36,6 +36,10 @@ export interface SearchResultCollection {
    * Aggregations/facets on properties of data objects.
    */
   "facetedSearchAggregation"?: Array<model.FacetedSearchAggregation>;
+  /**
+   * A list of fields or properties used in the sorting of a search result.
+   */
+  "sortableFields"?: Array<string>;
 }
 
 export namespace SearchResultCollection {

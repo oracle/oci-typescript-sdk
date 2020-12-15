@@ -136,6 +136,7 @@ export class BudgetClient {
    * @param CreateAlertRuleRequest
    * @return CreateAlertRuleResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/budget/CreateAlertRule.ts.html |here} to see how to use CreateAlertRule API.
    */
   public async createAlertRule(
     createAlertRuleRequest: requests.CreateAlertRuleRequest
@@ -205,6 +206,7 @@ export class BudgetClient {
    * @param CreateBudgetRequest
    * @return CreateBudgetResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/budget/CreateBudget.ts.html |here} to see how to use CreateBudget API.
    */
   public async createBudget(
     createBudgetRequest: requests.CreateBudgetRequest
@@ -271,6 +273,7 @@ export class BudgetClient {
    * @param DeleteAlertRuleRequest
    * @return DeleteAlertRuleResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/budget/DeleteAlertRule.ts.html |here} to see how to use DeleteAlertRule API.
    */
   public async deleteAlertRule(
     deleteAlertRuleRequest: requests.DeleteAlertRuleRequest
@@ -327,6 +330,7 @@ export class BudgetClient {
    * @param DeleteBudgetRequest
    * @return DeleteBudgetResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/budget/DeleteBudget.ts.html |here} to see how to use DeleteBudget API.
    */
   public async deleteBudget(
     deleteBudgetRequest: requests.DeleteBudgetRequest
@@ -382,6 +386,7 @@ export class BudgetClient {
    * @param GetAlertRuleRequest
    * @return GetAlertRuleResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/budget/GetAlertRule.ts.html |here} to see how to use GetAlertRule API.
    */
   public async getAlertRule(
     getAlertRuleRequest: requests.GetAlertRuleRequest
@@ -445,6 +450,7 @@ export class BudgetClient {
    * @param GetBudgetRequest
    * @return GetBudgetResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/budget/GetBudget.ts.html |here} to see how to use GetBudget API.
    */
   public async getBudget(
     getBudgetRequest: requests.GetBudgetRequest
@@ -508,6 +514,7 @@ export class BudgetClient {
    * @param ListAlertRulesRequest
    * @return ListAlertRulesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/budget/ListAlertRules.ts.html |here} to see how to use ListAlertRules API.
    */
   public async listAlertRules(
     listAlertRulesRequest: requests.ListAlertRulesRequest
@@ -612,6 +619,7 @@ Additional targetTypes would be available in future releases. Clients should ign
      * @param ListBudgetsRequest
      * @return ListBudgetsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/budget/ListBudgets.ts.html |here} to see how to use ListBudgets API.
      */
   public async listBudgets(
     listBudgetsRequest: requests.ListBudgetsRequest
@@ -706,6 +714,7 @@ Additional targetTypes would be available in future releases. Clients should ign
    * @param UpdateAlertRuleRequest
    * @return UpdateAlertRuleResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/budget/UpdateAlertRule.ts.html |here} to see how to use UpdateAlertRule API.
    */
   public async updateAlertRule(
     updateAlertRuleRequest: requests.UpdateAlertRuleRequest
@@ -775,6 +784,7 @@ Additional targetTypes would be available in future releases. Clients should ign
    * @param UpdateBudgetRequest
    * @return UpdateBudgetResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/budget/UpdateBudget.ts.html |here} to see how to use UpdateBudget API.
    */
   public async updateBudget(
     updateBudgetRequest: requests.UpdateBudgetRequest

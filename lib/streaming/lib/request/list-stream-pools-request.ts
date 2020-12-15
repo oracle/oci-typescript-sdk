@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/ListStreamPools.ts.html |here} to see how to use ListStreamPoolsRequest.
+ */
 export interface ListStreamPoolsRequest extends common.BaseRequest {
   /**
    * The OCID of the compartment.

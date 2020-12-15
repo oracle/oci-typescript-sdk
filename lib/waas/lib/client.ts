@@ -138,6 +138,7 @@ export class RedirectClient {
    * @param ChangeHttpRedirectCompartmentRequest
    * @return ChangeHttpRedirectCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ChangeHttpRedirectCompartment.ts.html |here} to see how to use ChangeHttpRedirectCompartment API.
    */
   public async changeHttpRedirectCompartment(
     changeHttpRedirectCompartmentRequest: requests.ChangeHttpRedirectCompartmentRequest
@@ -200,6 +201,7 @@ export class RedirectClient {
    * @param CreateHttpRedirectRequest
    * @return CreateHttpRedirectResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/CreateHttpRedirect.ts.html |here} to see how to use CreateHttpRedirect API.
    */
   public async createHttpRedirect(
     createHttpRedirectRequest: requests.CreateHttpRedirectRequest
@@ -263,6 +265,7 @@ export class RedirectClient {
    * @param DeleteHttpRedirectRequest
    * @return DeleteHttpRedirectResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/DeleteHttpRedirect.ts.html |here} to see how to use DeleteHttpRedirect API.
    */
   public async deleteHttpRedirect(
     deleteHttpRedirectRequest: requests.DeleteHttpRedirectRequest
@@ -324,6 +327,7 @@ export class RedirectClient {
    * @param GetHttpRedirectRequest
    * @return GetHttpRedirectResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/GetHttpRedirect.ts.html |here} to see how to use GetHttpRedirect API.
    */
   public async getHttpRedirect(
     getHttpRedirectRequest: requests.GetHttpRedirectRequest
@@ -386,6 +390,7 @@ export class RedirectClient {
    * @param ListHttpRedirectsRequest
    * @return ListHttpRedirectsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ListHttpRedirects.ts.html |here} to see how to use ListHttpRedirects API.
    */
   public async listHttpRedirects(
     listHttpRedirectsRequest: requests.ListHttpRedirectsRequest
@@ -482,6 +487,7 @@ export class RedirectClient {
    * @param UpdateHttpRedirectRequest
    * @return UpdateHttpRedirectResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/UpdateHttpRedirect.ts.html |here} to see how to use UpdateHttpRedirect API.
    */
   public async updateHttpRedirect(
     updateHttpRedirectRequest: requests.UpdateHttpRedirectRequest
@@ -659,6 +665,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
      * @param AcceptRecommendationsRequest
      * @return AcceptRecommendationsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/AcceptRecommendations.ts.html |here} to see how to use AcceptRecommendations API.
      */
   public async acceptRecommendations(
     acceptRecommendationsRequest: requests.AcceptRecommendationsRequest
@@ -723,6 +730,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -782,6 +790,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
    * @param ChangeAddressListCompartmentRequest
    * @return ChangeAddressListCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ChangeAddressListCompartment.ts.html |here} to see how to use ChangeAddressListCompartment API.
    */
   public async changeAddressListCompartment(
     changeAddressListCompartmentRequest: requests.ChangeAddressListCompartmentRequest
@@ -846,6 +855,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
    * @param ChangeCertificateCompartmentRequest
    * @return ChangeCertificateCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ChangeCertificateCompartment.ts.html |here} to see how to use ChangeCertificateCompartment API.
    */
   public async changeCertificateCompartment(
     changeCertificateCompartmentRequest: requests.ChangeCertificateCompartmentRequest
@@ -908,6 +918,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
    * @param ChangeCustomProtectionRuleCompartmentRequest
    * @return ChangeCustomProtectionRuleCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ChangeCustomProtectionRuleCompartment.ts.html |here} to see how to use ChangeCustomProtectionRuleCompartment API.
    */
   public async changeCustomProtectionRuleCompartment(
     changeCustomProtectionRuleCompartmentRequest: requests.ChangeCustomProtectionRuleCompartmentRequest
@@ -973,6 +984,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
    * @param ChangeWaasPolicyCompartmentRequest
    * @return ChangeWaasPolicyCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ChangeWaasPolicyCompartment.ts.html |here} to see how to use ChangeWaasPolicyCompartment API.
    */
   public async changeWaasPolicyCompartment(
     changeWaasPolicyCompartmentRequest: requests.ChangeWaasPolicyCompartmentRequest
@@ -1034,6 +1046,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
    * @param CreateAddressListRequest
    * @return CreateAddressListResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/CreateAddressList.ts.html |here} to see how to use CreateAddressList API.
    */
   public async createAddressList(
     createAddressListRequest: requests.CreateAddressListRequest
@@ -1102,6 +1115,7 @@ For more information, see [WAF Settings](https://docs.cloud.oracle.com/iaas/Cont
      * @param CreateCertificateRequest
      * @return CreateCertificateResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/CreateCertificate.ts.html |here} to see how to use CreateCertificate API.
      */
   public async createCertificate(
     createCertificateRequest: requests.CreateCertificateRequest
@@ -1170,6 +1184,7 @@ Custom protection rules allow you to create rules in addition to the rulesets pr
      * @param CreateCustomProtectionRuleRequest
      * @return CreateCustomProtectionRuleResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/CreateCustomProtectionRule.ts.html |here} to see how to use CreateCustomProtectionRule API.
      */
   public async createCustomProtectionRule(
     createCustomProtectionRuleRequest: requests.CreateCustomProtectionRuleRequest
@@ -1248,6 +1263,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
      * @param CreateWaasPolicyRequest
      * @return CreateWaasPolicyResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/CreateWaasPolicy.ts.html |here} to see how to use CreateWaasPolicy API.
      */
   public async createWaasPolicy(
     createWaasPolicyRequest: requests.CreateWaasPolicyRequest
@@ -1316,6 +1332,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
    * @param DeleteAddressListRequest
    * @return DeleteAddressListResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/DeleteAddressList.ts.html |here} to see how to use DeleteAddressList API.
    */
   public async deleteAddressList(
     deleteAddressListRequest: requests.DeleteAddressListRequest
@@ -1372,6 +1389,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
    * @param DeleteCertificateRequest
    * @return DeleteCertificateResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/DeleteCertificate.ts.html |here} to see how to use DeleteCertificate API.
    */
   public async deleteCertificate(
     deleteCertificateRequest: requests.DeleteCertificateRequest
@@ -1428,6 +1446,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
    * @param DeleteCustomProtectionRuleRequest
    * @return DeleteCustomProtectionRuleResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/DeleteCustomProtectionRule.ts.html |here} to see how to use DeleteCustomProtectionRule API.
    */
   public async deleteCustomProtectionRule(
     deleteCustomProtectionRuleRequest: requests.DeleteCustomProtectionRuleRequest
@@ -1484,6 +1503,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
    * @param DeleteWaasPolicyRequest
    * @return DeleteWaasPolicyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/DeleteWaasPolicy.ts.html |here} to see how to use DeleteWaasPolicy API.
    */
   public async deleteWaasPolicy(
     deleteWaasPolicyRequest: requests.DeleteWaasPolicyRequest
@@ -1545,6 +1565,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
    * @param GetAddressListRequest
    * @return GetAddressListResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/GetAddressList.ts.html |here} to see how to use GetAddressList API.
    */
   public async getAddressList(
     getAddressListRequest: requests.GetAddressListRequest
@@ -1607,6 +1628,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
    * @param GetCertificateRequest
    * @return GetCertificateResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/GetCertificate.ts.html |here} to see how to use GetCertificate API.
    */
   public async getCertificate(
     getCertificateRequest: requests.GetCertificateRequest
@@ -1669,6 +1691,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
    * @param GetCustomProtectionRuleRequest
    * @return GetCustomProtectionRuleResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/GetCustomProtectionRule.ts.html |here} to see how to use GetCustomProtectionRule API.
    */
   public async getCustomProtectionRule(
     getCustomProtectionRuleRequest: requests.GetCustomProtectionRuleRequest
@@ -1731,6 +1754,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
    * @param GetDeviceFingerprintChallengeRequest
    * @return GetDeviceFingerprintChallengeResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/GetDeviceFingerprintChallenge.ts.html |here} to see how to use GetDeviceFingerprintChallenge API.
    */
   public async getDeviceFingerprintChallenge(
     getDeviceFingerprintChallengeRequest: requests.GetDeviceFingerprintChallengeRequest
@@ -1794,6 +1818,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
    * @param GetHumanInteractionChallengeRequest
    * @return GetHumanInteractionChallengeResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/GetHumanInteractionChallenge.ts.html |here} to see how to use GetHumanInteractionChallenge API.
    */
   public async getHumanInteractionChallenge(
     getHumanInteractionChallengeRequest: requests.GetHumanInteractionChallengeRequest
@@ -1857,6 +1882,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
    * @param GetJsChallengeRequest
    * @return GetJsChallengeResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/GetJsChallenge.ts.html |here} to see how to use GetJsChallenge API.
    */
   public async getJsChallenge(
     getJsChallengeRequest: requests.GetJsChallengeRequest
@@ -1919,6 +1945,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
    * @param GetPolicyConfigRequest
    * @return GetPolicyConfigResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/GetPolicyConfig.ts.html |here} to see how to use GetPolicyConfig API.
    */
   public async getPolicyConfig(
     getPolicyConfigRequest: requests.GetPolicyConfigRequest
@@ -1981,6 +2008,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
    * @param GetProtectionRuleRequest
    * @return GetProtectionRuleResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/GetProtectionRule.ts.html |here} to see how to use GetProtectionRule API.
    */
   public async getProtectionRule(
     getProtectionRuleRequest: requests.GetProtectionRuleRequest
@@ -2044,6 +2072,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
    * @param GetProtectionSettingsRequest
    * @return GetProtectionSettingsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/GetProtectionSettings.ts.html |here} to see how to use GetProtectionSettings API.
    */
   public async getProtectionSettings(
     getProtectionSettingsRequest: requests.GetProtectionSettingsRequest
@@ -2106,6 +2135,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
    * @param GetWaasPolicyRequest
    * @return GetWaasPolicyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/GetWaasPolicy.ts.html |here} to see how to use GetWaasPolicy API.
    */
   public async getWaasPolicy(
     getWaasPolicyRequest: requests.GetWaasPolicyRequest
@@ -2168,6 +2198,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
    * @param GetWafAddressRateLimitingRequest
    * @return GetWafAddressRateLimitingResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/GetWafAddressRateLimiting.ts.html |here} to see how to use GetWafAddressRateLimiting API.
    */
   public async getWafAddressRateLimiting(
     getWafAddressRateLimitingRequest: requests.GetWafAddressRateLimitingRequest
@@ -2230,6 +2261,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
    * @param GetWafConfigRequest
    * @return GetWafConfigResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/GetWafConfig.ts.html |here} to see how to use GetWafConfig API.
    */
   public async getWafConfig(
     getWafConfigRequest: requests.GetWafConfigRequest
@@ -2292,6 +2324,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -2360,6 +2393,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
    * @param ListAccessRulesRequest
    * @return ListAccessRulesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ListAccessRules.ts.html |here} to see how to use ListAccessRules API.
    */
   public async listAccessRules(
     listAccessRulesRequest: requests.ListAccessRulesRequest
@@ -2455,6 +2489,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
    * @param ListAddressListsRequest
    * @return ListAddressListsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ListAddressLists.ts.html |here} to see how to use ListAddressLists API.
    */
   public async listAddressLists(
     listAddressListsRequest: requests.ListAddressListsRequest
@@ -2552,6 +2587,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
    * @param ListCachingRulesRequest
    * @return ListCachingRulesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ListCachingRules.ts.html |here} to see how to use ListCachingRules API.
    */
   public async listCachingRules(
     listCachingRulesRequest: requests.ListCachingRulesRequest
@@ -2652,6 +2688,7 @@ The order of the CAPTCHA challenges is important. The URL for each
      * @param ListCaptchasRequest
      * @return ListCaptchasResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ListCaptchas.ts.html |here} to see how to use ListCaptchas API.
      */
   public async listCaptchas(
     listCaptchasRequest: requests.ListCaptchasRequest
@@ -2747,6 +2784,7 @@ The order of the CAPTCHA challenges is important. The URL for each
    * @param ListCertificatesRequest
    * @return ListCertificatesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ListCertificates.ts.html |here} to see how to use ListCertificates API.
    */
   public async listCertificates(
     listCertificatesRequest: requests.ListCertificatesRequest
@@ -2843,6 +2881,7 @@ The order of the CAPTCHA challenges is important. The URL for each
    * @param ListCustomProtectionRulesRequest
    * @return ListCustomProtectionRulesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ListCustomProtectionRules.ts.html |here} to see how to use ListCustomProtectionRules API.
    */
   public async listCustomProtectionRules(
     listCustomProtectionRulesRequest: requests.ListCustomProtectionRulesRequest
@@ -2940,6 +2979,7 @@ The order of the CAPTCHA challenges is important. The URL for each
    * @param ListEdgeSubnetsRequest
    * @return ListEdgeSubnetsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ListEdgeSubnets.ts.html |here} to see how to use ListEdgeSubnets API.
    */
   public async listEdgeSubnets(
     listEdgeSubnetsRequest: requests.ListEdgeSubnetsRequest
@@ -3033,6 +3073,7 @@ The list is sorted by `key`, in ascending order.
      * @param ListGoodBotsRequest
      * @return ListGoodBotsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ListGoodBots.ts.html |here} to see how to use ListGoodBots API.
      */
   public async listGoodBots(
     listGoodBotsRequest: requests.ListGoodBotsRequest
@@ -3129,6 +3170,7 @@ The list is sorted by `key`, in ascending order.
    * @param ListProtectionRulesRequest
    * @return ListProtectionRulesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ListProtectionRules.ts.html |here} to see how to use ListProtectionRules API.
    */
   public async listProtectionRules(
     listProtectionRulesRequest: requests.ListProtectionRulesRequest
@@ -3229,6 +3271,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
      * @param ListRecommendationsRequest
      * @return ListRecommendationsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ListRecommendations.ts.html |here} to see how to use ListRecommendations API.
      */
   public async listRecommendations(
     listRecommendationsRequest: requests.ListRecommendationsRequest
@@ -3328,6 +3371,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    * @param ListThreatFeedsRequest
    * @return ListThreatFeedsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ListThreatFeeds.ts.html |here} to see how to use ListThreatFeeds API.
    */
   public async listThreatFeeds(
     listThreatFeedsRequest: requests.ListThreatFeedsRequest
@@ -3423,6 +3467,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    * @param ListWaasPoliciesRequest
    * @return ListWaasPoliciesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ListWaasPolicies.ts.html |here} to see how to use ListWaasPolicies API.
    */
   public async listWaasPolicies(
     listWaasPoliciesRequest: requests.ListWaasPoliciesRequest
@@ -3519,6 +3564,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    * @param ListWaasPolicyCustomProtectionRulesRequest
    * @return ListWaasPolicyCustomProtectionRulesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ListWaasPolicyCustomProtectionRules.ts.html |here} to see how to use ListWaasPolicyCustomProtectionRules API.
    */
   public async listWaasPolicyCustomProtectionRules(
     listWaasPolicyCustomProtectionRulesRequest: requests.ListWaasPolicyCustomProtectionRulesRequest
@@ -3617,6 +3663,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    * @param ListWafBlockedRequestsRequest
    * @return ListWafBlockedRequestsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ListWafBlockedRequests.ts.html |here} to see how to use ListWafBlockedRequests API.
    */
   public async listWafBlockedRequests(
     listWafBlockedRequestsRequest: requests.ListWafBlockedRequestsRequest
@@ -3714,6 +3761,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    * @param ListWafLogsRequest
    * @return ListWafLogsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ListWafLogs.ts.html |here} to see how to use ListWafLogs API.
    */
   public async listWafLogs(
     listWafLogsRequest: requests.ListWafLogsRequest
@@ -3826,6 +3874,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    * @param ListWafRequestsRequest
    * @return ListWafRequestsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ListWafRequests.ts.html |here} to see how to use ListWafRequests API.
    */
   public async listWafRequests(
     listWafRequestsRequest: requests.ListWafRequestsRequest
@@ -3920,6 +3969,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    * @param ListWafTrafficRequest
    * @return ListWafTrafficResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ListWafTraffic.ts.html |here} to see how to use ListWafTraffic API.
    */
   public async listWafTraffic(
     listWafTrafficRequest: requests.ListWafTrafficRequest
@@ -4012,6 +4062,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    * @param ListWhitelistsRequest
    * @return ListWhitelistsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ListWhitelists.ts.html |here} to see how to use ListWhitelists API.
    */
   public async listWhitelists(
     listWhitelistsRequest: requests.ListWhitelistsRequest
@@ -4107,6 +4158,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -4200,6 +4252,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    * @param PurgeCacheRequest
    * @return PurgeCacheResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/PurgeCache.ts.html |here} to see how to use PurgeCache API.
    */
   public async purgeCache(
     purgeCacheRequest: requests.PurgeCacheRequest
@@ -4273,6 +4326,7 @@ Any existing access rules that are not specified with a `key` in the list of acc
      * @param UpdateAccessRulesRequest
      * @return UpdateAccessRulesResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/UpdateAccessRules.ts.html |here} to see how to use UpdateAccessRules API.
      */
   public async updateAccessRules(
     updateAccessRulesRequest: requests.UpdateAccessRulesRequest
@@ -4339,6 +4393,7 @@ Any existing access rules that are not specified with a `key` in the list of acc
    * @param UpdateAddressListRequest
    * @return UpdateAddressListResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/UpdateAddressList.ts.html |here} to see how to use UpdateAddressList API.
    */
   public async updateAddressList(
     updateAddressListRequest: requests.UpdateAddressListRequest
@@ -4413,6 +4468,7 @@ The order the caching rules are specified in is important. The rules are process
      * @param UpdateCachingRulesRequest
      * @return UpdateCachingRulesResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/UpdateCachingRules.ts.html |here} to see how to use UpdateCachingRules API.
      */
   public async updateCachingRules(
     updateCachingRulesRequest: requests.UpdateCachingRulesRequest
@@ -4487,6 +4543,7 @@ Query parameters are allowed in CAPTCHA URL.
      * @param UpdateCaptchasRequest
      * @return UpdateCaptchasResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/UpdateCaptchas.ts.html |here} to see how to use UpdateCaptchas API.
      */
   public async updateCaptchas(
     updateCaptchasRequest: requests.UpdateCaptchasRequest
@@ -4553,6 +4610,7 @@ Query parameters are allowed in CAPTCHA URL.
    * @param UpdateCertificateRequest
    * @return UpdateCertificateResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/UpdateCertificate.ts.html |here} to see how to use UpdateCertificate API.
    */
   public async updateCertificate(
     updateCertificateRequest: requests.UpdateCertificateRequest
@@ -4621,6 +4679,7 @@ Query parameters are allowed in CAPTCHA URL.
    * @param UpdateCustomProtectionRuleRequest
    * @return UpdateCustomProtectionRuleResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/UpdateCustomProtectionRule.ts.html |here} to see how to use UpdateCustomProtectionRule API.
    */
   public async updateCustomProtectionRule(
     updateCustomProtectionRuleRequest: requests.UpdateCustomProtectionRuleRequest
@@ -4694,6 +4753,7 @@ DFC collects attributes to generate a hashed signature about a client - if a fin
      * @param UpdateDeviceFingerprintChallengeRequest
      * @return UpdateDeviceFingerprintChallengeResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/UpdateDeviceFingerprintChallenge.ts.html |here} to see how to use UpdateDeviceFingerprintChallenge API.
      */
   public async updateDeviceFingerprintChallenge(
     updateDeviceFingerprintChallengeRequest: requests.UpdateDeviceFingerprintChallengeRequest
@@ -4763,6 +4823,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
      * @param UpdateGoodBotsRequest
      * @return UpdateGoodBotsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/UpdateGoodBots.ts.html |here} to see how to use UpdateGoodBots API.
      */
   public async updateGoodBots(
     updateGoodBotsRequest: requests.UpdateGoodBotsRequest
@@ -4829,6 +4890,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
    * @param UpdateHumanInteractionChallengeRequest
    * @return UpdateHumanInteractionChallengeResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/UpdateHumanInteractionChallenge.ts.html |here} to see how to use UpdateHumanInteractionChallenge API.
    */
   public async updateHumanInteractionChallenge(
     updateHumanInteractionChallengeRequest: requests.UpdateHumanInteractionChallengeRequest
@@ -4896,6 +4958,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
    * @param UpdateJsChallengeRequest
    * @return UpdateJsChallengeResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/UpdateJsChallenge.ts.html |here} to see how to use UpdateJsChallenge API.
    */
   public async updateJsChallenge(
     updateJsChallengeRequest: requests.UpdateJsChallengeRequest
@@ -4962,6 +5025,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
    * @param UpdatePolicyConfigRequest
    * @return UpdatePolicyConfigResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/UpdatePolicyConfig.ts.html |here} to see how to use UpdatePolicyConfig API.
    */
   public async updatePolicyConfig(
     updatePolicyConfigRequest: requests.UpdatePolicyConfigRequest
@@ -5030,6 +5094,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
    * @param UpdateProtectionRulesRequest
    * @return UpdateProtectionRulesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/UpdateProtectionRules.ts.html |here} to see how to use UpdateProtectionRules API.
    */
   public async updateProtectionRules(
     updateProtectionRulesRequest: requests.UpdateProtectionRulesRequest
@@ -5095,6 +5160,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
    * @param UpdateProtectionSettingsRequest
    * @return UpdateProtectionSettingsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/UpdateProtectionSettings.ts.html |here} to see how to use UpdateProtectionSettings API.
    */
   public async updateProtectionSettings(
     updateProtectionSettingsRequest: requests.UpdateProtectionSettingsRequest
@@ -5161,6 +5227,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
    * @param UpdateThreatFeedsRequest
    * @return UpdateThreatFeedsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/UpdateThreatFeeds.ts.html |here} to see how to use UpdateThreatFeeds API.
    */
   public async updateThreatFeeds(
     updateThreatFeedsRequest: requests.UpdateThreatFeedsRequest
@@ -5228,6 +5295,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
    * @param UpdateWaasPolicyRequest
    * @return UpdateWaasPolicyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/UpdateWaasPolicy.ts.html |here} to see how to use UpdateWaasPolicy API.
    */
   public async updateWaasPolicy(
     updateWaasPolicyRequest: requests.UpdateWaasPolicyRequest
@@ -5294,6 +5362,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
    * @param UpdateWaasPolicyCustomProtectionRulesRequest
    * @return UpdateWaasPolicyCustomProtectionRulesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/UpdateWaasPolicyCustomProtectionRules.ts.html |here} to see how to use UpdateWaasPolicyCustomProtectionRules API.
    */
   public async updateWaasPolicyCustomProtectionRules(
     updateWaasPolicyCustomProtectionRulesRequest: requests.UpdateWaasPolicyCustomProtectionRulesRequest
@@ -5361,6 +5430,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
    * @param UpdateWafAddressRateLimitingRequest
    * @return UpdateWafAddressRateLimitingResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/UpdateWafAddressRateLimiting.ts.html |here} to see how to use UpdateWafAddressRateLimiting API.
    */
   public async updateWafAddressRateLimiting(
     updateWafAddressRateLimitingRequest: requests.UpdateWafAddressRateLimitingRequest
@@ -5436,6 +5506,7 @@ The returned list will contain objects with `key` properties that can be used to
      * @param UpdateWafConfigRequest
      * @return UpdateWafConfigResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/UpdateWafConfig.ts.html |here} to see how to use UpdateWafConfig API.
      */
   public async updateWafConfig(
     updateWafConfigRequest: requests.UpdateWafConfigRequest
@@ -5510,6 +5581,7 @@ Whitelists can be deleted by removing the existing whitelist object from the lis
      * @param UpdateWhitelistsRequest
      * @return UpdateWhitelistsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/UpdateWhitelists.ts.html |here} to see how to use UpdateWhitelists API.
      */
   public async updateWhitelists(
     updateWhitelistsRequest: requests.UpdateWhitelistsRequest

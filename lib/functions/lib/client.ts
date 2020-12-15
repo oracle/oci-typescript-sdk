@@ -75,6 +75,7 @@ export class FunctionsInvokeClient {
    * @param InvokeFunctionRequest
    * @return InvokeFunctionResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/functions/InvokeFunction.ts.html |here} to see how to use InvokeFunction API.
    */
   public async invokeFunction(
     invokeFunctionRequest: requests.InvokeFunctionRequest
@@ -245,6 +246,7 @@ export class FunctionsManagementClient {
    * @param ChangeApplicationCompartmentRequest
    * @return ChangeApplicationCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/functions/ChangeApplicationCompartment.ts.html |here} to see how to use ChangeApplicationCompartment API.
    */
   public async changeApplicationCompartment(
     changeApplicationCompartmentRequest: requests.ChangeApplicationCompartmentRequest
@@ -308,6 +310,7 @@ export class FunctionsManagementClient {
    * @param CreateApplicationRequest
    * @return CreateApplicationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/functions/CreateApplication.ts.html |here} to see how to use CreateApplication API.
    */
   public async createApplication(
     createApplicationRequest: requests.CreateApplicationRequest
@@ -374,6 +377,7 @@ export class FunctionsManagementClient {
    * @param CreateFunctionRequest
    * @return CreateFunctionResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/functions/CreateFunction.ts.html |here} to see how to use CreateFunction API.
    */
   public async createFunction(
     createFunctionRequest: requests.CreateFunctionRequest
@@ -440,6 +444,7 @@ export class FunctionsManagementClient {
    * @param DeleteApplicationRequest
    * @return DeleteApplicationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/functions/DeleteApplication.ts.html |here} to see how to use DeleteApplication API.
    */
   public async deleteApplication(
     deleteApplicationRequest: requests.DeleteApplicationRequest
@@ -496,6 +501,7 @@ export class FunctionsManagementClient {
    * @param DeleteFunctionRequest
    * @return DeleteFunctionResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/functions/DeleteFunction.ts.html |here} to see how to use DeleteFunction API.
    */
   public async deleteFunction(
     deleteFunctionRequest: requests.DeleteFunctionRequest
@@ -552,6 +558,7 @@ export class FunctionsManagementClient {
    * @param GetApplicationRequest
    * @return GetApplicationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/functions/GetApplication.ts.html |here} to see how to use GetApplication API.
    */
   public async getApplication(
     getApplicationRequest: requests.GetApplicationRequest
@@ -615,6 +622,7 @@ export class FunctionsManagementClient {
    * @param GetFunctionRequest
    * @return GetFunctionResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/functions/GetFunction.ts.html |here} to see how to use GetFunction API.
    */
   public async getFunction(
     getFunctionRequest: requests.GetFunctionRequest
@@ -677,6 +685,7 @@ export class FunctionsManagementClient {
    * @param ListApplicationsRequest
    * @return ListApplicationsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/functions/ListApplications.ts.html |here} to see how to use ListApplications API.
    */
   public async listApplications(
     listApplicationsRequest: requests.ListApplicationsRequest
@@ -772,6 +781,7 @@ export class FunctionsManagementClient {
    * @param ListFunctionsRequest
    * @return ListFunctionsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/functions/ListFunctions.ts.html |here} to see how to use ListFunctions API.
    */
   public async listFunctions(
     listFunctionsRequest: requests.ListFunctionsRequest
@@ -867,6 +877,7 @@ export class FunctionsManagementClient {
    * @param UpdateApplicationRequest
    * @return UpdateApplicationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/functions/UpdateApplication.ts.html |here} to see how to use UpdateApplication API.
    */
   public async updateApplication(
     updateApplicationRequest: requests.UpdateApplicationRequest
@@ -936,6 +947,7 @@ export class FunctionsManagementClient {
    * @param UpdateFunctionRequest
    * @return UpdateFunctionResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/functions/UpdateFunction.ts.html |here} to see how to use UpdateFunction API.
    */
   public async updateFunction(
     updateFunctionRequest: requests.UpdateFunctionRequest

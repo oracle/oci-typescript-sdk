@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousVmCluster.ts.html |here} to see how to use GetAutonomousVmClusterRequest.
+ */
 export interface GetAutonomousVmClusterRequest extends common.BaseRequest {
   /**
    * The autonomous VM cluster [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).

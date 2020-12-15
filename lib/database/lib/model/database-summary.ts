@@ -70,7 +70,7 @@ export interface DatabaseSummary {
    */
   "dbUniqueName": string;
   /**
-   * Additional information about the current lifecycleState.
+   * Additional information about the current lifecycle state.
    */
   "lifecycleDetails"?: string;
   /**
@@ -104,6 +104,10 @@ Example: `{\"Department\": \"Finance\"}`
    * The Connection strings used to connect to the Oracle Database.
    */
   "connectionStrings"?: model.DatabaseConnectionStrings;
+  /**
+   * The OCID of the key container that is used as the master encryption key in database transparent data encryption (TDE) operations.
+   */
+  "kmsKeyId"?: string;
   /**
    * Point in time recovery timeStamp of the source database at which cloned database system is cloned from the source database system, as described in [RFC 3339](https://tools.ietf.org/rfc/rfc3339)
    */

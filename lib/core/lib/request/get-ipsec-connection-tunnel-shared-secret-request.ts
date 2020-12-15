@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetIPSecConnectionTunnelSharedSecret.ts.html |here} to see how to use GetIPSecConnectionTunnelSharedSecretRequest.
+ */
 export interface GetIPSecConnectionTunnelSharedSecretRequest extends common.BaseRequest {
   /**
    * The OCID of the IPSec connection.

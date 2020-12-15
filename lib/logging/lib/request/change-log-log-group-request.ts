@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ChangeLogLogGroup.ts.html |here} to see how to use ChangeLogLogGroupRequest.
+ */
 export interface ChangeLogLogGroupRequest extends common.BaseRequest {
   /**
    * OCID of a log group to work with.

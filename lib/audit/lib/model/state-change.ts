@@ -19,18 +19,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* A container object for state change attributes.
-* <p>
-Example:
-* <p>
-  -----
-*     {
-*       \"previous\": null,
-*       \"current\": null
-*     }
-*   -----
-* 
-*/
+ * A container object for state change attributes.
+ *
+ */
 export interface StateChange {
   /**
    * Provides the previous state of fields that may have changed during an operation. To determine

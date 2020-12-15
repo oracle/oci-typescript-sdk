@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/GetStatus.ts.html |here} to see how to use GetStatusRequest.
+ */
 export interface GetStatusRequest extends common.BaseRequest {
   /**
    * The system that generated the support ticket, such as My Oracle Support.

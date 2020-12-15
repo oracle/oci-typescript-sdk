@@ -139,6 +139,7 @@ export class EventsClient {
    * @param ChangeRuleCompartmentRequest
    * @return ChangeRuleCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/events/ChangeRuleCompartment.ts.html |here} to see how to use ChangeRuleCompartment API.
    */
   public async changeRuleCompartment(
     changeRuleCompartmentRequest: requests.ChangeRuleCompartmentRequest
@@ -201,6 +202,7 @@ export class EventsClient {
    * @param CreateRuleRequest
    * @return CreateRuleResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/events/CreateRule.ts.html |here} to see how to use CreateRule API.
    */
   public async createRule(
     createRuleRequest: requests.CreateRuleRequest
@@ -267,6 +269,7 @@ export class EventsClient {
    * @param DeleteRuleRequest
    * @return DeleteRuleResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/events/DeleteRule.ts.html |here} to see how to use DeleteRule API.
    */
   public async deleteRule(
     deleteRuleRequest: requests.DeleteRuleRequest
@@ -322,6 +325,7 @@ export class EventsClient {
    * @param GetRuleRequest
    * @return GetRuleResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/events/GetRule.ts.html |here} to see how to use GetRule API.
    */
   public async getRule(
     getRuleRequest: requests.GetRuleRequest
@@ -385,6 +389,7 @@ export class EventsClient {
    * @param ListRulesRequest
    * @return ListRulesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/events/ListRules.ts.html |here} to see how to use ListRules API.
    */
   public async listRules(
     listRulesRequest: requests.ListRulesRequest
@@ -479,6 +484,7 @@ export class EventsClient {
    * @param UpdateRuleRequest
    * @return UpdateRuleResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/events/UpdateRule.ts.html |here} to see how to use UpdateRule API.
    */
   public async updateRule(
     updateRuleRequest: requests.UpdateRuleRequest

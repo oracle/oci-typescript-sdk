@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListConfigurationSourceProviders.ts.html |here} to see how to use ListConfigurationSourceProvidersRequest.
+ */
 export interface ListConfigurationSourceProvidersRequest extends common.BaseRequest {
   /**
    * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a
@@ -59,6 +63,11 @@ export interface ListConfigurationSourceProvidersRequest extends common.BaseRequ
    *
    */
   "page"?: string;
+  /**
+   * A filter to return only configuration source providers of the specified type (GitHub or GitLab).
+   *
+   */
+  "configSourceProviderType"?: string;
 }
 
 export namespace ListConfigurationSourceProvidersRequest {

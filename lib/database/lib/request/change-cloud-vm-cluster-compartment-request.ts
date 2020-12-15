@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeCloudVmClusterCompartment.ts.html |here} to see how to use ChangeCloudVmClusterCompartmentRequest.
+ */
 export interface ChangeCloudVmClusterCompartmentRequest extends common.BaseRequest {
   /**
    * Request to move cloud VM cluster to a different compartment

@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/CreateIndex.ts.html |here} to see how to use CreateIndexRequest.
+ */
 export interface CreateIndexRequest extends common.BaseRequest {
   /**
    * A table name within the compartment, or a table OCID.

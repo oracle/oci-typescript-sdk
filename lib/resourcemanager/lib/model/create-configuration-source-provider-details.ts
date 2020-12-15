@@ -66,6 +66,11 @@ export namespace CreateConfigurationSourceProviderDetails {
             <model.CreateGitlabAccessTokenConfigurationSourceProviderDetails>(<object>jsonObj),
             true
           );
+        case "GITHUB_ACCESS_TOKEN":
+          return model.CreateGithubAccessTokenConfigurationSourceProviderDetails.getJsonObj(
+            <model.CreateGithubAccessTokenConfigurationSourceProviderDetails>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.configSourceProviderType);
       }

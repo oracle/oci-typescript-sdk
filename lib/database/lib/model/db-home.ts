@@ -53,13 +53,17 @@ export interface DbHome {
    */
   "dbHomeLocation": string;
   /**
-   * Additional information about the current lifecycleState.
+   * Additional information about the current lifecycle state.
    */
   "lifecycleDetails"?: string;
   /**
    * The date and time the Database Home was created.
    */
   "timeCreated"?: Date;
+  /**
+   * The OCID of the key container that is used as the master encryption key in database transparent data encryption (TDE) operations.
+   */
+  "kmsKeyId"?: string;
   /**
    * List of one-off patches for Database Homes.
    */

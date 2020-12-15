@@ -23,7 +23,7 @@ const userID = "<INSERT_SAMPLE_USER_OCID_HERE>";
   };
 
   // 3. sign request
-  signer.signHttpRequest(httpRequest);
+  await signer.signHttpRequest(httpRequest);
 
   // 4. Make the call
   const response = await fetch(

@@ -7,7 +7,6 @@
  * <ul>
  *  <li>The first argument is the OCID of the tenancy.</li>
  *  <li>The second argument is the OCID of the compartment.</li>
- *  <li>The third argument is region.</li>
  * </ul>
  */
 
@@ -19,7 +18,7 @@ const common = require("oci-common");
 const provider = new common.ConfigFileAuthenticationDetailsProvider();
 const args = process.argv.slice(2);
 console.log(args);
-if (args.length !== 3) {
+if (args.length !== 2) {
   console.error(
     "Unexpected number of arguments received. Consult the script header comments for expected arguments"
   );
@@ -28,7 +27,6 @@ if (args.length !== 3) {
 
 const tenancyId = args[0];
 const compartmentId = args[1];
-const region = args[2];
 
 let subnetId = null;
 let vcnId = null;
@@ -37,26 +35,22 @@ let instanceId = null;
 const computeClient = new core.ComputeClient({
   authenticationDetailsProvider: provider
 });
-computeClient.regionId = region;
 
 const workRequestClient = new wr.WorkRequestClient({
   authenticationDetailsProvider: provider
 });
-workRequestClient.regionId = region;
 
 const computeWaiter = computeClient.createWaiters(workRequestClient);
 
 const virtualNetworkClient = new core.VirtualNetworkClient({
   authenticationDetailsProvider: provider
 });
-virtualNetworkClient.regionId = region;
 
 const virtualNetworkWaiter = virtualNetworkClient.createWaiters(workRequestClient);
 
 const identityClient = new identity.IdentityClient({
   authenticationDetailsProvider: provider
 });
-identityClient.regionId = region;
 
 async function getAvailabilityDomain() {
   const request = {

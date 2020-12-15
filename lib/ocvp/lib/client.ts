@@ -143,6 +143,7 @@ Use the {@link WorkRequest} operations to track the
      * @param CreateEsxiHostRequest
      * @return CreateEsxiHostResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/CreateEsxiHost.ts.html |here} to see how to use CreateEsxiHost API.
      */
   public async createEsxiHost(
     createEsxiHostRequest: requests.CreateEsxiHostRequest
@@ -220,6 +221,7 @@ Use the {@link WorkRequest} operations to track the
      * @param DeleteEsxiHostRequest
      * @return DeleteEsxiHostResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/DeleteEsxiHost.ts.html |here} to see how to use DeleteEsxiHost API.
      */
   public async deleteEsxiHost(
     deleteEsxiHostRequest: requests.DeleteEsxiHostRequest
@@ -280,6 +282,7 @@ Use the {@link WorkRequest} operations to track the
    * @param GetEsxiHostRequest
    * @return GetEsxiHostResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/GetEsxiHost.ts.html |here} to see how to use GetEsxiHost API.
    */
   public async getEsxiHost(
     getEsxiHostRequest: requests.GetEsxiHostRequest
@@ -351,6 +354,7 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
      * @param ListEsxiHostsRequest
      * @return ListEsxiHostsResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListEsxiHosts.ts.html |here} to see how to use ListEsxiHosts API.
      */
   public async listEsxiHosts(
     listEsxiHostsRequest: requests.ListEsxiHostsRequest
@@ -420,6 +424,7 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
    * @param UpdateEsxiHostRequest
    * @return UpdateEsxiHostResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/UpdateEsxiHost.ts.html |here} to see how to use UpdateEsxiHost API.
    */
   public async updateEsxiHost(
     updateEsxiHostRequest: requests.UpdateEsxiHostRequest
@@ -598,6 +603,7 @@ export class SddcClient {
    * @param ChangeSddcCompartmentRequest
    * @return ChangeSddcCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ChangeSddcCompartment.ts.html |here} to see how to use ChangeSddcCompartment API.
    */
   public async changeSddcCompartment(
     changeSddcCompartmentRequest: requests.ChangeSddcCompartmentRequest
@@ -663,6 +669,7 @@ Use the {@link WorkRequest} operations to track the
      * @param CreateSddcRequest
      * @return CreateSddcResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/CreateSddc.ts.html |here} to see how to use CreateSddc API.
      */
   public async createSddc(
     createSddcRequest: requests.CreateSddcRequest
@@ -732,6 +739,7 @@ Use the {@link WorkRequest} operations to track the
      * @param DeleteSddcRequest
      * @return DeleteSddcResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/DeleteSddc.ts.html |here} to see how to use DeleteSddc API.
      */
   public async deleteSddc(
     deleteSddcRequest: requests.DeleteSddcRequest
@@ -792,6 +800,7 @@ Use the {@link WorkRequest} operations to track the
    * @param GetSddcRequest
    * @return GetSddcResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/GetSddc.ts.html |here} to see how to use GetSddc API.
    */
   public async getSddc(
     getSddcRequest: requests.GetSddcRequest
@@ -856,6 +865,7 @@ Use the {@link WorkRequest} operations to track the
    * @param ListSddcsRequest
    * @return ListSddcsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListSddcs.ts.html |here} to see how to use ListSddcs API.
    */
   public async listSddcs(
     listSddcsRequest: requests.ListSddcsRequest
@@ -927,6 +937,7 @@ Use the {@link WorkRequest} operations to track the
    * @param ListSupportedVmwareSoftwareVersionsRequest
    * @return ListSupportedVmwareSoftwareVersionsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListSupportedVmwareSoftwareVersions.ts.html |here} to see how to use ListSupportedVmwareSoftwareVersions API.
    */
   public async listSupportedVmwareSoftwareVersions(
     listSupportedVmwareSoftwareVersionsRequest: requests.ListSupportedVmwareSoftwareVersionsRequest
@@ -998,6 +1009,7 @@ Use the {@link WorkRequest} operations to track the
    * @param UpdateSddcRequest
    * @return UpdateSddcResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/UpdateSddc.ts.html |here} to see how to use UpdateSddc API.
    */
   public async updateSddc(
     updateSddcRequest: requests.UpdateSddcRequest
@@ -1173,6 +1185,7 @@ export class WorkRequestClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1236,6 +1249,7 @@ export class WorkRequestClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1303,6 +1317,7 @@ export class WorkRequestClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1369,6 +1384,7 @@ export class WorkRequestClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest

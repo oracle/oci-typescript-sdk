@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListPublicIps.ts.html |here} to see how to use ListPublicIpsRequest.
+ */
 export interface ListPublicIpsRequest extends common.BaseRequest {
   /**
    * Whether the public IP is regional or specific to a particular availability domain.

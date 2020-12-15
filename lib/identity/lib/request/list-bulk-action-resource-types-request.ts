@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListBulkActionResourceTypes.ts.html |here} to see how to use ListBulkActionResourceTypesRequest.
+ */
 export interface ListBulkActionResourceTypesRequest extends common.BaseRequest {
   /**
    * The type of bulk action.

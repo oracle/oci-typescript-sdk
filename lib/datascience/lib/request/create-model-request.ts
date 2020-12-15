@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreateModel.ts.html |here} to see how to use CreateModelRequest.
+ */
 export interface CreateModelRequest extends common.BaseRequest {
   /**
    * Details for creating a new model.

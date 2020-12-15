@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetPatch.ts.html |here} to see how to use GetPatchRequest.
+ */
 export interface GetPatchRequest extends common.BaseRequest {
   /**
    * The workspace ID.

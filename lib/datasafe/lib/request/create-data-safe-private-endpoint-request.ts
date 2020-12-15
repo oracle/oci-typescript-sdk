@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateDataSafePrivateEndpoint.ts.html |here} to see how to use CreateDataSafePrivateEndpointRequest.
+ */
 export interface CreateDataSafePrivateEndpointRequest extends common.BaseRequest {
   /**
    * Details to create a new private endpoint.

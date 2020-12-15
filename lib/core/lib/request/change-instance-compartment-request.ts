@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeInstanceCompartment.ts.html |here} to see how to use ChangeInstanceCompartmentRequest.
+ */
 export interface ChangeInstanceCompartmentRequest extends common.BaseRequest {
   /**
    * The OCID of the instance.

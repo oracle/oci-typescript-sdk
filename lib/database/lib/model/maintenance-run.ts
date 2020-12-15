@@ -41,7 +41,7 @@ export interface MaintenanceRun {
    */
   "lifecycleState": MaintenanceRun.LifecycleState;
   /**
-   * Additional information about the current lifecycleState.
+   * Additional information about the current lifecycle state.
    */
   "lifecycleDetails"?: string;
   /**

@@ -5,7 +5,6 @@
 
 import common = require("oci-common");
 import { ObjectStorageClient, UploadManager } from "oci-objectstorage";
-import { Region } from "oci-common";
 import { basename, join } from "path";
 import { readdir } from "fs";
 
@@ -36,7 +35,6 @@ const namespaceName = args[1];
 const bucketName = args[2];
 
 const client = new ObjectStorageClient({ authenticationDetailsProvider: provider });
-client.region = Region.US_PHOENIX_1;
 
 const uploadManager = new UploadManager(client, { enforceMD5: true });
 

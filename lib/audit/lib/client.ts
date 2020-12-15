@@ -29,7 +29,7 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 export enum AuditApiKeys {}
 
 export class AuditClient {
-  protected static serviceEndpointTemplate = "https://audit.{region}.oraclecloud.com";
+  protected static serviceEndpointTemplate = "https://audit.{region}.{secondLevelDomain}";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -114,6 +114,7 @@ export class AuditClient {
    * @param GetConfigurationRequest
    * @return GetConfigurationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/audit/GetConfiguration.ts.html |here} to see how to use GetConfiguration API.
    */
   public async getConfiguration(
     getConfigurationRequest: requests.GetConfigurationRequest
@@ -166,6 +167,7 @@ export class AuditClient {
    * @param ListEventsRequest
    * @return ListEventsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/audit/ListEvents.ts.html |here} to see how to use ListEvents API.
    */
   public async listEvents(
     listEventsRequest: requests.ListEventsRequest
@@ -256,6 +258,7 @@ export class AuditClient {
    * @param UpdateConfigurationRequest
    * @return UpdateConfigurationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/audit/UpdateConfiguration.ts.html |here} to see how to use UpdateConfiguration API.
    */
   public async updateConfiguration(
     updateConfigurationRequest: requests.UpdateConfigurationRequest

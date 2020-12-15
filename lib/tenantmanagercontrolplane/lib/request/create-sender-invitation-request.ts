@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/CreateSenderInvitation.ts.html |here} to see how to use CreateSenderInvitationRequest.
+ */
 export interface CreateSenderInvitationRequest extends common.BaseRequest {
   /**
    * Parameters for sender invitation creation.

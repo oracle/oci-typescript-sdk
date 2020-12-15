@@ -142,6 +142,7 @@ export class DatabaseClient {
    * @param ActivateExadataInfrastructureRequest
    * @return ActivateExadataInfrastructureResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ActivateExadataInfrastructure.ts.html |here} to see how to use ActivateExadataInfrastructure API.
    */
   public async activateExadataInfrastructure(
     activateExadataInfrastructureRequest: requests.ActivateExadataInfrastructureRequest
@@ -217,6 +218,7 @@ export class DatabaseClient {
    * @param AutonomousDatabaseManualRefreshRequest
    * @return AutonomousDatabaseManualRefreshResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/AutonomousDatabaseManualRefresh.ts.html |here} to see how to use AutonomousDatabaseManualRefresh API.
    */
   public async autonomousDatabaseManualRefresh(
     autonomousDatabaseManualRefreshRequest: requests.AutonomousDatabaseManualRefreshRequest
@@ -295,6 +297,7 @@ export class DatabaseClient {
    * @param ChangeAutonomousContainerDatabaseCompartmentRequest
    * @return ChangeAutonomousContainerDatabaseCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeAutonomousContainerDatabaseCompartment.ts.html |here} to see how to use ChangeAutonomousContainerDatabaseCompartment API.
    */
   public async changeAutonomousContainerDatabaseCompartment(
     changeAutonomousContainerDatabaseCompartmentRequest: requests.ChangeAutonomousContainerDatabaseCompartmentRequest
@@ -374,6 +377,7 @@ export class DatabaseClient {
    * @param ChangeAutonomousDatabaseCompartmentRequest
    * @return ChangeAutonomousDatabaseCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeAutonomousDatabaseCompartment.ts.html |here} to see how to use ChangeAutonomousDatabaseCompartment API.
    */
   public async changeAutonomousDatabaseCompartment(
     changeAutonomousDatabaseCompartmentRequest: requests.ChangeAutonomousDatabaseCompartmentRequest
@@ -449,6 +453,7 @@ export class DatabaseClient {
    * @param ChangeAutonomousExadataInfrastructureCompartmentRequest
    * @return ChangeAutonomousExadataInfrastructureCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeAutonomousExadataInfrastructureCompartment.ts.html |here} to see how to use ChangeAutonomousExadataInfrastructureCompartment API.
    */
   public async changeAutonomousExadataInfrastructureCompartment(
     changeAutonomousExadataInfrastructureCompartmentRequest: requests.ChangeAutonomousExadataInfrastructureCompartmentRequest
@@ -527,6 +532,7 @@ export class DatabaseClient {
    * @param ChangeAutonomousVmClusterCompartmentRequest
    * @return ChangeAutonomousVmClusterCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeAutonomousVmClusterCompartment.ts.html |here} to see how to use ChangeAutonomousVmClusterCompartment API.
    */
   public async changeAutonomousVmClusterCompartment(
     changeAutonomousVmClusterCompartmentRequest: requests.ChangeAutonomousVmClusterCompartmentRequest
@@ -597,6 +603,7 @@ export class DatabaseClient {
    * @param ChangeBackupDestinationCompartmentRequest
    * @return ChangeBackupDestinationCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeBackupDestinationCompartment.ts.html |here} to see how to use ChangeBackupDestinationCompartment API.
    */
   public async changeBackupDestinationCompartment(
     changeBackupDestinationCompartmentRequest: requests.ChangeBackupDestinationCompartmentRequest
@@ -670,6 +677,7 @@ export class DatabaseClient {
    * @param ChangeCloudExadataInfrastructureCompartmentRequest
    * @return ChangeCloudExadataInfrastructureCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeCloudExadataInfrastructureCompartment.ts.html |here} to see how to use ChangeCloudExadataInfrastructureCompartment API.
    */
   public async changeCloudExadataInfrastructureCompartment(
     changeCloudExadataInfrastructureCompartmentRequest: requests.ChangeCloudExadataInfrastructureCompartmentRequest
@@ -741,6 +749,7 @@ export class DatabaseClient {
    * @param ChangeCloudVmClusterCompartmentRequest
    * @return ChangeCloudVmClusterCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeCloudVmClusterCompartment.ts.html |here} to see how to use ChangeCloudVmClusterCompartment API.
    */
   public async changeCloudVmClusterCompartment(
     changeCloudVmClusterCompartmentRequest: requests.ChangeCloudVmClusterCompartmentRequest
@@ -811,6 +820,7 @@ export class DatabaseClient {
    * @param ChangeDatabaseSoftwareImageCompartmentRequest
    * @return ChangeDatabaseSoftwareImageCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeDatabaseSoftwareImageCompartment.ts.html |here} to see how to use ChangeDatabaseSoftwareImageCompartment API.
    */
   public async changeDatabaseSoftwareImageCompartment(
     changeDatabaseSoftwareImageCompartmentRequest: requests.ChangeDatabaseSoftwareImageCompartmentRequest
@@ -887,6 +897,7 @@ export class DatabaseClient {
    * @param ChangeDbSystemCompartmentRequest
    * @return ChangeDbSystemCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeDbSystemCompartment.ts.html |here} to see how to use ChangeDbSystemCompartment API.
    */
   public async changeDbSystemCompartment(
     changeDbSystemCompartmentRequest: requests.ChangeDbSystemCompartmentRequest
@@ -961,6 +972,7 @@ export class DatabaseClient {
    * @param ChangeExadataInfrastructureCompartmentRequest
    * @return ChangeExadataInfrastructureCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExadataInfrastructureCompartment.ts.html |here} to see how to use ChangeExadataInfrastructureCompartment API.
    */
   public async changeExadataInfrastructureCompartment(
     changeExadataInfrastructureCompartmentRequest: requests.ChangeExadataInfrastructureCompartmentRequest
@@ -1032,6 +1044,7 @@ export class DatabaseClient {
    * @param ChangeKeyStoreCompartmentRequest
    * @return ChangeKeyStoreCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeKeyStoreCompartment.ts.html |here} to see how to use ChangeKeyStoreCompartment API.
    */
   public async changeKeyStoreCompartment(
     changeKeyStoreCompartmentRequest: requests.ChangeKeyStoreCompartmentRequest
@@ -1101,6 +1114,7 @@ export class DatabaseClient {
    * @param ChangeVmClusterCompartmentRequest
    * @return ChangeVmClusterCompartmentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeVmClusterCompartment.ts.html |here} to see how to use ChangeVmClusterCompartment API.
    */
   public async changeVmClusterCompartment(
     changeVmClusterCompartmentRequest: requests.ChangeVmClusterCompartmentRequest
@@ -1171,6 +1185,7 @@ export class DatabaseClient {
    * @param CompleteExternalBackupJobRequest
    * @return CompleteExternalBackupJobResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CompleteExternalBackupJob.ts.html |here} to see how to use CompleteExternalBackupJob API.
    */
   public async completeExternalBackupJob(
     completeExternalBackupJobRequest: requests.CompleteExternalBackupJobRequest
@@ -1246,6 +1261,7 @@ export class DatabaseClient {
    * @param CreateAutonomousContainerDatabaseRequest
    * @return CreateAutonomousContainerDatabaseResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateAutonomousContainerDatabase.ts.html |here} to see how to use CreateAutonomousContainerDatabase API.
    */
   public async createAutonomousContainerDatabase(
     createAutonomousContainerDatabaseRequest: requests.CreateAutonomousContainerDatabaseRequest
@@ -1313,145 +1329,12 @@ export class DatabaseClient {
   }
 
   /**
-   * **Deprecated.** To create a new Autonomous Data Warehouse, use the {@link #createAutonomousDatabase(CreateAutonomousDatabaseRequest) createAutonomousDatabase} operation and specify `DW` as the workload type.
-   *
-   * @param CreateAutonomousDataWarehouseRequest
-   * @return CreateAutonomousDataWarehouseResponse
-   * @throws OciError when an error occurs
-   */
-  public async createAutonomousDataWarehouse(
-    createAutonomousDataWarehouseRequest: requests.CreateAutonomousDataWarehouseRequest
-  ): Promise<responses.CreateAutonomousDataWarehouseResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseClient#createAutonomousDataWarehouse.");
-    const pathParams = {};
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-retry-token": createAutonomousDataWarehouseRequest.opcRetryToken
-    };
-
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/autonomousDataWarehouses",
-      method: "POST",
-      bodyContent: common.ObjectSerializer.serialize(
-        createAutonomousDataWarehouseRequest.createAutonomousDataWarehouseDetails,
-        "CreateAutonomousDataWarehouseDetails",
-        models.CreateAutonomousDataWarehouseDetails.getJsonObj
-      ),
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createAutonomousDataWarehouseRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
-      const sdkResponse = composeResponse({
-        responseObject: <responses.CreateAutonomousDataWarehouseResponse>{},
-        body: await response.json(),
-        bodyKey: "autonomousDataWarehouse",
-        bodyModel: "model.AutonomousDataWarehouse",
-        responseHeaders: [
-          {
-            value: response.headers.get("etag"),
-            key: "etag",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
-   * **Deprecated.** To create a new Autonomous Data Warehouse backup for a specified database, use the {@link #createAutonomousDatabaseBackup(CreateAutonomousDatabaseBackupRequest) createAutonomousDatabaseBackup} operation.
-   *
-   * @param CreateAutonomousDataWarehouseBackupRequest
-   * @return CreateAutonomousDataWarehouseBackupResponse
-   * @throws OciError when an error occurs
-   */
-  public async createAutonomousDataWarehouseBackup(
-    createAutonomousDataWarehouseBackupRequest: requests.CreateAutonomousDataWarehouseBackupRequest
-  ): Promise<responses.CreateAutonomousDataWarehouseBackupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseClient#createAutonomousDataWarehouseBackup.");
-    const pathParams = {};
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-retry-token": createAutonomousDataWarehouseBackupRequest.opcRetryToken
-    };
-
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/autonomousDataWarehouseBackups",
-      method: "POST",
-      bodyContent: common.ObjectSerializer.serialize(
-        createAutonomousDataWarehouseBackupRequest.createAutonomousDataWarehouseBackupDetails,
-        "CreateAutonomousDataWarehouseBackupDetails",
-        models.CreateAutonomousDataWarehouseBackupDetails.getJsonObj
-      ),
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createAutonomousDataWarehouseBackupRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
-      const sdkResponse = composeResponse({
-        responseObject: <responses.CreateAutonomousDataWarehouseBackupResponse>{},
-        body: await response.json(),
-        bodyKey: "autonomousDataWarehouseBackup",
-        bodyModel: "model.AutonomousDataWarehouseBackup",
-        responseHeaders: [
-          {
-            value: response.headers.get("etag"),
-            key: "etag",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
    * Creates a new Autonomous Database.
    *
    * @param CreateAutonomousDatabaseRequest
    * @return CreateAutonomousDatabaseResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateAutonomousDatabase.ts.html |here} to see how to use CreateAutonomousDatabase API.
    */
   public async createAutonomousDatabase(
     createAutonomousDatabaseRequest: requests.CreateAutonomousDatabaseRequest
@@ -1525,6 +1408,7 @@ export class DatabaseClient {
    * @param CreateAutonomousDatabaseBackupRequest
    * @return CreateAutonomousDatabaseBackupResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateAutonomousDatabaseBackup.ts.html |here} to see how to use CreateAutonomousDatabaseBackup API.
    */
   public async createAutonomousDatabaseBackup(
     createAutonomousDatabaseBackupRequest: requests.CreateAutonomousDatabaseBackupRequest
@@ -1598,6 +1482,7 @@ export class DatabaseClient {
    * @param CreateAutonomousVmClusterRequest
    * @return CreateAutonomousVmClusterResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateAutonomousVmCluster.ts.html |here} to see how to use CreateAutonomousVmCluster API.
    */
   public async createAutonomousVmCluster(
     createAutonomousVmClusterRequest: requests.CreateAutonomousVmClusterRequest
@@ -1671,6 +1556,7 @@ export class DatabaseClient {
    * @param CreateBackupRequest
    * @return CreateBackupResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateBackup.ts.html |here} to see how to use CreateBackup API.
    */
   public async createBackup(
     createBackupRequest: requests.CreateBackupRequest
@@ -1742,6 +1628,7 @@ export class DatabaseClient {
    * @param CreateBackupDestinationRequest
    * @return CreateBackupDestinationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateBackupDestination.ts.html |here} to see how to use CreateBackupDestination API.
    */
   public async createBackupDestination(
     createBackupDestinationRequest: requests.CreateBackupDestinationRequest
@@ -1809,6 +1696,7 @@ export class DatabaseClient {
    * @param CreateCloudExadataInfrastructureRequest
    * @return CreateCloudExadataInfrastructureResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateCloudExadataInfrastructure.ts.html |here} to see how to use CreateCloudExadataInfrastructure API.
    */
   public async createCloudExadataInfrastructure(
     createCloudExadataInfrastructureRequest: requests.CreateCloudExadataInfrastructureRequest
@@ -1882,6 +1770,7 @@ export class DatabaseClient {
    * @param CreateCloudVmClusterRequest
    * @return CreateCloudVmClusterResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateCloudVmCluster.ts.html |here} to see how to use CreateCloudVmCluster API.
    */
   public async createCloudVmCluster(
     createCloudVmClusterRequest: requests.CreateCloudVmClusterRequest
@@ -1956,6 +1845,7 @@ export class DatabaseClient {
    * @param CreateConsoleConnectionRequest
    * @return CreateConsoleConnectionResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateConsoleConnection.ts.html |here} to see how to use CreateConsoleConnection API.
    */
   public async createConsoleConnection(
     createConsoleConnectionRequest: requests.CreateConsoleConnectionRequest
@@ -2031,6 +1921,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
      * @param CreateDataGuardAssociationRequest
      * @return CreateDataGuardAssociationResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateDataGuardAssociation.ts.html |here} to see how to use CreateDataGuardAssociation API.
      */
   public async createDataGuardAssociation(
     createDataGuardAssociationRequest: requests.CreateDataGuardAssociationRequest
@@ -2105,6 +1996,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateDatabaseRequest
    * @return CreateDatabaseResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateDatabase.ts.html |here} to see how to use CreateDatabase API.
    */
   public async createDatabase(
     createDatabaseRequest: requests.CreateDatabaseRequest
@@ -2177,6 +2069,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateDatabaseSoftwareImageRequest
    * @return CreateDatabaseSoftwareImageResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateDatabaseSoftwareImage.ts.html |here} to see how to use CreateDatabaseSoftwareImage API.
    */
   public async createDatabaseSoftwareImage(
     createDatabaseSoftwareImageRequest: requests.CreateDatabaseSoftwareImageRequest
@@ -2249,6 +2142,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateDbHomeRequest
    * @return CreateDbHomeResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateDbHome.ts.html |here} to see how to use CreateDbHome API.
    */
   public async createDbHome(
     createDbHomeRequest: requests.CreateDbHomeRequest
@@ -2321,6 +2215,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateExadataInfrastructureRequest
    * @return CreateExadataInfrastructureResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExadataInfrastructure.ts.html |here} to see how to use CreateExadataInfrastructure API.
    */
   public async createExadataInfrastructure(
     createExadataInfrastructureRequest: requests.CreateExadataInfrastructureRequest
@@ -2396,6 +2291,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateExternalBackupJobRequest
    * @return CreateExternalBackupJobResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExternalBackupJob.ts.html |here} to see how to use CreateExternalBackupJob API.
    */
   public async createExternalBackupJob(
     createExternalBackupJobRequest: requests.CreateExternalBackupJobRequest
@@ -2467,6 +2363,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateKeyStoreRequest
    * @return CreateKeyStoreResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateKeyStore.ts.html |here} to see how to use CreateKeyStore API.
    */
   public async createKeyStore(
     createKeyStoreRequest: requests.CreateKeyStoreRequest
@@ -2534,6 +2431,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateVmClusterRequest
    * @return CreateVmClusterResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateVmCluster.ts.html |here} to see how to use CreateVmCluster API.
    */
   public async createVmCluster(
     createVmClusterRequest: requests.CreateVmClusterRequest
@@ -2607,6 +2505,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateVmClusterNetworkRequest
    * @return CreateVmClusterNetworkResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateVmClusterNetwork.ts.html |here} to see how to use CreateVmClusterNetwork API.
    */
   public async createVmClusterNetwork(
     createVmClusterNetworkRequest: requests.CreateVmClusterNetworkRequest
@@ -2693,6 +2592,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param DbNodeActionRequest
    * @return DbNodeActionResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DbNodeAction.ts.html |here} to see how to use DbNodeAction API.
    */
   public async dbNodeAction(
     dbNodeActionRequest: requests.DbNodeActionRequest
@@ -2759,67 +2659,12 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * **Deprecated.** To delete an Autonomous Data Warehouse, use the {@link #deleteAutonomousDatabase(DeleteAutonomousDatabaseRequest) deleteAutonomousDatabase} operation.
-   *
-   * @param DeleteAutonomousDataWarehouseRequest
-   * @return DeleteAutonomousDataWarehouseResponse
-   * @throws OciError when an error occurs
-   */
-  public async deleteAutonomousDataWarehouse(
-    deleteAutonomousDataWarehouseRequest: requests.DeleteAutonomousDataWarehouseRequest
-  ): Promise<responses.DeleteAutonomousDataWarehouseResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseClient#deleteAutonomousDataWarehouse.");
-    const pathParams = {
-      "{autonomousDataWarehouseId}": deleteAutonomousDataWarehouseRequest.autonomousDataWarehouseId
-    };
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "if-match": deleteAutonomousDataWarehouseRequest.ifMatch
-    };
-
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/autonomousDataWarehouses/{autonomousDataWarehouseId}",
-      method: "DELETE",
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteAutonomousDataWarehouseRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
-      const sdkResponse = composeResponse({
-        responseObject: <responses.DeleteAutonomousDataWarehouseResponse>{},
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
    * Deletes the specified Autonomous Database.
    *
    * @param DeleteAutonomousDatabaseRequest
    * @return DeleteAutonomousDatabaseResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteAutonomousDatabase.ts.html |here} to see how to use DeleteAutonomousDatabase API.
    */
   public async deleteAutonomousDatabase(
     deleteAutonomousDatabaseRequest: requests.DeleteAutonomousDatabaseRequest
@@ -2882,6 +2727,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param DeleteAutonomousVmClusterRequest
    * @return DeleteAutonomousVmClusterResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteAutonomousVmCluster.ts.html |here} to see how to use DeleteAutonomousVmCluster API.
    */
   public async deleteAutonomousVmCluster(
     deleteAutonomousVmClusterRequest: requests.DeleteAutonomousVmClusterRequest
@@ -2943,6 +2789,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param DeleteBackupRequest
    * @return DeleteBackupResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteBackup.ts.html |here} to see how to use DeleteBackup API.
    */
   public async deleteBackup(
     deleteBackupRequest: requests.DeleteBackupRequest
@@ -3003,6 +2850,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param DeleteBackupDestinationRequest
    * @return DeleteBackupDestinationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteBackupDestination.ts.html |here} to see how to use DeleteBackupDestination API.
    */
   public async deleteBackupDestination(
     deleteBackupDestinationRequest: requests.DeleteBackupDestinationRequest
@@ -3059,6 +2907,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param DeleteCloudExadataInfrastructureRequest
    * @return DeleteCloudExadataInfrastructureResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteCloudExadataInfrastructure.ts.html |here} to see how to use DeleteCloudExadataInfrastructure API.
    */
   public async deleteCloudExadataInfrastructure(
     deleteCloudExadataInfrastructureRequest: requests.DeleteCloudExadataInfrastructureRequest
@@ -3124,6 +2973,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param DeleteCloudVmClusterRequest
    * @return DeleteCloudVmClusterResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteCloudVmCluster.ts.html |here} to see how to use DeleteCloudVmCluster API.
    */
   public async deleteCloudVmCluster(
     deleteCloudVmClusterRequest: requests.DeleteCloudVmClusterRequest
@@ -3184,6 +3034,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param DeleteConsoleConnectionRequest
    * @return DeleteConsoleConnectionResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteConsoleConnection.ts.html |here} to see how to use DeleteConsoleConnection API.
    */
   public async deleteConsoleConnection(
     deleteConsoleConnectionRequest: requests.DeleteConsoleConnectionRequest
@@ -3242,6 +3093,7 @@ The data in this database is local to the Exadata system and will be lost when t
      * @param DeleteDatabaseRequest
      * @return DeleteDatabaseResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteDatabase.ts.html |here} to see how to use DeleteDatabase API.
      */
   public async deleteDatabase(
     deleteDatabaseRequest: requests.DeleteDatabaseRequest
@@ -3304,6 +3156,7 @@ The data in this database is local to the Exadata system and will be lost when t
    * @param DeleteDatabaseSoftwareImageRequest
    * @return DeleteDatabaseSoftwareImageResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteDatabaseSoftwareImage.ts.html |here} to see how to use DeleteDatabaseSoftwareImage API.
    */
   public async deleteDatabaseSoftwareImage(
     deleteDatabaseSoftwareImageRequest: requests.DeleteDatabaseSoftwareImageRequest
@@ -3367,6 +3220,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
      * @param DeleteDbHomeRequest
      * @return DeleteDbHomeResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteDbHome.ts.html |here} to see how to use DeleteDbHome API.
      */
   public async deleteDbHome(
     deleteDbHomeRequest: requests.DeleteDbHomeRequest
@@ -3429,6 +3283,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeleteExadataInfrastructureRequest
    * @return DeleteExadataInfrastructureResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExadataInfrastructure.ts.html |here} to see how to use DeleteExadataInfrastructure API.
    */
   public async deleteExadataInfrastructure(
     deleteExadataInfrastructureRequest: requests.DeleteExadataInfrastructureRequest
@@ -3491,6 +3346,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeleteKeyStoreRequest
    * @return DeleteKeyStoreResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteKeyStore.ts.html |here} to see how to use DeleteKeyStore API.
    */
   public async deleteKeyStore(
     deleteKeyStoreRequest: requests.DeleteKeyStoreRequest
@@ -3547,6 +3403,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeleteVmClusterRequest
    * @return DeleteVmClusterResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteVmCluster.ts.html |here} to see how to use DeleteVmCluster API.
    */
   public async deleteVmCluster(
     deleteVmClusterRequest: requests.DeleteVmClusterRequest
@@ -3609,6 +3466,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeleteVmClusterNetworkRequest
    * @return DeleteVmClusterNetworkResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteVmClusterNetwork.ts.html |here} to see how to use DeleteVmClusterNetwork API.
    */
   public async deleteVmClusterNetwork(
     deleteVmClusterNetworkRequest: requests.DeleteVmClusterNetworkRequest
@@ -3672,6 +3530,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeregisterAutonomousDatabaseDataSafeRequest
    * @return DeregisterAutonomousDatabaseDataSafeResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeregisterAutonomousDatabaseDataSafe.ts.html |here} to see how to use DeregisterAutonomousDatabaseDataSafe API.
    */
   public async deregisterAutonomousDatabaseDataSafe(
     deregisterAutonomousDatabaseDataSafeRequest: requests.DeregisterAutonomousDatabaseDataSafeRequest
@@ -3738,6 +3597,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DisableAutonomousDatabaseOperationsInsightsRequest
    * @return DisableAutonomousDatabaseOperationsInsightsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableAutonomousDatabaseOperationsInsights.ts.html |here} to see how to use DisableAutonomousDatabaseOperationsInsights API.
    */
   public async disableAutonomousDatabaseOperationsInsights(
     disableAutonomousDatabaseOperationsInsightsRequest: requests.DisableAutonomousDatabaseOperationsInsightsRequest
@@ -3802,6 +3662,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DownloadExadataInfrastructureConfigFileRequest
    * @return DownloadExadataInfrastructureConfigFileResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DownloadExadataInfrastructureConfigFile.ts.html |here} to see how to use DownloadExadataInfrastructureConfigFile API.
    */
   public async downloadExadataInfrastructureConfigFile(
     downloadExadataInfrastructureConfigFileRequest: requests.DownloadExadataInfrastructureConfigFileRequest
@@ -3881,6 +3742,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DownloadVmClusterNetworkConfigFileRequest
    * @return DownloadVmClusterNetworkConfigFileResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DownloadVmClusterNetworkConfigFile.ts.html |here} to see how to use DownloadVmClusterNetworkConfigFile API.
    */
   public async downloadVmClusterNetworkConfigFile(
     downloadVmClusterNetworkConfigFileRequest: requests.DownloadVmClusterNetworkConfigFileRequest
@@ -3960,6 +3822,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param EnableAutonomousDatabaseOperationsInsightsRequest
    * @return EnableAutonomousDatabaseOperationsInsightsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableAutonomousDatabaseOperationsInsights.ts.html |here} to see how to use EnableAutonomousDatabaseOperationsInsights API.
    */
   public async enableAutonomousDatabaseOperationsInsights(
     enableAutonomousDatabaseOperationsInsightsRequest: requests.EnableAutonomousDatabaseOperationsInsightsRequest
@@ -4024,6 +3887,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param FailOverAutonomousDatabaseRequest
    * @return FailOverAutonomousDatabaseResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/FailOverAutonomousDatabase.ts.html |here} to see how to use FailOverAutonomousDatabase API.
    */
   public async failOverAutonomousDatabase(
     failOverAutonomousDatabaseRequest: requests.FailOverAutonomousDatabaseRequest
@@ -4097,6 +3961,7 @@ A failover can result in data loss, depending on the protection mode in effect a
      * @param FailoverAutonomousContainerDatabaseDataguardAssociationRequest
      * @return FailoverAutonomousContainerDatabaseDataguardAssociationResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/FailoverAutonomousContainerDatabaseDataguardAssociation.ts.html |here} to see how to use FailoverAutonomousContainerDatabaseDataguardAssociation API.
      */
   public async failoverAutonomousContainerDatabaseDataguardAssociation(
     failoverAutonomousContainerDatabaseDataguardAssociationRequest: requests.FailoverAutonomousContainerDatabaseDataguardAssociationRequest
@@ -4178,6 +4043,7 @@ A failover might result in data loss depending on the protection mode in effect 
      * @param FailoverDataGuardAssociationRequest
      * @return FailoverDataGuardAssociationResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/FailoverDataGuardAssociation.ts.html |here} to see how to use FailoverDataGuardAssociation API.
      */
   public async failoverDataGuardAssociation(
     failoverDataGuardAssociationRequest: requests.FailoverDataGuardAssociationRequest
@@ -4249,93 +4115,12 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * **Deprecated.** To create and download a wallet for an Autonomous Data Warehouse, use the {@link #generateAutonomousDatabaseWallet(GenerateAutonomousDatabaseWalletRequest) generateAutonomousDatabaseWallet} operation.
-   *
-   * @param GenerateAutonomousDataWarehouseWalletRequest
-   * @return GenerateAutonomousDataWarehouseWalletResponse
-   * @throws OciError when an error occurs
-   */
-  public async generateAutonomousDataWarehouseWallet(
-    generateAutonomousDataWarehouseWalletRequest: requests.GenerateAutonomousDataWarehouseWalletRequest
-  ): Promise<responses.GenerateAutonomousDataWarehouseWalletResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseClient#generateAutonomousDataWarehouseWallet.");
-    const pathParams = {
-      "{autonomousDataWarehouseId}":
-        generateAutonomousDataWarehouseWalletRequest.autonomousDataWarehouseId
-    };
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": generateAutonomousDataWarehouseWalletRequest.opcRequestId,
-      "opc-retry-token": generateAutonomousDataWarehouseWalletRequest.opcRetryToken
-    };
-
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/autonomousDataWarehouses/{autonomousDataWarehouseId}/actions/generateWallet",
-      method: "POST",
-      bodyContent: common.ObjectSerializer.serialize(
-        generateAutonomousDataWarehouseWalletRequest.generateAutonomousDataWarehouseWalletDetails,
-        "GenerateAutonomousDataWarehouseWalletDetails",
-        models.GenerateAutonomousDataWarehouseWalletDetails.getJsonObj
-      ),
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      generateAutonomousDataWarehouseWalletRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
-      const sdkResponse = composeResponse({
-        responseObject: <responses.GenerateAutonomousDataWarehouseWalletResponse>{},
-
-        body: response.body!,
-        bodyKey: "value",
-        bodyModel: "string",
-        responseHeaders: [
-          {
-            value: response.headers.get("etag"),
-            key: "etag",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("content-length"),
-            key: "contentLength",
-            dataType: "number"
-          },
-          {
-            value: response.headers.get("last-modified"),
-            key: "lastModified",
-            dataType: "Date"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
    * Creates and downloads a wallet for the specified Autonomous Database.
    *
    * @param GenerateAutonomousDatabaseWalletRequest
    * @return GenerateAutonomousDatabaseWalletResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GenerateAutonomousDatabaseWallet.ts.html |here} to see how to use GenerateAutonomousDatabaseWallet API.
    */
   public async generateAutonomousDatabaseWallet(
     generateAutonomousDatabaseWalletRequest: requests.GenerateAutonomousDatabaseWalletRequest
@@ -4417,6 +4202,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GenerateRecommendedVmClusterNetworkRequest
    * @return GenerateRecommendedVmClusterNetworkResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GenerateRecommendedVmClusterNetwork.ts.html |here} to see how to use GenerateRecommendedVmClusterNetwork API.
    */
   public async generateRecommendedVmClusterNetwork(
     generateRecommendedVmClusterNetworkRequest: requests.GenerateRecommendedVmClusterNetworkRequest
@@ -4488,6 +4274,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetAutonomousContainerDatabaseRequest
    * @return GetAutonomousContainerDatabaseResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousContainerDatabase.ts.html |here} to see how to use GetAutonomousContainerDatabase API.
    */
   public async getAutonomousContainerDatabase(
     getAutonomousContainerDatabaseRequest: requests.GetAutonomousContainerDatabaseRequest
@@ -4552,6 +4339,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetAutonomousContainerDatabaseDataguardAssociationRequest
    * @return GetAutonomousContainerDatabaseDataguardAssociationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousContainerDatabaseDataguardAssociation.ts.html |here} to see how to use GetAutonomousContainerDatabaseDataguardAssociation API.
    */
   public async getAutonomousContainerDatabaseDataguardAssociation(
     getAutonomousContainerDatabaseDataguardAssociationRequest: requests.GetAutonomousContainerDatabaseDataguardAssociationRequest
@@ -4616,133 +4404,12 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * **Deprecated.** To get the details of an Autonomous Data Warehouse, use the {@link #getAutonomousDatabase(GetAutonomousDatabaseRequest) getAutonomousDatabase} operation.
-   *
-   * @param GetAutonomousDataWarehouseRequest
-   * @return GetAutonomousDataWarehouseResponse
-   * @throws OciError when an error occurs
-   */
-  public async getAutonomousDataWarehouse(
-    getAutonomousDataWarehouseRequest: requests.GetAutonomousDataWarehouseRequest
-  ): Promise<responses.GetAutonomousDataWarehouseResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseClient#getAutonomousDataWarehouse.");
-    const pathParams = {
-      "{autonomousDataWarehouseId}": getAutonomousDataWarehouseRequest.autonomousDataWarehouseId
-    };
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON
-    };
-
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/autonomousDataWarehouses/{autonomousDataWarehouseId}",
-      method: "GET",
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAutonomousDataWarehouseRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
-      const sdkResponse = composeResponse({
-        responseObject: <responses.GetAutonomousDataWarehouseResponse>{},
-        body: await response.json(),
-        bodyKey: "autonomousDataWarehouse",
-        bodyModel: "model.AutonomousDataWarehouse",
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
-   * **Deprecated.** To get information about a specified Autonomous Data Warehouse backup, use the {@link #getAutonomousDatabaseBackup(GetAutonomousDatabaseBackupRequest) getAutonomousDatabaseBackup} operation.
-   *
-   * @param GetAutonomousDataWarehouseBackupRequest
-   * @return GetAutonomousDataWarehouseBackupResponse
-   * @throws OciError when an error occurs
-   */
-  public async getAutonomousDataWarehouseBackup(
-    getAutonomousDataWarehouseBackupRequest: requests.GetAutonomousDataWarehouseBackupRequest
-  ): Promise<responses.GetAutonomousDataWarehouseBackupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseClient#getAutonomousDataWarehouseBackup.");
-    const pathParams = {
-      "{autonomousDataWarehouseBackupId}":
-        getAutonomousDataWarehouseBackupRequest.autonomousDataWarehouseBackupId
-    };
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON
-    };
-
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/autonomousDataWarehouseBackups/{autonomousDataWarehouseBackupId}",
-      method: "GET",
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAutonomousDataWarehouseBackupRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
-      const sdkResponse = composeResponse({
-        responseObject: <responses.GetAutonomousDataWarehouseBackupResponse>{},
-        body: await response.json(),
-        bodyKey: "autonomousDataWarehouseBackup",
-        bodyModel: "model.AutonomousDataWarehouseBackup",
-        responseHeaders: [
-          {
-            value: response.headers.get("etag"),
-            key: "etag",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
    * Gets the details of the specified Autonomous Database.
    *
    * @param GetAutonomousDatabaseRequest
    * @return GetAutonomousDatabaseResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousDatabase.ts.html |here} to see how to use GetAutonomousDatabase API.
    */
   public async getAutonomousDatabase(
     getAutonomousDatabaseRequest: requests.GetAutonomousDatabaseRequest
@@ -4805,6 +4472,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetAutonomousDatabaseBackupRequest
    * @return GetAutonomousDatabaseBackupResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousDatabaseBackup.ts.html |here} to see how to use GetAutonomousDatabaseBackup API.
    */
   public async getAutonomousDatabaseBackup(
     getAutonomousDatabaseBackupRequest: requests.GetAutonomousDatabaseBackupRequest
@@ -4869,6 +4537,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetAutonomousDatabaseDataguardAssociationRequest
    * @return GetAutonomousDatabaseDataguardAssociationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousDatabaseDataguardAssociation.ts.html |here} to see how to use GetAutonomousDatabaseDataguardAssociation API.
    */
   public async getAutonomousDatabaseDataguardAssociation(
     getAutonomousDatabaseDataguardAssociationRequest: requests.GetAutonomousDatabaseDataguardAssociationRequest
@@ -4939,6 +4608,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetAutonomousDatabaseRegionalWalletRequest
    * @return GetAutonomousDatabaseRegionalWalletResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousDatabaseRegionalWallet.ts.html |here} to see how to use GetAutonomousDatabaseRegionalWallet API.
    */
   public async getAutonomousDatabaseRegionalWallet(
     getAutonomousDatabaseRegionalWalletRequest: requests.GetAutonomousDatabaseRegionalWalletRequest
@@ -4996,6 +4666,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetAutonomousDatabaseWalletRequest
    * @return GetAutonomousDatabaseWalletResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousDatabaseWallet.ts.html |here} to see how to use GetAutonomousDatabaseWallet API.
    */
   public async getAutonomousDatabaseWallet(
     getAutonomousDatabaseWalletRequest: requests.GetAutonomousDatabaseWalletRequest
@@ -5054,6 +4725,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetAutonomousExadataInfrastructureRequest
    * @return GetAutonomousExadataInfrastructureResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousExadataInfrastructure.ts.html |here} to see how to use GetAutonomousExadataInfrastructure API.
    */
   public async getAutonomousExadataInfrastructure(
     getAutonomousExadataInfrastructureRequest: requests.GetAutonomousExadataInfrastructureRequest
@@ -5117,6 +4789,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetAutonomousPatchRequest
    * @return GetAutonomousPatchResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousPatch.ts.html |here} to see how to use GetAutonomousPatch API.
    */
   public async getAutonomousPatch(
     getAutonomousPatchRequest: requests.GetAutonomousPatchRequest
@@ -5178,6 +4851,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetAutonomousVmClusterRequest
    * @return GetAutonomousVmClusterResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousVmCluster.ts.html |here} to see how to use GetAutonomousVmCluster API.
    */
   public async getAutonomousVmCluster(
     getAutonomousVmClusterRequest: requests.GetAutonomousVmClusterRequest
@@ -5240,6 +4914,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetBackupRequest
    * @return GetBackupResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetBackup.ts.html |here} to see how to use GetBackup API.
    */
   public async getBackup(
     getBackupRequest: requests.GetBackupRequest
@@ -5302,6 +4977,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetBackupDestinationRequest
    * @return GetBackupDestinationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetBackupDestination.ts.html |here} to see how to use GetBackupDestination API.
    */
   public async getBackupDestination(
     getBackupDestinationRequest: requests.GetBackupDestinationRequest
@@ -5365,6 +5041,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetCloudExadataInfrastructureRequest
    * @return GetCloudExadataInfrastructureResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudExadataInfrastructure.ts.html |here} to see how to use GetCloudExadataInfrastructure API.
    */
   public async getCloudExadataInfrastructure(
     getCloudExadataInfrastructureRequest: requests.GetCloudExadataInfrastructureRequest
@@ -5430,6 +5107,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetCloudVmClusterRequest
    * @return GetCloudVmClusterResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudVmCluster.ts.html |here} to see how to use GetCloudVmCluster API.
    */
   public async getCloudVmCluster(
     getCloudVmClusterRequest: requests.GetCloudVmClusterRequest
@@ -5494,6 +5172,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetCloudVmClusterIormConfigRequest
    * @return GetCloudVmClusterIormConfigResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudVmClusterIormConfig.ts.html |here} to see how to use GetCloudVmClusterIormConfig API.
    */
   public async getCloudVmClusterIormConfig(
     getCloudVmClusterIormConfigRequest: requests.GetCloudVmClusterIormConfigRequest
@@ -5558,6 +5237,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetCloudVmClusterUpdateRequest
    * @return GetCloudVmClusterUpdateResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudVmClusterUpdate.ts.html |here} to see how to use GetCloudVmClusterUpdate API.
    */
   public async getCloudVmClusterUpdate(
     getCloudVmClusterUpdateRequest: requests.GetCloudVmClusterUpdateRequest
@@ -5617,6 +5297,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetCloudVmClusterUpdateHistoryEntryRequest
    * @return GetCloudVmClusterUpdateHistoryEntryResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudVmClusterUpdateHistoryEntry.ts.html |here} to see how to use GetCloudVmClusterUpdateHistoryEntry API.
    */
   public async getCloudVmClusterUpdateHistoryEntry(
     getCloudVmClusterUpdateHistoryEntryRequest: requests.GetCloudVmClusterUpdateHistoryEntryRequest
@@ -5681,6 +5362,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetConsoleConnectionRequest
    * @return GetConsoleConnectionResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetConsoleConnection.ts.html |here} to see how to use GetConsoleConnection API.
    */
   public async getConsoleConnection(
     getConsoleConnectionRequest: requests.GetConsoleConnectionRequest
@@ -5744,6 +5426,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetDataGuardAssociationRequest
    * @return GetDataGuardAssociationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDataGuardAssociation.ts.html |here} to see how to use GetDataGuardAssociation API.
    */
   public async getDataGuardAssociation(
     getDataGuardAssociationRequest: requests.GetDataGuardAssociationRequest
@@ -5806,6 +5489,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetDatabaseRequest
    * @return GetDatabaseResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDatabase.ts.html |here} to see how to use GetDatabase API.
    */
   public async getDatabase(
     getDatabaseRequest: requests.GetDatabaseRequest
@@ -5867,6 +5551,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetDatabaseSoftwareImageRequest
    * @return GetDatabaseSoftwareImageResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDatabaseSoftwareImage.ts.html |here} to see how to use GetDatabaseSoftwareImage API.
    */
   public async getDatabaseSoftwareImage(
     getDatabaseSoftwareImageRequest: requests.GetDatabaseSoftwareImageRequest
@@ -5930,6 +5615,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetDatabaseUpgradeHistoryEntryRequest
    * @return GetDatabaseUpgradeHistoryEntryResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDatabaseUpgradeHistoryEntry.ts.html |here} to see how to use GetDatabaseUpgradeHistoryEntry API.
    */
   public async getDatabaseUpgradeHistoryEntry(
     getDatabaseUpgradeHistoryEntryRequest: requests.GetDatabaseUpgradeHistoryEntryRequest
@@ -5989,6 +5675,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetDbHomeRequest
    * @return GetDbHomeResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbHome.ts.html |here} to see how to use GetDbHome API.
    */
   public async getDbHome(
     getDbHomeRequest: requests.GetDbHomeRequest
@@ -6051,6 +5738,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetDbHomePatchRequest
    * @return GetDbHomePatchResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbHomePatch.ts.html |here} to see how to use GetDbHomePatch API.
    */
   public async getDbHomePatch(
     getDbHomePatchRequest: requests.GetDbHomePatchRequest
@@ -6109,6 +5797,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetDbHomePatchHistoryEntryRequest
    * @return GetDbHomePatchHistoryEntryResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbHomePatchHistoryEntry.ts.html |here} to see how to use GetDbHomePatchHistoryEntry API.
    */
   public async getDbHomePatchHistoryEntry(
     getDbHomePatchHistoryEntryRequest: requests.GetDbHomePatchHistoryEntryRequest
@@ -6172,6 +5861,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetDbNodeRequest
    * @return GetDbNodeResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbNode.ts.html |here} to see how to use GetDbNode API.
    */
   public async getDbNode(
     getDbNodeRequest: requests.GetDbNodeRequest
@@ -6233,6 +5923,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetDbSystemRequest
    * @return GetDbSystemResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbSystem.ts.html |here} to see how to use GetDbSystem API.
    */
   public async getDbSystem(
     getDbSystemRequest: requests.GetDbSystemRequest
@@ -6295,6 +5986,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetDbSystemPatchRequest
    * @return GetDbSystemPatchResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbSystemPatch.ts.html |here} to see how to use GetDbSystemPatch API.
    */
   public async getDbSystemPatch(
     getDbSystemPatchRequest: requests.GetDbSystemPatchRequest
@@ -6353,6 +6045,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetDbSystemPatchHistoryEntryRequest
    * @return GetDbSystemPatchHistoryEntryResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbSystemPatchHistoryEntry.ts.html |here} to see how to use GetDbSystemPatchHistoryEntry API.
    */
   public async getDbSystemPatchHistoryEntry(
     getDbSystemPatchHistoryEntryRequest: requests.GetDbSystemPatchHistoryEntryRequest
@@ -6418,6 +6111,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetExadataInfrastructureRequest
    * @return GetExadataInfrastructureResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExadataInfrastructure.ts.html |here} to see how to use GetExadataInfrastructure API.
    */
   public async getExadataInfrastructure(
     getExadataInfrastructureRequest: requests.GetExadataInfrastructureRequest
@@ -6482,6 +6176,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetExadataInfrastructureOcpusRequest
    * @return GetExadataInfrastructureOcpusResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExadataInfrastructureOcpus.ts.html |here} to see how to use GetExadataInfrastructureOcpus API.
    */
   public async getExadataInfrastructureOcpus(
     getExadataInfrastructureOcpusRequest: requests.GetExadataInfrastructureOcpusRequest
@@ -6543,6 +6238,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetExadataIormConfigRequest
    * @return GetExadataIormConfigResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExadataIormConfig.ts.html |here} to see how to use GetExadataIormConfig API.
    */
   public async getExadataIormConfig(
     getExadataIormConfigRequest: requests.GetExadataIormConfigRequest
@@ -6603,6 +6299,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetExternalBackupJobRequest
    * @return GetExternalBackupJobResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExternalBackupJob.ts.html |here} to see how to use GetExternalBackupJob API.
    */
   public async getExternalBackupJob(
     getExternalBackupJobRequest: requests.GetExternalBackupJobRequest
@@ -6665,6 +6362,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetKeyStoreRequest
    * @return GetKeyStoreResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetKeyStore.ts.html |here} to see how to use GetKeyStore API.
    */
   public async getKeyStore(
     getKeyStoreRequest: requests.GetKeyStoreRequest
@@ -6727,6 +6425,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetMaintenanceRunRequest
    * @return GetMaintenanceRunResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetMaintenanceRun.ts.html |here} to see how to use GetMaintenanceRun API.
    */
   public async getMaintenanceRun(
     getMaintenanceRunRequest: requests.GetMaintenanceRunRequest
@@ -6789,6 +6488,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetVmClusterRequest
    * @return GetVmClusterResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetVmCluster.ts.html |here} to see how to use GetVmCluster API.
    */
   public async getVmCluster(
     getVmClusterRequest: requests.GetVmClusterRequest
@@ -6853,6 +6553,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetVmClusterNetworkRequest
    * @return GetVmClusterNetworkResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetVmClusterNetwork.ts.html |here} to see how to use GetVmClusterNetwork API.
    */
   public async getVmClusterNetwork(
     getVmClusterNetworkRequest: requests.GetVmClusterNetworkRequest
@@ -6918,6 +6619,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetVmClusterPatchRequest
    * @return GetVmClusterPatchResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetVmClusterPatch.ts.html |here} to see how to use GetVmClusterPatch API.
    */
   public async getVmClusterPatch(
     getVmClusterPatchRequest: requests.GetVmClusterPatchRequest
@@ -6976,6 +6678,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetVmClusterPatchHistoryEntryRequest
    * @return GetVmClusterPatchHistoryEntryResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetVmClusterPatchHistoryEntry.ts.html |here} to see how to use GetVmClusterPatchHistoryEntry API.
    */
   public async getVmClusterPatchHistoryEntry(
     getVmClusterPatchHistoryEntryRequest: requests.GetVmClusterPatchHistoryEntryRequest
@@ -7040,6 +6743,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param LaunchAutonomousExadataInfrastructureRequest
    * @return LaunchAutonomousExadataInfrastructureResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/LaunchAutonomousExadataInfrastructure.ts.html |here} to see how to use LaunchAutonomousExadataInfrastructure API.
    */
   public async launchAutonomousExadataInfrastructure(
     launchAutonomousExadataInfrastructureRequest: requests.LaunchAutonomousExadataInfrastructureRequest
@@ -7119,6 +6823,7 @@ An initial database is created on the DB system based on the request parameters 
      * @param LaunchDbSystemRequest
      * @return LaunchDbSystemResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/LaunchDbSystem.ts.html |here} to see how to use LaunchDbSystem API.
      */
   public async launchDbSystem(
     launchDbSystemRequest: requests.LaunchDbSystemRequest
@@ -7190,6 +6895,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListAutonomousContainerDatabaseDataguardAssociationsRequest
    * @return ListAutonomousContainerDatabaseDataguardAssociationsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousContainerDatabaseDataguardAssociations.ts.html |here} to see how to use ListAutonomousContainerDatabaseDataguardAssociations API.
    */
   public async listAutonomousContainerDatabaseDataguardAssociations(
     listAutonomousContainerDatabaseDataguardAssociationsRequest: requests.ListAutonomousContainerDatabaseDataguardAssociationsRequest
@@ -7289,6 +6995,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListAutonomousContainerDatabasesRequest
    * @return ListAutonomousContainerDatabasesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousContainerDatabases.ts.html |here} to see how to use ListAutonomousContainerDatabases API.
    */
   public async listAutonomousContainerDatabases(
     listAutonomousContainerDatabasesRequest: requests.ListAutonomousContainerDatabasesRequest
@@ -7384,201 +7091,12 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * **Deprecated.** To get a list of Autonomous Data Warehouse backups, use the {@link #listAutonomousDatabaseBackups(ListAutonomousDatabaseBackupsRequest) listAutonomousDatabaseBackups} operation.
-   *
-   * @param ListAutonomousDataWarehouseBackupsRequest
-   * @return ListAutonomousDataWarehouseBackupsResponse
-   * @throws OciError when an error occurs
-   */
-  public async listAutonomousDataWarehouseBackups(
-    listAutonomousDataWarehouseBackupsRequest: requests.ListAutonomousDataWarehouseBackupsRequest
-  ): Promise<responses.ListAutonomousDataWarehouseBackupsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseClient#listAutonomousDataWarehouseBackups.");
-    const pathParams = {};
-
-    const queryParams = {
-      "autonomousDataWarehouseId":
-        listAutonomousDataWarehouseBackupsRequest.autonomousDataWarehouseId,
-      "compartmentId": listAutonomousDataWarehouseBackupsRequest.compartmentId,
-      "limit": listAutonomousDataWarehouseBackupsRequest.limit,
-      "page": listAutonomousDataWarehouseBackupsRequest.page,
-      "sortBy": listAutonomousDataWarehouseBackupsRequest.sortBy,
-      "sortOrder": listAutonomousDataWarehouseBackupsRequest.sortOrder,
-      "lifecycleState": listAutonomousDataWarehouseBackupsRequest.lifecycleState,
-      "displayName": listAutonomousDataWarehouseBackupsRequest.displayName
-    };
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON
-    };
-
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/autonomousDataWarehouseBackups",
-      method: "GET",
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAutonomousDataWarehouseBackupsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
-      const sdkResponse = composeResponse({
-        responseObject: <responses.ListAutonomousDataWarehouseBackupsResponse>{},
-        body: await response.json(),
-        bodyKey: "items",
-        bodyModel: "AutonomousDataWarehouseBackupSummary[]",
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-next-page"),
-            key: "opcNextPage",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
-   * Creates a new async iterator which will iterate over the models.AutonomousDataWarehouseBackupSummary objects
-   * contained in responses from the listAutonomousDataWarehouseBackups operation. This iterator will fetch more data from the
-   * server as needed.
-   *
-   * @param request a request which can be sent to the service operation
-   */
-  public listAllAutonomousDataWarehouseBackups(
-    request: requests.ListAutonomousDataWarehouseBackupsRequest
-  ): AsyncIterableIterator<models.AutonomousDataWarehouseBackupSummary> {
-    return paginateRecords(request, req => this.listAutonomousDataWarehouseBackups(req));
-  }
-
-  /**
-   * Creates a new async iterator which will iterate over the responses received from the listAutonomousDataWarehouseBackups operation. This iterator
-   * will fetch more data from the server as needed.
-   *
-   * @param request a request which can be sent to the service operation
-   */
-  public listAllAutonomousDataWarehouseBackupsResponses(
-    request: requests.ListAutonomousDataWarehouseBackupsRequest
-  ): AsyncIterableIterator<responses.ListAutonomousDataWarehouseBackupsResponse> {
-    return paginateResponses(request, req => this.listAutonomousDataWarehouseBackups(req));
-  }
-
-  /**
-   * **Deprecated.** To get a list of Autonomous Data Warehouses, use the {@link #listAutonomousDatabases(ListAutonomousDatabasesRequest) listAutonomousDatabases} operation and specify `DW` as the workload type.
-   *
-   * @param ListAutonomousDataWarehousesRequest
-   * @return ListAutonomousDataWarehousesResponse
-   * @throws OciError when an error occurs
-   */
-  public async listAutonomousDataWarehouses(
-    listAutonomousDataWarehousesRequest: requests.ListAutonomousDataWarehousesRequest
-  ): Promise<responses.ListAutonomousDataWarehousesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseClient#listAutonomousDataWarehouses.");
-    const pathParams = {};
-
-    const queryParams = {
-      "compartmentId": listAutonomousDataWarehousesRequest.compartmentId,
-      "limit": listAutonomousDataWarehousesRequest.limit,
-      "page": listAutonomousDataWarehousesRequest.page,
-      "sortBy": listAutonomousDataWarehousesRequest.sortBy,
-      "sortOrder": listAutonomousDataWarehousesRequest.sortOrder,
-      "lifecycleState": listAutonomousDataWarehousesRequest.lifecycleState,
-      "displayName": listAutonomousDataWarehousesRequest.displayName
-    };
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON
-    };
-
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/autonomousDataWarehouses",
-      method: "GET",
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAutonomousDataWarehousesRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
-      const sdkResponse = composeResponse({
-        responseObject: <responses.ListAutonomousDataWarehousesResponse>{},
-        body: await response.json(),
-        bodyKey: "items",
-        bodyModel: "AutonomousDataWarehouseSummary[]",
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-next-page"),
-            key: "opcNextPage",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
-   * Creates a new async iterator which will iterate over the models.AutonomousDataWarehouseSummary objects
-   * contained in responses from the listAutonomousDataWarehouses operation. This iterator will fetch more data from the
-   * server as needed.
-   *
-   * @param request a request which can be sent to the service operation
-   */
-  public listAllAutonomousDataWarehouses(
-    request: requests.ListAutonomousDataWarehousesRequest
-  ): AsyncIterableIterator<models.AutonomousDataWarehouseSummary> {
-    return paginateRecords(request, req => this.listAutonomousDataWarehouses(req));
-  }
-
-  /**
-   * Creates a new async iterator which will iterate over the responses received from the listAutonomousDataWarehouses operation. This iterator
-   * will fetch more data from the server as needed.
-   *
-   * @param request a request which can be sent to the service operation
-   */
-  public listAllAutonomousDataWarehousesResponses(
-    request: requests.ListAutonomousDataWarehousesRequest
-  ): AsyncIterableIterator<responses.ListAutonomousDataWarehousesResponse> {
-    return paginateResponses(request, req => this.listAutonomousDataWarehouses(req));
-  }
-
-  /**
    * Gets a list of Autonomous Database backups based on either the `autonomousDatabaseId` or `compartmentId` specified as a query parameter.
    *
    * @param ListAutonomousDatabaseBackupsRequest
    * @return ListAutonomousDatabaseBackupsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabaseBackups.ts.html |here} to see how to use ListAutonomousDatabaseBackups API.
    */
   public async listAutonomousDatabaseBackups(
     listAutonomousDatabaseBackupsRequest: requests.ListAutonomousDatabaseBackupsRequest
@@ -7675,6 +7193,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListAutonomousDatabaseClonesRequest
    * @return ListAutonomousDatabaseClonesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabaseClones.ts.html |here} to see how to use ListAutonomousDatabaseClones API.
    */
   public async listAutonomousDatabaseClones(
     listAutonomousDatabaseClonesRequest: requests.ListAutonomousDatabaseClonesRequest
@@ -7773,6 +7292,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListAutonomousDatabaseDataguardAssociationsRequest
    * @return ListAutonomousDatabaseDataguardAssociationsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabaseDataguardAssociations.ts.html |here} to see how to use ListAutonomousDatabaseDataguardAssociations API.
    */
   public async listAutonomousDatabaseDataguardAssociations(
     listAutonomousDatabaseDataguardAssociationsRequest: requests.ListAutonomousDatabaseDataguardAssociationsRequest
@@ -7867,6 +7387,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListAutonomousDatabasesRequest
    * @return ListAutonomousDatabasesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabases.ts.html |here} to see how to use ListAutonomousDatabases API.
    */
   public async listAutonomousDatabases(
     listAutonomousDatabasesRequest: requests.ListAutonomousDatabasesRequest
@@ -7969,6 +7490,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListAutonomousDbPreviewVersionsRequest
    * @return ListAutonomousDbPreviewVersionsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDbPreviewVersions.ts.html |here} to see how to use ListAutonomousDbPreviewVersions API.
    */
   public async listAutonomousDbPreviewVersions(
     listAutonomousDbPreviewVersionsRequest: requests.ListAutonomousDbPreviewVersionsRequest
@@ -8061,6 +7583,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListAutonomousDbVersionsRequest
    * @return ListAutonomousDbVersionsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDbVersions.ts.html |here} to see how to use ListAutonomousDbVersions API.
    */
   public async listAutonomousDbVersions(
     listAutonomousDbVersionsRequest: requests.ListAutonomousDbVersionsRequest
@@ -8153,6 +7676,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListAutonomousExadataInfrastructureShapesRequest
    * @return ListAutonomousExadataInfrastructureShapesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousExadataInfrastructureShapes.ts.html |here} to see how to use ListAutonomousExadataInfrastructureShapes API.
    */
   public async listAutonomousExadataInfrastructureShapes(
     listAutonomousExadataInfrastructureShapesRequest: requests.ListAutonomousExadataInfrastructureShapesRequest
@@ -8247,6 +7771,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListAutonomousExadataInfrastructuresRequest
    * @return ListAutonomousExadataInfrastructuresResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousExadataInfrastructures.ts.html |here} to see how to use ListAutonomousExadataInfrastructures API.
    */
   public async listAutonomousExadataInfrastructures(
     listAutonomousExadataInfrastructuresRequest: requests.ListAutonomousExadataInfrastructuresRequest
@@ -8342,6 +7867,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListAutonomousVmClustersRequest
    * @return ListAutonomousVmClustersResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousVmClusters.ts.html |here} to see how to use ListAutonomousVmClusters API.
    */
   public async listAutonomousVmClusters(
     listAutonomousVmClustersRequest: requests.ListAutonomousVmClustersRequest
@@ -8438,6 +7964,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListBackupDestinationRequest
    * @return ListBackupDestinationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListBackupDestination.ts.html |here} to see how to use ListBackupDestination API.
    */
   public async listBackupDestination(
     listBackupDestinationRequest: requests.ListBackupDestinationRequest
@@ -8534,6 +8061,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListBackupsRequest
    * @return ListBackupsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListBackups.ts.html |here} to see how to use ListBackups API.
    */
   public async listBackups(
     listBackupsRequest: requests.ListBackupsRequest
@@ -8624,6 +8152,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListCloudExadataInfrastructuresRequest
    * @return ListCloudExadataInfrastructuresResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListCloudExadataInfrastructures.ts.html |here} to see how to use ListCloudExadataInfrastructures API.
    */
   public async listCloudExadataInfrastructures(
     listCloudExadataInfrastructuresRequest: requests.ListCloudExadataInfrastructuresRequest
@@ -8719,6 +8248,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListCloudVmClusterUpdateHistoryEntriesRequest
    * @return ListCloudVmClusterUpdateHistoryEntriesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListCloudVmClusterUpdateHistoryEntries.ts.html |here} to see how to use ListCloudVmClusterUpdateHistoryEntries API.
    */
   public async listCloudVmClusterUpdateHistoryEntries(
     listCloudVmClusterUpdateHistoryEntriesRequest: requests.ListCloudVmClusterUpdateHistoryEntriesRequest
@@ -8812,6 +8342,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListCloudVmClusterUpdatesRequest
    * @return ListCloudVmClusterUpdatesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListCloudVmClusterUpdates.ts.html |here} to see how to use ListCloudVmClusterUpdates API.
    */
   public async listCloudVmClusterUpdates(
     listCloudVmClusterUpdatesRequest: requests.ListCloudVmClusterUpdatesRequest
@@ -8905,6 +8436,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListCloudVmClustersRequest
    * @return ListCloudVmClustersResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListCloudVmClusters.ts.html |here} to see how to use ListCloudVmClusters API.
    */
   public async listCloudVmClusters(
     listCloudVmClustersRequest: requests.ListCloudVmClustersRequest
@@ -9000,6 +8532,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListConsoleConnectionsRequest
    * @return ListConsoleConnectionsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListConsoleConnections.ts.html |here} to see how to use ListConsoleConnections API.
    */
   public async listConsoleConnections(
     listConsoleConnectionsRequest: requests.ListConsoleConnectionsRequest
@@ -9062,6 +8595,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListContainerDatabasePatchesRequest
    * @return ListContainerDatabasePatchesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListContainerDatabasePatches.ts.html |here} to see how to use ListContainerDatabasePatches API.
    */
   public async listContainerDatabasePatches(
     listContainerDatabasePatchesRequest: requests.ListContainerDatabasePatchesRequest
@@ -9155,6 +8689,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListDataGuardAssociationsRequest
    * @return ListDataGuardAssociationsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDataGuardAssociations.ts.html |here} to see how to use ListDataGuardAssociations API.
    */
   public async listDataGuardAssociations(
     listDataGuardAssociationsRequest: requests.ListDataGuardAssociationsRequest
@@ -9246,6 +8781,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListDatabaseSoftwareImagesRequest
    * @return ListDatabaseSoftwareImagesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDatabaseSoftwareImages.ts.html |here} to see how to use ListDatabaseSoftwareImages API.
    */
   public async listDatabaseSoftwareImages(
     listDatabaseSoftwareImagesRequest: requests.ListDatabaseSoftwareImagesRequest
@@ -9343,6 +8879,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListDatabaseUpgradeHistoryEntriesRequest
    * @return ListDatabaseUpgradeHistoryEntriesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDatabaseUpgradeHistoryEntries.ts.html |here} to see how to use ListDatabaseUpgradeHistoryEntries API.
    */
   public async listDatabaseUpgradeHistoryEntries(
     listDatabaseUpgradeHistoryEntriesRequest: requests.ListDatabaseUpgradeHistoryEntriesRequest
@@ -9439,6 +8976,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListDatabasesRequest
    * @return ListDatabasesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDatabases.ts.html |here} to see how to use ListDatabases API.
    */
   public async listDatabases(
     listDatabasesRequest: requests.ListDatabasesRequest
@@ -9534,6 +9072,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListDbHomePatchHistoryEntriesRequest
    * @return ListDbHomePatchHistoryEntriesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbHomePatchHistoryEntries.ts.html |here} to see how to use ListDbHomePatchHistoryEntries API.
    */
   public async listDbHomePatchHistoryEntries(
     listDbHomePatchHistoryEntriesRequest: requests.ListDbHomePatchHistoryEntriesRequest
@@ -9625,6 +9164,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListDbHomePatchesRequest
    * @return ListDbHomePatchesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbHomePatches.ts.html |here} to see how to use ListDbHomePatches API.
    */
   public async listDbHomePatches(
     listDbHomePatchesRequest: requests.ListDbHomePatchesRequest
@@ -9715,6 +9255,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListDbHomesRequest
    * @return ListDbHomesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbHomes.ts.html |here} to see how to use ListDbHomes API.
    */
   public async listDbHomes(
     listDbHomesRequest: requests.ListDbHomesRequest
@@ -9812,6 +9353,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListDbNodesRequest
    * @return ListDbNodesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbNodes.ts.html |here} to see how to use ListDbNodes API.
    */
   public async listDbNodes(
     listDbNodesRequest: requests.ListDbNodesRequest
@@ -9906,6 +9448,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListDbSystemPatchHistoryEntriesRequest
    * @return ListDbSystemPatchHistoryEntriesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystemPatchHistoryEntries.ts.html |here} to see how to use ListDbSystemPatchHistoryEntries API.
    */
   public async listDbSystemPatchHistoryEntries(
     listDbSystemPatchHistoryEntriesRequest: requests.ListDbSystemPatchHistoryEntriesRequest
@@ -9997,6 +9540,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListDbSystemPatchesRequest
    * @return ListDbSystemPatchesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystemPatches.ts.html |here} to see how to use ListDbSystemPatches API.
    */
   public async listDbSystemPatches(
     listDbSystemPatchesRequest: requests.ListDbSystemPatchesRequest
@@ -10086,6 +9630,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListDbSystemShapesRequest
    * @return ListDbSystemShapesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystemShapes.ts.html |here} to see how to use ListDbSystemShapes API.
    */
   public async listDbSystemShapes(
     listDbSystemShapesRequest: requests.ListDbSystemShapesRequest
@@ -10176,6 +9721,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListDbSystemsRequest
    * @return ListDbSystemsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystems.ts.html |here} to see how to use ListDbSystems API.
    */
   public async listDbSystems(
     listDbSystemsRequest: requests.ListDbSystemsRequest
@@ -10270,6 +9816,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListDbVersionsRequest
    * @return ListDbVersionsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbVersions.ts.html |here} to see how to use ListDbVersions API.
    */
   public async listDbVersions(
     listDbVersionsRequest: requests.ListDbVersionsRequest
@@ -10364,6 +9911,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListExadataInfrastructuresRequest
    * @return ListExadataInfrastructuresResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExadataInfrastructures.ts.html |here} to see how to use ListExadataInfrastructures API.
    */
   public async listExadataInfrastructures(
     listExadataInfrastructuresRequest: requests.ListExadataInfrastructuresRequest
@@ -10454,10 +10002,78 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
+   * Gets a list of the flex components that can be used to launch a new DB system. The flex component determines resources to allocate to the DB system - Database Servers and Storage Servers.
+   * @param ListFlexComponentsRequest
+   * @return ListFlexComponentsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListFlexComponents.ts.html |here} to see how to use ListFlexComponents API.
+   */
+  public async listFlexComponents(
+    listFlexComponentsRequest: requests.ListFlexComponentsRequest
+  ): Promise<responses.ListFlexComponentsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listFlexComponents.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listFlexComponentsRequest.compartmentId,
+      "name": listFlexComponentsRequest.name,
+      "sortOrder": listFlexComponentsRequest.sortOrder,
+      "sortBy": listFlexComponentsRequest.sortBy,
+      "limit": listFlexComponentsRequest.limit,
+      "page": listFlexComponentsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystemShapes/flexComponents",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listFlexComponentsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListFlexComponentsResponse>{},
+        body: await response.json(),
+        bodyKey: "flexComponentCollection",
+        bodyModel: "model.FlexComponentCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a list of supported GI versions for the Exadata Cloud@Customer VM cluster.
    * @param ListGiVersionsRequest
    * @return ListGiVersionsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListGiVersions.ts.html |here} to see how to use ListGiVersions API.
    */
   public async listGiVersions(
     listGiVersionsRequest: requests.ListGiVersionsRequest
@@ -10549,6 +10165,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListKeyStoresRequest
    * @return ListKeyStoresResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListKeyStores.ts.html |here} to see how to use ListKeyStores API.
    */
   public async listKeyStores(
     listKeyStoresRequest: requests.ListKeyStoresRequest
@@ -10639,6 +10256,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListMaintenanceRunsRequest
    * @return ListMaintenanceRunsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListMaintenanceRuns.ts.html |here} to see how to use ListMaintenanceRuns API.
    */
   public async listMaintenanceRuns(
     listMaintenanceRunsRequest: requests.ListMaintenanceRunsRequest
@@ -10735,6 +10353,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListVmClusterNetworksRequest
    * @return ListVmClusterNetworksResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListVmClusterNetworks.ts.html |here} to see how to use ListVmClusterNetworks API.
    */
   public async listVmClusterNetworks(
     listVmClusterNetworksRequest: requests.ListVmClusterNetworksRequest
@@ -10831,6 +10450,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListVmClusterPatchHistoryEntriesRequest
    * @return ListVmClusterPatchHistoryEntriesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListVmClusterPatchHistoryEntries.ts.html |here} to see how to use ListVmClusterPatchHistoryEntries API.
    */
   public async listVmClusterPatchHistoryEntries(
     listVmClusterPatchHistoryEntriesRequest: requests.ListVmClusterPatchHistoryEntriesRequest
@@ -10922,6 +10542,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListVmClusterPatchesRequest
    * @return ListVmClusterPatchesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListVmClusterPatches.ts.html |here} to see how to use ListVmClusterPatches API.
    */
   public async listVmClusterPatches(
     listVmClusterPatchesRequest: requests.ListVmClusterPatchesRequest
@@ -11013,6 +10634,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ListVmClustersRequest
    * @return ListVmClustersResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListVmClusters.ts.html |here} to see how to use ListVmClusters API.
    */
   public async listVmClusters(
     listVmClustersRequest: requests.ListVmClustersRequest
@@ -11108,6 +10730,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param MigrateExadataDbSystemResourceModelRequest
    * @return MigrateExadataDbSystemResourceModelResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/MigrateExadataDbSystemResourceModel.ts.html |here} to see how to use MigrateExadataDbSystemResourceModel API.
    */
   public async migrateExadataDbSystemResourceModel(
     migrateExadataDbSystemResourceModelRequest: requests.MigrateExadataDbSystemResourceModelRequest
@@ -11174,11 +10797,87 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
+   * Changes encryption key management from customer-managed, using the [Vault service](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm), to Oracle-managed.
+   * @param MigrateVaultKeyRequest
+   * @return MigrateVaultKeyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/MigrateVaultKey.ts.html |here} to see how to use MigrateVaultKey API.
+   */
+  public async migrateVaultKey(
+    migrateVaultKeyRequest: requests.MigrateVaultKeyRequest
+  ): Promise<responses.MigrateVaultKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#migrateVaultKey.");
+    const pathParams = {
+      "{databaseId}": migrateVaultKeyRequest.databaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": migrateVaultKeyRequest.ifMatch,
+      "opc-retry-token": migrateVaultKeyRequest.opcRetryToken,
+      "opc-request-id": migrateVaultKeyRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/actions/migrateKey",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        migrateVaultKeyRequest.migrateVaultKeyDetails,
+        "MigrateVaultKeyDetails",
+        models.MigrateVaultKeyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      migrateVaultKeyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.MigrateVaultKeyResponse>{},
+        body: await response.json(),
+        bodyKey: "database",
+        bodyModel: "model.Database",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Asynchronously registers this Autonomous Database with Data Safe.
    *
    * @param RegisterAutonomousDatabaseDataSafeRequest
    * @return RegisterAutonomousDatabaseDataSafeResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RegisterAutonomousDatabaseDataSafe.ts.html |here} to see how to use RegisterAutonomousDatabaseDataSafe API.
    */
   public async registerAutonomousDatabaseDataSafe(
     registerAutonomousDatabaseDataSafeRequest: requests.RegisterAutonomousDatabaseDataSafeRequest
@@ -11245,6 +10944,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ReinstateAutonomousContainerDatabaseDataguardAssociationRequest
    * @return ReinstateAutonomousContainerDatabaseDataguardAssociationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ReinstateAutonomousContainerDatabaseDataguardAssociation.ts.html |here} to see how to use ReinstateAutonomousContainerDatabaseDataguardAssociation API.
    */
   public async reinstateAutonomousContainerDatabaseDataguardAssociation(
     reinstateAutonomousContainerDatabaseDataguardAssociationRequest: requests.ReinstateAutonomousContainerDatabaseDataguardAssociationRequest
@@ -11322,6 +11022,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param ReinstateDataGuardAssociationRequest
    * @return ReinstateDataGuardAssociationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ReinstateDataGuardAssociation.ts.html |here} to see how to use ReinstateDataGuardAssociation API.
    */
   public async reinstateDataGuardAssociation(
     reinstateDataGuardAssociationRequest: requests.ReinstateDataGuardAssociationRequest
@@ -11398,6 +11099,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param RestartAutonomousContainerDatabaseRequest
    * @return RestartAutonomousContainerDatabaseResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RestartAutonomousContainerDatabase.ts.html |here} to see how to use RestartAutonomousContainerDatabase API.
    */
   public async restartAutonomousContainerDatabase(
     restartAutonomousContainerDatabaseRequest: requests.RestartAutonomousContainerDatabaseRequest
@@ -11469,6 +11171,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param RestartAutonomousDatabaseRequest
    * @return RestartAutonomousDatabaseResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RestartAutonomousDatabase.ts.html |here} to see how to use RestartAutonomousDatabase API.
    */
   public async restartAutonomousDatabase(
     restartAutonomousDatabaseRequest: requests.RestartAutonomousDatabaseRequest
@@ -11533,80 +11236,12 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * **Deprecated.** To restore an Autonomous Data Warehouse, use the {@link #restoreAutonomousDatabase(RestoreAutonomousDatabaseRequest) restoreAutonomousDatabase} operation.
-   *
-   * @param RestoreAutonomousDataWarehouseRequest
-   * @return RestoreAutonomousDataWarehouseResponse
-   * @throws OciError when an error occurs
-   */
-  public async restoreAutonomousDataWarehouse(
-    restoreAutonomousDataWarehouseRequest: requests.RestoreAutonomousDataWarehouseRequest
-  ): Promise<responses.RestoreAutonomousDataWarehouseResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseClient#restoreAutonomousDataWarehouse.");
-    const pathParams = {
-      "{autonomousDataWarehouseId}": restoreAutonomousDataWarehouseRequest.autonomousDataWarehouseId
-    };
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "if-match": restoreAutonomousDataWarehouseRequest.ifMatch
-    };
-
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/autonomousDataWarehouses/{autonomousDataWarehouseId}/actions/restore",
-      method: "POST",
-      bodyContent: common.ObjectSerializer.serialize(
-        restoreAutonomousDataWarehouseRequest.restoreAutonomousDataWarehouseDetails,
-        "RestoreAutonomousDataWarehouseDetails",
-        models.RestoreAutonomousDataWarehouseDetails.getJsonObj
-      ),
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      restoreAutonomousDataWarehouseRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
-      const sdkResponse = composeResponse({
-        responseObject: <responses.RestoreAutonomousDataWarehouseResponse>{},
-        body: await response.json(),
-        bodyKey: "autonomousDataWarehouse",
-        bodyModel: "model.AutonomousDataWarehouse",
-        responseHeaders: [
-          {
-            value: response.headers.get("etag"),
-            key: "etag",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
    * Restores an Autonomous Database based on the provided request parameters.
    *
    * @param RestoreAutonomousDatabaseRequest
    * @return RestoreAutonomousDatabaseResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RestoreAutonomousDatabase.ts.html |here} to see how to use RestoreAutonomousDatabase API.
    */
   public async restoreAutonomousDatabase(
     restoreAutonomousDatabaseRequest: requests.RestoreAutonomousDatabaseRequest
@@ -11681,6 +11316,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param RestoreDatabaseRequest
    * @return RestoreDatabaseResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RestoreDatabase.ts.html |here} to see how to use RestoreDatabase API.
    */
   public async restoreDatabase(
     restoreDatabaseRequest: requests.RestoreDatabaseRequest
@@ -11753,6 +11389,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param RotateAutonomousContainerDatabaseEncryptionKeyRequest
    * @return RotateAutonomousContainerDatabaseEncryptionKeyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateAutonomousContainerDatabaseEncryptionKey.ts.html |here} to see how to use RotateAutonomousContainerDatabaseEncryptionKey API.
    */
   public async rotateAutonomousContainerDatabaseEncryptionKey(
     rotateAutonomousContainerDatabaseEncryptionKeyRequest: requests.RotateAutonomousContainerDatabaseEncryptionKeyRequest
@@ -11826,6 +11463,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param RotateAutonomousDatabaseEncryptionKeyRequest
    * @return RotateAutonomousDatabaseEncryptionKeyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateAutonomousDatabaseEncryptionKey.ts.html |here} to see how to use RotateAutonomousDatabaseEncryptionKey API.
    */
   public async rotateAutonomousDatabaseEncryptionKey(
     rotateAutonomousDatabaseEncryptionKeyRequest: requests.RotateAutonomousDatabaseEncryptionKeyRequest
@@ -11897,6 +11535,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param RotateOrdsCertsRequest
    * @return RotateOrdsCertsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateOrdsCerts.ts.html |here} to see how to use RotateOrdsCerts API.
    */
   public async rotateOrdsCerts(
     rotateOrdsCertsRequest: requests.RotateOrdsCertsRequest
@@ -11961,6 +11600,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param RotateSslCertsRequest
    * @return RotateSslCertsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateSslCerts.ts.html |here} to see how to use RotateSslCerts API.
    */
   public async rotateSslCerts(
     rotateSslCertsRequest: requests.RotateSslCertsRequest
@@ -12019,32 +11659,33 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * **Deprecated.** To start an Autonomous Data Warehouse, use the {@link #startAutonomousDatabase(StartAutonomousDatabaseRequest) startAutonomousDatabase} operation.
-   *
-   * @param StartAutonomousDataWarehouseRequest
-   * @return StartAutonomousDataWarehouseResponse
+   * Creates a new version of an existing [Vault service](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) key.
+   * @param RotateVaultKeyRequest
+   * @return RotateVaultKeyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateVaultKey.ts.html |here} to see how to use RotateVaultKey API.
    */
-  public async startAutonomousDataWarehouse(
-    startAutonomousDataWarehouseRequest: requests.StartAutonomousDataWarehouseRequest
-  ): Promise<responses.StartAutonomousDataWarehouseResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseClient#startAutonomousDataWarehouse.");
+  public async rotateVaultKey(
+    rotateVaultKeyRequest: requests.RotateVaultKeyRequest
+  ): Promise<responses.RotateVaultKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#rotateVaultKey.");
     const pathParams = {
-      "{autonomousDataWarehouseId}": startAutonomousDataWarehouseRequest.autonomousDataWarehouseId
+      "{databaseId}": rotateVaultKeyRequest.databaseId
     };
 
     const queryParams = {};
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "if-match": startAutonomousDataWarehouseRequest.ifMatch
+      "if-match": rotateVaultKeyRequest.ifMatch,
+      "opc-retry-token": rotateVaultKeyRequest.opcRetryToken,
+      "opc-request-id": rotateVaultKeyRequest.opcRequestId
     };
 
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
-      path: "/autonomousDataWarehouses/{autonomousDataWarehouseId}/actions/start",
+      path: "/databases/{databaseId}/actions/rotateKey",
       method: "POST",
       pathParams: pathParams,
       headerParams: headerParams,
@@ -12052,20 +11693,25 @@ An initial database is created on the DB system based on the request parameters 
     });
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      startAutonomousDataWarehouseRequest.retryConfiguration
+      rotateVaultKeyRequest.retryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
-        responseObject: <responses.StartAutonomousDataWarehouseResponse>{},
+        responseObject: <responses.RotateVaultKeyResponse>{},
         body: await response.json(),
-        bodyKey: "autonomousDataWarehouse",
-        bodyModel: "model.AutonomousDataWarehouse",
+        bodyKey: "database",
+        bodyModel: "model.Database",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {
@@ -12088,6 +11734,7 @@ An initial database is created on the DB system based on the request parameters 
    * @param StartAutonomousDatabaseRequest
    * @return StartAutonomousDatabaseResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/StartAutonomousDatabase.ts.html |here} to see how to use StartAutonomousDatabase API.
    */
   public async startAutonomousDatabase(
     startAutonomousDatabaseRequest: requests.StartAutonomousDatabaseRequest
@@ -12151,75 +11798,12 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * **Deprecated.** To stop an Autonomous Data Warehouse, use the {@link #stopAutonomousDatabase(StopAutonomousDatabaseRequest) stopAutonomousDatabase} operation.
-   *
-   * @param StopAutonomousDataWarehouseRequest
-   * @return StopAutonomousDataWarehouseResponse
-   * @throws OciError when an error occurs
-   */
-  public async stopAutonomousDataWarehouse(
-    stopAutonomousDataWarehouseRequest: requests.StopAutonomousDataWarehouseRequest
-  ): Promise<responses.StopAutonomousDataWarehouseResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseClient#stopAutonomousDataWarehouse.");
-    const pathParams = {
-      "{autonomousDataWarehouseId}": stopAutonomousDataWarehouseRequest.autonomousDataWarehouseId
-    };
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "if-match": stopAutonomousDataWarehouseRequest.ifMatch
-    };
-
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/autonomousDataWarehouses/{autonomousDataWarehouseId}/actions/stop",
-      method: "POST",
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      stopAutonomousDataWarehouseRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
-      const sdkResponse = composeResponse({
-        responseObject: <responses.StopAutonomousDataWarehouseResponse>{},
-        body: await response.json(),
-        bodyKey: "autonomousDataWarehouse",
-        bodyModel: "model.AutonomousDataWarehouse",
-        responseHeaders: [
-          {
-            value: response.headers.get("etag"),
-            key: "etag",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
    * Stops the specified Autonomous Database.
    *
    * @param StopAutonomousDatabaseRequest
    * @return StopAutonomousDatabaseResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/StopAutonomousDatabase.ts.html |here} to see how to use StopAutonomousDatabase API.
    */
   public async stopAutonomousDatabase(
     stopAutonomousDatabaseRequest: requests.StopAutonomousDatabaseRequest
@@ -12291,6 +11875,7 @@ A switchover incurs no data loss.
      * @param SwitchoverAutonomousContainerDatabaseDataguardAssociationRequest
      * @return SwitchoverAutonomousContainerDatabaseDataguardAssociationResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SwitchoverAutonomousContainerDatabaseDataguardAssociation.ts.html |here} to see how to use SwitchoverAutonomousContainerDatabaseDataguardAssociation API.
      */
   public async switchoverAutonomousContainerDatabaseDataguardAssociation(
     switchoverAutonomousContainerDatabaseDataguardAssociationRequest: requests.SwitchoverAutonomousContainerDatabaseDataguardAssociationRequest
@@ -12368,6 +11953,7 @@ A switchover incurs no data loss.
    * @param SwitchoverAutonomousDatabaseRequest
    * @return SwitchoverAutonomousDatabaseResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SwitchoverAutonomousDatabase.ts.html |here} to see how to use SwitchoverAutonomousDatabase API.
    */
   public async switchoverAutonomousDatabase(
     switchoverAutonomousDatabaseRequest: requests.SwitchoverAutonomousDatabaseRequest
@@ -12442,6 +12028,7 @@ A switchover guarantees no data loss.
      * @param SwitchoverDataGuardAssociationRequest
      * @return SwitchoverDataGuardAssociationResponse
      * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SwitchoverDataGuardAssociation.ts.html |here} to see how to use SwitchoverDataGuardAssociation API.
      */
   public async switchoverDataGuardAssociation(
     switchoverDataGuardAssociationRequest: requests.SwitchoverDataGuardAssociationRequest
@@ -12517,6 +12104,7 @@ A switchover guarantees no data loss.
    * @param TerminateAutonomousContainerDatabaseRequest
    * @return TerminateAutonomousContainerDatabaseResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/TerminateAutonomousContainerDatabase.ts.html |here} to see how to use TerminateAutonomousContainerDatabase API.
    */
   public async terminateAutonomousContainerDatabase(
     terminateAutonomousContainerDatabaseRequest: requests.TerminateAutonomousContainerDatabaseRequest
@@ -12578,6 +12166,7 @@ A switchover guarantees no data loss.
    * @param TerminateAutonomousExadataInfrastructureRequest
    * @return TerminateAutonomousExadataInfrastructureResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/TerminateAutonomousExadataInfrastructure.ts.html |here} to see how to use TerminateAutonomousExadataInfrastructure API.
    */
   public async terminateAutonomousExadataInfrastructure(
     terminateAutonomousExadataInfrastructureRequest: requests.TerminateAutonomousExadataInfrastructureRequest
@@ -12641,6 +12230,7 @@ A switchover guarantees no data loss.
    * @param TerminateDbSystemRequest
    * @return TerminateDbSystemResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/TerminateDbSystem.ts.html |here} to see how to use TerminateDbSystem API.
    */
   public async terminateDbSystem(
     terminateDbSystemRequest: requests.TerminateDbSystemRequest
@@ -12700,6 +12290,7 @@ A switchover guarantees no data loss.
    * @param UpdateAutonomousContainerDatabaseRequest
    * @return UpdateAutonomousContainerDatabaseResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousContainerDatabase.ts.html |here} to see how to use UpdateAutonomousContainerDatabase API.
    */
   public async updateAutonomousContainerDatabase(
     updateAutonomousContainerDatabaseRequest: requests.UpdateAutonomousContainerDatabaseRequest
@@ -12770,80 +12361,12 @@ A switchover guarantees no data loss.
   }
 
   /**
-   * **Deprecated.** To update the CPU core count and storage size of an Autonomous Data Warehouse, use the {@link #updateAutonomousDatabase(UpdateAutonomousDatabaseRequest) updateAutonomousDatabase} operation.
-   *
-   * @param UpdateAutonomousDataWarehouseRequest
-   * @return UpdateAutonomousDataWarehouseResponse
-   * @throws OciError when an error occurs
-   */
-  public async updateAutonomousDataWarehouse(
-    updateAutonomousDataWarehouseRequest: requests.UpdateAutonomousDataWarehouseRequest
-  ): Promise<responses.UpdateAutonomousDataWarehouseResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseClient#updateAutonomousDataWarehouse.");
-    const pathParams = {
-      "{autonomousDataWarehouseId}": updateAutonomousDataWarehouseRequest.autonomousDataWarehouseId
-    };
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "if-match": updateAutonomousDataWarehouseRequest.ifMatch
-    };
-
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/autonomousDataWarehouses/{autonomousDataWarehouseId}",
-      method: "PUT",
-      bodyContent: common.ObjectSerializer.serialize(
-        updateAutonomousDataWarehouseRequest.updateAutonomousDataWarehouseDetails,
-        "UpdateAutonomousDataWarehouseDetails",
-        models.UpdateAutonomousDataWarehouseDetails.getJsonObj
-      ),
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAutonomousDataWarehouseRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
-      const sdkResponse = composeResponse({
-        responseObject: <responses.UpdateAutonomousDataWarehouseResponse>{},
-        body: await response.json(),
-        bodyKey: "autonomousDataWarehouse",
-        bodyModel: "model.AutonomousDataWarehouse",
-        responseHeaders: [
-          {
-            value: response.headers.get("etag"),
-            key: "etag",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
    * Updates one or more attributes of the specified Autonomous Database. See the UpdateAutonomousDatabaseDetails resource for a full list of attributes that can be updated.
    *
    * @param UpdateAutonomousDatabaseRequest
    * @return UpdateAutonomousDatabaseResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousDatabase.ts.html |here} to see how to use UpdateAutonomousDatabase API.
    */
   public async updateAutonomousDatabase(
     updateAutonomousDatabaseRequest: requests.UpdateAutonomousDatabaseRequest
@@ -12919,6 +12442,7 @@ A switchover guarantees no data loss.
    * @param UpdateAutonomousDatabaseRegionalWalletRequest
    * @return UpdateAutonomousDatabaseRegionalWalletResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousDatabaseRegionalWallet.ts.html |here} to see how to use UpdateAutonomousDatabaseRegionalWallet API.
    */
   public async updateAutonomousDatabaseRegionalWallet(
     updateAutonomousDatabaseRegionalWalletRequest: requests.UpdateAutonomousDatabaseRegionalWalletRequest
@@ -12983,6 +12507,7 @@ A switchover guarantees no data loss.
    * @param UpdateAutonomousDatabaseWalletRequest
    * @return UpdateAutonomousDatabaseWalletResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousDatabaseWallet.ts.html |here} to see how to use UpdateAutonomousDatabaseWallet API.
    */
   public async updateAutonomousDatabaseWallet(
     updateAutonomousDatabaseWalletRequest: requests.UpdateAutonomousDatabaseWalletRequest
@@ -13048,6 +12573,7 @@ A switchover guarantees no data loss.
    * @param UpdateAutonomousExadataInfrastructureRequest
    * @return UpdateAutonomousExadataInfrastructureResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousExadataInfrastructure.ts.html |here} to see how to use UpdateAutonomousExadataInfrastructure API.
    */
   public async updateAutonomousExadataInfrastructure(
     updateAutonomousExadataInfrastructureRequest: requests.UpdateAutonomousExadataInfrastructureRequest
@@ -13123,6 +12649,7 @@ A switchover guarantees no data loss.
    * @param UpdateAutonomousVmClusterRequest
    * @return UpdateAutonomousVmClusterResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousVmCluster.ts.html |here} to see how to use UpdateAutonomousVmCluster API.
    */
   public async updateAutonomousVmCluster(
     updateAutonomousVmClusterRequest: requests.UpdateAutonomousVmClusterRequest
@@ -13200,6 +12727,7 @@ A switchover guarantees no data loss.
    * @param UpdateBackupDestinationRequest
    * @return UpdateBackupDestinationResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateBackupDestination.ts.html |here} to see how to use UpdateBackupDestination API.
    */
   public async updateBackupDestination(
     updateBackupDestinationRequest: requests.UpdateBackupDestinationRequest
@@ -13269,6 +12797,7 @@ A switchover guarantees no data loss.
    * @param UpdateCloudExadataInfrastructureRequest
    * @return UpdateCloudExadataInfrastructureResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateCloudExadataInfrastructure.ts.html |here} to see how to use UpdateCloudExadataInfrastructure API.
    */
   public async updateCloudExadataInfrastructure(
     updateCloudExadataInfrastructureRequest: requests.UpdateCloudExadataInfrastructureRequest
@@ -13345,6 +12874,7 @@ A switchover guarantees no data loss.
    * @param UpdateCloudVmClusterRequest
    * @return UpdateCloudVmClusterResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateCloudVmCluster.ts.html |here} to see how to use UpdateCloudVmCluster API.
    */
   public async updateCloudVmCluster(
     updateCloudVmClusterRequest: requests.UpdateCloudVmClusterRequest
@@ -13419,6 +12949,7 @@ A switchover guarantees no data loss.
    * @param UpdateCloudVmClusterIormConfigRequest
    * @return UpdateCloudVmClusterIormConfigResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateCloudVmClusterIormConfig.ts.html |here} to see how to use UpdateCloudVmClusterIormConfig API.
    */
   public async updateCloudVmClusterIormConfig(
     updateCloudVmClusterIormConfigRequest: requests.UpdateCloudVmClusterIormConfigRequest
@@ -13494,6 +13025,7 @@ A switchover guarantees no data loss.
    * @param UpdateDatabaseRequest
    * @return UpdateDatabaseResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDatabase.ts.html |here} to see how to use UpdateDatabase API.
    */
   public async updateDatabase(
     updateDatabaseRequest: requests.UpdateDatabaseRequest
@@ -13566,6 +13098,7 @@ A switchover guarantees no data loss.
    * @param UpdateDatabaseSoftwareImageRequest
    * @return UpdateDatabaseSoftwareImageResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDatabaseSoftwareImage.ts.html |here} to see how to use UpdateDatabaseSoftwareImage API.
    */
   public async updateDatabaseSoftwareImage(
     updateDatabaseSoftwareImageRequest: requests.UpdateDatabaseSoftwareImageRequest
@@ -13634,6 +13167,7 @@ A switchover guarantees no data loss.
    * @param UpdateDbHomeRequest
    * @return UpdateDbHomeResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDbHome.ts.html |here} to see how to use UpdateDbHome API.
    */
   public async updateDbHome(
     updateDbHomeRequest: requests.UpdateDbHomeRequest
@@ -13706,6 +13240,7 @@ A switchover guarantees no data loss.
    * @param UpdateDbSystemRequest
    * @return UpdateDbSystemResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDbSystem.ts.html |here} to see how to use UpdateDbSystem API.
    */
   public async updateDbSystem(
     updateDbSystemRequest: requests.UpdateDbSystemRequest
@@ -13780,6 +13315,7 @@ A switchover guarantees no data loss.
    * @param UpdateExadataInfrastructureRequest
    * @return UpdateExadataInfrastructureResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExadataInfrastructure.ts.html |here} to see how to use UpdateExadataInfrastructure API.
    */
   public async updateExadataInfrastructure(
     updateExadataInfrastructureRequest: requests.UpdateExadataInfrastructureRequest
@@ -13855,6 +13391,7 @@ A switchover guarantees no data loss.
    * @param UpdateExadataIormConfigRequest
    * @return UpdateExadataIormConfigResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExadataIormConfig.ts.html |here} to see how to use UpdateExadataIormConfig API.
    */
   public async updateExadataIormConfig(
     updateExadataIormConfigRequest: requests.UpdateExadataIormConfigRequest
@@ -13929,6 +13466,7 @@ A switchover guarantees no data loss.
    * @param UpdateKeyStoreRequest
    * @return UpdateKeyStoreResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateKeyStore.ts.html |here} to see how to use UpdateKeyStore API.
    */
   public async updateKeyStore(
     updateKeyStoreRequest: requests.UpdateKeyStoreRequest
@@ -13997,6 +13535,7 @@ A switchover guarantees no data loss.
    * @param UpdateMaintenanceRunRequest
    * @return UpdateMaintenanceRunResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateMaintenanceRun.ts.html |here} to see how to use UpdateMaintenanceRun API.
    */
   public async updateMaintenanceRun(
     updateMaintenanceRunRequest: requests.UpdateMaintenanceRunRequest
@@ -14065,6 +13604,7 @@ A switchover guarantees no data loss.
    * @param UpdateVmClusterRequest
    * @return UpdateVmClusterResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateVmCluster.ts.html |here} to see how to use UpdateVmCluster API.
    */
   public async updateVmCluster(
     updateVmClusterRequest: requests.UpdateVmClusterRequest
@@ -14140,6 +13680,7 @@ A switchover guarantees no data loss.
    * @param UpdateVmClusterNetworkRequest
    * @return UpdateVmClusterNetworkResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateVmClusterNetwork.ts.html |here} to see how to use UpdateVmClusterNetwork API.
    */
   public async updateVmClusterNetwork(
     updateVmClusterNetworkRequest: requests.UpdateVmClusterNetworkRequest
@@ -14216,6 +13757,7 @@ A switchover guarantees no data loss.
    * @param UpgradeDatabaseRequest
    * @return UpgradeDatabaseResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpgradeDatabase.ts.html |here} to see how to use UpgradeDatabase API.
    */
   public async upgradeDatabase(
     upgradeDatabaseRequest: requests.UpgradeDatabaseRequest
@@ -14290,6 +13832,7 @@ A switchover guarantees no data loss.
    * @param ValidateVmClusterNetworkRequest
    * @return ValidateVmClusterNetworkResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ValidateVmClusterNetwork.ts.html |here} to see how to use ValidateVmClusterNetwork API.
    */
   public async validateVmClusterNetwork(
     validateVmClusterNetworkRequest: requests.ValidateVmClusterNetworkRequest

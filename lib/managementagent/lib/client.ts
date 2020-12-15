@@ -137,6 +137,7 @@ export class ManagementAgentClient {
    * @param CreateManagementAgentInstallKeyRequest
    * @return CreateManagementAgentInstallKeyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/CreateManagementAgentInstallKey.ts.html |here} to see how to use CreateManagementAgentInstallKey API.
    */
   public async createManagementAgentInstallKey(
     createManagementAgentInstallKeyRequest: requests.CreateManagementAgentInstallKeyRequest
@@ -204,6 +205,7 @@ export class ManagementAgentClient {
    * @param DeleteManagementAgentRequest
    * @return DeleteManagementAgentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/DeleteManagementAgent.ts.html |here} to see how to use DeleteManagementAgent API.
    */
   public async deleteManagementAgent(
     deleteManagementAgentRequest: requests.DeleteManagementAgentRequest
@@ -260,6 +262,7 @@ export class ManagementAgentClient {
    * @param DeleteManagementAgentInstallKeyRequest
    * @return DeleteManagementAgentInstallKeyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/DeleteManagementAgentInstallKey.ts.html |here} to see how to use DeleteManagementAgentInstallKey API.
    */
   public async deleteManagementAgentInstallKey(
     deleteManagementAgentInstallKeyRequest: requests.DeleteManagementAgentInstallKeyRequest
@@ -317,6 +320,7 @@ export class ManagementAgentClient {
    * @param DeleteWorkRequestRequest
    * @return DeleteWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/DeleteWorkRequest.ts.html |here} to see how to use DeleteWorkRequest API.
    */
   public async deleteWorkRequest(
     deleteWorkRequestRequest: requests.DeleteWorkRequestRequest
@@ -374,6 +378,7 @@ export class ManagementAgentClient {
    * @param DeployPluginsRequest
    * @return DeployPluginsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/DeployPlugins.ts.html |here} to see how to use DeployPlugins API.
    */
   public async deployPlugins(
     deployPluginsRequest: requests.DeployPluginsRequest
@@ -437,6 +442,7 @@ export class ManagementAgentClient {
    * @param GetManagementAgentRequest
    * @return GetManagementAgentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/GetManagementAgent.ts.html |here} to see how to use GetManagementAgent API.
    */
   public async getManagementAgent(
     getManagementAgentRequest: requests.GetManagementAgentRequest
@@ -500,6 +506,7 @@ export class ManagementAgentClient {
    * @param GetManagementAgentInstallKeyRequest
    * @return GetManagementAgentInstallKeyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/GetManagementAgentInstallKey.ts.html |here} to see how to use GetManagementAgentInstallKey API.
    */
   public async getManagementAgentInstallKey(
     getManagementAgentInstallKeyRequest: requests.GetManagementAgentInstallKeyRequest
@@ -565,6 +572,7 @@ export class ManagementAgentClient {
    * @param GetManagementAgentInstallKeyContentRequest
    * @return GetManagementAgentInstallKeyContentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/GetManagementAgentInstallKeyContent.ts.html |here} to see how to use GetManagementAgentInstallKeyContent API.
    */
   public async getManagementAgentInstallKeyContent(
     getManagementAgentInstallKeyContentRequest: requests.GetManagementAgentInstallKeyContentRequest
@@ -639,6 +647,7 @@ export class ManagementAgentClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -706,6 +715,7 @@ export class ManagementAgentClient {
    * @param ListAvailabilityHistoriesRequest
    * @return ListAvailabilityHistoriesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/ListAvailabilityHistories.ts.html |here} to see how to use ListAvailabilityHistories API.
    */
   public async listAvailabilityHistories(
     listAvailabilityHistoriesRequest: requests.ListAvailabilityHistoriesRequest
@@ -804,6 +814,7 @@ export class ManagementAgentClient {
    * @param ListManagementAgentImagesRequest
    * @return ListManagementAgentImagesResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/ListManagementAgentImages.ts.html |here} to see how to use ListManagementAgentImages API.
    */
   public async listManagementAgentImages(
     listManagementAgentImagesRequest: requests.ListManagementAgentImagesRequest
@@ -900,6 +911,7 @@ export class ManagementAgentClient {
    * @param ListManagementAgentInstallKeysRequest
    * @return ListManagementAgentInstallKeysResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/ListManagementAgentInstallKeys.ts.html |here} to see how to use ListManagementAgentInstallKeys API.
    */
   public async listManagementAgentInstallKeys(
     listManagementAgentInstallKeysRequest: requests.ListManagementAgentInstallKeysRequest
@@ -996,6 +1008,7 @@ export class ManagementAgentClient {
    * @param ListManagementAgentPluginsRequest
    * @return ListManagementAgentPluginsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/ListManagementAgentPlugins.ts.html |here} to see how to use ListManagementAgentPlugins API.
    */
   public async listManagementAgentPlugins(
     listManagementAgentPluginsRequest: requests.ListManagementAgentPluginsRequest
@@ -1091,6 +1104,7 @@ export class ManagementAgentClient {
    * @param ListManagementAgentsRequest
    * @return ListManagementAgentsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/ListManagementAgents.ts.html |here} to see how to use ListManagementAgents API.
    */
   public async listManagementAgents(
     listManagementAgentsRequest: requests.ListManagementAgentsRequest
@@ -1189,6 +1203,7 @@ export class ManagementAgentClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1283,6 +1298,7 @@ export class ManagementAgentClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1377,6 +1393,7 @@ export class ManagementAgentClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1472,6 +1489,7 @@ export class ManagementAgentClient {
    * @param UpdateManagementAgentRequest
    * @return UpdateManagementAgentResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/UpdateManagementAgent.ts.html |here} to see how to use UpdateManagementAgent API.
    */
   public async updateManagementAgent(
     updateManagementAgentRequest: requests.UpdateManagementAgentRequest
@@ -1543,6 +1561,7 @@ export class ManagementAgentClient {
    * @param UpdateManagementAgentInstallKeyRequest
    * @return UpdateManagementAgentInstallKeyResponse
    * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/UpdateManagementAgentInstallKey.ts.html |here} to see how to use UpdateManagementAgentInstallKey API.
    */
   public async updateManagementAgentInstallKey(
     updateManagementAgentInstallKeyRequest: requests.UpdateManagementAgentInstallKeyRequest

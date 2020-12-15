@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetField.ts.html |here} to see how to use GetFieldRequest.
+ */
 export interface GetFieldRequest extends common.BaseRequest {
   /**
    * The Logging Analytics namespace used for the request.

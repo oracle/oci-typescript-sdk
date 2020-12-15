@@ -13,6 +13,10 @@
 
 import * as model from "../model";
 import common = require("oci-common");
+
+/**
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeImageCapabilitySchema.ts.html |here} to see how to use UpdateComputeImageCapabilitySchemaRequest.
+ */
 export interface UpdateComputeImageCapabilitySchemaRequest extends common.BaseRequest {
   /**
    * The id of the compute image capability schema or the image ocid

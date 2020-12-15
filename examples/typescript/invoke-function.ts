@@ -59,13 +59,10 @@ commands.add(args[2]);
 // All resources will be prefixed with this name.
 const name: string = "oci-ts-sdk-function-example";
 
-// The default region to use.
-const region: string = "Sample-region";
-
 // We need a target compartment.
 const compartmentId = process.env.COMPARTMENT_ID;
 
-// We need an accessible image in the pheonix region to invoke.
+// We need an accessible image in the region to invoke.
 // e.g. phx.ocir.io/tenancy-name/registry/imagename:version
 const image = process.env.OCIR_FN_IMAGE;
 
@@ -91,20 +88,18 @@ const fnInvokeClient: fn.FunctionsInvokeClient = new fn.FunctionsInvokeClient({
   authenticationDetailsProvider: provider
 });
 
-fnManagementClient.regionId = region;
-
 (async () => {
   try {
     if (commands.has(SETUP)) {
-      await setupResources(region, compartmentId!, name, image!);
+      await setupResources(compartmentId!, name, image!);
     }
 
     if (commands.has(INVOKE)) {
-      await invokeFunction(region, compartmentId!, name, payload);
+      await invokeFunction(compartmentId!, name, payload);
     }
 
     if (commands.has(TEARDOWN)) {
-      await tearDownResources(region, compartmentId!, name);
+      await tearDownResources(compartmentId!, name);
     }
   } catch (error) {
     console.log("Not able to run Invoke function example . Error" + error);
@@ -113,14 +108,12 @@ fnManagementClient.regionId = region;
 
 /**
  * Create all the OCI and Fn resources required to invoke a function.
- * @param region        the OCI region in which to create the required
- *                      resources.
  * @param compartmentId the compartment in which to created the required
  *                      resources.
  * @param name          a name prefix to easilly identifty the resources.
  * @param image         a valid OCIR image for the function.
  */
-async function setupResources(region: string, compartmentId: string, name: string, image: string) {
+async function setupResources(compartmentId: string, name: string, image: string) {
   try {
     // 1. A list of AvailabiityDomains are required to determine where to host each
     // subnet
@@ -200,20 +193,12 @@ async function setupResources(region: string, compartmentId: string, name: strin
 
 /**
  * Create all the OCI and Fn resources required to invoke a function.
- *
- * @param region        the OCI region in which to create the required
- *                      resources.
  * @param compartmentId the compartment in which to created the required
  *                      resources.
  * @param name          a name prefix to easilly identifty the resources.
  * @param image         a valid OCIR image for the function.
  */
-async function invokeFunction(
-  region: string,
-  compartmentId: string,
-  name: string,
-  payload: string
-) {
+async function invokeFunction(compartmentId: string, name: string, payload: string) {
   try {
     // invoke function
     const appName: string = applicationName(name);
@@ -238,14 +223,12 @@ async function invokeFunction(
  *
  * NB: Resources can only be removed 30 minutes after the last Function
  * invocation.
- * @param region        the OCI region in which to create the required
- *                      resources.
  * @param compartmentId the compartment in which to created the required
  *                      resources.
  * @param name          a name prefix to easilly identifty the resources.
  * @param image         a valid OCIR image for the function.
  */
-async function tearDownResources(region: string, compartmentId: string, name: string) {
+async function tearDownResources(compartmentId: string, name: string) {
   console.log("Cleaning up");
   const vcn: string = vcnName(name);
   const gatewayName = igName(name);
