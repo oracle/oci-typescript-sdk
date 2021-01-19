@@ -84,6 +84,8 @@ export interface ScheduledTask {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+
+  "kind": string;
 }
 
 export namespace ScheduledTask {
@@ -122,6 +124,14 @@ export namespace ScheduledTask {
       }
     };
 
+    if ("kind" in obj && obj.kind) {
+      switch (obj.kind) {
+        case "STANDARD":
+          return model.StandardTask.getJsonObj(<model.StandardTask>(<object>jsonObj), true);
+        default:
+          throw Error("Unknown value for: " + obj.kind);
+      }
+    }
     return jsonObj;
   }
 }

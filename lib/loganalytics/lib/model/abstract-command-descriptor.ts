@@ -124,9 +124,19 @@ export namespace AbstractCommandDescriptor {
             <model.FieldSummaryCommandDescriptor>(<object>jsonObj),
             true
           );
+        case "MAP":
+          return model.MapCommandDescriptor.getJsonObj(
+            <model.MapCommandDescriptor>(<object>jsonObj),
+            true
+          );
         case "EVENT_STATS":
           return model.EventStatsCommandDescriptor.getJsonObj(
             <model.EventStatsCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "HIGHLIGHT_GROUPS":
+          return model.HighlightGroupsCommandDescriptor.getJsonObj(
+            <model.HighlightGroupsCommandDescriptor>(<object>jsonObj),
             true
           );
         case "WHERE":
@@ -199,6 +209,11 @@ export namespace AbstractCommandDescriptor {
             <model.ExtractCommandDescriptor>(<object>jsonObj),
             true
           );
+        case "NLP":
+          return model.NlpCommandDescriptor.getJsonObj(
+            <model.NlpCommandDescriptor>(<object>jsonObj),
+            true
+          );
         case "BOTTOM":
           return model.BottomCommandDescriptor.getJsonObj(
             <model.BottomCommandDescriptor>(<object>jsonObj),
@@ -237,6 +252,11 @@ export namespace AbstractCommandDescriptor {
         case "HEAD":
           return model.HeadCommandDescriptor.getJsonObj(
             <model.HeadCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "CREATE_VIEW":
+          return model.CreateViewCommandDescriptor.getJsonObj(
+            <model.CreateViewCommandDescriptor>(<object>jsonObj),
             true
           );
         case "ADD_FIELDS":

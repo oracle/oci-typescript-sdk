@@ -41,10 +41,13 @@ export interface UpdateScheduledTaskDetails {
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * Schedules may be updated for task types SAVED_SEARCH and PURGE
+   * Schedules may be updated for task types SAVED_SEARCH and PURGE.
+   * Note there may only be a single schedule for SAVED_SEARCH and PURGE scheduled tasks.
    *
    */
   "schedules"?: Array<model.Schedule>;
+
+  "kind": string;
 }
 
 export namespace UpdateScheduledTaskDetails {
@@ -60,6 +63,17 @@ export namespace UpdateScheduledTaskDetails {
       }
     };
 
+    if ("kind" in obj && obj.kind) {
+      switch (obj.kind) {
+        case "STANDARD":
+          return model.UpdateStandardTaskDetails.getJsonObj(
+            <model.UpdateStandardTaskDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.kind);
+      }
+    }
     return jsonObj;
   }
 }

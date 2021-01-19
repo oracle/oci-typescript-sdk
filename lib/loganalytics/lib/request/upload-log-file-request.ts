@@ -59,7 +59,9 @@ export interface UploadLogFileRequest extends common.BaseRequest {
    */
   "timezone"?: string;
   /**
-   * Character Encoding
+   * Character encoding to be used to detect the encoding type of file(s) being uploaded.
+   * When this property is not specified, system detected character encoding will be used.
+   *
    */
   "charEncoding"?: string;
   /**

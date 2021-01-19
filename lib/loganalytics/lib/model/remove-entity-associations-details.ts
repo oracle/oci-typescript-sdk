@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Information about the associations to be deleted between entity and other existing entities.
+ * Information about the associations to be deleted between source entity and other existing destination entities.
  *
  */
 export interface RemoveEntityAssociationsDetails {

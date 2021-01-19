@@ -71,13 +71,13 @@ export class LogAnalyticsWaiter {
    */
   public async forLogAnalyticsObjectCollectionRule(
     request: serviceRequests.GetLogAnalyticsObjectCollectionRuleRequest,
-    ...targetStates: models.LogAnalyticsObjectCollectionRule.LifecycleState[]
+    ...targetStates: models.ObjectCollectionRuleLifecycleStates[]
   ): Promise<serviceResponses.GetLogAnalyticsObjectCollectionRuleResponse | null> {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getLogAnalyticsObjectCollectionRule(request),
       response => targetStates.exists(response.logAnalyticsObjectCollectionRule.lifecycleState),
-      targetStates.includes(models.LogAnalyticsObjectCollectionRule.LifecycleState.Deleted)
+      targetStates.includes(models.ObjectCollectionRuleLifecycleStates.Deleted)
     );
   }
 

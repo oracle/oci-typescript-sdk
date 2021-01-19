@@ -38,7 +38,7 @@ export interface ListParserFunctionsRequest extends common.BaseRequest {
   /**
    * sort by field
    */
-  "sortBy"?: string;
+  "sortBy"?: ListParserFunctionsRequest.SortBy;
   /**
    * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
    *
@@ -51,6 +51,10 @@ export interface ListParserFunctionsRequest extends common.BaseRequest {
 }
 
 export namespace ListParserFunctionsRequest {
+  export enum SortBy {
+    Name = "name"
+  }
+
   export enum SortOrder {
     Asc = "ASC",
     Desc = "DESC"

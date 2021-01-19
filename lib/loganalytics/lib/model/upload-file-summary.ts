@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface UploadFileSummary {
   /**
-   * Unique internal identifier to refer to upload file
+   * Unique internal identifier to refer upload file.
    */
   "reference": string;
   /**
@@ -36,27 +36,27 @@ export interface UploadFileSummary {
    */
   "totalChunks"?: number;
   /**
-   * Number of chunks processed
+   * Number of chunks processed.
    */
   "chunksConsumed"?: number;
   /**
-   * Number of chunks processed successfully
+   * Number of chunks processed successfully.
    */
   "chunksSuccess"?: number;
   /**
-   * Number of chunks failed processing
+   * Number of chunks failed processing.
    */
   "chunksFail"?: number;
   /**
-   * The time when this file processing started
+   * The time when this file processing started.
    */
   "timeStarted"?: Date;
   /**
-   * Name of the log source used for processing this file
+   * Name of the log source used for processing this file.
    */
   "sourceName"?: string;
   /**
-   * Name of the entity type
+   * Name of the entity type.
    */
   "entityType"?: string;
   /**
@@ -64,7 +64,7 @@ export interface UploadFileSummary {
    */
   "entityName"?: string;
   /**
-   * Log namespace associated with the file.
+   * (Deprecated) Name of the log namespace associated with the file.
    */
   "logNamespace"?: string;
   /**
@@ -72,11 +72,11 @@ export interface UploadFileSummary {
    */
   "logGroupId"?: string;
   /**
-   * Log group name associated with the file.
+   * Name of the log group associated with the file.
    */
   "logGroupName"?: string;
   /**
-   * The details about upload processing failure
+   * The details about upload processing failure.
    */
   "failureDetails"?: string;
 }

@@ -20,14 +20,14 @@ import common = require("oci-common");
  */
 export interface ArchivingConfiguration {
   /**
-   * Thi is the duration data in active storage before data is archived, as described in
+   * This is the duration data in active storage before data is archived, as described in
    * https://en.wikipedia.org/wiki/ISO_8601#Durations.
    * The largest supported unit is D, e.g. P365D (not P1Y) or P14D (not P2W).
    *
    */
   "activeStorageDuration"?: string;
   /**
-   * The is the duration before archived data is deleted from object storage, as described in
+   * This is the duration before archived data is deleted from object storage, as described in
    * https://en.wikipedia.org/wiki/ISO_8601#Durations
    * The largest supported unit is D, e.g. P365D (not P1Y) or P14D (not P2W).
    *

@@ -32,7 +32,7 @@ export interface ListSourcesRequest extends common.BaseRequest {
    */
   "entityType"?: string;
   /**
-   * search by source display name or description
+   * Search by source display name or description.
    */
   "sourceDisplayText"?: string;
   /**

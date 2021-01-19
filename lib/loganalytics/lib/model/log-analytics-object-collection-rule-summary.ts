@@ -47,8 +47,7 @@ export interface LogAnalyticsObjectCollectionRuleSummary {
    */
   "osBucketName": string;
   /**
-   * The type of collection.
-   * Supported collection types: LIVE, HISTORIC, HISTORIC_LIVE
+   * The type of log collection.
    *
    */
   "collectionType": model.ObjectCollectionRuleCollectionTypes;
@@ -56,7 +55,7 @@ export interface LogAnalyticsObjectCollectionRuleSummary {
    * The current state of the rule.
    *
    */
-  "lifecycleState": string;
+  "lifecycleState": model.ObjectCollectionRuleLifecycleStates;
   /**
    * A detailed status of the life cycle state.
    */
@@ -69,6 +68,11 @@ export interface LogAnalyticsObjectCollectionRuleSummary {
    * The time when this rule was last updated. An RFC3339 formatted datetime string.
    */
   "timeUpdated": Date;
+  /**
+   * Whether or not this rule is currently enabled.
+   *
+   */
+  "isEnabled": boolean;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`

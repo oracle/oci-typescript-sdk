@@ -29,7 +29,7 @@ export interface UpdateLogAnalyticsEntityRequest extends common.BaseRequest {
    */
   "logAnalyticsEntityId": string;
   /**
-   * The information to be updated.
+   * Log analytics entity information to be updated.
    */
   "updateLogAnalyticsEntityDetails": model.UpdateLogAnalyticsEntityDetails;
   /**

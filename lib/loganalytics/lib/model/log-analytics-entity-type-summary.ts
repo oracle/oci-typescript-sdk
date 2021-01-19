@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of an log analytics entity type.
+ * Summary of a log analytics entity type.
  *
  */
 export interface LogAnalyticsEntityTypeSummary {
@@ -36,12 +36,12 @@ export interface LogAnalyticsEntityTypeSummary {
    */
   "category": string;
   /**
-   * Nature of log analytics entity type.
+   * Log analytics entity type group. This can be CLOUD (OCI) or NON_CLOUD otherwise.
    *
    */
   "cloudType": model.EntityCloudType;
   /**
-   * The current state of the log analytics entity
+   * The current lifecycle state of the log analytics entity type.
    *
    */
   "lifecycleState": model.EntityLifecycleStates;

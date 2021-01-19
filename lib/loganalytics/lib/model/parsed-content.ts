@@ -16,31 +16,31 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Parsed Content
+ * Parsed representation of the log file.
  */
 export interface ParsedContent {
   /**
-   * Field names
+   * List of field names.
    */
   "fieldNames"?: Array<string>;
   /**
-   * Display names for fields
+   * List of field display names.
    */
   "fieldDisplayNames"?: Array<string>;
   /**
-   * Parsed field values
+   * Parsed field values.
    */
   "parsedFieldValues"?: Array<model.ParsedField>;
   /**
-   * Sample log entries picked up from the given file for validation
+   * Sample log entries picked up from the given file for validation.
    */
   "logContent"?: string;
   /**
-   * Sample Size taken for validation
+   * Sample Size taken for validation.
    */
   "sampleSize"?: number;
   /**
-   * Match Status
+   * Match Status.
    */
   "matchStatus"?: string;
 }

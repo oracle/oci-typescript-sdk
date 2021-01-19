@@ -23,7 +23,7 @@ import common = require("oci-common");
  */
 export interface PropertyOverride {
   /**
-   * Match Type. Accepted values are: contains
+   * Match Type. Accepted values are: contains.
    *
    */
   "matchType"?: string;
@@ -37,7 +37,7 @@ export interface PropertyOverride {
    */
   "propertyName"?: string;
   /**
-   * Value.
+   * Value of the property.
    */
   "propertyValue"?: string;
 }

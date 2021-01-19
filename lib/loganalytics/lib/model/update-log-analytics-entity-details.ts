@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface UpdateLogAnalyticsEntityDetails {
   /**
-   * Log analytics entity name. The name must be unique, within the tenancy, and cannot be changed.
+   * Log analytics entity name.
    *
    */
   "name"?: string;

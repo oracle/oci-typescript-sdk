@@ -27,7 +27,7 @@ export enum DashxApisApiKeys {}
 
 export class DashxApisClient {
   protected static serviceEndpointTemplate =
-    "https://managementdashboards.{region}.oci.{secondLevelDomain}";
+    "https://managementdashboard.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;

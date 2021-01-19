@@ -34,7 +34,7 @@ export interface ListMetaSourceTypesRequest extends common.BaseRequest {
   /**
    * sort by field
    */
-  "sortBy"?: string;
+  "sortBy"?: ListMetaSourceTypesRequest.SortBy;
   /**
    * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
    *
@@ -47,6 +47,10 @@ export interface ListMetaSourceTypesRequest extends common.BaseRequest {
 }
 
 export namespace ListMetaSourceTypesRequest {
+  export enum SortBy {
+    Name = "name"
+  }
+
   export enum SortOrder {
     Asc = "ASC",
     Desc = "DESC"

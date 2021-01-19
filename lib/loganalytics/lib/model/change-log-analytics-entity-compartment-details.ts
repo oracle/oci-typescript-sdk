@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * log analytics entity compartment to be updated.
+ * Log analytics entity compartment to be updated.
  *
  */
 export interface ChangeLogAnalyticsEntityCompartmentDetails {

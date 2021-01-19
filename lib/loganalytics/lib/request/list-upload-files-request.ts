@@ -24,7 +24,7 @@ export interface ListUploadFilesRequest extends common.BaseRequest {
    */
   "namespaceName": string;
   /**
-   * Unique internal identifier to refer to upload container
+   * Unique internal identifier to refer upload container.
    */
   "uploadReference": string;
   /**
@@ -41,16 +41,17 @@ export interface ListUploadFilesRequest extends common.BaseRequest {
    */
   "sortOrder"?: ListUploadFilesRequest.SortOrder;
   /**
-   * The field to sort by. Only one sort order may be provided. Default order for timeCreated is descending.
+   * The field to sort by. Only one sort order may be provided. Default order for timeStarted is descending.
+   * timeCreated, fileName and logGroup are deprecated. Instead use timestarted, name, logGroup accordingly.
    *
    */
   "sortBy"?: ListUploadFilesRequest.SortBy;
   /**
-   * Search string used to filtering uploads based on file name, log group name and log source name.
+   * This can be used to filter upload files based on the file, log group and log source names.
    */
   "searchStr"?: string;
   /**
-   * Upload Status.
+   * Upload File processing state.
    */
   "status"?: Array<ListUploadFilesRequest.Status>;
   /**
@@ -66,11 +67,14 @@ export namespace ListUploadFilesRequest {
   }
 
   export enum SortBy {
+    TimeStarted = "timeStarted",
+    Name = "name",
+    LogGroupName = "logGroupName",
+    SourceName = "sourceName",
+    Status = "status",
     TimeCreated = "timeCreated",
     FileName = "fileName",
-    LogGroup = "logGroup",
-    SourceName = "sourceName",
-    Status = "status"
+    LogGroup = "logGroup"
   }
 
   export enum Status {

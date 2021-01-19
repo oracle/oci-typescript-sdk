@@ -25,7 +25,7 @@ export interface ChangeLogAnalyticsObjectCollectionRuleCompartmentRequest
    */
   "namespaceName": string;
   /**
-   * The Logging Analytics Object Collection Rule [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)
+   * The Logging Analytics Object Collection Rule [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "logAnalyticsObjectCollectionRuleId": string;
   /**

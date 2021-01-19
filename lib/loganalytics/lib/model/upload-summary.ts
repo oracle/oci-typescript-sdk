@@ -20,27 +20,27 @@ import common = require("oci-common");
  */
 export interface UploadSummary {
   /**
-   * Unique internal identifier to refer to the upload container
+   * Unique internal identifier to refer the upload container.
    */
   "reference": string;
   /**
-   * The name of the upload container
+   * The name of the upload container.
    */
   "name": string;
   /**
-   * The time when this upload container is created. An RFC3339 formatted datetime string
+   * The time when this upload container is created. An RFC3339 formatted datetime string.
    */
   "timeCreated": Date;
   /**
-   * The latest time when this upload container is modified. An RFC3339 formatted datetime string
+   * The latest time when this upload container is modified. An RFC3339 formatted datetime string.
    */
   "timeUpdated"?: Date;
   /**
-   * This time represents the earliest time of the log entry in this container. An RFC3339 formatted datetime string
+   * This time represents the earliest time of the log entry in this container. An RFC3339 formatted datetime string.
    */
   "timeEarliestLogEntry"?: Date;
   /**
-   * This time represents the latest time of the log entry in this container. An RFC3339 formatted datetime string
+   * This time represents the latest time of the log entry in this container. An RFC3339 formatted datetime string.
    */
   "timeLatestLogEntry"?: Date;
   /**

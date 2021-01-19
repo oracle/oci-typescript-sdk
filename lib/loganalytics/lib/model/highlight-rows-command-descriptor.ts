@@ -21,6 +21,11 @@ import common = require("oci-common");
  */
 export interface HighlightRowsCommandDescriptor extends model.AbstractCommandDescriptor {
   /**
+   * User specified color to highlight matches with if found.
+   *
+   */
+  "color"?: string;
+  /**
    * List of terms or phrases to find to mark the result row as highlighted.
    *
    */

@@ -24,11 +24,11 @@ export interface DeleteUploadWarningRequest extends common.BaseRequest {
    */
   "namespaceName": string;
   /**
-   * Unique internal identifier to refer to upload container
+   * Unique internal identifier to refer upload container.
    */
   "uploadReference": string;
   /**
-   * Unique internal identifier to refer to upload warning
+   * Unique internal identifier to refer upload warning.
    */
   "warningReference": string;
   /**

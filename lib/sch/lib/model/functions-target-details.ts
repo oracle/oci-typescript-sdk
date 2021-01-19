@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The function target.
+ * The function used for the Functions target.
  *
  */
 export interface FunctionsTargetDetails extends model.TargetDetails {

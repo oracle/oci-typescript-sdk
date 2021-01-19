@@ -24,7 +24,7 @@ export interface ValidateFileRequest extends common.BaseRequest {
    */
   "namespaceName": string;
   /**
-   * Location of the log file
+   * Location of the log file.
    */
   "objectLocation": string;
   /**

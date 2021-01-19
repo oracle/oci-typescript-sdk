@@ -16,12 +16,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The new compartment this Object Collection Rule will be moved to.
+ * New compartment details.
  *
  */
 export interface ChangeLogAnalyticsObjectCollectionRuleCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment into which the rule should be moved.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment to which the rule have to be moved.
    *
    */
   "compartmentId": string;

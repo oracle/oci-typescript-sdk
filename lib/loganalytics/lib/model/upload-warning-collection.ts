@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Collection of UploadFileSummary objects.
+ * Collection of UploadWarningSummary objects.
  */
 export interface UploadWarningCollection {
   /**

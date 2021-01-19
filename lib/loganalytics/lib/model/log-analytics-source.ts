@@ -159,6 +159,10 @@ export interface LogAnalyticsSource {
    * timeUpdated
    */
   "timeUpdated"?: Date;
+  /**
+   * An array of event types.
+   */
+  "eventTypes"?: Array<model.EventType>;
 }
 
 export namespace LogAnalyticsSource {
@@ -252,6 +256,12 @@ export namespace LogAnalyticsSource {
         "userParsers": obj.userParsers
           ? obj.userParsers.map(item => {
               return model.LogAnalyticsParser.getJsonObj(item);
+            })
+          : undefined,
+
+        "eventTypes": obj.eventTypes
+          ? obj.eventTypes.map(item => {
+              return model.EventType.getJsonObj(item);
             })
           : undefined
       }

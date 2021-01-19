@@ -3,6 +3,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 1.12.0 - 2021-01-19
+### Added
+- Support for Logging Analytics as a target in the Service Connector Hub service
+- Support for lookups, agent collection warnings, task commands, and data archive/recall in the Logging Analytics service
+
+### Fixed
+- Fixed a bug in the endpoint used for the Management Dashboard service
+
+### Breaking Changes
+- Updated the property of `sortBy` type from `string` to `ListSourceMetaFunctionsRequest.SortBy` from the model of `ListSourceMetaFunctionsRequest` in the log analytics service.
+- Updated the property of `sortBy` type from `string` to `ListSourceLabelOperatorsRequest.SortBy`,` from the model of `ListSourceLabelOperatorsRequest` in the log analytics service.
+- Updated the property of `sortBy` type from `string` to `ListParserMetaPluginsRequest.SortBy`,` from the model of `ListParserMetaPluginsRequest` in the log analytics service.
+- Updated the property of `sortBy` type from `string` to `ListParserFunctionsRequest.SortBy`,` from the model of `ListParserFunctionsRequest` in the log analytics service.
+- Updated the property of `sortBy` type from `string` to `ListMetaSourceTypesRequest.SortBy`,` from the model of `ListMetaSourceTypesRequest` in the log analytics service.
+- Added mandatory field `kind` to the model `UpdateScheduleTaskDetails` in the log analytics service.
+
 ## 1.11.0 - 2021-01-12
 ### Added
 - Support for auto-scaling in the Big Data service

@@ -53,6 +53,9 @@ export namespace LogAnalyticsConfigWorkRequestSummary {
   export enum OperationType {
     CreateAssociations = "CREATE_ASSOCIATIONS",
     DeleteAssociations = "DELETE_ASSOCIATIONS",
+    AppendLookupData = "APPEND_LOOKUP_DATA",
+    UpdateLookupData = "UPDATE_LOOKUP_DATA",
+    DeleteLookup = "DELETE_LOOKUP",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

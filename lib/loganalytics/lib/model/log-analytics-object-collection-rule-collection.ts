@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsObjectCollectionRuleCollection {
   /**
-   * list of LogAnalyticsObjectCollectionRuleSummary objects.
+   * List of LogAnalyticsObjectCollectionRuleSummary objects.
    */
   "items": Array<model.LogAnalyticsObjectCollectionRuleSummary>;
 }

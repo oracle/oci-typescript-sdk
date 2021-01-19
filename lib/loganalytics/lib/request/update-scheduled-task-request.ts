@@ -34,7 +34,7 @@ export interface UpdateScheduledTaskRequest extends common.BaseRequest {
    * Schedules may be updated only for taskType SAVED_SEARCH and PURGE.
    *
    */
-  "updateScheduledTaskDetails": model.UpdateScheduledTaskDetails;
+  "updateScheduledTaskDetails": model.UpdateStandardTaskDetails;
   /**
    * The client request ID for tracing.
    */

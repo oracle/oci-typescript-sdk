@@ -40,7 +40,7 @@ export interface LogAnalyticsEntityType {
    */
   "category": string;
   /**
-   * Nature of log analytics entity type.
+   * Log analytics entity type group. That can be CLOUD (OCI) or NON_CLOUD otherwise.
    *
    */
   "cloudType": model.EntityCloudType;
@@ -50,7 +50,7 @@ export interface LogAnalyticsEntityType {
    */
   "properties"?: Array<model.EntityTypeProperty>;
   /**
-   * The current state of the log analytics entity.
+   * The current lifecycle state of the log analytics entity.
    *
    */
   "lifecycleState": model.EntityLifecycleStates;

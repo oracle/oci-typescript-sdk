@@ -31,6 +31,10 @@ export interface LogAnalyticsConfigWorkRequestPayload {
    * lookupReference
    */
   "lookupReference"?: number;
+  /**
+   * lookupReference
+   */
+  "lookupReferenceString"?: string;
 }
 
 export namespace LogAnalyticsConfigWorkRequestPayload {

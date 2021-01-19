@@ -63,6 +63,8 @@ import * as FunctionsTargetDetails from "./functions-target-details";
 export import FunctionsTargetDetails = FunctionsTargetDetails.FunctionsTargetDetails;
 import * as LogRuleTaskDetails from "./log-rule-task-details";
 export import LogRuleTaskDetails = LogRuleTaskDetails.LogRuleTaskDetails;
+import * as LoggingAnalyticsTargetDetails from "./logging-analytics-target-details";
+export import LoggingAnalyticsTargetDetails = LoggingAnalyticsTargetDetails.LoggingAnalyticsTargetDetails;
 import * as LoggingSourceDetails from "./logging-source-details";
 export import LoggingSourceDetails = LoggingSourceDetails.LoggingSourceDetails;
 import * as MonitoringTargetDetails from "./monitoring-target-details";
