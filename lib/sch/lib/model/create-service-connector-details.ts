@@ -50,6 +50,7 @@ export interface CreateServiceConnectorDetails {
     | model.ObjectStorageTargetDetails
     | model.MonitoringTargetDetails
     | model.FunctionsTargetDetails
+    | model.LoggingAnalyticsTargetDetails
     | model.StreamingTargetDetails;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.

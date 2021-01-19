@@ -66,6 +66,11 @@ export interface AbstractField {
    *
    */
   "filterQueryString"?: string;
+  /**
+   * Field denoting field unit type.
+   *
+   */
+  "unitType"?: string;
 
   "name": string;
 }

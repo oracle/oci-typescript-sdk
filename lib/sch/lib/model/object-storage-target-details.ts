@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The object storage target.
+ * The bucket used for the Object Storage target.
  *
  */
 export interface ObjectStorageTargetDetails extends model.TargetDetails {
@@ -37,6 +37,16 @@ export interface ObjectStorageTargetDetails extends model.TargetDetails {
    *
    */
   "objectNamePrefix"?: string;
+  /**
+   * The batch rollover size in megabytes.
+   *
+   */
+  "batchRolloverSizeInMBs"?: number;
+  /**
+   * The batch rollover time in milliseconds.
+   *
+   */
+  "batchRolloverTimeInMs"?: number;
 
   "kind": string;
 }

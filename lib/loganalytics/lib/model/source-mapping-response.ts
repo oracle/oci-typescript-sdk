@@ -16,11 +16,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Response object containing match status and parsed representation of log data
+ * Response object containing match status and parsed representation of log data.
  */
 export interface SourceMappingResponse {
   /**
-   * Parsed representation of the log file
+   * Parsed representation of the log file.
    */
   "parsedResponse": Array<model.ParsedContent>;
 }

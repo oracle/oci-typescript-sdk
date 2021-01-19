@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible lifecycle states.
+ * Log analytics entity lifecycle state. Supported states are ACTIVE, DELETED
  *
  **/
 export enum EntityLifecycleStates {

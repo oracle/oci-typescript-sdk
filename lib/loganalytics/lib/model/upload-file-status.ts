@@ -20,11 +20,11 @@ import common = require("oci-common");
  */
 export interface UploadFileStatus {
   /**
-   * Name of the file
+   * Name of the file.
    */
   "fileName"?: string;
   /**
-   * Is Valid flag
+   * Is Valid flag.
    */
   "isValid"?: boolean;
 }

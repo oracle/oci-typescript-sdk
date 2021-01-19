@@ -16,15 +16,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Parsed field response
+ * Parsed field response.
  */
 export interface ParsedField {
   /**
-   * Sample log entries picked up from the given file for validation
+   * Sample log entries picked up from the given file for validation.
    */
   "logContent"?: string;
   /**
-   * Field Values
+   * List of field Values.
    */
   "fieldValues"?: Array<string>;
 }

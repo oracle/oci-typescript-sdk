@@ -54,6 +54,11 @@ export namespace TargetDetails {
             <model.FunctionsTargetDetails>(<object>jsonObj),
             true
           );
+        case "loggingAnalytics":
+          return model.LoggingAnalyticsTargetDetails.getJsonObj(
+            <model.LoggingAnalyticsTargetDetails>(<object>jsonObj),
+            true
+          );
         case "streaming":
           return model.StreamingTargetDetails.getJsonObj(
             <model.StreamingTargetDetails>(<object>jsonObj),

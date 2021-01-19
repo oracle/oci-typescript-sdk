@@ -74,6 +74,14 @@ export interface ScheduledTaskSummary {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The most recent task execution status.
+   */
+  "lastExecutionStatus"?: ScheduledTaskSummary.LastExecutionStatus;
+  /**
+   * The date and time the scheduled task last executed, in the format defined by RFC3339.
+   */
+  "timeLastExecuted"?: Date;
 }
 
 export namespace ScheduledTaskSummary {
@@ -82,6 +90,16 @@ export namespace ScheduledTaskSummary {
     Paused = "PAUSED",
     Completed = "COMPLETED",
     Blocked = "BLOCKED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum LastExecutionStatus {
+    Failed = "FAILED",
+    Succeeded = "SUCCEEDED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

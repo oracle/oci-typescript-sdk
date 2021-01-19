@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Information about the associations to be added between log analytics entity and other existing entities.
+ * Information about the associations to be added between a source log analytics entity and other existing destination entities.
  *
  */
 export interface AddEntityAssociationDetails {

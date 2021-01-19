@@ -34,7 +34,7 @@ export interface ListParserMetaPluginsRequest extends common.BaseRequest {
   /**
    * sort by field
    */
-  "sortBy"?: string;
+  "sortBy"?: ListParserMetaPluginsRequest.SortBy;
   /**
    * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
    *
@@ -47,6 +47,10 @@ export interface ListParserMetaPluginsRequest extends common.BaseRequest {
 }
 
 export namespace ListParserMetaPluginsRequest {
+  export enum SortBy {
+    Name = "name"
+  }
+
   export enum SortOrder {
     Asc = "ASC",
     Desc = "DESC"

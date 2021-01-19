@@ -132,7 +132,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Adds association between input source log analytics entity and destination entities.
+   * Adds association between input source log analytics entity and one or more existing destination entities.
    * @param AddEntityAssociationRequest
    * @return AddEntityAssociationResponse
    * @throws OciError when an error occurs
@@ -182,6 +182,74 @@ export class LogAnalyticsClient {
       const sdkResponse = composeResponse({
         responseObject: <responses.AddEntityAssociationResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Append data to a lookup.  The file containing the information to append
+   * must be provided.
+   *
+   * @param AppendLookupDataRequest
+   * @return AppendLookupDataResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/AppendLookupData.ts.html |here} to see how to use AppendLookupData API.
+   */
+  public async appendLookupData(
+    appendLookupDataRequest: requests.AppendLookupDataRequest
+  ): Promise<responses.AppendLookupDataResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#appendLookupData.");
+    const pathParams = {
+      "{namespaceName}": appendLookupDataRequest.namespaceName,
+      "{lookupName}": appendLookupDataRequest.lookupName
+    };
+
+    const queryParams = {
+      "isForce": appendLookupDataRequest.isForce,
+      "charEncoding": appendLookupDataRequest.charEncoding
+    };
+
+    let headerParams = {
+      "opc-retry-token": appendLookupDataRequest.opcRetryToken,
+      "opc-request-id": appendLookupDataRequest.opcRequestId,
+      "if-match": appendLookupDataRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/lookups/{lookupName}/actions/appendData",
+      method: "POST",
+      bodyContent: appendLookupDataRequest.appendLookupFileBody,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      appendLookupDataRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AppendLookupDataResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -469,7 +537,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Move the rule from it's current compartment to given compartment.
+   * Move the rule from it's current compartment to the given compartment.
    * @param ChangeLogAnalyticsObjectCollectionRuleCompartmentRequest
    * @return ChangeLogAnalyticsObjectCollectionRuleCompartmentResponse
    * @throws OciError when an error occurs
@@ -864,7 +932,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Create a configuration to collect logs from object storage bucket.
+   * Creates a rule to collect logs from an object storage bucket.
    * @param CreateLogAnalyticsObjectCollectionRuleRequest
    * @return CreateLogAnalyticsObjectCollectionRuleResponse
    * @throws OciError when an error occurs
@@ -1244,7 +1312,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Delete the log analytics entity type with the given name.
+   * Delete log analytics entity type with the given name.
    * @param DeleteLogAnalyticsEntityTypeRequest
    * @return DeleteLogAnalyticsEntityTypeResponse
    * @throws OciError when an error occurs
@@ -1360,8 +1428,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Deletes a configured object storage bucket based collection rule to stop the log collection of the configured bucket .
-   * It will not delete the already collected log data from the configured bucket.
+   * Deletes the configured object storage bucket based collection rule and stop the log collection.
+   * It will not delete the existing processed data associated with this bucket from logging analytics storage.
    *
    * @param DeleteLogAnalyticsObjectCollectionRuleRequest
    * @return DeleteLogAnalyticsObjectCollectionRuleResponse
@@ -1409,6 +1477,72 @@ export class LogAnalyticsClient {
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteLogAnalyticsObjectCollectionRuleResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete the specified lookup.
+   *
+   * @param DeleteLookupRequest
+   * @return DeleteLookupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteLookup.ts.html |here} to see how to use DeleteLookup API.
+   */
+  public async deleteLookup(
+    deleteLookupRequest: requests.DeleteLookupRequest
+  ): Promise<responses.DeleteLookupResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#deleteLookup.");
+    const pathParams = {
+      "{namespaceName}": deleteLookupRequest.namespaceName,
+      "{lookupName}": deleteLookupRequest.lookupName
+    };
+
+    const queryParams = {
+      "isForce": deleteLookupRequest.isForce
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": deleteLookupRequest.opcRetryToken,
+      "opc-request-id": deleteLookupRequest.opcRequestId,
+      "if-match": deleteLookupRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/lookups/{lookupName}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteLookupRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteLookupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -1666,8 +1800,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Deletes a specific log file inside an upload by providing upload file reference.
-   * It deletes all the logs in storage asscoiated with the upload file and the corresponding upload metadata.
+   * Deletes a specific log file inside an upload by upload file reference.
+   * It deletes all the logs from storage associated with the file and the corresponding metadata.
    *
    * @param DeleteUploadFileRequest
    * @return DeleteUploadFileResponse
@@ -1983,6 +2117,136 @@ export class LogAnalyticsClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This API gives an active storage usage estimate for archived data to be recalled and the time range of such data.
+   *
+   * @param EstimateRecallDataSizeRequest
+   * @return EstimateRecallDataSizeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/EstimateRecallDataSize.ts.html |here} to see how to use EstimateRecallDataSize API.
+   */
+  public async estimateRecallDataSize(
+    estimateRecallDataSizeRequest: requests.EstimateRecallDataSizeRequest
+  ): Promise<responses.EstimateRecallDataSizeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#estimateRecallDataSize.");
+    const pathParams = {
+      "{namespaceName}": estimateRecallDataSizeRequest.namespaceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": estimateRecallDataSizeRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/storage/actions/estimateRecallDataSize",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        estimateRecallDataSizeRequest.estimateRecallDataSizeDetails,
+        "EstimateRecallDataSizeDetails",
+        models.EstimateRecallDataSizeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      estimateRecallDataSizeRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EstimateRecallDataSizeResponse>{},
+        body: await response.json(),
+        bodyKey: "estimateRecallDataSizeResult",
+        bodyModel: "model.EstimateRecallDataSizeResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This API gives an active storage usage estimate for recalled data to be released and the time range of such data.
+   *
+   * @param EstimateReleaseDataSizeRequest
+   * @return EstimateReleaseDataSizeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/EstimateReleaseDataSize.ts.html |here} to see how to use EstimateReleaseDataSize API.
+   */
+  public async estimateReleaseDataSize(
+    estimateReleaseDataSizeRequest: requests.EstimateReleaseDataSizeRequest
+  ): Promise<responses.EstimateReleaseDataSizeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#estimateReleaseDataSize.");
+    const pathParams = {
+      "{namespaceName}": estimateReleaseDataSizeRequest.namespaceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": estimateReleaseDataSizeRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/storage/actions/estimateReleaseDataSize",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        estimateReleaseDataSizeRequest.estimateReleaseDataSizeDetails,
+        "EstimateReleaseDataSizeDetails",
+        models.EstimateReleaseDataSizeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      estimateReleaseDataSizeRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EstimateReleaseDataSizeResponse>{},
+        body: await response.json(),
+        bodyKey: "estimateReleaseDataSizeResult",
+        bodyModel: "model.EstimateReleaseDataSizeResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -2747,7 +3011,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Returns log analytics entities count summary.
+   * Returns log analytics entities count summary report.
    * @param GetLogAnalyticsEntitiesSummaryRequest
    * @return GetLogAnalyticsEntitiesSummaryResponse
    * @throws OciError when an error occurs
@@ -3112,6 +3376,71 @@ export class LogAnalyticsClient {
         body: await response.json(),
         bodyKey: "logAnalyticsObjectCollectionRule",
         bodyModel: "model.LogAnalyticsObjectCollectionRule",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Obtains the lookup with the specified reference.
+   *
+   * @param GetLookupRequest
+   * @return GetLookupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLookup.ts.html |here} to see how to use GetLookup API.
+   */
+  public async getLookup(
+    getLookupRequest: requests.GetLookupRequest
+  ): Promise<responses.GetLookupResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getLookup.");
+    const pathParams = {
+      "{namespaceName}": getLookupRequest.namespaceName,
+      "{lookupName}": getLookupRequest.lookupName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getLookupRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/lookups/{lookupName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getLookupRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetLookupResponse>{},
+        body: await response.json(),
+        bodyKey: "logAnalyticsLookup",
+        bodyModel: "model.LogAnalyticsLookup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3854,7 +4183,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Gets an On-Demand Upload info by reference
+   * Gets an On-Demand Upload info by reference.
    * @param GetUploadRequest
    * @return GetUploadResponse
    * @throws OciError when an error occurs
@@ -4882,7 +5211,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Gets list of configuration details of Object Storage based collection rules.
+   * Gets list of collection rules.
    * @param ListLogAnalyticsObjectCollectionRulesRequest
    * @return ListLogAnalyticsObjectCollectionRulesResponse
    * @throws OciError when an error occurs
@@ -4944,6 +5273,86 @@ export class LogAnalyticsClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Obtains a list of lookups.  The list is filtered according to the filter criteria
+   * specified by the user, and sorted according to the ordering criteria specified.
+   *
+   * @param ListLookupsRequest
+   * @return ListLookupsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLookups.ts.html |here} to see how to use ListLookups API.
+   */
+  public async listLookups(
+    listLookupsRequest: requests.ListLookupsRequest
+  ): Promise<responses.ListLookupsResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listLookups.");
+    const pathParams = {
+      "{namespaceName}": listLookupsRequest.namespaceName
+    };
+
+    const queryParams = {
+      "lookupDisplayText": listLookupsRequest.lookupDisplayText,
+      "type": listLookupsRequest.type,
+      "isSystem": listLookupsRequest.isSystem,
+      "sortBy": listLookupsRequest.sortBy,
+      "status": listLookupsRequest.status,
+      "isHideSpecial": listLookupsRequest.isHideSpecial,
+      "limit": listLookupsRequest.limit,
+      "page": listLookupsRequest.page,
+      "sortOrder": listLookupsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listLookupsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/lookups",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listLookupsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListLookupsResponse>{},
+        body: await response.json(),
+        bodyKey: "logAnalyticsLookupCollection",
+        bodyModel: "model.LogAnalyticsLookupCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -5366,6 +5775,83 @@ export class LogAnalyticsClient {
         body: await response.json(),
         bodyKey: "queryWorkRequestCollection",
         bodyModel: "model.QueryWorkRequestCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This API returns the list of recalled data of a tenancy.
+   *
+   * @param ListRecalledDataRequest
+   * @return ListRecalledDataResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListRecalledData.ts.html |here} to see how to use ListRecalledData API.
+   */
+  public async listRecalledData(
+    listRecalledDataRequest: requests.ListRecalledDataRequest
+  ): Promise<responses.ListRecalledDataResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listRecalledData.");
+    const pathParams = {
+      "{namespaceName}": listRecalledDataRequest.namespaceName
+    };
+
+    const queryParams = {
+      "limit": listRecalledDataRequest.limit,
+      "page": listRecalledDataRequest.page,
+      "sortBy": listRecalledDataRequest.sortBy,
+      "sortOrder": listRecalledDataRequest.sortOrder,
+      "timeDataStartedGreaterThanOrEqual":
+        listRecalledDataRequest.timeDataStartedGreaterThanOrEqual,
+      "timeDataEndedLessThan": listRecalledDataRequest.timeDataEndedLessThan
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRecalledDataRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/storage/recalledData",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listRecalledDataRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRecalledDataResponse>{},
+        body: await response.json(),
+        bodyKey: "recalledDataCollection",
+        bodyModel: "model.RecalledDataCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6083,7 +6569,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Gets the list of character encodings supported for log files.
+   * Gets list of character encodings which are supported by on-demand upload.
    * @param ListSupportedCharEncodingsRequest
    * @return ListSupportedCharEncodingsResponse
    * @throws OciError when an error occurs
@@ -6155,7 +6641,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Gets timezones that are supported when performing uploads.
+   * Gets list of timezones which are supported by on-demand upload.
    * @param ListSupportedTimezonesRequest
    * @return ListSupportedTimezonesResponse
    * @throws OciError when an error occurs
@@ -6227,7 +6713,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Gets list of files in an upload.
+   * Gets list of files in an upload along with its processing state.
    * @param ListUploadFilesRequest
    * @return ListUploadFilesResponse
    * @throws OciError when an error occurs
@@ -6298,7 +6784,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Gets list of warnings in an upload explaining the failures due to incorrect configuration.
+   * Gets list of warnings in an upload caused by incorrect configuration.
    * @param ListUploadWarningsRequest
    * @return ListUploadWarningsResponse
    * @throws OciError when an error occurs
@@ -6431,6 +6917,92 @@ export class LogAnalyticsClient {
             value: response.headers.get("opc-total-items"),
             key: "opcTotalItems",
             dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Obtains a list of warnings.  The list is filtered according to the filter criteria
+   * specified by the user, and sorted according to the ordering criteria specified.
+   *
+   * @param ListWarningsRequest
+   * @return ListWarningsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListWarnings.ts.html |here} to see how to use ListWarnings API.
+   */
+  public async listWarnings(
+    listWarningsRequest: requests.ListWarningsRequest
+  ): Promise<responses.ListWarningsResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listWarnings.");
+    const pathParams = {
+      "{namespaceName}": listWarningsRequest.namespaceName
+    };
+
+    const queryParams = {
+      "warningState": listWarningsRequest.warningState,
+      "sourceName": listWarningsRequest.sourceName,
+      "sourcePattern": listWarningsRequest.sourcePattern,
+      "warningMessage": listWarningsRequest.warningMessage,
+      "entityName": listWarningsRequest.entityName,
+      "entityType": listWarningsRequest.entityType,
+      "warningType": listWarningsRequest.warningType,
+      "isNoSource": listWarningsRequest.isNoSource,
+      "startTime": listWarningsRequest.startTime,
+      "endTime": listWarningsRequest.endTime,
+      "compartmentId": listWarningsRequest.compartmentId,
+      "limit": listWarningsRequest.limit,
+      "page": listWarningsRequest.page,
+      "sortOrder": listWarningsRequest.sortOrder,
+      "sortBy": listWarningsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWarningsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/warnings",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listWarningsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWarningsResponse>{},
+        body: await response.json(),
+        bodyKey: "logAnalyticsWarningCollection",
+        bodyModel: "model.LogAnalyticsWarningCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -6821,6 +7393,72 @@ export class LogAnalyticsClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Pause the scheduled task specified by {scheduledTaskId}.
+   *
+   * @param PauseScheduledTaskRequest
+   * @return PauseScheduledTaskResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/PauseScheduledTask.ts.html |here} to see how to use PauseScheduledTask API.
+   */
+  public async pauseScheduledTask(
+    pauseScheduledTaskRequest: requests.PauseScheduledTaskRequest
+  ): Promise<responses.PauseScheduledTaskResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#pauseScheduledTask.");
+    const pathParams = {
+      "{namespaceName}": pauseScheduledTaskRequest.namespaceName,
+      "{scheduledTaskId}": pauseScheduledTaskRequest.scheduledTaskId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": pauseScheduledTaskRequest.ifMatch,
+      "opc-request-id": pauseScheduledTaskRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/scheduledTasks/{scheduledTaskId}/actions/pause",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      pauseScheduledTaskRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PauseScheduledTaskResponse>{},
+        body: await response.json(),
+        bodyKey: "scheduledTask",
+        bodyModel: "model.ScheduledTask",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -7339,6 +7977,72 @@ export class LogAnalyticsClient {
   }
 
   /**
+   * Resume the scheduled task specified by {scheduledTaskId}.
+   *
+   * @param ResumeScheduledTaskRequest
+   * @return ResumeScheduledTaskResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ResumeScheduledTask.ts.html |here} to see how to use ResumeScheduledTask API.
+   */
+  public async resumeScheduledTask(
+    resumeScheduledTaskRequest: requests.ResumeScheduledTaskRequest
+  ): Promise<responses.ResumeScheduledTaskResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#resumeScheduledTask.");
+    const pathParams = {
+      "{namespaceName}": resumeScheduledTaskRequest.namespaceName,
+      "{scheduledTaskId}": resumeScheduledTaskRequest.scheduledTaskId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": resumeScheduledTaskRequest.ifMatch,
+      "opc-request-id": resumeScheduledTaskRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/scheduledTasks/{scheduledTaskId}/actions/resume",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      resumeScheduledTaskRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ResumeScheduledTaskResponse>{},
+        body: await response.json(),
+        bodyKey: "scheduledTask",
+        bodyModel: "model.ScheduledTask",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Execute the saved search acceleration task in the foreground.
    * The ScheduledTask taskType must be ACCELERATION.
    * Optionally specify time range (timeStart and timeEnd). The default is all time.
@@ -7463,6 +8167,72 @@ export class LogAnalyticsClient {
   }
 
   /**
+   * Accepts a list of warnings.  Any unsuppressed warnings in the input list will
+   * be suppressed.  Warnings in the input list which are already suppressed will
+   * not be modified.
+   *
+   * @param SuppressWarningRequest
+   * @return SuppressWarningResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/SuppressWarning.ts.html |here} to see how to use SuppressWarning API.
+   */
+  public async suppressWarning(
+    suppressWarningRequest: requests.SuppressWarningRequest
+  ): Promise<responses.SuppressWarningResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#suppressWarning.");
+    const pathParams = {
+      "{namespaceName}": suppressWarningRequest.namespaceName
+    };
+
+    const queryParams = {
+      "compartmentId": suppressWarningRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": suppressWarningRequest.opcRetryToken,
+      "opc-request-id": suppressWarningRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/warnings/actions/suppress",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        suppressWarningRequest.warningReferenceDetails,
+        "WarningReferenceDetails",
+        models.WarningReferenceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      suppressWarningRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SuppressWarningResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * test parser
    * @param TestParserRequest
    * @return TestParserResponse
@@ -7514,6 +8284,72 @@ export class LogAnalyticsClient {
         body: await response.json(),
         bodyKey: "parserTestResult",
         bodyModel: "model.ParserTestResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Accepts a list of warnings.  Any suppressed warnings in the input list will
+   * be unsuppressed.  Warnings in the input list which are unsuppressed will
+   * not be modified.
+   *
+   * @param UnsuppressWarningRequest
+   * @return UnsuppressWarningResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UnsuppressWarning.ts.html |here} to see how to use UnsuppressWarning API.
+   */
+  public async unsuppressWarning(
+    unsuppressWarningRequest: requests.UnsuppressWarningRequest
+  ): Promise<responses.UnsuppressWarningResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#unsuppressWarning.");
+    const pathParams = {
+      "{namespaceName}": unsuppressWarningRequest.namespaceName
+    };
+
+    const queryParams = {
+      "compartmentId": unsuppressWarningRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": unsuppressWarningRequest.opcRetryToken,
+      "opc-request-id": unsuppressWarningRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/warnings/actions/unsuppress",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        unsuppressWarningRequest.warningReferenceDetails,
+        "WarningReferenceDetails",
+        models.WarningReferenceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      unsuppressWarningRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UnsuppressWarningResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7735,7 +8571,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Update the rule with the given id.
+   * Updates configuration of the object collection rule for the given id.
    * @param UpdateLogAnalyticsObjectCollectionRuleRequest
    * @return UpdateLogAnalyticsObjectCollectionRuleResponse
    * @throws OciError when an error occurs
@@ -7793,6 +8629,146 @@ export class LogAnalyticsClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the metadata of the specified lookup, such as the lookup description.
+   *
+   * @param UpdateLookupRequest
+   * @return UpdateLookupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateLookup.ts.html |here} to see how to use UpdateLookup API.
+   */
+  public async updateLookup(
+    updateLookupRequest: requests.UpdateLookupRequest
+  ): Promise<responses.UpdateLookupResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#updateLookup.");
+    const pathParams = {
+      "{namespaceName}": updateLookupRequest.namespaceName,
+      "{lookupName}": updateLookupRequest.lookupName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": updateLookupRequest.opcRetryToken,
+      "opc-request-id": updateLookupRequest.opcRequestId,
+      "if-match": updateLookupRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/lookups/{lookupName}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateLookupRequest.updateLookupMetadataDetails,
+        "UpdateLookupMetadataDetails",
+        models.UpdateLookupMetadataDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateLookupRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateLookupResponse>{},
+        body: await response.json(),
+        bodyKey: "logAnalyticsLookup",
+        bodyModel: "model.LogAnalyticsLookup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified lookup with the details provided.  This API will not update
+   * lookup metadata (such as lookup description).
+   *
+   * @param UpdateLookupDataRequest
+   * @return UpdateLookupDataResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateLookupData.ts.html |here} to see how to use UpdateLookupData API.
+   */
+  public async updateLookupData(
+    updateLookupDataRequest: requests.UpdateLookupDataRequest
+  ): Promise<responses.UpdateLookupDataResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#updateLookupData.");
+    const pathParams = {
+      "{namespaceName}": updateLookupDataRequest.namespaceName,
+      "{lookupName}": updateLookupDataRequest.lookupName
+    };
+
+    const queryParams = {
+      "isForce": updateLookupDataRequest.isForce,
+      "charEncoding": updateLookupDataRequest.charEncoding
+    };
+
+    let headerParams = {
+      "opc-retry-token": updateLookupDataRequest.opcRetryToken,
+      "opc-request-id": updateLookupDataRequest.opcRequestId,
+      "if-match": updateLookupDataRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/lookups/{lookupName}/actions/updateData",
+      method: "POST",
+      bodyContent: updateLookupDataRequest.updateLookupFileBody,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateLookupDataRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateLookupDataResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {
@@ -8460,7 +9436,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Validates a log file to check whether it is eligible to upload or not.
+   * Validates a log file to check whether it is eligible to be uploaded or not.
    * @param ValidateFileRequest
    * @return ValidateFileResponse
    * @throws OciError when an error occurs
@@ -8654,7 +9630,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Validates the source mapping for given file and provides match status and parsed representation of log data.
+   * Validates the source mapping for a given file and provides match status and the parsed representation of log data.
    * @param ValidateSourceMappingRequest
    * @return ValidateSourceMappingResponse
    * @throws OciError when an error occurs

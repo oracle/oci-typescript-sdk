@@ -29,7 +29,7 @@ export interface RemoveEntityAssociationsRequest extends common.BaseRequest {
    */
   "logAnalyticsEntityId": string;
   /**
-   * This parameter specifies the entity OCIDs with which associations are to be deleted. Specify destination OCIDs as comma separated string.
+   * This parameter specifies the entity OCIDs with which associations are to be deleted.
    */
   "removeEntityAssociationsDetails": model.RemoveEntityAssociationsDetails;
   /**

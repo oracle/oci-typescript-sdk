@@ -40,9 +40,17 @@ export interface LogAnalyticsLookup {
    */
   "fields"?: Array<model.LookupField>;
   /**
-   * lookupReference
+   * The lookup reference as an integer.
    */
   "lookupReference"?: number;
+  /**
+   * The lookup reference as a string.
+   */
+  "lookupReferenceString"?: string;
+  /**
+   * The lookup type.  Valid values are LOOKUP or DICTIONARY.
+   */
+  "type"?: LogAnalyticsLookup.Type;
   /**
    * iname
    */
@@ -68,6 +76,16 @@ export interface LogAnalyticsLookup {
 }
 
 export namespace LogAnalyticsLookup {
+  export enum Type {
+    Lookup = "Lookup",
+    Dictionary = "Dictionary",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: LogAnalyticsLookup): object {
     const jsonObj = {
       ...obj,

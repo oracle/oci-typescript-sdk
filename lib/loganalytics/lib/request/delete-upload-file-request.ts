@@ -24,11 +24,11 @@ export interface DeleteUploadFileRequest extends common.BaseRequest {
    */
   "namespaceName": string;
   /**
-   * Unique internal identifier to refer to upload container
+   * Unique internal identifier to refer upload container.
    */
   "uploadReference": string;
   /**
-   * Unique internal identifier to refer to upload file
+   * Unique internal identifier to refer upload file.
    */
   "fileReference": string;
   /**

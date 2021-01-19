@@ -23,6 +23,7 @@ export interface StreamAction extends model.Action {
    * The ManagementSavedSearch id [OCID] utilized in the action.
    */
   "savedSearchId"?: string;
+  "metricExtraction"?: model.MetricExtraction;
 
   "type": string;
 }
@@ -31,7 +32,11 @@ export namespace StreamAction {
   export function getJsonObj(obj: StreamAction, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.Action.getJsonObj(obj) as StreamAction)),
-      ...{}
+      ...{
+        "metricExtraction": obj.metricExtraction
+          ? model.MetricExtraction.getJsonObj(obj.metricExtraction)
+          : undefined
+      }
     };
 
     return jsonObj;

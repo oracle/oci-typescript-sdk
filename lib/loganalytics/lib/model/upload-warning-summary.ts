@@ -20,19 +20,19 @@ import common = require("oci-common");
  */
 export interface UploadWarningSummary {
   /**
-   * Unique internal identifier to refer to upload warning
+   * Unique internal identifier to refer upload warning.
    */
   "reference": string;
   /**
-   * Status of the upload. Ex - Failed
+   * Status of the upload. Ex - Failed.
    */
   "status"?: string;
   /**
-   * The time when the upload processing started
+   * The time when the upload processing started.
    */
   "timeStarted"?: Date;
   /**
-   * The details about upload processing failure
+   * The details about upload processing failure.
    */
   "errorMessage"?: string;
 }

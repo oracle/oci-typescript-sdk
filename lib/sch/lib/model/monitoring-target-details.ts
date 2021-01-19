@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The monitoring target.
+ * The metric and metric namespace used for the Monitoring target.
  *
  */
 export interface MonitoringTargetDetails extends model.TargetDetails {

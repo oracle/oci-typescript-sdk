@@ -16,11 +16,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * List of supported character encodings
+ * List of supported character encodings.
  */
 export interface CharEncodingCollection {
   /**
-   * List of supported character encodings
+   * List of supported character encodings.
    */
   "items": Array<string>;
 }

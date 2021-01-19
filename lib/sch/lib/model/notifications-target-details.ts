@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The notifications target.
+ * The topic used for the Notifications target.
  *
  */
 export interface NotificationsTargetDetails extends model.TargetDetails {
