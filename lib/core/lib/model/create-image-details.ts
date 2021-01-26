@@ -53,9 +53,6 @@ Example: `{\"Department\": \"Finance\"}`
 * 
     */
   "freeformTags"?: { [key: string]: string };
-  /**
-   * Details for creating an image through import
-   */
   "imageSourceDetails"?:
     | model.ImageSourceViaObjectStorageTupleDetails
     | model.ImageSourceViaObjectStorageUriDetails;

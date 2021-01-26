@@ -25,6 +25,12 @@ export interface CreateVolumeGroupDetails {
    */
   "availabilityDomain": string;
   /**
+   * If provided, specifies the ID of the volume backup policy to assign to the newly
+   * created volume group. If omitted, no policy will be assigned.
+   *
+   */
+  "backupPolicyId"?: string;
+  /**
    * The OCID of the compartment that contains the volume group.
    */
   "compartmentId": string;
@@ -48,11 +54,6 @@ Example: `{\"Department\": \"Finance\"}`
 * 
     */
   "freeformTags"?: { [key: string]: string };
-  /**
-   * Specifies the volume group source details for a new volume group. The volume source is either another a list of
-   * volume ids in the same availability domain, another volume group or a volume group backup.
-   *
-   */
   "sourceDetails":
     | model.VolumeGroupSourceFromVolumeGroupDetails
     | model.VolumeGroupSourceFromVolumesDetails

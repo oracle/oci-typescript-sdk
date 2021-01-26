@@ -32,14 +32,14 @@ export interface DatabaseUpgradeHistoryEntrySummary {
    */
   "id": string;
   /**
-   * action for upgrading database.
+   * The database upgrade action.
    */
   "action": DatabaseUpgradeHistoryEntrySummary.Action;
   /**
-   * The source of the database upgrade
-   * Use 'DB_HOME' for using existing db home to upgrade the database
-   * Use 'DB_VERSION' for using database version to upgrade the database
-   * Use 'DB_SOFTWARE_IMAGE' for using database software image to upgrade the database
+   * The source of the Oracle Database software to be used for the upgrade.
+   *  - Use `DB_HOME` to specify an existing Database Home to upgrade the database. The database is moved to the target Database Home and makes use of the Oracle Database software version of the target Database Home.
+   *  - Use `DB_VERSION` to specify a generally-available Oracle Database software version to upgrade the database.
+   *  - Use `DB_SOFTWARE_IMAGE` to specify a [database software image](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databasesoftwareimage.htm) to upgrade the database.
    *
    */
   "source"?: DatabaseUpgradeHistoryEntrySummary.Source;

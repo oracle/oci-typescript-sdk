@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ChangeByoipRangeCompartmentRequest extends common.BaseRequest {
   /**
-   * The OCID of the Byoip Range object.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the `ByoipRange` resource containing the BYOIP CIDR block.
    */
   "byoipRangeId": string;
   /**
-   * Request to change the compartment of a Byoip Range.
+   * Request to change the compartment of a BYOIP CIDR block.
    */
   "changeByoipRangeCompartmentDetails": model.ChangeByoipRangeCompartmentDetails;
   /**

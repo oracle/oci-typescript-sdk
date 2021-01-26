@@ -98,7 +98,7 @@ Example: `2016-08-25T21:10:29.600Z`
    */
   "vcnId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Public IP associated with the NAT gateway.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the public IP address associated with the NAT gateway.
    *
    */
   "publicIpId"?: string;

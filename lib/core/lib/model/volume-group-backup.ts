@@ -49,6 +49,15 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
    */
   "displayName": string;
   /**
+   * The date and time the volume group backup will expire and be automatically deleted.
+   * Format defined by [RFC3339](https://tools.ietf.org/html/rfc3339). This parameter will always be present for volume group
+   * backups that were created automatically by a scheduled-backup policy. For manually
+   * created volume group backups, it will be absent, signifying that there is no expiration
+   * time and the backup will last forever until manually deleted.
+   *
+   */
+  "expirationTime"?: Date;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
@@ -74,6 +83,10 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "sizeInGBs"?: number;
+  /**
+   * Specifies whether the volume group backup was created manually, or via scheduled backup policy.
+   */
+  "sourceType"?: VolumeGroupBackup.SourceType;
   /**
    * The date and time the volume group backup was created. This is the time the actual point-in-time image
    * of the volume group data was taken. Format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
@@ -111,6 +124,10 @@ Example: `{\"Department\": \"Finance\"}`
    * The OCID of the source volume group.
    */
   "volumeGroupId"?: string;
+  /**
+   * The OCID of the source volume group backup.
+   */
+  "sourceVolumeGroupBackupId"?: string;
 }
 
 export namespace VolumeGroupBackup {
@@ -122,6 +139,16 @@ export namespace VolumeGroupBackup {
     Terminated = "TERMINATED",
     Faulty = "FAULTY",
     RequestReceived = "REQUEST_RECEIVED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum SourceType {
+    Manual = "MANUAL",
+    Scheduled = "SCHEDULED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

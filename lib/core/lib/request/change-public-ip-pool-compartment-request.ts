@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ChangePublicIpPoolCompartmentRequest extends common.BaseRequest {
   /**
-   * The OCID of the Public Ip Pool object.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the public IP pool.
    */
   "publicIpPoolId": string;
   /**
-   * Request to change the compartment of a Public IP pool.
+   * Request to change the compartment of a public IP pool.
    */
   "changePublicIpPoolCompartmentDetails": model.ChangePublicIpPoolCompartmentDetails;
   /**

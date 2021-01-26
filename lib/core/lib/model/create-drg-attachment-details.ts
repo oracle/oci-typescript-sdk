@@ -34,8 +34,7 @@ export interface CreateDrgAttachmentDetails {
 If you don't specify a route table here, the DRG attachment is created without an associated route
 * table. The Networking service does NOT automatically associate the attached VCN's default route table
 * with the DRG attachment.
-* <p>
-For information about why you would associate a route table with a DRG attachment, see:
+* For information about why you would associate a route table with a DRG attachment, see:
 * <p>
   * [Transit Routing: Access to Multiple VCNs in Same Region](https://docs.cloud.oracle.com/Content/Network/Tasks/transitrouting.htm)
 *   * [Transit Routing: Private Access to Oracle Services](https://docs.cloud.oracle.com/Content/Network/Tasks/transitroutingoracleservices.htm)
@@ -44,6 +43,7 @@ For information about why you would associate a route table with a DRG attachmen
   "routeTableId"?: string;
   /**
    * The OCID of the VCN.
+   *
    */
   "vcnId": string;
 }

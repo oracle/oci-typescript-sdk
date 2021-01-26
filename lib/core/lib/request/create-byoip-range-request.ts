@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateByoipRangeRequest extends common.BaseRequest {
   /**
-   * Create Byoip Range details.
+   * Details needed to create a BYOIP CIDR block subrange.
    */
   "createByoipRangeDetails": model.CreateByoipRangeDetails;
   /**

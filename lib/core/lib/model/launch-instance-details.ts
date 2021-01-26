@@ -36,11 +36,6 @@ Example: `Uocm:PHX-AD-1`
    * The OCID of the compartment.
    */
   "compartmentId": string;
-  /**
-   * Details for the primary VNIC, which is automatically created and attached when
-   * the instance is launched.
-   *
-   */
   "createVnicDetails"?: model.CreateVnicDetails;
   /**
    * The OCID of the dedicated VM host.
@@ -142,17 +137,8 @@ For more information about iPXE, see http://ipxe.org.
 * 
     */
   "ipxeScript"?: string;
-  /**
-   * Options for tuning the compatibility and performance of VM shapes. The values that you specify override any
-   * default values.
-   *
-   */
   "launchOptions"?: model.LaunchOptions;
   "instanceOptions"?: model.InstanceOptions;
-  /**
-   * Options for defining the availability of a VM instance after a maintenance event that impacts the underlying hardware.
-   *
-   */
   "availabilityConfig"?: model.LaunchInstanceAvailabilityConfigDetails;
   /**
     * Custom metadata key/value pairs that you provide, such as the SSH public key
@@ -216,11 +202,6 @@ You can enumerate all available shapes by calling {@link #listShapes(ListShapesR
     */
   "shape": string;
   "shapeConfig"?: model.LaunchInstanceShapeConfigDetails;
-  /**
-   * Details for creating an instance.
-   * Use this parameter to specify whether a boot volume or an image should be used to launch a new instance.
-   *
-   */
   "sourceDetails"?: model.InstanceSourceViaImageDetails | model.InstanceSourceViaBootVolumeDetails;
   /**
    * Deprecated. Instead use `subnetId` in

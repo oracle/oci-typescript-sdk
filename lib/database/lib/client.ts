@@ -5919,12 +5919,17 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about the specified DB system.
-   * @param GetDbSystemRequest
-   * @return GetDbSystemResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbSystem.ts.html |here} to see how to use GetDbSystem API.
-   */
+     * Gets information about the specified DB system.
+* <p>
+**Note:** Deprecated for Exadata Cloud Service systems. Use the [new resource model APIs](https://docs.cloud.oracle.com/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) instead.
+* <p>
+For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.cloud.oracle.com/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
+* 
+     * @param GetDbSystemRequest
+     * @return GetDbSystemResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbSystem.ts.html |here} to see how to use GetDbSystem API.
+     */
   public async getDbSystem(
     getDbSystemRequest: requests.GetDbSystemRequest
   ): Promise<responses.GetDbSystemResponse> {
@@ -6232,14 +6237,21 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets the IORM configuration settings for the specified cloud Exadata system.
-   * All Exadata service instances have default IORM settings.
-   *
-   * @param GetExadataIormConfigRequest
-   * @return GetExadataIormConfigResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExadataIormConfig.ts.html |here} to see how to use GetExadataIormConfig API.
-   */
+     * Gets the IORM configuration settings for the specified cloud Exadata DB system.
+* All Exadata service instances have default IORM settings.
+* <p>
+**Note:** Deprecated for Exadata Cloud Service systems. Use the [new resource model APIs](https://docs.cloud.oracle.com/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) instead.
+* <p>
+For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.cloud.oracle.com/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
+* <p>
+The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getCloudVmClusterIormConfig} API is used for this operation with Exadata systems using the
+* new resource model.
+* 
+     * @param GetExadataIormConfigRequest
+     * @return GetExadataIormConfigResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExadataIormConfig.ts.html |here} to see how to use GetExadataIormConfig API.
+     */
   public async getExadataIormConfig(
     getExadataIormConfigRequest: requests.GetExadataIormConfigRequest
   ): Promise<responses.GetExadataIormConfigResponse> {
@@ -6815,10 +6827,13 @@ A failover might result in data loss depending on the protection mode in effect 
 * Database edition that you specify applies to all the databases on that DB system. The selected edition cannot be changed.
 * <p>
 An initial database is created on the DB system based on the request parameters you provide and some default
-* options. For detailed information about default options, see the following:
+* options. For detailed information about default options, see [Bare metal and virtual machine DB system default options.](https://docs.cloud.oracle.com/Content/Database/Tasks/creatingDBsystem.htm#Default)
 * <p>
-- [Bare metal and virtual machine DB system default options](https://docs.cloud.oracle.com/Content/Database/Tasks/creatingDBsystem.htm#DefaultOptionsfortheInitialDatabase)
-* - [Exadata DB system default options](https://docs.cloud.oracle.com/Content/Database/Tasks/exacreatingDBsystem.htm#DefaultOptionsfortheInitialDatabase)
+**Note:** Deprecated for Exadata Cloud Service systems. Use the [new resource model APIs](https://docs.cloud.oracle.com/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) instead.
+* <p>
+For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.cloud.oracle.com/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
+* <p>
+Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructureRequest) createCloudExadataInfrastructure} and {@link #createCloudVmCluster(CreateCloudVmClusterRequest) createCloudVmCluster} APIs to provision a new Exadata Cloud Service instance.
 * 
      * @param LaunchDbSystemRequest
      * @return LaunchDbSystemResponse
@@ -8874,7 +8889,7 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * gets the upgrade history for a specified database.
+   * Gets the upgrade history for a specified database in a bare metal or virtual machine DB system.
    *
    * @param ListDatabaseUpgradeHistoryEntriesRequest
    * @return ListDatabaseUpgradeHistoryEntriesResponse
@@ -9716,13 +9731,17 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Lists the DB systems in the specified compartment. You can specify a `backupId` to list only the DB systems that support creating a database using this backup in this compartment.
-   *
-   * @param ListDbSystemsRequest
-   * @return ListDbSystemsResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystems.ts.html |here} to see how to use ListDbSystems API.
-   */
+     * Lists the DB systems in the specified compartment. You can specify a `backupId` to list only the DB systems that support creating a database using this backup in this compartment.
+* <p>
+**Note:** Deprecated for Exadata Cloud Service systems. Use the [new resource model APIs](https://docs.cloud.oracle.com/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) instead.
+* <p>
+For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.cloud.oracle.com/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
+* 
+     * @param ListDbSystemsRequest
+     * @return ListDbSystemsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystems.ts.html |here} to see how to use ListDbSystems API.
+     */
   public async listDbSystems(
     listDbSystemsRequest: requests.ListDbSystemsRequest
   ): Promise<responses.ListDbSystemsResponse> {
@@ -10725,7 +10744,8 @@ An initial database is created on the DB system based on the request parameters 
   }
 
   /**
-   * Migrates the Exadata DB system to the cloud Exadata infrastructure model. All related resources will be migrated.
+   * Migrates the Exadata DB system to the new [Exadata resource model](https://docs.cloud.oracle.com/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model).
+   * All related resources will be migrated.
    *
    * @param MigrateExadataDbSystemResourceModelRequest
    * @return MigrateExadataDbSystemResourceModelResponse
@@ -12226,12 +12246,17 @@ A switchover guarantees no data loss.
   }
 
   /**
-   * Terminates a DB system and permanently deletes it and any databases running on it, and any storage volumes attached to it. The database data is local to the DB system and will be lost when the system is terminated. Oracle recommends that you back up any data in the DB system prior to terminating it.
-   * @param TerminateDbSystemRequest
-   * @return TerminateDbSystemResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/TerminateDbSystem.ts.html |here} to see how to use TerminateDbSystem API.
-   */
+     * Terminates a DB system and permanently deletes it and any databases running on it, and any storage volumes attached to it. The database data is local to the DB system and will be lost when the system is terminated. Oracle recommends that you back up any data in the DB system prior to terminating it.
+* <p>
+**Note:** Deprecated for Exadata Cloud Service systems. Use the [new resource model APIs](https://docs.cloud.oracle.com/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) instead.
+* <p>
+For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.cloud.oracle.com/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
+* 
+     * @param TerminateDbSystemRequest
+     * @return TerminateDbSystemResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/TerminateDbSystem.ts.html |here} to see how to use TerminateDbSystem API.
+     */
   public async terminateDbSystem(
     terminateDbSystemRequest: requests.TerminateDbSystemRequest
   ): Promise<responses.TerminateDbSystemResponse> {
@@ -13236,12 +13261,17 @@ A switchover guarantees no data loss.
   }
 
   /**
-   * Updates the properties of the specified DB system.
-   * @param UpdateDbSystemRequest
-   * @return UpdateDbSystemResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDbSystem.ts.html |here} to see how to use UpdateDbSystem API.
-   */
+     * Updates the properties of the specified DB system.
+* <p>
+**Note:** Deprecated for Exadata Cloud Service systems. Use the [new resource model APIs](https://docs.cloud.oracle.com/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) instead.
+* <p>
+For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.cloud.oracle.com/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
+* 
+     * @param UpdateDbSystemRequest
+     * @return UpdateDbSystemResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDbSystem.ts.html |here} to see how to use UpdateDbSystem API.
+     */
   public async updateDbSystem(
     updateDbSystemRequest: requests.UpdateDbSystemRequest
   ): Promise<responses.UpdateDbSystemResponse> {
@@ -13386,13 +13416,20 @@ A switchover guarantees no data loss.
   }
 
   /**
-   * Updates IORM settings for the specified Exadata system.
-   *
-   * @param UpdateExadataIormConfigRequest
-   * @return UpdateExadataIormConfigResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExadataIormConfig.ts.html |here} to see how to use UpdateExadataIormConfig API.
-   */
+     * Updates IORM settings for the specified Exadata DB system.
+* <p>
+**Note:** Deprecated for Exadata Cloud Service systems. Use the [new resource model APIs](https://docs.cloud.oracle.com/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) instead.
+* <p>
+For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.cloud.oracle.com/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
+* <p>
+The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest) updateCloudVmClusterIormConfig} API is used for Exadata systems using the
+* new resource model.
+* 
+     * @param UpdateExadataIormConfigRequest
+     * @return UpdateExadataIormConfigResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExadataIormConfig.ts.html |here} to see how to use UpdateExadataIormConfig API.
+     */
   public async updateExadataIormConfig(
     updateExadataIormConfigRequest: requests.UpdateExadataIormConfigRequest
   ): Promise<responses.UpdateExadataIormConfigResponse> {
@@ -13752,7 +13789,7 @@ A switchover guarantees no data loss.
   }
 
   /**
-   * Upgrade the specified database.
+   * Upgrades the specified Oracle Database instance.
    *
    * @param UpgradeDatabaseRequest
    * @return UpgradeDatabaseResponse

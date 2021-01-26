@@ -58,9 +58,6 @@ Each cluster network can have one instance pool.
 * 
     */
   "instancePools": Array<model.CreateClusterNetworkInstancePoolDetails>;
-  /**
-   * The placement configuration for the instance pools in the cluster network.
-   */
   "placementConfiguration": model.ClusterNetworkPlacementConfigurationDetails;
 }
 

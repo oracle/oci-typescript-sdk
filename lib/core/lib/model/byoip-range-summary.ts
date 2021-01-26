@@ -20,15 +20,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary information about a ByoipRange
+ * Information about a `ByoipRange` resource.
  */
 export interface ByoipRangeSummary {
   /**
-   * The address range the user is on-boarding.
+   * The public IPv4 address range you are importing to the Oracle cloud.
    */
   "cidrBlock"?: string;
   /**
-   * The OCID of the compartment containing the Byoip Range.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment containing the `ByoipRange` resource.
    *
    */
   "compartmentId"?: string;
@@ -55,11 +55,11 @@ Example: `{\"Department\": \"Finance\"}`
     */
   "freeformTags"?: { [key: string]: string };
   /**
-   * The Oracle ID (OCID) of the Byoip Range.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the `ByoipRange` resource.
    */
   "id"?: string;
   /**
-   * The Byoip Range's current state.
+   * The `ByoipRange` resource's current state.
    */
   "lifecycleState"?: string;
   /**
@@ -67,7 +67,7 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "lifecycleDetails"?: string;
   /**
-    * The date and time the Byoip Range was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+    * The date and time the `ByoipRange` resource was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: `2016-08-25T21:10:29.600Z`
 * 

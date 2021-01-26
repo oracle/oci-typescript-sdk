@@ -63,6 +63,10 @@ export interface BlockchainPlatform {
    */
   "platformShapeType"?: BlockchainPlatform.PlatformShapeType;
   /**
+   * Type of Load Balancer shape - LB_100_MBPS or LB_400_MBPS. Default is LB_100_MBPS.
+   */
+  "loadBalancerShape"?: BlockchainPlatform.LoadBalancerShape;
+  /**
    * Service endpoint URL, valid post-provisioning
    */
   "serviceEndpoint"?: string;
@@ -138,6 +142,16 @@ export namespace BlockchainPlatform {
   export enum PlatformShapeType {
     Default = "DEFAULT",
     Custom = "CUSTOM",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum LoadBalancerShape {
+    Lb100Mbps = "LB_100_MBPS",
+    Lb400Mbps = "LB_400_MBPS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

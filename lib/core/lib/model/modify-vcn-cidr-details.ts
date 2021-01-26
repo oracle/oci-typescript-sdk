@@ -20,18 +20,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Contains the original CIDR that needs to be updated and the
- * new CIDR which will replace the original CIDR.
+ * Details for updating a CIDR block.
  *
  */
 export interface ModifyVcnCidrDetails {
   /**
-   * The CIDR IP address that needs to be updated.
+   * The CIDR IP address to update.
    *
    */
   "originalCidrBlock": string;
   /**
-   * The new CIDR IP address which will replace the orginal one.
+   * The new CIDR IP address.
    *
    */
   "newCidrBlock": string;

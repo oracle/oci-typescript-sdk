@@ -16,14 +16,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of Database Software Image for upgrading a database.
- * **Warning:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.
+ * Details of the database software image to be used to upgrade a database.
  *
  */
 export interface DatabaseUpgradeWithDatabaseSoftwareImageDetails
   extends model.DatabaseUpgradeSourceBase {
   /**
-   * the database software id used for upgrading the database.
+   * The database software image [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the image to be used to upgrade a database.
    */
   "databaseSoftwareImageId": string;
 

@@ -44,4 +44,8 @@ export interface DetectStackDriftRequest extends common.BaseRequest {
    *
    */
   "opcRetryToken"?: string;
+  /**
+   * The details for detecting drift in a stack
+   */
+  "detectStackDriftDetails"?: model.DetectStackDriftDetails;
 }

@@ -120,6 +120,7 @@ export namespace AutonomousDatabaseDataguardAssociation {
     Terminating = "TERMINATING",
     Terminated = "TERMINATED",
     Failed = "FAILED",
+    Unavailable = "UNAVAILABLE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -145,6 +146,7 @@ export namespace AutonomousDatabaseDataguardAssociation {
     Terminating = "TERMINATING",
     Terminated = "TERMINATED",
     Failed = "FAILED",
+    Unavailable = "UNAVAILABLE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

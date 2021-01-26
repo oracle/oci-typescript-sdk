@@ -20,15 +20,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Subrange of ByoipRange which is allocated to a PublicIpPool
+ * A summary of CIDR block subranges that are currently allocated to an IP pool.
  */
 export interface ByoipAllocatedRangeSummary {
   /**
-   * The address range part of the ByoipRange which is used for a publicIpPool.
+   * The BYOIP CIDR block range or subrange allocated to an IP pool. This could be all or part of a BYOIP CIDR block.
    */
   "cidrBlock"?: string;
   /**
-   * The OCID of the PublicIpPool containing the part of the Byoip range.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the IP pool containing the CIDR block.
    *
    */
   "publicIpPoolId"?: string;

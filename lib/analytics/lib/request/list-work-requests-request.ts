@@ -29,7 +29,7 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    */
   "resourceId"?: string;
   /**
-   * Type of the resource associated with a work request
+   * Type of the resource associated with a work request.
    *
    */
   "resourceType"?: model.WorkRequestResourceType;

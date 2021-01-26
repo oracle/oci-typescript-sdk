@@ -20,11 +20,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Contains the CIDR which will be removed from the VCN.
+ * Details for removing a CIDR block from a VCN.
  */
 export interface RemoveVcnCidrDetails {
   /**
-   * The CIDR IP address that needs to be removed.
+   * The CIDR block to remove.
    *
    */
   "cidrBlock": string;

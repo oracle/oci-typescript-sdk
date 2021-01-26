@@ -44,10 +44,6 @@ Example: `{\"Department\": \"Finance\"}`
 * 
     */
   "freeformTags"?: { [key: string]: string };
-  /**
-   * Instance agent configuration options to choose for updating the instance
-   *
-   */
   "agentConfig"?: model.UpdateInstanceAgentConfigDetails;
   /**
     * Custom metadata key/value string pairs that you provide. Any set of key/value pairs
@@ -117,15 +113,7 @@ Example: `FAULT-DOMAIN-1`
 * 
     */
   "faultDomain"?: string;
-  /**
-   * Options for tuning the compatibility and performance of VM shapes.
-   *
-   */
   "launchOptions"?: model.UpdateLaunchOptions;
-  /**
-   * Options for defining the availability of a VM instance after a maintenance event that impacts the underlying hardware.
-   *
-   */
   "availabilityConfig"?: model.UpdateInstanceAvailabilityConfigDetails;
 }
 

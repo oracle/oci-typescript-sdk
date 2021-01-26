@@ -111,11 +111,6 @@ Allowed values:
    * The size of the volume in MBs. This field is deprecated. Use sizeInGBs instead.
    */
   "sizeInMBs": number;
-  /**
-   * The volume source, either an existing volume in the same availability domain or a volume backup.
-   * If null, an empty volume is created.
-   *
-   */
   "sourceDetails"?: model.VolumeSourceFromVolumeDetails | model.VolumeSourceFromVolumeBackupDetails;
   /**
    * The date and time the volume was created. Format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
