@@ -16,8 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of Database version for upgrading a database.
- * **Warning:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.
+ * Details of the Oracle Database software version number for upgrading a database.
  *
  */
 export interface DatabaseUpgradeWithDbVersionDetails extends model.DatabaseUpgradeSourceBase {

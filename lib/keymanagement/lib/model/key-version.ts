@@ -30,6 +30,11 @@ export interface KeyVersion {
    */
   "keyId": string;
   /**
+   * The public key in PEM format which will be populated only in case of RSA and ECDSA keys.
+   *
+   */
+  "publicKey"?: string;
+  /**
     * The key version's current lifecycle state.
 * <p>
 Example: `ENABLED`

@@ -72,11 +72,6 @@ Example: `{\"Department\": \"Finance\"}`
    * The aggregate size of the volume group in GBs.
    */
   "sizeInGBs"?: number;
-  /**
-   * The volume group source. The source is either another a list of
-   * volume IDs in the same availability domain, another volume group, or a volume group backup.
-   *
-   */
   "sourceDetails"?:
     | model.VolumeGroupSourceFromVolumeGroupDetails
     | model.VolumeGroupSourceFromVolumesDetails

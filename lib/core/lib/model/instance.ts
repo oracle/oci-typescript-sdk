@@ -142,16 +142,8 @@ For more information about iPXE, see http://ipxe.org.
    *
    */
   "launchMode"?: Instance.LaunchMode;
-  /**
-   * Options for tuning the compatibility and performance of VM shapes. The values that you specify override any default values.
-   *
-   */
   "launchOptions"?: model.LaunchOptions;
   "instanceOptions"?: model.InstanceOptions;
-  /**
-   * Options for defining the availability of a VM instance after a maintenance event that impacts the underlying hardware.
-   *
-   */
   "availabilityConfig"?: model.InstanceAvailabilityConfig;
   /**
    * The current state of the instance.
@@ -179,9 +171,6 @@ Examples: `phx`, `eu-frankfurt-1`
    */
   "shape": string;
   "shapeConfig"?: model.InstanceShapeConfig;
-  /**
-   * Details for creating an instance
-   */
   "sourceDetails"?: model.InstanceSourceViaImageDetails | model.InstanceSourceViaBootVolumeDetails;
   /**
    * System tags for this resource. Each key is predefined and scoped to a namespace.

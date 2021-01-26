@@ -110,11 +110,6 @@ Allowed values:
    *
    */
   "sizeInMBs": number;
-  /**
-   * The boot volume source, either an existing boot volume in the same availability domain or a boot volume backup.
-   * If null, this means that the boot volume was created from an image.
-   *
-   */
   "sourceDetails"?:
     | model.BootVolumeSourceFromBootVolumeBackupDetails
     | model.BootVolumeSourceFromBootVolumeDetails;

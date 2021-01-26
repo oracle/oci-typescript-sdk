@@ -20,7 +20,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The data to update a Byoip Range
+ * The information used to update a `ByoipRange` resource.
  */
 export interface UpdateByoipRangeDetails {
   /**

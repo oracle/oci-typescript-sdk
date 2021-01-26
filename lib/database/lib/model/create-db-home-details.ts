@@ -31,7 +31,7 @@ export interface CreateDbHomeDetails {
    */
   "dbVersion": string;
   /**
-   * The database software image [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * The database software image [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    */
   "databaseSoftwareImageId"?: string;
   "database": model.CreateDatabaseDetails;

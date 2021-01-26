@@ -31,9 +31,6 @@ export interface CpeDeviceShapeSummary {
    *
    */
   "id"?: string;
-  /**
-   * Basic information about this particular CPE device type.
-   */
   "cpeDeviceInfo"?: model.CpeDeviceInfo;
 }
 

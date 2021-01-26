@@ -64,6 +64,10 @@ export interface CreateAutonomousContainerDatabaseDetails {
   "peerAutonomousContainerDatabaseCompartmentId"?: string;
   "peerAutonomousContainerDatabaseBackupConfig"?: model.PeerAutonomousContainerDatabaseBackupConfig;
   /**
+   * The `DB_UNIQUE_NAME` of the peer Autonomous Container Database in a Data Guard association.
+   */
+  "peerDbUniqueName"?: string;
+  /**
    * The OCID of the Autonomous VM Cluster.
    */
   "autonomousVmClusterId"?: string;

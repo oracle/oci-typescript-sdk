@@ -72,6 +72,10 @@ Example: `2018-04-03T21:10:29.600Z`
    *
    */
   "protectionMode"?: KeySummary.ProtectionMode;
+  /**
+   * The algorithm used by a key's key versions to encrypt or decrypt.
+   */
+  "algorithm"?: KeySummary.Algorithm;
 }
 
 export namespace KeySummary {
@@ -99,6 +103,17 @@ export namespace KeySummary {
   export enum ProtectionMode {
     Hsm = "HSM",
     Software = "SOFTWARE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum Algorithm {
+    Aes = "AES",
+    Rsa = "RSA",
+    Ecdsa = "ECDSA",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

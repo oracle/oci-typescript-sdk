@@ -20,22 +20,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Optional object to specify ports for a UDP rule. If you specify UDP as the
- * protocol but omit this object, then all ports are allowed.
+ * Optional and valid only for UDP. Use to specify particular destination ports for UDP rules.
+ * If you specify UDP as the protocol but omit this object, then all destination ports are allowed.
  *
  */
 export interface UdpOptions {
-  /**
-   * An inclusive range of allowed destination ports. Use the same number for the min and max
-   * to indicate a single port. Defaults to all ports if not specified.
-   *
-   */
   "destinationPortRange"?: model.PortRange;
-  /**
-   * An inclusive range of allowed source ports. Use the same number for the min and max to
-   * indicate a single port. Defaults to all ports if not specified.
-   *
-   */
   "sourcePortRange"?: model.PortRange;
 }
 

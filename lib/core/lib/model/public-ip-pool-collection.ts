@@ -20,11 +20,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of a ListPublicIpPool operation.
+ * Results of a `ListPublicIpPool` operation.
  */
 export interface PublicIpPoolCollection {
   /**
-   * list of Public Ip pool object summaries
+   * A list of public IP pool summaries.
    */
   "items": Array<model.PublicIpPoolSummary>;
 }

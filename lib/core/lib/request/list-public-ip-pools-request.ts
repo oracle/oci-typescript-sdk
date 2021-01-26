@@ -50,7 +50,7 @@ Example: `50`
    */
   "displayName"?: string;
   /**
-   * A filter to return only resources that match the given Byoip Range
+   * A filter to return only resources that match the given BYOIP CIDR block.
    *
    */
   "byoipRangeId"?: string;

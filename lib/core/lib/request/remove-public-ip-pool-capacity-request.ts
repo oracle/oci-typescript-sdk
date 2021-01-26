@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface RemovePublicIpPoolCapacityRequest extends common.BaseRequest {
   /**
-   * The OCID of the Public Ip Pool object.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the public IP pool.
    */
   "publicIpPoolId": string;
   /**
-   * The Cidr to be removed from the Public Ip Pool
+   * The CIDR block to remove from the IP pool.
    */
   "removePublicIpPoolCapacityDetails": model.RemovePublicIpPoolCapacityDetails;
   /**

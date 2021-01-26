@@ -88,12 +88,6 @@ Allowed values:
    * The size of the volume in GBs.
    */
   "sizeInGBs"?: number;
-  /**
-   * Specifies the volume source details for a new Block volume. The volume source is either another Block volume in the same availability domain or a Block volume backup.
-   * This is an optional field. If not specified or set to null, the new Block volume will be empty.
-   * When specified, the new Block volume will contain data from the source volume or backup.
-   *
-   */
   "sourceDetails"?:
     | model.InstanceConfigurationVolumeSourceFromVolumeBackupDetails
     | model.InstanceConfigurationVolumeSourceFromVolumeDetails;

@@ -25,16 +25,35 @@ export interface KeyShape {
    */
   "algorithm": KeyShape.Algorithm;
   /**
-   * The length of the key, expressed as an integer. Values of 16, 24, or 32 are supported.
+   * The length of the key in bytes, expressed as an integer. Values supported:
+   *   - AES: 16, 24 or 32
+   *   - RSA: 256, 384 or 512
+   *   - ECDSA: 32, 48, 66
    *
    */
   "length": number;
+  /**
+   * Supported curve Ids for ECDSA keys
+   */
+  "curveId"?: KeyShape.CurveId;
 }
 
 export namespace KeyShape {
   export enum Algorithm {
     Aes = "AES",
     Rsa = "RSA",
+    Ecdsa = "ECDSA",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum CurveId {
+    NistP256 = "NIST_P256",
+    NistP384 = "NIST_P384",
+    NistP521 = "NIST_P521",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

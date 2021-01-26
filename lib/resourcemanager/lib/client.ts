@@ -694,6 +694,11 @@ export class ResourceManagerClient {
       defaultHeaders: this._defaultHeaders,
       path: "/stacks/{stackId}/actions/detectDrift",
       method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        detectStackDriftRequest.detectStackDriftDetails,
+        "DetectStackDriftDetails",
+        models.DetectStackDriftDetails.getJsonObj
+      ),
       pathParams: pathParams,
       headerParams: headerParams,
       queryParams: queryParams
@@ -1613,6 +1618,8 @@ export class ResourceManagerClient {
    * Lists drift status details for each resource defined in the specified stack.
    * The drift status details for a given resource indicate differences, if any, between the actual state
    * and the expected (defined) state for that resource.
+   * The drift status details correspond to the specified work request (`workRequestId`).
+   * If no work request is specified, then the drift status details correspond to the latest completed work request for the stack.
    *
    * @param ListStackResourceDriftDetailsRequest
    * @return ListStackResourceDriftDetailsResponse
@@ -1629,6 +1636,7 @@ export class ResourceManagerClient {
     };
 
     const queryParams = {
+      "workRequestId": listStackResourceDriftDetailsRequest.workRequestId,
       "resourceDriftStatus": listStackResourceDriftDetailsRequest.resourceDriftStatus,
       "limit": listStackResourceDriftDetailsRequest.limit,
       "page": listStackResourceDriftDetailsRequest.page

@@ -68,7 +68,7 @@ Optional for a reserved public IP. If you don't provide it, the public IP is cre
     */
   "privateIpId"?: string;
   /**
-   * OCID of the pool object created by the current tenancy
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the public IP pool.
    */
   "publicIpPoolId"?: string;
 }

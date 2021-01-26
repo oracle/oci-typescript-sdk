@@ -41,7 +41,7 @@ export namespace ObjectSerializerTestBaseType {
 
 export namespace ObjectSerializerTestSubTypeOne {
   export interface SubTypeOne extends ObjectSerializerTestBaseType.BaseType {
-    "subtypeOneRename": string;
+    "subtypeOneRename"?: string;
     "optionalRenamed"?: string;
     "source": string;
   }
@@ -120,7 +120,7 @@ export namespace ObjectSerializerTestComplexModel {
 
 export namespace ObjectSerializerTestComplexTypeRef {
   export interface ComplexTypeRef {
-    "underscorename": string;
+    "underscorename"?: string;
   }
 
   export function getJsonObj(obj: ComplexTypeRef): Object {

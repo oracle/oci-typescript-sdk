@@ -63,6 +63,16 @@ export interface AnalyticsInstance {
   "emailNotification"?: string;
   "networkEndpointDetails": model.PrivateEndpointDetails | model.PublicEndpointDetails;
   /**
+   * Map of PrivateAccessChannel unique identifier key as KEY and PrivateAccessChannel Object as VALUE.
+   *
+   */
+  "privateAccessChannels"?: { [key: string]: model.PrivateAccessChannel };
+  /**
+   * Map of VanityUrl unique identifier key as KEY and VanityUrl Object as VALUE.
+   *
+   */
+  "vanityUrlDetails"?: { [key: string]: model.VanityUrlDetails };
+  /**
    * URL of the Analytics service.
    *
    */
@@ -108,6 +118,12 @@ export namespace AnalyticsInstance {
 
         "networkEndpointDetails": obj.networkEndpointDetails
           ? model.NetworkEndpointDetails.getJsonObj(obj.networkEndpointDetails)
+          : undefined,
+        "privateAccessChannels": obj.privateAccessChannels
+          ? common.mapContainer(obj.privateAccessChannels, model.PrivateAccessChannel.getJsonObj)
+          : undefined,
+        "vanityUrlDetails": obj.vanityUrlDetails
+          ? common.mapContainer(obj.vanityUrlDetails, model.VanityUrlDetails.getJsonObj)
           : undefined
       }
     };

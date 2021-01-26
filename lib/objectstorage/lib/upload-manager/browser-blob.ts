@@ -33,6 +33,30 @@ export class BrowserBlob implements UploadableBlob {
   }
 
   /*
+   * @Summary Get text for the given BrowserBlob
+   * returns string object
+   */
+  public async text(): Promise<string> {
+    return this.blob.text();
+  }
+
+  /*
+   * @Summary Get array buffer for the given BrowserBlob
+   * returns ArrayBuffer object
+   */
+  public async arrayBuffer(): Promise<ArrayBuffer> {
+    return this.blob.arrayBuffer();
+  }
+
+  /*
+   * @Summary Get stream for the given BrowserBlob
+   * returns Readable object
+   */
+  public stream(): ReadableStream {
+    return this.blob.stream();
+  }
+
+  /*
    * Get MD5 hash of the BrowserBlob
    * @return Md5 hash string
    */

@@ -29,6 +29,10 @@ export interface ListStackResourceDriftDetailsRequest extends common.BaseRequest
    */
   "opcRequestId"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
+   */
+  "workRequestId"?: string;
+  /**
    * A filter that returns only resources that match the given drift status. The value is case-insensitive.
    * Allowable values -
    *   - NOT_CHECKED

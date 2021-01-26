@@ -41,6 +41,8 @@ import * as CreateJobOperationDetails from "./create-job-operation-details";
 export import CreateJobOperationDetails = CreateJobOperationDetails.CreateJobOperationDetails;
 import * as CreateStackDetails from "./create-stack-details";
 export import CreateStackDetails = CreateStackDetails.CreateStackDetails;
+import * as DetectStackDriftDetails from "./detect-stack-drift-details";
+export import DetectStackDriftDetails = DetectStackDriftDetails.DetectStackDriftDetails;
 import * as FailureDetails from "./failure-details";
 export import FailureDetails = FailureDetails.FailureDetails;
 import * as Job from "./job";

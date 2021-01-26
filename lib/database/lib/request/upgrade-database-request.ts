@@ -23,7 +23,7 @@ export interface UpgradeDatabaseRequest extends common.BaseRequest {
    */
   "databaseId": string;
   /**
-   * Request to perform database upgrade.
+   * Request to perform a database upgrade.
    */
   "upgradeDatabaseDetails": model.UpgradeDatabaseDetails;
   /**

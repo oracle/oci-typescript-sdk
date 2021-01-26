@@ -36,10 +36,6 @@ export interface UpdateIPSecConnectionTunnelDetails {
    *
    */
   "ikeVersion"?: UpdateIPSecConnectionTunnelDetails.IkeVersion;
-  /**
-   * Information for establishing a BGP session for the IPSec tunnel.
-   *
-   */
   "bgpSessionConfig"?: model.UpdateIPSecTunnelBgpSessionDetails;
 }
 

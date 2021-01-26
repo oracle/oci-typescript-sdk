@@ -38,9 +38,26 @@ export interface EncryptDataDetails {
    * The plaintext data to encrypt.
    */
   "plaintext": string;
+  /**
+   * The OCID of the keyVersion used to encrypt the ciphertext.
+   */
+  "keyVersionId"?: string;
+  /**
+   * Encryption algorithm to be used while encrypting/decrypting data using a customer key
+   * AES_256_GCM is the supported value AES keys and uses GCM mode of operation
+   * RSA_OAEP_SHA_1 and RSA_OAEP_SHA_256 are supported for RSA keys and use OAEP padding.
+   *
+   */
+  "encryptionAlgorithm"?: EncryptDataDetails.EncryptionAlgorithm;
 }
 
 export namespace EncryptDataDetails {
+  export enum EncryptionAlgorithm {
+    Aes256Gcm = "AES_256_GCM",
+    RsaOaepSha1 = "RSA_OAEP_SHA_1",
+    RsaOaepSha256 = "RSA_OAEP_SHA_256"
+  }
+
   export function getJsonObj(obj: EncryptDataDetails): object {
     const jsonObj = { ...obj, ...{} };
 

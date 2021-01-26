@@ -25,9 +25,35 @@ export interface DecryptedData {
    * Checksum of the decrypted data.
    */
   "plaintextChecksum": string;
+  /**
+   * The OCID of the key used to encrypt the ciphertext.
+   */
+  "keyId"?: string;
+  /**
+   * The OCID of the keyVersion used to encrypt the ciphertext.
+   */
+  "keyVersionId"?: string;
+  /**
+   * Encryption algorithm to be used while encrypting/decrypting data using a customer key
+   * AES_256_GCM is the supported value AES keys and uses GCM mode of operation
+   * RSA_OAEP_SHA_1 and RSA_OAEP_SHA_256 are supported for RSA keys and use OAEP padding.
+   *
+   */
+  "encryptionAlgorithm"?: DecryptedData.EncryptionAlgorithm;
 }
 
 export namespace DecryptedData {
+  export enum EncryptionAlgorithm {
+    Aes256Gcm = "AES_256_GCM",
+    RsaOaepSha1 = "RSA_OAEP_SHA_1",
+    RsaOaepSha256 = "RSA_OAEP_SHA_256",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: DecryptedData): object {
     const jsonObj = { ...obj, ...{} };
 

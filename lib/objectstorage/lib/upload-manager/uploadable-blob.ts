@@ -18,4 +18,7 @@ export interface UploadableBlob extends Blob {
     end?: number | undefined,
     contentType?: string | undefined
   ): UploadableBlob;
+  text(): Promise<string>;
+  arrayBuffer(): Promise<ArrayBuffer>;
+  stream(): ReadableStream;
 }

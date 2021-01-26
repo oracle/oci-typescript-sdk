@@ -20,11 +20,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary information about a Public IP pool
+ * Summary information about a public IP pool.
  */
 export interface PublicIpPoolSummary {
   /**
-   * The OCID of the compartment containing the Public IP Pool
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment containing the public IP pool.
    *
    */
   "compartmentId"?: string;
@@ -51,15 +51,15 @@ Example: `{\"Department\": \"Finance\"}`
     */
   "freeformTags"?: { [key: string]: string };
   /**
-   * The Oracle ID (OCID) of the Public Ip Pool.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the public IP pool.
    */
   "id"?: string;
   /**
-   * The Public IP Pool's current state.
+   * The public IP pool's current state.
    */
   "lifecycleState"?: string;
   /**
-    * The date and time the public IP Pool was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+    * The date and time the public IP pool was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: `2016-08-25T21:10:29.600Z`
 * 

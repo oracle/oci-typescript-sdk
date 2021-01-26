@@ -68,10 +68,6 @@ Example: `203.0.113.22`
    *
    */
   "displayName"?: string;
-  /**
-   * Information for establishing the tunnel's BGP session.
-   *
-   */
   "bgpSessionInfo"?: model.BgpSessionInfo;
   /**
    * The type of routing used for this tunnel (either BGP dynamic routing or static routing).

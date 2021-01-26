@@ -45,7 +45,7 @@ export interface CreateBlockchainPlatformDetails {
   /**
    * IDCS access token with Identity Domain Administrator role
    */
-  "idcsAccessToken"?: string;
+  "idcsAccessToken": string;
   /**
    * Identifier for a federated user
    */

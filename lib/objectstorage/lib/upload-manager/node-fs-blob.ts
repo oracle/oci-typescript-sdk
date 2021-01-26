@@ -3,7 +3,7 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
-import { statSync, createReadStream } from "fs";
+import { statSync, createReadStream, readFileSync } from "fs";
 import { Readable } from "stream";
 import { createHash } from "crypto";
 import { UploadableBlob } from "./uploadable-blob";
@@ -79,5 +79,40 @@ export class NodeFSBlob implements UploadableBlob {
         .on("data", data => md5Hash.update(data))
         .on("end", () => resolve(md5Hash.digest("base64")));
     });
+  }
+
+  /*
+   * @Summary Get text for the given NodeFsBlob
+   * returns ArrayBuffer object
+   */
+  public async arrayBuffer(): Promise<ArrayBuffer> {
+    return new Promise(resolve => {
+      resolve(readFileSync(this.filePath));
+    });
+  }
+
+  /*
+   * @Summary Get text for the given NodeFsBlob
+   * returns string object
+   */
+  public async text(): Promise<string> {
+    const data = await this.getData();
+    return this.streamToString(data);
+  }
+
+  public async streamToString(stream: Readable): Promise<string> {
+    const chunks: Buffer[] = [];
+    return new Promise((resolve, reject) => {
+      stream.on("data", chunk => chunks.push(chunk));
+      stream.on("error", reject);
+      stream.on("end", () => resolve(Buffer.concat(chunks).toString("utf8")));
+    });
+  }
+  /*
+   * @Summary Get stream for the given NodeFsBlob
+   * returns ReadableStream object
+   */
+  public stream(): ReadableStream {
+    throw "ReadableStream not supported in NodeJs. Use getData() to fetch Stream";
   }
 }

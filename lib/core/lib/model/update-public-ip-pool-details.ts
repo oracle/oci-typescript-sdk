@@ -20,7 +20,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The data to update a public ip pool
+ * The data to update for a public IP pool.
  */
 export interface UpdatePublicIpPoolDetails {
   /**

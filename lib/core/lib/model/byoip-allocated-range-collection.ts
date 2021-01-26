@@ -20,11 +20,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of a ListByoipAllocatedRanges operation.
+ * Results of a `ListByoipAllocatedRanges` operation.
  */
 export interface ByoipAllocatedRangeCollection {
   /**
-   * list of Byoip allocated ranges as part of public IP pool
+   * A list of subranges of a BYOIP CIDR block allocated to an IP pool.
    */
   "items": Array<model.ByoipAllocatedRangeSummary>;
 }

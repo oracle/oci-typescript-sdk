@@ -16,12 +16,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Oracle Application Express (APEX) is a low-code development platform that enables you to build scalable, secure enterprise apps, with world-class features. Autonomous Database with the APEX workload type is optimized to support APEX development.
+ * Oracle APEX Application Development is a low-code development platform that enables you to build scalable, secure enterprise apps, with world-class features. Autonomous Database with the APEX workload type is optimized to support APEX development.
  *
  */
 export interface AutonomousDatabaseApex {
   /**
-   * The Oracle Application Express service version.
+   * The Oracle APEX Application Development version.
    */
   "apexVersion"?: string;
   /**

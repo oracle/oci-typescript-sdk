@@ -354,6 +354,143 @@ export class AnalyticsClient {
   }
 
   /**
+   * Create an Private access Channel for the Analytics instance. The operation is long-running
+   * and creates a new WorkRequest.
+   *
+   * @param CreatePrivateAccessChannelRequest
+   * @return CreatePrivateAccessChannelResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/CreatePrivateAccessChannel.ts.html |here} to see how to use CreatePrivateAccessChannel API.
+   */
+  public async createPrivateAccessChannel(
+    createPrivateAccessChannelRequest: requests.CreatePrivateAccessChannelRequest
+  ): Promise<responses.CreatePrivateAccessChannelResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AnalyticsClient#createPrivateAccessChannel.");
+    const pathParams = {
+      "{analyticsInstanceId}": createPrivateAccessChannelRequest.analyticsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createPrivateAccessChannelRequest.opcRequestId,
+      "opc-retry-token": createPrivateAccessChannelRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/analyticsInstances/{analyticsInstanceId}/privateAccessChannels",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createPrivateAccessChannelRequest.createPrivateAccessChannelDetails,
+        "CreatePrivateAccessChannelDetails",
+        models.CreatePrivateAccessChannelDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createPrivateAccessChannelRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreatePrivateAccessChannelResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Allows specifying a custom host name to be used to access the analytics instance.  This requires prior setup of DNS entry and certificate
+   * for this host.
+   *
+   * @param CreateVanityUrlRequest
+   * @return CreateVanityUrlResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/CreateVanityUrl.ts.html |here} to see how to use CreateVanityUrl API.
+   */
+  public async createVanityUrl(
+    createVanityUrlRequest: requests.CreateVanityUrlRequest
+  ): Promise<responses.CreateVanityUrlResponse> {
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#createVanityUrl.");
+    const pathParams = {
+      "{analyticsInstanceId}": createVanityUrlRequest.analyticsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createVanityUrlRequest.opcRequestId,
+      "opc-retry-token": createVanityUrlRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/analyticsInstances/{analyticsInstanceId}/vanityUrls",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createVanityUrlRequest.createVanityUrlDetails,
+        "CreateVanityUrlDetails",
+        models.CreateVanityUrlDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createVanityUrlRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateVanityUrlResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Terminates the specified Analytics instance. The operation is long-running
    * and creates a new WorkRequest.
    *
@@ -398,6 +535,136 @@ export class AnalyticsClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAnalyticsInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete an Analytics instance's Private access channel with the given unique identifier key.
+   *
+   * @param DeletePrivateAccessChannelRequest
+   * @return DeletePrivateAccessChannelResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/DeletePrivateAccessChannel.ts.html |here} to see how to use DeletePrivateAccessChannel API.
+   */
+  public async deletePrivateAccessChannel(
+    deletePrivateAccessChannelRequest: requests.DeletePrivateAccessChannelRequest
+  ): Promise<responses.DeletePrivateAccessChannelResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AnalyticsClient#deletePrivateAccessChannel.");
+    const pathParams = {
+      "{privateAccessChannelKey}": deletePrivateAccessChannelRequest.privateAccessChannelKey,
+      "{analyticsInstanceId}": deletePrivateAccessChannelRequest.analyticsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deletePrivateAccessChannelRequest.ifMatch,
+      "opc-request-id": deletePrivateAccessChannelRequest.opcRequestId,
+      "opc-retry-token": deletePrivateAccessChannelRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/analyticsInstances/{analyticsInstanceId}/privateAccessChannels/{privateAccessChannelKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deletePrivateAccessChannelRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeletePrivateAccessChannelResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Allows deleting a previously created vanity url.
+   *
+   * @param DeleteVanityUrlRequest
+   * @return DeleteVanityUrlResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/DeleteVanityUrl.ts.html |here} to see how to use DeleteVanityUrl API.
+   */
+  public async deleteVanityUrl(
+    deleteVanityUrlRequest: requests.DeleteVanityUrlRequest
+  ): Promise<responses.DeleteVanityUrlResponse> {
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#deleteVanityUrl.");
+    const pathParams = {
+      "{analyticsInstanceId}": deleteVanityUrlRequest.analyticsInstanceId,
+      "{vanityUrlKey}": deleteVanityUrlRequest.vanityUrlKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteVanityUrlRequest.ifMatch,
+      "opc-request-id": deleteVanityUrlRequest.opcRequestId,
+      "opc-retry-token": deleteVanityUrlRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/analyticsInstances/{analyticsInstanceId}/vanityUrls/{vanityUrlKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteVanityUrlRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteVanityUrlResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -519,6 +786,73 @@ export class AnalyticsClient {
         body: await response.json(),
         bodyKey: "analyticsInstance",
         bodyModel: "model.AnalyticsInstance",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieve private access channel in the specified Analytics Instance.
+   *
+   * @param GetPrivateAccessChannelRequest
+   * @return GetPrivateAccessChannelResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/GetPrivateAccessChannel.ts.html |here} to see how to use GetPrivateAccessChannel API.
+   */
+  public async getPrivateAccessChannel(
+    getPrivateAccessChannelRequest: requests.GetPrivateAccessChannelRequest
+  ): Promise<responses.GetPrivateAccessChannelResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AnalyticsClient#getPrivateAccessChannel.");
+    const pathParams = {
+      "{privateAccessChannelKey}": getPrivateAccessChannelRequest.privateAccessChannelKey,
+      "{analyticsInstanceId}": getPrivateAccessChannelRequest.analyticsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPrivateAccessChannelRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/analyticsInstances/{analyticsInstanceId}/privateAccessChannels/{privateAccessChannelKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getPrivateAccessChannelRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPrivateAccessChannelResponse>{},
+        body: await response.json(),
+        bodyKey: "privateAccessChannel",
+        bodyModel: "model.PrivateAccessChannel",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1243,6 +1577,146 @@ export class AnalyticsClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update the Private Access Channel with the given unique identifier key in the specified Analytics Instance.
+   *
+   * @param UpdatePrivateAccessChannelRequest
+   * @return UpdatePrivateAccessChannelResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/UpdatePrivateAccessChannel.ts.html |here} to see how to use UpdatePrivateAccessChannel API.
+   */
+  public async updatePrivateAccessChannel(
+    updatePrivateAccessChannelRequest: requests.UpdatePrivateAccessChannelRequest
+  ): Promise<responses.UpdatePrivateAccessChannelResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AnalyticsClient#updatePrivateAccessChannel.");
+    const pathParams = {
+      "{privateAccessChannelKey}": updatePrivateAccessChannelRequest.privateAccessChannelKey,
+      "{analyticsInstanceId}": updatePrivateAccessChannelRequest.analyticsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updatePrivateAccessChannelRequest.ifMatch,
+      "opc-request-id": updatePrivateAccessChannelRequest.opcRequestId,
+      "opc-retry-token": updatePrivateAccessChannelRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/analyticsInstances/{analyticsInstanceId}/privateAccessChannels/{privateAccessChannelKey}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updatePrivateAccessChannelRequest.updatePrivateAccessChannelDetails,
+        "UpdatePrivateAccessChannelDetails",
+        models.UpdatePrivateAccessChannelDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updatePrivateAccessChannelRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdatePrivateAccessChannelResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Allows uploading a new certificate for a vanity url, which will have to be done when the current certificate is expiring.
+   *
+   * @param UpdateVanityUrlRequest
+   * @return UpdateVanityUrlResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/UpdateVanityUrl.ts.html |here} to see how to use UpdateVanityUrl API.
+   */
+  public async updateVanityUrl(
+    updateVanityUrlRequest: requests.UpdateVanityUrlRequest
+  ): Promise<responses.UpdateVanityUrlResponse> {
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#updateVanityUrl.");
+    const pathParams = {
+      "{analyticsInstanceId}": updateVanityUrlRequest.analyticsInstanceId,
+      "{vanityUrlKey}": updateVanityUrlRequest.vanityUrlKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateVanityUrlRequest.ifMatch,
+      "opc-request-id": updateVanityUrlRequest.opcRequestId,
+      "opc-retry-token": updateVanityUrlRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/analyticsInstances/{analyticsInstanceId}/vanityUrls/{vanityUrlKey}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateVanityUrlRequest.updateVanityUrlDetails,
+        "UpdateVanityUrlDetails",
+        models.UpdateVanityUrlDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateVanityUrlRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateVanityUrlResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]

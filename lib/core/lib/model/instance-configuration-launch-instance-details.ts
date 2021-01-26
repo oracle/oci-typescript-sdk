@@ -38,11 +38,6 @@ Example: `Uocm:PHX-AD-1`
    * The OCID of the compartment.
    */
   "compartmentId"?: string;
-  /**
-   * Details for the primary VNIC, which is automatically created and attached when
-   * the instance is launched.
-   *
-   */
   "createVnicDetails"?: model.InstanceConfigurationCreateVnicDetails;
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a
@@ -169,11 +164,6 @@ You can enumerate all available shapes by calling {@link #listShapes(ListShapesR
     */
   "shape"?: string;
   "shapeConfig"?: model.InstanceConfigurationLaunchInstanceShapeConfigDetails;
-  /**
-   * Details for creating an instance.
-   * Use this parameter to specify whether a boot volume or an image should be used to launch a new instance.
-   *
-   */
   "sourceDetails"?:
     | model.InstanceConfigurationInstanceSourceViaImageDetails
     | model.InstanceConfigurationInstanceSourceViaBootVolumeDetails;
@@ -212,10 +202,6 @@ Dedicated VM hosts can be used when launching individual instances from an insta
    *
    */
   "launchMode"?: InstanceConfigurationLaunchInstanceDetails.LaunchMode;
-  /**
-   * Options for tuning the compatibility and performance of VM shapes. The values that you specify override any default values.
-   *
-   */
   "launchOptions"?: model.InstanceConfigurationLaunchOptions;
   "agentConfig"?: model.InstanceConfigurationLaunchInstanceAgentConfigDetails;
   /**
@@ -230,10 +216,6 @@ Dedicated VM hosts can be used when launching individual instances from an insta
    */
   "preferredMaintenanceAction"?: InstanceConfigurationLaunchInstanceDetails.PreferredMaintenanceAction;
   "instanceOptions"?: model.InstanceConfigurationInstanceOptions;
-  /**
-   * Options for defining the availabiity of a VM instance after a maintenance event that impacts the underlying hardware.
-   *
-   */
   "availabilityConfig"?: model.InstanceConfigurationAvailabilityConfig;
 }
 

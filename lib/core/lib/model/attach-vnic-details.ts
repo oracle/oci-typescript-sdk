@@ -20,10 +20,6 @@ import * as model from "../model";
 import common = require("oci-common");
 
 export interface AttachVnicDetails {
-  /**
-   * Details for creating a new VNIC.
-   *
-   */
   "createVnicDetails": model.CreateVnicDetails;
   /**
    * A user-friendly name for the attachment. Does not have to be unique, and it cannot be changed.
