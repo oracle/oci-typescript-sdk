@@ -65,7 +65,9 @@ Allowed values:
     */
   "destinationType"?: AddSecurityRuleDetails.DestinationType;
   /**
-   * Direction of the security rule. Set to `EGRESS` for rules to allow outbound IP packets, or `INGRESS` for rules to allow inbound IP packets.
+   * Direction of the security rule. Set to `EGRESS` for rules to allow outbound IP packets,
+   * or `INGRESS` for rules to allow inbound IP packets.
+   *
    */
   "direction": AddSecurityRuleDetails.Direction;
   "icmpOptions"?: model.IcmpOptions;

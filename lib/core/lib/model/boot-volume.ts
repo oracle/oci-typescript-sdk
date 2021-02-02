@@ -80,7 +80,9 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "imageId"?: string;
   /**
-   * Specifies whether the boot volume's data has finished copying from the source boot volume or boot volume backup.
+   * Specifies whether the boot volume's data has finished copying
+   * from the source boot volume or boot volume backup.
+   *
    */
   "isHydrated"?: boolean;
   /**

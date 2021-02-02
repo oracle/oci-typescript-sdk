@@ -40,7 +40,7 @@ export class MonitoringWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getAlarm(request),
-      response => targetStates.exists(response.alarm.lifecycleState),
+      response => targetStates.includes(response.alarm.lifecycleState!),
       targetStates.includes(models.Alarm.LifecycleState.Deleted)
     );
   }

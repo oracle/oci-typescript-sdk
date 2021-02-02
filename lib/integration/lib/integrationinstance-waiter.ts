@@ -37,7 +37,7 @@ export class IntegrationInstanceWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getIntegrationInstance(request),
-      response => targetStates.exists(response.integrationInstance.lifecycleState),
+      response => targetStates.includes(response.integrationInstance.lifecycleState!),
       targetStates.includes(models.IntegrationInstance.LifecycleState.Deleted)
     );
   }

@@ -38,7 +38,7 @@ export class FunctionsManagementWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getApplication(request),
-      response => targetStates.exists(response.application.lifecycleState),
+      response => targetStates.includes(response.application.lifecycleState!),
       targetStates.includes(models.Application.LifecycleState.Deleted)
     );
   }
@@ -57,7 +57,7 @@ export class FunctionsManagementWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getFunction(request),
-      response => targetStates.exists(response.function.lifecycleState),
+      response => targetStates.includes(response.function.lifecycleState!),
       targetStates.includes(models.Function.LifecycleState.Deleted)
     );
   }

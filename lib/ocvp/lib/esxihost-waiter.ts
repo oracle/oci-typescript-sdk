@@ -38,7 +38,7 @@ export class EsxiHostWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getEsxiHost(request),
-      response => targetStates.exists(response.esxiHost.lifecycleState),
+      response => targetStates.includes(response.esxiHost.lifecycleState!),
       targetStates.includes(models.LifecycleStates.Deleted)
     );
   }

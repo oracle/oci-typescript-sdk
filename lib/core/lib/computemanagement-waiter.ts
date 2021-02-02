@@ -65,7 +65,7 @@ export class ComputeManagementWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getClusterNetwork(request),
-      response => targetStates.exists(response.clusterNetwork.lifecycleState),
+      response => targetStates.includes(response.clusterNetwork.lifecycleState!),
       targetStates.includes(models.ClusterNetwork.LifecycleState.Terminated)
     );
   }
@@ -84,7 +84,7 @@ export class ComputeManagementWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getInstancePool(request),
-      response => targetStates.exists(response.instancePool.lifecycleState),
+      response => targetStates.includes(response.instancePool.lifecycleState!),
       targetStates.includes(models.InstancePool.LifecycleState.Terminated)
     );
   }
@@ -103,7 +103,7 @@ export class ComputeManagementWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getInstancePoolLoadBalancerAttachment(request),
-      response => targetStates.exists(response.instancePoolLoadBalancerAttachment.lifecycleState)
+      response => targetStates.includes(response.instancePoolLoadBalancerAttachment.lifecycleState!)
     );
   }
 

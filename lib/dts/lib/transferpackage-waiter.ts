@@ -37,7 +37,7 @@ export class TransferPackageWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getTransferPackage(request),
-      response => targetStates.exists(response.transferPackage.lifecycleState),
+      response => targetStates.includes(response.transferPackage.lifecycleState!),
       targetStates.includes(models.TransferPackage.LifecycleState.Deleted)
     );
   }

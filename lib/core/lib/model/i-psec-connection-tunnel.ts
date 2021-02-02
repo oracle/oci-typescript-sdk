@@ -69,6 +69,7 @@ Example: `203.0.113.22`
    */
   "displayName"?: string;
   "bgpSessionInfo"?: model.BgpSessionInfo;
+  "encryptionDomainConfig"?: model.EncryptionDomainConfig;
   /**
    * The type of routing used for this tunnel (either BGP dynamic routing or static routing).
    *
@@ -95,6 +96,7 @@ export namespace IPSecConnectionTunnel {
     Up = "UP",
     Down = "DOWN",
     DownForMaintenance = "DOWN_FOR_MAINTENANCE",
+    PartialUp = "PARTIAL_UP",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -127,6 +129,7 @@ export namespace IPSecConnectionTunnel {
   export enum Routing {
     Bgp = "BGP",
     Static = "STATIC",
+    Policy = "POLICY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -140,6 +143,9 @@ export namespace IPSecConnectionTunnel {
       ...{
         "bgpSessionInfo": obj.bgpSessionInfo
           ? model.BgpSessionInfo.getJsonObj(obj.bgpSessionInfo)
+          : undefined,
+        "encryptionDomainConfig": obj.encryptionDomainConfig
+          ? model.EncryptionDomainConfig.getJsonObj(obj.encryptionDomainConfig)
           : undefined
       }
     };

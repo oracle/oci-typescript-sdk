@@ -51,7 +51,9 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * A descriptive name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   * A descriptive name. Does not have to be unique, and it's changeable.
+   * Avoid entering confidential information.
+   *
    */
   "displayName"?: string;
   /**

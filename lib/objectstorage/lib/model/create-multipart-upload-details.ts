@@ -72,6 +72,12 @@ export interface CreateMultipartUploadDetails {
    */
   "cacheControl"?: string;
   /**
+   * The storage tier that the object should be stored in. If not specified, the object will be stored in
+   * the same storage tier as the bucket.
+   *
+   */
+  "storageTier"?: model.StorageTier;
+  /**
    * Arbitrary string keys and values for the user-defined metadata for the object.
    * Keys must be in \"opc-meta-*\" format. Avoid entering confidential information.
    *

@@ -34,7 +34,7 @@ export class BudgetWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getAlertRule(request),
-      response => targetStates.exists(response.alertRule.lifecycleState)
+      response => targetStates.includes(response.alertRule.lifecycleState!)
     );
   }
 
@@ -52,7 +52,7 @@ export class BudgetWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getBudget(request),
-      response => targetStates.exists(response.budget.lifecycleState)
+      response => targetStates.includes(response.budget.lifecycleState!)
     );
   }
 }

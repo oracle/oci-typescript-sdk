@@ -34,7 +34,8 @@ export namespace UpdateDetails {
   export enum UpdateAction {
     RollingApply = "ROLLING_APPLY",
     NonRollingApply = "NON_ROLLING_APPLY",
-    Precheck = "PRECHECK"
+    Precheck = "PRECHECK",
+    Rollback = "ROLLBACK"
   }
 
   export function getJsonObj(obj: UpdateDetails): object {

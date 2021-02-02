@@ -36,7 +36,7 @@ export interface InstanceSummary {
    */
   "compartmentId": string;
   /**
-   * The user-friendly name.  Does not have to be unique.
+   * The user-friendly name. Does not have to be unique.
    */
   "displayName"?: string;
   /**

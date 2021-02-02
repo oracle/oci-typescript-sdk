@@ -34,7 +34,7 @@ export class VaultsWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getSecret(request),
-      response => targetStates.exists(response.secret.lifecycleState),
+      response => targetStates.includes(response.secret.lifecycleState!),
       targetStates.includes(models.Secret.LifecycleState.Deleted)
     );
   }

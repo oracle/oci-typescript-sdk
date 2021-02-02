@@ -23,9 +23,11 @@ export interface ListVirtualCircuitPublicPrefixesRequest extends common.BaseRequ
    */
   "virtualCircuitId": string;
   /**
-   * A filter to only return resources that match the given verification state.
-   * The state value is case-insensitive.
-   *
-   */
+ * A filter to only return resources that match the given verification
+* state.
+* <p>
+The state value is case-insensitive.
+* 
+ */
   "verificationState"?: string;
 }

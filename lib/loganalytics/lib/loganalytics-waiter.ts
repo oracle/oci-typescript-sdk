@@ -38,7 +38,7 @@ export class LogAnalyticsWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getLogAnalyticsEntity(request),
-      response => targetStates.exists(response.logAnalyticsEntity.lifecycleState),
+      response => targetStates.includes(response.logAnalyticsEntity.lifecycleState!),
       targetStates.includes(models.EntityLifecycleStates.Deleted)
     );
   }
@@ -57,7 +57,7 @@ export class LogAnalyticsWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getLogAnalyticsEntityType(request),
-      response => targetStates.exists(response.logAnalyticsEntityType.lifecycleState),
+      response => targetStates.includes(response.logAnalyticsEntityType.lifecycleState!),
       targetStates.includes(models.EntityLifecycleStates.Deleted)
     );
   }
@@ -76,7 +76,7 @@ export class LogAnalyticsWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getLogAnalyticsObjectCollectionRule(request),
-      response => targetStates.exists(response.logAnalyticsObjectCollectionRule.lifecycleState),
+      response => targetStates.includes(response.logAnalyticsObjectCollectionRule.lifecycleState!),
       targetStates.includes(models.ObjectCollectionRuleLifecycleStates.Deleted)
     );
   }
@@ -111,7 +111,7 @@ export class LogAnalyticsWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getScheduledTask(request),
-      response => targetStates.exists(response.scheduledTask.lifecycleState),
+      response => targetStates.includes(response.scheduledTask.lifecycleState!),
       targetStates.includes(models.ScheduledTask.LifecycleState.Deleted)
     );
   }

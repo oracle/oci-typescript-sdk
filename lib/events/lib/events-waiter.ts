@@ -36,7 +36,7 @@ export class EventsWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getRule(request),
-      response => targetStates.exists(response.rule.lifecycleState),
+      response => targetStates.includes(response.rule.lifecycleState!),
       targetStates.includes(models.Rule.LifecycleState.Deleted)
     );
   }

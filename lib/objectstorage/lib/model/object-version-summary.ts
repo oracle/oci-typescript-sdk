@@ -51,6 +51,14 @@ export interface ObjectVersionSummary {
    */
   "etag"?: string;
   /**
+   * The storage tier that the object is stored in.
+   */
+  "storageTier"?: model.StorageTier;
+  /**
+   * Archival state of an object. This field is set only for objects in Archive tier.
+   */
+  "archivalState"?: model.ArchivalState;
+  /**
    * VersionId of the object.
    */
   "versionId": string;

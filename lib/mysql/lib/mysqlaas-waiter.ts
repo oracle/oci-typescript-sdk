@@ -37,7 +37,7 @@ export class MysqlaasWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getConfiguration(request),
-      response => targetStates.exists(response.configuration.lifecycleState),
+      response => targetStates.includes(response.configuration.lifecycleState!),
       targetStates.includes(models.Configuration.LifecycleState.Deleted)
     );
   }

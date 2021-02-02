@@ -37,7 +37,7 @@ export class ChannelsWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getChannel(request),
-      response => targetStates.exists(response.channel.lifecycleState),
+      response => targetStates.includes(response.channel.lifecycleState!),
       targetStates.includes(models.Channel.LifecycleState.Deleted)
     );
   }

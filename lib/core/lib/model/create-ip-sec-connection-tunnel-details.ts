@@ -45,12 +45,14 @@ export interface CreateIPSecConnectionTunnelDetails {
    */
   "sharedSecret"?: string;
   "bgpSessionConfig"?: model.CreateIPSecTunnelBgpSessionDetails;
+  "encryptionDomainConfig"?: model.CreateIPSecTunnelEncryptionDomainDetails;
 }
 
 export namespace CreateIPSecConnectionTunnelDetails {
   export enum Routing {
     Bgp = "BGP",
-    Static = "STATIC"
+    Static = "STATIC",
+    Policy = "POLICY"
   }
 
   export enum IkeVersion {
@@ -64,6 +66,9 @@ export namespace CreateIPSecConnectionTunnelDetails {
       ...{
         "bgpSessionConfig": obj.bgpSessionConfig
           ? model.CreateIPSecTunnelBgpSessionDetails.getJsonObj(obj.bgpSessionConfig)
+          : undefined,
+        "encryptionDomainConfig": obj.encryptionDomainConfig
+          ? model.CreateIPSecTunnelEncryptionDomainDetails.getJsonObj(obj.encryptionDomainConfig)
           : undefined
       }
     };

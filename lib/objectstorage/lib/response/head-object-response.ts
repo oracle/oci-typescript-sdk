@@ -77,7 +77,11 @@ export interface HeadObjectResponse {
    */
   "lastModified": Date;
   /**
-   * The current state of the object.
+   * The storage tier that the object is stored in.
+   */
+  "storageTier": string;
+  /**
+   * Archival state of an object. This field is set only for objects in Archive tier.
    */
   "archivalState": string;
   /**

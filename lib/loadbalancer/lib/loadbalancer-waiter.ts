@@ -39,7 +39,7 @@ export class LoadBalancerWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getLoadBalancer(request),
-      response => targetStates.exists(response.loadBalancer.lifecycleState),
+      response => targetStates.includes(response.loadBalancer.lifecycleState!),
       targetStates.includes(models.LoadBalancer.LifecycleState.Deleted)
     );
   }

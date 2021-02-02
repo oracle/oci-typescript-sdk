@@ -22,6 +22,7 @@ import common = require("oci-common");
 export interface InstanceSourceViaImageDetails extends model.InstanceSourceDetails {
   /**
    * The size of the boot volume in GBs. Minimum value is 50 GB and maximum value is 16384 GB (16TB).
+   *
    */
   "bootVolumeSizeInGBs"?: number;
   /**

@@ -28,6 +28,7 @@ export interface PortRange {
   "max": number;
   /**
    * The minimum port number. Must not be greater than the maximum port number.
+   *
    */
   "min": number;
 }

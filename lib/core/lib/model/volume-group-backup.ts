@@ -45,7 +45,9 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * A user-friendly name for the volume group backup. Does not have to be unique and it's changeable. Avoid entering confidential information.
+   * A user-friendly name for the volume group backup. Does not have
+   * to be unique and it's changeable. Avoid entering confidential information.
+   *
    */
   "displayName": string;
   /**
@@ -84,7 +86,9 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "sizeInGBs"?: number;
   /**
-   * Specifies whether the volume group backup was created manually, or via scheduled backup policy.
+   * Specifies whether the volume group backup was created manually, or via scheduled
+   * backup policy.
+   *
    */
   "sourceType"?: VolumeGroupBackup.SourceType;
   /**
@@ -103,18 +107,20 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "type": VolumeGroupBackup.Type;
   /**
-   * The aggregate size used by the volume group backup, in MBs.
-   * It is typically smaller than sizeInMBs, depending on the space
-   * consumed on the volume group and whether the volume backup is full or incremental.
-   *
-   */
+    * The aggregate size used by the volume group backup, in MBs.
+* <p>
+It is typically smaller than sizeInMBs, depending on the spaceconsumed
+* on the volume group and whether the volume backup is full or incremental.
+* 
+    */
   "uniqueSizeInMbs"?: number;
   /**
-   * The aggregate size used by the volume group backup, in GBs.
-   * It is typically smaller than sizeInGBs, depending on the space
-   * consumed on the volume group and whether the volume backup is full or incremental.
-   *
-   */
+    * The aggregate size used by the volume group backup, in GBs.
+* <p>
+It is typically smaller than sizeInGBs, depending on the spaceconsumed
+* on the volume group and whether the volume backup is full or incremental.
+* 
+    */
   "uniqueSizeInGbs"?: number;
   /**
    * OCIDs for the volume backups in this volume group backup.

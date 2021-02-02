@@ -39,7 +39,7 @@ export class KmsManagementWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getKey(request),
-      response => targetStates.exists(response.key.lifecycleState),
+      response => targetStates.includes(response.key.lifecycleState!),
       targetStates.includes(models.Key.LifecycleState.Deleted)
     );
   }
@@ -58,7 +58,7 @@ export class KmsManagementWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getKeyVersion(request),
-      response => targetStates.exists(response.keyVersion.lifecycleState),
+      response => targetStates.includes(response.keyVersion.lifecycleState!),
       targetStates.includes(models.KeyVersion.LifecycleState.Deleted)
     );
   }
@@ -77,7 +77,7 @@ export class KmsManagementWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getWrappingKey(request),
-      response => targetStates.exists(response.wrappingKey.lifecycleState),
+      response => targetStates.includes(response.wrappingKey.lifecycleState!),
       targetStates.includes(models.WrappingKey.LifecycleState.Deleted)
     );
   }

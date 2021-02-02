@@ -37,7 +37,7 @@ export class LoggingManagementWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getLog(request),
-      response => targetStates.exists(response.log.lifecycleState)
+      response => targetStates.includes(response.log.lifecycleState!)
     );
   }
 
@@ -55,7 +55,7 @@ export class LoggingManagementWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getLogGroup(request),
-      response => targetStates.exists(response.logGroup.lifecycleState)
+      response => targetStates.includes(response.logGroup.lifecycleState!)
     );
   }
 
@@ -73,7 +73,7 @@ export class LoggingManagementWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getLogSavedSearch(request),
-      response => targetStates.exists(response.logSavedSearch.lifecycleState)
+      response => targetStates.includes(response.logSavedSearch.lifecycleState!)
     );
   }
 
@@ -91,7 +91,7 @@ export class LoggingManagementWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getUnifiedAgentConfiguration(request),
-      response => targetStates.exists(response.unifiedAgentConfiguration.lifecycleState)
+      response => targetStates.includes(response.unifiedAgentConfiguration.lifecycleState!)
     );
   }
 

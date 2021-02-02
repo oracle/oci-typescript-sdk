@@ -40,7 +40,7 @@ export class GatewayWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getGateway(request),
-      response => targetStates.exists(response.gateway.lifecycleState),
+      response => targetStates.includes(response.gateway.lifecycleState!),
       targetStates.includes(models.Gateway.LifecycleState.Deleted)
     );
   }

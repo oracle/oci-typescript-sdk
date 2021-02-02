@@ -29,7 +29,7 @@ To use any of the API operations, you must be authorized in an IAM policy. If yo
 */
 export interface Bucket {
   /**
-   * The Object Storage namespace in which the bucket lives.
+   * The Object Storage namespace in which the bucket resides.
    */
   "namespace": string;
   /**
@@ -68,10 +68,10 @@ export interface Bucket {
    */
   "publicAccessType"?: Bucket.PublicAccessType;
   /**
-   * The storage tier type assigned to the bucket. A bucket is set to 'Standard' tier by default, which means
-   * objects uploaded or copied to the bucket will be in the standard storage tier. When the 'Archive' tier type
+   * The storage tier type assigned to the bucket. A bucket is set to `Standard` tier by default, which means
+   * objects uploaded or copied to the bucket will be in the standard storage tier. When the `Archive` tier type
    * is set explicitly for a bucket, objects uploaded or copied to the bucket will be stored in archive storage.
-   * The 'storageTier' property is immutable after bucket is created.
+   * The `storageTier` property is immutable after bucket is created.
    *
    */
   "storageTier"?: Bucket.StorageTier;

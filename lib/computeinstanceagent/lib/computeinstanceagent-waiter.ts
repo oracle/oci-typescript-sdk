@@ -37,7 +37,7 @@ export class ComputeInstanceAgentWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getInstanceAgentCommandExecution(request),
-      response => targetStates.exists(response.instanceAgentCommandExecution.lifecycleState)
+      response => targetStates.includes(response.instanceAgentCommandExecution.lifecycleState!)
     );
   }
 }

@@ -37,7 +37,7 @@ export class OceInstanceWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getOceInstance(request),
-      response => targetStates.exists(response.oceInstance.lifecycleState),
+      response => targetStates.includes(response.oceInstance.lifecycleState!),
       targetStates.includes(models.OceInstance.LifecycleState.Deleted)
     );
   }

@@ -34,7 +34,7 @@ export class LinkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getLink(request),
-      response => targetStates.exists(response.link.lifecycleState),
+      response => targetStates.includes(response.link.lifecycleState!),
       targetStates.includes(models.LifecycleState.Terminated)
     );
   }

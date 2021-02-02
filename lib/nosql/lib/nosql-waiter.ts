@@ -38,7 +38,7 @@ export class NosqlWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getIndex(request),
-      response => targetStates.exists(response.index.lifecycleState),
+      response => targetStates.includes(response.index.lifecycleState!),
       targetStates.includes(models.Index.LifecycleState.Deleted)
     );
   }
@@ -57,7 +57,7 @@ export class NosqlWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getTable(request),
-      response => targetStates.exists(response.table.lifecycleState),
+      response => targetStates.includes(response.table.lifecycleState!),
       targetStates.includes(models.Table.LifecycleState.Deleted)
     );
   }

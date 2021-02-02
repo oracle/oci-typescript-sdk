@@ -178,7 +178,7 @@ export class ComputeWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getBootVolumeAttachment(request),
-      response => targetStates.exists(response.bootVolumeAttachment.lifecycleState)
+      response => targetStates.includes(response.bootVolumeAttachment.lifecycleState!)
     );
   }
 
@@ -196,7 +196,7 @@ export class ComputeWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getConsoleHistory(request),
-      response => targetStates.exists(response.consoleHistory.lifecycleState)
+      response => targetStates.includes(response.consoleHistory.lifecycleState!)
     );
   }
 
@@ -214,7 +214,7 @@ export class ComputeWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getDedicatedVmHost(request),
-      response => targetStates.exists(response.dedicatedVmHost.lifecycleState),
+      response => targetStates.includes(response.dedicatedVmHost.lifecycleState!),
       targetStates.includes(models.DedicatedVmHost.LifecycleState.Deleted)
     );
   }
@@ -233,7 +233,7 @@ export class ComputeWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getImage(request),
-      response => targetStates.exists(response.image.lifecycleState),
+      response => targetStates.includes(response.image.lifecycleState!),
       targetStates.includes(models.Image.LifecycleState.Deleted)
     );
   }
@@ -252,7 +252,7 @@ export class ComputeWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getInstance(request),
-      response => targetStates.exists(response.instance.lifecycleState),
+      response => targetStates.includes(response.instance.lifecycleState!),
       targetStates.includes(models.Instance.LifecycleState.Terminated)
     );
   }
@@ -271,7 +271,7 @@ export class ComputeWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getInstanceConsoleConnection(request),
-      response => targetStates.exists(response.instanceConsoleConnection.lifecycleState),
+      response => targetStates.includes(response.instanceConsoleConnection.lifecycleState!),
       targetStates.includes(models.InstanceConsoleConnection.LifecycleState.Deleted)
     );
   }
@@ -290,7 +290,7 @@ export class ComputeWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getVnicAttachment(request),
-      response => targetStates.exists(response.vnicAttachment.lifecycleState)
+      response => targetStates.includes(response.vnicAttachment.lifecycleState!)
     );
   }
 
@@ -308,7 +308,7 @@ export class ComputeWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getVolumeAttachment(request),
-      response => targetStates.exists(response.volumeAttachment.lifecycleState)
+      response => targetStates.includes(response.volumeAttachment.lifecycleState!)
     );
   }
 

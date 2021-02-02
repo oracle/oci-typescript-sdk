@@ -21,7 +21,9 @@ import common = require("oci-common");
 
 export interface CreateDrgAttachmentDetails {
   /**
-   * A user-friendly name. Does not have to be unique. Avoid entering confidential information.
+   * A user-friendly name. Does not have to be unique. Avoid entering
+   * confidential information.
+   *
    */
   "displayName"?: string;
   /**

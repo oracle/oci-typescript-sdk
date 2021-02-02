@@ -220,6 +220,8 @@ import * as CreateIPSecConnectionTunnelDetails from "./create-ip-sec-connection-
 export import CreateIPSecConnectionTunnelDetails = CreateIPSecConnectionTunnelDetails.CreateIPSecConnectionTunnelDetails;
 import * as CreateIPSecTunnelBgpSessionDetails from "./create-ip-sec-tunnel-bgp-session-details";
 export import CreateIPSecTunnelBgpSessionDetails = CreateIPSecTunnelBgpSessionDetails.CreateIPSecTunnelBgpSessionDetails;
+import * as CreateIPSecTunnelEncryptionDomainDetails from "./create-ip-sec-tunnel-encryption-domain-details";
+export import CreateIPSecTunnelEncryptionDomainDetails = CreateIPSecTunnelEncryptionDomainDetails.CreateIPSecTunnelEncryptionDomainDetails;
 import * as CreateImageDetails from "./create-image-details";
 export import CreateImageDetails = CreateImageDetails.CreateImageDetails;
 import * as CreateInstanceConfigurationBase from "./create-instance-configuration-base";
@@ -318,6 +320,8 @@ import * as DrgRedundancyStatus from "./drg-redundancy-status";
 export import DrgRedundancyStatus = DrgRedundancyStatus.DrgRedundancyStatus;
 import * as EgressSecurityRule from "./egress-security-rule";
 export import EgressSecurityRule = EgressSecurityRule.EgressSecurityRule;
+import * as EncryptionDomainConfig from "./encryption-domain-config";
+export import EncryptionDomainConfig = EncryptionDomainConfig.EncryptionDomainConfig;
 import * as ExportImageDetails from "./export-image-details";
 export import ExportImageDetails = ExportImageDetails.ExportImageDetails;
 import * as FastConnectProviderService from "./fast-connect-provider-service";
@@ -542,6 +546,8 @@ import * as UpdateIPSecConnectionTunnelSharedSecretDetails from "./update-ip-sec
 export import UpdateIPSecConnectionTunnelSharedSecretDetails = UpdateIPSecConnectionTunnelSharedSecretDetails.UpdateIPSecConnectionTunnelSharedSecretDetails;
 import * as UpdateIPSecTunnelBgpSessionDetails from "./update-ip-sec-tunnel-bgp-session-details";
 export import UpdateIPSecTunnelBgpSessionDetails = UpdateIPSecTunnelBgpSessionDetails.UpdateIPSecTunnelBgpSessionDetails;
+import * as UpdateIPSecTunnelEncryptionDomainDetails from "./update-ip-sec-tunnel-encryption-domain-details";
+export import UpdateIPSecTunnelEncryptionDomainDetails = UpdateIPSecTunnelEncryptionDomainDetails.UpdateIPSecTunnelEncryptionDomainDetails;
 import * as UpdateImageDetails from "./update-image-details";
 export import UpdateImageDetails = UpdateImageDetails.UpdateImageDetails;
 import * as UpdateInstanceAgentConfigDetails from "./update-instance-agent-config-details";

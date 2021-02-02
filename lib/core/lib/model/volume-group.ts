@@ -45,7 +45,9 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * A user-friendly name for the volume group. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   * A user-friendly name for the volume group. Does not have to be
+   * unique, and it's changeable. Avoid entering confidential information.
+   *
    */
   "displayName": string;
   /**
@@ -85,7 +87,9 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "volumeIds": Array<string>;
   /**
-   * Specifies whether the newly created cloned volume group's data has finished copying from the source volume group or backup.
+   * Specifies whether the newly created cloned volume group's data has finished copying
+   * from the source volume group or backup.
+   *
    */
   "isHydrated"?: boolean;
 }

@@ -37,7 +37,7 @@ export class DataCatalogWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getAttribute(request),
-      response => targetStates.exists(response.attribute.lifecycleState),
+      response => targetStates.includes(response.attribute.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -56,7 +56,7 @@ export class DataCatalogWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getAttributeTag(request),
-      response => targetStates.exists(response.attributeTag.lifecycleState),
+      response => targetStates.includes(response.attributeTag.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -75,7 +75,7 @@ export class DataCatalogWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getCatalog(request),
-      response => targetStates.exists(response.catalog.lifecycleState),
+      response => targetStates.includes(response.catalog.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -94,7 +94,7 @@ export class DataCatalogWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getCatalogPrivateEndpoint(request),
-      response => targetStates.exists(response.catalogPrivateEndpoint.lifecycleState),
+      response => targetStates.includes(response.catalogPrivateEndpoint.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -113,7 +113,7 @@ export class DataCatalogWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getConnection(request),
-      response => targetStates.exists(response.connection.lifecycleState),
+      response => targetStates.includes(response.connection.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -132,7 +132,7 @@ export class DataCatalogWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getCustomProperty(request),
-      response => targetStates.exists(response.customProperty.lifecycleState),
+      response => targetStates.includes(response.customProperty.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -151,7 +151,7 @@ export class DataCatalogWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getDataAsset(request),
-      response => targetStates.exists(response.dataAsset.lifecycleState),
+      response => targetStates.includes(response.dataAsset.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -170,7 +170,7 @@ export class DataCatalogWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getDataAssetTag(request),
-      response => targetStates.exists(response.dataAssetTag.lifecycleState),
+      response => targetStates.includes(response.dataAssetTag.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -189,7 +189,7 @@ export class DataCatalogWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getEntity(request),
-      response => targetStates.exists(response.entity.lifecycleState),
+      response => targetStates.includes(response.entity.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -208,7 +208,7 @@ export class DataCatalogWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getEntityTag(request),
-      response => targetStates.exists(response.entityTag.lifecycleState),
+      response => targetStates.includes(response.entityTag.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -227,7 +227,7 @@ export class DataCatalogWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getFolder(request),
-      response => targetStates.exists(response.folder.lifecycleState),
+      response => targetStates.includes(response.folder.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -246,7 +246,7 @@ export class DataCatalogWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getFolderTag(request),
-      response => targetStates.exists(response.folderTag.lifecycleState),
+      response => targetStates.includes(response.folderTag.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -265,7 +265,7 @@ export class DataCatalogWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getGlossary(request),
-      response => targetStates.exists(response.glossary.lifecycleState),
+      response => targetStates.includes(response.glossary.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -284,7 +284,7 @@ export class DataCatalogWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getJob(request),
-      response => targetStates.exists(response.job.lifecycleState)
+      response => targetStates.includes(response.job.lifecycleState!)
     );
   }
 
@@ -302,7 +302,7 @@ export class DataCatalogWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getJobDefinition(request),
-      response => targetStates.exists(response.jobDefinition.lifecycleState),
+      response => targetStates.includes(response.jobDefinition.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -321,7 +321,7 @@ export class DataCatalogWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getJobExecution(request),
-      response => targetStates.exists(response.jobExecution.lifecycleState)
+      response => targetStates.includes(response.jobExecution.lifecycleState!)
     );
   }
 
@@ -339,7 +339,7 @@ export class DataCatalogWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getNamespace(request),
-      response => targetStates.exists(response.namespace.lifecycleState),
+      response => targetStates.includes(response.namespace.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -358,7 +358,7 @@ export class DataCatalogWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getPattern(request),
-      response => targetStates.exists(response.pattern.lifecycleState),
+      response => targetStates.includes(response.pattern.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -377,7 +377,7 @@ export class DataCatalogWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getTerm(request),
-      response => targetStates.exists(response.term.lifecycleState),
+      response => targetStates.includes(response.term.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -396,7 +396,7 @@ export class DataCatalogWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getTermRelationship(request),
-      response => targetStates.exists(response.termRelationship.lifecycleState),
+      response => targetStates.includes(response.termRelationship.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -415,7 +415,7 @@ export class DataCatalogWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getType(request),
-      response => targetStates.exists(response.type.lifecycleState),
+      response => targetStates.includes(response.type.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }

@@ -38,7 +38,8 @@ export interface CreateStackDetails {
   "configSource":
     | model.CreateZipUploadConfigSourceDetails
     | model.CreateGitConfigSourceDetails
-    | model.CreateCompartmentConfigSourceDetails;
+    | model.CreateCompartmentConfigSourceDetails
+    | model.CreateStackTemplateConfigSourceDetails;
   /**
    * Terraform variables associated with this resource.
    * Maximum number of variables supported is 250.

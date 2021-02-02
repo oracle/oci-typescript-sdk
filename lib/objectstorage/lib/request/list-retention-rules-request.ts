@@ -29,7 +29,9 @@ export interface ListRetentionRulesRequest extends common.BaseRequest {
    */
   "bucketName": string;
   /**
-   * The page at which to start retrieving results.
+   * For list pagination. The value of the `opc-next-page` response header from the previous \"List\" call. For important
+   * details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   *
    */
   "page"?: string;
 }

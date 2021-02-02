@@ -108,6 +108,8 @@ import * as UpdateBucketRequest from "./update-bucket-request";
 export import UpdateBucketRequest = UpdateBucketRequest.UpdateBucketRequest;
 import * as UpdateNamespaceMetadataRequest from "./update-namespace-metadata-request";
 export import UpdateNamespaceMetadataRequest = UpdateNamespaceMetadataRequest.UpdateNamespaceMetadataRequest;
+import * as UpdateObjectStorageTierRequest from "./update-object-storage-tier-request";
+export import UpdateObjectStorageTierRequest = UpdateObjectStorageTierRequest.UpdateObjectStorageTierRequest;
 import * as UpdateRetentionRuleRequest from "./update-retention-rule-request";
 export import UpdateRetentionRuleRequest = UpdateRetentionRuleRequest.UpdateRetentionRuleRequest;
 import * as UploadPartRequest from "./upload-part-request";

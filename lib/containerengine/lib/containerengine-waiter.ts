@@ -40,7 +40,7 @@ export class ContainerEngineWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getCluster(request),
-      response => targetStates.exists(response.cluster.lifecycleState),
+      response => targetStates.includes(response.cluster.lifecycleState!),
       targetStates.includes(models.ClusterLifecycleState.Deleted)
     );
   }

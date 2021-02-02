@@ -37,7 +37,7 @@ export class RoverClusterWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getRoverCluster(request),
-      response => targetStates.exists(response.roverCluster.lifecycleState),
+      response => targetStates.includes(response.roverCluster.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }

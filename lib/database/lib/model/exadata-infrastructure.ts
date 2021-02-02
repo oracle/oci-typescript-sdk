@@ -129,6 +129,10 @@ export interface ExadataInfrastructure {
    * The list of contacts for the Exadata infrastructure.
    */
   "contacts"?: Array<model.ExadataInfrastructureContact>;
+  /**
+   * A field to capture \u2018Maintenance SLO Status\u2019 for the Exadata infrastructure with values \u2018OK\u2019, \u2018DEGRADED\u2019. Default is \u2018OK\u2019 when the infrastructure is provisioned.
+   */
+  "maintenanceSLOStatus"?: ExadataInfrastructure.MaintenanceSLOStatus;
   "maintenanceWindow"?: model.MaintenanceWindow;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
@@ -166,6 +170,16 @@ export namespace ExadataInfrastructure {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export enum MaintenanceSLOStatus {
+    Ok = "OK",
+    Degraded = "DEGRADED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: ExadataInfrastructure): object {
     const jsonObj = {
       ...obj,
@@ -175,6 +189,7 @@ export namespace ExadataInfrastructure {
               return model.ExadataInfrastructureContact.getJsonObj(item);
             })
           : undefined,
+
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
           : undefined

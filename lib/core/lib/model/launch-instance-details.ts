@@ -211,7 +211,7 @@ You can enumerate all available shapes by calling {@link #listShapes(ListShapesR
    */
   "subnetId"?: string;
   /**
-   * Whether to enable in-transit encryption for the data volume's paravirtualized attachment. The default value is false.
+   * Whether to enable in-transit encryption for the data volume's paravirtualized attachment. This field applies to both block volumes and boot volumes. The default value is false.
    */
   "isPvEncryptionInTransitEnabled"?: boolean;
 }

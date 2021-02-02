@@ -173,7 +173,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getByoipRange(request),
-      response => targetStates.exists(response.byoipRange.lifecycleState),
+      response => targetStates.includes(response.byoipRange.lifecycleState!),
       targetStates.includes(models.ByoipRange.LifecycleState.Deleted)
     );
   }
@@ -192,7 +192,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getCrossConnect(request),
-      response => targetStates.exists(response.crossConnect.lifecycleState),
+      response => targetStates.includes(response.crossConnect.lifecycleState!),
       targetStates.includes(models.CrossConnect.LifecycleState.Terminated)
     );
   }
@@ -211,7 +211,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getCrossConnectGroup(request),
-      response => targetStates.exists(response.crossConnectGroup.lifecycleState),
+      response => targetStates.includes(response.crossConnectGroup.lifecycleState!),
       targetStates.includes(models.CrossConnectGroup.LifecycleState.Terminated)
     );
   }
@@ -230,7 +230,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getDhcpOptions(request),
-      response => targetStates.exists(response.dhcpOptions.lifecycleState),
+      response => targetStates.includes(response.dhcpOptions.lifecycleState!),
       targetStates.includes(models.DhcpOptions.LifecycleState.Terminated)
     );
   }
@@ -249,7 +249,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getDrg(request),
-      response => targetStates.exists(response.drg.lifecycleState),
+      response => targetStates.includes(response.drg.lifecycleState!),
       targetStates.includes(models.Drg.LifecycleState.Terminated)
     );
   }
@@ -268,7 +268,7 @@ export class VirtualNetworkWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getDrgAttachment(request),
-      response => targetStates.exists(response.drgAttachment.lifecycleState)
+      response => targetStates.includes(response.drgAttachment.lifecycleState!)
     );
   }
 
@@ -286,7 +286,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getIPSecConnection(request),
-      response => targetStates.exists(response.iPSecConnection.lifecycleState),
+      response => targetStates.includes(response.iPSecConnection.lifecycleState!),
       targetStates.includes(models.IPSecConnection.LifecycleState.Terminated)
     );
   }
@@ -305,7 +305,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getIPSecConnectionTunnel(request),
-      response => targetStates.exists(response.iPSecConnectionTunnel.lifecycleState),
+      response => targetStates.includes(response.iPSecConnectionTunnel.lifecycleState!),
       targetStates.includes(models.IPSecConnectionTunnel.LifecycleState.Terminated)
     );
   }
@@ -324,7 +324,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getInternetGateway(request),
-      response => targetStates.exists(response.internetGateway.lifecycleState),
+      response => targetStates.includes(response.internetGateway.lifecycleState!),
       targetStates.includes(models.InternetGateway.LifecycleState.Terminated)
     );
   }
@@ -343,7 +343,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getIpv6(request),
-      response => targetStates.exists(response.ipv6.lifecycleState),
+      response => targetStates.includes(response.ipv6.lifecycleState!),
       targetStates.includes(models.Ipv6.LifecycleState.Terminated)
     );
   }
@@ -362,7 +362,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getLocalPeeringGateway(request),
-      response => targetStates.exists(response.localPeeringGateway.peeringStatus),
+      response => targetStates.includes(response.localPeeringGateway.peeringStatus!),
       targetStates.includes(models.LocalPeeringGateway.PeeringStatus.Revoked)
     );
   }
@@ -381,7 +381,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getLocalPeeringGateway(request),
-      response => targetStates.exists(response.localPeeringGateway.lifecycleState),
+      response => targetStates.includes(response.localPeeringGateway.lifecycleState!),
       targetStates.includes(models.LocalPeeringGateway.LifecycleState.Terminated)
     );
   }
@@ -400,7 +400,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getNatGateway(request),
-      response => targetStates.exists(response.natGateway.lifecycleState),
+      response => targetStates.includes(response.natGateway.lifecycleState!),
       targetStates.includes(models.NatGateway.LifecycleState.Terminated)
     );
   }
@@ -419,7 +419,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getNetworkSecurityGroup(request),
-      response => targetStates.exists(response.networkSecurityGroup.lifecycleState),
+      response => targetStates.includes(response.networkSecurityGroup.lifecycleState!),
       targetStates.includes(models.NetworkSecurityGroup.LifecycleState.Terminated)
     );
   }
@@ -438,7 +438,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getPublicIp(request),
-      response => targetStates.exists(response.publicIp.lifecycleState),
+      response => targetStates.includes(response.publicIp.lifecycleState!),
       targetStates.includes(models.PublicIp.LifecycleState.Terminated)
     );
   }
@@ -457,7 +457,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getPublicIpPool(request),
-      response => targetStates.exists(response.publicIpPool.lifecycleState),
+      response => targetStates.includes(response.publicIpPool.lifecycleState!),
       targetStates.includes(models.PublicIpPool.LifecycleState.Deleted)
     );
   }
@@ -476,7 +476,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getRemotePeeringConnection(request),
-      response => targetStates.exists(response.remotePeeringConnection.lifecycleState),
+      response => targetStates.includes(response.remotePeeringConnection.lifecycleState!),
       targetStates.includes(models.RemotePeeringConnection.LifecycleState.Terminated)
     );
   }
@@ -495,7 +495,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getRemotePeeringConnection(request),
-      response => targetStates.exists(response.remotePeeringConnection.peeringStatus),
+      response => targetStates.includes(response.remotePeeringConnection.peeringStatus!),
       targetStates.includes(models.RemotePeeringConnection.PeeringStatus.Revoked)
     );
   }
@@ -514,7 +514,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getRouteTable(request),
-      response => targetStates.exists(response.routeTable.lifecycleState),
+      response => targetStates.includes(response.routeTable.lifecycleState!),
       targetStates.includes(models.RouteTable.LifecycleState.Terminated)
     );
   }
@@ -533,7 +533,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getSecurityList(request),
-      response => targetStates.exists(response.securityList.lifecycleState),
+      response => targetStates.includes(response.securityList.lifecycleState!),
       targetStates.includes(models.SecurityList.LifecycleState.Terminated)
     );
   }
@@ -552,7 +552,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getServiceGateway(request),
-      response => targetStates.exists(response.serviceGateway.lifecycleState),
+      response => targetStates.includes(response.serviceGateway.lifecycleState!),
       targetStates.includes(models.ServiceGateway.LifecycleState.Terminated)
     );
   }
@@ -571,7 +571,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getSubnet(request),
-      response => targetStates.exists(response.subnet.lifecycleState),
+      response => targetStates.includes(response.subnet.lifecycleState!),
       targetStates.includes(models.Subnet.LifecycleState.Terminated)
     );
   }
@@ -590,7 +590,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getVcn(request),
-      response => targetStates.exists(response.vcn.lifecycleState),
+      response => targetStates.includes(response.vcn.lifecycleState!),
       targetStates.includes(models.Vcn.LifecycleState.Terminated)
     );
   }
@@ -609,7 +609,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getVcnDnsResolverAssociation(request),
-      response => targetStates.exists(response.vcnDnsResolverAssociation.lifecycleState),
+      response => targetStates.includes(response.vcnDnsResolverAssociation.lifecycleState!),
       targetStates.includes(models.VcnDnsResolverAssociation.LifecycleState.Terminated)
     );
   }
@@ -628,7 +628,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getVirtualCircuit(request),
-      response => targetStates.exists(response.virtualCircuit.lifecycleState),
+      response => targetStates.includes(response.virtualCircuit.lifecycleState!),
       targetStates.includes(models.VirtualCircuit.LifecycleState.Terminated)
     );
   }
@@ -647,7 +647,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getVlan(request),
-      response => targetStates.exists(response.vlan.lifecycleState),
+      response => targetStates.includes(response.vlan.lifecycleState!),
       targetStates.includes(models.Vlan.LifecycleState.Terminated)
     );
   }
@@ -666,7 +666,7 @@ export class VirtualNetworkWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getVnic(request),
-      response => targetStates.exists(response.vnic.lifecycleState),
+      response => targetStates.includes(response.vnic.lifecycleState!),
       targetStates.includes(models.Vnic.LifecycleState.Terminated)
     );
   }

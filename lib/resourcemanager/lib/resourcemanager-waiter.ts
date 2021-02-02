@@ -41,7 +41,7 @@ export class ResourceManagerWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getConfigurationSourceProvider(request),
-      response => targetStates.exists(response.configurationSourceProvider.lifecycleState)
+      response => targetStates.includes(response.configurationSourceProvider.lifecycleState!)
     );
   }
 
@@ -59,7 +59,7 @@ export class ResourceManagerWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getJob(request),
-      response => targetStates.exists(response.job.lifecycleState)
+      response => targetStates.includes(response.job.lifecycleState!)
     );
   }
 
@@ -77,8 +77,26 @@ export class ResourceManagerWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getStack(request),
-      response => targetStates.exists(response.stack.lifecycleState),
+      response => targetStates.includes(response.stack.lifecycleState!),
       targetStates.includes(models.Stack.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forTemplate till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetTemplateResponse
+   */
+  public async forTemplate(
+    request: serviceRequests.GetTemplateRequest,
+    ...targetStates: models.Template.LifecycleState[]
+  ): Promise<serviceResponses.GetTemplateResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getTemplate(request),
+      response => targetStates.includes(response.template.lifecycleState!)
     );
   }
 

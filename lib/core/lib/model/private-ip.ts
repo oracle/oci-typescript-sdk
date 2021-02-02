@@ -54,9 +54,6 @@ You can add *secondary private IPs* to a VNIC after it's created. For more
 To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized,
 * talk to an administrator. If you're an administrator who needs to write policies to give users access, see
 * [Getting Started with Policies](https://docs.cloud.oracle.com/Content/Identity/Concepts/policygetstarted.htm).
-* <p>
-**Warning:** Oracle recommends that you avoid using any confidential information when you
-* supply string values using the API.
 * 
 */
 export interface PrivateIp {
@@ -156,13 +153,12 @@ Example: `2016-08-25T21:10:29.600Z`
     */
   "timeCreated"?: Date;
   /**
-    * The OCID of the VNIC the private IP is assigned to. The VNIC and private IP
-* must be in the same subnet.
-* <p>
-However, if the `PrivateIp` object is being used with a VLAN as part of
-* the Oracle Cloud VMware Solution, the `vnicId` is null.
-* 
-    */
+   * The OCID of the VNIC the private IP is assigned to. The VNIC and private IP
+   * must be in the same subnet.
+   * However, if the `PrivateIp` object is being used with a VLAN as part of
+   * the Oracle Cloud VMware Solution, the `vnicId` is null.
+   *
+   */
   "vnicId"?: string;
 }
 

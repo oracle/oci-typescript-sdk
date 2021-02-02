@@ -37,7 +37,7 @@ export class SenderInvitationWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getSenderInvitation(request),
-      response => targetStates.exists(response.senderInvitation.lifecycleState),
+      response => targetStates.includes(response.senderInvitation.lifecycleState!),
       targetStates.includes(models.LifecycleState.Terminated)
     );
   }

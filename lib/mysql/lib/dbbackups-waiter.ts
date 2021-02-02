@@ -37,7 +37,7 @@ export class DbBackupsWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getBackup(request),
-      response => targetStates.exists(response.backup.lifecycleState),
+      response => targetStates.includes(response.backup.lifecycleState!),
       targetStates.includes(models.Backup.LifecycleState.Deleted)
     );
   }

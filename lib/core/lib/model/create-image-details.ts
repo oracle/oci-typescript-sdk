@@ -21,6 +21,7 @@ import common = require("oci-common");
 
 /**
  * Either instanceId or imageSourceDetails must be provided in addition to other required parameters.
+ *
  */
 export interface CreateImageDetails {
   /**
@@ -58,6 +59,7 @@ Example: `{\"Department\": \"Finance\"}`
     | model.ImageSourceViaObjectStorageUriDetails;
   /**
    * The OCID of the instance you want to use as the basis for the image.
+   *
    */
   "instanceId"?: string;
   /**

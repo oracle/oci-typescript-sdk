@@ -37,7 +37,7 @@ export class DataSafeWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getDataSafeConfiguration(request),
-      response => targetStates.exists(response.dataSafeConfiguration.lifecycleState),
+      response => targetStates.includes(response.dataSafeConfiguration.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -56,7 +56,7 @@ export class DataSafeWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getDataSafePrivateEndpoint(request),
-      response => targetStates.exists(response.dataSafePrivateEndpoint.lifecycleState),
+      response => targetStates.includes(response.dataSafePrivateEndpoint.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -75,7 +75,7 @@ export class DataSafeWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getOnPremConnector(request),
-      response => targetStates.exists(response.onPremConnector.lifecycleState),
+      response => targetStates.includes(response.onPremConnector.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }

@@ -37,7 +37,7 @@ export class CloudGuardWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getDetector(request),
-      response => targetStates.exists(response.detector.lifecycleState),
+      response => targetStates.includes(response.detector.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -56,7 +56,7 @@ export class CloudGuardWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getDetectorRecipe(request),
-      response => targetStates.exists(response.detectorRecipe.lifecycleState),
+      response => targetStates.includes(response.detectorRecipe.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -75,7 +75,7 @@ export class CloudGuardWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getDetectorRecipeDetectorRule(request),
-      response => targetStates.exists(response.detectorRecipeDetectorRule.lifecycleState),
+      response => targetStates.includes(response.detectorRecipeDetectorRule.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -94,7 +94,7 @@ export class CloudGuardWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getDetectorRule(request),
-      response => targetStates.exists(response.detectorRule.lifecycleState),
+      response => targetStates.includes(response.detectorRule.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -113,7 +113,7 @@ export class CloudGuardWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getManagedList(request),
-      response => targetStates.exists(response.managedList.lifecycleState),
+      response => targetStates.includes(response.managedList.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -132,7 +132,7 @@ export class CloudGuardWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getProblem(request),
-      response => targetStates.exists(response.problem.lifecycleState)
+      response => targetStates.includes(response.problem.lifecycleState!)
     );
   }
 
@@ -150,7 +150,7 @@ export class CloudGuardWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getResponderRecipe(request),
-      response => targetStates.exists(response.responderRecipe.lifecycleState),
+      response => targetStates.includes(response.responderRecipe.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -169,7 +169,7 @@ export class CloudGuardWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getResponderRecipeResponderRule(request),
-      response => targetStates.exists(response.responderRecipeResponderRule.lifecycleState),
+      response => targetStates.includes(response.responderRecipeResponderRule.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -188,7 +188,7 @@ export class CloudGuardWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getResponderRule(request),
-      response => targetStates.exists(response.responderRule.lifecycleState),
+      response => targetStates.includes(response.responderRule.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -207,7 +207,7 @@ export class CloudGuardWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getTarget(request),
-      response => targetStates.exists(response.target.lifecycleState),
+      response => targetStates.includes(response.target.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -226,7 +226,7 @@ export class CloudGuardWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getTargetDetectorRecipe(request),
-      response => targetStates.exists(response.targetDetectorRecipe.lifecycleState),
+      response => targetStates.includes(response.targetDetectorRecipe.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -245,7 +245,7 @@ export class CloudGuardWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getTargetDetectorRecipeDetectorRule(request),
-      response => targetStates.exists(response.targetDetectorRecipeDetectorRule.lifecycleState),
+      response => targetStates.includes(response.targetDetectorRecipeDetectorRule.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -264,7 +264,8 @@ export class CloudGuardWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getTargetResponderRecipeResponderRule(request),
-      response => targetStates.exists(response.targetResponderRecipeResponderRule.lifecycleState),
+      response =>
+        targetStates.includes(response.targetResponderRecipeResponderRule.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }

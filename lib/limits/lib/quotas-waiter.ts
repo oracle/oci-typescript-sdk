@@ -34,7 +34,7 @@ export class QuotasWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getQuota(request),
-      response => targetStates.exists(response.quota.lifecycleState)
+      response => targetStates.includes(response.quota.lifecycleState!)
     );
   }
 }

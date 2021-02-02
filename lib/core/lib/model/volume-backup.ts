@@ -103,6 +103,7 @@ Example: `{\"Department\": \"Finance\"}`
   "sizeInMBs"?: number;
   /**
    * Specifies whether the backup was created manually, or via scheduled backup policy.
+   *
    */
   "sourceType"?: VolumeBackup.SourceType;
   /**

@@ -23,6 +23,8 @@ import common = require("oci-common");
 export interface UpdateRetentionRuleDetails {
   /**
    * A user-specified name for the retention rule. Names can be helpful in identifying retention rules.
+   * Avoid entering confidential information.
+   *
    */
   "displayName"?: string;
   "duration"?: model.Duration;

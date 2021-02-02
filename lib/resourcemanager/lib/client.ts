@@ -332,6 +332,72 @@ export class ResourceManagerClient {
   }
 
   /**
+   * Moves a template into a different compartment within the same tenancy.
+   * For information about moving resources between compartments, see
+   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * @param ChangeTemplateCompartmentRequest
+   * @return ChangeTemplateCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ChangeTemplateCompartment.ts.html |here} to see how to use ChangeTemplateCompartment API.
+   */
+  public async changeTemplateCompartment(
+    changeTemplateCompartmentRequest: requests.ChangeTemplateCompartmentRequest
+  ): Promise<responses.ChangeTemplateCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#changeTemplateCompartment.");
+    const pathParams = {
+      "{templateId}": changeTemplateCompartmentRequest.templateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeTemplateCompartmentRequest.ifMatch,
+      "opc-request-id": changeTemplateCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeTemplateCompartmentRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/templates/{templateId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeTemplateCompartmentRequest.changeTemplateCompartmentDetails,
+        "ChangeTemplateCompartmentDetails",
+        models.ChangeTemplateCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeTemplateCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeTemplateCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a configuration source provider in the specified compartment.
    * For more information, see
    * [To create a configuration source provider](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/managingstacksandjobs.htm#CreateConfigurationSourceProvider).
@@ -550,6 +616,75 @@ export class ResourceManagerClient {
   }
 
   /**
+   * Creates a custom template in the specified compartment.
+   *
+   * @param CreateTemplateRequest
+   * @return CreateTemplateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/CreateTemplate.ts.html |here} to see how to use CreateTemplate API.
+   */
+  public async createTemplate(
+    createTemplateRequest: requests.CreateTemplateRequest
+  ): Promise<responses.CreateTemplateResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#createTemplate.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createTemplateRequest.opcRequestId,
+      "opc-retry-token": createTemplateRequest.opcRetryToken,
+      "oci-splat-generated-ocids": createTemplateRequest.ociSplatGeneratedOcids
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/templates",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createTemplateRequest.createTemplateDetails,
+        "CreateTemplateDetails",
+        models.CreateTemplateDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createTemplateRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateTemplateResponse>{},
+        body: await response.json(),
+        bodyKey: "template",
+        bodyModel: "model.Template",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified configuration source provider.
    * @param DeleteConfigurationSourceProviderRequest
    * @return DeleteConfigurationSourceProviderResponse
@@ -650,6 +785,62 @@ export class ResourceManagerClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteStackResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified template.
+   * @param DeleteTemplateRequest
+   * @return DeleteTemplateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/DeleteTemplate.ts.html |here} to see how to use DeleteTemplate API.
+   */
+  public async deleteTemplate(
+    deleteTemplateRequest: requests.DeleteTemplateRequest
+  ): Promise<responses.DeleteTemplateResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#deleteTemplate.");
+    const pathParams = {
+      "{templateId}": deleteTemplateRequest.templateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteTemplateRequest.opcRequestId,
+      "if-match": deleteTemplateRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/templates/{templateId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteTemplateRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteTemplateResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1321,6 +1512,192 @@ export class ResourceManagerClient {
   }
 
   /**
+   * Gets the specified template.
+   * @param GetTemplateRequest
+   * @return GetTemplateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetTemplate.ts.html |here} to see how to use GetTemplate API.
+   */
+  public async getTemplate(
+    getTemplateRequest: requests.GetTemplateRequest
+  ): Promise<responses.GetTemplateResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getTemplate.");
+    const pathParams = {
+      "{templateId}": getTemplateRequest.templateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getTemplateRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/templates/{templateId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getTemplateRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetTemplateResponse>{},
+        body: await response.json(),
+        bodyKey: "template",
+        bodyModel: "model.Template",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the Terraform logo file in .logo format for the specified template.
+   * Returns an error if no logo file is found.
+   *
+   * @param GetTemplateLogoRequest
+   * @return GetTemplateLogoResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetTemplateLogo.ts.html |here} to see how to use GetTemplateLogo API.
+   */
+  public async getTemplateLogo(
+    getTemplateLogoRequest: requests.GetTemplateLogoRequest
+  ): Promise<responses.GetTemplateLogoResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getTemplateLogo.");
+    const pathParams = {
+      "{templateId}": getTemplateLogoRequest.templateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getTemplateLogoRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/templates/{templateId}/logo",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getTemplateLogoRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetTemplateLogoResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the Terraform configuration file in .zip format for the specified template.
+   * Returns an error if no zip file is found.
+   *
+   * @param GetTemplateTfConfigRequest
+   * @return GetTemplateTfConfigResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetTemplateTfConfig.ts.html |here} to see how to use GetTemplateTfConfig API.
+   */
+  public async getTemplateTfConfig(
+    getTemplateTfConfigRequest: requests.GetTemplateTfConfigRequest
+  ): Promise<responses.GetTemplateTfConfigResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#getTemplateTfConfig.");
+    const pathParams = {
+      "{templateId}": getTemplateTfConfigRequest.templateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getTemplateTfConfigRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/templates/{templateId}/tfConfig",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getTemplateTfConfigRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetTemplateTfConfigResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Return the given work request.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
@@ -1784,6 +2161,135 @@ export class ResourceManagerClient {
     request: requests.ListStacksRequest
   ): AsyncIterableIterator<responses.ListStacksResponse> {
     return paginateResponses(request, req => this.listStacks(req));
+  }
+
+  /**
+   * Lists template categories.
+   *
+   * @param ListTemplateCategoriesRequest
+   * @return ListTemplateCategoriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListTemplateCategories.ts.html |here} to see how to use ListTemplateCategories API.
+   */
+  public async listTemplateCategories(
+    listTemplateCategoriesRequest: requests.ListTemplateCategoriesRequest
+  ): Promise<responses.ListTemplateCategoriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#listTemplateCategories.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listTemplateCategoriesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/templateCategories",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listTemplateCategoriesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListTemplateCategoriesResponse>{},
+        body: await response.json(),
+        bodyKey: "templateCategorySummaryCollection",
+        bodyModel: "model.TemplateCategorySummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists templates according to the specified filter.
+   *
+   * @param ListTemplatesRequest
+   * @return ListTemplatesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListTemplates.ts.html |here} to see how to use ListTemplates API.
+   */
+  public async listTemplates(
+    listTemplatesRequest: requests.ListTemplatesRequest
+  ): Promise<responses.ListTemplatesResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#listTemplates.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listTemplatesRequest.compartmentId,
+      "templateCategoryId": listTemplatesRequest.templateCategoryId,
+      "templateId": listTemplatesRequest.templateId,
+      "displayName": listTemplatesRequest.displayName,
+      "sortBy": listTemplatesRequest.sortBy,
+      "sortOrder": listTemplatesRequest.sortOrder,
+      "limit": listTemplatesRequest.limit,
+      "page": listTemplatesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listTemplatesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/templates",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listTemplatesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListTemplatesResponse>{},
+        body: await response.json(),
+        bodyKey: "templateSummaryCollection",
+        bodyModel: "model.TemplateSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -2328,6 +2834,76 @@ export class ResourceManagerClient {
         body: await response.json(),
         bodyKey: "stack",
         bodyModel: "model.Stack",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified template.
+   *
+   * @param UpdateTemplateRequest
+   * @return UpdateTemplateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/UpdateTemplate.ts.html |here} to see how to use UpdateTemplate API.
+   */
+  public async updateTemplate(
+    updateTemplateRequest: requests.UpdateTemplateRequest
+  ): Promise<responses.UpdateTemplateResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#updateTemplate.");
+    const pathParams = {
+      "{templateId}": updateTemplateRequest.templateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateTemplateRequest.opcRequestId,
+      "if-match": updateTemplateRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/templates/{templateId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateTemplateRequest.updateTemplateDetails,
+        "UpdateTemplateDetails",
+        models.UpdateTemplateDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateTemplateRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateTemplateResponse>{},
+        body: await response.json(),
+        bodyKey: "template",
+        bodyModel: "model.Template",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

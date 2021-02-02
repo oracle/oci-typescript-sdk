@@ -37,7 +37,7 @@ export class BlockchainPlatformWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getBlockchainPlatform(request),
-      response => targetStates.exists(response.blockchainPlatform.lifecycleState),
+      response => targetStates.includes(response.blockchainPlatform.lifecycleState!),
       targetStates.includes(models.BlockchainPlatform.LifecycleState.Deleted)
     );
   }
@@ -56,7 +56,7 @@ export class BlockchainPlatformWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getOsn(request),
-      response => targetStates.exists(response.osn.lifecycleState)
+      response => targetStates.includes(response.osn.lifecycleState!)
     );
   }
 
@@ -74,7 +74,7 @@ export class BlockchainPlatformWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getPeer(request),
-      response => targetStates.exists(response.peer.lifecycleState)
+      response => targetStates.includes(response.peer.lifecycleState!)
     );
   }
 

@@ -34,7 +34,7 @@ export class WaasWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getAddressList(request),
-      response => targetStates.exists(response.addressList.lifecycleState),
+      response => targetStates.includes(response.addressList.lifecycleState!),
       targetStates.includes(models.LifecycleStates.Deleted)
     );
   }
@@ -53,7 +53,7 @@ export class WaasWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getCertificate(request),
-      response => targetStates.exists(response.certificate.lifecycleState),
+      response => targetStates.includes(response.certificate.lifecycleState!),
       targetStates.includes(models.LifecycleStates.Deleted)
     );
   }
@@ -72,7 +72,7 @@ export class WaasWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getCustomProtectionRule(request),
-      response => targetStates.exists(response.customProtectionRule.lifecycleState),
+      response => targetStates.includes(response.customProtectionRule.lifecycleState!),
       targetStates.includes(models.LifecycleStates.Deleted)
     );
   }
@@ -91,7 +91,7 @@ export class WaasWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getWaasPolicy(request),
-      response => targetStates.exists(response.waasPolicy.lifecycleState),
+      response => targetStates.includes(response.waasPolicy.lifecycleState!),
       targetStates.includes(models.LifecycleStates.Deleted)
     );
   }

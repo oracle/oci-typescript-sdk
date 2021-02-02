@@ -39,7 +39,7 @@ export class OsManagementWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getManagedInstanceGroup(request),
-      response => targetStates.exists(response.managedInstanceGroup.lifecycleState),
+      response => targetStates.includes(response.managedInstanceGroup.lifecycleState!),
       targetStates.includes(models.LifecycleStates.Deleted)
     );
   }
@@ -58,7 +58,7 @@ export class OsManagementWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getScheduledJob(request),
-      response => targetStates.exists(response.scheduledJob.lifecycleState),
+      response => targetStates.includes(response.scheduledJob.lifecycleState!),
       targetStates.includes(models.LifecycleStates.Deleted)
     );
   }
@@ -77,7 +77,7 @@ export class OsManagementWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getSoftwareSource(request),
-      response => targetStates.exists(response.softwareSource.lifecycleState),
+      response => targetStates.includes(response.softwareSource.lifecycleState!),
       targetStates.includes(models.LifecycleStates.Deleted)
     );
   }

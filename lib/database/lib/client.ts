@@ -1037,6 +1037,246 @@ export class DatabaseClient {
   }
 
   /**
+   * Move the {@link #createExternalContainerDatabaseDetails(CreateExternalContainerDatabaseDetailsRequest) createExternalContainerDatabaseDetails}
+   * and its dependent resources to the specified compartment.
+   * For more information about moving external container databases, see
+   * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
+   *
+   * @param ChangeExternalContainerDatabaseCompartmentRequest
+   * @return ChangeExternalContainerDatabaseCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExternalContainerDatabaseCompartment.ts.html |here} to see how to use ChangeExternalContainerDatabaseCompartment API.
+   */
+  public async changeExternalContainerDatabaseCompartment(
+    changeExternalContainerDatabaseCompartmentRequest: requests.ChangeExternalContainerDatabaseCompartmentRequest
+  ): Promise<responses.ChangeExternalContainerDatabaseCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#changeExternalContainerDatabaseCompartment."
+      );
+    const pathParams = {
+      "{externalContainerDatabaseId}":
+        changeExternalContainerDatabaseCompartmentRequest.externalContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeExternalContainerDatabaseCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeExternalContainerDatabaseCompartmentRequest.opcRequestId,
+      "if-match": changeExternalContainerDatabaseCompartmentRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalcontainerdatabases/{externalContainerDatabaseId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeExternalContainerDatabaseCompartmentRequest.changeCompartmentDetails,
+        "ChangeCompartmentDetails",
+        models.ChangeCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeExternalContainerDatabaseCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeExternalContainerDatabaseCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Move the external non-container database and its dependent resources to the specified compartment.
+   * For more information about moving external non-container databases, see
+   * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
+   *
+   * @param ChangeExternalNonContainerDatabaseCompartmentRequest
+   * @return ChangeExternalNonContainerDatabaseCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExternalNonContainerDatabaseCompartment.ts.html |here} to see how to use ChangeExternalNonContainerDatabaseCompartment API.
+   */
+  public async changeExternalNonContainerDatabaseCompartment(
+    changeExternalNonContainerDatabaseCompartmentRequest: requests.ChangeExternalNonContainerDatabaseCompartmentRequest
+  ): Promise<responses.ChangeExternalNonContainerDatabaseCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#changeExternalNonContainerDatabaseCompartment."
+      );
+    const pathParams = {
+      "{externalNonContainerDatabaseId}":
+        changeExternalNonContainerDatabaseCompartmentRequest.externalNonContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeExternalNonContainerDatabaseCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeExternalNonContainerDatabaseCompartmentRequest.opcRequestId,
+      "if-match": changeExternalNonContainerDatabaseCompartmentRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalnoncontainerdatabases/{externalNonContainerDatabaseId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeExternalNonContainerDatabaseCompartmentRequest.changeCompartmentDetails,
+        "ChangeCompartmentDetails",
+        models.ChangeCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeExternalNonContainerDatabaseCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeExternalNonContainerDatabaseCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Move the {@link #createExternalPluggableDatabaseDetails(CreateExternalPluggableDatabaseDetailsRequest) createExternalPluggableDatabaseDetails} and
+   * its dependent resources to the specified compartment.
+   * For more information about moving external pluggable databases, see
+   * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
+   *
+   * @param ChangeExternalPluggableDatabaseCompartmentRequest
+   * @return ChangeExternalPluggableDatabaseCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExternalPluggableDatabaseCompartment.ts.html |here} to see how to use ChangeExternalPluggableDatabaseCompartment API.
+   */
+  public async changeExternalPluggableDatabaseCompartment(
+    changeExternalPluggableDatabaseCompartmentRequest: requests.ChangeExternalPluggableDatabaseCompartmentRequest
+  ): Promise<responses.ChangeExternalPluggableDatabaseCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#changeExternalPluggableDatabaseCompartment."
+      );
+    const pathParams = {
+      "{externalPluggableDatabaseId}":
+        changeExternalPluggableDatabaseCompartmentRequest.externalPluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeExternalPluggableDatabaseCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeExternalPluggableDatabaseCompartmentRequest.opcRequestId,
+      "if-match": changeExternalPluggableDatabaseCompartmentRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalpluggabledatabases/{externalPluggableDatabaseId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeExternalPluggableDatabaseCompartmentRequest.changeCompartmentDetails,
+        "ChangeCompartmentDetails",
+        models.ChangeCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeExternalPluggableDatabaseCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeExternalPluggableDatabaseCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Move the key store resource to the specified compartment.
    * For more information about moving key stores, see
    * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
@@ -1166,6 +1406,80 @@ export class DatabaseClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Check the status of the external database connection specified in this connector.
+   * This operation will refresh the connectionStatus and timeConnectionStatusLastUpdated fields.
+   *
+   * @param CheckExternalDatabaseConnectorConnectionStatusRequest
+   * @return CheckExternalDatabaseConnectorConnectionStatusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CheckExternalDatabaseConnectorConnectionStatus.ts.html |here} to see how to use CheckExternalDatabaseConnectorConnectionStatus API.
+   */
+  public async checkExternalDatabaseConnectorConnectionStatus(
+    checkExternalDatabaseConnectorConnectionStatusRequest: requests.CheckExternalDatabaseConnectorConnectionStatusRequest
+  ): Promise<responses.CheckExternalDatabaseConnectorConnectionStatusResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#checkExternalDatabaseConnectorConnectionStatus."
+      );
+    const pathParams = {
+      "{externalDatabaseConnectorId}":
+        checkExternalDatabaseConnectorConnectionStatusRequest.externalDatabaseConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": checkExternalDatabaseConnectorConnectionStatusRequest.opcRetryToken,
+      "opc-request-id": checkExternalDatabaseConnectorConnectionStatusRequest.opcRequestId,
+      "if-match": checkExternalDatabaseConnectorConnectionStatusRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externaldatabaseconnectors/{externalDatabaseConnectorId}/actions/checkConnectionStatus",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      checkExternalDatabaseConnectorConnectionStatusRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CheckExternalDatabaseConnectorConnectionStatusResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -2358,6 +2672,301 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
+   * Creates a new external container database resource.
+   * @param CreateExternalContainerDatabaseRequest
+   * @return CreateExternalContainerDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExternalContainerDatabase.ts.html |here} to see how to use CreateExternalContainerDatabase API.
+   */
+  public async createExternalContainerDatabase(
+    createExternalContainerDatabaseRequest: requests.CreateExternalContainerDatabaseRequest
+  ): Promise<responses.CreateExternalContainerDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createExternalContainerDatabase.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createExternalContainerDatabaseRequest.opcRetryToken,
+      "opc-request-id": createExternalContainerDatabaseRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalcontainerdatabases",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createExternalContainerDatabaseRequest.createExternalContainerDatabaseDetails,
+        "CreateExternalContainerDatabaseDetails",
+        models.CreateExternalContainerDatabaseDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createExternalContainerDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateExternalContainerDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "externalContainerDatabase",
+        bodyModel: "model.ExternalContainerDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new external database connector.
+   * @param CreateExternalDatabaseConnectorRequest
+   * @return CreateExternalDatabaseConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExternalDatabaseConnector.ts.html |here} to see how to use CreateExternalDatabaseConnector API.
+   */
+  public async createExternalDatabaseConnector(
+    createExternalDatabaseConnectorRequest: requests.CreateExternalDatabaseConnectorRequest
+  ): Promise<responses.CreateExternalDatabaseConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createExternalDatabaseConnector.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createExternalDatabaseConnectorRequest.opcRetryToken,
+      "opc-request-id": createExternalDatabaseConnectorRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externaldatabaseconnectors",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createExternalDatabaseConnectorRequest.createExternalDatabaseConnectorDetails,
+        "CreateExternalDatabaseConnectorDetails",
+        models.CreateExternalDatabaseConnectorDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createExternalDatabaseConnectorRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateExternalDatabaseConnectorResponse>{},
+        body: await response.json(),
+        bodyKey: "externalDatabaseConnector",
+        bodyModel: "model.ExternalDatabaseConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new ExternalNonContainerDatabase resource
+   *
+   * @param CreateExternalNonContainerDatabaseRequest
+   * @return CreateExternalNonContainerDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExternalNonContainerDatabase.ts.html |here} to see how to use CreateExternalNonContainerDatabase API.
+   */
+  public async createExternalNonContainerDatabase(
+    createExternalNonContainerDatabaseRequest: requests.CreateExternalNonContainerDatabaseRequest
+  ): Promise<responses.CreateExternalNonContainerDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createExternalNonContainerDatabase.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createExternalNonContainerDatabaseRequest.opcRetryToken,
+      "opc-request-id": createExternalNonContainerDatabaseRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalnoncontainerdatabases",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createExternalNonContainerDatabaseRequest.createExternalNonContainerDatabaseDetails,
+        "CreateExternalNonContainerDatabaseDetails",
+        models.CreateExternalNonContainerDatabaseDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createExternalNonContainerDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateExternalNonContainerDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "externalNonContainerDatabase",
+        bodyModel: "model.ExternalNonContainerDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Registers a new {@link #createExternalPluggableDatabaseDetails(CreateExternalPluggableDatabaseDetailsRequest) createExternalPluggableDatabaseDetails}
+   * resource.
+   *
+   * @param CreateExternalPluggableDatabaseRequest
+   * @return CreateExternalPluggableDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExternalPluggableDatabase.ts.html |here} to see how to use CreateExternalPluggableDatabase API.
+   */
+  public async createExternalPluggableDatabase(
+    createExternalPluggableDatabaseRequest: requests.CreateExternalPluggableDatabaseRequest
+  ): Promise<responses.CreateExternalPluggableDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createExternalPluggableDatabase.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createExternalPluggableDatabaseRequest.opcRetryToken,
+      "opc-request-id": createExternalPluggableDatabaseRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalpluggabledatabases",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createExternalPluggableDatabaseRequest.createExternalPluggableDatabaseDetails,
+        "CreateExternalPluggableDatabaseDetails",
+        models.CreateExternalPluggableDatabaseDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createExternalPluggableDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateExternalPluggableDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "externalPluggableDatabase",
+        bodyModel: "model.ExternalPluggableDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a Key Store.
    *
    * @param CreateKeyStoreRequest
@@ -3341,6 +3950,267 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
+   * Deletes the {@link #createExternalContainerDatabaseDetails(CreateExternalContainerDatabaseDetailsRequest) createExternalContainerDatabaseDetails}
+   * resource. Any external pluggable databases registered under this container database must be deleted in
+   * your Oracle Cloud Infrastructure tenancy prior to this operation.
+   *
+   * @param DeleteExternalContainerDatabaseRequest
+   * @return DeleteExternalContainerDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExternalContainerDatabase.ts.html |here} to see how to use DeleteExternalContainerDatabase API.
+   */
+  public async deleteExternalContainerDatabase(
+    deleteExternalContainerDatabaseRequest: requests.DeleteExternalContainerDatabaseRequest
+  ): Promise<responses.DeleteExternalContainerDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteExternalContainerDatabase.");
+    const pathParams = {
+      "{externalContainerDatabaseId}":
+        deleteExternalContainerDatabaseRequest.externalContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteExternalContainerDatabaseRequest.opcRequestId,
+      "if-match": deleteExternalContainerDatabaseRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalcontainerdatabases/{externalContainerDatabaseId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteExternalContainerDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteExternalContainerDatabaseResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes an external database connector.
+   * Any services enabled using the external database connector must be
+   * deleted prior to this operation.
+   *
+   * @param DeleteExternalDatabaseConnectorRequest
+   * @return DeleteExternalDatabaseConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExternalDatabaseConnector.ts.html |here} to see how to use DeleteExternalDatabaseConnector API.
+   */
+  public async deleteExternalDatabaseConnector(
+    deleteExternalDatabaseConnectorRequest: requests.DeleteExternalDatabaseConnectorRequest
+  ): Promise<responses.DeleteExternalDatabaseConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteExternalDatabaseConnector.");
+    const pathParams = {
+      "{externalDatabaseConnectorId}":
+        deleteExternalDatabaseConnectorRequest.externalDatabaseConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteExternalDatabaseConnectorRequest.ifMatch,
+      "opc-request-id": deleteExternalDatabaseConnectorRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externaldatabaseconnectors/{externalDatabaseConnectorId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteExternalDatabaseConnectorRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteExternalDatabaseConnectorResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the Oracle Cloud Infrastructure resource representing an external non-container database.
+   *
+   * @param DeleteExternalNonContainerDatabaseRequest
+   * @return DeleteExternalNonContainerDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExternalNonContainerDatabase.ts.html |here} to see how to use DeleteExternalNonContainerDatabase API.
+   */
+  public async deleteExternalNonContainerDatabase(
+    deleteExternalNonContainerDatabaseRequest: requests.DeleteExternalNonContainerDatabaseRequest
+  ): Promise<responses.DeleteExternalNonContainerDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteExternalNonContainerDatabase.");
+    const pathParams = {
+      "{externalNonContainerDatabaseId}":
+        deleteExternalNonContainerDatabaseRequest.externalNonContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteExternalNonContainerDatabaseRequest.ifMatch,
+      "opc-request-id": deleteExternalNonContainerDatabaseRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalnoncontainerdatabases/{externalNonContainerDatabaseId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteExternalNonContainerDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteExternalNonContainerDatabaseResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the {@link #createExternalPluggableDatabaseDetails(CreateExternalPluggableDatabaseDetailsRequest) createExternalPluggableDatabaseDetails}.
+   * resource.
+   *
+   * @param DeleteExternalPluggableDatabaseRequest
+   * @return DeleteExternalPluggableDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExternalPluggableDatabase.ts.html |here} to see how to use DeleteExternalPluggableDatabase API.
+   */
+  public async deleteExternalPluggableDatabase(
+    deleteExternalPluggableDatabaseRequest: requests.DeleteExternalPluggableDatabaseRequest
+  ): Promise<responses.DeleteExternalPluggableDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteExternalPluggableDatabase.");
+    const pathParams = {
+      "{externalPluggableDatabaseId}":
+        deleteExternalPluggableDatabaseRequest.externalPluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteExternalPluggableDatabaseRequest.opcRequestId,
+      "if-match": deleteExternalPluggableDatabaseRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalpluggabledatabases/{externalPluggableDatabaseId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteExternalPluggableDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteExternalPluggableDatabaseResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a key store.
    *
    * @param DeleteKeyStoreRequest
@@ -3657,6 +4527,229 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
+   * Disable Database Management service for the external container database.
+   *
+   * @param DisableExternalContainerDatabaseDatabaseManagementRequest
+   * @return DisableExternalContainerDatabaseDatabaseManagementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalContainerDatabaseDatabaseManagement.ts.html |here} to see how to use DisableExternalContainerDatabaseDatabaseManagement API.
+   */
+  public async disableExternalContainerDatabaseDatabaseManagement(
+    disableExternalContainerDatabaseDatabaseManagementRequest: requests.DisableExternalContainerDatabaseDatabaseManagementRequest
+  ): Promise<responses.DisableExternalContainerDatabaseDatabaseManagementResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#disableExternalContainerDatabaseDatabaseManagement."
+      );
+    const pathParams = {
+      "{externalContainerDatabaseId}":
+        disableExternalContainerDatabaseDatabaseManagementRequest.externalContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": disableExternalContainerDatabaseDatabaseManagementRequest.opcRetryToken,
+      "opc-request-id": disableExternalContainerDatabaseDatabaseManagementRequest.opcRequestId,
+      "if-match": disableExternalContainerDatabaseDatabaseManagementRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalcontainerdatabases/{externalContainerDatabaseId}/actions/disableDatabaseManagement",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      disableExternalContainerDatabaseDatabaseManagementRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableExternalContainerDatabaseDatabaseManagementResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Disable Database Management Service for the external non-container database.
+   * For more information about the Database Management Service, see
+   * [Database Management Service](https://docs.cloud.oracle.com/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
+   *
+   * @param DisableExternalNonContainerDatabaseDatabaseManagementRequest
+   * @return DisableExternalNonContainerDatabaseDatabaseManagementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalNonContainerDatabaseDatabaseManagement.ts.html |here} to see how to use DisableExternalNonContainerDatabaseDatabaseManagement API.
+   */
+  public async disableExternalNonContainerDatabaseDatabaseManagement(
+    disableExternalNonContainerDatabaseDatabaseManagementRequest: requests.DisableExternalNonContainerDatabaseDatabaseManagementRequest
+  ): Promise<responses.DisableExternalNonContainerDatabaseDatabaseManagementResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#disableExternalNonContainerDatabaseDatabaseManagement."
+      );
+    const pathParams = {
+      "{externalNonContainerDatabaseId}":
+        disableExternalNonContainerDatabaseDatabaseManagementRequest.externalNonContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": disableExternalNonContainerDatabaseDatabaseManagementRequest.opcRetryToken,
+      "opc-request-id": disableExternalNonContainerDatabaseDatabaseManagementRequest.opcRequestId,
+      "if-match": disableExternalNonContainerDatabaseDatabaseManagementRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalnoncontainerdatabases/{externalNonContainerDatabaseId}/actions/disableDatabaseManagement",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      disableExternalNonContainerDatabaseDatabaseManagementRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableExternalNonContainerDatabaseDatabaseManagementResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Disable Database Management Service for the external pluggable database.
+   * For more information about the Database Management Service, see
+   * [Database Management Service](https://docs.cloud.oracle.com/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
+   *
+   * @param DisableExternalPluggableDatabaseDatabaseManagementRequest
+   * @return DisableExternalPluggableDatabaseDatabaseManagementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalPluggableDatabaseDatabaseManagement.ts.html |here} to see how to use DisableExternalPluggableDatabaseDatabaseManagement API.
+   */
+  public async disableExternalPluggableDatabaseDatabaseManagement(
+    disableExternalPluggableDatabaseDatabaseManagementRequest: requests.DisableExternalPluggableDatabaseDatabaseManagementRequest
+  ): Promise<responses.DisableExternalPluggableDatabaseDatabaseManagementResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#disableExternalPluggableDatabaseDatabaseManagement."
+      );
+    const pathParams = {
+      "{externalPluggableDatabaseId}":
+        disableExternalPluggableDatabaseDatabaseManagementRequest.externalPluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": disableExternalPluggableDatabaseDatabaseManagementRequest.opcRetryToken,
+      "opc-request-id": disableExternalPluggableDatabaseDatabaseManagementRequest.opcRequestId,
+      "if-match": disableExternalPluggableDatabaseDatabaseManagementRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalpluggabledatabases/{externalPluggableDatabaseId}/actions/disableDatabaseManagement",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      disableExternalPluggableDatabaseDatabaseManagementRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableExternalPluggableDatabaseDatabaseManagementResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Downloads the configuration file for the specified Exadata Cloud@Customer infrastructure.
    *
    * @param DownloadExadataInfrastructureConfigFileRequest
@@ -3862,6 +4955,246 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableAutonomousDatabaseOperationsInsightsResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enables Database Management Service for the external container database.
+   * For more information about the Database Management Service, see
+   * [Database Management Service](https://docs.cloud.oracle.com/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
+   *
+   * @param EnableExternalContainerDatabaseDatabaseManagementRequest
+   * @return EnableExternalContainerDatabaseDatabaseManagementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalContainerDatabaseDatabaseManagement.ts.html |here} to see how to use EnableExternalContainerDatabaseDatabaseManagement API.
+   */
+  public async enableExternalContainerDatabaseDatabaseManagement(
+    enableExternalContainerDatabaseDatabaseManagementRequest: requests.EnableExternalContainerDatabaseDatabaseManagementRequest
+  ): Promise<responses.EnableExternalContainerDatabaseDatabaseManagementResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#enableExternalContainerDatabaseDatabaseManagement."
+      );
+    const pathParams = {
+      "{externalContainerDatabaseId}":
+        enableExternalContainerDatabaseDatabaseManagementRequest.externalContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": enableExternalContainerDatabaseDatabaseManagementRequest.opcRetryToken,
+      "opc-request-id": enableExternalContainerDatabaseDatabaseManagementRequest.opcRequestId,
+      "if-match": enableExternalContainerDatabaseDatabaseManagementRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalcontainerdatabases/{externalContainerDatabaseId}/actions/enableDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableExternalContainerDatabaseDatabaseManagementRequest.enableExternalContainerDatabaseDatabaseManagementDetails,
+        "EnableExternalContainerDatabaseDatabaseManagementDetails",
+        models.EnableExternalContainerDatabaseDatabaseManagementDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      enableExternalContainerDatabaseDatabaseManagementRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableExternalContainerDatabaseDatabaseManagementResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enable Database Management Service for the external non-container database.
+   * For more information about the Database Management Service, see
+   * [Database Management Service](https://docs.cloud.oracle.com/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
+   *
+   * @param EnableExternalNonContainerDatabaseDatabaseManagementRequest
+   * @return EnableExternalNonContainerDatabaseDatabaseManagementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalNonContainerDatabaseDatabaseManagement.ts.html |here} to see how to use EnableExternalNonContainerDatabaseDatabaseManagement API.
+   */
+  public async enableExternalNonContainerDatabaseDatabaseManagement(
+    enableExternalNonContainerDatabaseDatabaseManagementRequest: requests.EnableExternalNonContainerDatabaseDatabaseManagementRequest
+  ): Promise<responses.EnableExternalNonContainerDatabaseDatabaseManagementResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#enableExternalNonContainerDatabaseDatabaseManagement."
+      );
+    const pathParams = {
+      "{externalNonContainerDatabaseId}":
+        enableExternalNonContainerDatabaseDatabaseManagementRequest.externalNonContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": enableExternalNonContainerDatabaseDatabaseManagementRequest.opcRetryToken,
+      "opc-request-id": enableExternalNonContainerDatabaseDatabaseManagementRequest.opcRequestId,
+      "if-match": enableExternalNonContainerDatabaseDatabaseManagementRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalnoncontainerdatabases/{externalNonContainerDatabaseId}/actions/enableDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableExternalNonContainerDatabaseDatabaseManagementRequest.enableExternalNonContainerDatabaseDatabaseManagementDetails,
+        "EnableExternalNonContainerDatabaseDatabaseManagementDetails",
+        models.EnableExternalNonContainerDatabaseDatabaseManagementDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      enableExternalNonContainerDatabaseDatabaseManagementRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableExternalNonContainerDatabaseDatabaseManagementResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enable Database Management Service for the external pluggable database.
+   * For more information about the Database Management Service, see
+   * [Database Management Service](https://docs.cloud.oracle.com/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
+   *
+   * @param EnableExternalPluggableDatabaseDatabaseManagementRequest
+   * @return EnableExternalPluggableDatabaseDatabaseManagementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalPluggableDatabaseDatabaseManagement.ts.html |here} to see how to use EnableExternalPluggableDatabaseDatabaseManagement API.
+   */
+  public async enableExternalPluggableDatabaseDatabaseManagement(
+    enableExternalPluggableDatabaseDatabaseManagementRequest: requests.EnableExternalPluggableDatabaseDatabaseManagementRequest
+  ): Promise<responses.EnableExternalPluggableDatabaseDatabaseManagementResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#enableExternalPluggableDatabaseDatabaseManagement."
+      );
+    const pathParams = {
+      "{externalPluggableDatabaseId}":
+        enableExternalPluggableDatabaseDatabaseManagementRequest.externalPluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": enableExternalPluggableDatabaseDatabaseManagementRequest.opcRetryToken,
+      "opc-request-id": enableExternalPluggableDatabaseDatabaseManagementRequest.opcRequestId,
+      "if-match": enableExternalPluggableDatabaseDatabaseManagementRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalpluggabledatabases/{externalPluggableDatabaseId}/actions/enableDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableExternalPluggableDatabaseDatabaseManagementRequest.enableExternalPluggableDatabaseDatabaseManagementDetails,
+        "EnableExternalPluggableDatabaseDatabaseManagementDetails",
+        models.EnableExternalPluggableDatabaseDatabaseManagementDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      enableExternalPluggableDatabaseDatabaseManagementRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableExternalPluggableDatabaseDatabaseManagementResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
@@ -6348,6 +7681,268 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
         body: await response.json(),
         bodyKey: "externalBackupJob",
         bodyModel: "model.ExternalBackupJob",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified external container database.
+   * @param GetExternalContainerDatabaseRequest
+   * @return GetExternalContainerDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExternalContainerDatabase.ts.html |here} to see how to use GetExternalContainerDatabase API.
+   */
+  public async getExternalContainerDatabase(
+    getExternalContainerDatabaseRequest: requests.GetExternalContainerDatabaseRequest
+  ): Promise<responses.GetExternalContainerDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getExternalContainerDatabase.");
+    const pathParams = {
+      "{externalContainerDatabaseId}":
+        getExternalContainerDatabaseRequest.externalContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExternalContainerDatabaseRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalcontainerdatabases/{externalContainerDatabaseId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getExternalContainerDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExternalContainerDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "externalContainerDatabase",
+        bodyModel: "model.ExternalContainerDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified external database connector.
+   * @param GetExternalDatabaseConnectorRequest
+   * @return GetExternalDatabaseConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExternalDatabaseConnector.ts.html |here} to see how to use GetExternalDatabaseConnector API.
+   */
+  public async getExternalDatabaseConnector(
+    getExternalDatabaseConnectorRequest: requests.GetExternalDatabaseConnectorRequest
+  ): Promise<responses.GetExternalDatabaseConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getExternalDatabaseConnector.");
+    const pathParams = {
+      "{externalDatabaseConnectorId}":
+        getExternalDatabaseConnectorRequest.externalDatabaseConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExternalDatabaseConnectorRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externaldatabaseconnectors/{externalDatabaseConnectorId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getExternalDatabaseConnectorRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExternalDatabaseConnectorResponse>{},
+        body: await response.json(),
+        bodyKey: "externalDatabaseConnector",
+        bodyModel: "model.ExternalDatabaseConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about a specific external non-container database.
+   * @param GetExternalNonContainerDatabaseRequest
+   * @return GetExternalNonContainerDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExternalNonContainerDatabase.ts.html |here} to see how to use GetExternalNonContainerDatabase API.
+   */
+  public async getExternalNonContainerDatabase(
+    getExternalNonContainerDatabaseRequest: requests.GetExternalNonContainerDatabaseRequest
+  ): Promise<responses.GetExternalNonContainerDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getExternalNonContainerDatabase.");
+    const pathParams = {
+      "{externalNonContainerDatabaseId}":
+        getExternalNonContainerDatabaseRequest.externalNonContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExternalNonContainerDatabaseRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalnoncontainerdatabases/{externalNonContainerDatabaseId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getExternalNonContainerDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExternalNonContainerDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "externalNonContainerDatabase",
+        bodyModel: "model.ExternalNonContainerDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about a specific
+   * {@link #createExternalPluggableDatabaseDetails(CreateExternalPluggableDatabaseDetailsRequest) createExternalPluggableDatabaseDetails} resource.
+   *
+   * @param GetExternalPluggableDatabaseRequest
+   * @return GetExternalPluggableDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExternalPluggableDatabase.ts.html |here} to see how to use GetExternalPluggableDatabase API.
+   */
+  public async getExternalPluggableDatabase(
+    getExternalPluggableDatabaseRequest: requests.GetExternalPluggableDatabaseRequest
+  ): Promise<responses.GetExternalPluggableDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getExternalPluggableDatabase.");
+    const pathParams = {
+      "{externalPluggableDatabaseId}":
+        getExternalPluggableDatabaseRequest.externalPluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExternalPluggableDatabaseRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalpluggabledatabases/{externalPluggableDatabaseId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getExternalPluggableDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExternalPluggableDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "externalPluggableDatabase",
+        bodyModel: "model.ExternalPluggableDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -10021,6 +11616,394 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Gets a list of the external container databases in the specified compartment.
+   *
+   * @param ListExternalContainerDatabasesRequest
+   * @return ListExternalContainerDatabasesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExternalContainerDatabases.ts.html |here} to see how to use ListExternalContainerDatabases API.
+   */
+  public async listExternalContainerDatabases(
+    listExternalContainerDatabasesRequest: requests.ListExternalContainerDatabasesRequest
+  ): Promise<responses.ListExternalContainerDatabasesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listExternalContainerDatabases.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listExternalContainerDatabasesRequest.compartmentId,
+      "limit": listExternalContainerDatabasesRequest.limit,
+      "page": listExternalContainerDatabasesRequest.page,
+      "sortBy": listExternalContainerDatabasesRequest.sortBy,
+      "sortOrder": listExternalContainerDatabasesRequest.sortOrder,
+      "lifecycleState": listExternalContainerDatabasesRequest.lifecycleState,
+      "displayName": listExternalContainerDatabasesRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExternalContainerDatabasesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalcontainerdatabases",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listExternalContainerDatabasesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExternalContainerDatabasesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "ExternalContainerDatabaseSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ExternalContainerDatabaseSummary objects
+   * contained in responses from the listExternalContainerDatabases operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllExternalContainerDatabases(
+    request: requests.ListExternalContainerDatabasesRequest
+  ): AsyncIterableIterator<models.ExternalContainerDatabaseSummary> {
+    return paginateRecords(request, req => this.listExternalContainerDatabases(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listExternalContainerDatabases operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllExternalContainerDatabasesResponses(
+    request: requests.ListExternalContainerDatabasesRequest
+  ): AsyncIterableIterator<responses.ListExternalContainerDatabasesResponse> {
+    return paginateResponses(request, req => this.listExternalContainerDatabases(req));
+  }
+
+  /**
+   * Gets a list of the external database connectors in the specified compartment.
+   *
+   * @param ListExternalDatabaseConnectorsRequest
+   * @return ListExternalDatabaseConnectorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExternalDatabaseConnectors.ts.html |here} to see how to use ListExternalDatabaseConnectors API.
+   */
+  public async listExternalDatabaseConnectors(
+    listExternalDatabaseConnectorsRequest: requests.ListExternalDatabaseConnectorsRequest
+  ): Promise<responses.ListExternalDatabaseConnectorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listExternalDatabaseConnectors.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listExternalDatabaseConnectorsRequest.compartmentId,
+      "externalDatabaseId": listExternalDatabaseConnectorsRequest.externalDatabaseId,
+      "limit": listExternalDatabaseConnectorsRequest.limit,
+      "page": listExternalDatabaseConnectorsRequest.page,
+      "sortBy": listExternalDatabaseConnectorsRequest.sortBy,
+      "sortOrder": listExternalDatabaseConnectorsRequest.sortOrder,
+      "lifecycleState": listExternalDatabaseConnectorsRequest.lifecycleState,
+      "displayName": listExternalDatabaseConnectorsRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExternalDatabaseConnectorsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externaldatabaseconnectors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listExternalDatabaseConnectorsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExternalDatabaseConnectorsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "ExternalDatabaseConnectorSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ExternalDatabaseConnectorSummary objects
+   * contained in responses from the listExternalDatabaseConnectors operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllExternalDatabaseConnectors(
+    request: requests.ListExternalDatabaseConnectorsRequest
+  ): AsyncIterableIterator<models.ExternalDatabaseConnectorSummary> {
+    return paginateRecords(request, req => this.listExternalDatabaseConnectors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listExternalDatabaseConnectors operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllExternalDatabaseConnectorsResponses(
+    request: requests.ListExternalDatabaseConnectorsRequest
+  ): AsyncIterableIterator<responses.ListExternalDatabaseConnectorsResponse> {
+    return paginateResponses(request, req => this.listExternalDatabaseConnectors(req));
+  }
+
+  /**
+   * Gets a list of the ExternalNonContainerDatabases in the specified compartment.
+   *
+   * @param ListExternalNonContainerDatabasesRequest
+   * @return ListExternalNonContainerDatabasesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExternalNonContainerDatabases.ts.html |here} to see how to use ListExternalNonContainerDatabases API.
+   */
+  public async listExternalNonContainerDatabases(
+    listExternalNonContainerDatabasesRequest: requests.ListExternalNonContainerDatabasesRequest
+  ): Promise<responses.ListExternalNonContainerDatabasesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listExternalNonContainerDatabases.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listExternalNonContainerDatabasesRequest.compartmentId,
+      "limit": listExternalNonContainerDatabasesRequest.limit,
+      "page": listExternalNonContainerDatabasesRequest.page,
+      "sortBy": listExternalNonContainerDatabasesRequest.sortBy,
+      "sortOrder": listExternalNonContainerDatabasesRequest.sortOrder,
+      "lifecycleState": listExternalNonContainerDatabasesRequest.lifecycleState,
+      "displayName": listExternalNonContainerDatabasesRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExternalNonContainerDatabasesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalnoncontainerdatabases",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listExternalNonContainerDatabasesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExternalNonContainerDatabasesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "ExternalNonContainerDatabaseSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ExternalNonContainerDatabaseSummary objects
+   * contained in responses from the listExternalNonContainerDatabases operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllExternalNonContainerDatabases(
+    request: requests.ListExternalNonContainerDatabasesRequest
+  ): AsyncIterableIterator<models.ExternalNonContainerDatabaseSummary> {
+    return paginateRecords(request, req => this.listExternalNonContainerDatabases(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listExternalNonContainerDatabases operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllExternalNonContainerDatabasesResponses(
+    request: requests.ListExternalNonContainerDatabasesRequest
+  ): AsyncIterableIterator<responses.ListExternalNonContainerDatabasesResponse> {
+    return paginateResponses(request, req => this.listExternalNonContainerDatabases(req));
+  }
+
+  /**
+   * Gets a list of the {@link #createExternalPluggableDatabaseDetails(CreateExternalPluggableDatabaseDetailsRequest) createExternalPluggableDatabaseDetails}
+   * resources in the specified compartment.
+   *
+   * @param ListExternalPluggableDatabasesRequest
+   * @return ListExternalPluggableDatabasesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExternalPluggableDatabases.ts.html |here} to see how to use ListExternalPluggableDatabases API.
+   */
+  public async listExternalPluggableDatabases(
+    listExternalPluggableDatabasesRequest: requests.ListExternalPluggableDatabasesRequest
+  ): Promise<responses.ListExternalPluggableDatabasesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listExternalPluggableDatabases.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listExternalPluggableDatabasesRequest.compartmentId,
+      "externalContainerDatabaseId":
+        listExternalPluggableDatabasesRequest.externalContainerDatabaseId,
+      "limit": listExternalPluggableDatabasesRequest.limit,
+      "page": listExternalPluggableDatabasesRequest.page,
+      "sortBy": listExternalPluggableDatabasesRequest.sortBy,
+      "sortOrder": listExternalPluggableDatabasesRequest.sortOrder,
+      "lifecycleState": listExternalPluggableDatabasesRequest.lifecycleState,
+      "displayName": listExternalPluggableDatabasesRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExternalPluggableDatabasesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalpluggabledatabases",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listExternalPluggableDatabasesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExternalPluggableDatabasesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "ExternalPluggableDatabaseSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ExternalPluggableDatabaseSummary objects
+   * contained in responses from the listExternalPluggableDatabases operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllExternalPluggableDatabases(
+    request: requests.ListExternalPluggableDatabasesRequest
+  ): AsyncIterableIterator<models.ExternalPluggableDatabaseSummary> {
+    return paginateRecords(request, req => this.listExternalPluggableDatabases(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listExternalPluggableDatabases operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllExternalPluggableDatabasesResponses(
+    request: requests.ListExternalPluggableDatabasesRequest
+  ): AsyncIterableIterator<responses.ListExternalPluggableDatabasesResponse> {
+    return paginateResponses(request, req => this.listExternalPluggableDatabases(req));
+  }
+
+  /**
    * Gets a list of the flex components that can be used to launch a new DB system. The flex component determines resources to allocate to the DB system - Database Servers and Storage Servers.
    * @param ListFlexComponentsRequest
    * @return ListFlexComponentsResponse
@@ -11729,6 +13712,77 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Scans for pluggable databases in the specified external container database.
+   * This operation will return un-registered pluggable databases in the `GetWorkRequest` operation.
+   *
+   * @param ScanExternalContainerDatabasePluggableDatabasesRequest
+   * @return ScanExternalContainerDatabasePluggableDatabasesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ScanExternalContainerDatabasePluggableDatabases.ts.html |here} to see how to use ScanExternalContainerDatabasePluggableDatabases API.
+   */
+  public async scanExternalContainerDatabasePluggableDatabases(
+    scanExternalContainerDatabasePluggableDatabasesRequest: requests.ScanExternalContainerDatabasePluggableDatabasesRequest
+  ): Promise<responses.ScanExternalContainerDatabasePluggableDatabasesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#scanExternalContainerDatabasePluggableDatabases."
+      );
+    const pathParams = {
+      "{externalContainerDatabaseId}":
+        scanExternalContainerDatabasePluggableDatabasesRequest.externalContainerDatabaseId
+    };
+
+    const queryParams = {
+      "externalDatabaseConnectorId":
+        scanExternalContainerDatabasePluggableDatabasesRequest.externalDatabaseConnectorId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": scanExternalContainerDatabasePluggableDatabasesRequest.opcRequestId,
+      "opc-retry-token": scanExternalContainerDatabasePluggableDatabasesRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalcontainerdatabases/{externalContainerDatabaseId}/actions/scanPluggableDatabases",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      scanExternalContainerDatabasePluggableDatabasesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ScanExternalContainerDatabasePluggableDatabasesResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
@@ -13486,6 +15540,316 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the properties of
+   * an {@link #createExternalContainerDatabaseDetails(CreateExternalContainerDatabaseDetailsRequest) createExternalContainerDatabaseDetails} resource,
+   * such as the display name.
+   *
+   * @param UpdateExternalContainerDatabaseRequest
+   * @return UpdateExternalContainerDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExternalContainerDatabase.ts.html |here} to see how to use UpdateExternalContainerDatabase API.
+   */
+  public async updateExternalContainerDatabase(
+    updateExternalContainerDatabaseRequest: requests.UpdateExternalContainerDatabaseRequest
+  ): Promise<responses.UpdateExternalContainerDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateExternalContainerDatabase.");
+    const pathParams = {
+      "{externalContainerDatabaseId}":
+        updateExternalContainerDatabaseRequest.externalContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateExternalContainerDatabaseRequest.ifMatch,
+      "opc-request-id": updateExternalContainerDatabaseRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalcontainerdatabases/{externalContainerDatabaseId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExternalContainerDatabaseRequest.updateExternalContainerDatabaseDetails,
+        "UpdateExternalContainerDatabaseDetails",
+        models.UpdateExternalContainerDatabaseDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateExternalContainerDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExternalContainerDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "externalContainerDatabase",
+        bodyModel: "model.ExternalContainerDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the properties of an external database connector, such as the display name.
+   * @param UpdateExternalDatabaseConnectorRequest
+   * @return UpdateExternalDatabaseConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExternalDatabaseConnector.ts.html |here} to see how to use UpdateExternalDatabaseConnector API.
+   */
+  public async updateExternalDatabaseConnector(
+    updateExternalDatabaseConnectorRequest: requests.UpdateExternalDatabaseConnectorRequest
+  ): Promise<responses.UpdateExternalDatabaseConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateExternalDatabaseConnector.");
+    const pathParams = {
+      "{externalDatabaseConnectorId}":
+        updateExternalDatabaseConnectorRequest.externalDatabaseConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateExternalDatabaseConnectorRequest.ifMatch,
+      "opc-request-id": updateExternalDatabaseConnectorRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externaldatabaseconnectors/{externalDatabaseConnectorId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExternalDatabaseConnectorRequest.updateExternalDatabaseConnectorDetails,
+        "UpdateExternalDatabaseConnectorDetails",
+        models.UpdateExternalDatabaseConnectorDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateExternalDatabaseConnectorRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExternalDatabaseConnectorResponse>{},
+        body: await response.json(),
+        bodyKey: "externalDatabaseConnector",
+        bodyModel: "model.ExternalDatabaseConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the properties of an external non-container database, such as the display name.
+   * @param UpdateExternalNonContainerDatabaseRequest
+   * @return UpdateExternalNonContainerDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExternalNonContainerDatabase.ts.html |here} to see how to use UpdateExternalNonContainerDatabase API.
+   */
+  public async updateExternalNonContainerDatabase(
+    updateExternalNonContainerDatabaseRequest: requests.UpdateExternalNonContainerDatabaseRequest
+  ): Promise<responses.UpdateExternalNonContainerDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateExternalNonContainerDatabase.");
+    const pathParams = {
+      "{externalNonContainerDatabaseId}":
+        updateExternalNonContainerDatabaseRequest.externalNonContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateExternalNonContainerDatabaseRequest.ifMatch,
+      "opc-request-id": updateExternalNonContainerDatabaseRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalnoncontainerdatabases/{externalNonContainerDatabaseId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExternalNonContainerDatabaseRequest.updateExternalNonContainerDatabaseDetails,
+        "UpdateExternalNonContainerDatabaseDetails",
+        models.UpdateExternalNonContainerDatabaseDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateExternalNonContainerDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExternalNonContainerDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "externalNonContainerDatabase",
+        bodyModel: "model.ExternalNonContainerDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the properties of an
+   * {@link #createExternalPluggableDatabaseDetails(CreateExternalPluggableDatabaseDetailsRequest) createExternalPluggableDatabaseDetails} resource,
+   * such as the display name.
+   *
+   * @param UpdateExternalPluggableDatabaseRequest
+   * @return UpdateExternalPluggableDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExternalPluggableDatabase.ts.html |here} to see how to use UpdateExternalPluggableDatabase API.
+   */
+  public async updateExternalPluggableDatabase(
+    updateExternalPluggableDatabaseRequest: requests.UpdateExternalPluggableDatabaseRequest
+  ): Promise<responses.UpdateExternalPluggableDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateExternalPluggableDatabase.");
+    const pathParams = {
+      "{externalPluggableDatabaseId}":
+        updateExternalPluggableDatabaseRequest.externalPluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateExternalPluggableDatabaseRequest.ifMatch,
+      "opc-request-id": updateExternalPluggableDatabaseRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalpluggabledatabases/{externalPluggableDatabaseId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExternalPluggableDatabaseRequest.updateExternalPluggableDatabaseDetails,
+        "UpdateExternalPluggableDatabaseDetails",
+        models.UpdateExternalPluggableDatabaseDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateExternalPluggableDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExternalPluggableDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "externalPluggableDatabase",
+        bodyModel: "model.ExternalPluggableDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

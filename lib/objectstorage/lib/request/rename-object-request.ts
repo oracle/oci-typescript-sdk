@@ -29,7 +29,7 @@ export interface RenameObjectRequest extends common.BaseRequest {
    */
   "bucketName": string;
   /**
-   * The sourceName and newName of rename operation.
+   * The sourceName and newName of rename operation. Avoid entering confidential information.
    */
   "renameObjectDetails": model.RenameObjectDetails;
   /**

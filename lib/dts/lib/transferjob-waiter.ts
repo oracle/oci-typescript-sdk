@@ -37,7 +37,7 @@ export class TransferJobWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getTransferJob(request),
-      response => targetStates.exists(response.transferJob.lifecycleState),
+      response => targetStates.includes(response.transferJob.lifecycleState!),
       targetStates.includes(models.TransferJob.LifecycleState.Deleted)
     );
   }

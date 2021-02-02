@@ -38,7 +38,7 @@ export class DataScienceWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getModel(request),
-      response => targetStates.exists(response.model.lifecycleState),
+      response => targetStates.includes(response.model.lifecycleState!),
       targetStates.includes(models.ModelLifecycleState.Deleted)
     );
   }
@@ -57,7 +57,7 @@ export class DataScienceWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getNotebookSession(request),
-      response => targetStates.exists(response.notebookSession.lifecycleState),
+      response => targetStates.includes(response.notebookSession.lifecycleState!),
       targetStates.includes(models.NotebookSessionLifecycleState.Deleted)
     );
   }
@@ -76,7 +76,7 @@ export class DataScienceWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getProject(request),
-      response => targetStates.exists(response.project.lifecycleState),
+      response => targetStates.includes(response.project.lifecycleState!),
       targetStates.includes(models.ProjectLifecycleState.Deleted)
     );
   }
