@@ -37,7 +37,7 @@ export class ManagementAgentWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getManagementAgent(request),
-      response => targetStates.exists(response.managementAgent.lifecycleState),
+      response => targetStates.includes(response.managementAgent.lifecycleState!),
       targetStates.includes(models.LifecycleStates.Terminated)
     );
   }
@@ -56,7 +56,7 @@ export class ManagementAgentWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getManagementAgentInstallKey(request),
-      response => targetStates.exists(response.managementAgentInstallKey.lifecycleState),
+      response => targetStates.includes(response.managementAgentInstallKey.lifecycleState!),
       targetStates.includes(models.LifecycleStates.Terminated)
     );
   }

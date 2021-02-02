@@ -68,6 +68,7 @@ export namespace UpdateSummary {
     RollingApply = "ROLLING_APPLY",
     NonRollingApply = "NON_ROLLING_APPLY",
     Precheck = "PRECHECK",
+    Rollback = "ROLLBACK",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -79,6 +80,7 @@ export namespace UpdateSummary {
     RollingApply = "ROLLING_APPLY",
     NonRollingApply = "NON_ROLLING_APPLY",
     Precheck = "PRECHECK",
+    Rollback = "ROLLBACK",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -89,6 +91,7 @@ export namespace UpdateSummary {
   export enum UpdateType {
     GiUpgrade = "GI_UPGRADE",
     GiPatch = "GI_PATCH",
+    OsUpdate = "OS_UPDATE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -35,7 +35,7 @@ export class SddcWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getSddc(request),
-      response => targetStates.exists(response.sddc.lifecycleState),
+      response => targetStates.includes(response.sddc.lifecycleState!),
       targetStates.includes(models.LifecycleStates.Deleted)
     );
   }

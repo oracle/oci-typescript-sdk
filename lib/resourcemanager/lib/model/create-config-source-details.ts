@@ -55,6 +55,11 @@ export namespace CreateConfigSourceDetails {
             <model.CreateCompartmentConfigSourceDetails>(<object>jsonObj),
             true
           );
+        case "TEMPLATE_CONFIG_SOURCE":
+          return model.CreateStackTemplateConfigSourceDetails.getJsonObj(
+            <model.CreateStackTemplateConfigSourceDetails>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.configSourceType);
       }

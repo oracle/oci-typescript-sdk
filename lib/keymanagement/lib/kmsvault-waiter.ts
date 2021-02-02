@@ -39,7 +39,7 @@ export class KmsVaultWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getVault(request),
-      response => targetStates.exists(response.vault.lifecycleState),
+      response => targetStates.includes(response.vault.lifecycleState!),
       targetStates.includes(models.Vault.LifecycleState.Deleted)
     );
   }

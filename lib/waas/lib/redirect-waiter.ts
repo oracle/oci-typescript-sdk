@@ -37,7 +37,7 @@ export class RedirectWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getHttpRedirect(request),
-      response => targetStates.exists(response.httpRedirect.lifecycleState),
+      response => targetStates.includes(response.httpRedirect.lifecycleState!),
       targetStates.includes(models.LifecycleStates.Deleted)
     );
   }

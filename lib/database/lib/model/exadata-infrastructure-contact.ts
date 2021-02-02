@@ -32,9 +32,13 @@ export interface ExadataInfrastructureContact {
    */
   "email": string;
   /**
-   * True, if this Exadata Infrastructure contact is a primary contact. False, if this Exadata Infrastructure is a secondary contact.
+   * If `true`, this Exadata Infrastructure contact is a primary contact. If `false`, this Exadata Infrastructure is a secondary contact.
    */
   "isPrimary": boolean;
+  /**
+   * If `true`, this Exadata Infrastructure contact is a valid My Oracle Support (MOS) contact. If `false`, this Exadata Infrastructure contact is not a valid MOS contact.
+   */
+  "isContactMosValidated"?: boolean;
 }
 
 export namespace ExadataInfrastructureContact {

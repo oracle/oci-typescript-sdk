@@ -20,16 +20,16 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Instance agent features supported on the image
+ * Oracle Cloud Agent features supported on the image.
  */
 export interface InstanceAgentFeatures {
   /**
-   * Whether the agent running on the instance can gather performance metrics and monitor the instance.
+   * Whether Oracle Cloud Agent can gather performance metrics and monitor the instance.
    *
    */
   "isMonitoringSupported"?: boolean;
   /**
-   * Whether the agent running on the instance can run all the available management plugins
+   * Whether Oracle Cloud Agent can run all the available management plugins.
    *
    */
   "isManagementSupported"?: boolean;

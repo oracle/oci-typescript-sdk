@@ -44,6 +44,7 @@ export interface ListCloudVmClusterUpdatesRequest extends common.BaseRequest {
 export namespace ListCloudVmClusterUpdatesRequest {
   export enum UpdateType {
     GiUpgrade = "GI_UPGRADE",
-    GiPatch = "GI_PATCH"
+    GiPatch = "GI_PATCH",
+    OsUpdate = "OS_UPDATE"
   }
 }

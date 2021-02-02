@@ -37,7 +37,7 @@ export class OptimizerWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getCategory(request),
-      response => targetStates.exists(response.category.lifecycleState),
+      response => targetStates.includes(response.category.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -56,7 +56,7 @@ export class OptimizerWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getEnrollmentStatus(request),
-      response => targetStates.exists(response.enrollmentStatus.lifecycleState),
+      response => targetStates.includes(response.enrollmentStatus.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -75,7 +75,7 @@ export class OptimizerWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getProfile(request),
-      response => targetStates.exists(response.profile.lifecycleState),
+      response => targetStates.includes(response.profile.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -94,7 +94,7 @@ export class OptimizerWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getRecommendation(request),
-      response => targetStates.exists(response.recommendation.lifecycleState),
+      response => targetStates.includes(response.recommendation.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -113,7 +113,7 @@ export class OptimizerWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getResourceAction(request),
-      response => targetStates.exists(response.resourceAction.lifecycleState),
+      response => targetStates.includes(response.resourceAction.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }

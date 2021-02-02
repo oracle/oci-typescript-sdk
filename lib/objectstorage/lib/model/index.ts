@@ -14,6 +14,8 @@ For more information, see [Overview of Object Storage](/Content/Object/Concepts/
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ArchivalState from "./archival-state";
+export import ArchivalState = ArchivalState.ArchivalState;
 import * as Bucket from "./bucket";
 export import Bucket = Bucket.Bucket;
 import * as BucketSummary from "./bucket-summary";
@@ -86,10 +88,14 @@ import * as RetentionRuleSummary from "./retention-rule-summary";
 export import RetentionRuleSummary = RetentionRuleSummary.RetentionRuleSummary;
 import * as SSECustomerKeyDetails from "./s-se-customer-key-details";
 export import SSECustomerKeyDetails = SSECustomerKeyDetails.SSECustomerKeyDetails;
+import * as StorageTier from "./storage-tier";
+export import StorageTier = StorageTier.StorageTier;
 import * as UpdateBucketDetails from "./update-bucket-details";
 export import UpdateBucketDetails = UpdateBucketDetails.UpdateBucketDetails;
 import * as UpdateNamespaceMetadataDetails from "./update-namespace-metadata-details";
 export import UpdateNamespaceMetadataDetails = UpdateNamespaceMetadataDetails.UpdateNamespaceMetadataDetails;
+import * as UpdateObjectStorageTierDetails from "./update-object-storage-tier-details";
+export import UpdateObjectStorageTierDetails = UpdateObjectStorageTierDetails.UpdateObjectStorageTierDetails;
 import * as UpdateRetentionRuleDetails from "./update-retention-rule-details";
 export import UpdateRetentionRuleDetails = UpdateRetentionRuleDetails.UpdateRetentionRuleDetails;
 import * as WorkRequest from "./work-request";

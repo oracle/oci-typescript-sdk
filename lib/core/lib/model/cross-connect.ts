@@ -36,9 +36,6 @@ Oracle recommends you create each cross-connect in a
 To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized,
 * talk to an administrator. If you're an administrator who needs to write policies to give users access, see
 * [Getting Started with Policies](https://docs.cloud.oracle.com/Content/Identity/Concepts/policygetstarted.htm).
-* <p>
-**Warning:** Oracle recommends that you avoid using any confidential information when you
-* supply string values using the API.
 * 
 */
 export interface CrossConnect {
@@ -48,6 +45,7 @@ export interface CrossConnect {
   "compartmentId"?: string;
   /**
    * The OCID of the cross-connect group this cross-connect belongs to (if any).
+   *
    */
   "crossConnectGroupId"?: string;
   /**
@@ -82,6 +80,7 @@ Example: `{\"Department\": \"Finance\"}`
   "lifecycleState"?: CrossConnect.LifecycleState;
   /**
    * The name of the FastConnect location where this cross-connect is installed.
+   *
    */
   "locationName"?: string;
   /**

@@ -26,14 +26,16 @@ export interface ListWorkRequestLogsResponse {
    */
   "opcClientRequestId": string;
   /**
-   * Paginating a list of work request logs.
-   * In the GET request, set the limit to the number of compartment work requests that you want returned in the
-   * response. If the opc-next-page header appears in the response, then this is a partial list and there are
-   * additional work requests to get. Include the header's value as the `page` parameter in the subsequent
-   * GET request to get the next batch of work requests. Repeat this process to retrieve the entire list of work
-   * requests.
-   *
-   */
+     * For paginating a list of work request logs.
+* In the GET request, set the limit to the number of compartment work requests that you want returned in the
+* response. If the `opc-next-page` header appears in the response, then this is a partial list and there are
+* additional work requests to get. Include the header's value as the `page` parameter in the subsequent
+* GET request to get the next batch of work requests. Repeat this process to retrieve the entire list of work
+* requests.
+* <p>
+For more details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+* 
+     */
   "opcNextPage": string;
   /**
    * A list of WorkRequestLogEntry instances.

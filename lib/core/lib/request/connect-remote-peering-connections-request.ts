@@ -24,6 +24,7 @@ export interface ConnectRemotePeeringConnectionsRequest extends common.BaseReque
   "remotePeeringConnectionId": string;
   /**
    * Details to connect peering connection with peering connection from remote region
+   *
    */
   "connectRemotePeeringConnectionsDetails": model.ConnectRemotePeeringConnectionsDetails;
 }

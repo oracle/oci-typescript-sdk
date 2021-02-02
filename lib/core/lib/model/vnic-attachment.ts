@@ -102,6 +102,7 @@ Example: `0`
   "vlanTag"?: number;
   /**
    * The OCID of the VNIC. Available after the attachment process is complete.
+   *
    */
   "vnicId"?: string;
 }

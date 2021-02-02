@@ -1740,7 +1740,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   }
 
   /**
-   * Deletes a volume group backup. This operation deletes all the backups in the volume group. For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/Block/Concepts/volumegroups.htm).
+   * Deletes a volume group backup. This operation deletes all the backups in
+   * the volume group. For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/Block/Concepts/volumegroups.htm).
+   *
    * @param DeleteVolumeGroupBackupRequest
    * @return DeleteVolumeGroupBackupResponse
    * @throws OciError when an error occurs
@@ -4926,7 +4928,7 @@ You may optionally specify a *display name* for the image, which is simply a fri
 * After the console connection has been created and is available,
 * you connect to the console using SSH.
 * <p>
-For more information about console access, see [Accessing the Console](https://docs.cloud.oracle.com/Content/Compute/References/serialconsole.htm).
+For more information about instance console connections, see [Troubleshooting Instances Using Instance Console Connections](https://docs.cloud.oracle.com/Content/Compute/References/serialconsole.htm).
 * 
      * @param CreateInstanceConsoleConnectionRequest
      * @return CreateInstanceConsoleConnectionResponse
@@ -5110,6 +5112,7 @@ For more information about console access, see [Accessing the Console](https://d
 
   /**
    * Deletes the specified console history metadata and the console history data.
+   *
    * @param DeleteConsoleHistoryRequest
    * @return DeleteConsoleHistoryResponse
    * @throws OciError when an error occurs
@@ -6691,13 +6694,15 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
 * <p>
 - **RESET** - Powers off the instance and then powers it back on.
 * <p>
-- **SOFTSTOP** - Gracefully shuts down the instance by sending a shutdown command to the operating system.
-* If the applications that run on the instance take a long time to shut down, they could be improperly stopped, resulting
-* in data corruption. To avoid this, shut down the instance using the commands available in the OS before you softstop the
+- **SOFTSTOP** - Gracefully shuts down the instance by sending a shutdown command to the operating system. 
+* After waiting 15 minutes for the OS to shut down, the instance is powered off.
+* If the applications that run on the instance take more than 15 minutes to shut down, they could be improperly stopped, resulting
+* in data corruption. To avoid this, manually shut down the instance using the commands available in the OS before you softstop the
 * instance.
 * <p>
-- **SOFTRESET** - Gracefully reboots the instance by sending a shutdown command to the operating system, and
-* then powers the instance back on.
+- **SOFTRESET** - Gracefully reboots the instance by sending a shutdown command to the operating system. 
+* After waiting 15 minutes for the OS to shut down, the instance is powered off and
+* then powered back on.
 * <p>
 - **SENDDIAGNOSTICINTERRUPT** - For advanced users. **Warning: Sending a diagnostic interrupt to a live system can
 * cause data corruption or system failure.** Sends a diagnostic interrupt that causes the instance's
@@ -6706,7 +6711,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
 * the crash. After the OS restarts, you can analyze the crash dump to diagnose the issue. For more information, see
 * [Sending a Diagnostic Interrupt](https://docs.cloud.oracle.com/Content/Compute/Tasks/sendingdiagnosticinterrupt.htm).
 * <p>
-For more information about managing instance lifecycle states, see
+
+* For more information about managing instance lifecycle states, see
 * [Stopping and Starting an Instance](https://docs.cloud.oracle.com/Content/Compute/Tasks/restartinginstance.htm).
 * 
      * @param InstanceActionRequest
@@ -6931,11 +6937,6 @@ To launch an instance from a Marketplace image listing, you must provide the ima
         bodyKey: "items",
         bodyModel: "AppCatalogListingResourceVersionSummary[]",
         responseHeaders: [
-          {
-            value: response.headers.get("etag"),
-            key: "etag",
-            dataType: "string"
-          },
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
@@ -8228,7 +8229,7 @@ The order of images returned may change when new images are released.
   /**
      * Lists the console connections for the specified compartment or instance.
 * <p>
-For more information about console access, see [Accessing the Console](https://docs.cloud.oracle.com/Content/Compute/References/serialconsole.htm).
+For more information about instance console connections, see [Troubleshooting Instances Using Instance Console Connections](https://docs.cloud.oracle.com/Content/Compute/References/serialconsole.htm).
 * 
      * @param ListInstanceConsoleConnectionsRequest
      * @return ListInstanceConsoleConnectionsResponse
@@ -9128,6 +9129,7 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
 
   /**
    * Updates the display name of the image. Avoid entering confidential information.
+   *
    * @param UpdateImageRequest
    * @return UpdateImageResponse
    * @throws OciError when an error occurs
@@ -10906,7 +10908,7 @@ If the instance configuration does not include all of the parameters that are
   }
 
   /**
-   * Performs the reset (power off and power on) action on the specified instance pool,
+   * Performs the reset (immediate power off and power on) action on the specified instance pool,
    * which performs the action on all the instances in the pool.
    *
    * @param ResetInstancePoolRequest
@@ -10973,14 +10975,17 @@ If the instance configuration does not include all of the parameters that are
   }
 
   /**
-   * Performs the softreset (ACPI shutdown and power on) action on the specified instance pool,
-   * which performs the action on all the instances in the pool.
-   *
-   * @param SoftresetInstancePoolRequest
-   * @return SoftresetInstancePoolResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/SoftresetInstancePool.ts.html |here} to see how to use SoftresetInstancePool API.
-   */
+     * Performs the softreset (ACPI shutdown and power on) action on the specified instance pool,
+* which performs the action on all the instances in the pool. 
+* <p>
+Softreset gracefully reboots the instances by sending a shutdown command to the operating systems. 
+* After waiting 15 minutes for the OS to shut down, the instances are powered off and then powered back on.
+* 
+     * @param SoftresetInstancePoolRequest
+     * @return SoftresetInstancePoolResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/SoftresetInstancePool.ts.html |here} to see how to use SoftresetInstancePool API.
+     */
   public async softresetInstancePool(
     softresetInstancePoolRequest: requests.SoftresetInstancePoolRequest
   ): Promise<responses.SoftresetInstancePoolResponse> {
@@ -11107,7 +11112,7 @@ If the instance configuration does not include all of the parameters that are
   }
 
   /**
-   * Performs the stop (power off) action on the specified instance pool,
+   * Performs the stop (immediate power off) action on the specified instance pool,
    * which performs the action on all the instances in the pool.
    *
    * @param StopInstancePoolRequest

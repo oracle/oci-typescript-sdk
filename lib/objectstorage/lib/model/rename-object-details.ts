@@ -29,7 +29,7 @@ export interface RenameObjectDetails {
    */
   "sourceName": string;
   /**
-   * The new name of the source object.
+   * The new name of the source object. Avoid entering confidential information.
    */
   "newName": string;
   /**

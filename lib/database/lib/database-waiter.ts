@@ -337,6 +337,84 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forChangeExternalContainerDatabaseCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeExternalContainerDatabaseCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeExternalContainerDatabaseCompartment(
+    request: serviceRequests.ChangeExternalContainerDatabaseCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeExternalContainerDatabaseCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeExternalContainerDatabaseCompartmentResponse = await this.client.changeExternalContainerDatabaseCompartment(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeExternalContainerDatabaseCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeExternalContainerDatabaseCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forChangeExternalNonContainerDatabaseCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeExternalNonContainerDatabaseCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeExternalNonContainerDatabaseCompartment(
+    request: serviceRequests.ChangeExternalNonContainerDatabaseCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeExternalNonContainerDatabaseCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeExternalNonContainerDatabaseCompartmentResponse = await this.client.changeExternalNonContainerDatabaseCompartment(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeExternalNonContainerDatabaseCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeExternalNonContainerDatabaseCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forChangeExternalPluggableDatabaseCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeExternalPluggableDatabaseCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeExternalPluggableDatabaseCompartment(
+    request: serviceRequests.ChangeExternalPluggableDatabaseCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeExternalPluggableDatabaseCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeExternalPluggableDatabaseCompartmentResponse = await this.client.changeExternalPluggableDatabaseCompartment(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeExternalPluggableDatabaseCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeExternalPluggableDatabaseCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forChangeKeyStoreCompartment
    *
    * @param request the request to send
@@ -382,6 +460,32 @@ export class DatabaseWaiter {
     );
     return {
       response: changeVmClusterCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forCheckExternalDatabaseConnectorConnectionStatus
+   *
+   * @param request the request to send
+   * @return response returns CheckExternalDatabaseConnectorConnectionStatusResponse, GetWorkRequestResponse tuple
+   */
+  public async forCheckExternalDatabaseConnectorConnectionStatus(
+    request: serviceRequests.CheckExternalDatabaseConnectorConnectionStatusRequest
+  ): Promise<{
+    response: serviceResponses.CheckExternalDatabaseConnectorConnectionStatusResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const checkExternalDatabaseConnectorConnectionStatusResponse = await this.client.checkExternalDatabaseConnectorConnectionStatus(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      checkExternalDatabaseConnectorConnectionStatusResponse.opcWorkRequestId
+    );
+    return {
+      response: checkExternalDatabaseConnectorConnectionStatusResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -723,6 +827,110 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forCreateExternalContainerDatabase
+   *
+   * @param request the request to send
+   * @return response returns CreateExternalContainerDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateExternalContainerDatabase(
+    request: serviceRequests.CreateExternalContainerDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.CreateExternalContainerDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createExternalContainerDatabaseResponse = await this.client.createExternalContainerDatabase(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createExternalContainerDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: createExternalContainerDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forCreateExternalDatabaseConnector
+   *
+   * @param request the request to send
+   * @return response returns CreateExternalDatabaseConnectorResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateExternalDatabaseConnector(
+    request: serviceRequests.CreateExternalDatabaseConnectorRequest
+  ): Promise<{
+    response: serviceResponses.CreateExternalDatabaseConnectorResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createExternalDatabaseConnectorResponse = await this.client.createExternalDatabaseConnector(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createExternalDatabaseConnectorResponse.opcWorkRequestId
+    );
+    return {
+      response: createExternalDatabaseConnectorResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forCreateExternalNonContainerDatabase
+   *
+   * @param request the request to send
+   * @return response returns CreateExternalNonContainerDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateExternalNonContainerDatabase(
+    request: serviceRequests.CreateExternalNonContainerDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.CreateExternalNonContainerDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createExternalNonContainerDatabaseResponse = await this.client.createExternalNonContainerDatabase(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createExternalNonContainerDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: createExternalNonContainerDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forCreateExternalPluggableDatabase
+   *
+   * @param request the request to send
+   * @return response returns CreateExternalPluggableDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateExternalPluggableDatabase(
+    request: serviceRequests.CreateExternalPluggableDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.CreateExternalPluggableDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createExternalPluggableDatabaseResponse = await this.client.createExternalPluggableDatabase(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createExternalPluggableDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: createExternalPluggableDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forCreateVmCluster
    *
    * @param request the request to send
@@ -999,6 +1207,110 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forDeleteExternalContainerDatabase
+   *
+   * @param request the request to send
+   * @return response returns DeleteExternalContainerDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteExternalContainerDatabase(
+    request: serviceRequests.DeleteExternalContainerDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.DeleteExternalContainerDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteExternalContainerDatabaseResponse = await this.client.deleteExternalContainerDatabase(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteExternalContainerDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: deleteExternalContainerDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDeleteExternalDatabaseConnector
+   *
+   * @param request the request to send
+   * @return response returns DeleteExternalDatabaseConnectorResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteExternalDatabaseConnector(
+    request: serviceRequests.DeleteExternalDatabaseConnectorRequest
+  ): Promise<{
+    response: serviceResponses.DeleteExternalDatabaseConnectorResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteExternalDatabaseConnectorResponse = await this.client.deleteExternalDatabaseConnector(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteExternalDatabaseConnectorResponse.opcWorkRequestId
+    );
+    return {
+      response: deleteExternalDatabaseConnectorResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDeleteExternalNonContainerDatabase
+   *
+   * @param request the request to send
+   * @return response returns DeleteExternalNonContainerDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteExternalNonContainerDatabase(
+    request: serviceRequests.DeleteExternalNonContainerDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.DeleteExternalNonContainerDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteExternalNonContainerDatabaseResponse = await this.client.deleteExternalNonContainerDatabase(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteExternalNonContainerDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: deleteExternalNonContainerDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDeleteExternalPluggableDatabase
+   *
+   * @param request the request to send
+   * @return response returns DeleteExternalPluggableDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteExternalPluggableDatabase(
+    request: serviceRequests.DeleteExternalPluggableDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.DeleteExternalPluggableDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteExternalPluggableDatabaseResponse = await this.client.deleteExternalPluggableDatabase(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteExternalPluggableDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: deleteExternalPluggableDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forDeleteVmCluster
    *
    * @param request the request to send
@@ -1096,6 +1408,84 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forDisableExternalContainerDatabaseDatabaseManagement
+   *
+   * @param request the request to send
+   * @return response returns DisableExternalContainerDatabaseDatabaseManagementResponse, GetWorkRequestResponse tuple
+   */
+  public async forDisableExternalContainerDatabaseDatabaseManagement(
+    request: serviceRequests.DisableExternalContainerDatabaseDatabaseManagementRequest
+  ): Promise<{
+    response: serviceResponses.DisableExternalContainerDatabaseDatabaseManagementResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const disableExternalContainerDatabaseDatabaseManagementResponse = await this.client.disableExternalContainerDatabaseDatabaseManagement(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      disableExternalContainerDatabaseDatabaseManagementResponse.opcWorkRequestId
+    );
+    return {
+      response: disableExternalContainerDatabaseDatabaseManagementResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDisableExternalNonContainerDatabaseDatabaseManagement
+   *
+   * @param request the request to send
+   * @return response returns DisableExternalNonContainerDatabaseDatabaseManagementResponse, GetWorkRequestResponse tuple
+   */
+  public async forDisableExternalNonContainerDatabaseDatabaseManagement(
+    request: serviceRequests.DisableExternalNonContainerDatabaseDatabaseManagementRequest
+  ): Promise<{
+    response: serviceResponses.DisableExternalNonContainerDatabaseDatabaseManagementResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const disableExternalNonContainerDatabaseDatabaseManagementResponse = await this.client.disableExternalNonContainerDatabaseDatabaseManagement(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      disableExternalNonContainerDatabaseDatabaseManagementResponse.opcWorkRequestId
+    );
+    return {
+      response: disableExternalNonContainerDatabaseDatabaseManagementResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDisableExternalPluggableDatabaseDatabaseManagement
+   *
+   * @param request the request to send
+   * @return response returns DisableExternalPluggableDatabaseDatabaseManagementResponse, GetWorkRequestResponse tuple
+   */
+  public async forDisableExternalPluggableDatabaseDatabaseManagement(
+    request: serviceRequests.DisableExternalPluggableDatabaseDatabaseManagementRequest
+  ): Promise<{
+    response: serviceResponses.DisableExternalPluggableDatabaseDatabaseManagementResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const disableExternalPluggableDatabaseDatabaseManagementResponse = await this.client.disableExternalPluggableDatabaseDatabaseManagement(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      disableExternalPluggableDatabaseDatabaseManagementResponse.opcWorkRequestId
+    );
+    return {
+      response: disableExternalPluggableDatabaseDatabaseManagementResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forEnableAutonomousDatabaseOperationsInsights
    *
    * @param request the request to send
@@ -1117,6 +1507,84 @@ export class DatabaseWaiter {
     );
     return {
       response: enableAutonomousDatabaseOperationsInsightsResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forEnableExternalContainerDatabaseDatabaseManagement
+   *
+   * @param request the request to send
+   * @return response returns EnableExternalContainerDatabaseDatabaseManagementResponse, GetWorkRequestResponse tuple
+   */
+  public async forEnableExternalContainerDatabaseDatabaseManagement(
+    request: serviceRequests.EnableExternalContainerDatabaseDatabaseManagementRequest
+  ): Promise<{
+    response: serviceResponses.EnableExternalContainerDatabaseDatabaseManagementResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const enableExternalContainerDatabaseDatabaseManagementResponse = await this.client.enableExternalContainerDatabaseDatabaseManagement(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      enableExternalContainerDatabaseDatabaseManagementResponse.opcWorkRequestId
+    );
+    return {
+      response: enableExternalContainerDatabaseDatabaseManagementResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forEnableExternalNonContainerDatabaseDatabaseManagement
+   *
+   * @param request the request to send
+   * @return response returns EnableExternalNonContainerDatabaseDatabaseManagementResponse, GetWorkRequestResponse tuple
+   */
+  public async forEnableExternalNonContainerDatabaseDatabaseManagement(
+    request: serviceRequests.EnableExternalNonContainerDatabaseDatabaseManagementRequest
+  ): Promise<{
+    response: serviceResponses.EnableExternalNonContainerDatabaseDatabaseManagementResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const enableExternalNonContainerDatabaseDatabaseManagementResponse = await this.client.enableExternalNonContainerDatabaseDatabaseManagement(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      enableExternalNonContainerDatabaseDatabaseManagementResponse.opcWorkRequestId
+    );
+    return {
+      response: enableExternalNonContainerDatabaseDatabaseManagementResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forEnableExternalPluggableDatabaseDatabaseManagement
+   *
+   * @param request the request to send
+   * @return response returns EnableExternalPluggableDatabaseDatabaseManagementResponse, GetWorkRequestResponse tuple
+   */
+  public async forEnableExternalPluggableDatabaseDatabaseManagement(
+    request: serviceRequests.EnableExternalPluggableDatabaseDatabaseManagementRequest
+  ): Promise<{
+    response: serviceResponses.EnableExternalPluggableDatabaseDatabaseManagementResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const enableExternalPluggableDatabaseDatabaseManagementResponse = await this.client.enableExternalPluggableDatabaseDatabaseManagement(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      enableExternalPluggableDatabaseDatabaseManagementResponse.opcWorkRequestId
+    );
+    return {
+      response: enableExternalPluggableDatabaseDatabaseManagementResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -1213,7 +1681,7 @@ export class DatabaseWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getAutonomousContainerDatabase(request),
-      response => targetStates.exists(response.autonomousContainerDatabase.lifecycleState),
+      response => targetStates.includes(response.autonomousContainerDatabase.lifecycleState!),
       targetStates.includes(models.AutonomousContainerDatabase.LifecycleState.Terminated)
     );
   }
@@ -1233,8 +1701,8 @@ export class DatabaseWaiter {
       this.config,
       () => this.client.getAutonomousContainerDatabaseDataguardAssociation(request),
       response =>
-        targetStates.exists(
-          response.autonomousContainerDatabaseDataguardAssociation.lifecycleState
+        targetStates.includes(
+          response.autonomousContainerDatabaseDataguardAssociation.lifecycleState!
         ),
       targetStates.includes(
         models.AutonomousContainerDatabaseDataguardAssociation.LifecycleState.Terminated
@@ -1256,7 +1724,7 @@ export class DatabaseWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getAutonomousDatabase(request),
-      response => targetStates.exists(response.autonomousDatabase.lifecycleState),
+      response => targetStates.includes(response.autonomousDatabase.lifecycleState!),
       targetStates.includes(models.AutonomousDatabase.LifecycleState.Terminated)
     );
   }
@@ -1275,7 +1743,7 @@ export class DatabaseWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getAutonomousDatabaseBackup(request),
-      response => targetStates.exists(response.autonomousDatabaseBackup.lifecycleState),
+      response => targetStates.includes(response.autonomousDatabaseBackup.lifecycleState!),
       targetStates.includes(models.AutonomousDatabaseBackup.LifecycleState.Deleted)
     );
   }
@@ -1295,7 +1763,7 @@ export class DatabaseWaiter {
       this.config,
       () => this.client.getAutonomousDatabaseDataguardAssociation(request),
       response =>
-        targetStates.exists(response.autonomousDatabaseDataguardAssociation.lifecycleState),
+        targetStates.includes(response.autonomousDatabaseDataguardAssociation.lifecycleState!),
       targetStates.includes(models.AutonomousDatabaseDataguardAssociation.LifecycleState.Terminated)
     );
   }
@@ -1314,7 +1782,7 @@ export class DatabaseWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getAutonomousDatabaseWallet(request),
-      response => targetStates.exists(response.autonomousDatabaseWallet.lifecycleState)
+      response => targetStates.includes(response.autonomousDatabaseWallet.lifecycleState!)
     );
   }
 
@@ -1332,7 +1800,7 @@ export class DatabaseWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getAutonomousExadataInfrastructure(request),
-      response => targetStates.exists(response.autonomousExadataInfrastructure.lifecycleState),
+      response => targetStates.includes(response.autonomousExadataInfrastructure.lifecycleState!),
       targetStates.includes(models.AutonomousExadataInfrastructure.LifecycleState.Terminated)
     );
   }
@@ -1351,7 +1819,7 @@ export class DatabaseWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getAutonomousPatch(request),
-      response => targetStates.exists(response.autonomousPatch.lifecycleState)
+      response => targetStates.includes(response.autonomousPatch.lifecycleState!)
     );
   }
 
@@ -1369,7 +1837,7 @@ export class DatabaseWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getAutonomousVmCluster(request),
-      response => targetStates.exists(response.autonomousVmCluster.lifecycleState),
+      response => targetStates.includes(response.autonomousVmCluster.lifecycleState!),
       targetStates.includes(models.AutonomousVmCluster.LifecycleState.Terminated)
     );
   }
@@ -1388,7 +1856,7 @@ export class DatabaseWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getBackup(request),
-      response => targetStates.exists(response.backup.lifecycleState),
+      response => targetStates.includes(response.backup.lifecycleState!),
       targetStates.includes(models.Backup.LifecycleState.Deleted)
     );
   }
@@ -1407,7 +1875,7 @@ export class DatabaseWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getBackupDestination(request),
-      response => targetStates.exists(response.backupDestination.lifecycleState),
+      response => targetStates.includes(response.backupDestination.lifecycleState!),
       targetStates.includes(models.BackupDestination.LifecycleState.Deleted)
     );
   }
@@ -1426,7 +1894,7 @@ export class DatabaseWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getCloudExadataInfrastructure(request),
-      response => targetStates.exists(response.cloudExadataInfrastructure.lifecycleState),
+      response => targetStates.includes(response.cloudExadataInfrastructure.lifecycleState!),
       targetStates.includes(models.CloudExadataInfrastructure.LifecycleState.Terminated)
     );
   }
@@ -1445,7 +1913,7 @@ export class DatabaseWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getCloudVmCluster(request),
-      response => targetStates.exists(response.cloudVmCluster.lifecycleState),
+      response => targetStates.includes(response.cloudVmCluster.lifecycleState!),
       targetStates.includes(models.CloudVmCluster.LifecycleState.Terminated)
     );
   }
@@ -1464,7 +1932,7 @@ export class DatabaseWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getConsoleConnection(request),
-      response => targetStates.exists(response.consoleConnection.lifecycleState),
+      response => targetStates.includes(response.consoleConnection.lifecycleState!),
       targetStates.includes(models.ConsoleConnection.LifecycleState.Deleted)
     );
   }
@@ -1483,7 +1951,7 @@ export class DatabaseWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getDataGuardAssociation(request),
-      response => targetStates.exists(response.dataGuardAssociation.lifecycleState),
+      response => targetStates.includes(response.dataGuardAssociation.lifecycleState!),
       targetStates.includes(models.DataGuardAssociation.LifecycleState.Terminated)
     );
   }
@@ -1502,7 +1970,7 @@ export class DatabaseWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getDatabase(request),
-      response => targetStates.exists(response.database.lifecycleState),
+      response => targetStates.includes(response.database.lifecycleState!),
       targetStates.includes(models.Database.LifecycleState.Terminated)
     );
   }
@@ -1521,7 +1989,7 @@ export class DatabaseWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getDatabaseSoftwareImage(request),
-      response => targetStates.exists(response.databaseSoftwareImage.lifecycleState),
+      response => targetStates.includes(response.databaseSoftwareImage.lifecycleState!),
       targetStates.includes(models.DatabaseSoftwareImage.LifecycleState.Terminated)
     );
   }
@@ -1540,7 +2008,7 @@ export class DatabaseWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getDatabaseUpgradeHistoryEntry(request),
-      response => targetStates.exists(response.databaseUpgradeHistoryEntry.lifecycleState)
+      response => targetStates.includes(response.databaseUpgradeHistoryEntry.lifecycleState!)
     );
   }
 
@@ -1558,7 +2026,7 @@ export class DatabaseWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getDbHome(request),
-      response => targetStates.exists(response.dbHome.lifecycleState),
+      response => targetStates.includes(response.dbHome.lifecycleState!),
       targetStates.includes(models.DbHome.LifecycleState.Terminated)
     );
   }
@@ -1577,7 +2045,7 @@ export class DatabaseWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getDbNode(request),
-      response => targetStates.exists(response.dbNode.lifecycleState),
+      response => targetStates.includes(response.dbNode.lifecycleState!),
       targetStates.includes(models.DbNode.LifecycleState.Terminated)
     );
   }
@@ -1596,7 +2064,7 @@ export class DatabaseWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getDbSystem(request),
-      response => targetStates.exists(response.dbSystem.lifecycleState),
+      response => targetStates.includes(response.dbSystem.lifecycleState!),
       targetStates.includes(models.DbSystem.LifecycleState.Terminated)
     );
   }
@@ -1615,7 +2083,7 @@ export class DatabaseWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getExadataInfrastructure(request),
-      response => targetStates.exists(response.exadataInfrastructure.lifecycleState),
+      response => targetStates.includes(response.exadataInfrastructure.lifecycleState!),
       targetStates.includes(models.ExadataInfrastructure.LifecycleState.Deleted)
     );
   }
@@ -1634,7 +2102,83 @@ export class DatabaseWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getExadataIormConfig(request),
-      response => targetStates.exists(response.exadataIormConfig.lifecycleState)
+      response => targetStates.includes(response.exadataIormConfig.lifecycleState!)
+    );
+  }
+
+  /**
+   * Waits forExternalContainerDatabase till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetExternalContainerDatabaseResponse | null (null in case of 404 response)
+   */
+  public async forExternalContainerDatabase(
+    request: serviceRequests.GetExternalContainerDatabaseRequest,
+    ...targetStates: models.ExternalContainerDatabase.LifecycleState[]
+  ): Promise<serviceResponses.GetExternalContainerDatabaseResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getExternalContainerDatabase(request),
+      response => targetStates.includes(response.externalContainerDatabase.lifecycleState!),
+      targetStates.includes(models.ExternalContainerDatabase.LifecycleState.Terminated)
+    );
+  }
+
+  /**
+   * Waits forExternalDatabaseConnector till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetExternalDatabaseConnectorResponse | null (null in case of 404 response)
+   */
+  public async forExternalDatabaseConnector(
+    request: serviceRequests.GetExternalDatabaseConnectorRequest,
+    ...targetStates: models.ExternalDatabaseConnector.LifecycleState[]
+  ): Promise<serviceResponses.GetExternalDatabaseConnectorResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getExternalDatabaseConnector(request),
+      response => targetStates.includes(response.externalDatabaseConnector.lifecycleState!),
+      targetStates.includes(models.ExternalDatabaseConnector.LifecycleState.Terminated)
+    );
+  }
+
+  /**
+   * Waits forExternalNonContainerDatabase till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetExternalNonContainerDatabaseResponse | null (null in case of 404 response)
+   */
+  public async forExternalNonContainerDatabase(
+    request: serviceRequests.GetExternalNonContainerDatabaseRequest,
+    ...targetStates: models.ExternalNonContainerDatabase.LifecycleState[]
+  ): Promise<serviceResponses.GetExternalNonContainerDatabaseResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getExternalNonContainerDatabase(request),
+      response => targetStates.includes(response.externalNonContainerDatabase.lifecycleState!),
+      targetStates.includes(models.ExternalNonContainerDatabase.LifecycleState.Terminated)
+    );
+  }
+
+  /**
+   * Waits forExternalPluggableDatabase till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetExternalPluggableDatabaseResponse | null (null in case of 404 response)
+   */
+  public async forExternalPluggableDatabase(
+    request: serviceRequests.GetExternalPluggableDatabaseRequest,
+    ...targetStates: models.ExternalPluggableDatabase.LifecycleState[]
+  ): Promise<serviceResponses.GetExternalPluggableDatabaseResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getExternalPluggableDatabase(request),
+      response => targetStates.includes(response.externalPluggableDatabase.lifecycleState!),
+      targetStates.includes(models.ExternalPluggableDatabase.LifecycleState.Terminated)
     );
   }
 
@@ -1652,7 +2196,7 @@ export class DatabaseWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getKeyStore(request),
-      response => targetStates.exists(response.keyStore.lifecycleState),
+      response => targetStates.includes(response.keyStore.lifecycleState!),
       targetStates.includes(models.KeyStore.LifecycleState.Deleted)
     );
   }
@@ -1671,7 +2215,7 @@ export class DatabaseWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getMaintenanceRun(request),
-      response => targetStates.exists(response.maintenanceRun.lifecycleState),
+      response => targetStates.includes(response.maintenanceRun.lifecycleState!),
       targetStates.includes(models.MaintenanceRun.LifecycleState.Deleted)
     );
   }
@@ -1690,7 +2234,7 @@ export class DatabaseWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getVmCluster(request),
-      response => targetStates.exists(response.vmCluster.lifecycleState),
+      response => targetStates.includes(response.vmCluster.lifecycleState!),
       targetStates.includes(models.VmCluster.LifecycleState.Terminated)
     );
   }
@@ -1709,7 +2253,7 @@ export class DatabaseWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getVmClusterNetwork(request),
-      response => targetStates.exists(response.vmClusterNetwork.lifecycleState),
+      response => targetStates.includes(response.vmClusterNetwork.lifecycleState!),
       targetStates.includes(models.VmClusterNetwork.LifecycleState.Terminated)
     );
   }
@@ -2094,6 +2638,32 @@ export class DatabaseWaiter {
       rotateVaultKeyResponse.opcWorkRequestId
     );
     return { response: rotateVaultKeyResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forScanExternalContainerDatabasePluggableDatabases
+   *
+   * @param request the request to send
+   * @return response returns ScanExternalContainerDatabasePluggableDatabasesResponse, GetWorkRequestResponse tuple
+   */
+  public async forScanExternalContainerDatabasePluggableDatabases(
+    request: serviceRequests.ScanExternalContainerDatabasePluggableDatabasesRequest
+  ): Promise<{
+    response: serviceResponses.ScanExternalContainerDatabasePluggableDatabasesResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const scanExternalContainerDatabasePluggableDatabasesResponse = await this.client.scanExternalContainerDatabasePluggableDatabases(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      scanExternalContainerDatabasePluggableDatabasesResponse.opcWorkRequestId
+    );
+    return {
+      response: scanExternalContainerDatabasePluggableDatabasesResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
   }
 
   /**
@@ -2629,6 +3199,110 @@ export class DatabaseWaiter {
     );
     return {
       response: updateExadataIormConfigResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateExternalContainerDatabase
+   *
+   * @param request the request to send
+   * @return response returns UpdateExternalContainerDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateExternalContainerDatabase(
+    request: serviceRequests.UpdateExternalContainerDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.UpdateExternalContainerDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateExternalContainerDatabaseResponse = await this.client.updateExternalContainerDatabase(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateExternalContainerDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: updateExternalContainerDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateExternalDatabaseConnector
+   *
+   * @param request the request to send
+   * @return response returns UpdateExternalDatabaseConnectorResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateExternalDatabaseConnector(
+    request: serviceRequests.UpdateExternalDatabaseConnectorRequest
+  ): Promise<{
+    response: serviceResponses.UpdateExternalDatabaseConnectorResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateExternalDatabaseConnectorResponse = await this.client.updateExternalDatabaseConnector(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateExternalDatabaseConnectorResponse.opcWorkRequestId
+    );
+    return {
+      response: updateExternalDatabaseConnectorResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateExternalNonContainerDatabase
+   *
+   * @param request the request to send
+   * @return response returns UpdateExternalNonContainerDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateExternalNonContainerDatabase(
+    request: serviceRequests.UpdateExternalNonContainerDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.UpdateExternalNonContainerDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateExternalNonContainerDatabaseResponse = await this.client.updateExternalNonContainerDatabase(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateExternalNonContainerDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: updateExternalNonContainerDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateExternalPluggableDatabase
+   *
+   * @param request the request to send
+   * @return response returns UpdateExternalPluggableDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateExternalPluggableDatabase(
+    request: serviceRequests.UpdateExternalPluggableDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.UpdateExternalPluggableDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateExternalPluggableDatabaseResponse = await this.client.updateExternalPluggableDatabase(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateExternalPluggableDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: updateExternalPluggableDatabaseResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }

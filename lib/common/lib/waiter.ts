@@ -5,18 +5,6 @@
 
 import { OciError } from "..";
 
-declare global {
-  interface Array<T> {
-    exists(value?: T): boolean;
-  }
-}
-Array.prototype.exists = function<T>(this: T[], value?: T) {
-  if (!value) {
-    return false;
-  }
-  return this.includes(value);
-};
-
 export interface DelayStrategy {
   delay(context: WaitContext): number;
 }

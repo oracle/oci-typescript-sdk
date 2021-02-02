@@ -69,7 +69,7 @@ Example: `true`
    * IPv6 will be in the VNIC's subnet.
    *
    */
-  "vnicId": string;
+  "vnicId"?: string;
 }
 
 export namespace CreateIpv6Details {

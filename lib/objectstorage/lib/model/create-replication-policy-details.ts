@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface CreateReplicationPolicyDetails {
   /**
-   * The name of the policy.
+   * The name of the policy. Avoid entering confidential information.
    */
   "name": string;
   /**

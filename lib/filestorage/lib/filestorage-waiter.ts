@@ -38,7 +38,7 @@ export class FileStorageWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getExport(request),
-      response => targetStates.exists(response.export.lifecycleState),
+      response => targetStates.includes(response.export.lifecycleState!),
       targetStates.includes(models.Export.LifecycleState.Deleted)
     );
   }
@@ -57,7 +57,7 @@ export class FileStorageWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getExportSet(request),
-      response => targetStates.exists(response.exportSet.lifecycleState),
+      response => targetStates.includes(response.exportSet.lifecycleState!),
       targetStates.includes(models.ExportSet.LifecycleState.Deleted)
     );
   }
@@ -76,7 +76,7 @@ export class FileStorageWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getFileSystem(request),
-      response => targetStates.exists(response.fileSystem.lifecycleState),
+      response => targetStates.includes(response.fileSystem.lifecycleState!),
       targetStates.includes(models.FileSystem.LifecycleState.Deleted)
     );
   }
@@ -95,7 +95,7 @@ export class FileStorageWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getMountTarget(request),
-      response => targetStates.exists(response.mountTarget.lifecycleState),
+      response => targetStates.includes(response.mountTarget.lifecycleState!),
       targetStates.includes(models.MountTarget.LifecycleState.Deleted)
     );
   }
@@ -114,7 +114,7 @@ export class FileStorageWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getSnapshot(request),
-      response => targetStates.exists(response.snapshot.lifecycleState),
+      response => targetStates.includes(response.snapshot.lifecycleState!),
       targetStates.includes(models.Snapshot.LifecycleState.Deleted)
     );
   }

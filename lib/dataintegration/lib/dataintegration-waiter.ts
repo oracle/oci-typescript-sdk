@@ -53,7 +53,7 @@ export class DataIntegrationWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getWorkspace(request),
-      response => targetStates.exists(response.workspace.lifecycleState),
+      response => targetStates.includes(response.workspace.lifecycleState!),
       targetStates.includes(models.Workspace.LifecycleState.Deleted)
     );
   }

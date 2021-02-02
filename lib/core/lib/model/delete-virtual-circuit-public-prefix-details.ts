@@ -22,6 +22,7 @@ import common = require("oci-common");
 export interface DeleteVirtualCircuitPublicPrefixDetails {
   /**
    * An individual public IP prefix (CIDR) to remove from the public virtual circuit.
+   *
    */
   "cidrBlock": string;
 }

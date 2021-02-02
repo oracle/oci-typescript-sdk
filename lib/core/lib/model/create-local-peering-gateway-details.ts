@@ -22,6 +22,7 @@ import common = require("oci-common");
 export interface CreateLocalPeeringGatewayDetails {
   /**
    * The OCID of the compartment containing the local peering gateway (LPG).
+   *
    */
   "compartmentId": string;
   /**

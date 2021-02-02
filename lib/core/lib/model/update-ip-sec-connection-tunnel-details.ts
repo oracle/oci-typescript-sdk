@@ -37,12 +37,14 @@ export interface UpdateIPSecConnectionTunnelDetails {
    */
   "ikeVersion"?: UpdateIPSecConnectionTunnelDetails.IkeVersion;
   "bgpSessionConfig"?: model.UpdateIPSecTunnelBgpSessionDetails;
+  "encryptionDomainConfig"?: model.UpdateIPSecTunnelEncryptionDomainDetails;
 }
 
 export namespace UpdateIPSecConnectionTunnelDetails {
   export enum Routing {
     Bgp = "BGP",
-    Static = "STATIC"
+    Static = "STATIC",
+    Policy = "POLICY"
   }
 
   export enum IkeVersion {
@@ -56,6 +58,9 @@ export namespace UpdateIPSecConnectionTunnelDetails {
       ...{
         "bgpSessionConfig": obj.bgpSessionConfig
           ? model.UpdateIPSecTunnelBgpSessionDetails.getJsonObj(obj.bgpSessionConfig)
+          : undefined,
+        "encryptionDomainConfig": obj.encryptionDomainConfig
+          ? model.UpdateIPSecTunnelEncryptionDomainDetails.getJsonObj(obj.encryptionDomainConfig)
           : undefined
       }
     };

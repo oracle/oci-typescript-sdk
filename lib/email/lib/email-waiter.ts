@@ -39,7 +39,7 @@ export class EmailWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getSender(request),
-      response => targetStates.exists(response.sender.lifecycleState),
+      response => targetStates.includes(response.sender.lifecycleState!),
       targetStates.includes(models.Sender.LifecycleState.Deleted)
     );
   }

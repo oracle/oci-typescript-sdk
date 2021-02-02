@@ -41,7 +41,7 @@ export class ApplicationMigrationWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getMigration(request),
-      response => targetStates.exists(response.migration.lifecycleState),
+      response => targetStates.includes(response.migration.lifecycleState!),
       targetStates.includes(models.MigrationLifecycleStates.Deleted)
     );
   }
@@ -60,7 +60,7 @@ export class ApplicationMigrationWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getSource(request),
-      response => targetStates.exists(response.source.lifecycleState),
+      response => targetStates.includes(response.source.lifecycleState!),
       targetStates.includes(models.SourceLifecycleStates.Deleted)
     );
   }

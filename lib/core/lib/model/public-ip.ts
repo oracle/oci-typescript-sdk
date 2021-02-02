@@ -29,9 +29,6 @@ There are two types of public IPs:
 * <p>
 For more information and comparison of the two types,
 * see [Public IP Addresses](https://docs.cloud.oracle.com/Content/Network/Tasks/managingpublicIPs.htm).
-* <p>
-**Warning:** Oracle recommends that you avoid using any confidential information when you
-* supply string values using the API.
 * 
 */
 export interface PublicIp {

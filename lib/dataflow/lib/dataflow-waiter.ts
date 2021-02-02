@@ -38,7 +38,7 @@ export class DataFlowWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getApplication(request),
-      response => targetStates.exists(response.application.lifecycleState),
+      response => targetStates.includes(response.application.lifecycleState!),
       targetStates.includes(models.ApplicationLifecycleState.Deleted)
     );
   }
@@ -57,7 +57,7 @@ export class DataFlowWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getPrivateEndpoint(request),
-      response => targetStates.exists(response.privateEndpoint.lifecycleState),
+      response => targetStates.includes(response.privateEndpoint.lifecycleState!),
       targetStates.includes(models.PrivateEndpointLifecycleState.Deleted)
     );
   }
@@ -76,7 +76,7 @@ export class DataFlowWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getRun(request),
-      response => targetStates.exists(response.run.lifecycleState)
+      response => targetStates.includes(response.run.lifecycleState!)
     );
   }
 

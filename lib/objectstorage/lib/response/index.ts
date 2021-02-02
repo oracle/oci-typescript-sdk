@@ -108,6 +108,8 @@ import * as UpdateBucketResponse from "./update-bucket-response";
 export import UpdateBucketResponse = UpdateBucketResponse.UpdateBucketResponse;
 import * as UpdateNamespaceMetadataResponse from "./update-namespace-metadata-response";
 export import UpdateNamespaceMetadataResponse = UpdateNamespaceMetadataResponse.UpdateNamespaceMetadataResponse;
+import * as UpdateObjectStorageTierResponse from "./update-object-storage-tier-response";
+export import UpdateObjectStorageTierResponse = UpdateObjectStorageTierResponse.UpdateObjectStorageTierResponse;
 import * as UpdateRetentionRuleResponse from "./update-retention-rule-response";
 export import UpdateRetentionRuleResponse = UpdateRetentionRuleResponse.UpdateRetentionRuleResponse;
 import * as UploadPartResponse from "./upload-part-response";

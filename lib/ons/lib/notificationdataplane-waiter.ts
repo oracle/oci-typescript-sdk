@@ -39,7 +39,7 @@ export class NotificationDataPlaneWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getSubscription(request),
-      response => targetStates.exists(response.subscription.lifecycleState),
+      response => targetStates.includes(response.subscription.lifecycleState!),
       targetStates.includes(models.Subscription.LifecycleState.Deleted)
     );
   }

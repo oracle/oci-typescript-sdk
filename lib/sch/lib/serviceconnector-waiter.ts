@@ -40,7 +40,7 @@ export class ServiceConnectorWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getServiceConnector(request),
-      response => targetStates.exists(response.serviceConnector.lifecycleState),
+      response => targetStates.includes(response.serviceConnector.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }

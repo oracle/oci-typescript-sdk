@@ -33,7 +33,9 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   * A user-friendly name. Does not have to be unique, and it's changeable.
+   * Avoid entering confidential information.
+   *
    */
   "displayName"?: string;
   /**
@@ -46,6 +48,7 @@ Example: `{\"Department\": \"Finance\"}`
   "freeformTags"?: { [key: string]: string };
   /**
    * The collection of rules used for routing destination IPs to network devices.
+   *
    */
   "routeRules": Array<model.RouteRule>;
   /**

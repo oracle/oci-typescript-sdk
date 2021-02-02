@@ -26,6 +26,7 @@ export interface CreateCrossConnectDetails {
   "compartmentId": string;
   /**
    * The OCID of the cross-connect group to put this cross-connect in.
+   *
    */
   "crossConnectGroupId"?: string;
   /**

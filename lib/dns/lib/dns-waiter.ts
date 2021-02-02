@@ -36,7 +36,7 @@ export class DnsWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getResolver(request),
-      response => targetStates.exists(response.resolver.lifecycleState),
+      response => targetStates.includes(response.resolver.lifecycleState!),
       targetStates.includes(models.Resolver.LifecycleState.Deleted)
     );
   }
@@ -55,7 +55,7 @@ export class DnsWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getResolverEndpoint(request),
-      response => targetStates.exists(response.resolverEndpoint.lifecycleState),
+      response => targetStates.includes(response.resolverEndpoint.lifecycleState!),
       targetStates.includes(models.ResolverEndpoint.LifecycleState.Deleted)
     );
   }
@@ -74,7 +74,7 @@ export class DnsWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getSteeringPolicy(request),
-      response => targetStates.exists(response.steeringPolicy.lifecycleState),
+      response => targetStates.includes(response.steeringPolicy.lifecycleState!),
       targetStates.includes(models.SteeringPolicy.LifecycleState.Deleted)
     );
   }
@@ -93,7 +93,7 @@ export class DnsWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getSteeringPolicyAttachment(request),
-      response => targetStates.exists(response.steeringPolicyAttachment.lifecycleState)
+      response => targetStates.includes(response.steeringPolicyAttachment.lifecycleState!)
     );
   }
 
@@ -111,7 +111,7 @@ export class DnsWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getTsigKey(request),
-      response => targetStates.exists(response.tsigKey.lifecycleState)
+      response => targetStates.includes(response.tsigKey.lifecycleState!)
     );
   }
 
@@ -129,7 +129,7 @@ export class DnsWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getView(request),
-      response => targetStates.exists(response.view.lifecycleState),
+      response => targetStates.includes(response.view.lifecycleState!),
       targetStates.includes(models.View.LifecycleState.Deleted)
     );
   }
@@ -148,7 +148,7 @@ export class DnsWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getZone(request),
-      response => targetStates.exists(response.zone.lifecycleState),
+      response => targetStates.includes(response.zone.lifecycleState!),
       targetStates.includes(models.Zone.LifecycleState.Deleted)
     );
   }

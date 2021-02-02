@@ -44,15 +44,15 @@ export interface PutObjectRequest extends common.BaseRequest {
    */
   "putObjectBody": Blob | stream.Readable | ReadableStream | string;
   /**
-   * The entity tag (ETag) to match. For creating and committing a multipart upload to an object, this is the entity tag of the target object.
-   * For uploading a part, this is the entity tag of the target part.
+   * The entity tag (ETag) to match with the ETag of an existing resource. If the specified ETag matches the ETag of
+   * the existing resource, GET and HEAD requests will return the resource and PUT and POST requests will upload
+   * the resource.
    *
    */
   "ifMatch"?: string;
   /**
-   * The entity tag (ETag) to avoid matching. The only valid value is '*', which indicates that the request should fail if the object
-   * already exists. For creating and committing a multipart upload, this is the entity tag of the target object. For uploading a
-   * part, this is the entity tag of the target part.
+   * The entity tag (ETag) to avoid matching. The only valid value is '*', which indicates that the request should
+   * fail if the resource already exists.
    *
    */
   "ifNoneMatch"?: string;
@@ -135,6 +135,12 @@ export interface PutObjectRequest extends common.BaseRequest {
    *
    */
   "opcSseCustomerKeySha256"?: string;
+  /**
+   * The storage tier that the object should be stored in. If not specified, the object will be stored in
+   * the same storage tier as the bucket.
+   *
+   */
+  "storageTier"?: model.StorageTier;
   /**
    * Optional user-defined metadata key and value.
    */

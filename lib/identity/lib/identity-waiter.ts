@@ -37,7 +37,7 @@ export class IdentityWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getCompartment(request),
-      response => targetStates.exists(response.compartment.lifecycleState),
+      response => targetStates.includes(response.compartment.lifecycleState!),
       targetStates.includes(models.Compartment.LifecycleState.Deleted)
     );
   }
@@ -56,7 +56,7 @@ export class IdentityWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getDynamicGroup(request),
-      response => targetStates.exists(response.dynamicGroup.lifecycleState),
+      response => targetStates.includes(response.dynamicGroup.lifecycleState!),
       targetStates.includes(models.DynamicGroup.LifecycleState.Deleted)
     );
   }
@@ -75,7 +75,7 @@ export class IdentityWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getGroup(request),
-      response => targetStates.exists(response.group.lifecycleState),
+      response => targetStates.includes(response.group.lifecycleState!),
       targetStates.includes(models.Group.LifecycleState.Deleted)
     );
   }
@@ -94,7 +94,7 @@ export class IdentityWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getIdentityProvider(request),
-      response => targetStates.exists(response.identityProvider.lifecycleState),
+      response => targetStates.includes(response.identityProvider.lifecycleState!),
       targetStates.includes(models.IdentityProvider.LifecycleState.Deleted)
     );
   }
@@ -113,7 +113,7 @@ export class IdentityWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getIdpGroupMapping(request),
-      response => targetStates.exists(response.idpGroupMapping.lifecycleState),
+      response => targetStates.includes(response.idpGroupMapping.lifecycleState!),
       targetStates.includes(models.IdpGroupMapping.LifecycleState.Deleted)
     );
   }
@@ -132,7 +132,7 @@ export class IdentityWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getPolicy(request),
-      response => targetStates.exists(response.policy.lifecycleState),
+      response => targetStates.includes(response.policy.lifecycleState!),
       targetStates.includes(models.Policy.LifecycleState.Deleted)
     );
   }
@@ -151,7 +151,7 @@ export class IdentityWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getTag(request),
-      response => targetStates.exists(response.tag.lifecycleState),
+      response => targetStates.includes(response.tag.lifecycleState!),
       targetStates.includes(models.Tag.LifecycleState.Deleted)
     );
   }
@@ -170,7 +170,7 @@ export class IdentityWaiter {
     return genericWaiter(
       this.config,
       () => this.client.getTagDefault(request),
-      response => targetStates.exists(response.tagDefault.lifecycleState)
+      response => targetStates.includes(response.tagDefault.lifecycleState!)
     );
   }
 
@@ -188,7 +188,7 @@ export class IdentityWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getTagNamespace(request),
-      response => targetStates.exists(response.tagNamespace.lifecycleState),
+      response => targetStates.includes(response.tagNamespace.lifecycleState!),
       targetStates.includes(models.TagNamespace.LifecycleState.Deleted)
     );
   }
@@ -223,7 +223,7 @@ export class IdentityWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getUser(request),
-      response => targetStates.exists(response.user.lifecycleState),
+      response => targetStates.includes(response.user.lifecycleState!),
       targetStates.includes(models.User.LifecycleState.Deleted)
     );
   }
@@ -242,7 +242,7 @@ export class IdentityWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getUserGroupMembership(request),
-      response => targetStates.exists(response.userGroupMembership.lifecycleState),
+      response => targetStates.includes(response.userGroupMembership.lifecycleState!),
       targetStates.includes(models.UserGroupMembership.LifecycleState.Deleted)
     );
   }

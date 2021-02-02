@@ -37,7 +37,7 @@ export class TransferApplianceEntitlementWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getTransferApplianceEntitlement(request),
-      response => targetStates.exists(response.transferApplianceEntitlement.lifecycleState),
+      response => targetStates.includes(response.transferApplianceEntitlement.lifecycleState!),
       targetStates.includes(models.TransferApplianceEntitlement.LifecycleState.Deleted)
     );
   }

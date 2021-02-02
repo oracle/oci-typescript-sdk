@@ -74,6 +74,7 @@ For each enabled `Service`, make sure there's a route rule with the `Service` ob
   "services": Array<model.ServiceIdRequestDetails>;
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VCN.
+   *
    */
   "vcnId": string;
 }

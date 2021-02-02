@@ -22,6 +22,7 @@ import common = require("oci-common");
 export interface BulkDeleteVirtualCircuitPublicPrefixesDetails {
   /**
    * The public IP prefixes (CIDRs) to remove from the public virtual circuit.
+   *
    */
   "publicPrefixes": Array<model.DeleteVirtualCircuitPublicPrefixDetails>;
 }

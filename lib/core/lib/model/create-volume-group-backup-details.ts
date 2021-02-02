@@ -21,7 +21,10 @@ import common = require("oci-common");
 
 export interface CreateVolumeGroupBackupDetails {
   /**
-   * The OCID of the compartment that will contain the volume group backup. This parameter is optional, by default backup will be created in the same compartment and source volume group.
+   * The OCID of the compartment that will contain the volume group
+   * backup. This parameter is optional, by default backup will be created in
+   * the same compartment and source volume group.
+   *
    */
   "compartmentId"?: string;
   /**

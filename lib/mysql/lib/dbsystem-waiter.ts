@@ -37,7 +37,7 @@ export class DbSystemWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getAnalyticsCluster(request),
-      response => targetStates.exists(response.analyticsCluster.lifecycleState),
+      response => targetStates.includes(response.analyticsCluster.lifecycleState!),
       targetStates.includes(models.AnalyticsCluster.LifecycleState.Deleted)
     );
   }
@@ -56,7 +56,7 @@ export class DbSystemWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getDbSystem(request),
-      response => targetStates.exists(response.dbSystem.lifecycleState),
+      response => targetStates.includes(response.dbSystem.lifecycleState!),
       targetStates.includes(models.DbSystem.LifecycleState.Deleted)
     );
   }

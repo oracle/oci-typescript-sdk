@@ -38,7 +38,7 @@ export class AnalyticsWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getAnalyticsInstance(request),
-      response => targetStates.exists(response.analyticsInstance.lifecycleState),
+      response => targetStates.includes(response.analyticsInstance.lifecycleState!),
       targetStates.includes(models.AnalyticsInstanceLifecycleState.Deleted)
     );
   }

@@ -23,6 +23,7 @@ export interface InstanceConfigurationIscsiAttachVolumeDetails
   extends model.InstanceConfigurationAttachVolumeDetails {
   /**
    * Whether to use CHAP authentication for the volume attachment. Defaults to false.
+   *
    */
   "useChap"?: boolean;
 

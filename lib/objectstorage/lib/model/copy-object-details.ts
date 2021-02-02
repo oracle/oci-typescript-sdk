@@ -53,7 +53,7 @@ export interface CopyObjectDetails {
    */
   "destinationBucket": string;
   /**
-   * The name of the destination object resulting from the copy operation.
+   * The name of the destination object resulting from the copy operation. Avoid entering confidential information.
    */
   "destinationObjectName": string;
   /**
@@ -77,6 +77,12 @@ export interface CopyObjectDetails {
    *
    */
   "destinationObjectMetadata"?: { [key: string]: string };
+  /**
+   * The storage tier that the object should be stored in. If not specified, the object will be stored in
+   * the same storage tier as the bucket.
+   *
+   */
+  "destinationObjectStorageTier"?: model.StorageTier;
 }
 
 export namespace CopyObjectDetails {

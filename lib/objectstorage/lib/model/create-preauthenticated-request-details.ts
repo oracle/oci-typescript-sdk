@@ -20,6 +20,8 @@ import common = require("oci-common");
 export interface CreatePreauthenticatedRequestDetails {
   /**
    * A user-specified name for the pre-authenticated request. Names can be helpful in managing pre-authenticated requests.
+   * Avoid entering confidential information.
+   *
    */
   "name": string;
   /**

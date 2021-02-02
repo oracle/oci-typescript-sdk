@@ -40,7 +40,7 @@ export class DeploymentWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getDeployment(request),
-      response => targetStates.exists(response.deployment.lifecycleState),
+      response => targetStates.includes(response.deployment.lifecycleState!),
       targetStates.includes(models.Deployment.LifecycleState.Deleted)
     );
   }

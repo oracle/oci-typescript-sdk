@@ -37,7 +37,7 @@ export class StreamAdminWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getConnectHarness(request),
-      response => targetStates.exists(response.connectHarness.lifecycleState),
+      response => targetStates.includes(response.connectHarness.lifecycleState!),
       targetStates.includes(models.ConnectHarness.LifecycleState.Deleted)
     );
   }
@@ -56,7 +56,7 @@ export class StreamAdminWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getStream(request),
-      response => targetStates.exists(response.stream.lifecycleState),
+      response => targetStates.includes(response.stream.lifecycleState!),
       targetStates.includes(models.Stream.LifecycleState.Deleted)
     );
   }
@@ -75,7 +75,7 @@ export class StreamAdminWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getStreamPool(request),
-      response => targetStates.exists(response.streamPool.lifecycleState),
+      response => targetStates.includes(response.streamPool.lifecycleState!),
       targetStates.includes(models.StreamPool.LifecycleState.Deleted)
     );
   }

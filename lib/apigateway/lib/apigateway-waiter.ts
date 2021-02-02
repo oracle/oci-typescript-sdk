@@ -40,7 +40,7 @@ export class ApiGatewayWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getApi(request),
-      response => targetStates.exists(response.api.lifecycleState),
+      response => targetStates.includes(response.api.lifecycleState!),
       targetStates.includes(models.Api.LifecycleState.Deleted)
     );
   }
@@ -59,7 +59,7 @@ export class ApiGatewayWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getCertificate(request),
-      response => targetStates.exists(response.certificate.lifecycleState),
+      response => targetStates.includes(response.certificate.lifecycleState!),
       targetStates.includes(models.Certificate.LifecycleState.Deleted)
     );
   }

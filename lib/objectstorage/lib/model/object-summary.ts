@@ -47,6 +47,14 @@ export interface ObjectSummary {
    */
   "etag"?: string;
   /**
+   * The storage tier that the object is stored in.
+   */
+  "storageTier"?: model.StorageTier;
+  /**
+   * Archival state of an object. This field is set only for objects in Archive tier.
+   */
+  "archivalState"?: model.ArchivalState;
+  /**
    * The date and time the object was modified, as described in [RFC 2616](https://tools.ietf.org/rfc/rfc2616), section 14.29.
    */
   "timeModified"?: Date;

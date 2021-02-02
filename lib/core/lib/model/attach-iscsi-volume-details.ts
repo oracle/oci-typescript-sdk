@@ -22,6 +22,7 @@ import common = require("oci-common");
 export interface AttachIScsiVolumeDetails extends model.AttachVolumeDetails {
   /**
    * Whether to use CHAP authentication for the volume attachment. Defaults to false.
+   *
    */
   "useChap"?: boolean;
 

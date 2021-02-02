@@ -61,7 +61,8 @@ Example: `50`
    */
   "sortOrder"?: ListServiceGatewaysRequest.SortOrder;
   /**
-   * A filter to return only resources that match the given lifecycle state.  The state value is case-insensitive.
+   * A filter to return only resources that match the given lifecycle
+   * state. The state value is case-insensitive.
    *
    */
   "lifecycleState"?: string;

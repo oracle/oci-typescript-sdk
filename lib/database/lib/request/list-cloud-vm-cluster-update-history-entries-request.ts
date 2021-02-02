@@ -44,6 +44,7 @@ export interface ListCloudVmClusterUpdateHistoryEntriesRequest extends common.Ba
 export namespace ListCloudVmClusterUpdateHistoryEntriesRequest {
   export enum UpdateType {
     GiUpgrade = "GI_UPGRADE",
-    GiPatch = "GI_PATCH"
+    GiPatch = "GI_PATCH",
+    OsUpdate = "OS_UPDATE"
   }
 }

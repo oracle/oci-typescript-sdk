@@ -39,7 +39,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * A user-friendly name for the instance configuration.  Does not have to be unique,
+   * A user-friendly name for the instance configuration. Does not have to be unique,
    * and it's changeable. Avoid entering confidential information.
    *
    */

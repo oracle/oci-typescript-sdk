@@ -34,7 +34,7 @@ export class OdaWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getOdaInstance(request),
-      response => targetStates.exists(response.odaInstance.lifecycleState),
+      response => targetStates.includes(response.odaInstance.lifecycleState!),
       targetStates.includes(models.OdaInstance.LifecycleState.Deleted)
     );
   }

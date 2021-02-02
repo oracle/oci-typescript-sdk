@@ -78,10 +78,12 @@ Example: `{\"Department\": \"Finance\"}`
   "id": string;
   /**
    * Specifies whether the cloned volume's data has finished copying from the source volume or backup.
+   *
    */
   "isHydrated"?: boolean;
   /**
    * The OCID of the Key Management key which is the master encryption key for the volume.
+   *
    */
   "kmsKeyId"?: string;
   /**
@@ -108,7 +110,9 @@ Allowed values:
    */
   "sizeInGBs"?: number;
   /**
-   * The size of the volume in MBs. This field is deprecated. Use sizeInGBs instead.
+   * The size of the volume in MBs. This field is deprecated. Use
+   * sizeInGBs instead.
+   *
    */
   "sizeInMBs": number;
   "sourceDetails"?: model.VolumeSourceFromVolumeDetails | model.VolumeSourceFromVolumeBackupDetails;

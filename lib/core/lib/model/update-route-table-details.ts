@@ -44,6 +44,7 @@ Example: `{\"Department\": \"Finance\"}`
   "freeformTags"?: { [key: string]: string };
   /**
    * The collection of rules used for routing destination IPs to network devices.
+   *
    */
   "routeRules"?: Array<model.RouteRule>;
 }

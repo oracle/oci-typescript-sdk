@@ -44,7 +44,7 @@ export class BlockstorageWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getBootVolume(request),
-      response => targetStates.exists(response.bootVolume.lifecycleState),
+      response => targetStates.includes(response.bootVolume.lifecycleState!),
       targetStates.includes(models.BootVolume.LifecycleState.Terminated)
     );
   }
@@ -63,7 +63,7 @@ export class BlockstorageWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getBootVolumeBackup(request),
-      response => targetStates.exists(response.bootVolumeBackup.lifecycleState),
+      response => targetStates.includes(response.bootVolumeBackup.lifecycleState!),
       targetStates.includes(models.BootVolumeBackup.LifecycleState.Terminated)
     );
   }
@@ -82,7 +82,7 @@ export class BlockstorageWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getVolume(request),
-      response => targetStates.exists(response.volume.lifecycleState),
+      response => targetStates.includes(response.volume.lifecycleState!),
       targetStates.includes(models.Volume.LifecycleState.Terminated)
     );
   }
@@ -101,7 +101,7 @@ export class BlockstorageWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getVolumeBackup(request),
-      response => targetStates.exists(response.volumeBackup.lifecycleState),
+      response => targetStates.includes(response.volumeBackup.lifecycleState!),
       targetStates.includes(models.VolumeBackup.LifecycleState.Terminated)
     );
   }
@@ -120,7 +120,7 @@ export class BlockstorageWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getVolumeGroup(request),
-      response => targetStates.exists(response.volumeGroup.lifecycleState),
+      response => targetStates.includes(response.volumeGroup.lifecycleState!),
       targetStates.includes(models.VolumeGroup.LifecycleState.Terminated)
     );
   }
@@ -139,7 +139,7 @@ export class BlockstorageWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getVolumeGroupBackup(request),
-      response => targetStates.exists(response.volumeGroupBackup.lifecycleState),
+      response => targetStates.includes(response.volumeGroupBackup.lifecycleState!),
       targetStates.includes(models.VolumeGroupBackup.LifecycleState.Terminated)
     );
   }

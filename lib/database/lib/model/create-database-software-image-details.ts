@@ -39,7 +39,7 @@ export interface CreateDatabaseSoftwareImageDetails {
    */
   "imageShapeFamily"?: CreateDatabaseSoftwareImageDetails.ImageShapeFamily;
   /**
-   * List of the Fault Domains in which this DB system is provisioned.
+   * The type of software image. Can be grid or database.
    */
   "imageType"?: CreateDatabaseSoftwareImageDetails.ImageType;
   /**

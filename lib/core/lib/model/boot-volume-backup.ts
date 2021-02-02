@@ -84,6 +84,7 @@ Example: `{\"Department\": \"Finance\"}`
   "id": string;
   /**
    * The image OCID used to create the boot volume the backup is taken from.
+   *
    */
   "imageId"?: string;
   /**
@@ -109,6 +110,7 @@ Example: `{\"Department\": \"Finance\"}`
   "sourceBootVolumeBackupId"?: string;
   /**
    * Specifies whether the backup was created manually, or via scheduled backup policy.
+   *
    */
   "sourceType"?: BootVolumeBackup.SourceType;
   /**

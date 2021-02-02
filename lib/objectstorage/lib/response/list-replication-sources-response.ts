@@ -26,8 +26,15 @@ export interface ListReplicationSourcesResponse {
    */
   "opcClientRequestId": string;
   /**
-   * Paginating a list of replication sources. In the GET request, set the limit to the number of items that you want returned in the response. If the opc-next-page header appears in the response, then this is a partial list and there are additional policies to get. Include the header's value as the `page` parameter in the subsequent GET request to get the next batch of policies. Repeat this process to retrieve the entire list of sources.
-   */
+     * For paginating a list of replication sources.
+* In the GET request, set the limit to the number of items that you want returned in the response.
+* If the `opc-next-page` header appears in the response, then this is a partial list and there are additional
+* policies to get. Include the header's value as the `page` parameter in the subsequent GET request to get the
+* next batch of policies. Repeat this process to retrieve the entire list of sources.
+* <p>
+For more details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+* 
+     */
   "opcNextPage": string;
   /**
    * A list of ReplicationSource instances.

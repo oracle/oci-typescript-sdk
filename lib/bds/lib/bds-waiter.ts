@@ -37,7 +37,7 @@ export class BdsWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getAutoScalingConfiguration(request),
-      response => targetStates.exists(response.autoScalingConfiguration.lifecycleState),
+      response => targetStates.includes(response.autoScalingConfiguration.lifecycleState!),
       targetStates.includes(models.AutoScalingConfiguration.LifecycleState.Deleted)
     );
   }
@@ -56,7 +56,7 @@ export class BdsWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getBdsInstance(request),
-      response => targetStates.exists(response.bdsInstance.lifecycleState),
+      response => targetStates.includes(response.bdsInstance.lifecycleState!),
       targetStates.includes(models.BdsInstance.LifecycleState.Deleted)
     );
   }

@@ -1549,6 +1549,11 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
             dataType: "Date"
           },
           {
+            value: response.headers.get("storage-tier"),
+            key: "storageTier",
+            dataType: "string"
+          },
+          {
             value: response.headers.get("archival-state"),
             key: "archivalState",
             dataType: "string"
@@ -2113,6 +2118,11 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
             dataType: "Date"
           },
           {
+            value: response.headers.get("storage-tier"),
+            key: "storageTier",
+            dataType: "string"
+          },
+          {
             value: response.headers.get("archival-state"),
             key: "archivalState",
             dataType: "string"
@@ -2147,6 +2157,9 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   /**
      * Gets a list of all BucketSummary items in a compartment. A BucketSummary contains only summary fields for the bucket
 * and does not contain fields like the user-defined metadata.
+* <p>
+ListBuckets returns a BucketSummary containing at most 1000 buckets. To paginate through more buckets, use the returned
+* `opc-next-page` value with the `page` request parameter.
 * <p>
 To use this and other API operations, you must be authorized in an IAM policy. If you are not authorized,
 * talk to an administrator. If you are an administrator who needs to write policies to give users access, see
@@ -2451,6 +2464,9 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   /**
      * Lists the object versions in a bucket.
 * <p>
+ListObjectVersions returns an ObjectVersionCollection containing at most 1000 object versions. To paginate through
+* more object versions, use the returned `opc-next-page` value with the `page` request parameter.
+* <p>
 To use this and other API operations, you must be authorized in an IAM policy. If you are not authorized,
 * talk to an administrator. If you are an administrator who needs to write policies to give users access, see
 * [Getting Started with Policies](https://docs.cloud.oracle.com/Content/Identity/Concepts/policygetstarted.htm).
@@ -2532,7 +2548,12 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   }
 
   /**
-     * Lists the objects in a bucket.
+     * Lists the objects in a bucket. By default, ListObjects returns object names only. See the `fields`
+* parameter for other fields that you can optionally include in ListObjects response.
+* <p>
+ListObjects returns at most 1000 objects. To paginate through more objects, use the returned 'nextStartWith'
+* value with the 'start' parameter. To filter which objects ListObjects returns, use the 'start' and 'end'
+* parameters.
 * <p>
 To use this and other API operations, you must be authorized in an IAM policy. If you are not authorized,
 * talk to an administrator. If you are an administrator who needs to write policies to give users access, see
@@ -3410,7 +3431,8 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
       "Cache-Control": putObjectRequest.cacheControl,
       "opc-sse-customer-algorithm": putObjectRequest.opcSseCustomerAlgorithm,
       "opc-sse-customer-key": putObjectRequest.opcSseCustomerKey,
-      "opc-sse-customer-key-sha256": putObjectRequest.opcSseCustomerKeySha256
+      "opc-sse-customer-key-sha256": putObjectRequest.opcSseCustomerKeySha256,
+      "storage-tier": putObjectRequest.storageTier
     };
 
     if (putObjectRequest.opcMeta) {
@@ -4003,6 +4025,74 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
         body: await response.json(),
         bodyKey: "namespaceMetadata",
         bodyModel: "model.NamespaceMetadata",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-client-request-id"),
+            key: "opcClientRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Changes the storage tier of the object specified by the objectName parameter.
+   *
+   * @param UpdateObjectStorageTierRequest
+   * @return UpdateObjectStorageTierResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/UpdateObjectStorageTier.ts.html |here} to see how to use UpdateObjectStorageTier API.
+   */
+  public async updateObjectStorageTier(
+    updateObjectStorageTierRequest: requests.UpdateObjectStorageTierRequest
+  ): Promise<responses.UpdateObjectStorageTierResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#updateObjectStorageTier.");
+    const pathParams = {
+      "{namespaceName}": updateObjectStorageTierRequest.namespaceName,
+      "{bucketName}": updateObjectStorageTierRequest.bucketName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-client-request-id": updateObjectStorageTierRequest.opcClientRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/n/{namespaceName}/b/{bucketName}/actions/updateObjectStorageTier",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateObjectStorageTierRequest.updateObjectStorageTierDetails,
+        "UpdateObjectStorageTierDetails",
+        models.UpdateObjectStorageTierDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateObjectStorageTierRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateObjectStorageTierResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-client-request-id"),

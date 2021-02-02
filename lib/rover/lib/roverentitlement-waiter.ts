@@ -37,7 +37,7 @@ export class RoverEntitlementWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getRoverEntitlement(request),
-      response => targetStates.exists(response.roverEntitlement.lifecycleState),
+      response => targetStates.includes(response.roverEntitlement.lifecycleState!),
       targetStates.includes(models.RoverEntitlement.LifecycleState.Deleted)
     );
   }

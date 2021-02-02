@@ -37,7 +37,7 @@ export class ApplianceExportJobWaiter {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getApplianceExportJob(request),
-      response => targetStates.exists(response.applianceExportJob.lifecycleState),
+      response => targetStates.includes(response.applianceExportJob.lifecycleState!),
       targetStates.includes(models.ApplianceExportJob.LifecycleState.Deleted)
     );
   }
