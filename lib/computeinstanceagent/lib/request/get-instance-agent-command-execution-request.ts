@@ -19,16 +19,16 @@ import common = require("oci-common");
  */
 export interface GetInstanceAgentCommandExecutionRequest extends common.BaseRequest {
   /**
-   * The OCID of the command.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the command.
    */
   "instanceAgentCommandId": string;
   /**
-   * The OCID of the instance.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the instance.
    */
   "instanceId": string;
   /**
-   * Unique identifier for the request.
-   * If you need to contact Oracle about a particular request, please provide the request ID.
+   * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request,
+   * please provide the request ID.
    *
    */
   "opcRequestId"?: string;

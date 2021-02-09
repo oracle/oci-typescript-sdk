@@ -22,6 +22,7 @@ import common = require("oci-common");
  * FAILED      - Job has failed due to errors during execution.
  * SUCCEEDED   - Job has successfully completed execution.
  * CANCELED    - Job has been aborted by the worker due to a user request.
+ * SUCCEEDED_WITH_WARNINGS - Job has successfully completed execution with one or more warnings.
  *
  **/
 export enum JobExecutionState {
@@ -31,6 +32,7 @@ export enum JobExecutionState {
   Failed = "FAILED",
   Succeeded = "SUCCEEDED",
   Canceled = "CANCELED",
+  SucceededWithWarnings = "SUCCEEDED_WITH_WARNINGS",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

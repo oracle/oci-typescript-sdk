@@ -79,6 +79,10 @@ import * as ListAvailableUpdatesForManagedInstanceRequest from "./list-available
 export import ListAvailableUpdatesForManagedInstanceRequest = ListAvailableUpdatesForManagedInstanceRequest.ListAvailableUpdatesForManagedInstanceRequest;
 import * as ListAvailableWindowsUpdatesForManagedInstanceRequest from "./list-available-windows-updates-for-managed-instance-request";
 export import ListAvailableWindowsUpdatesForManagedInstanceRequest = ListAvailableWindowsUpdatesForManagedInstanceRequest.ListAvailableWindowsUpdatesForManagedInstanceRequest;
+import * as ListErrataRequest from "./list-errata-request";
+export import ListErrataRequest = ListErrataRequest.ListErrataRequest;
+import * as ListManagedInstanceErrataRequest from "./list-managed-instance-errata-request";
+export import ListManagedInstanceErrataRequest = ListManagedInstanceErrataRequest.ListManagedInstanceErrataRequest;
 import * as ListManagedInstanceGroupsRequest from "./list-managed-instance-groups-request";
 export import ListManagedInstanceGroupsRequest = ListManagedInstanceGroupsRequest.ListManagedInstanceGroupsRequest;
 import * as ListManagedInstancesRequest from "./list-managed-instances-request";

@@ -136,6 +136,8 @@ export namespace ListAttributesRequest {
     ExternalDataType = "externalDataType",
     ExternalKey = "externalKey",
     Length = "length",
+    Precision = "precision",
+    Scale = "scale",
     IsNullable = "isNullable",
     Uri = "uri",
     Path = "path",

@@ -20,6 +20,13 @@ import common = require("oci-common");
  *
  */
 export interface DatabaseUpgradeSourceBase {
+  /**
+   * Additional upgrade options supported by DBUA(Database Upgrade Assistant).
+   * Example: \"-upgradeTimezone false -keepEvents\"
+   *
+   */
+  "options"?: string;
+
   "source": string;
 }
 

@@ -24,21 +24,69 @@ import common = require("oci-common");
  */
 export interface UpdateInstanceAgentConfigDetails {
   /**
-   * Whether Oracle Cloud Agent can gather performance metrics and monitor the instance using the
-   * monitoring plugins.
-   *
-   */
+    * Whether Oracle Cloud Agent can gather performance metrics and monitor the instance using the
+* monitoring plugins.
+* <p>
+These are the monitoring plugins: Compute Instance Monitoring
+* and Custom Logs Monitoring.
+* <p>
+The monitoring plugins are controlled by this parameter and by the per-plugin
+* configuration in the `pluginsConfig` object.
+* <p>
+- If `isMonitoringDisabled` is true, all of the monitoring plugins are disabled, regardless of
+* the per-plugin configuration.
+* - If `isMonitoringDisabled` is false, all of the monitoring plugins are enabled. You
+* can optionally disable individual monitoring plugins by providing a value in the `pluginsConfig`
+* object.
+* 
+    */
   "isMonitoringDisabled"?: boolean;
   /**
-   * Whether Oracle Cloud Agent can run all the available management plugins.
-   *
-   */
+    * Whether Oracle Cloud Agent can run all the available management plugins.
+* <p>
+These are the management plugins: OS Management Service Agent and Compute Instance
+* Run Command.
+* <p>
+The management plugins are controlled by this parameter and by the per-plugin
+* configuration in the `pluginsConfig` object.
+* <p>
+- If `isManagementDisabled` is true, all of the management plugins are disabled, regardless of
+* the per-plugin configuration.
+* - If `isManagementDisabled` is false, all of the management plugins are enabled. You
+* can optionally disable individual management plugins by providing a value in the `pluginsConfig`
+* object.
+* 
+    */
   "isManagementDisabled"?: boolean;
+  /**
+    * Whether Oracle Cloud Agent can run all the available plugins.
+* This includes the management and monitoring plugins.
+* <p>
+To get a list of available plugins, use the
+* {@link #listInstanceagentAvailablePlugins(ListInstanceagentAvailablePluginsRequest) listInstanceagentAvailablePlugins}
+* operation in the Oracle Cloud Agent API. For more information about the available plugins, see
+* [Managing Plugins with Oracle Cloud Agent](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/manage-plugins.htm).
+* 
+    */
+  "areAllPluginsDisabled"?: boolean;
+  /**
+   * The configuration of plugins associated with this instance.
+   */
+  "pluginsConfig"?: Array<model.InstanceAgentPluginConfigDetails>;
 }
 
 export namespace UpdateInstanceAgentConfigDetails {
   export function getJsonObj(obj: UpdateInstanceAgentConfigDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "pluginsConfig": obj.pluginsConfig
+          ? obj.pluginsConfig.map(item => {
+              return model.InstanceAgentPluginConfigDetails.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

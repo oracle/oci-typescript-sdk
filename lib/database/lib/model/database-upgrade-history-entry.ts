@@ -75,6 +75,12 @@ export interface DatabaseUpgradeHistoryEntry {
    * The date and time when the database upgrade ended.
    */
   "timeEnded"?: Date;
+  /**
+   * Additional upgrade options supported by DBUA(Database Upgrade Assistant).
+   * Example: \"-upgradeTimezone false -keepEvents\"
+   *
+   */
+  "options"?: string;
 }
 
 export namespace DatabaseUpgradeHistoryEntry {
