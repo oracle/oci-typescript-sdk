@@ -23,28 +23,32 @@ export interface ListInstanceAgentCommandExecutionsRequest extends common.BaseRe
    */
   "compartmentId": string;
   /**
-   * The OCID of the instance.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the instance.
    */
   "instanceId": string;
   /**
-   * Unique identifier for the request.
-   * If you need to contact Oracle about a particular request, please provide the request ID.
+   * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request,
+   * please provide the request ID.
    *
    */
   "opcRequestId"?: string;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * For list pagination. The value of the `opc-next-page` response header from the previous \"List\"
+   * call. For important details about how pagination works, see
+   * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;
   /**
-   * The maximum number of items to return in a paginated \"List\" call.
+   * For list pagination. The maximum number of results per page, or items to return in a paginated
+   * \"List\" call. For important details about how pagination works, see
+   * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "limit"?: number;
   /**
    * The field to sort by. You can provide one sort order (`sortOrder`). Default order for
-   * TIMECREATED is descending.
+   * `TIMECREATED` is descending.
    * <p>
    **Note:** In general, some \"List\" operations (for example, `ListInstances`) let you
    * optionally filter by availability domain if the scope of the resource type is within a
@@ -54,7 +58,7 @@ export interface ListInstanceAgentCommandExecutionsRequest extends common.BaseRe
    */
   "sortBy"?: ListInstanceAgentCommandExecutionsRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`). The DISPLAYNAME sort order
+   * The sort order to use, either ascending (`ASC`) or descending (`DESC`). The `DISPLAYNAME` sort order
    * is case sensitive.
    *
    */

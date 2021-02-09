@@ -55,8 +55,6 @@ import * as Id from "./id";
 export import Id = Id.Id;
 import * as InstallablePackageSummary from "./installable-package-summary";
 export import InstallablePackageSummary = InstallablePackageSummary.InstallablePackageSummary;
-import * as InstallationRequirements from "./installation-requirements";
-export import InstallationRequirements = InstallationRequirements.InstallationRequirements;
 import * as InstalledPackageSummary from "./installed-package-summary";
 export import InstalledPackageSummary = InstalledPackageSummary.InstalledPackageSummary;
 import * as InstalledWindowsUpdateSummary from "./installed-windows-update-summary";

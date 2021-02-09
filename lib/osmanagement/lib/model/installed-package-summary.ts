@@ -45,6 +45,10 @@ export interface InstalledPackageSummary {
    */
   "installTime"?: string;
   /**
+   * date the package was issued by a providing erratum (if available)
+   */
+  "issued"?: string;
+  /**
    * list of software sources that provide the software package
    */
   "softwareSources"?: Array<model.SoftwareSourceId>;

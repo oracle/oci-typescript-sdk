@@ -20,8 +20,10 @@ describe("Test Request Generator ", () => {
     "Content-Length": "0",
     "Content-Type": "application/json"
   };
-
-  const clientInfo = `Oracle-TypeScriptSDK/${version}`;
+  const appendUserAgent = process.env.OCI_SDK_APPEND_USER_AGENT;
+  const clientInfo = appendUserAgent
+    ? `Oracle-TypeScriptSDK/${version} ${appendUserAgent}`
+    : `Oracle-TypeScriptSDK/${version}`;
   const userAgent = `${clientInfo} (${os.platform}/${os.release}; Node/${process.version})`;
 
   it("should compose request properly  in Node environment", async function() {

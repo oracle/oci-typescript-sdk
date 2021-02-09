@@ -86,6 +86,30 @@ export interface ManagedInstance {
    * Indicates whether a reboot is required to complete installation of updates.
    */
   "isRebootRequired"?: boolean;
+  /**
+   * Number of security type updates available to be installed
+   */
+  "securityUpdatesAvailable"?: number;
+  /**
+   * Number of bug fix type updates available to be installed
+   */
+  "bugUpdatesAvailable"?: number;
+  /**
+   * Number of enhancement type updates available to be installed
+   */
+  "enhancementUpdatesAvailable"?: number;
+  /**
+   * Number of non-classified updates available to be installed
+   */
+  "otherUpdatesAvailable"?: number;
+  /**
+   * Number of scheduled jobs associated with this instance
+   */
+  "scheduledJobCount"?: number;
+  /**
+   * Number of work requests associated with this instance
+   */
+  "workRequestCount"?: number;
 }
 
 export namespace ManagedInstance {

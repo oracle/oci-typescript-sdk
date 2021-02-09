@@ -45,6 +45,14 @@ export interface AttributeSummary {
    */
   "length"?: number;
   /**
+   * Precision of the attribute value usually applies to float data type.
+   */
+  "precision"?: number;
+  /**
+   * Scale of the attribute value usually applies to float data type.
+   */
+  "scale"?: number;
+  /**
    * Property that identifies if this attribute can be assigned null values.
    */
   "isNullable"?: boolean;

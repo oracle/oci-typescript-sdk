@@ -20,14 +20,13 @@ export interface CreateManagedInstanceGroupResponse {
    */
   "location": string;
   /**
-   * Unique Oracle-assigned identifier for the request. If
-   * you need to contact Oracle about a particular request,
-   * please provide the request ID.
+   * Unique Oracle-assigned identifier for the request. If you need to contact
+   * Oracle about a particular request, please provide the request ID.
    *
    */
   "opcRequestId": string;
   /**
-   * For optimistic concurrency control. See if-match.
+   * For optimistic concurrency control. See `if-match`.
    *
    */
   "etag": string;

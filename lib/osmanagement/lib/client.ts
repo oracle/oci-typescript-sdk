@@ -2436,6 +2436,200 @@ export class OsManagementClient {
   }
 
   /**
+   * Returns a list of all of the currently available Errata in the system
+   *
+   * @param ListErrataRequest
+   * @return ListErrataResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListErrata.ts.html |here} to see how to use ListErrata API.
+   */
+  public async listErrata(
+    listErrataRequest: requests.ListErrataRequest
+  ): Promise<responses.ListErrataResponse> {
+    if (this.logger) this.logger.debug("Calling operation OsManagementClient#listErrata.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listErrataRequest.compartmentId,
+      "erratumId": listErrataRequest.erratumId,
+      "advisoryName": listErrataRequest.advisoryName,
+      "timeIssueDateStart": listErrataRequest.timeIssueDateStart,
+      "timeIssueDateEnd": listErrataRequest.timeIssueDateEnd,
+      "limit": listErrataRequest.limit,
+      "page": listErrataRequest.page,
+      "sortOrder": listErrataRequest.sortOrder,
+      "sortBy": listErrataRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listErrataRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/errata",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listErrataRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListErrataResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "ErratumSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ErratumSummary objects
+   * contained in responses from the listErrata operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllErrata(
+    request: requests.ListErrataRequest
+  ): AsyncIterableIterator<models.ErratumSummary> {
+    return paginateRecords(request, req => this.listErrata(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listErrata operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllErrataResponses(
+    request: requests.ListErrataRequest
+  ): AsyncIterableIterator<responses.ListErrataResponse> {
+    return paginateResponses(request, req => this.listErrata(req));
+  }
+
+  /**
+   * Returns a list of errata relevant to the Managed Instance.
+   *
+   * @param ListManagedInstanceErrataRequest
+   * @return ListManagedInstanceErrataResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListManagedInstanceErrata.ts.html |here} to see how to use ListManagedInstanceErrata API.
+   */
+  public async listManagedInstanceErrata(
+    listManagedInstanceErrataRequest: requests.ListManagedInstanceErrataRequest
+  ): Promise<responses.ListManagedInstanceErrataResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#listManagedInstanceErrata.");
+    const pathParams = {
+      "{managedInstanceId}": listManagedInstanceErrataRequest.managedInstanceId
+    };
+
+    const queryParams = {
+      "displayName": listManagedInstanceErrataRequest.displayName,
+      "compartmentId": listManagedInstanceErrataRequest.compartmentId,
+      "limit": listManagedInstanceErrataRequest.limit,
+      "page": listManagedInstanceErrataRequest.page,
+      "sortOrder": listManagedInstanceErrataRequest.sortOrder,
+      "sortBy": listManagedInstanceErrataRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listManagedInstanceErrataRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedInstances/{managedInstanceId}/errata",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listManagedInstanceErrataRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListManagedInstanceErrataResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "ErratumSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ErratumSummary objects
+   * contained in responses from the listManagedInstanceErrata operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllManagedInstanceErrata(
+    request: requests.ListManagedInstanceErrataRequest
+  ): AsyncIterableIterator<models.ErratumSummary> {
+    return paginateRecords(request, req => this.listManagedInstanceErrata(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listManagedInstanceErrata operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllManagedInstanceErrataResponses(
+    request: requests.ListManagedInstanceErrataRequest
+  ): AsyncIterableIterator<responses.ListManagedInstanceErrataResponse> {
+    return paginateResponses(request, req => this.listManagedInstanceErrata(req));
+  }
+
+  /**
    * Returns a list of all Managed Instance Groups.
    *
    * @param ListManagedInstanceGroupsRequest

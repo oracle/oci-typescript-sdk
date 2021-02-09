@@ -7575,6 +7575,144 @@ export class DataCatalogClient {
   }
 
   /**
+   * Act on a recommendation. A recommendation can be accepted or rejected. For example, if a recommendation of type LINK_GLOSSARY_TERM
+   * is accepted, the system will link the source object (e.g. an attribute) to a target glossary term.
+   *
+   * @param ProcessRecommendationRequest
+   * @return ProcessRecommendationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ProcessRecommendation.ts.html |here} to see how to use ProcessRecommendation API.
+   */
+  public async processRecommendation(
+    processRecommendationRequest: requests.ProcessRecommendationRequest
+  ): Promise<responses.ProcessRecommendationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#processRecommendation.");
+    const pathParams = {
+      "{catalogId}": processRecommendationRequest.catalogId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": processRecommendationRequest.ifMatch,
+      "opc-request-id": processRecommendationRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/actions/processRecommendation",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        processRecommendationRequest.processRecommendationDetails,
+        "ProcessRecommendationDetails",
+        models.ProcessRecommendationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      processRecommendationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ProcessRecommendationResponse>{},
+        body: await response.json(),
+        bodyKey: "processRecommendationDetails",
+        bodyModel: "model.ProcessRecommendationDetails",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of recommendations for the given object and recommendation type.
+   * By default, it will return inferred recommendations for review. The optional query param 'RecommendationStatus' can be set,
+   * to return only recommendations having that status.
+   *
+   * @param RecommendationsRequest
+   * @return RecommendationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/Recommendations.ts.html |here} to see how to use Recommendations API.
+   */
+  public async recommendations(
+    recommendationsRequest: requests.RecommendationsRequest
+  ): Promise<responses.RecommendationsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#recommendations.");
+    const pathParams = {
+      "{catalogId}": recommendationsRequest.catalogId
+    };
+
+    const queryParams = {
+      "recommendationType": recommendationsRequest.recommendationType,
+      "sourceObjectKey": recommendationsRequest.sourceObjectKey,
+      "sourceObjectType": recommendationsRequest.sourceObjectType,
+      "recommendationStatus": recommendationsRequest.recommendationStatus
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": recommendationsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/actions/getRecommendations",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      recommendationsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RecommendationsResponse>{},
+        body: await response.json(),
+        bodyKey: "recommendationCollection",
+        bodyModel: "model.RecommendationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Remove data selector pattern from the data asset.
    * @param RemoveDataSelectorPatternsRequest
    * @return RemoveDataSelectorPatternsResponse

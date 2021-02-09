@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Important changes for software. This can include security advisories, bug fixes, or enhancements.
+ * Important changes for software. This can include security | advisories, bug fixes, or enhancements.
  */
 export interface ErratumSummary {
   /**

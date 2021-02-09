@@ -16,21 +16,18 @@ import common = require("oci-common");
 
 export interface ListAvailableUpdatesForManagedInstanceResponse {
   /**
-   * Unique Oracle-assigned identifier for the request. If
-   * you need to contact Oracle about a particular request,
-   * please provide the request ID.
+   * Unique Oracle-assigned identifier for the request. If you need to contact
+   * Oracle about a particular request, please provide the request ID.
    *
    */
   "opcRequestId": string;
   /**
-     * For pagination of a list of `UpdatablePackage`s. If this header
-* appears in the response, then this is a partial list of
-* `UpdatablePackage`s for the managed instance. Include this value
-* as the `page` parameter in a subsequent
-* <p>
-GET request to get the next batch of managed instances.
-* 
-     */
+   * For pagination of a list of items. When paging through a list, if this
+   * header appears in the response, then a partial list might have been
+   * returned. Include this value as the `page` parameter for the subsequent
+   * GET request to get the next batch of items.
+   *
+   */
   "opcNextPage": string;
   /**
    * A list of AvailableUpdateSummary instances.

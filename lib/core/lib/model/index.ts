@@ -366,6 +366,8 @@ import * as InstanceAgentConfig from "./instance-agent-config";
 export import InstanceAgentConfig = InstanceAgentConfig.InstanceAgentConfig;
 import * as InstanceAgentFeatures from "./instance-agent-features";
 export import InstanceAgentFeatures = InstanceAgentFeatures.InstanceAgentFeatures;
+import * as InstanceAgentPluginConfigDetails from "./instance-agent-plugin-config-details";
+export import InstanceAgentPluginConfigDetails = InstanceAgentPluginConfigDetails.InstanceAgentPluginConfigDetails;
 import * as InstanceAvailabilityConfig from "./instance-availability-config";
 export import InstanceAvailabilityConfig = InstanceAvailabilityConfig.InstanceAvailabilityConfig;
 import * as InstanceConfiguration from "./instance-configuration";
