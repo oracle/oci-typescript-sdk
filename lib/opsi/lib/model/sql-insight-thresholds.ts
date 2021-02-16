@@ -23,43 +23,43 @@ import common = require("oci-common");
 export interface SqlInsightThresholds {
   /**
    * Degradation Percent Threshold is used to derive degrading SQLs.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "degradationInPct": number;
   /**
    * Variability Percent Threshold is used to derive variant SQLs.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "variability": number;
   /**
    * Inefficiency Percent Threshold is used to derive inefficient SQLs.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "inefficiencyInPct": number;
   /**
    * PctIncreaseInIO is used for deriving insights for SQLs which are degrading or
    * variant or inefficient. And these SQLs should also have increasing change in IO Time
    * beyond threshold. Insights are derived using linear regression.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "increaseInIOInPct": number;
   /**
    * PctIncreaseInCPU is used for deriving insights for SQLs which are degrading or
    * variant or inefficient. And these SQLs should also have increasing change in CPU Time
    * beyond threshold. Insights are derived using linear regression.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "increaseInCPUInPct": number;
   /**
    * PctIncreaseInIO is used for deriving insights for SQLs which are degrading or
    * variant or inefficient. And these SQLs should also have increasing change in
    * Other Wait Time beyond threshold. Insights are derived using linear regression.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "increaseInInefficientWaitInPct": number;
   /**
    * Improved Percent Threshold is used to derive improving SQLs.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "improvedInPct": number;
 }

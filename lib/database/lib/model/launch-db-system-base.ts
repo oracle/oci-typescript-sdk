@@ -143,7 +143,7 @@ The maximum length of the combined hostname and domain is 63 characters.
 * <p>
 This parameter is not used for virtual machine DB systems because virtual machine DB systems have a set number of cores for each shape.
 * For information about the number of cores for a virtual machine DB system shape, see [Virtual Machine DB Systems](https://docs.cloud.oracle.com/Content/Database/Concepts/overview.htm#virtualmachine)
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "cpuCoreCount": number;
   /**
@@ -155,12 +155,12 @@ This parameter is not used for virtual machine DB systems because virtual machin
    * The percentage assigned to DATA storage (user data and database files).
    * The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups).
    * Specify 80 or 40. The default is 80 percent assigned to DATA storage. Not applicable for virtual machine DB systems.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStoragePercentage"?: number;
   /**
    * Size (in GB) of the initial data volume that will be created and attached to a virtual machine DB system. You can scale up storage after provisioning, as needed. Note that the total storage size attached will be more than the amount you specify to allow for REDO/RECO space and software volume.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "initialDataStorageSizeInGB"?: number;
   /**
@@ -174,7 +174,7 @@ This parameter is not used for virtual machine DB systems because virtual machin
   "kmsKeyVersionId"?: string;
   /**
    * The number of nodes to launch for a 2-node RAC virtual machine DB system. Specify either 1 or 2.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "nodeCount"?: number;
   /**

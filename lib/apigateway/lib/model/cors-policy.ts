@@ -56,7 +56,7 @@ export interface CorsPolicy {
   /**
    * The time in seconds for the client to cache preflight responses. This is sent as the Access-Control-Max-Age
    * if greater than 0.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxAgeInSeconds"?: number;
 }

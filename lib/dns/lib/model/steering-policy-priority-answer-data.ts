@@ -26,7 +26,7 @@ export interface SteeringPolicyPriorityAnswerData {
    * The rank assigned to the set of answers that match the expression in `answerCondition`.
    * Answers with the lowest values move to the beginning of the list without changing the
    * relative order of those with the same value. Answers can be given a value between `0` and `255`.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "value": number;
 }

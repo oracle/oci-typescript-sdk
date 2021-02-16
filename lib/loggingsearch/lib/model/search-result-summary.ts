@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface SearchResultSummary {
   /**
-   * Total number of search results.
+   * Total number of search results. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "resultCount"?: number;
   /**
-   * Total number of field schema information.
+   * Total number of field schema information. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "fieldCount"?: number;
 }

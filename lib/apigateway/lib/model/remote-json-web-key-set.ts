@@ -38,7 +38,7 @@ export interface RemoteJsonWebKeySet extends model.PublicKeySet {
   /**
    * The duration for which the JWKS should be cached before it is
    * fetched again.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxCacheDurationInHours"?: number;
 

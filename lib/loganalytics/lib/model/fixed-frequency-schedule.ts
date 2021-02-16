@@ -31,7 +31,7 @@ export interface FixedFrequencySchedule extends model.Schedule {
    * Number of times (0-based) to execute until auto-stop.
    * Default value -1 will execute indefinitely.
    * Value 0 will execute once.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "repeatCount"?: number;
 

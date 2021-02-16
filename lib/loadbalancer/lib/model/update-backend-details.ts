@@ -28,7 +28,7 @@ export interface UpdateBackendDetails {
 * [How Load Balancing Policies Work](https://docs.cloud.oracle.com/Content/Balance/Reference/lbpolicies.htm).
 * <p>
 Example: `3`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "weight": number;
   /**

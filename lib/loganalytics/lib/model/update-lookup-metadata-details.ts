@@ -32,7 +32,7 @@ export interface UpdateLookupMetadataDetails {
    */
   "fields"?: Array<model.LogAnalyticsLookupFields>;
   /**
-   * The maximum number of matches.
+   * The maximum number of matches. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxMatches"?: number;
 }

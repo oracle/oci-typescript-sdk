@@ -79,11 +79,11 @@ export interface BlockchainPlatform {
    */
   "lifecycleDetails"?: string;
   /**
-   * Storage size in TBs
+   * Storage size in TBs Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "storageSizeInTBs"?: number;
   /**
-   * Storage used in TBs
+   * Storage used in TBs Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "storageUsedInTBs"?: number;
   /**
@@ -91,7 +91,7 @@ export interface BlockchainPlatform {
    */
   "isMultiAD"?: boolean;
   /**
-   * Number of total OCPUs allocated to the platform cluster
+   * Number of total OCPUs allocated to the platform cluster Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalOcpuCapacity"?: number;
   "componentDetails"?: model.BlockchainPlatformComponentDetails;

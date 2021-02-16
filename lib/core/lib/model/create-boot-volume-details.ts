@@ -66,7 +66,7 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "kmsKeyId"?: string;
   /**
-   * The size of the volume in GBs.
+   * The size of the volume in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sizeInGBs"?: number;
   /**
@@ -79,7 +79,7 @@ Allowed values:
   * `10`: Represents Balanced option.
 * <p>
   * `20`: Represents Higher Performance option.
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "vpusPerGB"?: number;
   "sourceDetails":

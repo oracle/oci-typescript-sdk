@@ -24,11 +24,11 @@ import common = require("oci-common");
  */
 export interface ImageMemoryConstraints {
   /**
-   * The minimum amount of memory, in gigabytes.
+   * The minimum amount of memory, in gigabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minInGBs"?: number;
   /**
-   * The maximum amount of memory, in gigabytes.
+   * The maximum amount of memory, in gigabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxInGBs"?: number;
 }

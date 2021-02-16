@@ -23,11 +23,11 @@ export interface SecurityScoreTrendAggregation {
    */
   "dimensionsMap": { [key: string]: string };
   /**
-   * Start Time in epoch seconds
+   * Start Time in epoch seconds Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "startTimestamp": number;
   /**
-   * Duration
+   * Duration Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "durationInSeconds": number;
   /**
@@ -35,7 +35,7 @@ export interface SecurityScoreTrendAggregation {
    */
   "securityRating": model.SecurityRating;
   /**
-   * The security score with given dimensions and time range
+   * The security score with given dimensions and time range Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "securityScore": number;
 }

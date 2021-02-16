@@ -27,11 +27,11 @@ export interface UpdateCloudExadataInfrastructureDetails {
   "displayName"?: string;
   "maintenanceWindow"?: model.MaintenanceWindow;
   /**
-   * The number of compute servers for the cloud Exadata infrastructure.
+   * The number of compute servers for the cloud Exadata infrastructure. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "computeCount"?: number;
   /**
-   * The number of storage servers for the cloud Exadata infrastructure.
+   * The number of storage servers for the cloud Exadata infrastructure. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "storageCount"?: number;
   /**

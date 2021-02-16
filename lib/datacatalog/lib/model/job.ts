@@ -89,7 +89,7 @@ export interface Job {
   "internalVersion"?: string;
   /**
    * The total number of executions for this job schedule.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "executionCount"?: number;
   /**

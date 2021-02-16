@@ -27,12 +27,12 @@ import common = require("oci-common");
 export interface InstanceShapeConfig {
   /**
    * The total number of OCPUs available to the instance.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ocpus"?: number;
   /**
    * The total amount of memory available to the instance, in gigabytes.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryInGBs"?: number;
   /**
@@ -42,17 +42,17 @@ export interface InstanceShapeConfig {
   "processorDescription"?: string;
   /**
    * The networking bandwidth available to the instance, in gigabits per second.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "networkingBandwidthInGbps"?: number;
   /**
    * The maximum number of VNIC attachments for the instance.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxVnicAttachments"?: number;
   /**
    * The number of GPUs available to the instance.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "gpus"?: number;
   /**
@@ -64,14 +64,14 @@ If the instance does not have any GPUs, this field is `null`.
   "gpuDescription"?: string;
   /**
    * The number of local disks available to the instance.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "localDisks"?: number;
   /**
     * The aggregate size of all local disks, in gigabytes.
 * <p>
 If the instance does not have any local disks, this field is `null`.
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "localDisksTotalSizeInGBs"?: number;
   /**

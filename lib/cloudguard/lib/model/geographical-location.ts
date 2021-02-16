@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface GeographicalLocation {
   /**
-   * Latitude
+   * Latitude Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "latitude": number;
   /**
-   * Longitude
+   * Longitude Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "longitude": number;
 }

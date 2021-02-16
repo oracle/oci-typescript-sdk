@@ -29,7 +29,7 @@ export interface KeyShape {
    *   - AES: 16, 24 or 32
    *   - RSA: 256, 384 or 512
    *   - ECDSA: 32, 48, 66
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "length": number;
   /**

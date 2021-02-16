@@ -27,7 +27,7 @@ export interface CustomPropertyTypeUsage {
    */
   "typeName"?: string;
   /**
-   * Number of objects associated with this type
+   * Number of objects associated with this type Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "count"?: number;
 }

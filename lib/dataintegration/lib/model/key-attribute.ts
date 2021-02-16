@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface KeyAttribute {
   /**
-   * The position of the attribute.
+   * The position of the attribute. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "position"?: number;
   "attribute"?: model.ShapeField;

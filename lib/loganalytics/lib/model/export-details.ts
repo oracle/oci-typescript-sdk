@@ -53,12 +53,12 @@ Some commands including head/tail are not compatible with streaming result deliv
 *  no sort command or sort by id, e.g. ' | sort id ' - is streaming compatible
 *  sort by time and id, e.g. ' | sort -time, id ' - is streaming compatible
 * all other cases, e.g. ' | sort -time, id, mtgtguid ' - is not streaming compatible due to the additional sort field
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "maxTotalCount"?: number;
   "timeFilter"?: model.TimeRange;
   /**
-   * Amount of time, in seconds, allowed for a query to execute. If this time expires before the query is complete, any partial results will be returned.
+   * Amount of time, in seconds, allowed for a query to execute. If this time expires before the query is complete, any partial results will be returned. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "queryTimeoutInSeconds"?: number;
   /**

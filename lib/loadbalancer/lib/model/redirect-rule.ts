@@ -47,7 +47,7 @@ The status line returned with the code is mapped from the standard HTTP specific
 The default value is `302` (Found).
 * <p>
 Example: `301`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "responseCode"?: number;
   "conditions": Array<model.RuleCondition>;

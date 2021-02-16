@@ -102,7 +102,7 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    */
   "version"?: string;
   /**
-   * The number of CPU cores enabled on the DB system.
+   * The number of CPU cores enabled on the DB system. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCount": number;
   /**
@@ -113,7 +113,7 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
   /**
    * The percentage assigned to DATA storage (user data and database files).
    * The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are 40 and 80. The default is 80 percent assigned to DATA storage. Not applicable for virtual machine DB systems.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStoragePercentage"?: number;
   /**
@@ -126,7 +126,7 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    */
   "lastPatchHistoryEntryId"?: string;
   /**
-   * The port number configured for the listener on the DB system.
+   * The port number configured for the listener on the DB system. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "listenerPort"?: number;
   /**
@@ -177,18 +177,28 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    */
   "scanDnsRecordId"?: string;
   /**
-   * The data storage size, in gigabytes, that is currently available to the DB system. Applies only for virtual machine DB systems.
+   * The FQDN of the DNS record for the SCAN IP addresses that are associated with the DB system.
    *
+   */
+  "scanDnsName"?: string;
+  /**
+   * The OCID of the zone the DB system is associated with.
+   *
+   */
+  "zoneId"?: string;
+  /**
+   * The data storage size, in gigabytes, that is currently available to the DB system. Applies only for virtual machine DB systems.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInGBs"?: number;
   /**
    * The RECO/REDO storage size, in gigabytes, that is currently allocated to the DB system. Applies only for virtual machine DB systems.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "recoStorageSizeInGB"?: number;
   /**
    * The number of nodes in the DB system. For RAC DB systems, the value is greater than 1.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "nodeCount"?: number;
   /**

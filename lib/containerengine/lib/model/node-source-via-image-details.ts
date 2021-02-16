@@ -26,7 +26,7 @@ export interface NodeSourceViaImageDetails extends model.NodeSourceDetails {
    */
   "imageId": string;
   /**
-   * The size of the boot volume in GBs. Minimum value is 50 GB. See [here](https://docs.cloud.oracle.com/en-us/iaas/Content/Block/Concepts/bootvolumes.htm) for max custom boot volume sizing and OS-specific requirements.
+   * The size of the boot volume in GBs. Minimum value is 50 GB. See [here](https://docs.cloud.oracle.com/en-us/iaas/Content/Block/Concepts/bootvolumes.htm) for max custom boot volume sizing and OS-specific requirements. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "bootVolumeSizeInGBs"?: number;
 

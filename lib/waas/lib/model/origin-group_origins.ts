@@ -20,7 +20,7 @@ export interface OriginGroupOrigins {
    */
   "origin"?: string;
   /**
-   * The weight of the origin used in load balancing. Origins with higher weights will receive larger proportions of client requests.
+   * The weight of the origin used in load balancing. Origins with higher weights will receive larger proportions of client requests. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "weight"?: number;
 }

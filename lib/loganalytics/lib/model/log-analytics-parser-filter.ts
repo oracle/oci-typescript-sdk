@@ -29,7 +29,7 @@ export interface LogAnalyticsParserFilter {
    */
   "agentVersion"?: string;
   /**
-   * is in use flag
+   * is in use flag Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "isInUse"?: number;
   /**
@@ -37,7 +37,7 @@ export interface LogAnalyticsParserFilter {
    */
   "operatingSystem"?: string;
   /**
-   * parser Id
+   * parser Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "parserId"?: number;
   /**

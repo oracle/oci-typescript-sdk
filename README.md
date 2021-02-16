@@ -79,4 +79,5 @@ See [CHANGELOG](https://github.com/oracle/oci-typescript-sdk/tree/master/CHANGEL
 
 ## Known Issues
 
-You can find information on any known issues with the SDK at [Oracle Cloud Infrastructure Known Issues](https://docs.cloud.oracle.com/en-us/iaas/Content/knownissues.htm) and under the [Issues](https://github.com/oracle/oci-typescript-sdk/issues) tab of this project's GitHub repository.
+- You can find information on any known issues with the SDK at [Oracle Cloud Infrastructure Known Issues](https://docs.cloud.oracle.com/en-us/iaas/Content/knownissues.htm) and under the [Issues](https://github.com/oracle/oci-typescript-sdk/issues) tab of this project's GitHub repository.
+- JavaScript numbers have rounding issues for number greater than Number.MAX_SAFE_INTEGER, APIs with responses that contain number greater than Number.MAX_SAFE_INTEGER may result in rounding issues.

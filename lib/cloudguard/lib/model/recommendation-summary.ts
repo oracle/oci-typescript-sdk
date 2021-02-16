@@ -47,7 +47,7 @@ export interface RecommendationSummary {
    */
   "riskLevel"?: model.RiskLevel;
   /**
-   * Count number of the problem
+   * Count number of the problem Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "problemCount": number;
   /**

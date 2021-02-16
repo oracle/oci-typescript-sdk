@@ -31,7 +31,7 @@ export interface CreateAutonomousDatabaseBase {
    */
   "dbName": string;
   /**
-   * The number of OCPU cores to be made available to the database.
+   * The number of OCPU cores to be made available to the database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCount": number;
   /**
@@ -46,7 +46,7 @@ export interface CreateAutonomousDatabaseBase {
   "dbWorkload"?: CreateAutonomousDatabaseBase.DbWorkload;
   /**
    * The size, in terabytes, of the data volume that will be created and attached to the database. This storage can later be scaled up if needed.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInTBs"?: number;
   /**

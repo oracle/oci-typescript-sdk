@@ -32,7 +32,7 @@ export interface LogAnalyticsAssociation {
    */
   "timeLastAttempted"?: Date;
   /**
-   * retry count
+   * retry count Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "retryCount"?: number;
   /**

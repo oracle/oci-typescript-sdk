@@ -53,7 +53,7 @@ Example: [\"GET\", \"PUT\", \"POST\", \"PROPFIND\"]
 * default value is `405 (Method Not Allowed)`.
 * <p>
 Example: 403
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "statusCode"?: number;
 

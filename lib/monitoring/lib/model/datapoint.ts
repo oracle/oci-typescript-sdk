@@ -33,14 +33,14 @@ Example: `2019-02-01T01:02:29.600Z`
     * Numeric value of the metric.
 * <p>
 Example: `10.23`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "value": number;
   /**
     * The number of occurrences of the associated value in the set of data.
 * <p>
 Default is 1. Value must be greater than zero.
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "count"?: number;
 }

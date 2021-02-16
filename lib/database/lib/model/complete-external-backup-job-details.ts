@@ -33,11 +33,11 @@ export interface CompleteExternalBackupJobDetails {
    */
   "sqlPatches"?: Array<string>;
   /**
-   * The size of the data in the database, in megabytes.
+   * The size of the data in the database, in megabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataSize"?: number;
   /**
-   * The size of the redo in the database, in megabytes.
+   * The size of the redo in the database, in megabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "redoSize"?: number;
 }

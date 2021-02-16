@@ -22,7 +22,7 @@ export interface LogAnalyticsExtendedField {
   "field"?: model.LogAnalyticsField;
   "extendedFieldDefinition"?: model.LogAnalyticsSourceExtendedFieldDefinition;
   /**
-   * Id
+   * Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "extendedFieldDefinitionId"?: number;
   /**
@@ -38,7 +38,7 @@ export interface LogAnalyticsExtendedField {
    */
   "savedRegularExpressionName"?: string;
   /**
-   * extended field Id
+   * extended field Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "extendedFieldId"?: number;
 }

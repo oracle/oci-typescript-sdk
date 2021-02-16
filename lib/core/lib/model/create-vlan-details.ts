@@ -85,7 +85,7 @@ Example: `{\"Department\": \"Finance\"}`
    * The IEEE 802.1Q VLAN tag for this VLAN. The value must be unique across all
    * VLANs in the VCN. If you don't provide a value, Oracle assigns one.
    * You cannot change the value later. VLAN tag 0 is reserved for use by Oracle.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "vlanTag"?: number;
 }

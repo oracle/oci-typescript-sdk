@@ -21,7 +21,7 @@ import common = require("oci-common");
 export interface LogAnalyticsParserField {
   "field"?: model.LogAnalyticsField;
   /**
-   * parser field map Id
+   * parser field map Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "parserFieldId"?: number;
   /**
@@ -45,7 +45,7 @@ export interface LogAnalyticsParserField {
    */
   "parserName"?: string;
   /**
-   * sequence
+   * sequence Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "parserFieldSequence"?: number;
   "parser"?: model.LogAnalyticsParser;

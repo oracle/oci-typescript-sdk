@@ -19,23 +19,23 @@ import common = require("oci-common");
  */
 export interface ScaledPlatformMeteringPreview {
   /**
-   * Number of total OCPU allocation for the blockchain platform
+   * Number of total OCPU allocation for the blockchain platform Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalOcpuAllocation"?: number;
   /**
-   * Number of total OCPU allocation for the blockchain platform after Scaling
+   * Number of total OCPU allocation for the blockchain platform after Scaling Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalOcpuAllocationPostScaling"?: number;
   /**
-   * Current Storage metered units in TBs
+   * Current Storage metered units in TBs Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "storageMeteredUnits"?: number;
   /**
-   * Extra Storage units required in TBs
+   * Extra Storage units required in TBs Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "extraStorageMeteredUnits"?: number;
   /**
-   * Total Post Scaling Storage metered units in TBs
+   * Total Post Scaling Storage metered units in TBs Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "storageMeteredUnitsPostScaling"?: number;
 }

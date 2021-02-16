@@ -61,7 +61,7 @@ export interface LogAnalyticsSourceExtendedFieldDefinition {
    */
   "isEnabled"?: boolean;
   /**
-   * id
+   * id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "extendedFieldDefinitionId"?: number;
   /**
@@ -73,7 +73,7 @@ export interface LogAnalyticsSourceExtendedFieldDefinition {
    */
   "regularExpression"?: string;
   /**
-   * source Id
+   * source Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourceId"?: number;
   /**

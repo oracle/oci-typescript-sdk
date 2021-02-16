@@ -94,7 +94,7 @@ Example: `2016-08-25T21:10:29.600Z`
 - bit 0: SUSPENDED (reserved for future use)
 * - bit 1: DISABLED (reserved for future use)
 * - bit 2: BLOCKED (the user has exceeded the maximum number of failed login attempts for the Console)
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "inactiveStatus"?: number;
   /**

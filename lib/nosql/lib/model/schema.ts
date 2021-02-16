@@ -35,7 +35,7 @@ export interface Schema {
    */
   "shardKey": Array<string>;
   /**
-   * The default Time-to-Live for the table, in days.
+   * The default Time-to-Live for the table, in days. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ttl": number;
 }

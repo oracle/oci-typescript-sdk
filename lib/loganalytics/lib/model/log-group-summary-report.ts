@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface LogGroupSummaryReport {
   /**
-   * log group count
+   * log group count Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "count"?: number;
 }

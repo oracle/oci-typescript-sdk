@@ -26,7 +26,7 @@ export interface UpdateCloudVmClusterDetails {
    */
   "displayName"?: string;
   /**
-   * The number of CPU cores to enable for the cloud VM cluster.
+   * The number of CPU cores to enable for the cloud VM cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCount"?: number;
   /**
@@ -56,7 +56,7 @@ export interface UpdateCloudVmClusterDetails {
    */
   "computeNodes"?: Array<string>;
   /**
-   * The disk group size to be allocated in GBs.
+   * The disk group size to be allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "storageSizeInGBs"?: number;
   /**

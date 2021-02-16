@@ -43,7 +43,7 @@ Example: `10 Gbps`
   /**
    * Deprecated. Instead use `customerAsn`.
    * If you specify values for both, the request will be rejected.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "customerBgpAsn"?: number;
   /**
@@ -53,7 +53,7 @@ Example: `10 Gbps`
 * Can be a 2-byte or 4-byte ASN. Uses \"asplain\" format.
 * <p>
 Example: `12345` (2-byte) or `1587232876` (4-byte)
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "customerAsn"?: number;
   /**

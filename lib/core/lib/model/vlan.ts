@@ -94,7 +94,7 @@ Example: `{\"Department\": \"Finance\"}`
     * The IEEE 802.1Q VLAN tag of this VLAN.
 * <p>
 Example: `100`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "vlanTag"?: number;
   /**

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface OcpuAllocationNumberParam {
   /**
-   * Number of OCPU allocation
+   * Number of OCPU allocation Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ocpuAllocationNumber": number;
 }

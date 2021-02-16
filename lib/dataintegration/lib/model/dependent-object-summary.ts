@@ -55,7 +55,7 @@ export interface DependentObjectSummary {
    */
   "infoFields"?: { [key: string]: string };
   /**
-   * The registry version of the object.
+   * The registry version of the object. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "registryVersion"?: number;
   /**

@@ -23,7 +23,7 @@ export interface RecommendationCount {
    */
   "importance": model.Importance;
   /**
-   * The count of recommendations.
+   * The count of recommendations. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "count": number;
 }

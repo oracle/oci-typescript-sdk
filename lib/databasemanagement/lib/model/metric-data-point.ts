@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface MetricDataPoint {
   /**
-   * The value of the metric.
+   * The value of the metric. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "value"?: number;
   /**

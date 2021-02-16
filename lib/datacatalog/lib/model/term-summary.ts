@@ -66,7 +66,7 @@ export interface TermSummary {
    */
   "workflowStatus"?: model.TermWorkflowStatus;
   /**
-   * The number of objects tagged with this term.
+   * The number of objects tagged with this term. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "associatedObjectCount"?: number;
   /**

@@ -28,7 +28,7 @@ export interface CreateClusterKubeconfigContentDetails {
   "tokenVersion"?: string;
   /**
    * Deprecated. This field is no longer used.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "expiration"?: number;
 }

@@ -51,7 +51,7 @@ export interface InstanceAgentCommand {
   /**
    * The amount of time that Oracle Cloud Agent is given to run the command on the instance before timing
    * out. The timer starts when Oracle Cloud Agent starts the command. Zero means no timeout.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "executionTimeOutInSeconds"?: number;
   /**

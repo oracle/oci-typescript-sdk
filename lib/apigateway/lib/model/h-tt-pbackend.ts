@@ -25,17 +25,17 @@ export interface HTTPBackend extends model.ApiSpecificationRouteBackend {
   "url": string;
   /**
    * Defines a timeout for establishing a connection with a proxied server.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "connectTimeoutInSeconds"?: number;
   /**
    * Defines a timeout for reading a response from the proxied server.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "readTimeoutInSeconds"?: number;
   /**
    * Defines a timeout for transmitting a request to the proxied server.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sendTimeoutInSeconds"?: number;
   /**

@@ -51,12 +51,12 @@ export interface Geolocation {
   "countryName"?: string;
   /**
    * Degrees north of the Equator.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "latitude"?: number;
   /**
    * Degrees east of the prime meridian.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "longitude"?: number;
 }

@@ -71,119 +71,119 @@ export interface ConfigurationVariables {
    */
   "sqlWarnings"?: boolean;
   /**
-   * (\"binlog_expire_logs_seconds\") DEPRECATED -- variable should not be settable and will be ignored
+   * (\"binlog_expire_logs_seconds\") DEPRECATED -- variable should not be settable and will be ignored Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "binlogExpireLogsSeconds"?: number;
   /**
-   * (\"innodb_buffer_pool_size\")
+   * (\"innodb_buffer_pool_size\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "innodbBufferPoolSize"?: number;
   /**
-   * (\"innodb_ft_result_cache_limit\")
+   * (\"innodb_ft_result_cache_limit\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "innodbFtResultCacheLimit"?: number;
   /**
-   * (\"max_connections\")
+   * (\"max_connections\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxConnections"?: number;
   /**
-   * (\"max_prepared_stmt_count\")
+   * (\"max_prepared_stmt_count\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxPreparedStmtCount"?: number;
   /**
-   * (\"connect_timeout\")
+   * (\"connect_timeout\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "connectTimeout"?: number;
   /**
-   * (\"cte_max_recursion_depth\")
+   * (\"cte_max_recursion_depth\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cteMaxRecursionDepth"?: number;
   /**
-   * (\"generated_random_password_length\") DEPRECATED -- variable should not be settable and will be ignored
+   * (\"generated_random_password_length\") DEPRECATED -- variable should not be settable and will be ignored Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "generatedRandomPasswordLength"?: number;
   /**
-   * (\"information_schema_stats_expiry\")
+   * (\"information_schema_stats_expiry\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "informationSchemaStatsExpiry"?: number;
   /**
-   * (\"innodb_buffer_pool_instances\")
+   * (\"innodb_buffer_pool_instances\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "innodbBufferPoolInstances"?: number;
   /**
-   * (\"innodb_ft_max_token_size\")
+   * (\"innodb_ft_max_token_size\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "innodbFtMaxTokenSize"?: number;
   /**
-   * (\"innodb_ft_min_token_size\")
+   * (\"innodb_ft_min_token_size\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "innodbFtMinTokenSize"?: number;
   /**
-   * (\"innodb_ft_num_word_optimize\")
+   * (\"innodb_ft_num_word_optimize\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "innodbFtNumWordOptimize"?: number;
   /**
-   * (\"innodb_lock_wait_timeout\")
+   * (\"innodb_lock_wait_timeout\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "innodbLockWaitTimeout"?: number;
   /**
-   * (\"innodb_max_purge_lag\")
+   * (\"innodb_max_purge_lag\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "innodbMaxPurgeLag"?: number;
   /**
-   * (\"innodb_max_purge_lag_delay\")
+   * (\"innodb_max_purge_lag_delay\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "innodbMaxPurgeLagDelay"?: number;
   /**
-   * (\"max_execution_time\")
+   * (\"max_execution_time\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxExecutionTime"?: number;
   /**
-   * (\"mysqlx_connect_timeout\") DEPRECATED -- variable should not be settable and will be ignored
+   * (\"mysqlx_connect_timeout\") DEPRECATED -- variable should not be settable and will be ignored Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "mysqlxConnectTimeout"?: number;
   /**
-   * (\"mysqlx_document_id_unique_prefix\") DEPRECATED -- variable should not be settable and will be ignored
+   * (\"mysqlx_document_id_unique_prefix\") DEPRECATED -- variable should not be settable and will be ignored Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "mysqlxDocumentIdUniquePrefix"?: number;
   /**
-   * (\"mysqlx_idle_worker_thread_timeout\") DEPRECATED -- variable should not be settable and will be ignored
+   * (\"mysqlx_idle_worker_thread_timeout\") DEPRECATED -- variable should not be settable and will be ignored Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "mysqlxIdleWorkerThreadTimeout"?: number;
   /**
-   * (\"mysqlx_interactive_timeout\") DEPRECATED -- variable should not be settable and will be ignored
+   * (\"mysqlx_interactive_timeout\") DEPRECATED -- variable should not be settable and will be ignored Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "mysqlxInteractiveTimeout"?: number;
   /**
-   * (\"mysqlx_max_allowed_packet\") DEPRECATED -- variable should not be settable and will be ignored
+   * (\"mysqlx_max_allowed_packet\") DEPRECATED -- variable should not be settable and will be ignored Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "mysqlxMaxAllowedPacket"?: number;
   /**
-   * (\"mysqlx_min_worker_threads\") DEPRECATED -- variable should not be settable and will be ignored
+   * (\"mysqlx_min_worker_threads\") DEPRECATED -- variable should not be settable and will be ignored Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "mysqlxMinWorkerThreads"?: number;
   /**
-   * (\"mysqlx_read_timeout\") DEPRECATED -- variable should not be settable and will be ignored
+   * (\"mysqlx_read_timeout\") DEPRECATED -- variable should not be settable and will be ignored Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "mysqlxReadTimeout"?: number;
   /**
-   * (\"mysqlx_wait_timeout\") DEPRECATED -- variable should not be settable and will be ignored
+   * (\"mysqlx_wait_timeout\") DEPRECATED -- variable should not be settable and will be ignored Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "mysqlxWaitTimeout"?: number;
   /**
-   * (\"mysqlx_write_timeout\") DEPRECATED -- variable should not be settable and will be ignored
+   * (\"mysqlx_write_timeout\") DEPRECATED -- variable should not be settable and will be ignored Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "mysqlxWriteTimeout"?: number;
   /**
-   * (\"parser_max_mem_size\")
+   * (\"parser_max_mem_size\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "parserMaxMemSize"?: number;
   /**
-   * (\"query_alloc_block_size\") DEPRECATED -- variable should not be settable and will be ignored
+   * (\"query_alloc_block_size\") DEPRECATED -- variable should not be settable and will be ignored Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "queryAllocBlockSize"?: number;
   /**
-   * (\"query_prealloc_size\") DEPRECATED -- variable should not be settable and will be ignored
+   * (\"query_prealloc_size\") DEPRECATED -- variable should not be settable and will be ignored Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "queryPreallocSize"?: number;
   /**
@@ -191,31 +191,31 @@ export interface ConfigurationVariables {
    */
   "sqlMode"?: string;
   /**
-   * Set the default compression level for the deflate algorithm. (\"mysqlx_deflate_default_compression_level\")
+   * Set the default compression level for the deflate algorithm. (\"mysqlx_deflate_default_compression_level\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "mysqlxDeflateDefaultCompressionLevel"?: number;
   /**
-   * Limit the upper bound of accepted compression levels for the deflate algorithm. (\"mysqlx_deflate_max_client_compression_level\")
+   * Limit the upper bound of accepted compression levels for the deflate algorithm. (\"mysqlx_deflate_max_client_compression_level\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "mysqlxDeflateMaxClientCompressionLevel"?: number;
   /**
-   * Limit the upper bound of accepted compression levels for the lz4 algorithm. (\"mysqlx_lz4_max_client_compression_level\")
+   * Limit the upper bound of accepted compression levels for the lz4 algorithm. (\"mysqlx_lz4_max_client_compression_level\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "mysqlxLz4MaxClientCompressionLevel"?: number;
   /**
-   * Set the default compression level for the lz4 algorithm. (\"mysqlx_lz4_default_compression_level\")
+   * Set the default compression level for the lz4 algorithm. (\"mysqlx_lz4_default_compression_level\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "mysqlxLz4DefaultCompressionLevel"?: number;
   /**
-   * Limit the upper bound of accepted compression levels for the zstd algorithm. (\"mysqlx_zstd_max_client_compression_level\")
+   * Limit the upper bound of accepted compression levels for the zstd algorithm. (\"mysqlx_zstd_max_client_compression_level\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "mysqlxZstdMaxClientCompressionLevel"?: number;
   /**
-   * Set the default compression level for the zstd algorithm. (\"mysqlx_zstd_default_compression_level\")
+   * Set the default compression level for the zstd algorithm. (\"mysqlx_zstd_default_compression_level\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "mysqlxZstdDefaultCompressionLevel"?: number;
   /**
-   * DEPRECATED -- typo of mysqlx_zstd_default_compression_level. variable will be ignored.
+   * DEPRECATED -- typo of mysqlx_zstd_default_compression_level. variable will be ignored. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "mysqlZstdDefaultCompressionLevel"?: number;
 }

@@ -59,7 +59,7 @@ export interface ResourceActionSummary {
    */
   "lifecycleState": model.LifecycleState;
   /**
-   * The estimated cost savings, in dollars, for the resource action.
+   * The estimated cost savings, in dollars, for the resource action. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "estimatedCostSaving": number;
   /**

@@ -25,7 +25,7 @@ export interface SteeringPolicyWeightedAnswerData {
   /**
    * The weight assigned to the set of selected answers. Answers with a higher weight will be served
    * more frequently. Answers can be given a value between `0` and `255`.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "value": number;
 }

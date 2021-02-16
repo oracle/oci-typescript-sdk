@@ -29,7 +29,7 @@ export interface CustomEndpointDetails {
   "certificateSecretId"?: string;
   /**
    * The secret version used for the certificate-secret-id (if certificate-secret-id is specified).
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "certificateSecretVersion"?: number;
 }

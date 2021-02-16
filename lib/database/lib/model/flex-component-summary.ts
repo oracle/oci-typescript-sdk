@@ -29,15 +29,15 @@ export interface FlexComponentSummary {
    */
   "name": string;
   /**
-   * The minimum number of CPU cores that can be enabled on the DB Server for this Flex Component.
+   * The minimum number of CPU cores that can be enabled on the DB Server for this Flex Component. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minimumCoreCount"?: number;
   /**
-   * The maximum number of CPU cores that can ben enabled on the DB Server for this Flex Component.
+   * The maximum number of CPU cores that can ben enabled on the DB Server for this Flex Component. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableCoreCount"?: number;
   /**
-   * The maximum  storage that can be enabled on the Storage Server for this Flex Component.
+   * The maximum  storage that can be enabled on the Storage Server for this Flex Component. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableDbStorageInGBs"?: number;
 }

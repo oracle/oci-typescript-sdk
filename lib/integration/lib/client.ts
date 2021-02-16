@@ -203,6 +203,79 @@ export class IntegrationInstanceClient {
   }
 
   /**
+   * Change an Integration instance network endpoint. The operation is long-running
+   * and creates a new WorkRequest.
+   *
+   * @param ChangeIntegrationInstanceNetworkEndpointRequest
+   * @return ChangeIntegrationInstanceNetworkEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/integration/ChangeIntegrationInstanceNetworkEndpoint.ts.html |here} to see how to use ChangeIntegrationInstanceNetworkEndpoint API.
+   */
+  public async changeIntegrationInstanceNetworkEndpoint(
+    changeIntegrationInstanceNetworkEndpointRequest: requests.ChangeIntegrationInstanceNetworkEndpointRequest
+  ): Promise<responses.ChangeIntegrationInstanceNetworkEndpointResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation IntegrationInstanceClient#changeIntegrationInstanceNetworkEndpoint."
+      );
+    const pathParams = {
+      "{integrationInstanceId}":
+        changeIntegrationInstanceNetworkEndpointRequest.integrationInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeIntegrationInstanceNetworkEndpointRequest.ifMatch,
+      "opc-request-id": changeIntegrationInstanceNetworkEndpointRequest.opcRequestId,
+      "opc-retry-token": changeIntegrationInstanceNetworkEndpointRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/integrationInstances/{integrationInstanceId}/actions/changeNetworkEndpoint",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeIntegrationInstanceNetworkEndpointRequest.changeIntegrationInstanceNetworkEndpointDetails,
+        "ChangeIntegrationInstanceNetworkEndpointDetails",
+        models.ChangeIntegrationInstanceNetworkEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeIntegrationInstanceNetworkEndpointRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeIntegrationInstanceNetworkEndpointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new Integration Instance.
    *
    * @param CreateIntegrationInstanceRequest

@@ -39,7 +39,7 @@ export interface JobDefinitionScope {
    */
   "isSampleDataExtracted"?: boolean;
   /**
-   * Specify the sample data size in MB, specified as number of rows, for this metadata harvest.
+   * Specify the sample data size in MB, specified as number of rows, for this metadata harvest. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sampleDataSizeInMBs"?: number;
 }

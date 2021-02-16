@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface AutonomousDatabaseStandbySummary {
   /**
-   * The amount of time, in seconds, that the data of the standby database lags the data of the primary database. Can be used to determine the potential data loss in the event of a failover.
+   * The amount of time, in seconds, that the data of the standby database lags the data of the primary database. Can be used to determine the potential data loss in the event of a failover. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "lagTimeInSeconds"?: number;
   /**

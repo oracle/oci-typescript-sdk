@@ -35,7 +35,7 @@ export interface PatchChangeSummary {
    */
   "type"?: PatchChangeSummary.Type;
   /**
-   * The object version.
+   * The object version. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "objectVersion"?: number;
   /**

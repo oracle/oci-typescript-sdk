@@ -49,7 +49,7 @@ export interface Catalog {
   /**
    * The number of data objects added to the data catalog.
    * Please see the data catalog documentation for further information on how this is calculated.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "numberOfObjects"?: number;
   /**

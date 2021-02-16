@@ -41,7 +41,7 @@ The customer and provider can update different properties in the mapping
   /**
    * Deprecated. Instead use `customerAsn`.
    * If you specify values for both, the request will be rejected.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "customerBgpAsn"?: number;
   /**
@@ -57,7 +57,7 @@ If the BGP session is from the provider's edge router to Oracle, the
 * by the provider.
 * <p>
 Can be a 2-byte or 4-byte ASN. Uses \"asplain\" format.
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "customerAsn"?: number;
   /**

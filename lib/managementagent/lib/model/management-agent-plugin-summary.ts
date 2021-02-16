@@ -27,7 +27,7 @@ export interface ManagementAgentPluginSummary {
    */
   "name": string;
   /**
-   * Management Agent Plugin Version
+   * Management Agent Plugin Version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "version"?: number;
   /**

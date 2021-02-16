@@ -22,7 +22,7 @@ import common = require("oci-common");
 export interface TopCommandDescriptor extends model.AbstractCommandDescriptor {
   /**
    * Value from queryString for top command limit argument.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "limit"?: number;
 

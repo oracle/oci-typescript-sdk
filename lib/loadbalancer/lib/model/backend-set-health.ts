@@ -67,7 +67,7 @@ Example: `10.0.0.5:8080`
     * The total number of backend servers in this backend set.
 * <p>
 Example: `7`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "totalBackendCount": number;
 }

@@ -40,7 +40,7 @@ If not defined, a window is selected from the following Region-based time-spans:
   "windowStartTime": string;
   /**
    * The number of days automated backups are retained.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "retentionInDays": number;
   /**

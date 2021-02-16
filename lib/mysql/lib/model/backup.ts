@@ -72,16 +72,16 @@ export interface Backup {
   "dbSystemId": string;
   "dbSystemSnapshot"?: model.DbSystemSnapshot;
   /**
-   * The size of the backup in base-2 (IEC) gibibytes. (GiB).
+   * The size of the backup in base-2 (IEC) gibibytes. (GiB). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "backupSizeInGBs"?: number;
   /**
-   * Number of days to retain this backup.
+   * Number of days to retain this backup. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "retentionInDays"?: number;
   /**
    * Initial size of the data volume in GiBs.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInGBs"?: number;
   /**

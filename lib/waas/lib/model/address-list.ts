@@ -32,7 +32,7 @@ export interface AddressList {
    */
   "displayName"?: string;
   /**
-   * The total number of unique IP addresses in the address list.
+   * The total number of unique IP addresses in the address list. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "addressCount"?: number;
   /**

@@ -24,7 +24,7 @@ export interface HttpRedirectTarget {
    */
   "host": string;
   /**
-   * Port number of the target destination of the redirect, default to match protocol
+   * Port number of the target destination of the redirect, default to match protocol Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "port"?: number;
   /**

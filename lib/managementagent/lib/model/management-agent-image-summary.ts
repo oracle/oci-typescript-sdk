@@ -35,7 +35,7 @@ export interface ManagementAgentImageSummary {
    */
   "version": string;
   /**
-   * Agent image size in bytes
+   * Agent image size in bytes Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "size"?: number;
   /**

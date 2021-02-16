@@ -44,7 +44,7 @@ export interface SchemaSummary {
    */
   "description"?: string;
   /**
-   * The version of the object that is used to track changes in the object instance.
+   * The version of the object that is used to track changes in the object instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "objectVersion"?: number;
   /**
@@ -60,7 +60,7 @@ export interface SchemaSummary {
    */
   "defaultConnection"?: string;
   /**
-   * The status of an object that can be set to value 1 for shallow references across objects, other values reserved.
+   * The status of an object that can be set to value 1 for shallow references across objects, other values reserved. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "objectStatus"?: number;
   /**

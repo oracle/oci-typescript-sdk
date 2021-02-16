@@ -29,7 +29,7 @@ export interface UpdateHttpRedirectDetails {
    */
   "target"?: model.HttpRedirectTarget;
   /**
-   * The response code returned for the redirect to the client. For more information, see [RFC 7231](https://tools.ietf.org/html/rfc7231#section-6.4).
+   * The response code returned for the redirect to the client. For more information, see [RFC 7231](https://tools.ietf.org/html/rfc7231#section-6.4). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "responseCode"?: number;
   /**

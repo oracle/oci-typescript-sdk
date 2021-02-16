@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface OracleWriteAttribute extends model.AbstractWriteAttribute {
   /**
-   * The batch size for writing.
+   * The batch size for writing. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "batchSize"?: number;
   /**

@@ -23,7 +23,7 @@ export interface ResourceCount {
    */
   "status": model.Status;
   /**
-   * The count of resources.
+   * The count of resources. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "count": number;
 }

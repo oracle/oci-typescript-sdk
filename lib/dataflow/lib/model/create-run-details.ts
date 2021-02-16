@@ -102,7 +102,7 @@ export interface CreateRunDetails {
   "logsBucketUri"?: string;
   /**
    * The number of executor VMs requested.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "numExecutors"?: number;
   /**

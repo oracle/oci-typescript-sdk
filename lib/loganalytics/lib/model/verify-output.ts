@@ -24,15 +24,15 @@ export interface VerifyOutput {
    */
   "scheduledTaskId": string;
   /**
-   * Response time in ms.
+   * Response time in ms. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "responseTimeInMs": number;
   /**
-   * Total match count.
+   * Total match count. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalMatchedCount": number;
   /**
-   * Total count.
+   * Total count. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalCount": number;
   /**

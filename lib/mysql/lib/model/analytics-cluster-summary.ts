@@ -28,7 +28,7 @@ export interface AnalyticsClusterSummary {
   /**
    * The number of analytics-processing compute instances, of the
    * specified shape, in the Analytics Cluster.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "clusterSize": number;
   /**

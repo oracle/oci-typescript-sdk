@@ -164,7 +164,10 @@ export class UploadManager {
     const createUploadResponse = await this.client.createMultipartUpload({
       ...UploadManager.composeRequestDetails(requestDetails),
       createMultipartUploadDetails: {
-        object: requestDetails.objectName
+        object: requestDetails.objectName,
+        storageTier: requestDetails.storageTier
+          ? requestDetails.storageTier
+          : models.StorageTier.Standard
       }
     });
     const uploadId = createUploadResponse.multipartUpload.uploadId;

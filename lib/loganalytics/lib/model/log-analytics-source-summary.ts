@@ -24,7 +24,7 @@ export interface LogAnalyticsSourceSummary {
    */
   "labelConditions"?: Array<model.LogAnalyticsSourceLabelCondition>;
   /**
-   * association count
+   * association count Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "associationCount"?: number;
   /**
@@ -68,7 +68,7 @@ export interface LogAnalyticsSourceSummary {
    */
   "parameters"?: Array<model.LogAnalyticsParameter>;
   /**
-   * pattern count
+   * pattern count Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "patternCount"?: number;
   /**
@@ -84,7 +84,7 @@ export interface LogAnalyticsSourceSummary {
    */
   "displayName"?: string;
   /**
-   * source edit version
+   * source edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**
@@ -92,7 +92,7 @@ export interface LogAnalyticsSourceSummary {
    */
   "functions"?: Array<model.LogAnalyticsSourceFunction>;
   /**
-   * source Id
+   * source Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourceId"?: number;
   /**
@@ -120,7 +120,7 @@ export interface LogAnalyticsSourceSummary {
    */
   "isAutoAssociationOverride"?: boolean;
   /**
-   * rule Id
+   * rule Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ruleId"?: number;
   /**
@@ -132,7 +132,7 @@ export interface LogAnalyticsSourceSummary {
    */
   "typeDisplayName"?: string;
   /**
-   * source warning configuration
+   * source warning configuration Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "warningConfig"?: number;
   /**

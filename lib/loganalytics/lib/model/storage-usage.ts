@@ -20,15 +20,15 @@ import common = require("oci-common");
  */
 export interface StorageUsage {
   /**
-   * This is the number of bytes of active data (non-archived)
+   * This is the number of bytes of active data (non-archived) Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "activeDataSizeInBytes": number;
   /**
-   * This is the number of bytes of archived data in object storage
+   * This is the number of bytes of archived data in object storage Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "archivedDataSizeInBytes": number;
   /**
-   * This is the number of bytes of recalled data from archived in object store
+   * This is the number of bytes of recalled data from archived in object store Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "recalledArchivedDataSizeInBytes": number;
 }

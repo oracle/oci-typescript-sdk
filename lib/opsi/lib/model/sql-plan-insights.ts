@@ -32,7 +32,7 @@ export interface SqlPlanInsights {
   "text": string;
   /**
    * SQL execution plan hash value for a given insight. For example `Most Executed Plan` insight will have value as \"3975467901\"
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "value": number;
   /**

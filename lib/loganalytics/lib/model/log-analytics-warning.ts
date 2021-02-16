@@ -123,7 +123,7 @@ export interface LogAnalyticsWarning {
    */
   "typeName"?: string;
   /**
-   * The warning severity
+   * The warning severity Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "severity"?: number;
 }

@@ -13,6 +13,8 @@
 
 import * as ChangeIntegrationInstanceCompartmentResponse from "./change-integration-instance-compartment-response";
 export import ChangeIntegrationInstanceCompartmentResponse = ChangeIntegrationInstanceCompartmentResponse.ChangeIntegrationInstanceCompartmentResponse;
+import * as ChangeIntegrationInstanceNetworkEndpointResponse from "./change-integration-instance-network-endpoint-response";
+export import ChangeIntegrationInstanceNetworkEndpointResponse = ChangeIntegrationInstanceNetworkEndpointResponse.ChangeIntegrationInstanceNetworkEndpointResponse;
 import * as CreateIntegrationInstanceResponse from "./create-integration-instance-response";
 export import CreateIntegrationInstanceResponse = CreateIntegrationInstanceResponse.CreateIntegrationInstanceResponse;
 import * as DeleteIntegrationInstanceResponse from "./delete-integration-instance-response";

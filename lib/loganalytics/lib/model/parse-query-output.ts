@@ -37,7 +37,7 @@ export interface ParseQueryOutput {
   "columns"?: Array<model.AbstractColumn>;
   /**
    * Operation response time.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "responseTimeInMs"?: number;
   /**

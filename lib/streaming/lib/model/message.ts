@@ -35,7 +35,7 @@ export interface Message {
    */
   "value": string;
   /**
-   * The offset of the message, which uniquely identifies it within the partition.
+   * The offset of the message, which uniquely identifies it within the partition. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "offset": number;
   /**

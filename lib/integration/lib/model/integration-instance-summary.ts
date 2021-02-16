@@ -59,7 +59,7 @@ export interface IntegrationInstanceSummary {
    */
   "instanceUrl": string;
   /**
-   * The number of configured message packs (if any)
+   * The number of configured message packs (if any) Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "messagePacks": number;
   /**
@@ -80,6 +80,7 @@ export interface IntegrationInstanceSummary {
    * The entitlement used for billing purposes.
    */
   "consumptionModel"?: IntegrationInstanceSummary.ConsumptionModel;
+  "networkEndpointDetails"?: model.PublicEndpointDetails;
 }
 
 export namespace IntegrationInstanceSummary {
@@ -130,6 +131,10 @@ export namespace IntegrationInstanceSummary {
           ? obj.alternateCustomEndpoints.map(item => {
               return model.CustomEndpointDetails.getJsonObj(item);
             })
+          : undefined,
+
+        "networkEndpointDetails": obj.networkEndpointDetails
+          ? model.NetworkEndpointDetails.getJsonObj(obj.networkEndpointDetails)
           : undefined
       }
     };

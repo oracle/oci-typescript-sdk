@@ -34,7 +34,7 @@ export interface SteeringPolicyLimitRule extends model.SteeringPolicyRule {
    * not define `count`. `defaultCount` is **not** applied if `cases` is defined and there
    * are no matching cases. In this scenario, the next rule will be processed. If no rules
    * remain to be processed, the answer will be chosen from the remaining list of answers.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "defaultCount"?: number;
 

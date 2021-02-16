@@ -23,11 +23,11 @@ export interface CertificatePublicKeyInfo {
    */
   "algorithm"?: string;
   /**
-   * The private key exponent.
+   * The private key exponent. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "exponent"?: number;
   /**
-   * The number of bits in a key used by a cryptographic algorithm.
+   * The number of bits in a key used by a cryptographic algorithm. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "keySize"?: number;
 }

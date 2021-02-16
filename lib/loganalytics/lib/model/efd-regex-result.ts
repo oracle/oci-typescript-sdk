@@ -24,12 +24,12 @@ export interface EfdRegexResult {
    */
   "baseFieldName"?: string;
   /**
-   * id
+   * id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "id"?: number;
   "matchResult"?: model.RegexMatchResult;
   /**
-   * parsedFieldCount
+   * parsedFieldCount Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "parsedFieldCount"?: number;
   /**

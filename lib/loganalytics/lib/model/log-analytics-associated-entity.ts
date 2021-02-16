@@ -40,7 +40,7 @@ export interface LogAnalyticsAssociatedEntity {
    */
   "onHost"?: string;
   /**
-   * associationCount
+   * associationCount Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "associationCount"?: number;
 }

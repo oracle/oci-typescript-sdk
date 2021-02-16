@@ -39,27 +39,27 @@ export interface Shape {
   "processorDescription"?: string;
   /**
    * The default number of OCPUs available for this shape.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ocpus"?: number;
   /**
    * The default amount of memory available for this shape, in gigabytes.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryInGBs"?: number;
   /**
    * The networking bandwidth available for this shape, in gigabits per second.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "networkingBandwidthInGbps"?: number;
   /**
    * The maximum number of VNIC attachments available for this shape.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxVnicAttachments"?: number;
   /**
    * The number of GPUs available for this shape.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "gpus"?: number;
   /**
@@ -71,14 +71,14 @@ If the shape does not have any GPUs, this field is `null`.
   "gpuDescription"?: string;
   /**
    * The number of local disks available for this shape.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "localDisks"?: number;
   /**
     * The aggregate size of the local disks available for this shape, in gigabytes.
 * <p>
 If the shape does not have any local disks, this field is `null`.
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "localDisksTotalSizeInGBs"?: number;
   /**

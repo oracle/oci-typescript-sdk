@@ -27,12 +27,12 @@ export interface ClusterCompareCommandDescriptor extends model.AbstractCommandDe
   "timeShift"?: string;
   /**
    * Start time to apply to base line query if specified.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeStart"?: number;
   /**
    * End time to apply to base line query if specified.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeEnd"?: number;
   /**

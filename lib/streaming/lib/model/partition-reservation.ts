@@ -24,7 +24,7 @@ export interface PartitionReservation {
    */
   "partition"?: string;
   /**
-   * The latest offset which has been committed for this partition.
+   * The latest offset which has been committed for this partition. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "committedOffset"?: number;
   /**

@@ -45,7 +45,7 @@ export interface LogAnalyticsLookupFields {
    */
   "name"?: string;
   /**
-   * The position.
+   * The position. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "position"?: number;
 }

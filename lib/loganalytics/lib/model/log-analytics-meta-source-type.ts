@@ -44,11 +44,11 @@ export interface LogAnalyticsMetaSourceType {
    */
   "name"?: string;
   /**
-   * maximum exclude pattern
+   * maximum exclude pattern Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maximumExcludePattern"?: number;
   /**
-   * maximum include pattern
+   * maximum include pattern Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maximumIncludePattern"?: number;
 }

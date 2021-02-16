@@ -36,7 +36,7 @@ export interface ObjectStorageJobExecutionResultDetails extends model.JobExecuti
    */
   "objectName"?: string;
   /**
-   * The number of rows returned in the result. Only applicable for QUERY SqlType.
+   * The number of rows returned in the result. Only applicable for QUERY SqlType. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "rowCount"?: number;
 

@@ -41,7 +41,7 @@ Example: `/healthcheck`
 * port information from the `Backend` object.
 * <p>
 Example: `8080`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "port": number;
   /**
@@ -49,7 +49,7 @@ Example: `8080`
 * you can use common HTTP status codes such as \"200\".
 * <p>
 Example: `200`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "returnCode": number;
   /**
@@ -57,7 +57,7 @@ Example: `200`
 * when recovering a server to the \"healthy\" state. Defaults to 3.
 * <p>
 Example: `3`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "retries"?: number;
   /**
@@ -65,14 +65,14 @@ Example: `3`
 * returns within this timeout period. Defaults to 3000 (3 seconds).
 * <p>
 Example: `3000`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "timeoutInMillis"?: number;
   /**
     * The interval between health checks, in milliseconds. The default is 10000 (10 seconds).
 * <p>
 Example: `10000`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "intervalInMillis"?: number;
   /**

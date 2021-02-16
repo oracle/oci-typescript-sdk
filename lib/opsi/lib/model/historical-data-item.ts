@@ -27,7 +27,7 @@ export interface HistoricalDataItem {
   "endTimestamp": Date;
   /**
    * Total amount used of the resource metric type (CPU, STORAGE).
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "usage": number;
 }

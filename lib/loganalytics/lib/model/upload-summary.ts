@@ -44,7 +44,7 @@ export interface UploadSummary {
    */
   "timeLatestLogEntry"?: Date;
   /**
-   * Number of warnings associated to the upload.
+   * Number of warnings associated to the upload. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "warningsCount"?: number;
 }

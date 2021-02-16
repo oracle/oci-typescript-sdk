@@ -33,7 +33,7 @@ export interface VolumeBackupSchedule {
    * The number of seconds that the volume backup start
    * time should be shifted from the default interval boundaries specified by
    * the period. The volume backup start time is the frequency start time plus the offset.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "offsetSeconds"?: number;
   /**
@@ -68,7 +68,7 @@ For clients using older versions of Apis and not sending `offsetType` in their
     */
   "offsetType"?: VolumeBackupSchedule.OffsetType;
   /**
-   * The hour of the day to schedule the volume backup.
+   * The hour of the day to schedule the volume backup. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "hourOfDay"?: number;
   /**
@@ -76,7 +76,7 @@ For clients using older versions of Apis and not sending `offsetType` in their
    */
   "dayOfWeek"?: VolumeBackupSchedule.DayOfWeek;
   /**
-   * The day of the month to schedule the volume backup.
+   * The day of the month to schedule the volume backup. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dayOfMonth"?: number;
   /**
@@ -84,7 +84,7 @@ For clients using older versions of Apis and not sending `offsetType` in their
    */
   "month"?: VolumeBackupSchedule.Month;
   /**
-   * How long, in seconds, to keep the volume backups created by this schedule.
+   * How long, in seconds, to keep the volume backups created by this schedule. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "retentionSeconds": number;
   /**

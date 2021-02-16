@@ -28,7 +28,7 @@ export interface SecretBundle {
    */
   "timeCreated"?: Date;
   /**
-   * The version number of the secret.
+   * The version number of the secret. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "versionNumber": number;
   /**

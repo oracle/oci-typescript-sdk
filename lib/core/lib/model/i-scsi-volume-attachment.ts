@@ -57,7 +57,7 @@ Example: `iqn.2015-12.us.oracle.com:<CHAP_username>`
     * The volume's iSCSI port, usually port 860 or 3260.
 * <p>
 Example: `3260`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "port": number;
 

@@ -36,7 +36,7 @@ export interface LogAnalyticsConfigWorkRequest {
    */
   "payload"?: Array<model.LogAnalyticsConfigWorkRequestPayload>;
   /**
-   * percentage complete
+   * percentage complete Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "percentComplete"?: number;
   /**

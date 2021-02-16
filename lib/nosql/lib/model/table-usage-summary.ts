@@ -27,37 +27,37 @@ import common = require("oci-common");
  */
 export interface TableUsageSummary {
   /**
-   * The length of the sampling period.
+   * The length of the sampling period. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "secondsInPeriod"?: number;
   /**
-   * Read throughput during the sampling period.
+   * Read throughput during the sampling period. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "readUnits"?: number;
   /**
-   * Write throughput during the sampling period.
+   * Write throughput during the sampling period. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "writeUnits"?: number;
   /**
-   * The size of the table, in GB.
+   * The size of the table, in GB. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "storageInGBs"?: number;
   /**
    * The number of times reads were throttled due to exceeding
    * the read throughput limit.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "readThrottleCount"?: number;
   /**
    * The number of times writes were throttled due to exceeding
    * the write throughput limit.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "writeThrottleCount"?: number;
   /**
    * The number of times writes were throttled because the table
    * exceeded its size limit.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "storageThrottleCount"?: number;
 }

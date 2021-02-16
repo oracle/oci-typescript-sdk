@@ -34,7 +34,7 @@ export interface CreateCursorDetails {
     */
   "type": CreateCursorDetails.Type;
   /**
-   * The offset to consume from if the cursor type is `AT_OFFSET` or `AFTER_OFFSET`.
+   * The offset to consume from if the cursor type is `AT_OFFSET` or `AFTER_OFFSET`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "offset"?: number;
   /**

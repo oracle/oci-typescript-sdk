@@ -43,7 +43,7 @@ export interface Target {
    */
   "targetResourceId": string;
   /**
-   * Total number of recipes attached to target
+   * Total number of recipes attached to target Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "recipeCount": number;
   /**

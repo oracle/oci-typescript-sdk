@@ -23,7 +23,7 @@ import common = require("oci-common");
  */
 export interface UpdateDbSystemDetails {
   /**
-   * The new number of CPU cores to set for the DB system. Not applicable for virtual machine DB systems.
+   * The new number of CPU cores to set for the DB system. Not applicable for virtual machine DB systems. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCount"?: number;
   "version"?: model.PatchDetails;
@@ -33,7 +33,7 @@ export interface UpdateDbSystemDetails {
   "sshPublicKeys"?: Array<string>;
   /**
    * The size, in gigabytes, to scale the attached storage up to for this virtual machine DB system. This value must be greater than current storage size. Note that the resulting total storage size attached will be greater than the amount requested to allow for REDO/RECO space and software volume. Applies only to virtual machine DB systems.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInGBs"?: number;
   /**

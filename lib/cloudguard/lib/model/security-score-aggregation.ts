@@ -27,7 +27,7 @@ export interface SecurityScoreAggregation {
    */
   "securityRating": model.SecurityRating;
   /**
-   * The security score with given dimension/s
+   * The security score with given dimension/s Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "securityScore": number;
 }

@@ -36,16 +36,16 @@ export interface ForeignKey extends model.Key {
    */
   "attributeRefs"?: Array<model.KeyAttribute>;
   /**
-   * The update rule.
+   * The update rule. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "updateRule"?: number;
   /**
-   * The delete rule.
+   * The delete rule. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "deleteRule"?: number;
   "referenceUniqueKey"?: model.UniqueKey;
   /**
-   * The status of an object that can be set to value 1 for shallow references across objects, other values reserved.
+   * The status of an object that can be set to value 1 for shallow references across objects, other values reserved. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "objectStatus"?: number;
 

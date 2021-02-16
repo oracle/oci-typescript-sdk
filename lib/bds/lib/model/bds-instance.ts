@@ -73,7 +73,7 @@ export interface BdsInstance {
    */
   "timeUpdated"?: Date;
   /**
-   * Number of nodes that forming the cluster
+   * Number of nodes that forming the cluster Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "numberOfNodes": number;
   /**

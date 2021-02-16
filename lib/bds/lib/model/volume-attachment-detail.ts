@@ -26,7 +26,7 @@ export interface VolumeAttachmentDetail {
    */
   "volumeAttachmentId": string;
   /**
-   * The size of the volume in GBs.
+   * The size of the volume in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "volumeSizeInGBs": number;
 }

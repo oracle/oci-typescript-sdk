@@ -34,7 +34,7 @@ At some point in the window, the system may incur a brief service disruption as 
     */
   "windowStartTime"?: string;
   /**
-   * Number of days to retain an automatic backup.
+   * Number of days to retain an automatic backup. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "retentionInDays"?: number;
   /**

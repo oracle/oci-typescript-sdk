@@ -39,14 +39,14 @@ Example: `/healthcheck`
 * port information from the `Backend` object.
 * <p>
 Example: `8080`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "port"?: number;
   /**
     * The status code a healthy backend server should return.
 * <p>
 Example: `200`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "returnCode"?: number;
   /**
@@ -54,7 +54,7 @@ Example: `200`
 * when recovering a server to the \"healthy\" state.
 * <p>
 Example: `3`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "retries"?: number;
   /**
@@ -62,14 +62,14 @@ Example: `3`
 * returns within this timeout period.
 * <p>
 Example: `3000`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "timeoutInMillis"?: number;
   /**
     * The interval between health checks, in milliseconds.
 * <p>
 Example: `10000`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "intervalInMillis"?: number;
   /**

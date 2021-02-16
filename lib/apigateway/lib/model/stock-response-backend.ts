@@ -27,7 +27,7 @@ export interface StockResponseBackend extends model.ApiSpecificationRouteBackend
    */
   "body"?: string;
   /**
-   * The status code of the stock response from the mock backend.
+   * The status code of the stock response from the mock backend. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "status": number;
   /**

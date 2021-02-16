@@ -24,7 +24,7 @@ export interface SqlPlanLine {
   /**
    * Version
    * Example: `1`
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "version"?: number;
   /**
@@ -33,7 +33,7 @@ export interface SqlPlanLine {
    */
   "sqlIdentifier": string;
   /**
-   * Plan hash value for the SQL Execution Plan
+   * Plan hash value for the SQL Execution Plan Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "planHash": number;
   /**
@@ -87,7 +87,7 @@ export interface SqlPlanLine {
   /**
    * Object Instance
    * Example: `37472`
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "objectInstance"?: number;
   /**
@@ -105,49 +105,49 @@ export interface SqlPlanLine {
   /**
    * Search Columns
    * Example: `3`
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "searchColumns"?: number;
   /**
    * Identifier
    * Example: `3`
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "identifier": number;
   /**
    * Parent Identifier
    * Example: `2`
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "parentIdentifier"?: number;
   /**
    * Depth
    * Example: `3`
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "depth"?: number;
   /**
    * Position
    * Example: `1`
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "position"?: number;
   /**
    * Cost
    * Example: `1`
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cost"?: number;
   /**
    * Cardinality
    * Example: `1`
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cardinality"?: number;
   /**
    * Bytes
    * Example: `150`
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "bytes"?: number;
   /**
@@ -177,7 +177,7 @@ export interface SqlPlanLine {
   /**
    * Partition identifier
    * Example: `8`
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "partitionIdentifier"?: number;
   /**
@@ -189,19 +189,19 @@ export interface SqlPlanLine {
   /**
    * CPU cost
    * Example: `7321`
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCost"?: number;
   /**
    * IO cost
    * Example: `1`
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ioCost"?: number;
   /**
    * Time space
    * Example: `15614000`
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "tempSpace"?: number;
   /**
@@ -231,7 +231,7 @@ export interface SqlPlanLine {
   /**
    * Total elapsed time
    * Example: `1.2`
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "elapsedTimeInSec"?: number;
   /**

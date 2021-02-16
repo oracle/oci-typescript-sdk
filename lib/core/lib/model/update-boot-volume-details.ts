@@ -43,7 +43,7 @@ Example: `{\"Department\": \"Finance\"}`
     */
   "freeformTags"?: { [key: string]: string };
   /**
-   * The size to resize the volume to in GBs. Has to be larger than the current size.
+   * The size to resize the volume to in GBs. Has to be larger than the current size. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sizeInGBs"?: number;
   /**
@@ -56,7 +56,7 @@ Allowed values:
   * `10`: Represents Balanced option.
 * <p>
   * `20`: Represents Higher Performance option.
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "vpusPerGB"?: number;
   /**

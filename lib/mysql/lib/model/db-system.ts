@@ -82,7 +82,7 @@ export interface DbSystem {
   "configurationId"?: string;
   /**
    * Initial size of the data volume in GiBs that will be created and attached.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInGBs": number;
   /**
@@ -102,12 +102,12 @@ export interface DbSystem {
    */
   "ipAddress"?: string;
   /**
-   * The port for primary endpoint of the DB System to listen on.
+   * The port for primary endpoint of the DB System to listen on. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "port"?: number;
   /**
    * The network port on which X Plugin listens for TCP/IP connections. This is the X Plugin equivalent of port.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "portX"?: number;
   /**

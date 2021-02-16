@@ -72,7 +72,7 @@ export interface UpsertLogAnalyticsSourceDetails {
    */
   "displayName"?: string;
   /**
-   * source edit version
+   * source edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**
@@ -80,7 +80,7 @@ export interface UpsertLogAnalyticsSourceDetails {
    */
   "functions"?: Array<model.LogAnalyticsSourceFunction>;
   /**
-   * source Id
+   * source Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourceId"?: number;
   /**
@@ -100,7 +100,7 @@ export interface UpsertLogAnalyticsSourceDetails {
    */
   "parsers"?: Array<model.LogAnalyticsParser>;
   /**
-   * rule Id
+   * rule Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ruleId"?: number;
   /**
@@ -108,7 +108,7 @@ export interface UpsertLogAnalyticsSourceDetails {
    */
   "typeName"?: string;
   /**
-   * source warning configuration
+   * source warning configuration Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "warningConfig"?: number;
   /**

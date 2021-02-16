@@ -55,7 +55,7 @@ export interface ObjectLifecycleRule {
   /**
    * Specifies the age of objects to apply the rule to. The timeAmount is interpreted in units defined by the
    * timeUnit parameter, and is calculated in relation to each object's Last-Modified time.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeAmount": number;
   /**

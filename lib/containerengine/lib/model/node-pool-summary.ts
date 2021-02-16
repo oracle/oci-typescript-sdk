@@ -76,7 +76,7 @@ export interface NodePoolSummary {
    */
   "sshPublicKey"?: string;
   /**
-   * The number of nodes in each subnet.
+   * The number of nodes in each subnet. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "quantityPerSubnet"?: number;
   /**

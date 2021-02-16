@@ -42,11 +42,11 @@ export interface LogAnalyticsField {
    */
   "displayName"?: string;
   /**
-   * edit version
+   * edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**
-   * facet priority
+   * facet priority Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "facetPriority"?: number;
   /**
@@ -94,7 +94,7 @@ export interface LogAnalyticsField {
    */
   "isMetricValueEligible"?: boolean;
   /**
-   * range facet eligible
+   * range facet eligible Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "rangeFacetEligible"?: number;
   /**

@@ -29,11 +29,11 @@ export interface LogAnalyticsSourceFunction {
   "isEnabled"?: boolean;
   "function"?: model.LogAnalyticsMetaFunction;
   /**
-   * source function Id
+   * source function Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "functionId"?: number;
   /**
-   * source function order
+   * source function order Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "order"?: number;
   /**
@@ -45,7 +45,7 @@ export interface LogAnalyticsSourceFunction {
    */
   "lookupColumn"?: string;
   /**
-   * column position
+   * column position Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "lookupColumnPosition"?: number;
   /**
@@ -53,7 +53,7 @@ export interface LogAnalyticsSourceFunction {
    */
   "lookupDisplayName"?: string;
   /**
-   * lookup mode
+   * lookup mode Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "lookupMode"?: number;
   /**
@@ -61,7 +61,7 @@ export interface LogAnalyticsSourceFunction {
    */
   "lookupTable"?: string;
   /**
-   * source Id
+   * source Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourceId"?: number;
 }

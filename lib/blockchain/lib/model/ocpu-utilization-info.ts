@@ -23,11 +23,11 @@ export interface OcpuUtilizationInfo {
    */
   "host"?: string;
   /**
-   * Number of OCPU utilized
+   * Number of OCPU utilized Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ocpuUtilizationNumber"?: number;
   /**
-   * Number of total OCPU capacity on the host
+   * Number of total OCPU capacity on the host Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ocpuCapacityNumber"?: number;
 }

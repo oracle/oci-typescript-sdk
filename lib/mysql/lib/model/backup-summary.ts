@@ -57,15 +57,15 @@ export interface BackupSummary {
    */
   "dbSystemId": string;
   /**
-   * Size of the data volume in GiBs.
+   * Size of the data volume in GiBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInGBs"?: number;
   /**
-   * The size of the backup in GiBs.
+   * The size of the backup in GiBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "backupSizeInGBs"?: number;
   /**
-   * Number of days to retain this backup.
+   * Number of days to retain this backup. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "retentionInDays"?: number;
   /**

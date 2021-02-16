@@ -26,17 +26,17 @@ export interface TcpConnection {
    */
   "address"?: string;
   /**
-   * The port.
+   * The port. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "port"?: number;
   /**
-   * Total connect duration, calculated using `connectEnd` minus `connectStart`.
+   * Total connect duration, calculated using `connectEnd` minus `connectStart`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "connectDuration"?: number;
   /**
    * The duration to secure the connection.  This value will be zero for
    * insecure connections.  Calculated using `connectEnd` minus `secureConnectionStart`.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "secureConnectDuration"?: number;
 }

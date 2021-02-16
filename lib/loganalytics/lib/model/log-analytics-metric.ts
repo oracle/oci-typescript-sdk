@@ -36,7 +36,7 @@ export interface LogAnalyticsMetric {
    */
   "description"?: string;
   /**
-   * edit version
+   * edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**
@@ -64,7 +64,7 @@ export interface LogAnalyticsMetric {
    */
   "displayName"?: string;
   /**
-   * metric Id
+   * metric Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "metricReference"?: number;
   /**

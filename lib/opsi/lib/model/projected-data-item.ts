@@ -29,15 +29,15 @@ export interface ProjectedDataItem {
   "endTimestamp": Date;
   /**
    * Total amount used of the resource metric type (CPU, STORAGE).
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "usage": number;
   /**
-   * Upper uncertainty bound of the current usage value.
+   * Upper uncertainty bound of the current usage value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "highValue": number;
   /**
-   * Lower uncertainty bound of the current usage value.
+   * Lower uncertainty bound of the current usage value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "lowValue": number;
 }

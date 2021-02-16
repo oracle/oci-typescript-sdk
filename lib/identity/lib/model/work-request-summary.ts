@@ -65,7 +65,7 @@ export interface WorkRequestSummary {
   "timeFinished"?: Date;
   /**
    * How much progress the operation has made.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "percentComplete"?: number;
 }

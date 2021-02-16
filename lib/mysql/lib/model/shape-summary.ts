@@ -27,11 +27,11 @@ export interface ShapeSummary {
    */
   "name": string;
   /**
-   * The number of CPU Cores the Instance provides. These are \"OCPU\"s.
+   * The number of CPU Cores the Instance provides. These are \"OCPU\"s. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCount": number;
   /**
-   * The amount of RAM the Instance provides. This is an IEC base-2 number.
+   * The amount of RAM the Instance provides. This is an IEC base-2 number. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memorySizeInGBs": number;
   /**

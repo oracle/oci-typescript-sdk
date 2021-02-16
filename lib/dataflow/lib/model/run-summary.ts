@@ -32,12 +32,12 @@ export interface RunSummary {
   "compartmentId": string;
   /**
    * The data read by the run in bytes.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataReadInBytes"?: number;
   /**
    * The data written by the run in bytes.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataWrittenInBytes"?: number;
   /**
@@ -97,12 +97,12 @@ export interface RunSummary {
   "ownerUserName"?: string;
   /**
    * The duration of the run in milliseconds.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "runDurationInMilliseconds"?: number;
   /**
    * The total number of oCPU requested by the run.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalOCpu"?: number;
   /**

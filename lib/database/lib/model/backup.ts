@@ -63,7 +63,7 @@ export interface Backup {
   "databaseEdition"?: Backup.DatabaseEdition;
   /**
    * The size of the database in gigabytes at the time the backup was taken.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "databaseSizeInGBs"?: number;
   /**

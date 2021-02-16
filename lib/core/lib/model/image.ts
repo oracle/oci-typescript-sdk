@@ -110,7 +110,7 @@ Example: `7.2`
 * Note this is not the same as the size of the image when it was exported or the actual size of the image.
 * <p>
 Example: `47694`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "sizeInMBs"?: number;
   /**

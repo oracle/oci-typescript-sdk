@@ -39,11 +39,11 @@ export interface DependentObject {
    */
   "description"?: string;
   /**
-   * The application's version.
+   * The application's version. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "applicationVersion"?: number;
   /**
-   * The status of an object that can be set to value 1 for shallow references across objects, other values reserved.
+   * The status of an object that can be set to value 1 for shallow references across objects, other values reserved. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "objectStatus"?: number;
   /**
@@ -52,7 +52,7 @@ export interface DependentObject {
   "identifier"?: string;
   "parentRef"?: model.ParentReference;
   /**
-   * The version of the object that is used to track changes in the object instance.
+   * The version of the object that is used to track changes in the object instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "objectVersion"?: number;
   /**

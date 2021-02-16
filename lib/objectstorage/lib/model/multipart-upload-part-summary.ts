@@ -35,11 +35,11 @@ export interface MultipartUploadPartSummary {
    */
   "md5": string;
   /**
-   * The size of the part in bytes.
+   * The size of the part in bytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "size": number;
   /**
-   * The part number for this part.
+   * The part number for this part. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "partNumber": number;
 }

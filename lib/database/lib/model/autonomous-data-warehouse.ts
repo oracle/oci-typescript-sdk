@@ -41,11 +41,11 @@ export interface AutonomousDataWarehouse {
    */
   "dbName": string;
   /**
-   * The number of CPU cores to be made available to the database.
+   * The number of CPU cores to be made available to the database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCount": number;
   /**
-   * The quantity of data in the database, in terabytes.
+   * The quantity of data in the database, in terabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInTBs": number;
   /**

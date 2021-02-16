@@ -62,27 +62,27 @@ export interface AutonomousVmCluster {
    */
   "isLocalBackupEnabled"?: boolean;
   /**
-   * The number of enabled CPU cores.
+   * The number of enabled CPU cores. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpusEnabled"?: number;
   /**
-   * The numnber of CPU cores available.
+   * The numnber of CPU cores available. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableCpus"?: number;
   /**
-   * The memory allocated in GBs.
+   * The memory allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memorySizeInGBs"?: number;
   /**
-   * The local node storage allocated in GBs.
+   * The local node storage allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dbNodeStorageSizeInGBs"?: number;
   /**
-   * The total data storage allocated in TBs
+   * The total data storage allocated in TBs Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInTBs"?: number;
   /**
-   * The data storage available in TBs
+   * The data storage available in TBs Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableDataStorageSizeInTBs"?: number;
   /**

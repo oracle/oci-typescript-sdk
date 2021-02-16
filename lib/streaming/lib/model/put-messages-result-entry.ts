@@ -26,7 +26,7 @@ export interface PutMessagesResultEntry {
    */
   "partition"?: string;
   /**
-   * The offset of the message in the partition.
+   * The offset of the message in the partition. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "offset"?: number;
   /**

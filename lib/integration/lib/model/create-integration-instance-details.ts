@@ -49,11 +49,11 @@ export interface CreateIntegrationInstanceDetails {
    */
   "isByol": boolean;
   /**
-   * IDCS Authentication token. This is is required for pre-UCPIS cloud accounts, but not UCPIS, hence not a required parameter
+   * IDCS Authentication token. This is required for all realms with IDCS. Its optional as its not required for non IDCS realms.
    */
   "idcsAt"?: string;
   /**
-   * The number of configured message packs
+   * The number of configured message packs Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "messagePacks": number;
   /**
@@ -75,6 +75,7 @@ export interface CreateIntegrationInstanceDetails {
    * The file server is enabled or not.
    */
   "isFileServerEnabled"?: boolean;
+  "networkEndpointDetails"?: model.PublicEndpointDetails;
 }
 
 export namespace CreateIntegrationInstanceDetails {
@@ -100,6 +101,10 @@ export namespace CreateIntegrationInstanceDetails {
           ? obj.alternateCustomEndpoints.map(item => {
               return model.CreateCustomEndpointDetails.getJsonObj(item);
             })
+          : undefined,
+
+        "networkEndpointDetails": obj.networkEndpointDetails
+          ? model.NetworkEndpointDetails.getJsonObj(obj.networkEndpointDetails)
           : undefined
       }
     };

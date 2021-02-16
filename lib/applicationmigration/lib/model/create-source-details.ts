@@ -42,8 +42,11 @@ export interface CreateSourceDetails {
    * Description of the source. This helps you to identify the appropriate source environment when you have multiple sources defined.
    */
   "description"?: string;
-  "sourceDetails": model.InternalSourceDetails | model.OcicSourceDetails;
-  "authorizationDetails"?: model.InternalAuthorizationDetails | model.OcicAuthorizationDetails;
+  "sourceDetails": model.OccSourceDetails | model.InternalSourceDetails | model.OcicSourceDetails;
+  "authorizationDetails"?:
+    | model.OccAuthorizationDetails
+    | model.InternalAuthorizationDetails
+    | model.OcicAuthorizationDetails;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm). Example: `{\"Department\": \"Finance\"}`

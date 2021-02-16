@@ -33,7 +33,7 @@ export interface RunLogSummary {
   "runId": string;
   /**
    * The size of the object in bytes.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sizeInBytes"?: number;
   /**

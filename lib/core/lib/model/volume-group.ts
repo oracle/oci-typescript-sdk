@@ -67,11 +67,11 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "lifecycleState": VolumeGroup.LifecycleState;
   /**
-   * The aggregate size of the volume group in MBs.
+   * The aggregate size of the volume group in MBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sizeInMBs": number;
   /**
-   * The aggregate size of the volume group in GBs.
+   * The aggregate size of the volume group in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sizeInGBs"?: number;
   "sourceDetails"?:

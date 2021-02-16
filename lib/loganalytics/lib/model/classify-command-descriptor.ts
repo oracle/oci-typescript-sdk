@@ -22,12 +22,12 @@ import common = require("oci-common");
 export interface ClassifyCommandDescriptor extends model.AbstractCommandDescriptor {
   /**
    * Value specified in CLASSIFY command in queryString if set limits the results returned to top N.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "topCount"?: number;
   /**
    * Value specified in CLASSIFY command in queryString if set limits the results returned to bottom N.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "bottomCount"?: number;
   /**

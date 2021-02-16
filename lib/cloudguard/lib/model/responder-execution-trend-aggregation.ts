@@ -23,15 +23,15 @@ export interface ResponderExecutionTrendAggregation {
    */
   "dimensionsMap": { [key: string]: string };
   /**
-   * Start Time in epoch seconds
+   * Start Time in epoch seconds Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "startTimestamp": number;
   /**
-   * Duration
+   * Duration Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "durationInSeconds": number;
   /**
-   * The number of remediations for a given time.
+   * The number of remediations for a given time. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "count": number;
 }

@@ -32,7 +32,7 @@ export interface FilterOutput {
   "internalQueryString": string;
   /**
    * Operation response time.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "responseTimeInMs"?: number;
 }

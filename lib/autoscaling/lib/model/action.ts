@@ -32,7 +32,7 @@ export interface Action {
   /**
    * To scale out (increase the number of instances), provide a positive value. To scale in (decrease the number of
    * instances), provide a negative value.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "value": number;
 }

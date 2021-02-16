@@ -27,7 +27,7 @@ export interface Duration {
   /**
    * The timeAmount is interpreted in units defined by the timeUnit parameter, and is calculated in relation
    * to each object's Last-Modified timestamp.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeAmount": number;
   /**

@@ -29,23 +29,23 @@ export interface AutonomousExadataInfrastructureShapeSummary {
    */
   "name": string;
   /**
-   * The maximum number of CPU cores that can be enabled on the Autonomous Exadata Infrastructure.
+   * The maximum number of CPU cores that can be enabled on the Autonomous Exadata Infrastructure. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableCoreCount": number;
   /**
-   * The minimum number of CPU cores that can be enabled on the Autonomous Exadata Infrastructure.
+   * The minimum number of CPU cores that can be enabled on the Autonomous Exadata Infrastructure. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minimumCoreCount"?: number;
   /**
-   * The increment in which core count can be increased or decreased.
+   * The increment in which core count can be increased or decreased. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "coreCountIncrement"?: number;
   /**
-   * The minimum number of nodes available for the shape.
+   * The minimum number of nodes available for the shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minimumNodeCount"?: number;
   /**
-   * The maximum number of nodes available for the shape.
+   * The maximum number of nodes available for the shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maximumNodeCount"?: number;
 }

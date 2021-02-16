@@ -59,7 +59,7 @@ export interface UsageSummary {
    */
   "ad"?: string;
   /**
-   * The resource size being metered.
+   * The resource size being metered. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "weight"?: number;
   /**
@@ -79,11 +79,11 @@ export interface UsageSummary {
    */
   "unit"?: string;
   /**
-   * The discretionary discount applied to the SKU.
+   * The discretionary discount applied to the SKU. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "discount"?: number;
   /**
-   * The SKU list rate (not discount).
+   * The SKU list rate (not discount). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "listRate"?: number;
   /**
@@ -99,11 +99,11 @@ export interface UsageSummary {
    */
   "timeUsageEnded": Date;
   /**
-   * The computed cost.
+   * The computed cost. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "computedAmount"?: number;
   /**
-   * The usage number.
+   * The usage number. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "computedQuantity"?: number;
   /**
@@ -111,7 +111,7 @@ export interface UsageSummary {
    */
   "overagesFlag"?: string;
   /**
-   * The price per unit.
+   * The price per unit. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "unitPrice"?: number;
   /**

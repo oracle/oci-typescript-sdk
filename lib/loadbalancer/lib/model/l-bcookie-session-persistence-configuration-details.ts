@@ -122,7 +122,7 @@ The specified value must be at least one second. There is no default value for t
 * most cases, the client or browser retains the cookie until the current session ends, as defined by the client.
 * <p>
 Example: `3600`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "maxAgeInSeconds"?: number;
   /**

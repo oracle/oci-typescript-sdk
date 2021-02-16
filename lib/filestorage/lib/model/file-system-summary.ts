@@ -33,7 +33,7 @@ Example: `Uocm:PHX-AD-1`
    * any snapshots. This number reflects the metered size of the file
    * system and is updated asynchronously with respect to
    * updates to the file system.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "meteredBytes": number;
   /**

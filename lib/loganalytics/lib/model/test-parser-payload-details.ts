@@ -76,7 +76,7 @@ export interface TestParserPayloadDetails {
    */
   "timeUpdated"?: Date;
   /**
-   * logTypeTestRequestVersion
+   * logTypeTestRequestVersion Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "logTypeTestRequestVersion"?: number;
   "metadata"?: model.UiParserTestMetadata;
@@ -85,11 +85,11 @@ export interface TestParserPayloadDetails {
    */
   "parserIgnorelineCharacters"?: string;
   /**
-   * parser is hidden
+   * parser is hidden Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "isHidden"?: number;
   /**
-   * parser seq
+   * parser seq Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "parserSequence"?: number;
   /**

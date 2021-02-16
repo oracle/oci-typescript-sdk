@@ -20,7 +20,7 @@ export interface WafMeterDatum {
    */
   "timeObserved"?: Date;
   /**
-   * The number of seconds this data covers.
+   * The number of seconds this data covers. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeRangeInSeconds"?: number;
   /**
@@ -44,11 +44,11 @@ export interface WafMeterDatum {
    */
   "isBotEnabled"?: boolean;
   /**
-   * The number of incoming requests.
+   * The number of incoming requests. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "requestCount"?: number;
   /**
-   * Traffic in bytes.
+   * Traffic in bytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "trafficInBytes"?: number;
   /**

@@ -40,7 +40,7 @@ export interface WindowsUpdate {
    */
   "updateType": model.UpdateTypes;
   /**
-   * size of the package in bytes
+   * size of the package in bytes Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sizeInBytes"?: number;
   /**

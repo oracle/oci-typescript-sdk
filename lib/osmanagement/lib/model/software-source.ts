@@ -93,7 +93,7 @@ export interface SoftwareSource {
    */
   "lifecycleState"?: model.LifecycleStates;
   /**
-   * Number of packages
+   * Number of packages Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "packages"?: number;
   /**

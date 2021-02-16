@@ -38,7 +38,7 @@ export interface AlertRule {
   "type": model.AlertType;
   /**
    * The threshold for triggering the alert. If thresholdType is PERCENTAGE, the maximum value is 10000.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "threshold": number;
   /**
@@ -58,7 +58,7 @@ export interface AlertRule {
    */
   "description"?: string;
   /**
-   * Version of the alert rule. Starts from 1 and increments by 1.
+   * Version of the alert rule. Starts from 1 and increments by 1. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "version"?: number;
   /**

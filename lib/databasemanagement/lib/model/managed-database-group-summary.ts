@@ -38,7 +38,7 @@ export interface ManagedDatabaseGroupSummary {
    */
   "description"?: string;
   /**
-   * The number of Managed Databases in the Managed Database Group.
+   * The number of Managed Databases in the Managed Database Group. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "managedDatabaseCount": number;
   /**

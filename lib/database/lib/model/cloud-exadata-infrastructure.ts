@@ -46,19 +46,19 @@ export interface CloudExadataInfrastructure {
    */
   "availabilityDomain": string;
   /**
-   * The number of compute servers for the cloud Exadata infrastructure.
+   * The number of compute servers for the cloud Exadata infrastructure. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "computeCount"?: number;
   /**
-   * The number of storage servers for the cloud Exadata infrastructure.
+   * The number of storage servers for the cloud Exadata infrastructure. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "storageCount"?: number;
   /**
-   * The total storage allocated to the cloud Exadata infrastructure resource, in gigabytes (GB).
+   * The total storage allocated to the cloud Exadata infrastructure resource, in gigabytes (GB). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalStorageSizeInGBs"?: number;
   /**
-   * The available storage can be allocated to the cloud Exadata infrastructure resource, in gigabytes (GB).
+   * The available storage can be allocated to the cloud Exadata infrastructure resource, in gigabytes (GB). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableStorageSizeInGBs"?: number;
   /**

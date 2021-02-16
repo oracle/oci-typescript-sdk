@@ -28,27 +28,27 @@ If this field is null, then this shape has a fixed amount of memory equivalent t
 export interface ShapeMemoryOptions {
   /**
    * The minimum amount of memory, in gigabytes.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minInGBs"?: number;
   /**
    * The maximum amount of memory, in gigabytes.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxInGBs"?: number;
   /**
    * The default amount of memory per OCPU available for this shape, in gigabytes.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "defaultPerOcpuInGBs"?: number;
   /**
    * The minimum amount of memory per OCPU available for this shape, in gigabytes.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minPerOcpuInGBs"?: number;
   /**
    * The maximum amount of memory per OCPU available for this shape, in gigabytes.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxPerOcpuInGBs"?: number;
 }

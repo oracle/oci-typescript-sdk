@@ -29,7 +29,7 @@ export interface EnumIntegerImageCapabilityDescriptor
    */
   "values": Array<number>;
   /**
-   * the default value
+   * the default value Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "defaultValue"?: number;
 

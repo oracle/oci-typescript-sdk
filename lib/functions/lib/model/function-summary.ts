@@ -59,11 +59,11 @@ export interface FunctionSummary {
    */
   "imageDigest"?: string;
   /**
-   * Maximum usable memory for the function (MiB).
+   * Maximum usable memory for the function (MiB). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryInMBs"?: number;
   /**
-   * Timeout for executions of the function. Value in seconds.
+   * Timeout for executions of the function. Value in seconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeoutInSeconds"?: number;
   /**

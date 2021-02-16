@@ -22,23 +22,23 @@ import common = require("oci-common");
  */
 export interface SqlPlanInsightAggregation {
   /**
-   * Plan hash value for the SQL Execution Plan
+   * Plan hash value for the SQL Execution Plan Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "planHash": number;
   /**
-   * IO Time in seconds
+   * IO Time in seconds Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ioTimeInSec": number;
   /**
-   * CPU Time in seconds
+   * CPU Time in seconds Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuTimeInSec": number;
   /**
-   * Inefficient Wait Time in seconds
+   * Inefficient Wait Time in seconds Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "inefficientWaitTimeInSec": number;
   /**
-   * Total number of executions
+   * Total number of executions Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "executionsCount": number;
 }

@@ -26,7 +26,7 @@ export interface Connection {
    */
   "address"?: string;
   /**
-   * The port.
+   * The port. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "port"?: number;
 }

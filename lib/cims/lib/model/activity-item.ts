@@ -23,11 +23,11 @@ export interface ActivityItem extends model.Item {
    */
   "comments"?: string;
   /**
-   * The time when the activity was created, in milliseconds since epoch time.
+   * The time when the activity was created, in milliseconds since epoch time. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeCreated"?: number;
   /**
-   * The time when the activity was updated, in milliseconds since epoch time.
+   * The time when the activity was updated, in milliseconds since epoch time. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeUpdated"?: number;
   /**

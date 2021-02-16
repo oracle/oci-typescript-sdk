@@ -40,7 +40,7 @@ export interface WorkRequest {
    */
   "resources": Array<model.WorkRequestResource>;
   /**
-   * How much progress the operation has made.
+   * How much progress the operation has made. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "percentComplete": number;
   /**

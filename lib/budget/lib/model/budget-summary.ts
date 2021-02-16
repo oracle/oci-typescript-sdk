@@ -43,7 +43,7 @@ export interface BudgetSummary {
   "description"?: string;
   /**
    * The amount of the budget expressed in the currency of the customer's rate card.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "amount": number;
   /**
@@ -52,7 +52,7 @@ export interface BudgetSummary {
    */
   "resetPeriod": model.ResetPeriod;
   /**
-   * The number of days offset from the first day of the month, at which the budget processing period starts. In months that have fewer days than this value, processing will begin on the last day of that month. For example, for a value of 12, processing starts every month on the 12th at midnight.
+   * The number of days offset from the first day of the month, at which the budget processing period starts. In months that have fewer days than this value, processing will begin on the last day of that month. For example, for a value of 12, processing starts every month on the 12th at midnight. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "budgetProcessingPeriodStartOffset"?: number;
   /**
@@ -72,19 +72,19 @@ export interface BudgetSummary {
    */
   "lifecycleState": model.LifecycleState;
   /**
-   * Total number of alert rules in the budget
+   * Total number of alert rules in the budget Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "alertRuleCount": number;
   /**
-   * Version of the budget. Starts from 1 and increments by 1.
+   * Version of the budget. Starts from 1 and increments by 1. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "version"?: number;
   /**
-   * The actual spend in currency for the current budget cycle
+   * The actual spend in currency for the current budget cycle Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "actualSpend"?: number;
   /**
-   * The forecasted spend in currency by the end of the current budget cycle
+   * The forecasted spend in currency by the end of the current budget cycle Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "forecastedSpend"?: number;
   /**

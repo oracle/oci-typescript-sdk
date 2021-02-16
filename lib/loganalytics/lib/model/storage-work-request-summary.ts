@@ -48,7 +48,7 @@ export interface StorageWorkRequestSummary {
   "timeExpires"?: Date;
   /**
    * Percentage progress completion of the work request.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "percentComplete"?: number;
   /**
@@ -89,7 +89,7 @@ export interface StorageWorkRequestSummary {
    */
   "policyId"?: string;
   /**
-   * This is the data usage in bytes if applicable
+   * This is the data usage in bytes if applicable Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "storageUsageInBytes"?: number;
   /**

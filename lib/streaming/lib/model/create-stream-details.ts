@@ -26,7 +26,7 @@ Example: `TelemetryEvents`
     */
   "name": string;
   /**
-   * The number of partitions in the stream.
+   * The number of partitions in the stream. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "partitions": number;
   /**
@@ -40,7 +40,7 @@ Example: `TelemetryEvents`
   /**
    * The retention period of the stream, in hours. Accepted values are between 24 and 168 (7 days).
    * If not specified, the stream will have a retention period of 24 hours.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "retentionInHours"?: number;
   /**

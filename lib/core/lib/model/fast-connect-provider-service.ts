@@ -82,7 +82,7 @@ Example: `https://example.com`
   "bandwithShapeManagement": FastConnectProviderService.BandwithShapeManagement;
   /**
    * Total number of cross-connect or cross-connect groups required for the virtual circuit.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "requiredTotalCrossConnects": number;
   /**

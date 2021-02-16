@@ -44,7 +44,7 @@ export interface LookupField {
    */
   "name"?: string;
   /**
-   * position
+   * position Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "position"?: number;
 }

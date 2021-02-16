@@ -61,14 +61,14 @@ export interface ClientOptions {
    * UID value to remap to when squashing a client UID (see
    * identitySquash for more details.) If unspecified, defaults
    * to `65534`.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "anonymousUid"?: number;
   /**
    * GID value to remap to when squashing a client GID (see
    * identitySquash for more details.) If unspecified defaults
    * to `65534`.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "anonymousGid"?: number;
 }

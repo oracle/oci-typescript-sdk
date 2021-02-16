@@ -61,7 +61,7 @@ export interface AutonomousDatabaseBackupSummary {
   "lifecycleDetails"?: string;
   /**
    * The size of the database in terabytes at the time the backup was taken.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "databaseSizeInTBs"?: number;
   /**

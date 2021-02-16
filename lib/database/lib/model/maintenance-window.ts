@@ -46,7 +46,7 @@ export interface MaintenanceWindow {
   "hoursOfDay"?: Array<number>;
   /**
    * Lead time window allows user to set a lead time to prepare for a down time. The lead time is in weeks and valid value is between 1 to 4.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "leadTimeInWeeks"?: number;
 }

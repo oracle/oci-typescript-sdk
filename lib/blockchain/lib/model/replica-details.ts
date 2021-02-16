@@ -19,15 +19,15 @@ import common = require("oci-common");
  */
 export interface ReplicaDetails {
   /**
-   * Number of REST proxy replicas
+   * Number of REST proxy replicas Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "proxyCount"?: number;
   /**
-   * Number of CA replicas
+   * Number of CA replicas Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "caCount"?: number;
   /**
-   * Number of console replicas
+   * Number of console replicas Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "consoleCount"?: number;
 }

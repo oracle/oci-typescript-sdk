@@ -23,15 +23,15 @@ import common = require("oci-common");
  */
 export interface TableLimits {
   /**
-   * Maximum sustained read throughput limit for the table.
+   * Maximum sustained read throughput limit for the table. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxReadUnits": number;
   /**
-   * Maximum sustained write throughput limit for the table.
+   * Maximum sustained write throughput limit for the table. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxWriteUnits": number;
   /**
-   * Maximum size of storage used by the table.
+   * Maximum size of storage used by the table. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxStorageInGBs": number;
 }

@@ -31,7 +31,7 @@ export interface Publisher {
    */
   "description"?: string;
   /**
-   * The year the publisher's company or organization was founded.
+   * The year the publisher's company or organization was founded. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "yearFounded"?: number;
   /**

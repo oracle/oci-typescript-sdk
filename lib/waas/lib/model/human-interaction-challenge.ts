@@ -27,23 +27,23 @@ export interface HumanInteractionChallenge {
    */
   "action"?: HumanInteractionChallenge.Action;
   /**
-   * The number of failed requests before taking action. If unspecified, defaults to `10`.
+   * The number of failed requests before taking action. If unspecified, defaults to `10`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "failureThreshold"?: number;
   /**
-   * The number of seconds between challenges for the same IP address. If unspecified, defaults to `60`.
+   * The number of seconds between challenges for the same IP address. If unspecified, defaults to `60`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "actionExpirationInSeconds"?: number;
   /**
-   * The number of seconds before the failure threshold resets. If unspecified, defaults to  `60`.
+   * The number of seconds before the failure threshold resets. If unspecified, defaults to  `60`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "failureThresholdExpirationInSeconds"?: number;
   /**
-   * The number of interactions required to pass the challenge. If unspecified, defaults to `3`.
+   * The number of interactions required to pass the challenge. If unspecified, defaults to `3`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "interactionThreshold"?: number;
   /**
-   * The number of seconds to record the interactions from the user. If unspecified, defaults to `15`.
+   * The number of seconds to record the interactions from the user. If unspecified, defaults to `15`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "recordingPeriodInSeconds"?: number;
   /**

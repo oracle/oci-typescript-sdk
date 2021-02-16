@@ -23,7 +23,7 @@ export interface Secret {
    */
   "compartmentId": string;
   /**
-   * The version number of the secret version that's currently in use.
+   * The version number of the secret version that's currently in use. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "currentVersionNumber"?: number;
   /**

@@ -23,7 +23,7 @@ export interface ConfigParameterValue {
    */
   "stringValue"?: string;
   /**
-   * An integer value of the parameter.
+   * An integer value of the parameter. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "intValue"?: number;
   /**

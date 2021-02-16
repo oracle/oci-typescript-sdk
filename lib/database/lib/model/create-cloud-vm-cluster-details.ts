@@ -44,7 +44,7 @@ export interface CreateCloudVmClusterDetails {
 * - Exadata.Quarter2.92 - Specify a multiple of 2, from 0 to 92.
 * - Exadata.Half2.184 - Specify a multiple of 4, from 0 to 184.
 * - Exadata.Full2.368 - Specify a multiple of 8, from 0 to 368.
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "cpuCoreCount": number;
   /**
@@ -55,7 +55,7 @@ export interface CreateCloudVmClusterDetails {
   /**
    * The percentage assigned to DATA storage (user data and database files).
    * The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are 35, 40, 60 and 80. The default is 80 percent assigned to DATA storage. See [Storage Configuration](https://docs.cloud.oracle.com/Content/Database/Concepts/exaoverview.htm#Exadata) in the Exadata documentation for details on the impact of the configuration settings on storage.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStoragePercentage"?: number;
   /**

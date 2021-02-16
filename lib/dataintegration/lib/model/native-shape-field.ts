@@ -32,7 +32,7 @@ export interface NativeShapeField {
   "type"?: string;
   "configValues"?: model.ConfigValues;
   /**
-   * The position of the attribute.
+   * The position of the attribute. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "position"?: number;
   /**

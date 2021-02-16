@@ -29,14 +29,14 @@ export interface ConnectionConfiguration {
 For more information, see [Connection Configuration](https://docs.cloud.oracle.com/Content/Balance/Reference/connectionreuse.htm#ConnectionConfiguration).
 * <p>
 Example: `1200`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "idleTimeout": number;
   /**
     * The backend TCP Proxy Protocol version.
 * <p>
 Example: `1`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "backendTcpProxyProtocolVersion"?: number;
 }

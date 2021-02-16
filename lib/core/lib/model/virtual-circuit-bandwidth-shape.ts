@@ -28,7 +28,7 @@ export interface VirtualCircuitBandwidthShape {
     * The bandwidth in Mbps.
 * <p>
 Example: `10000`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "bandwidthInMbps"?: number;
   /**

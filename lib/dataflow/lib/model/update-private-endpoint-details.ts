@@ -54,7 +54,7 @@ export interface UpdatePrivateEndpointDetails {
    * to calculate the relevant CIDR block and should be a multiple of 256.  If the value is not a
    * multiple of 256, it is rounded up to the next multiple of 256. For example, 300 is rounded up
    * to 512.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxHostCount"?: number;
   /**

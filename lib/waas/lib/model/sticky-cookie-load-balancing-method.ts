@@ -33,7 +33,7 @@ export interface StickyCookieLoadBalancingMethod extends model.LoadBalancingMeth
   /**
    * The time for which a browser should keep the cookie in seconds.
    * Empty value will cause the cookie to expire at the end of a browser session.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "expirationTimeInSeconds"?: number;
 

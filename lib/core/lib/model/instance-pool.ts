@@ -71,7 +71,7 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "placementConfigurations": Array<model.InstancePoolPlacementConfiguration>;
   /**
-   * The number of instances that should be in the instance pool.
+   * The number of instances that should be in the instance pool. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "size": number;
   /**

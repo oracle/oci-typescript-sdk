@@ -27,7 +27,7 @@ export interface WorkRequestResource {
   "actionType": WorkRequestResource.ActionType;
   /**
    * The id of a work request resource object.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "id"?: number;
   /**

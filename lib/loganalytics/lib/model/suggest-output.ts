@@ -22,7 +22,7 @@ import common = require("oci-common");
 export interface SuggestOutput {
   /**
    * Character position suggestion should be placed in queryString provided as input.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "position": number;
   /**

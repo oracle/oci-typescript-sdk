@@ -36,7 +36,7 @@ export interface LogAnalyticsParameter {
    */
   "name"?: string;
   /**
-   * source Id
+   * source Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourceId"?: number;
 }

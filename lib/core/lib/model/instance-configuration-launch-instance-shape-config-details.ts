@@ -37,12 +37,12 @@ For more information about customizing the resources that are allocated to a fle
 export interface InstanceConfigurationLaunchInstanceShapeConfigDetails {
   /**
    * The total number of OCPUs available to the instance.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ocpus"?: number;
   /**
    * The total amount of memory available to the instance, in gigabytes.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryInGBs"?: number;
 }

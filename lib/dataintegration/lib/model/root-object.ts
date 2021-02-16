@@ -32,7 +32,7 @@ export interface RootObject {
   "modelVersion"?: string;
   "parentRef"?: model.ParentReference;
   /**
-   * The status of an object that can be set to value 1 for shallow references across objects, other values reserved.
+   * The status of an object that can be set to value 1 for shallow references across objects, other values reserved. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "objectStatus"?: number;
 }

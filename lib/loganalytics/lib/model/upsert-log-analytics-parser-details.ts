@@ -32,7 +32,7 @@ export interface UpsertLogAnalyticsParserDetails {
    */
   "displayName"?: string;
   /**
-   * edit version
+   * edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**
@@ -76,7 +76,7 @@ export interface UpsertLogAnalyticsParserDetails {
    */
   "language"?: string;
   /**
-   * log type test request version
+   * log type test request version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "logTypeTestRequestVersion"?: number;
   /**
@@ -84,7 +84,7 @@ export interface UpsertLogAnalyticsParserDetails {
    */
   "parserIgnorelineCharacters"?: string;
   /**
-   * sequence
+   * sequence Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "parserSequence"?: number;
   /**

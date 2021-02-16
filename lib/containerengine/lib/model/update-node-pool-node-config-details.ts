@@ -23,7 +23,7 @@ import common = require("oci-common");
 export interface UpdateNodePoolNodeConfigDetails {
   /**
    * The number of nodes in the node pool.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "size"?: number;
   /**

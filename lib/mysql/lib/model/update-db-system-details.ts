@@ -81,7 +81,7 @@ Changes in Shape will result in a downtime as the MySQL DB System is
 Increases in data storage size will happen asynchronously and will require DB System downtime.
 * <p>
 Decreases in data storage size are not supported.
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "dataStorageSizeInGBs"?: number;
   /**
@@ -101,12 +101,12 @@ Decreases in data storage size are not supported.
    */
   "ipAddress"?: string;
   /**
-   * The port for primary endpoint of the DB System to listen on.
+   * The port for primary endpoint of the DB System to listen on. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "port"?: number;
   /**
    * The TCP network port on which X Plugin listens for connections. This is the X Plugin equivalent of port.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "portX"?: number;
   "backupPolicy"?: model.UpdateBackupPolicyDetails;

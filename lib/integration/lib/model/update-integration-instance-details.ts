@@ -45,7 +45,7 @@ export interface UpdateIntegrationInstanceDetails {
    */
   "isByol"?: boolean;
   /**
-   * The number of configured message packs
+   * The number of configured message packs Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "messagePacks"?: number;
   /**

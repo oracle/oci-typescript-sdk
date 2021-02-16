@@ -28,11 +28,11 @@ export interface DbSystemEndpoint {
    */
   "ipAddress": string;
   /**
-   * The port the MySQL instance listens on.
+   * The port the MySQL instance listens on. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "port": number;
   /**
-   * The network port where to connect to use this endpoint using the X protocol.
+   * The network port where to connect to use this endpoint using the X protocol. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "portX": number;
   /**

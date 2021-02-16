@@ -88,7 +88,7 @@ export interface AutonomousContainerDatabase {
   /**
    * The scheduling detail for the quarterly maintenance window of the standby Autonomous Container Database.
    * This value represents the number of days before scheduled maintenance of the primary database.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "standbyMaintenanceBufferInDays"?: number;
   /**

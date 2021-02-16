@@ -32,11 +32,11 @@ export interface LogAnalyticsMetaFunction {
    */
   "description"?: string;
   /**
-   * edit version
+   * edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**
-   * meta function Id
+   * meta function Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "metaFunctionId"?: number;
   /**

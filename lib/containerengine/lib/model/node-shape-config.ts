@@ -24,12 +24,12 @@ export interface NodeShapeConfig {
   /**
    * The total number of OCPUs available to each node in the node pool.
    * See [here](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/20160918/Shape/) for details.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ocpus"?: number;
   /**
    * The total amount of memory available to each node, in gigabytes.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryInGBs"?: number;
 }

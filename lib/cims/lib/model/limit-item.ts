@@ -19,15 +19,15 @@ import common = require("oci-common");
  */
 export interface LimitItem extends model.Item {
   /**
-   * The currently available limit of the resource.
+   * The currently available limit of the resource. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "currentLimit"?: number;
   /**
-   * The current usage of the resource.
+   * The current usage of the resource. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "currentUsage"?: number;
   /**
-   * The requested limit for the resource.
+   * The requested limit for the resource. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "requestedLimit"?: number;
   /**

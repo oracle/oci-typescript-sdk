@@ -81,11 +81,11 @@ export interface WafLog {
    */
   "referrer"?: string;
   /**
-   * The status code of the response.
+   * The status code of the response. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "responseCode"?: number;
   /**
-   * The size in bytes of the response.
+   * The size in bytes of the response. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "responseSize"?: number;
   /**

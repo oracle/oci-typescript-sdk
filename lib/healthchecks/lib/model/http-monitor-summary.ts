@@ -50,7 +50,7 @@ export interface HttpMonitorSummary {
   "displayName"?: string;
   /**
    * The monitor interval in seconds. Valid values: 10, 30, and 60.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "intervalInSeconds"?: number;
   /**

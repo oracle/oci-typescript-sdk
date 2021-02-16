@@ -19,19 +19,19 @@ import common = require("oci-common");
  */
 export interface TaskValidationSummary {
   /**
-   * Total number of validation messages.
+   * Total number of validation messages. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalMessageCount"?: number;
   /**
-   * Total number of validation error messages.
+   * Total number of validation error messages. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "errorMessageCount"?: number;
   /**
-   * Total number of validation warning messages.
+   * Total number of validation warning messages. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "warnMessageCount"?: number;
   /**
-   * Total number of validation information messages.
+   * Total number of validation information messages. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "infoMessageCount"?: number;
   /**
@@ -60,11 +60,11 @@ export interface TaskValidationSummary {
    */
   "description"?: string;
   /**
-   * The version of the object that is used to track changes in the object instance.
+   * The version of the object that is used to track changes in the object instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "objectVersion"?: number;
   /**
-   * The status of an object that can be set to value 1 for shallow references across objects, other values reserved.
+   * The status of an object that can be set to value 1 for shallow references across objects, other values reserved. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "objectStatus"?: number;
   /**

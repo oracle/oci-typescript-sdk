@@ -37,7 +37,7 @@ export interface ManagedInstanceGroupSummary {
    */
   "description"?: string;
   /**
-   * Number of managed instances in this managed instance group
+   * Number of managed instances in this managed instance group Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "managedInstanceCount"?: number;
   /**

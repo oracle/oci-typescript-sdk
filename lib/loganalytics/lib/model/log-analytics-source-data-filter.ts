@@ -28,7 +28,7 @@ export interface LogAnalyticsSourceDataFilter {
    */
   "displayName"?: string;
   /**
-   * edit version
+   * edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**
@@ -40,11 +40,11 @@ export interface LogAnalyticsSourceDataFilter {
    */
   "fieldName"?: string;
   /**
-   * hash type
+   * hash type Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "hashType"?: number;
   /**
-   * filter Id
+   * filter Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataFilterId"?: number;
   /**
@@ -56,7 +56,7 @@ export interface LogAnalyticsSourceDataFilter {
    */
   "matchRegularExpression"?: string;
   /**
-   * order
+   * order Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "order"?: number;
   /**
@@ -68,7 +68,7 @@ export interface LogAnalyticsSourceDataFilter {
    */
   "replacementString"?: string;
   /**
-   * source Id
+   * source Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourceId"?: number;
   /**

@@ -23,11 +23,11 @@ import common = require("oci-common");
  */
 export interface RequestUsage {
   /**
-   * Read Units consumed by this operation.
+   * Read Units consumed by this operation. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "readUnitsConsumed"?: number;
   /**
-   * Write Units consumed by this operation.
+   * Write Units consumed by this operation. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "writeUnitsConsumed"?: number;
 }

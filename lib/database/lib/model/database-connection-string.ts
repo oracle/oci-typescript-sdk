@@ -25,7 +25,7 @@ export interface DatabaseConnectionString {
    */
   "hostname": string;
   /**
-   * The port used to connect to the database.
+   * The port used to connect to the database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "port": number;
   /**
