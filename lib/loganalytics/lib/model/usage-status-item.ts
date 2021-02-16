@@ -28,11 +28,11 @@ export interface UsageStatusItem {
    */
   "isMultiValued"?: boolean;
   /**
-   * current usage
+   * current usage Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "currentUsage"?: number;
   /**
-   * maximum available
+   * maximum available Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxAvailable"?: number;
 }

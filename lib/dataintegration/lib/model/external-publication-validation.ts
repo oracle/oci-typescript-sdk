@@ -19,19 +19,19 @@ import common = require("oci-common");
  */
 export interface ExternalPublicationValidation {
   /**
-   * Total number of validation messages.
+   * Total number of validation messages. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalMessageCount"?: number;
   /**
-   * Total number of validation error messages.
+   * Total number of validation error messages. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "errorMessageCount"?: number;
   /**
-   * Total number of validation warning messages.
+   * Total number of validation warning messages. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "warnMessageCount"?: number;
   /**
-   * Total number of validation information messages.
+   * Total number of validation information messages. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "infoMessageCount"?: number;
   /**

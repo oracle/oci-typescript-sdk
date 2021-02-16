@@ -31,7 +31,7 @@ export interface RuleAttribute {
    */
   "displayName"?: string;
   /**
-   * Position of the attribute in the record definition.
+   * Position of the attribute in the record definition. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "position"?: number;
 }

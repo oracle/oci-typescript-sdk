@@ -32,7 +32,7 @@ export interface LogAnalyticsParserSummary {
    */
   "displayName"?: string;
   /**
-   * edit version
+   * edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**
@@ -80,7 +80,7 @@ export interface LogAnalyticsParserSummary {
    */
   "timeUpdated"?: Date;
   /**
-   * log type test request version
+   * log type test request version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "logTypeTestRequestVersion"?: number;
   /**
@@ -96,7 +96,7 @@ export interface LogAnalyticsParserSummary {
    */
   "isHidden"?: boolean;
   /**
-   * sequence
+   * sequence Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "parserSequence"?: number;
   /**
@@ -113,7 +113,7 @@ export interface LogAnalyticsParserSummary {
    */
   "parserFunctions"?: Array<model.LogAnalyticsParserFunction>;
   /**
-   * sources using this parser
+   * sources using this parser Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourcesCount"?: number;
   /**

@@ -39,7 +39,7 @@ export interface Certificate {
    */
   "serialNumber": string;
   /**
-   * The version of the encoded certificate.
+   * The version of the encoded certificate. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "version": number;
   /**

@@ -24,11 +24,11 @@ export interface LogAnalyticsLabelView {
    */
   "aliases"?: Array<model.LogAnalyticsLabelAlias>;
   /**
-   * alert rule usage count
+   * alert rule usage count Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "countUsageInAlertRule"?: number;
   /**
-   * source usage count
+   * source usage count Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "countUsageInSource"?: number;
   /**
@@ -36,7 +36,7 @@ export interface LogAnalyticsLabelView {
    */
   "id"?: any;
   /**
-   * suggest type
+   * suggest type Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "suggestType"?: number;
   /**
@@ -48,7 +48,7 @@ export interface LogAnalyticsLabelView {
    */
   "displayName"?: string;
   /**
-   * tag edit version
+   * tag edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**
@@ -72,7 +72,7 @@ export interface LogAnalyticsLabelView {
    */
   "recommendation"?: string;
   /**
-   * type
+   * type Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "type"?: number;
   /**

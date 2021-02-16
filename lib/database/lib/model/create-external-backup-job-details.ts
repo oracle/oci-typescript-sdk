@@ -45,7 +45,7 @@ export interface CreateExternalBackupJobDetails {
    */
   "pdbName"?: string;
   /**
-   * The `DBID` of the Oracle Database being backed up.
+   * The `DBID` of the Oracle Database being backed up. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "externalDatabaseIdentifier": number;
   /**

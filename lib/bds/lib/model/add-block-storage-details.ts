@@ -28,7 +28,7 @@ export interface AddBlockStorageDetails {
   /**
    * The size of block volume in GB that needs to be added to each worker node.
    * All the necessary details needed for attachment are managed by service itself.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "blockVolumeSizeInGBs": number;
 }

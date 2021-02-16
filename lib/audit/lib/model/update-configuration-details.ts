@@ -28,7 +28,7 @@ export interface UpdateConfigurationDetails {
     * The retention period setting, specified in days. The minimum is 90, the maximum 365.
 * <p>
 Example: `90`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "retentionPeriodDays": number;
 }

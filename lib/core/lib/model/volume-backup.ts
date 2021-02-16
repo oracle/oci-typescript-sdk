@@ -92,13 +92,13 @@ Example: `{\"Department\": \"Finance\"}`
   "lifecycleState": VolumeBackup.LifecycleState;
   /**
    * The size of the volume, in GBs.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sizeInGBs"?: number;
   /**
    * The size of the volume in MBs. The value must be a multiple of 1024.
    * This field is deprecated. Please use sizeInGBs.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sizeInMBs"?: number;
   /**
@@ -128,14 +128,14 @@ Example: `{\"Department\": \"Finance\"}`
   /**
    * The size used by the backup, in GBs. It is typically smaller than sizeInGBs, depending on the space
    * consumed on the volume and whether the backup is full or incremental.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "uniqueSizeInGBs"?: number;
   /**
    * The size used by the backup, in MBs. It is typically smaller than sizeInMBs, depending on the space
    * consumed on the volume and whether the backup is full or incremental.
    * This field is deprecated. Please use uniqueSizeInGBs.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "uniqueSizeInMbs"?: number;
   /**

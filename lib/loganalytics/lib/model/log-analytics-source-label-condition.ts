@@ -60,7 +60,7 @@ export interface LogAnalyticsSourceLabelCondition {
    */
   "fieldName"?: string;
   /**
-   * Id
+   * Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "labelConditionId"?: number;
   /**
@@ -72,7 +72,7 @@ export interface LogAnalyticsSourceLabelCondition {
    */
   "labelConditionOperator"?: string;
   /**
-   * source Id
+   * source Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourceId"?: number;
   /**

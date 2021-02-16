@@ -32,7 +32,7 @@ export interface UpdateAlertRuleDetails {
    * The threshold for triggering the alert expressed as a whole number or decimal value.
    * If thresholdType is ABSOLUTE, threshold can have at most 12 digits before the decimal point and up to 2 digits after the decimal point.
    * If thresholdType is PERCENTAGE, the maximum value is 10000 and can have up to 2 digits after the decimal point.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "threshold"?: number;
   /**

@@ -27,7 +27,7 @@ export interface SSLConfigurationDetails {
     * The maximum depth for peer certificate chain verification.
 * <p>
 Example: `3`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "verifyDepth"?: number;
   /**

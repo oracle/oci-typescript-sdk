@@ -26,6 +26,8 @@ Specify `OCIC` if you want to migrate Oracle Java Cloud Service, Oracle Analytic
 * <p>
 Specify `INTERNAL_COMPUTE` if you have a traditional Oracle Cloud Infrastructure - Classic account and you want to migrate Oracle
 * Process Cloud Service or Oracle Integration Cloud Service applications.
+* <p>
+Specify `OCC` if you have an Oracle Cloud @ Customer account.
 * 
 */
 export interface SourceDetails {
@@ -38,6 +40,8 @@ export namespace SourceDetails {
 
     if ("type" in obj && obj.type) {
       switch (obj.type) {
+        case "OCC":
+          return model.OccSourceDetails.getJsonObj(<model.OccSourceDetails>(<object>jsonObj), true);
         case "INTERNAL_COMPUTE":
           return model.InternalSourceDetails.getJsonObj(
             <model.InternalSourceDetails>(<object>jsonObj),

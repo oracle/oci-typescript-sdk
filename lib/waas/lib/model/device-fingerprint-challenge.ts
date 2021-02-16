@@ -27,23 +27,23 @@ export interface DeviceFingerprintChallenge {
    */
   "action"?: DeviceFingerprintChallenge.Action;
   /**
-   * The number of failed requests allowed before taking action. If unspecified, defaults to `10`.
+   * The number of failed requests allowed before taking action. If unspecified, defaults to `10`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "failureThreshold"?: number;
   /**
-   * The number of seconds between challenges for the same IP address. If unspecified, defaults to `60`.
+   * The number of seconds between challenges for the same IP address. If unspecified, defaults to `60`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "actionExpirationInSeconds"?: number;
   /**
-   * The number of seconds before the failure threshold resets. If unspecified, defaults to `60`.
+   * The number of seconds before the failure threshold resets. If unspecified, defaults to `60`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "failureThresholdExpirationInSeconds"?: number;
   /**
-   * The maximum number of IP addresses permitted with the same device fingerprint. If unspecified, defaults to `20`.
+   * The maximum number of IP addresses permitted with the same device fingerprint. If unspecified, defaults to `20`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxAddressCount"?: number;
   /**
-   * The number of seconds before the maximum addresses count resets. If unspecified, defaults to `60`.
+   * The number of seconds before the maximum addresses count resets. If unspecified, defaults to `60`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxAddressCountExpirationInSeconds"?: number;
   "challengeSettings"?: model.BlockChallengeSettings;

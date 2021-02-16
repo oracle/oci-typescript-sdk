@@ -95,7 +95,7 @@ export interface CustomProperty {
    */
   "updatedById"?: string;
   /**
-   * Total number of first class objects using this custom property
+   * Total number of first class objects using this custom property Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "usageCount"?: number;
   /**

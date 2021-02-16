@@ -30,7 +30,7 @@ Example: `TelemetryEvents`
    */
   "id": string;
   /**
-   * The number of partitions in the stream.
+   * The number of partitions in the stream. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "partitions": number;
   /**

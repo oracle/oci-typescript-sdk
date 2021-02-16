@@ -46,11 +46,11 @@ export interface UpdateRowDetails {
    */
   "isGetReturnRow"?: boolean;
   /**
-   * Timeout setting for the put.
+   * Timeout setting for the put. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeoutInMs"?: number;
   /**
-   * Time-to-live for the row, in days.
+   * Time-to-live for the row, in days. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ttl"?: number;
   /**
@@ -62,7 +62,7 @@ export interface UpdateRowDetails {
    * Sets the number of generated identity values that are
    * requested from the server during a put. If present and greater than 0,
    * this value takes precedence over a default value for the table.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "identityCacheSize"?: number;
   /**

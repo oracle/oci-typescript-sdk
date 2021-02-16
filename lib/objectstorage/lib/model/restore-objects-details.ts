@@ -25,7 +25,7 @@ export interface RestoreObjectsDetails {
   /**
    * The number of hours for which this object will be restored.
    * By default objects will be restored for 24 hours. You can instead configure the duration using the hours parameter.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "hours"?: number;
   /**

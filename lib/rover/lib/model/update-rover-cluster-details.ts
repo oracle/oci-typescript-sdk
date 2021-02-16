@@ -23,7 +23,7 @@ export interface UpdateRoverClusterDetails {
    */
   "displayName"?: string;
   /**
-   * Number of nodes desired in the cluster, between 5 and 15.
+   * Number of nodes desired in the cluster, between 5 and 15. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "clusterSize"?: number;
   "customerShippingAddress"?: model.ShippingAddress;

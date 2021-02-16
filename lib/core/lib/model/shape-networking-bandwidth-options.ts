@@ -28,17 +28,17 @@ If this field is null, then this shape has a fixed amount of bandwidth equivalen
 export interface ShapeNetworkingBandwidthOptions {
   /**
    * The minimum amount of networking bandwidth, in gigabits per second.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minInGbps"?: number;
   /**
    * The maximum amount of networking bandwidth, in gigabits per second.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxInGbps"?: number;
   /**
    * The default amount of networking bandwidth per OCPU, in gigabits per second.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "defaultPerOcpuInGbps"?: number;
 }

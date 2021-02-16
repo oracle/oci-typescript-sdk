@@ -26,7 +26,7 @@ export interface NotebookSessionConfigurationDetails {
   "shape": string;
   /**
    * A notebook session instance is provided with a block storage volume. This specifies the size of the volume in GBs.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "blockStorageSizeInGBs"?: number;
   /**

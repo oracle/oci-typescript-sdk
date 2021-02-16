@@ -37,55 +37,55 @@ export interface DbSystemShapeSummary {
    */
   "shape"?: string;
   /**
-   * The maximum number of CPU cores that can be enabled on the DB system for this shape.
+   * The maximum number of CPU cores that can be enabled on the DB system for this shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableCoreCount": number;
   /**
-   * The minimum number of CPU cores that can be enabled on the DB system for this shape.
+   * The minimum number of CPU cores that can be enabled on the DB system for this shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minimumCoreCount"?: number;
   /**
-   * The discrete number by which the CPU core count for this shape can be increased or decreased.
+   * The discrete number by which the CPU core count for this shape can be increased or decreased. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "coreCountIncrement"?: number;
   /**
-   * The minimum number of CPU cores that can be enabled per node for this shape.
+   * The minimum number of CPU cores that can be enabled per node for this shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minCoreCountPerNode"?: number;
   /**
-   * The maximum memory that can be enabled for this shape.
+   * The maximum memory that can be enabled for this shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableMemoryInGBs"?: number;
   /**
-   * The minimum memory that need be allocated per node for this shape.
+   * The minimum memory that need be allocated per node for this shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minMemoryPerNodeInGBs"?: number;
   /**
-   * The maximum Db Node storage that can be enabled for this shape.
+   * The maximum Db Node storage that can be enabled for this shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableDbNodeStorageInGBs"?: number;
   /**
-   * The minimum Db Node storage that need be allocated per node for this shape.
+   * The minimum Db Node storage that need be allocated per node for this shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minDbNodeStoragePerNodeInGBs"?: number;
   /**
-   * The maximum DATA storage that can be enabled for this shape.
+   * The maximum DATA storage that can be enabled for this shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableDataStorageInTBs"?: number;
   /**
-   * The minimum data storage that need be allocated for this shape.
+   * The minimum data storage that need be allocated for this shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minDataStorageInTBs"?: number;
   /**
-   * The minimum number of database nodes available for this shape.
+   * The minimum number of database nodes available for this shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minimumNodeCount"?: number;
   /**
-   * The maximum number of database nodes available for this shape.
+   * The maximum number of database nodes available for this shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maximumNodeCount"?: number;
   /**
-   * The maximum number of CPU cores per database node that can be enabled for this shape. Only applicable to the flex Exadata shape. Does not apply to X6, X7, and X8 fixed-shape systems.
+   * The maximum number of CPU cores per database node that can be enabled for this shape. Only applicable to the flex Exadata shape. Does not apply to X6, X7, and X8 fixed-shape systems. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableCoreCountPerNode"?: number;
 }

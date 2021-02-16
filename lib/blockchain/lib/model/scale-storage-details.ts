@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ScaleStorageDetails {
   /**
-   * Storage size in TBs
+   * Storage size in TBs Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "storageSizeInTBs": number;
 }

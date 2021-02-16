@@ -46,7 +46,7 @@ export interface QueryDetails {
   "subSystem": model.SubSystemName;
   /**
    * Maximum number of results to count.  Note a maximum of 2001 will be enforced; that is, actualMaxTotalCountUsed = Math.min(maxTotalCount, 2001).
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxTotalCount"?: number;
   "timeFilter"?: model.TimeRange;
@@ -56,7 +56,7 @@ export interface QueryDetails {
    */
   "scopeFilters"?: Array<model.ScopeFilter>;
   /**
-   * Amount of time, in seconds, allowed for a query to execute. If this time expires before the query is complete, any partial results will be returned.
+   * Amount of time, in seconds, allowed for a query to execute. If this time expires before the query is complete, any partial results will be returned. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "queryTimeoutInSeconds"?: number;
   /**

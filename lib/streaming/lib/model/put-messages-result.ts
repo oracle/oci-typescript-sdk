@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface PutMessagesResult {
   /**
-   * The number of messages that failed to be added to the stream.
+   * The number of messages that failed to be added to the stream. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "failures": number;
   /**

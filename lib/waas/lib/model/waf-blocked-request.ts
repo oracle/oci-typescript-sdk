@@ -20,7 +20,7 @@ export interface WafBlockedRequest {
    */
   "timeObserved"?: Date;
   /**
-   * The number of seconds the data covers.
+   * The number of seconds the data covers. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeRangeInSeconds"?: number;
   /**
@@ -28,7 +28,7 @@ export interface WafBlockedRequest {
    */
   "wafFeature"?: WafBlockedRequest.WafFeature;
   /**
-   * The count of blocked requests.
+   * The count of blocked requests. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "count"?: number;
 }

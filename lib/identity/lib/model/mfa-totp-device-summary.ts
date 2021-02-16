@@ -54,7 +54,7 @@ Example: `2016-08-25T21:10:29.600Z`
    *  - 2 - DISABLED
    *  - 4 - BLOCKED
    *  - 8 - LOCKED
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "inactiveStatus"?: number;
   /**

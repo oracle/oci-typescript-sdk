@@ -27,26 +27,26 @@ export interface AnalyticsClusterTableMemoryEstimate {
   /**
    * The number of columns to be loaded to Analytics Cluster memory.
    * These columns contribute to the analytical memory footprint.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "toLoadColumnCount": number;
   /**
    * The number of variable-length columns to be loaded to Analytics Cluster memory.
    * These columns contribute to the analytical memory footprint.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "varlenColumnCount": number;
   /**
    * The estimated number of rows in the table. This number was used to
    * derive the analytical memory footprint.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "estimatedRowCount": number;
   /**
    * The estimated memory footprint of the table in MBs when loaded to
    * Analytics Cluster memory (null if the table cannot be loaded to the
    * Analytics Cluster).
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "analyticalFootprintInMbs": number;
   /**

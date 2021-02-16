@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsLabelDefinition {
   /**
-   * edit version
+   * edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**
@@ -28,7 +28,7 @@ export interface LogAnalyticsLabelDefinition {
    */
   "isSystem"?: boolean;
   /**
-   * source Id
+   * source Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourceId"?: number;
   /**

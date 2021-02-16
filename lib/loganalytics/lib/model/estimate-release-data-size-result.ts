@@ -31,7 +31,7 @@ export interface EstimateReleaseDataSizeResult {
    */
   "timeDataStarted": Date;
   /**
-   * This is the size in bytes
+   * This is the size in bytes Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sizeInBytes": number;
 }

@@ -24,7 +24,7 @@ export interface LogAnalyticsSourcePattern {
    */
   "convertedText"?: string;
   /**
-   * parser Id
+   * parser Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dbParserId"?: number;
   /**
@@ -65,7 +65,7 @@ export interface LogAnalyticsSourcePattern {
    */
   "isEnabled"?: boolean;
   /**
-   * pattern Id
+   * pattern Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "patternId"?: number;
   /**
@@ -73,7 +73,7 @@ export interface LogAnalyticsSourcePattern {
    */
   "isSystem"?: boolean;
   /**
-   * source Id
+   * source Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourceId"?: number;
   /**
@@ -85,7 +85,7 @@ export interface LogAnalyticsSourcePattern {
    */
   "patternText"?: string;
   /**
-   * pattern type
+   * pattern type Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "patternType"?: number;
   /**

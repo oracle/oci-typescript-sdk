@@ -75,7 +75,7 @@ Example: `example_backend_set2`
     * The total number of backend sets associated with this load balancer.
 * <p>
 Example: `4`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "totalBackendSetCount": number;
 }

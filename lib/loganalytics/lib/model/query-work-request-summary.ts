@@ -52,7 +52,7 @@ export interface QueryWorkRequestSummary {
   "mode": model.JobMode;
   /**
    * Percentage progress completion of the query.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "percentComplete"?: number;
   /**

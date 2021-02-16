@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface KeyRangePartitionConfig extends model.PartitionConfig {
   /**
-   * The partition number for the key range.
+   * The partition number for the key range. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "partitionNumber"?: number;
   "keyRange"?: model.KeyRange;

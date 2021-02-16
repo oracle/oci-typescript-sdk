@@ -67,7 +67,7 @@ To use the instance pool with a regional subnet, provide a placement configurati
     */
   "placementConfigurations": Array<model.CreateInstancePoolPlacementConfigurationDetails>;
   /**
-   * The number of instances that should be in the instance pool.
+   * The number of instances that should be in the instance pool. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "size": number;
   /**

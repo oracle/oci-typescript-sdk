@@ -40,7 +40,7 @@ Example: `10.0.0.3`
     * The communication port for the backend server.
 * <p>
 Example: `8080`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "port": number;
   /**
@@ -51,7 +51,7 @@ Example: `8080`
 * [How Load Balancing Policies Work](https://docs.cloud.oracle.com/Content/Balance/Reference/lbpolicies.htm).
 * <p>
 Example: `3`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "weight": number;
   /**

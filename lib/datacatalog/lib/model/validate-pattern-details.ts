@@ -36,7 +36,7 @@ If provided with the request,this overrides the list which already exists as par
 * Optional, if checkFilePathList is provided.
 * <p>
 If provided with the request, this overrides the value which already exists as part of the pattern, if any.
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "checkFailureLimit"?: number;
 }

@@ -55,7 +55,7 @@ export interface SubscriptionSummary {
    */
   "compartmentId": string;
   /**
-   * The time when this suscription was created.
+   * The time when this suscription was created. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "createdTime"?: number;
   "deliveryPolicy"?: model.DeliveryPolicy;

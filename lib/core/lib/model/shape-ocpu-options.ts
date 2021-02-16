@@ -28,12 +28,12 @@ If this field is null, then this shape has a fixed number of OCPUs equal to `ocp
 export interface ShapeOcpuOptions {
   /**
    * The minimum number of OCPUs.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "min"?: number;
   /**
    * The maximum number of OCPUs.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "max"?: number;
 }

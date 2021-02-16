@@ -29,7 +29,7 @@ export interface UpdateBackupDetails {
   "description"?: string;
   /**
    * The number of days backups are retained.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "retentionInDays"?: number;
   /**

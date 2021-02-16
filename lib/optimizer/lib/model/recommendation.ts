@@ -54,7 +54,7 @@ export interface Recommendation {
    */
   "lifecycleState": model.LifecycleState;
   /**
-   * The estimated cost savings, in dollars, for the recommendation.
+   * The estimated cost savings, in dollars, for the recommendation. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "estimatedCostSaving": number;
   /**

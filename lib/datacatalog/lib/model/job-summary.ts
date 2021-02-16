@@ -88,7 +88,7 @@ export interface JobSummary {
   "timeScheduleBegin"?: Date;
   /**
    * The total number of executions for this job schedule.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "executionCount"?: number;
   /**

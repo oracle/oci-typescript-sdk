@@ -42,7 +42,7 @@ export interface WorkRequest {
    */
   "resources": Array<model.WorkRequestResource>;
   /**
-   * The completed percentage of the operation tracked by this work request.
+   * The completed percentage of the operation tracked by this work request. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "percentComplete": number;
   /**

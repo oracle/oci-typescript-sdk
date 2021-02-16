@@ -46,6 +46,11 @@ export interface ConfigurationField {
    */
   "description"?: string;
   /**
+   * A list of resources associated with a specific configuration object.
+   *
+   */
+  "resourceList"?: Array<model.ResourceField>;
+  /**
    * Indicates whether or not the field is required (defaults to `true`).
    *
    */
@@ -59,7 +64,16 @@ export interface ConfigurationField {
 
 export namespace ConfigurationField {
   export function getJsonObj(obj: ConfigurationField): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "resourceList": obj.resourceList
+          ? obj.resourceList.map(item => {
+              return model.ResourceField.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

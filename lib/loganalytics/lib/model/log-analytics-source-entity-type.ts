@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsSourceEntityType {
   /**
-   * source Id
+   * source Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourceId"?: number;
   /**

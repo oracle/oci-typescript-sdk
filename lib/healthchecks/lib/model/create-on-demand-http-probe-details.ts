@@ -36,13 +36,13 @@ export interface CreateOnDemandHttpProbeDetails {
   /**
    * The port on which to probe endpoints. If unspecified, probes will use the
    * default port of their protocol.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "port"?: number;
   /**
    * The probe timeout in seconds. Valid values: 10, 20, 30, and 60.
    * The probe timeout must be less than or equal to `intervalInSeconds` for monitors.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeoutInSeconds"?: number;
   "protocol": model.HttpProbeProtocol;

@@ -43,7 +43,7 @@ export interface UnifiedAgentParser {
    */
   "isKeepTimeKey"?: boolean;
   /**
-   * Specify the timeout for parse processing. This is mainly for detecting an incorrect regexp pattern.
+   * Specify the timeout for parse processing. This is mainly for detecting an incorrect regexp pattern. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeoutInMilliseconds"?: number;
 

@@ -22,7 +22,7 @@ import common = require("oci-common");
 export interface DeltaCommandDescriptor extends model.AbstractCommandDescriptor {
   /**
    * Value specified in DELTA command in queryString if set controlling whether delta is calculating difference between consecutive result rows or skipping N rows for each calculation.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "step"?: number;
 

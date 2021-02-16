@@ -51,7 +51,7 @@ export interface ScheduledTask {
    */
   "workRequestId"?: string;
   /**
-   * Number of execution occurrences.
+   * Number of execution occurrences. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "numOccurrences"?: number;
   /**

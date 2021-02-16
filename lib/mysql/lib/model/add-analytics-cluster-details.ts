@@ -28,7 +28,7 @@ export interface AddAnalyticsClusterDetails {
   /**
    * The number of analytics-processing nodes provisioned for the
    * Analytics Cluster.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "clusterSize": number;
 }

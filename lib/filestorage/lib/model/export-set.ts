@@ -61,7 +61,7 @@ Example: `My export set`
    * `maxFsStatBytes` minus the metered size of the file
    * system. If the metered size is larger than `maxFsStatBytes`,
    * then `fbytes` and `abytes` will both be '0'.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxFsStatBytes"?: number;
   /**
@@ -74,7 +74,7 @@ Example: `My export set`
    * `maxFsStatFiles` minus the metered size of the file
    * system. If the metered size is larger than `maxFsStatFiles`,
    * then `ffiles` and `afiles` will both be '0'.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxFsStatFiles"?: number;
   /**

@@ -26,7 +26,7 @@ export interface ResourceInsightProjectedUtilizationItem {
    */
   "id": string;
   /**
-   * Days to reach projected utilization
+   * Days to reach projected utilization Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "daysToReach": number;
 }

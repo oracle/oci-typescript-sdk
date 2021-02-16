@@ -45,36 +45,36 @@ export interface ExadataInfrastructure {
    */
   "timeZone"?: string;
   /**
-   * The number of enabled CPU cores.
+   * The number of enabled CPU cores. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpusEnabled"?: number;
   /**
-   * The total number of CPU cores available.
+   * The total number of CPU cores available. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxCpuCount"?: number;
   /**
-   * The memory allocated in GBs.
+   * The memory allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memorySizeInGBs"?: number;
   /**
-   * The total memory available in GBs.
+   * The total memory available in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxMemoryInGBs"?: number;
   /**
-   * The local node storage allocated in GBs.
+   * The local node storage allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dbNodeStorageSizeInGBs"?: number;
   /**
-   * The total local node storage available in GBs.
+   * The total local node storage available in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxDbNodeStorageInGBs"?: number;
   /**
    * Size, in terabytes, of the DATA disk group.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInTBs"?: number;
   /**
-   * The total available DATA disk group size.
+   * The total available DATA disk group size. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxDataStorageInTBs"?: number;
   /**

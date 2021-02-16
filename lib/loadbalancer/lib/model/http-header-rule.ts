@@ -37,7 +37,7 @@ export interface HttpHeaderRule extends model.Rule {
    * The maximum size of each buffer used for reading http client request header.
    * This value indicates the maximum size allowed for each buffer.
    * The allowed values for buffer size are 8, 16, 32 and 64.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "httpLargeHeaderSizeInKB"?: number;
 

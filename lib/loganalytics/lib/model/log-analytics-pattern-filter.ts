@@ -33,11 +33,11 @@ export interface LogAnalyticsPatternFilter {
    */
   "operatingSystem"?: string;
   /**
-   * pattern Id
+   * pattern Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "patternId"?: number;
   /**
-   * source Id
+   * source Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourceId"?: number;
   /**

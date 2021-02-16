@@ -65,7 +65,7 @@ Example: `Uocm:PHX-AD-1`
    * you add a secondary VNIC to one of these instances, you can specify which NIC
    * the VNIC will use. For more information, see
    * [Virtual Network Interface Cards (VNICs)](https://docs.cloud.oracle.com/Content/Network/Tasks/managingVNICs.htm).
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "nicIndex"?: number;
   /**
@@ -97,7 +97,7 @@ However, if the VNIC belongs to a VLAN as part of the Oracle Cloud VMware Soluti
 * See {@link Vlan}.
 * <p>
 Example: `0`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "vlanTag"?: number;
   /**

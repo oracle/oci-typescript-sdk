@@ -120,6 +120,16 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The FQDN of the DNS record for the SCAN IP addresses that are associated with the Autonomous Exadata Infrastructure.
+   *
+   */
+  "scanDnsName"?: string;
+  /**
+   * The OCID of the zone the Autonomous Exadata Infrastructure is associated with.
+   *
+   */
+  "zoneId"?: string;
 }
 
 export namespace AutonomousExadataInfrastructureSummary {

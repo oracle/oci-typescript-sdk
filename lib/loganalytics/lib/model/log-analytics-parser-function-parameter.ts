@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsParserFunctionParameter {
   /**
-   * plugin Id
+   * plugin Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "parserFunctionId"?: number;
   /**
@@ -28,7 +28,7 @@ export interface LogAnalyticsParserFunctionParameter {
    */
   "parserFunctionParameterName"?: string;
   /**
-   * plugin instance Id
+   * plugin instance Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "parserFunctionParameterId"?: number;
   /**

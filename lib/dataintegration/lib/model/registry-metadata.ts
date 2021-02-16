@@ -27,7 +27,7 @@ export interface RegistryMetadata {
    */
   "labels"?: Array<string>;
   /**
-   * The registry version.
+   * The registry version. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "registryVersion"?: number;
   /**

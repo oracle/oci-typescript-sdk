@@ -74,7 +74,7 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    */
   "shape": string;
   /**
-   * The port number configured for the listener on the cloud VM cluster.
+   * The port number configured for the listener on the cloud VM cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "listenerPort"?: number;
   /**
@@ -83,11 +83,11 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
   "lifecycleState": CloudVmCluster.LifecycleState;
   /**
    * The number of nodes in the cloud VM cluster.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "nodeCount"?: number;
   /**
-   * The storage allocation for the disk group, in gigabytes (GB).
+   * The storage allocation for the disk group, in gigabytes (GB). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "storageSizeInGBs"?: number;
   /**
@@ -115,7 +115,7 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    */
   "domain": string;
   /**
-   * The number of CPU cores enabled on the cloud VM cluster.
+   * The number of CPU cores enabled on the cloud VM cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCount": number;
   /**
@@ -126,7 +126,7 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
   /**
    * The percentage assigned to DATA storage (user data and database files).
    * The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are 35, 40, 60 and 80. The default is 80 percent assigned to DATA storage. See [Storage Configuration](https://docs.cloud.oracle.com/Content/Database/Concepts/exaoverview.htm#Exadata) in the Exadata documentation for details on the impact of the configuration settings on storage.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStoragePercentage"?: number;
   /**
@@ -204,6 +204,16 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The FQDN of the DNS record for the SCAN IP addresses that are associated with the cloud VM cluster.
+   *
+   */
+  "scanDnsName"?: string;
+  /**
+   * The OCID of the zone the cloud VM cluster is associated with.
+   *
+   */
+  "zoneId"?: string;
 }
 
 export namespace CloudVmCluster {

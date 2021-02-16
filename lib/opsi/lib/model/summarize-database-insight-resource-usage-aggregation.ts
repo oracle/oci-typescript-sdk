@@ -41,16 +41,16 @@ export interface SummarizeDatabaseInsightResourceUsageAggregation {
   "usageUnit": model.UsageUnit;
   /**
    * Total amount used of the resource metric type (CPU, STORAGE).
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "usage": number;
   /**
    * The maximum allocated amount of the resource metric type  (CPU, STORAGE).
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "capacity": number;
   /**
-   * Percentage change in resource usage during the current period calculated using linear regression functions
+   * Percentage change in resource usage during the current period calculated using linear regression functions Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "usageChangePercent": number;
 }

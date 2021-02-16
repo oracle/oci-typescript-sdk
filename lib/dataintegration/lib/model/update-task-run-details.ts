@@ -43,7 +43,7 @@ export interface UpdateTaskRunDetails {
    */
   "description"?: string;
   /**
-   * The version of the object that is used to track changes in the object instance.
+   * The version of the object that is used to track changes in the object instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "objectVersion"?: number;
   "registryMetadata"?: model.RegistryMetadata;

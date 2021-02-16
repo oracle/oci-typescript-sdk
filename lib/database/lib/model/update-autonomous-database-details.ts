@@ -23,12 +23,12 @@ import common = require("oci-common");
  */
 export interface UpdateAutonomousDatabaseDetails {
   /**
-   * The number of CPU cores to be made available to the database.
+   * The number of CPU cores to be made available to the database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCount"?: number;
   /**
    * The size, in terabytes, of the data volume that will be attached to the database.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInTBs"?: number;
   /**

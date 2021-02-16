@@ -78,7 +78,7 @@ export interface CreateDbSystemDetails {
    * Initial size of the data volume in GBs that will be created and attached.
    * Keep in mind that this only specifies the size of the database data volume,
    * the log volume for the database will be scaled appropriately with its shape.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInGBs"?: number;
   /**
@@ -101,12 +101,12 @@ Must be unique across all VNICs in the subnet and comply with RFC 952 and RFC 11
    */
   "ipAddress"?: string;
   /**
-   * The port for primary endpoint of the DB System to listen on.
+   * The port for primary endpoint of the DB System to listen on. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "port"?: number;
   /**
    * The TCP network port on which X Plugin listens for connections. This is the X Plugin equivalent of port.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "portX"?: number;
   "backupPolicy"?: model.CreateBackupPolicyDetails;

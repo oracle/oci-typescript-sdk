@@ -33,7 +33,7 @@ export interface LimitValueSummary {
    */
   "availabilityDomain"?: string;
   /**
-   * The resource limit value.
+   * The resource limit value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "value"?: number;
 }

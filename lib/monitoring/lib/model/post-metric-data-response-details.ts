@@ -23,7 +23,7 @@ import common = require("oci-common");
  */
 export interface PostMetricDataResponseDetails {
   /**
-   * The number of metric objects that failed input validation.
+   * The number of metric objects that failed input validation. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "failedMetricsCount": number;
   /**

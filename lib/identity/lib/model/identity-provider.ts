@@ -80,7 +80,7 @@ Example: `2016-08-25T21:10:29.600Z`
    */
   "lifecycleState": IdentityProvider.LifecycleState;
   /**
-   * The detailed status of INACTIVE lifecycleState.
+   * The detailed status of INACTIVE lifecycleState. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "inactiveStatus"?: number;
   /**

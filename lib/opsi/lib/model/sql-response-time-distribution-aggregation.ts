@@ -26,7 +26,7 @@ export interface SqlResponseTimeDistributionAggregation {
    */
   "bucketId": string;
   /**
-   * Total number of SQL executions
+   * Total number of SQL executions Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "executionsCount": number;
 }

@@ -22,12 +22,12 @@ import common = require("oci-common");
 export interface QueryAggregation {
   /**
    * Number of rows query retrieved. Up to maxTotalCount limit.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalCount"?: number;
   /**
    * Number of rows matched by query.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalMatchedCount"?: number;
   /**
@@ -57,12 +57,12 @@ export interface QueryAggregation {
   "items"?: Array<{ [key: string]: any }>;
   /**
    * Time ellapsed executing query in milli-seconds.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "queryExecutionTimeInMs"?: number;
   /**
    * Percentage progress completion of the query.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "percentComplete": number;
 }

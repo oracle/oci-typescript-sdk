@@ -23,7 +23,7 @@ export interface RiskScoreAggregation {
    */
   "dimensionsMap": { [key: string]: string };
   /**
-   * The risk score with given dimensions
+   * The risk score with given dimensions Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "riskScore": number;
 }

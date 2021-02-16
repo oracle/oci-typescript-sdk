@@ -1,6 +1,6 @@
 {
   "name": "oci-loggingsearch",
-  "version": "1.15.0",
+  "version": "1.15.1",
   "description": "OCI NodeJS client for Loggingsearch Service",
   "repository": {
     "type": "git",

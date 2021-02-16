@@ -26,11 +26,11 @@ export interface FleetMetricSummaryDefinition {
    */
   "metricName"?: string;
   /**
-   * The metric aggregated value at the baseline date and time.
+   * The metric aggregated value at the baseline date and time. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "baselineValue"?: number;
   /**
-   * The metric aggregated value at the target date and time.
+   * The metric aggregated value at the target date and time. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "targetValue"?: number;
   /**
@@ -38,7 +38,7 @@ export interface FleetMetricSummaryDefinition {
    */
   "unit"?: string;
   /**
-   * The percentage change in the metric aggregated value compared to the baseline value.
+   * The percentage change in the metric aggregated value compared to the baseline value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "percentageChange"?: number;
   /**

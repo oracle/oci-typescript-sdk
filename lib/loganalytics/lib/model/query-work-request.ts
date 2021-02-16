@@ -48,7 +48,7 @@ export interface QueryWorkRequest {
   "timeExpires"?: Date;
   /**
    * Percentage progress completion of the query.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "percentComplete"?: number;
   /**

@@ -23,11 +23,11 @@ export interface Origin {
    */
   "uri": string;
   /**
-   * The HTTP port on the origin that the web application listens on. If unspecified, defaults to `80`.
+   * The HTTP port on the origin that the web application listens on. If unspecified, defaults to `80`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "httpPort"?: number;
   /**
-   * The HTTPS port on the origin that the web application listens on. If unspecified, defaults to `443`.
+   * The HTTPS port on the origin that the web application listens on. If unspecified, defaults to `443`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "httpsPort"?: number;
   /**

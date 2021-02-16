@@ -22,7 +22,7 @@ import common = require("oci-common");
 export interface FieldSummaryCommandDescriptor extends model.AbstractCommandDescriptor {
   /**
    * Limit on number of distinct values to process for each field specified in the field summary command in the query string.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxValues"?: number;
 

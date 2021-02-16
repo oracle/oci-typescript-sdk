@@ -59,7 +59,7 @@ export interface RecordOperation {
    */
   "rtype"?: string;
   /**
-   * The Time To Live for the record, in seconds.
+   * The Time To Live for the record, in seconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ttl"?: number;
   /**

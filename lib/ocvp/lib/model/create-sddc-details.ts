@@ -60,7 +60,7 @@ For example, if the value is `mySDDC`, the ESXi hosts are named `mySDDC-1`,
    * you are still billed for the 3 minimum recommended EXSi hosts. Also,
    * you cannot add more VMware workloads to the SDDC until it again has at least
    * 3 ESXi hosts.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "esxiHostsCount": number;
   /**

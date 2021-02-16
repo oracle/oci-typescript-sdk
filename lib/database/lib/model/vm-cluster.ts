@@ -71,20 +71,20 @@ export interface VmCluster {
    */
   "vmClusterNetworkId"?: string;
   /**
-   * The number of enabled CPU cores.
+   * The number of enabled CPU cores. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpusEnabled"?: number;
   /**
-   * The memory allocated in GBs.
+   * The memory allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memorySizeInGBs"?: number;
   /**
-   * The local node storage allocated in GBs.
+   * The local node storage allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dbNodeStorageSizeInGBs"?: number;
   /**
    * Size, in terabytes, of the DATA disk group.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInTBs"?: number;
   /**

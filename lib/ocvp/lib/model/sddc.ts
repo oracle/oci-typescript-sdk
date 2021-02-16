@@ -81,7 +81,7 @@ Therefore, if you upgrade the existing ESXi hosts in the SDDC to use a newer
    */
   "compartmentId": string;
   /**
-   * The number of ESXi hosts in the SDDC.
+   * The number of ESXi hosts in the SDDC. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "esxiHostsCount": number;
   /**

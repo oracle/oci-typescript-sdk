@@ -73,7 +73,7 @@ export interface CreateNodePoolDetails {
   /**
    * Optional, default to 1. The number of nodes to create in each subnet specified in subnetIds property.
    * When used, subnetIds is required. This property is deprecated, use nodeConfigDetails instead.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "quantityPerSubnet"?: number;
   /**

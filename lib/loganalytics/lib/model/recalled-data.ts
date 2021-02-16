@@ -38,11 +38,11 @@ export interface RecalledData {
   /**
    * This is the number of recall operations for this recall.  Note one RecalledData can be merged from the results
    * of several recall operations if the time duration of the results of the recall operations overlap.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "recallCount": number;
   /**
-   * This is the size in bytes
+   * This is the size in bytes Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "storageUsageInBytes": number;
 }

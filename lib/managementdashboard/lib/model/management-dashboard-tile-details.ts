@@ -31,19 +31,19 @@ export interface ManagementDashboardTileDetails {
    */
   "savedSearchId": string;
   /**
-   * Tile's row number.
+   * Tile's row number. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "row": number;
   /**
-   * Tile's column number.
+   * Tile's column number. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "column": number;
   /**
-   * The number of rows the tile occupies.
+   * The number of rows the tile occupies. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "height": number;
   /**
-   * The number of columns the tile occupies.
+   * The number of columns the tile occupies. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "width": number;
   /**

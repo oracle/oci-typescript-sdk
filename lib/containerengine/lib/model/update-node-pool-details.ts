@@ -39,7 +39,7 @@ export interface UpdateNodePoolDetails {
    * use quantityPerSubnet to scale the node pool. If the current value of quantityPerSubnet is equal to 0 and
    * the current value of size in nodeConfigDetails is greater than 0, before you can use quantityPerSubnet,
    * you must first scale the node pool to 0 nodes using nodeConfigDetails.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "quantityPerSubnet"?: number;
   /**

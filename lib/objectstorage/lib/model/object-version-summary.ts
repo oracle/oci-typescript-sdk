@@ -31,7 +31,7 @@ export interface ObjectVersionSummary {
    */
   "name": string;
   /**
-   * Size of the object in bytes.
+   * Size of the object in bytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "size"?: number;
   /**

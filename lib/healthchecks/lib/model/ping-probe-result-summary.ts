@@ -40,7 +40,7 @@ export interface PingProbeResultSummary {
    * POSIX epoch. This field is defined by the PerformanceResourceTiming interface
    * of the W3C Resource Timing specification. For more information, see
    * [Resource Timing](https://w3c.github.io/resource-timing/#sec-resource-timing).
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "startTime"?: number;
   /**
@@ -85,25 +85,25 @@ export interface PingProbeResultSummary {
   /**
    * The time immediately before the vantage point starts the domain name lookup for
    * the resource.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "domainLookupStart"?: number;
   /**
    * The time immediately before the vantage point finishes the domain name lookup for
    * the resource.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "domainLookupEnd"?: number;
   /**
    * The latency of the probe execution, in milliseconds.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "latencyInMs"?: number;
   /**
    * The ICMP code of the response message.  This field is not used when the protocol
    * is set to TCP.  For more information on ICMP codes, see
    * [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "icmpCode"?: number;
 }

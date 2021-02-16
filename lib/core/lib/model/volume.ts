@@ -102,17 +102,17 @@ Allowed values:
   * `10`: Represents Balanced option.
 * <p>
   * `20`: Represents Higher Performance option.
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "vpusPerGB"?: number;
   /**
-   * The size of the volume in GBs.
+   * The size of the volume in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sizeInGBs"?: number;
   /**
    * The size of the volume in MBs. This field is deprecated. Use
    * sizeInGBs instead.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sizeInMBs": number;
   "sourceDetails"?: model.VolumeSourceFromVolumeDetails | model.VolumeSourceFromVolumeBackupDetails;
@@ -131,7 +131,7 @@ Allowed values:
   "isAutoTuneEnabled"?: boolean;
   /**
    * The number of Volume Performance Units per GB that this volume is effectively tuned to when it's idle.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "autoTunedVpusPerGB"?: number;
 }

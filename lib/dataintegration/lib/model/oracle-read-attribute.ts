@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface OracleReadAttribute extends model.AbstractReadAttribute {
   /**
-   * The fetch size for reading.
+   * The fetch size for reading. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "fetchSize"?: number;
 

@@ -41,7 +41,7 @@ export interface ManagedInstance {
    */
   "lastBoot"?: string;
   /**
-   * Number of updates available to be installed
+   * Number of updates available to be installed Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "updatesAvailable"?: number;
   /**
@@ -87,27 +87,27 @@ export interface ManagedInstance {
    */
   "isRebootRequired"?: boolean;
   /**
-   * Number of security type updates available to be installed
+   * Number of security type updates available to be installed Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "securityUpdatesAvailable"?: number;
   /**
-   * Number of bug fix type updates available to be installed
+   * Number of bug fix type updates available to be installed Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "bugUpdatesAvailable"?: number;
   /**
-   * Number of enhancement type updates available to be installed
+   * Number of enhancement type updates available to be installed Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "enhancementUpdatesAvailable"?: number;
   /**
-   * Number of non-classified updates available to be installed
+   * Number of non-classified updates available to be installed Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "otherUpdatesAvailable"?: number;
   /**
-   * Number of scheduled jobs associated with this instance
+   * Number of scheduled jobs associated with this instance Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "scheduledJobCount"?: number;
   /**
-   * Number of work requests associated with this instance
+   * Number of work requests associated with this instance Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "workRequestCount"?: number;
 }

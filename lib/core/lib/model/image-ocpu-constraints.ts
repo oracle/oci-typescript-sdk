@@ -24,11 +24,11 @@ import common = require("oci-common");
  */
 export interface ImageOcpuConstraints {
   /**
-   * The minimum number of OCPUs supported for this image and shape.
+   * The minimum number of OCPUs supported for this image and shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "min"?: number;
   /**
-   * The maximum number of OCPUs supported for this image and shape.
+   * The maximum number of OCPUs supported for this image and shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "max"?: number;
 }

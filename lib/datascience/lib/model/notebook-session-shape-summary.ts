@@ -27,12 +27,12 @@ export interface NotebookSessionShapeSummary {
   "name": string;
   /**
    * The number of cores associated with this notebook session shape.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "coreCount": number;
   /**
    * The amount of memory in GBs associated with this notebook session shape.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryInGBs": number;
 }

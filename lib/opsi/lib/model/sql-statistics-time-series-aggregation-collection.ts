@@ -37,7 +37,7 @@ export interface SqlStatisticsTimeSeriesAggregationCollection {
   "timeIntervalEnd": Date;
   /**
    * Time duration in milliseconds between data points (one hour or one day).
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "itemDurationInMs": number;
   /**

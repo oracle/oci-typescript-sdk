@@ -23,7 +23,7 @@ export interface ProtectionSettings {
    */
   "blockAction"?: ProtectionSettings.BlockAction;
   /**
-   * The response code returned when `action` is set to `BLOCK`, `blockAction` is set to `SET_RESPONSE_CODE`, and the traffic is detected as malicious by a protection rule. If unspecified, defaults to `403`. The list of available response codes: `400`, `401`, `403`, `405`, `409`, `411`, `412`, `413`, `414`, `415`, `416`, `500`, `501`, `502`, `503`, `504`, `507`.
+   * The response code returned when `action` is set to `BLOCK`, `blockAction` is set to `SET_RESPONSE_CODE`, and the traffic is detected as malicious by a protection rule. If unspecified, defaults to `403`. The list of available response codes: `400`, `401`, `403`, `405`, `409`, `411`, `412`, `413`, `414`, `415`, `416`, `500`, `501`, `502`, `503`, `504`, `507`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "blockResponseCode"?: number;
   /**
@@ -43,21 +43,21 @@ export interface ProtectionSettings {
 * <p>
 Example: If `maxArgumentCount` to `2` for the Max Number of Arguments protection rule (key: 960335), the following requests would be blocked:
 * `GET /myapp/path?query=one&query=two&query=three`
-* `POST /myapp/path` with Body `{\"argument1\":\"one\",\"argument2\":\"two\",\"argument3\":\"three\"}`
+* `POST /myapp/path` with Body `{\"argument1\":\"one\",\"argument2\":\"two\",\"argument3\":\"three\"}` Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "maxArgumentCount"?: number;
   /**
-   * The maximum length allowed for each argument name, in characters. Arguements are query parameters or body parameters in a PUT or POST request. If unspecified, defaults to `400`. This setting only applies if a corresponding protection rule is enabled, such as the \"Values Limits\" rule (key: 960208).
+   * The maximum length allowed for each argument name, in characters. Arguements are query parameters or body parameters in a PUT or POST request. If unspecified, defaults to `400`. This setting only applies if a corresponding protection rule is enabled, such as the \"Values Limits\" rule (key: 960208). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxNameLengthPerArgument"?: number;
   /**
-   * The maximum length allowed for the sum of the argument name and value, in characters. Arguements are query parameters or body parameters in a PUT or POST request. If unspecified, defaults to `64000`. This setting only applies if a corresponding protection rule is enabled, such as the \"Total Arguments Limits\" rule (key: 960341).
+   * The maximum length allowed for the sum of the argument name and value, in characters. Arguements are query parameters or body parameters in a PUT or POST request. If unspecified, defaults to `64000`. This setting only applies if a corresponding protection rule is enabled, such as the \"Total Arguments Limits\" rule (key: 960341). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxTotalNameLengthOfArguments"?: number;
   /**
     * The length of time to analyze traffic traffic, in days. After the analysis period, `WafRecommendations` will be populated. If unspecified, defaults to `10`.
 * <p>
-Use `GET /waasPolicies/{waasPolicyId}/wafRecommendations` to view WAF recommendations.
+Use `GET /waasPolicies/{waasPolicyId}/wafRecommendations` to view WAF recommendations. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "recommendationsPeriodInDays"?: number;
   /**
@@ -67,7 +67,7 @@ Use `GET /waasPolicies/{waasPolicyId}/wafRecommendations` to view WAF recommenda
    */
   "isResponseInspected"?: boolean;
   /**
-   * The maximum response size to be fully inspected, in binary kilobytes (KiB). Anything over this limit will be partially inspected. If unspecified, defaults to `1024`.
+   * The maximum response size to be fully inspected, in binary kilobytes (KiB). Anything over this limit will be partially inspected. If unspecified, defaults to `1024`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxResponseSizeInKiB"?: number;
   /**

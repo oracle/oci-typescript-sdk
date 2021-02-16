@@ -24,7 +24,7 @@ export interface DNS {
   /**
    * Total DNS resolution duration, in milliseconds. Calculated using `domainLookupEnd`
    * minus `domainLookupStart`.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "domainLookupDuration"?: number;
   /**

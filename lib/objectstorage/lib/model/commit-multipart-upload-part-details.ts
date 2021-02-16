@@ -25,7 +25,7 @@ import common = require("oci-common");
  */
 export interface CommitMultipartUploadPartDetails {
   /**
-   * The part number for this part.
+   * The part number for this part. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "partNum": number;
   /**

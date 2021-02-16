@@ -75,7 +75,7 @@ Example: `10 Gbps`
   /**
    * Deprecated. Instead use `customerAsn`.
    * If you specify values for both, the request will be rejected.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "customerBgpAsn"?: number;
   /**
@@ -85,7 +85,7 @@ Example: `10 Gbps`
    * session is between the provider's edge router and Oracle, the value
    * is the provider's ASN.
    * Can be a 2-byte or 4-byte ASN. Uses \"asplain\" format.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "customerAsn"?: number;
   /**
@@ -128,7 +128,7 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "lifecycleState"?: VirtualCircuit.LifecycleState;
   /**
-   * The Oracle BGP ASN.
+   * The Oracle BGP ASN. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "oracleBgpAsn"?: number;
   /**

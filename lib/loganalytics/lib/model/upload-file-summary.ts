@@ -32,19 +32,19 @@ export interface UploadFileSummary {
    */
   "status"?: UploadFileSummary.Status;
   /**
-   * Number of estimated chunks for this file. A chunk is a portion of the log file used for the processing.
+   * Number of estimated chunks for this file. A chunk is a portion of the log file used for the processing. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalChunks"?: number;
   /**
-   * Number of chunks processed.
+   * Number of chunks processed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "chunksConsumed"?: number;
   /**
-   * Number of chunks processed successfully.
+   * Number of chunks processed successfully. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "chunksSuccess"?: number;
   /**
-   * Number of chunks failed processing.
+   * Number of chunks failed processing. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "chunksFail"?: number;
   /**

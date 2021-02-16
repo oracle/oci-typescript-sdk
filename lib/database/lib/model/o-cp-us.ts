@@ -21,11 +21,11 @@ import common = require("oci-common");
  */
 export interface OCPUs {
   /**
-   * The total number of OCPUs in the Autonomous Exadata Infrastructure instance.
+   * The total number of OCPUs in the Autonomous Exadata Infrastructure instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalCpu"?: number;
   /**
-   * The total number of consumed OCPUs in the Autonomous Exadata Infrastructure instance.
+   * The total number of consumed OCPUs in the Autonomous Exadata Infrastructure instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "consumedCpu"?: number;
   "byWorkloadType"?: model.WorkloadType;

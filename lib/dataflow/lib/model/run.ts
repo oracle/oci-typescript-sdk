@@ -64,12 +64,12 @@ export interface Run {
   "configuration"?: { [key: string]: string };
   /**
    * The data read by the run in bytes.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataReadInBytes"?: number;
   /**
    * The data written by the run in bytes.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataWrittenInBytes"?: number;
   /**
@@ -134,7 +134,7 @@ export interface Run {
   "logsBucketUri"?: string;
   /**
    * The number of executor VMs requested.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "numExecutors": number;
   /**
@@ -173,7 +173,7 @@ export interface Run {
    * to calculate the relevant CIDR block and should be a multiple of 256.  If the value is not a
    * multiple of 256, it is rounded up to the next multiple of 256. For example, 300 is rounded up
    * to 512.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "privateEndpointMaxHostCount"?: number;
   /**
@@ -193,7 +193,7 @@ export interface Run {
   "privateEndpointSubnetId"?: string;
   /**
    * The duration of the run in milliseconds.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "runDurationInMilliseconds"?: number;
   /**
@@ -215,7 +215,7 @@ export interface Run {
   "timeUpdated": Date;
   /**
    * The total number of oCPU requested by the run.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalOCpu"?: number;
   /**

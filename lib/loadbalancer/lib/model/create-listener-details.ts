@@ -36,7 +36,7 @@ Example: `example_backend_set`
     * The communication port for the listener.
 * <p>
 Example: `80`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "port": number;
   /**

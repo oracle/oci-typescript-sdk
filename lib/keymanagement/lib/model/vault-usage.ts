@@ -18,19 +18,19 @@ import common = require("oci-common");
 
 export interface VaultUsage {
   /**
-   * The number of keys in this vault that persist on a hardware security module (HSM), across all compartments, excluding keys in a `DELETED` state.
+   * The number of keys in this vault that persist on a hardware security module (HSM), across all compartments, excluding keys in a `DELETED` state. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "keyCount": number;
   /**
-   * The number of key versions in this vault that persist on a hardware security module (HSM), across all compartments, excluding key versions in a `DELETED` state.
+   * The number of key versions in this vault that persist on a hardware security module (HSM), across all compartments, excluding key versions in a `DELETED` state. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "keyVersionCount": number;
   /**
-   * The number of keys in this vault that persist on the server, across all compartments, excluding keys in a `DELETED` state.
+   * The number of keys in this vault that persist on the server, across all compartments, excluding keys in a `DELETED` state. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "softwareKeyCount"?: number;
   /**
-   * The number of key versions in this vault that persist on the server, across all compartments, excluding key versions in a `DELETED` state.
+   * The number of key versions in this vault that persist on the server, across all compartments, excluding key versions in a `DELETED` state. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "softwareKeyVersionCount"?: number;
 }

@@ -36,7 +36,7 @@ export interface SteeringPolicy {
   /**
    * The Time To Live (TTL) for responses from the steering policy, in seconds.
    * If not specified during creation, a value of 30 seconds will be used.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ttl": number;
   /**

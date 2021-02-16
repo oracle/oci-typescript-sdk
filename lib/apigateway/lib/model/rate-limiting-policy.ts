@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface RateLimitingPolicy {
   /**
-   * The maximum number of requests per second to allow.
+   * The maximum number of requests per second to allow. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "rateInRequestsPerSecond": number;
   /**

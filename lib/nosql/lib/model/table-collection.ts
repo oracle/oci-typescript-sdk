@@ -27,11 +27,11 @@ export interface TableCollection {
    */
   "items"?: Array<model.TableSummary>;
   /**
-   * The maximum number of reclaimable tables allowed in the tenancy.
+   * The maximum number of reclaimable tables allowed in the tenancy. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxAutoReclaimableTables"?: number;
   /**
-   * The current number of reclaimable tables in the tenancy.
+   * The current number of reclaimable tables in the tenancy. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "autoReclaimableTables"?: number;
 }

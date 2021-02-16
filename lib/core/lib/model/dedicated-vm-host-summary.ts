@@ -81,12 +81,12 @@ Example: `2016-08-25T21:10:29.600Z`
   "timeCreated": Date;
   /**
    * The current available OCPUs of the dedicated VM host.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "remainingOcpus": number;
   /**
    * The current total OCPUs of the dedicated VM host.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalOcpus": number;
 }

@@ -33,7 +33,7 @@ export interface AttachLoadBalancerDetails {
    */
   "backendSetName": string;
   /**
-   * The port value to use when creating the backend set.
+   * The port value to use when creating the backend set. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "port": number;
   /**

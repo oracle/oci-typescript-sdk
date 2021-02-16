@@ -24,7 +24,7 @@ export interface SqlBucket {
   /**
    * Version
    * Example: `1`
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "version"?: number;
   /**
@@ -43,7 +43,7 @@ export interface SqlBucket {
    */
   "sqlIdentifier": string;
   /**
-   * Plan hash value for the SQL Execution Plan
+   * Plan hash value for the SQL Execution Plan Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "planHash": number;
   /**
@@ -55,31 +55,31 @@ export interface SqlBucket {
   /**
    * Total number of executions
    * Example: `60`
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "executionsCount"?: number;
   /**
    * Total CPU time
    * Example: `1046`
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuTimeInSec"?: number;
   /**
    * Total IO time
    * Example: `5810`
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ioTimeInSec"?: number;
   /**
    * Total other wait time
    * Example: `24061`
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "otherWaitTimeInSec"?: number;
   /**
    * Total time
    * Example: `30917`
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalTimeInSec"?: number;
 }

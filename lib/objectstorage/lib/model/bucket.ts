@@ -109,13 +109,13 @@ export interface Bucket {
   /**
    * The approximate number of objects in the bucket. Count statistics are reported periodically. You will see a
    * lag between what is displayed and the actual object count.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "approximateCount"?: number;
   /**
    * The approximate total size in bytes of all objects in the bucket. Size statistics are reported periodically. You will
    * see a lag between what is displayed and the actual size of the bucket.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "approximateSize"?: number;
   /**

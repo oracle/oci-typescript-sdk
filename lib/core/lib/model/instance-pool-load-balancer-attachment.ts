@@ -42,7 +42,7 @@ export interface InstancePoolLoadBalancerAttachment {
    */
   "backendSetName": string;
   /**
-   * The port value used for the backends.
+   * The port value used for the backends. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "port": number;
   /**

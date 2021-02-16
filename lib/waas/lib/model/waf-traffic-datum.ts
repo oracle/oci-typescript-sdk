@@ -23,7 +23,7 @@ export interface WafTrafficDatum {
    */
   "timeObserved"?: Date;
   /**
-   * The number of seconds this data covers.
+   * The number of seconds this data covers. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeRangeInSeconds"?: number;
   /**
@@ -39,7 +39,7 @@ export interface WafTrafficDatum {
    */
   "waasPolicyId"?: string;
   /**
-   * Traffic in bytes.
+   * Traffic in bytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "trafficInBytes"?: number;
 }

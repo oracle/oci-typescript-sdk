@@ -130,7 +130,7 @@ Example: `2001:db8::2/64`
 * the provider if the customer is connecting via provider).
 * <p>
 Example: `200`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "vlan"?: number;
 }

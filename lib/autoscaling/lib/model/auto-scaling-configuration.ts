@@ -59,7 +59,7 @@ Example: `{\"Department\": \"Finance\"}`
   /**
    * The minimum period of time to wait between scaling actions. The cooldown period gives the system time to stabilize
    * before rescaling. The minimum value is 300 seconds, which is also the default.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "coolDownInSeconds"?: number;
   /**
@@ -83,11 +83,11 @@ Example: `2016-08-25T21:10:29.600Z`
     */
   "timeCreated": Date;
   /**
-   * The maximum number of resources to scale out to.
+   * The maximum number of resources to scale out to. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxResourceCount"?: number;
   /**
-   * The minimum number of resources to scale in to.
+   * The minimum number of resources to scale in to. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minResourceCount"?: number;
 }

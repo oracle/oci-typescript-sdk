@@ -22,79 +22,79 @@ import common = require("oci-common");
  */
 export interface SqlStatistics {
   /**
-   * Database Time in seconds
+   * Database Time in seconds Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "databaseTimeInSec": number;
   /**
-   * Number of executions per hour
+   * Number of executions per hour Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "executionsPerHour": number;
   /**
-   * Total number of executions
+   * Total number of executions Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "executionsCount": number;
   /**
-   * CPU Time in seconds
+   * CPU Time in seconds Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuTimeInSec": number;
   /**
-   * I/O Time in seconds
+   * I/O Time in seconds Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ioTimeInSec": number;
   /**
-   * Inefficient Wait Time in seconds
+   * Inefficient Wait Time in seconds Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "inefficientWaitTimeInSec": number;
   /**
-   * Response time is the average elaspsed time per execution. It is the ratio of Total Database Time to the number of executions
+   * Response time is the average elaspsed time per execution. It is the ratio of Total Database Time to the number of executions Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "responseTimeInSec": number;
   /**
-   * Number of SQL execution plans used by the SQL
+   * Number of SQL execution plans used by the SQL Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "planCount": number;
   /**
-   * Variability is the ratio of the standard deviation in response time to the mean of response time of the SQL
+   * Variability is the ratio of the standard deviation in response time to the mean of response time of the SQL Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "variability": number;
   /**
-   * Average Active Sessions represent the average active sessions at a point in time. It is the number of sessions that are either working or waiting.
+   * Average Active Sessions represent the average active sessions at a point in time. It is the number of sessions that are either working or waiting. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "averageActiveSessions": number;
   /**
-   * Percentage of Database Time
+   * Percentage of Database Time Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "databaseTimePct": number;
   /**
-   * Percentage of Inefficiency. It is calculated by Total Database Time divided by Total Wait Time
+   * Percentage of Inefficiency. It is calculated by Total Database Time divided by Total Wait Time Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "inefficiencyInPct": number;
   /**
-   * Percent change in CPU Time based on linear regression
+   * Percent change in CPU Time based on linear regression Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "changeInCpuTimeInPct": number;
   /**
-   * Percent change in IO Time based on linear regression
+   * Percent change in IO Time based on linear regression Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "changeInIoTimeInPct": number;
   /**
-   * Percent change in Inefficient Wait Time based on linear regression
+   * Percent change in Inefficient Wait Time based on linear regression Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "changeInInefficientWaitTimeInPct": number;
   /**
-   * Percent change in Response Time based on linear regression
+   * Percent change in Response Time based on linear regression Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "changeInResponseTimeInPct": number;
   /**
-   * Percent change in Average Active Sessions based on linear regression
+   * Percent change in Average Active Sessions based on linear regression Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "changeInAverageActiveSessionsInPct": number;
   /**
-   * Percent change in Executions per hour based on linear regression
+   * Percent change in Executions per hour based on linear regression Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "changeInExecutionsPerHourInPct": number;
   /**
-   * Percent change in Inefficiency based on linear regression
+   * Percent change in Inefficiency based on linear regression Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "changeInInefficiencyInPct": number;
 }

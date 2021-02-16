@@ -28,7 +28,7 @@ export interface LogAnalyticsConfigWorkRequestPayload {
    */
   "entityId"?: string;
   /**
-   * lookupReference
+   * lookupReference Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "lookupReference"?: number;
   /**

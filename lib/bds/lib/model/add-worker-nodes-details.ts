@@ -26,7 +26,7 @@ export interface AddWorkerNodesDetails {
    */
   "clusterAdminPassword": string;
   /**
-   * Number of additional worker nodes for the BDS instance
+   * Number of additional worker nodes for the BDS instance Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "numberOfWorkerNodes": number;
 }

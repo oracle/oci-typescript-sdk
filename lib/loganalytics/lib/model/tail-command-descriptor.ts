@@ -22,7 +22,7 @@ import common = require("oci-common");
 export interface TailCommandDescriptor extends model.AbstractCommandDescriptor {
   /**
    * Value specified as limit argument in queryString
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "limit"?: number;
 

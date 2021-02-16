@@ -23,7 +23,7 @@ export interface CountStatisticSummary {
    */
   "objectType"?: CountStatisticSummary.ObjectType;
   /**
-   * The value for the count statistic object.
+   * The value for the count statistic object. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "objectCount"?: number;
 }

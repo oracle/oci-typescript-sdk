@@ -23,7 +23,7 @@ export interface ChannelSourceMysql extends model.ChannelSource {
    */
   "hostname": string;
   /**
-   * The port the source MySQL instance listens on.
+   * The port the source MySQL instance listens on. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "port": number;
   /**

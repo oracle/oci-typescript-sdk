@@ -22,17 +22,17 @@ import common = require("oci-common");
 export interface LogAnalyticsEntitySummaryReport {
   /**
    * Total number of ACTIVE entities
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "activeEntitiesCount": number;
   /**
    * Entities with log collection enabled
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "entitiesWithHasLogsCollectedCount": number;
   /**
    * Entities with management agent
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "entitiesWithManagementAgentCount": number;
   /**

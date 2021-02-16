@@ -31,7 +31,7 @@ export interface ResourceConfiguration {
    */
   "executorShape": string;
   /**
-   * Number of executor VMs requested while creating an Oracle Cloud Infrastructure Data Flow application.
+   * Number of executor VMs requested while creating an Oracle Cloud Infrastructure Data Flow application. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalExecutors": number;
 }

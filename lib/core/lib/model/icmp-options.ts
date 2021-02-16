@@ -34,11 +34,11 @@ If you specify ICMP or ICMPv6 as the protocol but omit this object, then all ICM
 */
 export interface IcmpOptions {
   /**
-   * The ICMP code (optional).
+   * The ICMP code (optional). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "code"?: number;
   /**
-   * The ICMP type.
+   * The ICMP type. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "type": number;
 }

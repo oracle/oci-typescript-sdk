@@ -30,7 +30,7 @@ export interface Routing {
   /**
    * The Autonomous System Number (ASN) identifying the organization
    * responsible for routing packets to `prefix`.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "asn"?: number;
   /**
@@ -43,7 +43,7 @@ export interface Routing {
    * An integer between 0 and 100 used to select between multiple
    * origin ASNs when routing to `prefix`. Most prefixes have
    * exactly one origin ASN, in which case `weight` will be 100.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "weight"?: number;
 }

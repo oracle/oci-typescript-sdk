@@ -22,12 +22,12 @@ import common = require("oci-common");
 export interface ResourceAvailability {
   /**
    * The current usage in the given compartment.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "used"?: number;
   /**
    * The count of available resources.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "available"?: number;
 }

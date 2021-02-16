@@ -23,11 +23,11 @@ export interface WafRequest {
    */
   "timeObserved"?: Date;
   /**
-   * The number of seconds this data covers.
+   * The number of seconds this data covers. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeRangeInSeconds"?: number;
   /**
-   * The total number of requests received in this time period.
+   * The total number of requests received in this time period. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "count"?: number;
 }

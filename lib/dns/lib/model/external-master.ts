@@ -30,7 +30,7 @@ export interface ExternalMaster {
   /**
    * The server's port. Port value must be a value of 53, otherwise omit
    * the port value.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "port"?: number;
   "tsig"?: model.TSIG;

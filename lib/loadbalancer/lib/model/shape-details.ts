@@ -26,7 +26,7 @@ export interface ShapeDetails {
 * The values must be between 10 and the maximumBandwidthInMbps.
 * <p>
 Example: `150`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "minimumBandwidthInMbps": number;
   /**
@@ -37,7 +37,7 @@ Example: `150`
 The values must be between minimumBandwidthInMbps and 8192 (8Gbps).
 * <p>
 Example: `1500`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "maximumBandwidthInMbps": number;
 }

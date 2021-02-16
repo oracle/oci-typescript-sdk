@@ -30,7 +30,7 @@ export interface FleetStatusByCategory {
    */
   "databaseSubType"?: model.DatabaseSubType;
   /**
-   * The number of databases in the fleet.
+   * The number of databases in the fleet. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "inventoryCount"?: number;
 }

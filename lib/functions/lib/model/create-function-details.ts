@@ -44,7 +44,7 @@ export interface CreateFunctionDetails {
    */
   "imageDigest"?: string;
   /**
-   * Maximum usable memory for the function (MiB).
+   * Maximum usable memory for the function (MiB). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryInMBs": number;
   /**
@@ -58,7 +58,7 @@ The maximum size for all configuration keys and values is limited to 4KB. This i
     */
   "config"?: { [key: string]: string };
   /**
-   * Timeout for executions of the function. Value in seconds.
+   * Timeout for executions of the function. Value in seconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeoutInSeconds"?: number;
   /**

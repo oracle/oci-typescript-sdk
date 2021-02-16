@@ -28,17 +28,17 @@ If this field is null, then this shape has a fixed maximum number of VNIC attach
 export interface ShapeMaxVnicAttachmentOptions {
   /**
    * The lowest maximum value of VNIC attachments.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "min"?: number;
   /**
    * The highest maximum value of VNIC attachments.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "max"?: number;
   /**
    * The default number of VNIC attachments allowed per OCPU.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "defaultPerOcpu"?: number;
 }

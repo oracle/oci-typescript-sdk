@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface GlossaryCollection {
   /**
-   * Total number of items returned.
+   * Total number of items returned. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "count"?: number;
   /**

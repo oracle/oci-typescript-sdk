@@ -27,12 +27,12 @@ export interface ResourceCapacityTrendAggregation {
   "endTimestamp": Date;
   /**
    * The maximum allocated amount of the resource metric type  (CPU, STORAGE).
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "capacity": number;
   /**
    * The base allocated amount of the resource metric type  (CPU, STORAGE).
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "baseCapacity": number;
 }

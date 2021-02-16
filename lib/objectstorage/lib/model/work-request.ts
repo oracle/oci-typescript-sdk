@@ -45,7 +45,7 @@ If the work request affects multiple resources and those resources are not in th
   "compartmentId"?: string;
   "resources"?: Array<model.WorkRequestResource>;
   /**
-   * Percentage of the work request completed.
+   * Percentage of the work request completed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "percentComplete"?: number;
   /**

@@ -45,7 +45,7 @@ export interface CreateBudgetDetails {
   "description"?: string;
   /**
    * The amount of the budget expressed as a whole number in the currency of the customer's rate card.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "amount": number;
   /**
@@ -54,7 +54,7 @@ export interface CreateBudgetDetails {
    */
   "resetPeriod": model.ResetPeriod;
   /**
-   * The number of days offset from the first day of the month, at which the budget processing period starts. In months that have fewer days than this value, processing will begin on the last day of that month. For example, for a value of 12, processing starts every month on the 12th at midnight.
+   * The number of days offset from the first day of the month, at which the budget processing period starts. In months that have fewer days than this value, processing will begin on the last day of that month. For example, for a value of 12, processing starts every month on the 12th at midnight. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "budgetProcessingPeriodStartOffset"?: number;
   /**

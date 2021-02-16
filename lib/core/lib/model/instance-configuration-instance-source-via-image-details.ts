@@ -24,7 +24,7 @@ export interface InstanceConfigurationInstanceSourceViaImageDetails
   /**
    * The size of the boot volume in GBs. The minimum value is 50 GB and the maximum
    * value is 16384 GB (16TB).
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "bootVolumeSizeInGBs"?: number;
   /**

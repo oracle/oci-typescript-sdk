@@ -45,7 +45,7 @@ export interface QueryDetails {
   "consistency"?: QueryDetails.Consistency;
   /**
    * A limit on the total amount of data read during this operation, in KB.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxReadInKBs"?: number;
   /**
@@ -53,7 +53,7 @@ export interface QueryDetails {
    */
   "variables"?: { [key: string]: any };
   /**
-   * Timeout setting for the query.
+   * Timeout setting for the query. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeoutInMs"?: number;
 }

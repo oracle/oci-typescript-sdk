@@ -23,12 +23,12 @@ export interface UpdateBlockchainPlatformDetails {
    */
   "description"?: string;
   /**
-   * Storage size in TBs
+   * Storage size in TBs Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "storageSizeInTBs"?: number;
   "replicas"?: model.ReplicaDetails;
   /**
-   * Number of total OCPUs to allocate
+   * Number of total OCPUs to allocate Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalOcpuCapacity"?: number;
   /**

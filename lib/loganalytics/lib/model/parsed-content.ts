@@ -36,7 +36,7 @@ export interface ParsedContent {
    */
   "logContent"?: string;
   /**
-   * Sample Size taken for validation.
+   * Sample Size taken for validation. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sampleSize"?: number;
   /**

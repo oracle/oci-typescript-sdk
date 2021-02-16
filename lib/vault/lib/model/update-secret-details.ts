@@ -22,7 +22,7 @@ export interface UpdateSecretDetails {
    * Details to update the secret version of the specified secret. The secret contents,
    * version number, and rules can't be specified at the same time.
    * Updating the secret contents automatically creates a new secret version.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "currentVersionNumber"?: number;
   /**

@@ -39,11 +39,11 @@ export interface ScaledBlockchainPlatformPreview {
    */
   "computeShape": string;
   /**
-   * Storage size in TBs
+   * Storage size in TBs Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "storageSizeInTBs"?: number;
   /**
-   * Storage size in TBs post scaling
+   * Storage size in TBs post scaling Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "storageSizeInTBsPostScaling"?: number;
   "componentDetails"?: model.BlockchainPlatformComponentDetails;
@@ -59,7 +59,7 @@ export interface ScaledBlockchainPlatformPreview {
    */
   "hostOcpuUtilizationInfoPostScaling"?: Array<model.OcpuUtilizationInfo>;
   /**
-   * Number of new VMs that would be created
+   * Number of new VMs that would be created Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "newVmCount"?: number;
   "meteringPreview"?: model.ScaledPlatformMeteringPreview;

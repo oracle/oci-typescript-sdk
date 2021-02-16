@@ -13,6 +13,8 @@
 
 import * as ChangeIntegrationInstanceCompartmentRequest from "./change-integration-instance-compartment-request";
 export import ChangeIntegrationInstanceCompartmentRequest = ChangeIntegrationInstanceCompartmentRequest.ChangeIntegrationInstanceCompartmentRequest;
+import * as ChangeIntegrationInstanceNetworkEndpointRequest from "./change-integration-instance-network-endpoint-request";
+export import ChangeIntegrationInstanceNetworkEndpointRequest = ChangeIntegrationInstanceNetworkEndpointRequest.ChangeIntegrationInstanceNetworkEndpointRequest;
 import * as CreateIntegrationInstanceRequest from "./create-integration-instance-request";
 export import CreateIntegrationInstanceRequest = CreateIntegrationInstanceRequest.CreateIntegrationInstanceRequest;
 import * as DeleteIntegrationInstanceRequest from "./delete-integration-instance-request";

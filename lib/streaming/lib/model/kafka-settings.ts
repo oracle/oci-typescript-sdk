@@ -27,11 +27,11 @@ export interface KafkaSettings {
    */
   "autoCreateTopicsEnable"?: boolean;
   /**
-   * The number of hours to keep a log file before deleting it (in hours).
+   * The number of hours to keep a log file before deleting it (in hours). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "logRetentionHours"?: number;
   /**
-   * The default number of log partitions per topic.
+   * The default number of log partitions per topic. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "numPartitions"?: number;
 }

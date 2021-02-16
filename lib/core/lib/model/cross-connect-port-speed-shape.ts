@@ -35,7 +35,7 @@ Example: `10 Gbps`
     * The port speed in Gbps.
 * <p>
 Example: `10`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "portSpeedInGbps": number;
 }

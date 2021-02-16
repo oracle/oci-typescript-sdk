@@ -48,15 +48,15 @@ export interface LogAnalyticsMetaFunctionArgument {
    */
   "argumentName"?: string;
   /**
-   * argument order
+   * argument order Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "argumentOrder"?: number;
   /**
-   * argument type
+   * argument type Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "argumentType"?: number;
   /**
-   * meta function id
+   * meta function id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "argumentId"?: number;
   /**
@@ -64,7 +64,7 @@ export interface LogAnalyticsMetaFunctionArgument {
    */
   "argumentLookupColumn"?: string;
   /**
-   * column position
+   * column position Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "argumentLookupColumnPosition"?: number;
   /**

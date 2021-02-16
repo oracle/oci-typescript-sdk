@@ -39,12 +39,12 @@ export interface ObjectStorageTargetDetails extends model.TargetDetails {
   "objectNamePrefix"?: string;
   /**
    * The batch rollover size in megabytes.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "batchRolloverSizeInMBs"?: number;
   /**
    * The batch rollover time in milliseconds.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "batchRolloverTimeInMs"?: number;
 

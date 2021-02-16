@@ -35,7 +35,7 @@ export interface CreateGroupCursorDetails {
    */
   "instanceName"?: string;
   /**
-   * The amount of a consumer instance inactivity time, before partition reservations are released.
+   * The amount of a consumer instance inactivity time, before partition reservations are released. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeoutInMs"?: number;
   /**

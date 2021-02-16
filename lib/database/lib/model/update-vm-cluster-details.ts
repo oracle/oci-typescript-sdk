@@ -22,19 +22,19 @@ import common = require("oci-common");
  */
 export interface UpdateVmClusterDetails {
   /**
-   * The number of CPU cores to enable for the VM cluster.
+   * The number of CPU cores to enable for the VM cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCount"?: number;
   /**
-   * The memory to be allocated in GBs.
+   * The memory to be allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memorySizeInGBs"?: number;
   /**
-   * The local node storage to be allocated in GBs.
+   * The local node storage to be allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dbNodeStorageSizeInGBs"?: number;
   /**
-   * The data disk group size to be allocated in TBs.
+   * The data disk group size to be allocated in TBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInTBs"?: number;
   /**

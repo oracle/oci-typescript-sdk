@@ -39,7 +39,7 @@ export interface CatalogSummary {
    */
   "timeUpdated"?: Date;
   /**
-   * The number of high level objects added to the data catalog.
+   * The number of high level objects added to the data catalog. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "numberOfObjects"?: number;
   /**

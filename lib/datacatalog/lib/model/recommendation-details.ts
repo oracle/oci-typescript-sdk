@@ -32,7 +32,7 @@ export interface RecommendationDetails {
    */
   "recommendationStatus": model.RecommendationStatus;
   /**
-   * Level of confidence, on a scale between 0 and 1, that the recommendation is applicable.
+   * Level of confidence, on a scale between 0 and 1, that the recommendation is applicable. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "confidenceScore"?: number;
   /**

@@ -40,7 +40,7 @@ export interface TaskRunDetails {
    */
   "description"?: string;
   /**
-   * The version of the object that is used to track changes in the object instance.
+   * The version of the object that is used to track changes in the object instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "objectVersion"?: number;
   /**
@@ -48,27 +48,27 @@ export interface TaskRunDetails {
    */
   "status"?: TaskRunDetails.Status;
   /**
-   * The task run start time.
+   * The task run start time. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "startTimeMillis"?: number;
   /**
-   * The task run end time.
+   * The task run end time. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "endTimeMillis"?: number;
   /**
-   * The date and time the task run was last updated.
+   * The date and time the task run was last updated. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "lastUpdated"?: number;
   /**
-   * Number of records processed in task run.
+   * Number of records processed in task run. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "recordsWritten"?: number;
   /**
-   * Number of bytes processed in task run.
+   * Number of bytes processed in task run. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "bytesProcessed"?: number;
   /**
-   * The status of an object that can be set to value 1 for shallow references across objects, other values reserved.
+   * The status of an object that can be set to value 1 for shallow references across objects, other values reserved. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "objectStatus"?: number;
   /**

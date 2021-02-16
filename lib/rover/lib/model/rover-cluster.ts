@@ -31,7 +31,7 @@ export interface RoverCluster {
    */
   "displayName": string;
   /**
-   * Size of the cluster.
+   * Size of the cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "clusterSize": number;
   /**

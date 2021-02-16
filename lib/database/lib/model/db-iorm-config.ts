@@ -27,7 +27,7 @@ export interface DbIormConfig {
   "dbName"?: string;
   /**
    * The relative priority of this database.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "share"?: number;
   /**

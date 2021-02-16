@@ -28,7 +28,7 @@ export interface StepInfo {
    */
   "regexEngineClassName"?: string;
   /**
-   * stepCount
+   * stepCount Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "stepCount"?: number;
 }

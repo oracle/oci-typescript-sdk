@@ -22,12 +22,12 @@ import common = require("oci-common");
 export interface BucketRange {
   /**
    * Lower bound of the bucket range specified in the querystring for the numeric field referenced in tbe bucket command.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "lower"?: number;
   /**
    * Upper bound of the bucket range specified in the querystring for the numeric field referenced in tbe bucket command.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "upper"?: number;
   /**

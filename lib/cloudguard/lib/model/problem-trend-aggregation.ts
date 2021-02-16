@@ -23,15 +23,15 @@ export interface ProblemTrendAggregation {
    */
   "dimensionsMap": { [key: string]: string };
   /**
-   * Start Time in epoch seconds
+   * Start Time in epoch seconds Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "startTimestamp": number;
   /**
-   * Duration
+   * Duration Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "durationInSeconds": number;
   /**
-   * The number of occurences with for the corresponding time range and dimensions.
+   * The number of occurences with for the corresponding time range and dimensions. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "count": number;
 }

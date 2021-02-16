@@ -84,7 +84,7 @@ export interface Pattern {
   /**
    * The maximum number of UNMATCHED files, in checkFilePathList, above which the check fails. Optional, if
    * checkFilePathList is provided - but if isEnableCheckFailureLimit is set to true it is required.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "checkFailureLimit"?: number;
   /**

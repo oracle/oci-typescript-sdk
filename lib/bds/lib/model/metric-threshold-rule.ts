@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface MetricThresholdRule {
   /**
-   * This value is the minimum period of time metric value meets or exceeds threshold value before action is trigger. The value is in minutes.
+   * This value is the minimum period of time metric value meets or exceeds threshold value before action is trigger. The value is in minutes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "durationInMinutes": number;
   /**
@@ -30,7 +30,7 @@ export interface MetricThresholdRule {
    */
   "operator": MetricThresholdRule.Operator;
   /**
-   * integer non negative value. 0 < value < 100
+   * integer non negative value. 0 < value < 100 Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "value": number;
 }

@@ -43,7 +43,7 @@ export interface HttpProbeResultSummary {
    * POSIX epoch. This field is defined by the PerformanceResourceTiming interface
    * of the W3C Resource Timing specification. For more information, see
    * [Resource Timing](https://w3c.github.io/resource-timing/#sec-resource-timing).
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "startTime"?: number;
   /**
@@ -86,72 +86,72 @@ export interface HttpProbeResultSummary {
   "connection"?: model.TcpConnection;
   "dns"?: model.DNS;
   /**
-   * The HTTP response status code.
+   * The HTTP response status code. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "statusCode"?: number;
   /**
    * The time immediately before the vantage point starts the domain name lookup for
    * the resource.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "domainLookupStart"?: number;
   /**
    * The time immediately before the vantage point finishes the domain name lookup for
    * the resource.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "domainLookupEnd"?: number;
   /**
    * The time immediately before the vantage point starts establishing the connection
    * to the server to retrieve the resource.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "connectStart"?: number;
   /**
    * The time immediately before the vantage point starts the handshake process to
    * secure the current connection.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "secureConnectionStart"?: number;
   /**
    * The time immediately after the vantage point finishes establishing the connection
    * to the server to retrieve the resource.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "connectEnd"?: number;
   /**
    * The time immediately before the vantage point starts to fetch the resource.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "fetchStart"?: number;
   /**
    * The time immediately before the vantage point starts requesting the resource from
    * the server.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "requestStart"?: number;
   /**
    * The time immediately after the vantage point's HTTP parser receives the first byte
    * of the response.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "responseStart"?: number;
   /**
    * The time immediately after the vantage point receives the last byte of the response
    * or immediately before the transport connection is closed, whichever comes first.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "responseEnd"?: number;
   /**
    * The total duration from start of request until response is fully consumed or the
    * connection is closed.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "duration"?: number;
   /**
    * The size, in octets, of the payload body prior to removing any applied
    * content-codings.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "encodedBodySize"?: number;
 }

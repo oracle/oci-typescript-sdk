@@ -58,7 +58,7 @@ export interface DbNodeSummary {
   "timeCreated": Date;
   /**
    * The size (in GB) of the block storage volume allocation for the DB system. This attribute applies only for virtual machine DB systems.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "softwareStorageSizeInGB"?: number;
   /**

@@ -33,6 +33,11 @@ export namespace AuthorizationDetails {
 
     if ("type" in obj && obj.type) {
       switch (obj.type) {
+        case "OCC":
+          return model.OccAuthorizationDetails.getJsonObj(
+            <model.OccAuthorizationDetails>(<object>jsonObj),
+            true
+          );
         case "INTERNAL_COMPUTE":
           return model.InternalAuthorizationDetails.getJsonObj(
             <model.InternalAuthorizationDetails>(<object>jsonObj),

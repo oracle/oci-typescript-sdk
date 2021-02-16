@@ -23,17 +23,17 @@ import common = require("oci-common");
 export interface ResourceStatistics {
   /**
    * Total amount used of the resource metric type (CPU, STORAGE).
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "usage": number;
   /**
    * The maximum allocated amount of the resource metric type  (CPU, STORAGE).
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "capacity": number;
   /**
    * The base allocated amount of the resource metric type  (CPU, STORAGE).
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "baseCapacity"?: number;
   /**
@@ -41,11 +41,11 @@ export interface ResourceStatistics {
    */
   "isAutoScalingEnabled"?: boolean;
   /**
-   * Resource utilization in percentage
+   * Resource utilization in percentage Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "utilizationPercent": number;
   /**
-   * Change in resource utilization in percentage
+   * Change in resource utilization in percentage Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "usageChangePercent": number;
 }

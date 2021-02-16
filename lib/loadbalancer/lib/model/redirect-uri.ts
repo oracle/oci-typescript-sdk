@@ -99,7 +99,7 @@ Valid values include integers from 1 to 65535.
 When this value is null, the service preserves the original port from the incoming HTTP request URI.
 * <p>
 Example: `8081`
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "port"?: number;
   /**

@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface EstimatePurgeDataSizeResult {
   /**
-   * This is the size of data to be purged in bytes
+   * This is the size of data to be purged in bytes Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "purgeDataSizeInBytes": number;
 }

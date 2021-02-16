@@ -77,12 +77,12 @@ Example: `{\"Department\": \"Finance\"}`
   "lifecycleState": VolumeGroupBackup.LifecycleState;
   /**
    * The aggregate size of the volume group backup, in MBs.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sizeInMBs"?: number;
   /**
    * The aggregate size of the volume group backup, in GBs.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sizeInGBs"?: number;
   /**
@@ -111,7 +111,7 @@ Example: `{\"Department\": \"Finance\"}`
 * <p>
 It is typically smaller than sizeInMBs, depending on the spaceconsumed
 * on the volume group and whether the volume backup is full or incremental.
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "uniqueSizeInMbs"?: number;
   /**
@@ -119,7 +119,7 @@ It is typically smaller than sizeInMBs, depending on the spaceconsumed
 * <p>
 It is typically smaller than sizeInGBs, depending on the spaceconsumed
 * on the volume group and whether the volume backup is full or incremental.
-* 
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "uniqueSizeInGbs"?: number;
   /**

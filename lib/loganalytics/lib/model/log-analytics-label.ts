@@ -24,11 +24,11 @@ export interface LogAnalyticsLabel {
    */
   "aliases"?: Array<model.LogAnalyticsLabelAlias>;
   /**
-   * count usage in source
+   * count usage in source Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "countUsageInSource"?: number;
   /**
-   * suggest type
+   * suggest type Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "suggestType"?: number;
   /**
@@ -40,7 +40,7 @@ export interface LogAnalyticsLabel {
    */
   "displayName"?: string;
   /**
-   * edit version
+   * edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**

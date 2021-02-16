@@ -52,7 +52,7 @@ export interface JwtAuthenticationPolicy extends model.AuthenticationPolicy {
   /**
    * The maximum expected time difference between the system clocks
    * of the token issuer and the API Gateway.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxClockSkewInSeconds"?: number;
   "publicKeys": model.StaticPublicKeySet | model.RemoteJsonWebKeySet;

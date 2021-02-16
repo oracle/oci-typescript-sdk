@@ -62,7 +62,7 @@ export interface InstanceAgentCommandExecutionSummary {
    */
   "timeUpdated": Date;
   /**
-   * A large, non-consecutive number that Oracle Cloud Agent assigns to each created command.
+   * A large, non-consecutive number that Oracle Cloud Agent assigns to each created command. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sequenceNumber": number;
   /**

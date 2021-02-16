@@ -24,7 +24,7 @@ export interface UpsertLogAnalyticsLabelDetails {
    */
   "aliases"?: Array<model.LogAnalyticsLabelAlias>;
   /**
-   * suggest type
+   * suggest type Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "suggestType"?: number;
   /**
@@ -36,7 +36,7 @@ export interface UpsertLogAnalyticsLabelDetails {
    */
   "displayName"?: string;
   /**
-   * edit version
+   * edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**

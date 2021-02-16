@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface SqlStatisticsTimeSeriesByPlanAggregation {
   /**
-   * Plan hash value for the SQL Execution Plan
+   * Plan hash value for the SQL Execution Plan Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "planHash": number;
   /**

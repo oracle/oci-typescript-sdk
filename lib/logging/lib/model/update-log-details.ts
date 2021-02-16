@@ -44,7 +44,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Log retention duration in 30-day increments (30, 60, 90 and so on).
+   * Log retention duration in 30-day increments (30, 60, 90 and so on). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "retentionDuration"?: number;
   "configuration"?: model.UpdateConfigurationDetails;

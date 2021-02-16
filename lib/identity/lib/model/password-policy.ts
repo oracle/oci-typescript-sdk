@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface PasswordPolicy {
   /**
-   * Minimum password length required.
+   * Minimum password length required. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minimumPasswordLength"?: number;
   /**

@@ -37,7 +37,7 @@ export interface ManagedInstanceSummary {
    */
   "lastBoot"?: string;
   /**
-   * Number of updates available to be installed
+   * Number of updates available to be installed Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "updatesAvailable"?: number;
   /**

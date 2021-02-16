@@ -20,11 +20,11 @@ import common = require("oci-common");
  */
 export interface RegexMatchResult {
   /**
-   * matchedLogEntryEndIndex
+   * matchedLogEntryEndIndex Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "matchedLogEntryEndIndex"?: number;
   /**
-   * regexScore
+   * regexScore Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "regexScore"?: number;
   /**
@@ -32,7 +32,7 @@ export interface RegexMatchResult {
    */
   "regexStepsInfo"?: Array<model.StepInfo>;
   /**
-   * stepCount
+   * stepCount Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "stepCount"?: number;
   /**

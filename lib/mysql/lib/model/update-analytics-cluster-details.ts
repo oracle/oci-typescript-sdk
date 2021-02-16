@@ -34,7 +34,7 @@ export interface UpdateAnalyticsClusterDetails {
    * cluster of nodes. This may result in a significant downtime for the
    * analytics capability while the Analytics Cluster is
    * re-provisioned.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "clusterSize"?: number;
 }

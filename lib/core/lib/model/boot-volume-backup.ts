@@ -101,7 +101,7 @@ Example: `{\"Department\": \"Finance\"}`
   "lifecycleState": BootVolumeBackup.LifecycleState;
   /**
    * The size of the boot volume, in GBs.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sizeInGBs"?: number;
   /**
@@ -131,7 +131,7 @@ Example: `{\"Department\": \"Finance\"}`
   /**
    * The size used by the backup, in GBs. It is typically smaller than sizeInGBs, depending on the space
    * consumed on the boot volume and whether the backup is full or incremental.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "uniqueSizeInGBs"?: number;
 }

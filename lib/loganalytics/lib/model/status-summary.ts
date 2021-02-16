@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface StatusSummary {
   /**
-   * chunks processed
+   * chunks processed Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "chunksProcessed"?: number;
   /**
@@ -36,7 +36,7 @@ export interface StatusSummary {
    */
   "status"?: string;
   /**
-   * total chunks
+   * total chunks Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalChunks"?: number;
 }

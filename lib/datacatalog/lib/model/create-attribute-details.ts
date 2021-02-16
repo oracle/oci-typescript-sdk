@@ -41,19 +41,19 @@ export interface CreateAttributeDetails {
    */
   "isNullable"?: boolean;
   /**
-   * Max allowed length of the attribute value.
+   * Max allowed length of the attribute value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "length"?: number;
   /**
-   * Position of the attribute in the record definition.
+   * Position of the attribute in the record definition. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "position"?: number;
   /**
-   * Precision of the attribute value usually applies to float data type.
+   * Precision of the attribute value usually applies to float data type. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "precision"?: number;
   /**
-   * Scale of the attribute value usually applies to float data type.
+   * Scale of the attribute value usually applies to float data type. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "scale"?: number;
   /**
@@ -61,14 +61,14 @@ export interface CreateAttributeDetails {
    */
   "timeExternal": Date;
   /**
-   * The minimum count for the number of instances of a given type stored in this collection type attribute,applicable if this attribute is a complex type.
+   * The minimum count for the number of instances of a given type stored in this collection type attribute,applicable if this attribute is a complex type. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minCollectionCount"?: number;
   /**
    * The maximum count for the number of instances of a given type stored in this collection type attribute,applicable if this attribute is a complex type.
    * For type specifications in systems that specify only \"capacity\" without upper or lower bound , this property can also be used to just mean \"capacity\".
    * Some examples are Varray size in Oracle , Occurs Clause in Cobol , capacity in XmlSchemaObjectCollection , maxOccurs in  Xml , maxItems in Json
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxCollectionCount"?: number;
   /**

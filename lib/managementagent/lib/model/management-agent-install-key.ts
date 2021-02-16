@@ -39,11 +39,11 @@ export interface ManagementAgentInstallKey {
    */
   "compartmentId": string;
   /**
-   * Total number of install for this keys
+   * Total number of install for this keys Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "allowedKeyInstallCount"?: number;
   /**
-   * Total number of install for this keys
+   * Total number of install for this keys Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "currentKeyInstallCount"?: number;
   /**

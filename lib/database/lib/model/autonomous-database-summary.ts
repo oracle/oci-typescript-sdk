@@ -65,15 +65,15 @@ export interface AutonomousDatabaseSummary {
   "timeDeletionOfFreeAutonomousDatabase"?: Date;
   "backupConfig"?: model.AutonomousDatabaseBackupConfig;
   /**
-   * The number of OCPU cores to be made available to the database.
+   * The number of OCPU cores to be made available to the database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCount": number;
   /**
-   * The quantity of data in the database, in terabytes.
+   * The quantity of data in the database, in terabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInTBs": number;
   /**
-   * The quantity of data in the database, in gigabytes.
+   * The quantity of data in the database, in gigabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInGBs"?: number;
   /**
@@ -115,7 +115,7 @@ export interface AutonomousDatabaseSummary {
    */
   "licenseModel"?: AutonomousDatabaseSummary.LicenseModel;
   /**
-   * The amount of storage that has been used, in terabytes.
+   * The amount of storage that has been used, in terabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "usedDataStorageSizeInTBs"?: number;
   /**
@@ -303,7 +303,7 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
    */
   "isDataGuardEnabled"?: boolean;
   /**
-   * Indicates the number of seconds of data loss for a Data Guard failover.
+   * Indicates the number of seconds of data loss for a Data Guard failover. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "failedDataRecoveryInSeconds"?: number;
   "standbyDb"?: model.AutonomousDatabaseStandbySummary;

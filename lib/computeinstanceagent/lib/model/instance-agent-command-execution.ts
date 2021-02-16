@@ -58,7 +58,7 @@ export interface InstanceAgentCommandExecution {
    */
   "timeUpdated": Date;
   /**
-   * The large non-consecutive number that Run Command Service assigns to each created command.
+   * The large non-consecutive number that Run Command Service assigns to each created command. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sequenceNumber": number;
   /**

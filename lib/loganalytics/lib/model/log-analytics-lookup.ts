@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsLookup {
   /**
-   * active edit version
+   * active edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "activeEditVersion"?: number;
   /**
@@ -32,7 +32,7 @@ export interface LogAnalyticsLookup {
    */
   "description"?: string;
   /**
-   * edit version
+   * edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**
@@ -40,7 +40,7 @@ export interface LogAnalyticsLookup {
    */
   "fields"?: Array<model.LookupField>;
   /**
-   * The lookup reference as an integer.
+   * The lookup reference as an integer. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "lookupReference"?: number;
   /**
@@ -56,7 +56,7 @@ export interface LogAnalyticsLookup {
    */
   "name"?: string;
   /**
-   * is built in
+   * is built in Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "isBuiltIn"?: number;
   /**

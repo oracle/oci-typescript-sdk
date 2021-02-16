@@ -22,12 +22,12 @@ import common = require("oci-common");
 export interface BucketCommandDescriptor extends model.AbstractCommandDescriptor {
   /**
    * number of auto calculated ranges to compute if specified.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxBuckets"?: number;
   /**
    * Size of each numeric range if specified. Data type should match numeric field data type specified in the query string.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "span"?: number;
   /**

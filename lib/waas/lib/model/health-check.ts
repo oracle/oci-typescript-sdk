@@ -54,19 +54,19 @@ export interface HealthCheck {
    */
   "expectedResponseText"?: string;
   /**
-   * Time between health checks of an individual origin server, in seconds.
+   * Time between health checks of an individual origin server, in seconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "intervalInSeconds"?: number;
   /**
-   * Response timeout represents wait time until request is considered failed, in seconds.
+   * Response timeout represents wait time until request is considered failed, in seconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeoutInSeconds"?: number;
   /**
-   * Number of successful health checks after which the server is marked up.
+   * Number of successful health checks after which the server is marked up. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "healthyThreshold"?: number;
   /**
-   * Number of failed health checks after which the server is marked down.
+   * Number of failed health checks after which the server is marked down. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "unhealthyThreshold"?: number;
 }

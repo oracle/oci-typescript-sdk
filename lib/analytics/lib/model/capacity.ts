@@ -28,7 +28,7 @@ export interface Capacity {
   /**
    * The capacity value selected (OLPU count, number of users, ...etc...). This parameter affects the
    * number of CPUs, amount of memory or other resources allocated to the instance.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "capacityValue": number;
 }

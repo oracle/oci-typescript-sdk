@@ -32,7 +32,7 @@ export interface SteeringPolicyLimitRuleCase {
    * first of the remaining answers in the list. Example: If the `count` property is set to `2` and
    * four answers remain before the limit rule is processed, only the first two answers in the list will
    * remain after the limit rule has been processed.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "count": number;
 }

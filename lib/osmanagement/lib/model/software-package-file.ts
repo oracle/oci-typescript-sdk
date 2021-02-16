@@ -43,7 +43,7 @@ export interface SoftwarePackageFile {
    */
   "checksumType"?: string;
   /**
-   * size of the file in bytes
+   * size of the file in bytes Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sizeInBytes"?: number;
 }

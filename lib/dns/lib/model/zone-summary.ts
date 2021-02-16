@@ -90,7 +90,7 @@ export interface ZoneSummary {
   "version": string;
   /**
    * The current serial of the zone. As seen in the zone's SOA record.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "serial": number;
   /**

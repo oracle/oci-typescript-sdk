@@ -25,7 +25,7 @@ export interface Captcha {
    */
   "url": string;
   /**
-   * The amount of time before the CAPTCHA expires, in seconds. If unspecified, defaults to `300`.
+   * The amount of time before the CAPTCHA expires, in seconds. If unspecified, defaults to `300`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sessionExpirationInSeconds": number;
   /**

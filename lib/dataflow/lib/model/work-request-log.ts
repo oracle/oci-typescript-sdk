@@ -22,7 +22,7 @@ import common = require("oci-common");
 export interface WorkRequestLog {
   /**
    * The id of a work request log.
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "id"?: number;
   /**

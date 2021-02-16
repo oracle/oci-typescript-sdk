@@ -31,7 +31,7 @@ export interface MigrationReplacement {
    */
   "substituteRtype"?: string;
   /**
-   * The Time To Live of the replacement record, in seconds.
+   * The Time To Live of the replacement record, in seconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ttl": number;
   /**

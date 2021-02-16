@@ -24,7 +24,7 @@ export interface SqlText {
   /**
    * Version
    * Example: `1`
-   *
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "version"?: number;
   /**

@@ -19,19 +19,19 @@ import common = require("oci-common");
  */
 export interface DataFlowValidationSummary {
   /**
-   * The total number of validation messages.
+   * The total number of validation messages. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalMessageCount"?: number;
   /**
-   * The total number of validation error messages.
+   * The total number of validation error messages. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "errorMessageCount"?: number;
   /**
-   * The total number of validation warning messages.
+   * The total number of validation warning messages. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "warnMessageCount"?: number;
   /**
-   * The total number of validation information messages.
+   * The total number of validation information messages. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "infoMessageCount"?: number;
   /**
@@ -60,11 +60,11 @@ export interface DataFlowValidationSummary {
    */
   "description"?: string;
   /**
-   * The version of the object that is used to track changes in the object instance.
+   * The version of the object that is used to track changes in the object instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "objectVersion"?: number;
   /**
-   * The status of an object that can be set to value 1 for shallow references across objects, other values reserved.
+   * The status of an object that can be set to value 1 for shallow references across objects, other values reserved. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "objectStatus"?: number;
   /**

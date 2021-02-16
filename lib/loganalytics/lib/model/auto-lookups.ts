@@ -24,7 +24,7 @@ export interface AutoLookups {
    */
   "canonicalLink"?: string;
   /**
-   * total count
+   * total count Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalCount"?: number;
 }

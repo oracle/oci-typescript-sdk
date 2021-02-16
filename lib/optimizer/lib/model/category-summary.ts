@@ -50,7 +50,7 @@ export interface CategorySummary {
    */
   "lifecycleState": model.LifecycleState;
   /**
-   * The estimated cost savings, in dollars, for the category.
+   * The estimated cost savings, in dollars, for the category. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "estimatedCostSaving": number;
   /**

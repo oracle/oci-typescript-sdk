@@ -54,7 +54,7 @@ export interface RequestSummarizedUsagesDetails {
    */
   "groupBy"?: Array<string>;
   /**
-   * The compartment depth level.
+   * The compartment depth level. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "compartmentDepth"?: number;
   "filter"?: model.Filter;

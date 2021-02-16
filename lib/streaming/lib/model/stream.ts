@@ -30,11 +30,11 @@ Example: `TelemetryEvents`
    */
   "id": string;
   /**
-   * The number of partitions in the stream.
+   * The number of partitions in the stream. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "partitions": number;
   /**
-   * The retention period of the stream, in hours. This property is read-only.
+   * The retention period of the stream, in hours. This property is read-only. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "retentionInHours": number;
   /**
