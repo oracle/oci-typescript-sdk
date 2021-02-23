@@ -987,7 +987,7 @@ export class DataFlowClient {
       });
       const opcMeta = {};
       const pattern: string = "opc-meta-";
-      response.headers.forEach((k, v) => {
+      response.headers.forEach((v, k) => {
         if (k.startsWith(pattern)) {
           Object.assign(opcMeta, { k: v });
         }

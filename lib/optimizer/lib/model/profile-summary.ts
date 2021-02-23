@@ -56,6 +56,8 @@ Example: `{\"bar-key\": \"value\"}`
    */
   "lifecycleState": model.LifecycleState;
   "levelsConfiguration"?: model.LevelsConfiguration;
+  "targetCompartments"?: model.TargetCompartments;
+  "targetTags"?: model.TargetTags;
   /**
    * The date and time the profile was created, in the format defined by RFC3339.
    */
@@ -73,7 +75,11 @@ export namespace ProfileSummary {
       ...{
         "levelsConfiguration": obj.levelsConfiguration
           ? model.LevelsConfiguration.getJsonObj(obj.levelsConfiguration)
-          : undefined
+          : undefined,
+        "targetCompartments": obj.targetCompartments
+          ? model.TargetCompartments.getJsonObj(obj.targetCompartments)
+          : undefined,
+        "targetTags": obj.targetTags ? model.TargetTags.getJsonObj(obj.targetTags) : undefined
       }
     };
 

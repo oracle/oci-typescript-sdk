@@ -22,7 +22,7 @@ import common = require("oci-common");
 /**
  * DHCP option for specifying how DNS (hostname resolution) is handled in the subnets in the VCN.
  * For more information, see
- * [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/Content/Network/Concepts/dns.htm).
+ * [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/dns.htm).
  *
  */
 export interface DhcpDnsOption extends model.DhcpOption {
@@ -44,7 +44,7 @@ export interface DhcpDnsOption extends model.DhcpOption {
    * The Internet and VCN Resolver also enables reverse DNS lookup, which lets
    * you determine the hostname corresponding to the private IP address. For more
    * information, see
-   * [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/Content/Network/Concepts/dns.htm).
+   * [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/dns.htm).
    * <p>
    * **CustomDnsServer:** Instances use a DNS server of your choice (three
    * maximum).

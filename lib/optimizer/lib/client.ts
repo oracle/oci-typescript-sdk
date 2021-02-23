@@ -1008,6 +1008,83 @@ export class OptimizerClient {
   }
 
   /**
+   * Lists the existing strategies.
+   *
+   * @param ListRecommendationStrategiesRequest
+   * @return ListRecommendationStrategiesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/ListRecommendationStrategies.ts.html |here} to see how to use ListRecommendationStrategies API.
+   */
+  public async listRecommendationStrategies(
+    listRecommendationStrategiesRequest: requests.ListRecommendationStrategiesRequest
+  ): Promise<responses.ListRecommendationStrategiesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OptimizerClient#listRecommendationStrategies.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listRecommendationStrategiesRequest.compartmentId,
+      "compartmentIdInSubtree": listRecommendationStrategiesRequest.compartmentIdInSubtree,
+      "name": listRecommendationStrategiesRequest.name,
+      "recommendationName": listRecommendationStrategiesRequest.recommendationName,
+      "limit": listRecommendationStrategiesRequest.limit,
+      "page": listRecommendationStrategiesRequest.page,
+      "sortOrder": listRecommendationStrategiesRequest.sortOrder,
+      "sortBy": listRecommendationStrategiesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRecommendationStrategiesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/recommendationStrategies",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listRecommendationStrategiesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRecommendationStrategiesResponse>{},
+        body: await response.json(),
+        bodyKey: "recommendationStrategyCollection",
+        bodyModel: "model.RecommendationStrategyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists the Cloud Advisor recommendations that are currently supported in the specified category.
    *
    * @param ListRecommendationsRequest

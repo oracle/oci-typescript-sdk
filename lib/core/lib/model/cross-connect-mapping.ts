@@ -102,7 +102,7 @@ Example: `10.0.0.19/31`
 There's one exception: for a public virtual circuit, Oracle specifies the BGP IPv6 addresses.
 * <p>
 Note that IPv6 addressing is currently supported only in certain regions. See
-* [IPv6 Addresses](https://docs.cloud.oracle.com/Content/Network/Concepts/ipv6.htm).
+* [IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
 Example: `2001:db8::1/64`
 * 
@@ -117,7 +117,7 @@ Example: `2001:db8::1/64`
 There's one exception: for a public virtual circuit, Oracle specifies the BGP IPv6 addresses.
 * <p>
 Note that IPv6 addressing is currently supported only in certain regions. See
-* [IPv6 Addresses](https://docs.cloud.oracle.com/Content/Network/Concepts/ipv6.htm).
+* [IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
 Example: `2001:db8::2/64`
 * 

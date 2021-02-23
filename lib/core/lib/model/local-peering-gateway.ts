@@ -24,11 +24,11 @@ import common = require("oci-common");
 * with another VCN in the same region. *Peering* means that the two VCNs can
 * communicate using private IP addresses, but without the traffic traversing the
 * internet or routing through your on-premises network. For more information,
-* see [VCN Peering](https://docs.cloud.oracle.com/Content/Network/Tasks/VCNpeering.htm).
+* see [VCN Peering](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/VCNpeering.htm).
 * <p>
 To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized,
 * talk to an administrator. If you're an administrator who needs to write policies to give users access, see
-* [Getting Started with Policies](https://docs.cloud.oracle.com/Content/Identity/Concepts/policygetstarted.htm).
+* [Getting Started with Policies](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/policygetstarted.htm).
 * 
 */
 export interface LocalPeeringGateway {
@@ -107,7 +107,7 @@ Example: [`192.168.0.0/16`, `172.16.0.0/24`]
     * The OCID of the route table the LPG is using.
 * <p>
 For information about why you would associate a route table with an LPG, see
-* [Transit Routing: Access to Multiple VCNs in Same Region](https://docs.cloud.oracle.com/Content/Network/Tasks/transitrouting.htm).
+* [Transit Routing: Access to Multiple VCNs in Same Region](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/transitrouting.htm).
 * 
     */
   "routeTableId"?: string;
@@ -119,7 +119,7 @@ Example: `2016-08-25T21:10:29.600Z`
     */
   "timeCreated": Date;
   /**
-   * The OCID of the VCN the LPG belongs to.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VCN that uses the LPG.
    */
   "vcnId": string;
 }

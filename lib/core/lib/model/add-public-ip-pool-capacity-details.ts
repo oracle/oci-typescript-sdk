@@ -24,7 +24,7 @@ import common = require("oci-common");
  */
 export interface AddPublicIpPoolCapacityDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the `ByoipRange` resource to which the CIDR block belongs.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the `ByoipRange` resource to which the CIDR block belongs.
    */
   "byoipRangeId": string;
   /**

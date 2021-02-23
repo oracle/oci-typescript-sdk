@@ -16,8 +16,6 @@ import common = require("oci-common");
 
 /**
  * The metadata associated with the profile.
- * <p>
- **Caution:** Avoid using any confidential information when you use the API to supply string values.
  *
  */
 export interface Profile {
@@ -30,11 +28,11 @@ export interface Profile {
    */
   "compartmentId": string;
   /**
-   * The name assigned to the profile.
+   * The name assigned to the profile. Avoid entering confidential information.
    */
   "name": string;
   /**
-   * Text describing the profile.
+   * Text describing the profile. Avoid entering confidential information.
    */
   "description": string;
   /**
@@ -54,6 +52,8 @@ Example: `{\"bar-key\": \"value\"}`
     */
   "freeformTags"?: { [key: string]: string };
   "levelsConfiguration"?: model.LevelsConfiguration;
+  "targetCompartments"?: model.TargetCompartments;
+  "targetTags"?: model.TargetTags;
   /**
    * The profile's current state.
    */
@@ -75,7 +75,11 @@ export namespace Profile {
       ...{
         "levelsConfiguration": obj.levelsConfiguration
           ? model.LevelsConfiguration.getJsonObj(obj.levelsConfiguration)
-          : undefined
+          : undefined,
+        "targetCompartments": obj.targetCompartments
+          ? model.TargetCompartments.getJsonObj(obj.targetCompartments)
+          : undefined,
+        "targetTags": obj.targetTags ? model.TargetTags.getJsonObj(obj.targetTags) : undefined
       }
     };
 

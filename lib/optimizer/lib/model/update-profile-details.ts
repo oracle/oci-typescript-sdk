@@ -16,13 +16,11 @@ import common = require("oci-common");
 
 /**
  * Details for updating a profile.
- * <p>
- **Caution:** Avoid using any confidential information when you use the API to supply string values.
  *
  */
 export interface UpdateProfileDetails {
   /**
-   * Text describing the profile.
+   * Text describing the profile. Avoid entering confidential information.
    */
   "description"?: string;
   /**
@@ -42,6 +40,12 @@ Example: `{\"bar-key\": \"value\"}`
     */
   "freeformTags"?: { [key: string]: string };
   "levelsConfiguration"?: model.LevelsConfiguration;
+  "targetCompartments"?: model.TargetCompartments;
+  "targetTags"?: model.TargetTags;
+  /**
+   * The name assigned to the profile. Avoid entering confidential information.
+   */
+  "name"?: string;
 }
 
 export namespace UpdateProfileDetails {
@@ -51,7 +55,11 @@ export namespace UpdateProfileDetails {
       ...{
         "levelsConfiguration": obj.levelsConfiguration
           ? model.LevelsConfiguration.getJsonObj(obj.levelsConfiguration)
-          : undefined
+          : undefined,
+        "targetCompartments": obj.targetCompartments
+          ? model.TargetCompartments.getJsonObj(obj.targetCompartments)
+          : undefined,
+        "targetTags": obj.targetTags ? model.TargetTags.getJsonObj(obj.targetTags) : undefined
       }
     };
 

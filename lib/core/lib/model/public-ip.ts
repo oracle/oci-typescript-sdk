@@ -28,7 +28,7 @@ There are two types of public IPs:
 * 2. Reserved
 * <p>
 For more information and comparison of the two types,
-* see [Public IP Addresses](https://docs.cloud.oracle.com/Content/Network/Tasks/managingpublicIPs.htm).
+* see [Public IP Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingpublicIPs.htm).
 * 
 */
 export interface PublicIp {
@@ -112,7 +112,7 @@ Example: `203.0.113.2`
 * whenever you like. It does not need to be assigned to a private IP at all times.
 * <p>
 For more information and comparison of the two types,
-* see [Public IP Addresses](https://docs.cloud.oracle.com/Content/Network/Tasks/managingpublicIPs.htm).
+* see [Public IP Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingpublicIPs.htm).
 * 
     */
   "lifetime"?: PublicIp.Lifetime;
@@ -149,7 +149,7 @@ Example: `2016-08-25T21:10:29.600Z`
     */
   "timeCreated"?: Date;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the pool object created in the current tenancy.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the pool object created in the current tenancy.
    */
   "publicIpPoolId"?: string;
 }

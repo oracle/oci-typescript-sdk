@@ -23,7 +23,7 @@ export interface UpdateIPSecConnectionTunnelSharedSecretRequest extends common.B
    */
   "ipscId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the tunnel.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the tunnel.
    */
   "tunnelId": string;
   /**

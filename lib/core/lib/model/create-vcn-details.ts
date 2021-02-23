@@ -42,7 +42,7 @@ export interface CreateVcnDetails {
   "compartmentId": string;
   /**
     * If you enable IPv6 for the VCN (see `isIpv6Enabled`), you may optionally provide an IPv6
-* /48 CIDR block from the supported ranges (see [IPv6 Addresses](https://docs.cloud.oracle.com/Content/Network/Concepts/ipv6.htm).
+* /48 CIDR block from the supported ranges (see [IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * The addresses in this block will be considered private and cannot be accessed
 * from the internet. The documentation refers to this as a *custom CIDR* for the VCN.
 * <p>
@@ -58,7 +58,7 @@ Regardless of whether you or Oracle assigns the `ipv6CidrBlock`,
 * an IPv6 address can be used for internet communication by using the `isInternetAccessAllowed`
 * attribute in the {@link Ipv6} object.
 * <p>
-For important details about IPv6 addressing in a VCN, see [IPv6 Addresses](https://docs.cloud.oracle.com/Content/Network/Concepts/ipv6.htm).
+For important details about IPv6 addressing in a VCN, see [IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
 Example: `2001:0db8:0123::/48`
 * 
@@ -91,7 +91,7 @@ You must set this value if you want instances to be able to use hostnames to
 * will not work.
 * <p>
 For more information, see
-* [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/Content/Network/Concepts/dns.htm).
+* [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/dns.htm).
 * <p>
 Example: `vcn1`
 * 
@@ -107,7 +107,7 @@ Example: `{\"Department\": \"Finance\"}`
   "freeformTags"?: { [key: string]: string };
   /**
     * Whether IPv6 is enabled for the VCN. Default is `false`. You cannot change this later.
-* For important details about IPv6 addressing in a VCN, see [IPv6 Addresses](https://docs.cloud.oracle.com/Content/Network/Concepts/ipv6.htm).
+* For important details about IPv6 addressing in a VCN, see [IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
 Example: `true`
 * 

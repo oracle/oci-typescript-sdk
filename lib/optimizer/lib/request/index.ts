@@ -37,6 +37,8 @@ import * as ListHistoriesRequest from "./list-histories-request";
 export import ListHistoriesRequest = ListHistoriesRequest.ListHistoriesRequest;
 import * as ListProfilesRequest from "./list-profiles-request";
 export import ListProfilesRequest = ListProfilesRequest.ListProfilesRequest;
+import * as ListRecommendationStrategiesRequest from "./list-recommendation-strategies-request";
+export import ListRecommendationStrategiesRequest = ListRecommendationStrategiesRequest.ListRecommendationStrategiesRequest;
 import * as ListRecommendationsRequest from "./list-recommendations-request";
 export import ListRecommendationsRequest = ListRecommendationsRequest.ListRecommendationsRequest;
 import * as ListResourceActionsRequest from "./list-resource-actions-request";

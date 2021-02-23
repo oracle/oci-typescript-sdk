@@ -28,7 +28,7 @@ export interface ByoipAllocatedRangeSummary {
    */
   "cidrBlock"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the IP pool containing the CIDR block.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the IP pool containing the CIDR block.
    *
    */
   "publicIpPoolId"?: string;

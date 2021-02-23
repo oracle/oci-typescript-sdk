@@ -83,7 +83,7 @@ This value must be set if you want to use the Internet and VCN Resolver to resol
 * was created with a DNS label.
 * <p>
 For more information, see
-* [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/Content/Network/Concepts/dns.htm).
+* [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/dns.htm).
 * <p>
 Example: `subnet123`
 * 
@@ -102,7 +102,7 @@ Example: `{\"Department\": \"Finance\"}`
 * You can't change this subnet characteristic later. All subnets are /64 in size. The subnet
 * portion of the IPv6 address is the fourth hextet from the left (1111 in the following example).
 * <p>
-For important details about IPv6 addressing in a VCN, see [IPv6 Addresses](https://docs.cloud.oracle.com/Content/Network/Concepts/ipv6.htm).
+For important details about IPv6 addressing in a VCN, see [IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
 Example: `2001:0db8:0123:1111::/64`
 * 

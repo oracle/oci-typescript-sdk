@@ -150,3 +150,4 @@ export import optimizer = require("oci-optimizer");
 export import tenantmanagercontrolplane = require("oci-tenantmanagercontrolplane");
 export import rover = require("oci-rover");
 export import databasemanagement = require("oci-databasemanagement");
+export import artifacts = require("oci-artifacts");

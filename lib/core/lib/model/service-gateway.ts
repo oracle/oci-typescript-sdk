@@ -26,11 +26,11 @@ import common = require("oci-common");
 * routed through the service gateway and does not traverse the internet. The instances in the VCN
 * do not need to have public IP addresses nor be in a public subnet. The VCN does not need an internet gateway
 * for this traffic. For more information, see
-* [Access to Oracle Services: Service Gateway](https://docs.cloud.oracle.com/Content/Network/Tasks/servicegateway.htm).
+* [Access to Oracle Services: Service Gateway](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/servicegateway.htm).
 * <p>
 To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized,
 * talk to an administrator. If you're an administrator who needs to write policies to give users access, see
-* [Getting Started with Policies](https://docs.cloud.oracle.com/Content/Identity/Concepts/policygetstarted.htm).
+* [Getting Started with Policies](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/policygetstarted.htm).
 * 
 */
 export interface ServiceGateway {
@@ -43,7 +43,7 @@ Example: `true`
     */
   "blockTraffic": boolean;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment that contains the
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the
    * service gateway.
    *
    */
@@ -71,7 +71,7 @@ Example: `{\"Department\": \"Finance\"}`
     */
   "freeformTags"?: { [key: string]: string };
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the service gateway.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the service gateway.
    *
    */
   "id": string;
@@ -82,7 +82,7 @@ Example: `{\"Department\": \"Finance\"}`
   /**
    * The OCID of the route table the service gateway is using.
    * For information about why you would associate a route table with a service gateway, see
-   * [Transit Routing: Private Access to Oracle Services](https://docs.cloud.oracle.com/Content/Network/Tasks/transitroutingoracleservices.htm).
+   * [Transit Routing: Private Access to Oracle Services](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/transitroutingoracleservices.htm).
    *
    */
   "routeTableId"?: string;
@@ -102,7 +102,7 @@ Example: `2016-08-25T21:10:29.600Z`
     */
   "timeCreated"?: Date;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VCN the service gateway
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VCN the service gateway
    * belongs to.
    *
    */

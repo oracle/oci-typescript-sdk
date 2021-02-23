@@ -55,7 +55,7 @@ If you don't specify a route table here, the service gateway is created without 
 * with the service gateway.
 * <p>
 For information about why you would associate a route table with a service gateway, see
-* [Transit Routing: Private Access to Oracle Services](https://docs.cloud.oracle.com/Content/Network/Tasks/transitroutingoracleservices.htm).
+* [Transit Routing: Private Access to Oracle Services](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/transitroutingoracleservices.htm).
 * 
     */
   "routeTableId"?: string;
@@ -73,7 +73,7 @@ For each enabled `Service`, make sure there's a route rule with the `Service` ob
     */
   "services": Array<model.ServiceIdRequestDetails>;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VCN.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VCN.
    *
    */
   "vcnId": string;

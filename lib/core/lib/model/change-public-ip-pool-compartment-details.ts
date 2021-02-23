@@ -24,7 +24,7 @@ import common = require("oci-common");
  */
 export interface ChangePublicIpPoolCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the destination compartment for the public IP pool move.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the destination compartment for the public IP pool move.
    *
    */
   "compartmentId": string;

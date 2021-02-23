@@ -1577,7 +1577,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       });
       const opcMeta = {};
       const pattern: string = "opc-meta-";
-      response.headers.forEach((k, v) => {
+      response.headers.forEach((v, k) => {
         if (k.startsWith(pattern)) {
           Object.assign(opcMeta, { k: v });
         }
@@ -2141,7 +2141,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       });
       const opcMeta = {};
       const pattern: string = "opc-meta-";
-      response.headers.forEach((k, v) => {
+      response.headers.forEach((v, k) => {
         if (k.startsWith(pattern)) {
           Object.assign(opcMeta, { k: v });
         }

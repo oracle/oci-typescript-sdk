@@ -30,7 +30,7 @@ export interface CreateByoipRangeDetails {
    */
   "cidrBlock": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment containing the BYOIP CIDR block.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the BYOIP CIDR block.
    *
    */
   "compartmentId": string;

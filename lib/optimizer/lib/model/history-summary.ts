@@ -16,8 +16,6 @@ import common = require("oci-common");
 
 /**
  * The metadata associated with the recommendation history and its related resources.
- * <p>
- **Caution:** Avoid using any confidential information when you use the API to supply string values.
  *
  */
 export interface HistorySummary {
@@ -75,7 +73,7 @@ export interface HistorySummary {
    */
   "status": model.Status;
   /**
-    * Custom metadata key/value pairs for the resource action. 
+    * Custom metadata key/value pairs for the resource action.
 * <p>
  **Metadata Example**
 * <p>
@@ -91,12 +89,12 @@ export interface HistorySummary {
     */
   "metadata"?: { [key: string]: string };
   /**
-    * Additional metadata key/value pairs that you provide. 
+    * Additional metadata key/value pairs that you provide.
 * They serve the same purpose and functionality as fields in the `metadata` object.
 * <p>
 They are distinguished from `metadata` fields in that these can be nested JSON objects (whereas `metadata` fields are string/string maps only).
 * <p>
-For example: 
+For example:
 * <p>
 `{\"CurrentShape\": {\"name\":\"VM.Standard2.16\"}, \"RecommendedShape\": {\"name\":\"VM.Standard2.8\"}}`
 * 

@@ -21,7 +21,7 @@ import common = require("oci-common");
 
 /**
  * Oracle offers the ability to Bring Your Own IP (BYOIP), importing public IP addresses that you currently own to Oracle Cloud Infrastructure. A `ByoipRange` resource is a record of the imported address block (a BYOIP CIDR block) and also some associated metadata.
- * The process used to [Bring Your Own IP](https://docs.cloud.oracle.com/Content/Network/Concepts/BYOIP.htm) is explained in the documentation.
+ * The process used to [Bring Your Own IP](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/BYOIP.htm) is explained in the documentation.
  */
 export interface ByoipRange {
   /**
@@ -29,7 +29,7 @@ export interface ByoipRange {
    */
   "cidrBlock": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment containing the BYOIP CIDR block.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the BYOIP CIDR block.
    *
    */
   "compartmentId": string;
@@ -56,7 +56,7 @@ Example: `{\"Department\": \"Finance\"}`
     */
   "freeformTags"?: { [key: string]: string };
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the `ByoipRange` resource.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the `ByoipRange` resource.
    */
   "id": string;
   /**
@@ -96,7 +96,7 @@ Example: `2016-08-25T21:10:29.600Z`
     */
   "timeWithdrawn"?: Date;
   /**
-   * The validation token is an internally-generated ASCII string used in the validation process. See [Importing a CIDR block](https://docs.cloud.oracle.com/Content/Network/Concepts/BYOIP.htm#import_cidr) for details.
+   * The validation token is an internally-generated ASCII string used in the validation process. See [Importing a CIDR block](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/BYOIP.htm#import_cidr) for details.
    */
   "validationToken": string;
 }
