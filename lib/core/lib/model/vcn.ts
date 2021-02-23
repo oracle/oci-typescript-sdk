@@ -21,11 +21,11 @@ import common = require("oci-common");
 
 /**
 * A virtual cloud network (VCN). For more information, see
-* [Overview of the Networking Service](https://docs.cloud.oracle.com/Content/Network/Concepts/overview.htm).
+* [Overview of the Networking Service](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/overview.htm).
 * <p>
 To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized,
 * talk to an administrator. If you're an administrator who needs to write policies to give users access, see
-* [Getting Started with Policies](https://docs.cloud.oracle.com/Content/Identity/Concepts/policygetstarted.htm).
+* [Getting Started with Policies](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/policygetstarted.htm).
 * 
 */
 export interface Vcn {
@@ -83,7 +83,7 @@ The absence of this parameter means the Internet and VCN Resolver will
 * not work for this VCN.
 * <p>
 For more information, see
-* [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/Content/Network/Concepts/dns.htm).
+* [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/dns.htm).
 * <p>
 Example: `vcn1`
 * 
@@ -107,7 +107,7 @@ Example: `{\"Department\": \"Finance\"}`
    * provides one and uses that *same* CIDR for the `ipv6PublicCidrBlock`. If you do provide a
    * value, Oracle provides a *different* CIDR for the `ipv6PublicCidrBlock`. Note that IPv6
    * addressing is currently supported only in certain regions. See
-   * [IPv6 Addresses](https://docs.cloud.oracle.com/Content/Network/Concepts/ipv6.htm).
+   * [IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
    * Example: `2001:0db8:0123::/48`
    *
    */
@@ -139,7 +139,7 @@ Example: `2016-08-25T21:10:29.600Z`
 * `oraclevcn.com` domain.
 * <p>
 For more information, see
-* [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/Content/Network/Concepts/dns.htm).
+* [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/dns.htm).
 * <p>
 Example: `vcn1.oraclevcn.com`
 * 

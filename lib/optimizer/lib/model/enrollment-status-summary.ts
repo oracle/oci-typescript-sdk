@@ -16,8 +16,6 @@ import common = require("oci-common");
 
 /**
  * The metadata associated with the enrollment status summary.
- * <p>
- **Caution:** Avoid using any confidential information when you use the API to supply string values.
  *
  */
 export interface EnrollmentStatusSummary {

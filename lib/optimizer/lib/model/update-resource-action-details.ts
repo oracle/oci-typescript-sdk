@@ -25,7 +25,7 @@ export interface UpdateResourceActionDetails {
   /**
     * The date and time the current status will change. The format is defined by RFC3339.
 * <p>
-For example, \"The current `postponed` status of the resource action will end and change to `pending` on this 
+For example, \"The current `postponed` status of the resource action will end and change to `pending` on this
 * date and time.\"
 * 
     */

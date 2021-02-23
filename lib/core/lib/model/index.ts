@@ -394,6 +394,8 @@ import * as InstanceConfigurationLaunchInstanceAgentConfigDetails from "./instan
 export import InstanceConfigurationLaunchInstanceAgentConfigDetails = InstanceConfigurationLaunchInstanceAgentConfigDetails.InstanceConfigurationLaunchInstanceAgentConfigDetails;
 import * as InstanceConfigurationLaunchInstanceDetails from "./instance-configuration-launch-instance-details";
 export import InstanceConfigurationLaunchInstanceDetails = InstanceConfigurationLaunchInstanceDetails.InstanceConfigurationLaunchInstanceDetails;
+import * as InstanceConfigurationLaunchInstancePlatformConfig from "./instance-configuration-launch-instance-platform-config";
+export import InstanceConfigurationLaunchInstancePlatformConfig = InstanceConfigurationLaunchInstancePlatformConfig.InstanceConfigurationLaunchInstancePlatformConfig;
 import * as InstanceConfigurationLaunchInstanceShapeConfigDetails from "./instance-configuration-launch-instance-shape-config-details";
 export import InstanceConfigurationLaunchInstanceShapeConfigDetails = InstanceConfigurationLaunchInstanceShapeConfigDetails.InstanceConfigurationLaunchInstanceShapeConfigDetails;
 import * as InstanceConfigurationLaunchOptions from "./instance-configuration-launch-options";
@@ -436,6 +438,8 @@ import * as LaunchInstanceAvailabilityConfigDetails from "./launch-instance-avai
 export import LaunchInstanceAvailabilityConfigDetails = LaunchInstanceAvailabilityConfigDetails.LaunchInstanceAvailabilityConfigDetails;
 import * as LaunchInstanceDetails from "./launch-instance-details";
 export import LaunchInstanceDetails = LaunchInstanceDetails.LaunchInstanceDetails;
+import * as LaunchInstancePlatformConfig from "./launch-instance-platform-config";
+export import LaunchInstancePlatformConfig = LaunchInstancePlatformConfig.LaunchInstancePlatformConfig;
 import * as LaunchInstanceShapeConfigDetails from "./launch-instance-shape-config-details";
 export import LaunchInstanceShapeConfigDetails = LaunchInstanceShapeConfigDetails.LaunchInstanceShapeConfigDetails;
 import * as LaunchOptions from "./launch-options";
@@ -454,6 +458,8 @@ import * as NetworkSecurityGroupVnic from "./network-security-group-vnic";
 export import NetworkSecurityGroupVnic = NetworkSecurityGroupVnic.NetworkSecurityGroupVnic;
 import * as PeerRegionForRemotePeering from "./peer-region-for-remote-peering";
 export import PeerRegionForRemotePeering = PeerRegionForRemotePeering.PeerRegionForRemotePeering;
+import * as PlatformConfig from "./platform-config";
+export import PlatformConfig = PlatformConfig.PlatformConfig;
 import * as PortRange from "./port-range";
 export import PortRange = PortRange.PortRange;
 import * as PrivateIp from "./private-ip";
@@ -663,6 +669,10 @@ export import VolumeKmsKey = VolumeKmsKey.VolumeKmsKey;
 import * as VolumeSourceDetails from "./volume-source-details";
 export import VolumeSourceDetails = VolumeSourceDetails.VolumeSourceDetails;
 
+import * as AmdMilanBmLaunchInstancePlatformConfig from "./amd-milan-bm-launch-instance-platform-config";
+export import AmdMilanBmLaunchInstancePlatformConfig = AmdMilanBmLaunchInstancePlatformConfig.AmdMilanBmLaunchInstancePlatformConfig;
+import * as AmdMilanBmPlatformConfig from "./amd-milan-bm-platform-config";
+export import AmdMilanBmPlatformConfig = AmdMilanBmPlatformConfig.AmdMilanBmPlatformConfig;
 import * as AttachEmulatedVolumeDetails from "./attach-emulated-volume-details";
 export import AttachEmulatedVolumeDetails = AttachEmulatedVolumeDetails.AttachEmulatedVolumeDetails;
 import * as AttachIScsiVolumeDetails from "./attach-iscsi-volume-details";
@@ -703,6 +713,8 @@ import * as ImageSourceViaObjectStorageTupleDetails from "./image-source-via-obj
 export import ImageSourceViaObjectStorageTupleDetails = ImageSourceViaObjectStorageTupleDetails.ImageSourceViaObjectStorageTupleDetails;
 import * as ImageSourceViaObjectStorageUriDetails from "./image-source-via-object-storage-uri-details";
 export import ImageSourceViaObjectStorageUriDetails = ImageSourceViaObjectStorageUriDetails.ImageSourceViaObjectStorageUriDetails;
+import * as InstanceConfigurationAmdMilanBmLaunchInstancePlatformConfig from "./instance-configuration-amd-milan-bm-launch-instance-platform-config";
+export import InstanceConfigurationAmdMilanBmLaunchInstancePlatformConfig = InstanceConfigurationAmdMilanBmLaunchInstancePlatformConfig.InstanceConfigurationAmdMilanBmLaunchInstancePlatformConfig;
 import * as InstanceConfigurationInstanceSourceViaBootVolumeDetails from "./instance-configuration-instance-source-via-boot-volume-details";
 export import InstanceConfigurationInstanceSourceViaBootVolumeDetails = InstanceConfigurationInstanceSourceViaBootVolumeDetails.InstanceConfigurationInstanceSourceViaBootVolumeDetails;
 import * as InstanceConfigurationInstanceSourceViaImageDetails from "./instance-configuration-instance-source-via-image-details";

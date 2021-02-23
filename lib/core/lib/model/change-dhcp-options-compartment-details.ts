@@ -24,7 +24,7 @@ import common = require("oci-common");
  */
 export interface ChangeDhcpOptionsCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment to move the
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to move the
    * set of DHCP options to.
    *
    */

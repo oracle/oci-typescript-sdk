@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetServiceRequest extends common.BaseRequest {
   /**
-   * The service's [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The service's [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "serviceId": string;
 }

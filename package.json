@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "1.15.1",
+  "version": "1.15.2",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -85,7 +85,8 @@
     "oci-optimizer": "file:lib/optimizer",
     "oci-tenantmanagercontrolplane": "file:lib/tenantmanagercontrolplane",
     "oci-rover": "file:lib/rover",
-    "oci-databasemanagement": "file:lib/databasemanagement"
+    "oci-databasemanagement": "file:lib/databasemanagement",
+    "oci-artifacts": "file:lib/artifacts"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

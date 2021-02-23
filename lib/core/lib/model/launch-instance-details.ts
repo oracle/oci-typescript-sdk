@@ -214,6 +214,7 @@ You can enumerate all available shapes by calling {@link #listShapes(ListShapesR
    * Whether to enable in-transit encryption for the data volume's paravirtualized attachment. This field applies to both block volumes and boot volumes. The default value is false.
    */
   "isPvEncryptionInTransitEnabled"?: boolean;
+  "platformConfig"?: model.AmdMilanBmLaunchInstancePlatformConfig;
 }
 
 export namespace LaunchInstanceDetails {
@@ -244,6 +245,10 @@ export namespace LaunchInstanceDetails {
           : undefined,
         "sourceDetails": obj.sourceDetails
           ? model.InstanceSourceDetails.getJsonObj(obj.sourceDetails)
+          : undefined,
+
+        "platformConfig": obj.platformConfig
+          ? model.LaunchInstancePlatformConfig.getJsonObj(obj.platformConfig)
           : undefined
       }
     };

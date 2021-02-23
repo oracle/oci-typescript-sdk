@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface UpdateNatGatewayRequest extends common.BaseRequest {
   /**
-   * The NAT gateway's [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The NAT gateway's [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "natGatewayId": string;
   /**

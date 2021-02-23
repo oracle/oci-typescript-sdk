@@ -164,6 +164,7 @@ You can enumerate all available shapes by calling {@link #listShapes(ListShapesR
     */
   "shape"?: string;
   "shapeConfig"?: model.InstanceConfigurationLaunchInstanceShapeConfigDetails;
+  "platformConfig"?: model.InstanceConfigurationAmdMilanBmLaunchInstancePlatformConfig;
   "sourceDetails"?:
     | model.InstanceConfigurationInstanceSourceViaImageDetails
     | model.InstanceConfigurationInstanceSourceViaBootVolumeDetails;
@@ -252,6 +253,9 @@ export namespace InstanceConfigurationLaunchInstanceDetails {
 
         "shapeConfig": obj.shapeConfig
           ? model.InstanceConfigurationLaunchInstanceShapeConfigDetails.getJsonObj(obj.shapeConfig)
+          : undefined,
+        "platformConfig": obj.platformConfig
+          ? model.InstanceConfigurationLaunchInstancePlatformConfig.getJsonObj(obj.platformConfig)
           : undefined,
         "sourceDetails": obj.sourceDetails
           ? model.InstanceConfigurationInstanceSourceDetails.getJsonObj(obj.sourceDetails)

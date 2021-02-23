@@ -16,8 +16,6 @@ import common = require("oci-common");
 
 /**
  * Details about the recommended action.
- * <p>
- **Caution:** Avoid using any confidential information when you use the API to supply string values.
  *
  */
 export interface Action {

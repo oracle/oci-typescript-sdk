@@ -16,8 +16,6 @@ import common = require("oci-common");
 
 /**
  * The request object for updating the enrollment status details.
- * <p>
- **Caution:** Avoid using any confidential information when you use the API to supply string values.
  *
  */
 export interface UpdateEnrollmentStatusDetails {

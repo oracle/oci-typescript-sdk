@@ -23,7 +23,7 @@ export interface ListDrgAttachmentsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VCN.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VCN.
    */
   "vcnId"?: string;
   /**

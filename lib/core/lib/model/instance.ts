@@ -194,6 +194,7 @@ Example: `2016-08-25T21:10:29.600Z`
    *
    */
   "timeMaintenanceRebootDue"?: Date;
+  "platformConfig"?: model.AmdMilanBmPlatformConfig;
 }
 
 export namespace Instance {
@@ -249,6 +250,10 @@ export namespace Instance {
 
         "agentConfig": obj.agentConfig
           ? model.InstanceAgentConfig.getJsonObj(obj.agentConfig)
+          : undefined,
+
+        "platformConfig": obj.platformConfig
+          ? model.PlatformConfig.getJsonObj(obj.platformConfig)
           : undefined
       }
     };

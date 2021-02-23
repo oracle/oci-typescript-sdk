@@ -40,9 +40,7 @@ function generateRequestId() {
 
 export function addUserAgent(headers: Headers) {
   const appendUserAgent = process.env.OCI_SDK_APPEND_USER_AGENT;
-  const clientInfo = appendUserAgent
-    ? `Oracle-TypeScriptSDK/${version} ${appendUserAgent}`
-    : `Oracle-TypeScriptSDK/${version}`;
+  const clientInfo = `Oracle-TypeScriptSDK/${version}`;
 
   // Check if the sdk is used in browser or node, populate header accordingly.
   if (!isBrowser()) {
@@ -56,7 +54,9 @@ export function addUserAgent(headers: Headers) {
     const nodeVersion = NODE_PLATFORM_HASH.get(VERSION_KEY);
 
     // Formulate User-Agent
-    const userAgent = `${clientInfo} (${platform}/${release}; Node/${nodeVersion})`;
+    let userAgent = appendUserAgent
+      ? `${clientInfo} (${platform}/${release}; Node/${nodeVersion}) ${appendUserAgent}`
+      : `${clientInfo} (${platform}/${release}; Node/${nodeVersion})`;
 
     // Headers will always be replaced if they exist already
     headers.append(USER_AGENT_HEADER, userAgent);

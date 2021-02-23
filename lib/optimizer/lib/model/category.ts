@@ -16,8 +16,6 @@ import common = require("oci-common");
 
 /**
  * The metadata associated with the category.
- * <p>
- **Caution:** Avoid using any confidential information when you supply string values using the API.
  *
  */
 export interface Category {
@@ -30,11 +28,11 @@ export interface Category {
    */
   "compartmentId": string;
   /**
-   * The name assigned to the category.
+   * The name assigned to the category. Avoid entering confidential information.
    */
   "name": string;
   /**
-   * Text describing the category.
+   * Text describing the category. Avoid entering confidential information.
    */
   "description": string;
   /**

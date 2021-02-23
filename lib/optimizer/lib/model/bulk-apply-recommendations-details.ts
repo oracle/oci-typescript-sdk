@@ -19,9 +19,16 @@ import common = require("oci-common");
  */
 export interface BulkApplyRecommendationsDetails {
   /**
-   * The unique OCIDs of the resource actions that recommendations are applied to.
+    * The unique OCIDs of the resource actions that recommendations are applied to.
+* <p>
+This field is deprecated.
+* 
+    */
+  "resourceActionIds"?: Array<string>;
+  /**
+   * The unique resource actions that recommendations are applied to.
    */
-  "resourceActionIds": Array<string>;
+  "actions"?: Array<model.BulkApplyResourceAction>;
   /**
    * The current status of the recommendation.
    */
@@ -29,7 +36,7 @@ export interface BulkApplyRecommendationsDetails {
   /**
     * The date and time the current status will change. The format is defined by RFC3339.
 * <p>
-For example, \"The current `postponed` status of the resource action will end and change to `pending` on this 
+For example, \"The current `postponed` status of the resource action will end and change to `pending` on this
 * date and time.\"
 * 
     */
@@ -38,7 +45,16 @@ For example, \"The current `postponed` status of the resource action will end an
 
 export namespace BulkApplyRecommendationsDetails {
   export function getJsonObj(obj: BulkApplyRecommendationsDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "actions": obj.actions
+          ? obj.actions.map(item => {
+              return model.BulkApplyResourceAction.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

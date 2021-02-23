@@ -37,6 +37,8 @@ import * as ListHistoriesResponse from "./list-histories-response";
 export import ListHistoriesResponse = ListHistoriesResponse.ListHistoriesResponse;
 import * as ListProfilesResponse from "./list-profiles-response";
 export import ListProfilesResponse = ListProfilesResponse.ListProfilesResponse;
+import * as ListRecommendationStrategiesResponse from "./list-recommendation-strategies-response";
+export import ListRecommendationStrategiesResponse = ListRecommendationStrategiesResponse.ListRecommendationStrategiesResponse;
 import * as ListRecommendationsResponse from "./list-recommendations-response";
 export import ListRecommendationsResponse = ListRecommendationsResponse.ListRecommendationsResponse;
 import * as ListResourceActionsResponse from "./list-resource-actions-response";

@@ -16,8 +16,6 @@ import common = require("oci-common");
 
 /**
  * The metadata associated with the recommendation summary.
- * <p>
- **Caution:** Avoid using any confidential information when you supply string values using the API.
  *
  */
 export interface RecommendationSummary {
@@ -71,7 +69,7 @@ For example, \"The status of the recommendation changed from `pending` to `curre
   /**
     * The date and time the current status will change. The format is defined by RFC3339.
 * <p>
-For example, \"The current `postponed` status of the recommendation will end and change to `pending` on this 
+For example, \"The current `postponed` status of the recommendation will end and change to `pending` on this
 * date and time.\"
 * 
     */

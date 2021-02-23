@@ -32,10 +32,23 @@ Set `destinationType` to `objectStorageUri` and
 * 
 */
 export interface ExportImageDetails {
+  /**
+   * The format of the image to be exported. The default value is \"OCI\".
+   */
+  "exportFormat"?: ExportImageDetails.ExportFormat;
+
   "destinationType": string;
 }
 
 export namespace ExportImageDetails {
+  export enum ExportFormat {
+    Qcow2 = "QCOW2",
+    Vmdk = "VMDK",
+    Oci = "OCI",
+    Vhd = "VHD",
+    Vdi = "VDI"
+  }
+
   export function getJsonObj(obj: ExportImageDetails): object {
     const jsonObj = { ...obj, ...{} };
 

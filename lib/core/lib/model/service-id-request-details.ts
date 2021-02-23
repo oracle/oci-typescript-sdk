@@ -21,7 +21,7 @@ import common = require("oci-common");
 
 export interface ServiceIdRequestDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the {@link Service}.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@link Service}.
    *
    */
   "serviceId": string;

@@ -24,7 +24,7 @@ import common = require("oci-common");
  */
 export interface ChangeVirtualCircuitCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment to move the
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to move the
    * virtual circuit to.
    *
    */
