@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetSnapshotRequest extends common.BaseRequest {
   /**
-   * The OCID of the snapshot.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the snapshot.
    */
   "snapshotId": string;
   /**

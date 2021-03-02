@@ -46,11 +46,11 @@ export interface CreateExportDetails {
     */
   "exportOptions"?: Array<model.ClientOptions>;
   /**
-   * The OCID of this export's export set.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of this export's export set.
    */
   "exportSetId": string;
   /**
-   * The OCID of this export's file system.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of this export's file system.
    */
   "fileSystemId": string;
   /**

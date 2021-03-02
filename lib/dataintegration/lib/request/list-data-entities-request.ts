@@ -65,6 +65,14 @@ export interface ListDataEntitiesRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Used to filter by the name of the object.
+   */
+  "nameList"?: Array<string>;
+  /**
+   * This parameter can be used to specify whether entity search type is pattern search or not.
+   */
+  "isPattern"?: boolean;
 }
 
 export namespace ListDataEntitiesRequest {

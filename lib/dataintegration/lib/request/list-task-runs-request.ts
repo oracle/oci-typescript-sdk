@@ -34,6 +34,11 @@ export interface ListTaskRunsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
+   * Used to filter by the project or the folder object.
+   *
+   */
+  "aggregatorKey"?: string;
+  /**
    * Specifies the fields to get for an object.
    */
   "fields"?: Array<string>;

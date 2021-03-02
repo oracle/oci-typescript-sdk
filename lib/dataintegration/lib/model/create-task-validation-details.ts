@@ -105,6 +105,11 @@ export namespace CreateTaskValidationDetails {
             <model.CreateTaskValidationFromDataLoaderTask>(<object>jsonObj),
             true
           );
+        case "PIPELINE_TASK":
+          return model.CreateTaskValidationFromPipelineTask.getJsonObj(
+            <model.CreateTaskValidationFromPipelineTask>(<object>jsonObj),
+            true
+          );
         case "INTEGRATION_TASK":
           return model.CreateTaskValidationFromIntegrationTask.getJsonObj(
             <model.CreateTaskValidationFromIntegrationTask>(<object>jsonObj),

@@ -26,6 +26,7 @@ export interface DataFormat {
    * type
    */
   "type"?: DataFormat.Type;
+  "compressionConfig"?: model.Compression;
 }
 
 export namespace DataFormat {
@@ -49,6 +50,10 @@ export namespace DataFormat {
       ...{
         "formatAttribute": obj.formatAttribute
           ? model.AbstractFormatAttribute.getJsonObj(obj.formatAttribute)
+          : undefined,
+
+        "compressionConfig": obj.compressionConfig
+          ? model.Compression.getJsonObj(obj.compressionConfig)
           : undefined
       }
     };

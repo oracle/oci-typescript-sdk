@@ -42,6 +42,8 @@ export interface DataAssetFromOracleDetails extends model.DataAsset {
    * The credential file content from a wallet for the data asset.
    */
   "credentialFileContent"?: string;
+  "walletSecret"?: model.SensitiveAttribute;
+  "walletPasswordSecret"?: model.SensitiveAttribute;
   "defaultConnection"?: model.ConnectionFromOracleDetails;
 
   "modelType": string;
@@ -52,6 +54,12 @@ export namespace DataAssetFromOracleDetails {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.DataAsset.getJsonObj(obj) as DataAssetFromOracleDetails)),
       ...{
+        "walletSecret": obj.walletSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.walletSecret)
+          : undefined,
+        "walletPasswordSecret": obj.walletPasswordSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.walletPasswordSecret)
+          : undefined,
         "defaultConnection": obj.defaultConnection
           ? model.ConnectionFromOracleDetails.getJsonObj(obj.defaultConnection)
           : undefined

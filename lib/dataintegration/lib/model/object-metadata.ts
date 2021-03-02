@@ -46,6 +46,7 @@ export interface ObjectMetadata {
    * The owning object key for this object.
    */
   "aggregatorKey"?: string;
+  "aggregator"?: model.AggregatorSummary;
   /**
    * The full path to identify this object.
    */
@@ -70,7 +71,14 @@ export interface ObjectMetadata {
 
 export namespace ObjectMetadata {
   export function getJsonObj(obj: ObjectMetadata): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "aggregator": obj.aggregator
+          ? model.AggregatorSummary.getJsonObj(obj.aggregator)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

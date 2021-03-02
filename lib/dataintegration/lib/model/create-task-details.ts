@@ -108,6 +108,11 @@ export namespace CreateTaskDetails {
             <model.CreateTaskFromDataLoaderTask>(<object>jsonObj),
             true
           );
+        case "PIPELINE_TASK":
+          return model.CreateTaskFromPipelineTask.getJsonObj(
+            <model.CreateTaskFromPipelineTask>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.modelType);
       }

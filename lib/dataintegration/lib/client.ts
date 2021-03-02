@@ -975,6 +975,147 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Creates a new pipeline in a project or folder ready for performing task orchestration.
+   *
+   * @param CreatePipelineRequest
+   * @return CreatePipelineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreatePipeline.ts.html |here} to see how to use CreatePipeline API.
+   */
+  public async createPipeline(
+    createPipelineRequest: requests.CreatePipelineRequest
+  ): Promise<responses.CreatePipelineResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createPipeline.");
+    const pathParams = {
+      "{workspaceId}": createPipelineRequest.workspaceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createPipelineRequest.opcRetryToken,
+      "opc-request-id": createPipelineRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/pipelines",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createPipelineRequest.createPipelineDetails,
+        "CreatePipelineDetails",
+        models.CreatePipelineDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createPipelineRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreatePipelineResponse>{},
+        body: await response.json(),
+        bodyKey: "pipeline",
+        bodyModel: "model.Pipeline",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Accepts the data flow definition in the request payload and creates a pipeline validation.
+   *
+   * @param CreatePipelineValidationRequest
+   * @return CreatePipelineValidationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreatePipelineValidation.ts.html |here} to see how to use CreatePipelineValidation API.
+   */
+  public async createPipelineValidation(
+    createPipelineValidationRequest: requests.CreatePipelineValidationRequest
+  ): Promise<responses.CreatePipelineValidationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#createPipelineValidation.");
+    const pathParams = {
+      "{workspaceId}": createPipelineValidationRequest.workspaceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createPipelineValidationRequest.opcRequestId,
+      "opc-retry-token": createPipelineValidationRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/pipelineValidations",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createPipelineValidationRequest.createPipelineValidationDetails,
+        "CreatePipelineValidationDetails",
+        models.CreatePipelineValidationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createPipelineValidationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreatePipelineValidationResponse>{},
+        body: await response.json(),
+        bodyKey: "pipelineValidation",
+        bodyModel: "model.PipelineValidation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a project. Projects are organizational constructs within a workspace that you use to organize your design-time resources, such as tasks or data flows. Projects can be organized into folders.
    *
    * @param CreateProjectRequest
@@ -1888,6 +2029,121 @@ export class DataIntegrationClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeletePatchResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes a pipeline from a project or folder using the specified identifier.
+   * @param DeletePipelineRequest
+   * @return DeletePipelineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeletePipeline.ts.html |here} to see how to use DeletePipeline API.
+   */
+  public async deletePipeline(
+    deletePipelineRequest: requests.DeletePipelineRequest
+  ): Promise<responses.DeletePipelineResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deletePipeline.");
+    const pathParams = {
+      "{workspaceId}": deletePipelineRequest.workspaceId,
+      "{pipelineKey}": deletePipelineRequest.pipelineKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deletePipelineRequest.ifMatch,
+      "opc-request-id": deletePipelineRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/pipelines/{pipelineKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deletePipelineRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeletePipelineResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes a pipeline validation using the specified identifier.
+   * @param DeletePipelineValidationRequest
+   * @return DeletePipelineValidationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeletePipelineValidation.ts.html |here} to see how to use DeletePipelineValidation API.
+   */
+  public async deletePipelineValidation(
+    deletePipelineValidationRequest: requests.DeletePipelineValidationRequest
+  ): Promise<responses.DeletePipelineValidationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#deletePipelineValidation.");
+    const pathParams = {
+      "{workspaceId}": deletePipelineValidationRequest.workspaceId,
+      "{pipelineValidationKey}": deletePipelineValidationRequest.pipelineValidationKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deletePipelineValidationRequest.ifMatch,
+      "opc-request-id": deletePipelineValidationRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/pipelineValidations/{pipelineValidationKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deletePipelineValidationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeletePipelineValidationResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3047,6 +3303,135 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Retrieves a pipeline using the specified identifier.
+   * @param GetPipelineRequest
+   * @return GetPipelineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetPipeline.ts.html |here} to see how to use GetPipeline API.
+   */
+  public async getPipeline(
+    getPipelineRequest: requests.GetPipelineRequest
+  ): Promise<responses.GetPipelineResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getPipeline.");
+    const pathParams = {
+      "{workspaceId}": getPipelineRequest.workspaceId,
+      "{pipelineKey}": getPipelineRequest.pipelineKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPipelineRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/pipelines/{pipelineKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getPipelineRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPipelineResponse>{},
+        body: await response.json(),
+        bodyKey: "pipeline",
+        bodyModel: "model.Pipeline",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves a pipeline validation using the specified identifier.
+   * @param GetPipelineValidationRequest
+   * @return GetPipelineValidationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetPipelineValidation.ts.html |here} to see how to use GetPipelineValidation API.
+   */
+  public async getPipelineValidation(
+    getPipelineValidationRequest: requests.GetPipelineValidationRequest
+  ): Promise<responses.GetPipelineValidationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#getPipelineValidation.");
+    const pathParams = {
+      "{workspaceId}": getPipelineValidationRequest.workspaceId,
+      "{pipelineValidationKey}": getPipelineValidationRequest.pipelineValidationKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPipelineValidationRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/pipelineValidations/{pipelineValidationKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getPipelineValidationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPipelineValidationResponse>{},
+        body: await response.json(),
+        bodyKey: "pipelineValidation",
+        bodyModel: "model.PipelineValidation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves a project using the specified identifier.
    * @param GetProjectRequest
    * @return GetProjectResponse
@@ -3320,7 +3705,9 @@ export class DataIntegrationClient {
       "{taskKey}": getTaskRequest.taskKey
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "expandReferences": getTaskRequest.expandReferences
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -3983,7 +4370,9 @@ export class DataIntegrationClient {
       "limit": listDataEntitiesRequest.limit,
       "fields": listDataEntitiesRequest.fields,
       "sortBy": listDataEntitiesRequest.sortBy,
-      "sortOrder": listDataEntitiesRequest.sortOrder
+      "sortOrder": listDataEntitiesRequest.sortOrder,
+      "nameList": listDataEntitiesRequest.nameList,
+      "isPattern": listDataEntitiesRequest.isPattern
     };
 
     let headerParams = {
@@ -4710,6 +5099,172 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Retrieves a list of pipeline validations within the specified workspace.
+   * @param ListPipelineValidationsRequest
+   * @return ListPipelineValidationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListPipelineValidations.ts.html |here} to see how to use ListPipelineValidations API.
+   */
+  public async listPipelineValidations(
+    listPipelineValidationsRequest: requests.ListPipelineValidationsRequest
+  ): Promise<responses.ListPipelineValidationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#listPipelineValidations.");
+    const pathParams = {
+      "{workspaceId}": listPipelineValidationsRequest.workspaceId
+    };
+
+    const queryParams = {
+      "key": listPipelineValidationsRequest.key,
+      "name": listPipelineValidationsRequest.name,
+      "identifier": listPipelineValidationsRequest.identifier,
+      "fields": listPipelineValidationsRequest.fields,
+      "page": listPipelineValidationsRequest.page,
+      "limit": listPipelineValidationsRequest.limit,
+      "sortBy": listPipelineValidationsRequest.sortBy,
+      "sortOrder": listPipelineValidationsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPipelineValidationsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/pipelineValidations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listPipelineValidationsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPipelineValidationsResponse>{},
+        body: await response.json(),
+        bodyKey: "pipelineValidationSummaryCollection",
+        bodyModel: "model.PipelineValidationSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves a list of pipelines in a project or folder from within a workspace, the query parameter specifies the project or folder.
+   *
+   * @param ListPipelinesRequest
+   * @return ListPipelinesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListPipelines.ts.html |here} to see how to use ListPipelines API.
+   */
+  public async listPipelines(
+    listPipelinesRequest: requests.ListPipelinesRequest
+  ): Promise<responses.ListPipelinesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listPipelines.");
+    const pathParams = {
+      "{workspaceId}": listPipelinesRequest.workspaceId
+    };
+
+    const queryParams = {
+      "aggregatorKey": listPipelinesRequest.aggregatorKey,
+      "fields": listPipelinesRequest.fields,
+      "name": listPipelinesRequest.name,
+      "identifier": listPipelinesRequest.identifier,
+      "limit": listPipelinesRequest.limit,
+      "page": listPipelinesRequest.page,
+      "sortOrder": listPipelinesRequest.sortOrder,
+      "sortBy": listPipelinesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPipelinesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/pipelines",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listPipelinesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPipelinesResponse>{},
+        body: await response.json(),
+        bodyKey: "pipelineSummaryCollection",
+        bodyModel: "model.PipelineSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves a lists of projects in a workspace and provides options to filter the list.
    *
    * @param ListProjectsRequest
@@ -4984,7 +5539,8 @@ export class DataIntegrationClient {
       "sortBy": listSchemasRequest.sortBy,
       "sortOrder": listSchemasRequest.sortOrder,
       "schemaResourceName": listSchemasRequest.schemaResourceName,
-      "name": listSchemasRequest.name
+      "name": listSchemasRequest.name,
+      "nameList": listSchemasRequest.nameList
     };
 
     let headerParams = {
@@ -5165,6 +5721,7 @@ export class DataIntegrationClient {
     };
 
     const queryParams = {
+      "aggregatorKey": listTaskRunsRequest.aggregatorKey,
       "fields": listTaskRunsRequest.fields,
       "name": listTaskRunsRequest.name,
       "identifier": listTaskRunsRequest.identifier,
@@ -5605,6 +6162,7 @@ export class DataIntegrationClient {
 
     const queryParams = {
       "compartmentId": listWorkRequestsRequest.compartmentId,
+      "workspaceId": listWorkRequestsRequest.workspaceId,
       "workRequestStatus": listWorkRequestsRequest.workRequestStatus,
       "page": listWorkRequestsRequest.page,
       "limit": listWorkRequestsRequest.limit,
@@ -6311,6 +6869,76 @@ export class DataIntegrationClient {
         body: await response.json(),
         bodyKey: "folder",
         bodyModel: "model.Folder",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates a specific pipeline.
+   * @param UpdatePipelineRequest
+   * @return UpdatePipelineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdatePipeline.ts.html |here} to see how to use UpdatePipeline API.
+   */
+  public async updatePipeline(
+    updatePipelineRequest: requests.UpdatePipelineRequest
+  ): Promise<responses.UpdatePipelineResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updatePipeline.");
+    const pathParams = {
+      "{workspaceId}": updatePipelineRequest.workspaceId,
+      "{pipelineKey}": updatePipelineRequest.pipelineKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updatePipelineRequest.opcRequestId,
+      "if-match": updatePipelineRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/pipelines/{pipelineKey}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updatePipelineRequest.updatePipelineDetails,
+        "UpdatePipelineDetails",
+        models.UpdatePipelineDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updatePipelineRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdatePipelineResponse>{},
+        body: await response.json(),
+        bodyKey: "pipeline",
+        bodyModel: "model.Pipeline",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

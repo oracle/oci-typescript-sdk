@@ -27,7 +27,7 @@ Example: `Uocm:PHX-AD-1`
     */
   "availabilityDomain": string;
   /**
-   * The OCID of the compartment in which to create the mount target.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment in which to create the mount target.
    */
   "compartmentId": string;
   /**
@@ -64,7 +64,7 @@ Example: `10.0.3.3`
     */
   "ipAddress"?: string;
   /**
-   * The OCID of the subnet in which to create the mount target.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet in which to create the mount target.
    *
    */
   "subnetId": string;

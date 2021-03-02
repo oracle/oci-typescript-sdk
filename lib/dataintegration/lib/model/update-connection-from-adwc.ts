@@ -26,6 +26,7 @@ export interface UpdateConnectionFromAdwc extends model.UpdateConnectionDetails 
    * The password for the connection.
    */
   "password"?: string;
+  "passwordSecret"?: model.SensitiveAttribute;
 
   "modelType": string;
 }
@@ -36,7 +37,11 @@ export namespace UpdateConnectionFromAdwc {
       ...(isParentJsonObj
         ? obj
         : (model.UpdateConnectionDetails.getJsonObj(obj) as UpdateConnectionFromAdwc)),
-      ...{}
+      ...{
+        "passwordSecret": obj.passwordSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.passwordSecret)
+          : undefined
+      }
     };
 
     return jsonObj;

@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface CreateSnapshotDetails {
   /**
-   * The OCID of the file system to take a snapshot of.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the file system to take a snapshot of.
    */
   "fileSystemId": string;
   /**

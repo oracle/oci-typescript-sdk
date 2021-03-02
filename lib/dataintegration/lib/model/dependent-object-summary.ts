@@ -46,6 +46,7 @@ export interface DependentObjectSummary {
    * The owning object key for this object.
    */
   "aggregatorKey"?: string;
+  "aggregator"?: model.AggregatorSummary;
   /**
    * The full path to identify this object.
    */
@@ -70,7 +71,14 @@ export interface DependentObjectSummary {
 
 export namespace DependentObjectSummary {
   export function getJsonObj(obj: DependentObjectSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "aggregator": obj.aggregator
+          ? model.AggregatorSummary.getJsonObj(obj.aggregator)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -48,14 +48,21 @@ export interface FlowNode {
    */
   "outputLinks"?: Array<model.OutputLink>;
   "operator"?:
-    | model.Target
     | model.Joiner
-    | model.Distinct
-    | model.Filter
+    | model.TaskOperator
     | model.Aggregator
     | model.SortOper
     | model.Projection
-    | model.Source;
+    | model.EndOperator
+    | model.Source
+    | model.Union
+    | model.Intersect
+    | model.Target
+    | model.Distinct
+    | model.Filter
+    | model.StartOperator
+    | model.MergeOperator
+    | model.Minus;
   "uiProperties"?: model.UIProperties;
   "configProviderDelegate"?: model.ConfigProvider;
   /**

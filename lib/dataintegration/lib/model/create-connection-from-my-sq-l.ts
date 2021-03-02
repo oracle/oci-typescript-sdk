@@ -26,6 +26,7 @@ export interface CreateConnectionFromMySQL extends model.CreateConnectionDetails
    * The password for the connection.
    */
   "password"?: string;
+  "passwordSecret"?: model.SensitiveAttribute;
 
   "modelType": string;
 }
@@ -36,7 +37,11 @@ export namespace CreateConnectionFromMySQL {
       ...(isParentJsonObj
         ? obj
         : (model.CreateConnectionDetails.getJsonObj(obj) as CreateConnectionFromMySQL)),
-      ...{}
+      ...{
+        "passwordSecret": obj.passwordSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.passwordSecret)
+          : undefined
+      }
     };
 
     return jsonObj;

@@ -61,6 +61,10 @@ export interface ListSchemasRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Used to filter by the name of the object.
+   */
+  "nameList"?: Array<string>;
 }
 
 export namespace ListSchemasRequest {

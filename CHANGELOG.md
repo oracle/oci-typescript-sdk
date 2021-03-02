@@ -3,6 +3,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 1.16.0 - 2021-03-02
+### Added
+- Support for pipelines, pipeline tasks, and favorites in the Data Integration service
+- Support for publishing tasks to OCI Data Flow in the Data Integration service
+- Support for clones in the File Storage service
+
+### Breaking Changes
+- Changed model `UniqueKey` in the Data Integration service to not inherit from Key.
+- Changed model `PrimaryKey` in the Data Integration service to inherit from `UniqueKey`.
+- Removed case `UNIQUE_KEY` from modelType in the `key` model in the Data Integration service.
+
 ## 1.15.2 - 2021-02-23
 ### Added
 - Support for the OCI Registry service

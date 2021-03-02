@@ -17,7 +17,7 @@ import common = require("oci-common");
 /**
  * The unqique key object.
  */
-export interface UniqueKey extends model.Key {
+export interface UniqueKey {
   /**
    * The object key.
    */
@@ -44,9 +44,9 @@ export interface UniqueKey extends model.Key {
 }
 
 export namespace UniqueKey {
-  export function getJsonObj(obj: UniqueKey, isParentJsonObj?: boolean): object {
+  export function getJsonObj(obj: UniqueKey): object {
     const jsonObj = {
-      ...(isParentJsonObj ? obj : (model.Key.getJsonObj(obj) as UniqueKey)),
+      ...obj,
       ...{
         "parentRef": obj.parentRef ? model.ParentReference.getJsonObj(obj.parentRef) : undefined,
 
@@ -58,7 +58,14 @@ export namespace UniqueKey {
       }
     };
 
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "PRIMARY_KEY":
+          return model.PrimaryKey.getJsonObj(<model.PrimaryKey>(<object>jsonObj), true);
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
     return jsonObj;
   }
-  export const modelType = "UNIQUE_KEY";
 }

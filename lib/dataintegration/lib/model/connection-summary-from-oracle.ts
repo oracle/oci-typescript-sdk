@@ -26,6 +26,7 @@ export interface ConnectionSummaryFromOracle extends model.ConnectionSummary {
    * The password for the connection.
    */
   "password"?: string;
+  "passwordSecret"?: model.SensitiveAttribute;
 
   "modelType": string;
 }
@@ -36,7 +37,11 @@ export namespace ConnectionSummaryFromOracle {
       ...(isParentJsonObj
         ? obj
         : (model.ConnectionSummary.getJsonObj(obj) as ConnectionSummaryFromOracle)),
-      ...{}
+      ...{
+        "passwordSecret": obj.passwordSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.passwordSecret)
+          : undefined
+      }
     };
 
     return jsonObj;

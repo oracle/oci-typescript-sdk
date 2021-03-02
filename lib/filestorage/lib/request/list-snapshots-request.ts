@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListSnapshotsRequest extends common.BaseRequest {
   /**
-   * The OCID of the file system.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the file system.
    */
   "fileSystemId": string;
   /**
@@ -50,7 +50,7 @@ For important details about how pagination works,
    */
   "lifecycleState"?: ListSnapshotsRequest.LifecycleState;
   /**
-   * Filter results by OCID. Must be an OCID of the correct type for
+   * Filter results by [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm). Must be an OCID of the correct type for
    * the resouce type.
    *
    */

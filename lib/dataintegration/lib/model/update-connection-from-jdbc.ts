@@ -26,6 +26,7 @@ export interface UpdateConnectionFromJdbc extends model.UpdateConnectionDetails 
    * The password for the connection.
    */
   "password"?: string;
+  "passwordSecret"?: model.SensitiveAttribute;
 
   "modelType": string;
 }
@@ -36,7 +37,11 @@ export namespace UpdateConnectionFromJdbc {
       ...(isParentJsonObj
         ? obj
         : (model.UpdateConnectionDetails.getJsonObj(obj) as UpdateConnectionFromJdbc)),
-      ...{}
+      ...{
+        "passwordSecret": obj.passwordSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.passwordSecret)
+          : undefined
+      }
     };
 
     return jsonObj;

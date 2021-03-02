@@ -102,6 +102,11 @@ export namespace UpdateTaskDetails {
 
     if ("modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "PIPELINE_TASK":
+          return model.UpdateTaskFromPipelineTask.getJsonObj(
+            <model.UpdateTaskFromPipelineTask>(<object>jsonObj),
+            true
+          );
         case "DATA_LOADER_TASK":
           return model.UpdateTaskFromDataLoaderTask.getJsonObj(
             <model.UpdateTaskFromDataLoaderTask>(<object>jsonObj),

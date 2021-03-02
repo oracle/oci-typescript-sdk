@@ -21,15 +21,15 @@ import common = require("oci-common");
  */
 export interface ExportSummary {
   /**
-   * The OCID of this export's export set.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of this export's export set.
    */
   "exportSetId": string;
   /**
-   * The OCID of this export's file system.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of this export's file system.
    */
   "fileSystemId": string;
   /**
-   * The OCID of this export.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of this export.
    */
   "id": string;
   /**

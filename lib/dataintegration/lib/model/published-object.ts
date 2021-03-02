@@ -67,6 +67,11 @@ export namespace PublishedObject {
             <model.PublishedObjectFromDataLoaderTask>(<object>jsonObj),
             true
           );
+        case "PIPELINE_TASK":
+          return model.PublishedObjectFromPipelineTask.getJsonObj(
+            <model.PublishedObjectFromPipelineTask>(<object>jsonObj),
+            true
+          );
         case "INTEGRATION_TASK":
           return model.PublishedObjectFromIntegrationTask.getJsonObj(
             <model.PublishedObjectFromIntegrationTask>(<object>jsonObj),

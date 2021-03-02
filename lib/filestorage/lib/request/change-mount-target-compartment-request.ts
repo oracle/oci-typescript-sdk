@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ChangeMountTargetCompartmentRequest extends common.BaseRequest {
   /**
-   * The OCID of the mount target.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the mount target.
    */
   "mountTargetId": string;
   /**

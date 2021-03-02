@@ -26,6 +26,7 @@ export interface UpdateConnectionFromAtp extends model.UpdateConnectionDetails {
    * The password for the connection.
    */
   "password"?: string;
+  "passwordSecret"?: model.SensitiveAttribute;
 
   "modelType": string;
 }
@@ -36,7 +37,11 @@ export namespace UpdateConnectionFromAtp {
       ...(isParentJsonObj
         ? obj
         : (model.UpdateConnectionDetails.getJsonObj(obj) as UpdateConnectionFromAtp)),
-      ...{}
+      ...{
+        "passwordSecret": obj.passwordSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.passwordSecret)
+          : undefined
+      }
     };
 
     return jsonObj;

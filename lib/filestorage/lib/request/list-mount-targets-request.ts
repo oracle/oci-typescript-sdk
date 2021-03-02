@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListMountTargetsRequest extends common.BaseRequest {
   /**
-   * The OCID of the compartment.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId": string;
   /**
@@ -58,7 +58,7 @@ Example: `My resource`
  */
   "displayName"?: string;
   /**
-   * The OCID of the export set.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the export set.
    */
   "exportSetId"?: string;
   /**
@@ -68,7 +68,7 @@ Example: `My resource`
    */
   "lifecycleState"?: ListMountTargetsRequest.LifecycleState;
   /**
-   * Filter results by OCID. Must be an OCID of the correct type for
+   * Filter results by [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm). Must be an OCID of the correct type for
    * the resouce type.
    *
    */

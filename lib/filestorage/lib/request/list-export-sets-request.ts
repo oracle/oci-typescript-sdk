@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListExportSetsRequest extends common.BaseRequest {
   /**
-   * The OCID of the compartment.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId": string;
   /**
@@ -64,7 +64,7 @@ Example: `My resource`
    */
   "lifecycleState"?: ListExportSetsRequest.LifecycleState;
   /**
-   * Filter results by OCID. Must be an OCID of the correct type for
+   * Filter results by [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm). Must be an OCID of the correct type for
    * the resouce type.
    *
    */

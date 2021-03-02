@@ -65,6 +65,11 @@ export namespace PublishedObjectSummary {
 
     if ("modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "PIPELINE_TASK":
+          return model.PublishedObjectFromPipelineTaskSummary.getJsonObj(
+            <model.PublishedObjectFromPipelineTaskSummary>(<object>jsonObj),
+            true
+          );
         case "INTEGRATION_TASK":
           return model.PublishedObjectSummaryFromIntegrationTask.getJsonObj(
             <model.PublishedObjectSummaryFromIntegrationTask>(<object>jsonObj),

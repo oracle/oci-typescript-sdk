@@ -25,7 +25,10 @@ export interface CreateTaskRequest extends common.BaseRequest {
   /**
    * The details needed to create a new task.
    */
-  "createTaskDetails": model.CreateTaskFromIntegrationTask | model.CreateTaskFromDataLoaderTask;
+  "createTaskDetails":
+    | model.CreateTaskFromIntegrationTask
+    | model.CreateTaskFromDataLoaderTask
+    | model.CreateTaskFromPipelineTask;
   /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of executing that same action again.
    *

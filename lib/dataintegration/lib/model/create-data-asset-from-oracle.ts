@@ -42,6 +42,8 @@ export interface CreateDataAssetFromOracle extends model.CreateDataAssetDetails 
    * The credential file content from a wallet for the data asset.
    */
   "credentialFileContent"?: string;
+  "walletSecret"?: model.SensitiveAttribute;
+  "walletPasswordSecret"?: model.SensitiveAttribute;
   "defaultConnection"?: model.CreateConnectionFromOracle;
 
   "modelType": string;
@@ -54,6 +56,12 @@ export namespace CreateDataAssetFromOracle {
         ? obj
         : (model.CreateDataAssetDetails.getJsonObj(obj) as CreateDataAssetFromOracle)),
       ...{
+        "walletSecret": obj.walletSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.walletSecret)
+          : undefined,
+        "walletPasswordSecret": obj.walletPasswordSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.walletPasswordSecret)
+          : undefined,
         "defaultConnection": obj.defaultConnection
           ? model.CreateConnectionFromOracle.getJsonObj(obj.defaultConnection)
           : undefined

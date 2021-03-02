@@ -29,7 +29,10 @@ export interface UpdateTaskRequest extends common.BaseRequest {
   /**
    * The details needed to update a task.
    */
-  "updateTaskDetails": model.UpdateTaskFromDataLoaderTask | model.UpdateTaskFromIntegrationTask;
+  "updateTaskDetails":
+    | model.UpdateTaskFromPipelineTask
+    | model.UpdateTaskFromDataLoaderTask
+    | model.UpdateTaskFromIntegrationTask;
   /**
    * Unique Oracle-assigned identifier for the request. If
    * you need to contact Oracle about a particular request,

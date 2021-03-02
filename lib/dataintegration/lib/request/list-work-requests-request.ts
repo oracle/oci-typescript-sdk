@@ -30,6 +30,10 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
+   * DIS workspace id
+   */
+  "workspaceId"?: string;
+  /**
    * The work request status.
    */
   "workRequestStatus"?: ListWorkRequestsRequest.WorkRequestStatus;

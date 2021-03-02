@@ -73,6 +73,35 @@ export interface TaskRun {
    */
   "errorMessage"?: string;
   /**
+   * The expected duration for the task run. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "expectedDuration"?: number;
+  /**
+   * The expected duration unit of measure.
+   */
+  "expectedDurationUnit"?: TaskRun.ExpectedDurationUnit;
+  /**
+   * Task Key of the task for which TaskRun is being created. If not specified, the AggregatorKey in RegistryMetadata will be assumed to be the TaskKey
+   */
+  "taskKey"?: string;
+  /**
+   * Holds the particular attempt number. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "retryAttempt"?: number;
+  "taskSchedule"?: model.TaskSchedule;
+  /**
+   * A map of metrics for the run.
+   */
+  "metrics"?: { [key: string]: number };
+  /**
+   * An array of execution errors from the run.
+   */
+  "executionErrors"?: Array<string>;
+  /**
+   * An array of termination errors from the run.
+   */
+  "terminationErrors"?: Array<string>;
+  /**
    * The OPC request ID of execution of the task run.
    */
   "opcRequestId"?: string;
@@ -111,9 +140,22 @@ export namespace TaskRun {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export enum ExpectedDurationUnit {
+    Seconds = "SECONDS",
+    Minutes = "MINUTES",
+    Hours = "HOURS",
+    Days = "DAYS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export enum TaskType {
     IntegrationTask = "INTEGRATION_TASK",
     DataLoaderTask = "DATA_LOADER_TASK",
+    PipelineTask = "PIPELINE_TASK",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -129,6 +171,10 @@ export namespace TaskRun {
 
         "configProvider": obj.configProvider
           ? model.ConfigProvider.getJsonObj(obj.configProvider)
+          : undefined,
+
+        "taskSchedule": obj.taskSchedule
+          ? model.TaskSchedule.getJsonObj(obj.taskSchedule)
           : undefined,
 
         "metadata": obj.metadata ? model.ObjectMetadata.getJsonObj(obj.metadata) : undefined

@@ -109,6 +109,11 @@ export namespace TaskSummary {
             <model.TaskSummaryFromIntegrationTask>(<object>jsonObj),
             true
           );
+        case "PIPELINE_TASK":
+          return model.TaskSummaryFromPipelineTask.getJsonObj(
+            <model.TaskSummaryFromPipelineTask>(<object>jsonObj),
+            true
+          );
         case "DATA_LOADER_TASK":
           return model.TaskSummaryFromDataLoaderTask.getJsonObj(
             <model.TaskSummaryFromDataLoaderTask>(<object>jsonObj),

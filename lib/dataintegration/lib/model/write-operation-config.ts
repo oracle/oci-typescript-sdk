@@ -41,7 +41,7 @@ export interface WriteOperationConfig extends model.AbstractDataOperationConfig 
    * The mode for the write operation.
    */
   "writeMode"?: WriteOperationConfig.WriteMode;
-  "mergeKey"?: model.UniqueKey;
+  "mergeKey"?: model.PrimaryKey;
   /**
    * The status of an object that can be set to value 1 for shallow references across objects, other values reserved. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
