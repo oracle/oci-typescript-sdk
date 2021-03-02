@@ -26,6 +26,7 @@ export interface CreateConnectionFromJdbc extends model.CreateConnectionDetails 
    * The password for the connection.
    */
   "password"?: string;
+  "passwordSecret"?: model.SensitiveAttribute;
 
   "modelType": string;
 }
@@ -36,7 +37,11 @@ export namespace CreateConnectionFromJdbc {
       ...(isParentJsonObj
         ? obj
         : (model.CreateConnectionDetails.getJsonObj(obj) as CreateConnectionFromJdbc)),
-      ...{}
+      ...{
+        "passwordSecret": obj.passwordSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.passwordSecret)
+          : undefined
+      }
     };
 
     return jsonObj;

@@ -27,6 +27,7 @@ export interface CreateTaskValidationRequest extends common.BaseRequest {
    */
   "createTaskValidationDetails":
     | model.CreateTaskValidationFromDataLoaderTask
+    | model.CreateTaskValidationFromPipelineTask
     | model.CreateTaskValidationFromIntegrationTask;
   /**
    * Unique Oracle-assigned identifier for the request. If

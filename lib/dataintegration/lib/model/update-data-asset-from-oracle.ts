@@ -42,6 +42,8 @@ export interface UpdateDataAssetFromOracle extends model.UpdateDataAssetDetails 
    * The credential file content from a wallet for the data asset.
    */
   "credentialFileContent"?: string;
+  "walletSecret"?: model.SensitiveAttribute;
+  "walletPasswordSecret"?: model.SensitiveAttribute;
   "defaultConnection"?: model.UpdateConnectionFromOracle;
 
   "modelType": string;
@@ -54,6 +56,12 @@ export namespace UpdateDataAssetFromOracle {
         ? obj
         : (model.UpdateDataAssetDetails.getJsonObj(obj) as UpdateDataAssetFromOracle)),
       ...{
+        "walletSecret": obj.walletSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.walletSecret)
+          : undefined,
+        "walletPasswordSecret": obj.walletPasswordSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.walletPasswordSecret)
+          : undefined,
         "defaultConnection": obj.defaultConnection
           ? model.UpdateConnectionFromOracle.getJsonObj(obj.defaultConnection)
           : undefined

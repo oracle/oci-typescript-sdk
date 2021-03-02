@@ -31,6 +31,8 @@ export interface Source extends model.Operator {
    * Specifies if this uses a predefined shape.
    */
   "isPredefinedShape"?: boolean;
+  "schemaDriftConfig"?: model.SchemaDriftConfig;
+  "fixedDataShape"?: model.Shape;
   "readOperationConfig"?: model.ReadOperationConfig;
 
   "modelType": string;
@@ -43,6 +45,12 @@ export namespace Source {
       ...{
         "entity": obj.entity ? model.DataEntity.getJsonObj(obj.entity) : undefined,
 
+        "schemaDriftConfig": obj.schemaDriftConfig
+          ? model.SchemaDriftConfig.getJsonObj(obj.schemaDriftConfig)
+          : undefined,
+        "fixedDataShape": obj.fixedDataShape
+          ? model.Shape.getJsonObj(obj.fixedDataShape)
+          : undefined,
         "readOperationConfig": obj.readOperationConfig
           ? model.ReadOperationConfig.getJsonObj(obj.readOperationConfig)
           : undefined

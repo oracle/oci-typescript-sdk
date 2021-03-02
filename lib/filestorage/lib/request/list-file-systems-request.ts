@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListFileSystemsRequest extends common.BaseRequest {
   /**
-   * The OCID of the compartment.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId": string;
   /**
@@ -64,11 +64,19 @@ Example: `My resource`
    */
   "lifecycleState"?: ListFileSystemsRequest.LifecycleState;
   /**
-   * Filter results by OCID. Must be an OCID of the correct type for
+   * Filter results by [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm). Must be an OCID of the correct type for
    * the resouce type.
    *
    */
   "id"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the snapshot used to create a cloned file system. See [Cloning a File System](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/cloningafilesystem.htm).
+   */
+  "sourceSnapshotId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the file system that contains the source snapshot of a cloned file system. See [Cloning a File System](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/cloningafilesystem.htm).
+   */
+  "parentFileSystemId"?: string;
   /**
    * The field to sort by. You can provide either value, but not both.
    * By default, when you sort by time created, results are shown

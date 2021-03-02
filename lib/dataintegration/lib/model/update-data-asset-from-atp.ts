@@ -30,6 +30,8 @@ export interface UpdateDataAssetFromAtp extends model.UpdateDataAssetDetails {
    * The credential file content from an Autonomous Transaction Processing wallet.
    */
   "credentialFileContent"?: string;
+  "walletSecret"?: model.SensitiveAttribute;
+  "walletPasswordSecret"?: model.SensitiveAttribute;
   "defaultConnection"?: model.UpdateConnectionFromAtp;
 
   "modelType": string;
@@ -42,6 +44,12 @@ export namespace UpdateDataAssetFromAtp {
         ? obj
         : (model.UpdateDataAssetDetails.getJsonObj(obj) as UpdateDataAssetFromAtp)),
       ...{
+        "walletSecret": obj.walletSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.walletSecret)
+          : undefined,
+        "walletPasswordSecret": obj.walletPasswordSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.walletPasswordSecret)
+          : undefined,
         "defaultConnection": obj.defaultConnection
           ? model.UpdateConnectionFromAtp.getJsonObj(obj.defaultConnection)
           : undefined

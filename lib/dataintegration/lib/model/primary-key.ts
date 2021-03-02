@@ -17,45 +17,18 @@ import common = require("oci-common");
 /**
  * The primary key object.
  */
-export interface PrimaryKey {
-  /**
-   * The object key.
-   */
-  "key"?: string;
-  /**
-   * The object's model version.
-   */
-  "modelVersion"?: string;
-  "parentRef"?: model.ParentReference;
-  /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
-   */
-  "name"?: string;
-  /**
-   * An array of attribute references.
-   */
-  "attributeRefs"?: Array<model.KeyAttribute>;
-  /**
-   * The status of an object that can be set to value 1 for shallow references across objects, other values reserved. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
-  "objectStatus"?: number;
+export interface PrimaryKey extends model.UniqueKey {
+  "modelType": string;
 }
 
 export namespace PrimaryKey {
-  export function getJsonObj(obj: PrimaryKey): object {
+  export function getJsonObj(obj: PrimaryKey, isParentJsonObj?: boolean): object {
     const jsonObj = {
-      ...obj,
-      ...{
-        "parentRef": obj.parentRef ? model.ParentReference.getJsonObj(obj.parentRef) : undefined,
-
-        "attributeRefs": obj.attributeRefs
-          ? obj.attributeRefs.map(item => {
-              return model.KeyAttribute.getJsonObj(item);
-            })
-          : undefined
-      }
+      ...(isParentJsonObj ? obj : (model.UniqueKey.getJsonObj(obj) as PrimaryKey)),
+      ...{}
     };
 
     return jsonObj;
   }
+  export const modelType = "PRIMARY_KEY";
 }

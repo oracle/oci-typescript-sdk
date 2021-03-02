@@ -21,13 +21,12 @@ import common = require("oci-common");
  */
 export interface SnapshotSummary {
   /**
-   * The OCID of the file system from which the
-   * snapshot was created.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the file system from which the snapshot was created.
    *
    */
   "fileSystemId": string;
   /**
-   * The OCID of the snapshot.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the snapshot.
    */
   "id": string;
   /**
@@ -51,6 +50,24 @@ Example: `2016-08-25T21:10:29.600Z`
 * 
     */
   "timeCreated": Date;
+  /**
+   * An [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) identifying the parent from which this snapshot was cloned.
+   * If this snapshot was not cloned, then the `provenanceId` is the same as the snapshot `id` value.
+   * If this snapshot was cloned, then the `provenanceId` value is the parent's `provenanceId`.
+   * See [Cloning a File System](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/cloningafilesystem.htm).
+   *
+   */
+  "provenanceId"?: string;
+  /**
+   * Specifies whether the snapshot has been cloned.
+   * See [Cloning a File System](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/cloningafilesystem.htm).
+   *
+   */
+  "isCloneSource"?: boolean;
+  /**
+   * Additional information about the current 'lifecycleState'.
+   */
+  "lifecycleDetails"?: string;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair
    *  with no predefined name, type, or namespace.

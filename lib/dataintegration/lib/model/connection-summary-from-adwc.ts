@@ -26,6 +26,7 @@ export interface ConnectionSummaryFromAdwc extends model.ConnectionSummary {
    * The password for the connection.
    */
   "password"?: string;
+  "passwordSecret"?: model.SensitiveAttribute;
 
   "modelType": string;
 }
@@ -36,7 +37,11 @@ export namespace ConnectionSummaryFromAdwc {
       ...(isParentJsonObj
         ? obj
         : (model.ConnectionSummary.getJsonObj(obj) as ConnectionSummaryFromAdwc)),
-      ...{}
+      ...{
+        "passwordSecret": obj.passwordSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.passwordSecret)
+          : undefined
+      }
     };
 
     return jsonObj;

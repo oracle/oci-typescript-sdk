@@ -26,6 +26,7 @@ export interface ConnectionFromAdwc extends model.Connection {
    * The password for the connection.
    */
   "password"?: string;
+  "passwordSecret"?: model.SensitiveAttribute;
 
   "modelType": string;
 }
@@ -34,7 +35,11 @@ export namespace ConnectionFromAdwc {
   export function getJsonObj(obj: ConnectionFromAdwc, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.Connection.getJsonObj(obj) as ConnectionFromAdwc)),
-      ...{}
+      ...{
+        "passwordSecret": obj.passwordSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.passwordSecret)
+          : undefined
+      }
     };
 
     return jsonObj;

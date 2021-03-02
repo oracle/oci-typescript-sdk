@@ -104,6 +104,11 @@ export namespace Task {
 
     if ("modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "PIPELINE_TASK":
+          return model.TaskFromPipelineTaskDetails.getJsonObj(
+            <model.TaskFromPipelineTaskDetails>(<object>jsonObj),
+            true
+          );
         case "INTEGRATION_TASK":
           return model.TaskFromIntegrationTaskDetails.getJsonObj(
             <model.TaskFromIntegrationTaskDetails>(<object>jsonObj),

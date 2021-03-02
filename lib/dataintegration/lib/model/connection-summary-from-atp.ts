@@ -26,6 +26,7 @@ export interface ConnectionSummaryFromAtp extends model.ConnectionSummary {
    * The password for the connection.
    */
   "password"?: string;
+  "passwordSecret"?: model.SensitiveAttribute;
 
   "modelType": string;
 }
@@ -36,7 +37,11 @@ export namespace ConnectionSummaryFromAtp {
       ...(isParentJsonObj
         ? obj
         : (model.ConnectionSummary.getJsonObj(obj) as ConnectionSummaryFromAtp)),
-      ...{}
+      ...{
+        "passwordSecret": obj.passwordSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.passwordSecret)
+          : undefined
+      }
     };
 
     return jsonObj;

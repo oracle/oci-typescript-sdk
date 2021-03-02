@@ -42,6 +42,8 @@ export interface DataAssetSummaryFromOracle extends model.DataAssetSummary {
    * The credential file content from a wallet for the data asset.
    */
   "credentialFileContent"?: string;
+  "walletSecret"?: model.SensitiveAttribute;
+  "walletPasswordSecret"?: model.SensitiveAttribute;
   "defaultConnection"?: model.ConnectionSummaryFromOracle;
 
   "modelType": string;
@@ -54,6 +56,12 @@ export namespace DataAssetSummaryFromOracle {
         ? obj
         : (model.DataAssetSummary.getJsonObj(obj) as DataAssetSummaryFromOracle)),
       ...{
+        "walletSecret": obj.walletSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.walletSecret)
+          : undefined,
+        "walletPasswordSecret": obj.walletPasswordSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.walletPasswordSecret)
+          : undefined,
         "defaultConnection": obj.defaultConnection
           ? model.ConnectionSummaryFromOracle.getJsonObj(obj.defaultConnection)
           : undefined

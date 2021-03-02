@@ -27,8 +27,6 @@ export namespace Key {
 
     if ("modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
-        case "UNIQUE_KEY":
-          return model.UniqueKey.getJsonObj(<model.UniqueKey>(<object>jsonObj), true);
         case "FOREIGN_KEY":
           return model.ForeignKey.getJsonObj(<model.ForeignKey>(<object>jsonObj), true);
         default:

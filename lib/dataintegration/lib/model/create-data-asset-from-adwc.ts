@@ -30,6 +30,8 @@ export interface CreateDataAssetFromAdwc extends model.CreateDataAssetDetails {
    * The credential file content from a Autonomous Data Warehouse wallet.
    */
   "credentialFileContent"?: string;
+  "walletSecret"?: model.SensitiveAttribute;
+  "walletPasswordSecret"?: model.SensitiveAttribute;
   "defaultConnection"?: model.CreateConnectionFromAdwc;
 
   "modelType": string;
@@ -42,6 +44,12 @@ export namespace CreateDataAssetFromAdwc {
         ? obj
         : (model.CreateDataAssetDetails.getJsonObj(obj) as CreateDataAssetFromAdwc)),
       ...{
+        "walletSecret": obj.walletSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.walletSecret)
+          : undefined,
+        "walletPasswordSecret": obj.walletPasswordSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.walletPasswordSecret)
+          : undefined,
         "defaultConnection": obj.defaultConnection
           ? model.CreateConnectionFromAdwc.getJsonObj(obj.defaultConnection)
           : undefined

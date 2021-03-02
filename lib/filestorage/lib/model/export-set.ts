@@ -32,7 +32,7 @@ Example: `Uocm:PHX-AD-1`
     */
   "availabilityDomain"?: string;
   /**
-   * The OCID of the compartment that contains the export set.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment that contains the export set.
    */
   "compartmentId": string;
   /**
@@ -44,7 +44,7 @@ Example: `My export set`
     */
   "displayName": string;
   /**
-   * The OCID of the export set.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the export set.
    */
   "id": string;
   /**
@@ -86,7 +86,7 @@ Example: `2016-08-25T21:10:29.600Z`
     */
   "timeCreated": Date;
   /**
-   * The OCID of the virtual cloud network (VCN) the export set is in.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the virtual cloud network (VCN) the export set is in.
    */
   "vcnId": string;
 }

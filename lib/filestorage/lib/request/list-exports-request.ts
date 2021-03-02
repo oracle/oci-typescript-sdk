@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListExportsRequest extends common.BaseRequest {
   /**
-   * The OCID of the compartment.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId"?: string;
   /**
@@ -44,11 +44,11 @@ For important details about how pagination works,
  */
   "page"?: string;
   /**
-   * The OCID of the export set.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the export set.
    */
   "exportSetId"?: string;
   /**
-   * The OCID of the file system.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the file system.
    */
   "fileSystemId"?: string;
   /**
@@ -58,7 +58,7 @@ For important details about how pagination works,
    */
   "lifecycleState"?: ListExportsRequest.LifecycleState;
   /**
-   * Filter results by OCID. Must be an OCID of the correct type for
+   * Filter results by [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm). Must be an OCID of the correct type for
    * the resouce type.
    *
    */

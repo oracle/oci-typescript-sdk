@@ -27,6 +27,10 @@ export interface ConfigParameterValue {
    */
   "intValue"?: number;
   /**
+   * An object value of the parameter.
+   */
+  "objectValue"?: any;
+  /**
    * The root object reference value.
    */
   "refValue"?: any;

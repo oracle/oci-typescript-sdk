@@ -26,6 +26,7 @@ export interface UpdateConnectionFromOracle extends model.UpdateConnectionDetail
    * The password for the connection.
    */
   "password"?: string;
+  "passwordSecret"?: model.SensitiveAttribute;
 
   "modelType": string;
 }
@@ -36,7 +37,11 @@ export namespace UpdateConnectionFromOracle {
       ...(isParentJsonObj
         ? obj
         : (model.UpdateConnectionDetails.getJsonObj(obj) as UpdateConnectionFromOracle)),
-      ...{}
+      ...{
+        "passwordSecret": obj.passwordSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.passwordSecret)
+          : undefined
+      }
     };
 
     return jsonObj;

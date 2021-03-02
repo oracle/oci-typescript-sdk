@@ -30,6 +30,8 @@ export interface CreateDataAssetFromAtp extends model.CreateDataAssetDetails {
    * The credential file content from an Autonomous Transaction Processing wallet.
    */
   "credentialFileContent"?: string;
+  "walletSecret"?: model.SensitiveAttribute;
+  "walletPasswordSecret"?: model.SensitiveAttribute;
   "defaultConnection"?: model.CreateConnectionFromAtp;
 
   "modelType": string;
@@ -42,6 +44,12 @@ export namespace CreateDataAssetFromAtp {
         ? obj
         : (model.CreateDataAssetDetails.getJsonObj(obj) as CreateDataAssetFromAtp)),
       ...{
+        "walletSecret": obj.walletSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.walletSecret)
+          : undefined,
+        "walletPasswordSecret": obj.walletPasswordSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.walletPasswordSecret)
+          : undefined,
         "defaultConnection": obj.defaultConnection
           ? model.CreateConnectionFromAtp.getJsonObj(obj.defaultConnection)
           : undefined

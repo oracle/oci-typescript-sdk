@@ -33,7 +33,7 @@ Example: `Uocm:PHX-AD-1`
     */
   "availabilityDomain"?: string;
   /**
-   * The OCID of the compartment that contains the mount target.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment that contains the mount target.
    */
   "compartmentId": string;
   /**
@@ -45,14 +45,14 @@ Example: `My mount target`
     */
   "displayName": string;
   /**
-   * The OCID of the associated export set. Controls what file
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the associated export set. Controls what file
    * systems will be exported through Network File System (NFS) protocol on this
    * mount target.
    *
    */
   "exportSetId"?: string;
   /**
-   * The OCID of the mount target.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the mount target.
    */
   "id": string;
   /**
@@ -68,7 +68,7 @@ Example: `My mount target`
    */
   "privateIpIds": Array<string>;
   /**
-   * The OCID of the subnet the mount target is in.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet the mount target is in.
    */
   "subnetId": string;
   /**

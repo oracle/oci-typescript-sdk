@@ -101,6 +101,7 @@ export namespace TaskRunDetails {
   export enum TaskType {
     IntegrationTask = "INTEGRATION_TASK",
     DataLoaderTask = "DATA_LOADER_TASK",
+    PipelineTask = "PIPELINE_TASK",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

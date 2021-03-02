@@ -26,6 +26,7 @@ export interface CreateConnectionFromOracle extends model.CreateConnectionDetail
    * The password for the connection.
    */
   "password"?: string;
+  "passwordSecret"?: model.SensitiveAttribute;
 
   "modelType": string;
 }
@@ -36,7 +37,11 @@ export namespace CreateConnectionFromOracle {
       ...(isParentJsonObj
         ? obj
         : (model.CreateConnectionDetails.getJsonObj(obj) as CreateConnectionFromOracle)),
-      ...{}
+      ...{
+        "passwordSecret": obj.passwordSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.passwordSecret)
+          : undefined
+      }
     };
 
     return jsonObj;

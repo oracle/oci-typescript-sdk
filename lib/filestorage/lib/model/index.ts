@@ -46,6 +46,8 @@ import * as Snapshot from "./snapshot";
 export import Snapshot = Snapshot.Snapshot;
 import * as SnapshotSummary from "./snapshot-summary";
 export import SnapshotSummary = SnapshotSummary.SnapshotSummary;
+import * as SourceDetails from "./source-details";
+export import SourceDetails = SourceDetails.SourceDetails;
 import * as UpdateExportDetails from "./update-export-details";
 export import UpdateExportDetails = UpdateExportDetails.UpdateExportDetails;
 import * as UpdateExportSetDetails from "./update-export-set-details";

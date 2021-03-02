@@ -35,6 +35,8 @@ export interface Target extends model.Operator {
    * Specifies the data property.
    */
   "dataProperty"?: Target.DataProperty;
+  "schemaDriftConfig"?: model.SchemaDriftConfig;
+  "fixedDataShape"?: model.Shape;
   "writeOperationConfig"?: model.WriteOperationConfig;
 
   "modelType": string;
@@ -61,6 +63,12 @@ export namespace Target {
       ...{
         "entity": obj.entity ? model.DataEntity.getJsonObj(obj.entity) : undefined,
 
+        "schemaDriftConfig": obj.schemaDriftConfig
+          ? model.SchemaDriftConfig.getJsonObj(obj.schemaDriftConfig)
+          : undefined,
+        "fixedDataShape": obj.fixedDataShape
+          ? model.Shape.getJsonObj(obj.fixedDataShape)
+          : undefined,
         "writeOperationConfig": obj.writeOperationConfig
           ? model.WriteOperationConfig.getJsonObj(obj.writeOperationConfig)
           : undefined

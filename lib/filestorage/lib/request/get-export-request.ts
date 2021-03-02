@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetExportRequest extends common.BaseRequest {
   /**
-   * The OCID of the export.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the export.
    */
   "exportId": string;
   /**

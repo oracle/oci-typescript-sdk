@@ -30,6 +30,8 @@ export interface UpdateDataAssetFromAdwc extends model.UpdateDataAssetDetails {
    * The credential file content from a Autonomous Data Warehouse wallet.
    */
   "credentialFileContent"?: string;
+  "walletSecret"?: model.SensitiveAttribute;
+  "walletPasswordSecret"?: model.SensitiveAttribute;
   "defaultConnection"?: model.UpdateConnectionFromAdwc;
 
   "modelType": string;
@@ -42,6 +44,12 @@ export namespace UpdateDataAssetFromAdwc {
         ? obj
         : (model.UpdateDataAssetDetails.getJsonObj(obj) as UpdateDataAssetFromAdwc)),
       ...{
+        "walletSecret": obj.walletSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.walletSecret)
+          : undefined,
+        "walletPasswordSecret": obj.walletPasswordSecret
+          ? model.SensitiveAttribute.getJsonObj(obj.walletPasswordSecret)
+          : undefined,
         "defaultConnection": obj.defaultConnection
           ? model.UpdateConnectionFromAdwc.getJsonObj(obj.defaultConnection)
           : undefined

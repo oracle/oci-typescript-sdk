@@ -37,7 +37,7 @@ Example: `Uocm:PHX-AD-1`
    */
   "meteredBytes": number;
   /**
-   * The OCID of the compartment that contains the file system.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment that contains the file system.
    */
   "compartmentId": string;
   /**
@@ -49,7 +49,7 @@ Example: `My file system`
     */
   "displayName": string;
   /**
-   * The OCID of the file system.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the file system.
    */
   "id": string;
   /**
@@ -80,10 +80,29 @@ Example: `2016-08-25T21:10:29.600Z`
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * The OCID of KMS key used to encrypt the encryption keys associated with this file system.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the KMS key used to encrypt the encryption keys associated with this file system.
    *
    */
   "kmsKeyId"?: string;
+  "sourceDetails"?: model.SourceDetails;
+  /**
+   * Specifies whether the file system has been cloned.
+   * See [Cloning a File System](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/cloningafilesystem.htm).
+   *
+   */
+  "isCloneParent"?: boolean;
+  /**
+   * Specifies whether the data has finished copying from the source to the clone.
+   * Hydration can take up to several hours to complete depending on the size of the source.
+   * The source and clone remain available during hydration, but there may be some performance impact.
+   * See [Cloning a File System](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/cloningafilesystem.htm#hydration).
+   *
+   */
+  "isHydrated"?: boolean;
+  /**
+   * Additional information about the current 'lifecycleState'.
+   */
+  "lifecycleDetails"?: string;
 }
 
 export namespace FileSystemSummary {
@@ -100,7 +119,14 @@ export namespace FileSystemSummary {
   }
 
   export function getJsonObj(obj: FileSystemSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sourceDetails": obj.sourceDetails
+          ? model.SourceDetails.getJsonObj(obj.sourceDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

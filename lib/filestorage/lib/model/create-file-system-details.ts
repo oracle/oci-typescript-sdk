@@ -27,7 +27,7 @@ Example: `Uocm:PHX-AD-1`
     */
   "availabilityDomain": string;
   /**
-   * The OCID of the compartment to create the file system in.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment to create the file system in.
    */
   "compartmentId": string;
   /**
@@ -54,10 +54,16 @@ Example: `My file system`
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * The OCID of KMS key used to encrypt the encryption keys associated with this file system.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the KMS key used to encrypt the encryption keys associated with this file system.
    *
    */
   "kmsKeyId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the snapshot used to create a cloned file system.
+   * See [Cloning a File System](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/cloningafilesystem.htm).
+   *
+   */
+  "sourceSnapshotId"?: string;
 }
 
 export namespace CreateFileSystemDetails {

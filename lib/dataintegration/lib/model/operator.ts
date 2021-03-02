@@ -95,22 +95,36 @@ export namespace Operator {
 
     if ("modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
-        case "TARGET_OPERATOR":
-          return model.Target.getJsonObj(<model.Target>(<object>jsonObj), true);
         case "JOINER_OPERATOR":
           return model.Joiner.getJsonObj(<model.Joiner>(<object>jsonObj), true);
-        case "DISTINCT_OPERATOR":
-          return model.Distinct.getJsonObj(<model.Distinct>(<object>jsonObj), true);
-        case "FILTER_OPERATOR":
-          return model.Filter.getJsonObj(<model.Filter>(<object>jsonObj), true);
+        case "TASK_OPERATOR":
+          return model.TaskOperator.getJsonObj(<model.TaskOperator>(<object>jsonObj), true);
         case "AGGREGATOR_OPERATOR":
           return model.Aggregator.getJsonObj(<model.Aggregator>(<object>jsonObj), true);
         case "SORT_OPERATOR":
           return model.SortOper.getJsonObj(<model.SortOper>(<object>jsonObj), true);
         case "PROJECTION_OPERATOR":
           return model.Projection.getJsonObj(<model.Projection>(<object>jsonObj), true);
+        case "END_OPERATOR":
+          return model.EndOperator.getJsonObj(<model.EndOperator>(<object>jsonObj), true);
         case "SOURCE_OPERATOR":
           return model.Source.getJsonObj(<model.Source>(<object>jsonObj), true);
+        case "UNION_OPERATOR":
+          return model.Union.getJsonObj(<model.Union>(<object>jsonObj), true);
+        case "INTERSECT_OPERATOR":
+          return model.Intersect.getJsonObj(<model.Intersect>(<object>jsonObj), true);
+        case "TARGET_OPERATOR":
+          return model.Target.getJsonObj(<model.Target>(<object>jsonObj), true);
+        case "DISTINCT_OPERATOR":
+          return model.Distinct.getJsonObj(<model.Distinct>(<object>jsonObj), true);
+        case "FILTER_OPERATOR":
+          return model.Filter.getJsonObj(<model.Filter>(<object>jsonObj), true);
+        case "START_OPERATOR":
+          return model.StartOperator.getJsonObj(<model.StartOperator>(<object>jsonObj), true);
+        case "MERGE_OPERATOR":
+          return model.MergeOperator.getJsonObj(<model.MergeOperator>(<object>jsonObj), true);
+        case "MINUS_OPERATOR":
+          return model.Minus.getJsonObj(<model.Minus>(<object>jsonObj), true);
         default:
           throw Error("Unknown value for: " + obj.modelType);
       }
