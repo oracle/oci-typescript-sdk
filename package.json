@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "1.16.0",
+  "version": "1.16.1",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -86,7 +86,11 @@
     "oci-tenantmanagercontrolplane": "file:lib/tenantmanagercontrolplane",
     "oci-rover": "file:lib/rover",
     "oci-databasemanagement": "file:lib/databasemanagement",
-    "oci-artifacts": "file:lib/artifacts"
+    "oci-artifacts": "file:lib/artifacts",
+    "oci-apmcontrolplane": "file:lib/apmcontrolplane",
+    "oci-apmsynthetics": "file:lib/apmsynthetics",
+    "oci-apmtraces": "file:lib/apmtraces",
+    "oci-goldengate": "file:lib/goldengate"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

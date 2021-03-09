@@ -27,7 +27,6 @@ export interface MessageDetails {
   "title"?: string;
   /**
    * The body of the message to be published.
-   * For `messageType` of JSON, a default key-value pair is required. Example: `{\"default\": \"Alarm breached\", \"Email\": \"Alarm breached: <url>\"}.`
    * Avoid entering confidential information.
    *
    */

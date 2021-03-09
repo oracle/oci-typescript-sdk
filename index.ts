@@ -151,3 +151,7 @@ export import tenantmanagercontrolplane = require("oci-tenantmanagercontrolplane
 export import rover = require("oci-rover");
 export import databasemanagement = require("oci-databasemanagement");
 export import artifacts = require("oci-artifacts");
+export import apmcontrolplane = require("oci-apmcontrolplane");
+export import apmsynthetics = require("oci-apmsynthetics");
+export import apmtraces = require("oci-apmtraces");
+export import goldengate = require("oci-goldengate");

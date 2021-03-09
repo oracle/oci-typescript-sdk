@@ -9461,6 +9461,86 @@ export class ComputeManagementClient {
   }
 
   /**
+   * Attach an instance to the instance pool.
+   *
+   * @param AttachInstancePoolInstanceRequest
+   * @return AttachInstancePoolInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AttachInstancePoolInstance.ts.html |here} to see how to use AttachInstancePoolInstance API.
+   */
+  public async attachInstancePoolInstance(
+    attachInstancePoolInstanceRequest: requests.AttachInstancePoolInstanceRequest
+  ): Promise<responses.AttachInstancePoolInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#attachInstancePoolInstance.");
+    const pathParams = {
+      "{instancePoolId}": attachInstancePoolInstanceRequest.instancePoolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": attachInstancePoolInstanceRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/instancePools/{instancePoolId}/instances",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        attachInstancePoolInstanceRequest.attachInstancePoolInstanceDetails,
+        "AttachInstancePoolInstanceDetails",
+        models.AttachInstancePoolInstanceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      attachInstancePoolInstanceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AttachInstancePoolInstanceResponse>{},
+        body: await response.json(),
+        bodyKey: "instancePoolInstance",
+        bodyModel: "model.InstancePoolInstance",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Attach a load balancer to the instance pool.
    *
    * @param AttachLoadBalancerRequest
@@ -10032,6 +10112,73 @@ When you move an instance pool to a different compartment, associated resources 
   }
 
   /**
+   * Detach instance from the instance pool.
+   *
+   * @param DetachInstancePoolInstanceRequest
+   * @return DetachInstancePoolInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DetachInstancePoolInstance.ts.html |here} to see how to use DetachInstancePoolInstance API.
+   */
+  public async detachInstancePoolInstance(
+    detachInstancePoolInstanceRequest: requests.DetachInstancePoolInstanceRequest
+  ): Promise<responses.DetachInstancePoolInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#detachInstancePoolInstance.");
+    const pathParams = {
+      "{instancePoolId}": detachInstancePoolInstanceRequest.instancePoolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": detachInstancePoolInstanceRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/instancePools/{instancePoolId}/actions/detachInstance",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        detachInstancePoolInstanceRequest.detachInstancePoolInstanceDetails,
+        "DetachInstancePoolInstanceDetails",
+        models.DetachInstancePoolInstanceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      detachInstancePoolInstanceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DetachInstancePoolInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Detach a load balancer from the instance pool.
    *
    * @param DetachLoadBalancerRequest
@@ -10271,6 +10418,70 @@ When you move an instance pool to a different compartment, associated resources 
         body: await response.json(),
         bodyKey: "instancePool",
         bodyModel: "model.InstancePool",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the instance pool instance
+   * @param GetInstancePoolInstanceRequest
+   * @return GetInstancePoolInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInstancePoolInstance.ts.html |here} to see how to use GetInstancePoolInstance API.
+   */
+  public async getInstancePoolInstance(
+    getInstancePoolInstanceRequest: requests.GetInstancePoolInstanceRequest
+  ): Promise<responses.GetInstancePoolInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#getInstancePoolInstance.");
+    const pathParams = {
+      "{instancePoolId}": getInstancePoolInstanceRequest.instancePoolId,
+      "{instanceId}": getInstancePoolInstanceRequest.instanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/instancePools/{instancePoolId}/instances/{instanceId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getInstancePoolInstanceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetInstancePoolInstanceResponse>{},
+        body: await response.json(),
+        bodyKey: "instancePoolInstance",
+        bodyModel: "model.InstancePoolInstance",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

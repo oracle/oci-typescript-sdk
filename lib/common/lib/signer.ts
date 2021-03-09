@@ -59,6 +59,7 @@ export class DefaultRequestSigner implements RequestSigner {
   private static readonly methodsThatRequireExtraHeaders = ["POST", "PUT", "PATCH"];
   private delegationToken: string = "";
   private privateKeyBuffer: Buffer;
+  private privateKey: string = "";
 
   /**
    * Construct an instance of [[DefaultRequestSigner]].
@@ -83,6 +84,7 @@ export class DefaultRequestSigner implements RequestSigner {
       return;
     }
 
+    this.privateKey = this.authenticationDetailsProvider.getPrivateKey();
     this.privateKeyBuffer = parsePrivateKey(
       this.authenticationDetailsProvider.getPrivateKey(),
       "auto",
@@ -163,11 +165,13 @@ export class DefaultRequestSigner implements RequestSigner {
     }
 
     const keyId = await this.authenticationDetailsProvider.getKeyId();
-    this.privateKeyBuffer = parsePrivateKey(
-      this.authenticationDetailsProvider.getPrivateKey(),
-      "auto",
-      options
-    ).toBuffer("pem", {});
+
+    // Check if privateKey exists or if the authenticationDetailsProvider's private key have changed.
+    let authPrivateKey = this.authenticationDetailsProvider.getPrivateKey();
+    if (!this.privateKey || this.privateKey !== authPrivateKey) {
+      this.privateKey = authPrivateKey;
+      this.privateKeyBuffer = parsePrivateKey(authPrivateKey, "auto", options).toBuffer("pem", {});
+    }
 
     httpSignature.sign(new SignerRequest(request.method, request.uri, request.headers), {
       key: this.privateKeyBuffer,
