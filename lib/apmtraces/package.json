@@ -1,0 +1,28 @@
+{
+  "name": "oci-apmtraces",
+  "version": "1.16.1",
+  "description": "OCI NodeJS client for Apm Traces Service",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oracle/oci-typescript-sdk"
+  },
+  "main": "../../target/lib/apmtraces/index.js",
+  "typings": "../../target/lib/apmtraces/index.d.ts",
+  "scripts": {},
+  "author": {
+    "name": "Oracle Cloud Infrastructure",
+    "email": ""
+  },
+  "license": "(UPL-1.0 OR Apache-2.0)",
+  "dependencies": {
+    "oci-common": "../common"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "contributors": [
+    "Jyoti Saini <jyoti.s.saini@oracle.com>",
+    "Joe Levy <joe.levy@oracle.com>",
+    "Walt Tran <walt.tran@oracle.com>"
+  ]
+}

@@ -48,7 +48,7 @@ export default class SecurityTokenAdapter {
     const secondsSinceEpoch = Math.round(Date.now() / 1000);
     if (this.jwt == null) {
       return false;
-    } else if (this.jwt.payload && this.jwt.payload.exp < secondsSinceEpoch) {
+    } else if (this.jwt.payload && this.jwt.payload.exp > secondsSinceEpoch) {
       return true;
     }
     return false;

@@ -31,6 +31,32 @@ export class ComputeManagementWaiter {
   ) {}
 
   /**
+   * Waits forAttachInstancePoolInstance
+   *
+   * @param request the request to send
+   * @return response returns AttachInstancePoolInstanceResponse, GetWorkRequestResponse tuple
+   */
+  public async forAttachInstancePoolInstance(
+    request: serviceRequests.AttachInstancePoolInstanceRequest
+  ): Promise<{
+    response: serviceResponses.AttachInstancePoolInstanceResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const attachInstancePoolInstanceResponse = await this.client.attachInstancePoolInstance(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      attachInstancePoolInstanceResponse.opcWorkRequestId
+    );
+    return {
+      response: attachInstancePoolInstanceResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forCreateClusterNetwork
    *
    * @param request the request to send
@@ -49,6 +75,32 @@ export class ComputeManagementWaiter {
       createClusterNetworkResponse.opcWorkRequestId
     );
     return { response: createClusterNetworkResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forDetachInstancePoolInstance
+   *
+   * @param request the request to send
+   * @return response returns DetachInstancePoolInstanceResponse, GetWorkRequestResponse tuple
+   */
+  public async forDetachInstancePoolInstance(
+    request: serviceRequests.DetachInstancePoolInstanceRequest
+  ): Promise<{
+    response: serviceResponses.DetachInstancePoolInstanceResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const detachInstancePoolInstanceResponse = await this.client.detachInstancePoolInstance(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      detachInstancePoolInstanceResponse.opcWorkRequestId
+    );
+    return {
+      response: detachInstancePoolInstanceResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
   }
 
   /**
@@ -86,6 +138,24 @@ export class ComputeManagementWaiter {
       () => this.client.getInstancePool(request),
       response => targetStates.includes(response.instancePool.lifecycleState!),
       targetStates.includes(models.InstancePool.LifecycleState.Terminated)
+    );
+  }
+
+  /**
+   * Waits forInstancePoolInstance till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetInstancePoolInstanceResponse
+   */
+  public async forInstancePoolInstance(
+    request: serviceRequests.GetInstancePoolInstanceRequest,
+    ...targetStates: models.InstancePoolInstance.LifecycleState[]
+  ): Promise<serviceResponses.GetInstancePoolInstanceResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getInstancePoolInstance(request),
+      response => targetStates.includes(response.instancePoolInstance.lifecycleState!)
     );
   }
 

@@ -1,6 +1,6 @@
 {
   "name": "oci-audit",
-  "version": "1.16.0",
+  "version": "1.16.1",
   "description": "OCI NodeJS client for Audit Service",
   "repository": {
     "type": "git",

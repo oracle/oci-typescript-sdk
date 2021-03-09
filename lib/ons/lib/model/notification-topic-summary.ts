@@ -32,6 +32,11 @@ export interface NotificationTopicSummary {
    */
   "topicId": string;
   /**
+   * A unique short topic Id. This is used only for SMS subscriptions.
+   *
+   */
+  "shortTopicId"?: string;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment for the topic.
    *
    */
