@@ -48,5 +48,7 @@ import * as ListWorkRequestsRequest from "./list-work-requests-request";
 export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
 import * as UpdateClusterRequest from "./update-cluster-request";
 export import UpdateClusterRequest = UpdateClusterRequest.UpdateClusterRequest;
+import * as UpdateClusterEndpointConfigRequest from "./update-cluster-endpoint-config-request";
+export import UpdateClusterEndpointConfigRequest = UpdateClusterEndpointConfigRequest.UpdateClusterEndpointConfigRequest;
 import * as UpdateNodePoolRequest from "./update-node-pool-request";
 export import UpdateNodePoolRequest = UpdateNodePoolRequest.UpdateNodePoolRequest;

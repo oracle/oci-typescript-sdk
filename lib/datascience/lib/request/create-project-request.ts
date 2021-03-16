@@ -23,7 +23,7 @@ export interface CreateProjectRequest extends common.BaseRequest {
    */
   "createProjectDetails": model.CreateProjectDetails;
   /**
-   * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
+   * Unique Oracle assigned identifier for the request. If you need to contact Oracle about a particular request, then provide the request ID.
    *
    */
   "opcRequestId"?: string;

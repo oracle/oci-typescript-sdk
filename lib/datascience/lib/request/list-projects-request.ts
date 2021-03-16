@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ListProjectsRequest extends common.BaseRequest {
   /**
-   * <b>Filter</b> results by the [OCID](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/identifiers.htm) of the compartment.
+   * <b>Filter</b> results by the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId": string;
   /**
-   * <b>Filter</b> results by [OCID](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/identifiers.htm). Must be an OCID of the correct type for the resource type.
+   * <b>Filter</b> results by [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Must be an OCID of the correct type for the resource type.
    *
    */
   "id"?: string;
@@ -38,14 +38,14 @@ export interface ListProjectsRequest extends common.BaseRequest {
    */
   "lifecycleState"?: model.ProjectLifecycleState;
   /**
-   * <b>Filter</b> results by the [OCID](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/identifiers.htm) of the user who created the resource.
+   * <b>Filter</b> results by the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the user who created the resource.
    */
   "createdBy"?: string;
   /**
  * For list pagination. The maximum number of results per page,
 * or items to return in a paginated \"List\" call.
 * 1 is the minimum, 1000 is the maximum.
-* See [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+* See [List Pagination](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/usingapi.htm#nine).
 * <p>
 Example: `500`
 * 
@@ -55,7 +55,7 @@ Example: `500`
  * For list pagination. The value of the `opc-next-page` response
 * header from the previous \"List\" call.
 * <p>
-See [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+See [List Pagination](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/usingapi.htm#nine).
 * 
  */
   "page"?: string;
@@ -66,14 +66,14 @@ See [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/us
   "sortOrder"?: ListProjectsRequest.SortOrder;
   /**
    * Specifies the field to sort by. Accepts only one field.
-   * By default, when you sort by `timeCreated`, results are shown
-   * in descending order. When you sort by `displayName`, results are
-   * shown in ascending order. Sort order for `displayName` field is case sensitive.
+   * By default, when you sort by `timeCreated`, the results are shown
+   * in descending order. When you sort by `displayName`, the results are
+   * shown in ascending order. Sort order for the `displayName` field is case sensitive.
    *
    */
   "sortBy"?: ListProjectsRequest.SortBy;
   /**
-   * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
+   * Unique Oracle assigned identifier for the request. If you need to contact Oracle about a particular request, then provide the request ID.
    *
    */
   "opcRequestId"?: string;

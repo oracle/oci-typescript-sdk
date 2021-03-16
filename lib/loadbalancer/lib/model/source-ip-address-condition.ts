@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An access control rule condition that requires a match on the specified source IP address or address range.
+ * A rule condition that checks client source IP against specified IP address or address range.
  *
  */
 export interface SourceIpAddressCondition extends model.RuleCondition {

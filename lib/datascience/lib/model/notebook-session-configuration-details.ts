@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface NotebookSessionConfigurationDetails {
   /**
-   * The shape used to launch the notebook session compute instance.  The list of available shapes in a given compartment can be retrieved from the `ListNotebookSessionShapes` endpoint.
+   * The shape used to launch the notebook session compute instance.  The list of available shapes in a given compartment can be retrieved using the `ListNotebookSessionShapes` endpoint.
    *
    */
   "shape": string;
@@ -30,7 +30,7 @@ export interface NotebookSessionConfigurationDetails {
    */
   "blockStorageSizeInGBs"?: number;
   /**
-   * A notebook session instance is provided with a VNIC for network access.  This specifies the [OCID](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/identifiers.htm) of the subnet to create a VNIC in.  The subnet should be in a VCN with a NAT gateway for egress to the internet.
+   * A notebook session instance is provided with a VNIC for network access.  This specifies the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet to create a VNIC in.  The subnet should be in a VCN with a NAT gateway for egress to the internet.
    *
    */
   "subnetId": string;

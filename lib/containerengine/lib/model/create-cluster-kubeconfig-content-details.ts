@@ -31,9 +31,19 @@ export interface CreateClusterKubeconfigContentDetails {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "expiration"?: number;
+  /**
+   * The endpoint to target. A cluster may have multiple endpoints exposed but the kubeconfig can only target one at a time.
+   */
+  "endpoint"?: CreateClusterKubeconfigContentDetails.Endpoint;
 }
 
 export namespace CreateClusterKubeconfigContentDetails {
+  export enum Endpoint {
+    LegacyKubernetes = "LEGACY_KUBERNETES",
+    PublicEndpoint = "PUBLIC_ENDPOINT",
+    PrivateEndpoint = "PRIVATE_ENDPOINT"
+  }
+
   export function getJsonObj(obj: CreateClusterKubeconfigContentDetails): object {
     const jsonObj = { ...obj, ...{} };
 

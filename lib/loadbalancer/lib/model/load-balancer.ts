@@ -140,6 +140,7 @@ Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
     */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   "ruleSets"?: { [key: string]: model.RuleSet };
+  "routingPolicies"?: { [key: string]: model.RoutingPolicy };
 }
 
 export namespace LoadBalancer {
@@ -191,6 +192,9 @@ export namespace LoadBalancer {
 
         "ruleSets": obj.ruleSets
           ? common.mapContainer(obj.ruleSets, model.RuleSet.getJsonObj)
+          : undefined,
+        "routingPolicies": obj.routingPolicies
+          ? common.mapContainer(obj.routingPolicies, model.RoutingPolicy.getJsonObj)
           : undefined
       }
     };

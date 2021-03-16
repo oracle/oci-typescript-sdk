@@ -22,9 +22,17 @@ import common = require("oci-common");
  */
 export interface ClusterEndpoints {
   /**
-   * The Kubernetes API server endpoint.
+   * The non-native networking Kubernetes API server endpoint.
    */
   "kubernetes"?: string;
+  /**
+   * The public native networking Kubernetes API server endpoint, if one was requested.
+   */
+  "publicEndpoint"?: string;
+  /**
+   * The private native networking Kubernetes API server endpoint.
+   */
+  "privateEndpoint"?: string;
 }
 
 export namespace ClusterEndpoints {

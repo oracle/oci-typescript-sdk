@@ -44,6 +44,25 @@ export class DataScienceWaiter {
   }
 
   /**
+   * Waits forModelDeployment till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetModelDeploymentResponse | null (null in case of 404 response)
+   */
+  public async forModelDeployment(
+    request: serviceRequests.GetModelDeploymentRequest,
+    ...targetStates: models.ModelDeploymentLifecycleState[]
+  ): Promise<serviceResponses.GetModelDeploymentResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getModelDeployment(request),
+      response => targetStates.includes(response.modelDeployment.lifecycleState!),
+      targetStates.includes(models.ModelDeploymentLifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forNotebookSession till it reaches any of the provided states
    *
    * @param request the request to send

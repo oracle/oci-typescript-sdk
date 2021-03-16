@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetClusterOptionsRequest extends common.BaseRequest {
   /**
-   * The id of the option set to retrieve. Only \"all\" is supported.
+   * The id of the option set to retrieve. Use \"all\" get all options, or use a cluster ID to get options specific to the provided cluster.
    */
   "clusterOptionId": string;
   /**

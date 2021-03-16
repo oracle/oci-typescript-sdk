@@ -21,13 +21,13 @@ import common = require("oci-common");
  */
 export interface UpdateModelDetails {
   /**
-   * A user-friendly display name for the resource. Does not have to be unique, and can be modified. Avoid entering confidential information.
+   * A user-friendly display name for the resource. It does not have to be unique and can be modified. Avoid entering confidential information.
    *  Example: `My Model`
    *
    */
   "displayName"?: string;
   /**
-   * A short blurb describing the model.
+   * A short description of the model.
    */
   "description"?: string;
   /**

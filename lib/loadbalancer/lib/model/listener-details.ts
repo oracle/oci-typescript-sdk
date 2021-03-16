@@ -48,7 +48,9 @@ Example: `HTTP`
    */
   "hostnameNames"?: Array<string>;
   /**
-    * The name of the set of path-based routing rules, {@link PathRouteSet},
+    * Deprecated. Please use `routingPolicies` instead.
+* <p>
+The name of the set of path-based routing rules, {@link PathRouteSet},
 * applied to this listener's traffic.
 * <p>
 Example: `example_path_route_set`
@@ -57,6 +59,13 @@ Example: `example_path_route_set`
   "pathRouteSetName"?: string;
   "sslConfiguration"?: model.SSLConfigurationDetails;
   "connectionConfiguration"?: model.ConnectionConfiguration;
+  /**
+    * The name of the routing policy applied to this listener's traffic.
+* <p>
+Example: `example_routing_policy`
+* 
+    */
+  "routingPolicyName"?: string;
   /**
     * The names of the {@link RuleSet} to apply to the listener.
 * <p>

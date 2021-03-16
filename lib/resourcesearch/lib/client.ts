@@ -25,7 +25,7 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 export enum ResourceSearchApiKeys {}
 
 export class ResourceSearchClient {
-  protected static serviceEndpointTemplate = "https://query.{region}.{secondLevelDomain}";
+  protected static serviceEndpointTemplate = "https://query.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;

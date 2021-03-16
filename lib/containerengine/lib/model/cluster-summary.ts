@@ -34,6 +34,11 @@ export interface ClusterSummary {
    */
   "compartmentId"?: string;
   /**
+   * The network configuration for access to the Cluster control plane.
+   *
+   */
+  "endpointConfig"?: model.ClusterEndpointConfig;
+  /**
    * The OCID of the virtual cloud network (VCN) in which the cluster exists
    */
   "vcnId"?: string;
@@ -72,6 +77,10 @@ export namespace ClusterSummary {
     const jsonObj = {
       ...obj,
       ...{
+        "endpointConfig": obj.endpointConfig
+          ? model.ClusterEndpointConfig.getJsonObj(obj.endpointConfig)
+          : undefined,
+
         "options": obj.options ? model.ClusterCreateOptions.getJsonObj(obj.options) : undefined,
         "metadata": obj.metadata ? model.ClusterMetadata.getJsonObj(obj.metadata) : undefined,
 

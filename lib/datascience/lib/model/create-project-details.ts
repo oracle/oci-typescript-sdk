@@ -21,15 +21,15 @@ import common = require("oci-common");
  */
 export interface CreateProjectDetails {
   /**
-   * A user-friendly display name for the resource. Does not have to be unique, and can be modified. Avoid entering confidential information.
+   * A user-friendly display name for the resource. It does not have to be unique and can be modified. Avoid entering confidential information.
    */
   "displayName"?: string;
   /**
-   * A short blurb describing the project.
+   * A short description of the project.
    */
   "description"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/identifiers.htm) of the compartment to create the project in.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to create the project in.
    */
   "compartmentId": string;
   /**
