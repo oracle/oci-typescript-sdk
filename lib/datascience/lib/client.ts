@@ -196,6 +196,68 @@ export class DataScienceClient {
   }
 
   /**
+   * Activates the model deployment.
+   * @param ActivateModelDeploymentRequest
+   * @return ActivateModelDeploymentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ActivateModelDeployment.ts.html |here} to see how to use ActivateModelDeployment API.
+   */
+  public async activateModelDeployment(
+    activateModelDeploymentRequest: requests.ActivateModelDeploymentRequest
+  ): Promise<responses.ActivateModelDeploymentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#activateModelDeployment.");
+    const pathParams = {
+      "{modelDeploymentId}": activateModelDeploymentRequest.modelDeploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": activateModelDeploymentRequest.ifMatch,
+      "opc-request-id": activateModelDeploymentRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelDeployments/{modelDeploymentId}/actions/activate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      activateModelDeploymentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ActivateModelDeploymentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Activates the notebook session.
    * @param ActivateNotebookSessionRequest
    * @return ActivateNotebookSessionResponse
@@ -361,6 +423,69 @@ export class DataScienceClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeModelCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a model deployment into a different compartment. When provided, If-Match is checked against ETag values of the resource.
+   * @param ChangeModelDeploymentCompartmentRequest
+   * @return ChangeModelDeploymentCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ChangeModelDeploymentCompartment.ts.html |here} to see how to use ChangeModelDeploymentCompartment API.
+   */
+  public async changeModelDeploymentCompartment(
+    changeModelDeploymentCompartmentRequest: requests.ChangeModelDeploymentCompartmentRequest
+  ): Promise<responses.ChangeModelDeploymentCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#changeModelDeploymentCompartment.");
+    const pathParams = {
+      "{modelDeploymentId}": changeModelDeploymentCompartmentRequest.modelDeploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeModelDeploymentCompartmentRequest.ifMatch,
+      "opc-request-id": changeModelDeploymentCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeModelDeploymentCompartmentRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelDeployments/{modelDeploymentId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeModelDeploymentCompartmentRequest.changeModelDeploymentCompartmentDetails,
+        "ChangeModelDeploymentCompartmentDetails",
+        models.ChangeModelDeploymentCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeModelDeploymentCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeModelDeploymentCompartmentResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -621,6 +746,84 @@ export class DataScienceClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new model deployment.
+   * @param CreateModelDeploymentRequest
+   * @return CreateModelDeploymentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreateModelDeployment.ts.html |here} to see how to use CreateModelDeployment API.
+   */
+  public async createModelDeployment(
+    createModelDeploymentRequest: requests.CreateModelDeploymentRequest
+  ): Promise<responses.CreateModelDeploymentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#createModelDeployment.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createModelDeploymentRequest.opcRequestId,
+      "opc-retry-token": createModelDeploymentRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelDeployments",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createModelDeploymentRequest.createModelDeploymentDetails,
+        "CreateModelDeploymentDetails",
+        models.CreateModelDeploymentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createModelDeploymentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateModelDeploymentResponse>{},
+        body: await response.json(),
+        bodyKey: "modelDeployment",
+        bodyModel: "model.ModelDeployment",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -912,6 +1115,68 @@ export class DataScienceClient {
   }
 
   /**
+   * Deactivates the model deployment.
+   * @param DeactivateModelDeploymentRequest
+   * @return DeactivateModelDeploymentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeactivateModelDeployment.ts.html |here} to see how to use DeactivateModelDeployment API.
+   */
+  public async deactivateModelDeployment(
+    deactivateModelDeploymentRequest: requests.DeactivateModelDeploymentRequest
+  ): Promise<responses.DeactivateModelDeploymentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#deactivateModelDeployment.");
+    const pathParams = {
+      "{modelDeploymentId}": deactivateModelDeploymentRequest.modelDeploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deactivateModelDeploymentRequest.ifMatch,
+      "opc-request-id": deactivateModelDeploymentRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelDeployments/{modelDeploymentId}/actions/deactivate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deactivateModelDeploymentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeactivateModelDeploymentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deactivates the notebook session.
    * @param DeactivateNotebookSessionRequest
    * @return DeactivateNotebookSessionResponse
@@ -1030,7 +1295,69 @@ export class DataScienceClient {
   }
 
   /**
-   * Deletes the specified notebook session. Any unsaved work in this notebook session will be lost.
+   * Deletes the specified model deployment. Any unsaved work in this model deployment is lost.
+   * @param DeleteModelDeploymentRequest
+   * @return DeleteModelDeploymentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeleteModelDeployment.ts.html |here} to see how to use DeleteModelDeployment API.
+   */
+  public async deleteModelDeployment(
+    deleteModelDeploymentRequest: requests.DeleteModelDeploymentRequest
+  ): Promise<responses.DeleteModelDeploymentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#deleteModelDeployment.");
+    const pathParams = {
+      "{modelDeploymentId}": deleteModelDeploymentRequest.modelDeploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteModelDeploymentRequest.ifMatch,
+      "opc-request-id": deleteModelDeploymentRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelDeployments/{modelDeploymentId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteModelDeploymentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteModelDeploymentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified notebook session. Any unsaved work in this notebook session are lost.
    * @param DeleteNotebookSessionRequest
    * @return DeleteNotebookSessionResponse
    * @throws OciError when an error occurs
@@ -1092,7 +1419,7 @@ export class DataScienceClient {
   }
 
   /**
-   * Deletes the specified project. This operation will fail unless all associated resources (such as notebook sessions or models) are in a DELETED state. You must delete all associated resources before deleting a project.
+   * Deletes the specified project. This operation fails unless all associated resources (notebook sessions or models) are in a DELETED state. You must delete all associated resources before deleting a project.
    * @param DeleteProjectRequest
    * @return DeleteProjectResponse
    * @throws OciError when an error occurs
@@ -1291,6 +1618,69 @@ export class DataScienceClient {
             value: response.headers.get("last-modified"),
             key: "lastModified",
             dataType: "Date"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves the model deployment for the specified `modelDeploymentId`.
+   * @param GetModelDeploymentRequest
+   * @return GetModelDeploymentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetModelDeployment.ts.html |here} to see how to use GetModelDeployment API.
+   */
+  public async getModelDeployment(
+    getModelDeploymentRequest: requests.GetModelDeploymentRequest
+  ): Promise<responses.GetModelDeploymentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getModelDeployment.");
+    const pathParams = {
+      "{modelDeploymentId}": getModelDeploymentRequest.modelDeploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getModelDeploymentRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelDeployments/{modelDeploymentId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getModelDeploymentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetModelDeploymentResponse>{},
+        body: await response.json(),
+        bodyKey: "modelDeployment",
+        bodyModel: "model.ModelDeployment",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -1639,6 +2029,205 @@ export class DataScienceClient {
   }
 
   /**
+   * Lists the valid model deployment shapes.
+   * @param ListModelDeploymentShapesRequest
+   * @return ListModelDeploymentShapesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListModelDeploymentShapes.ts.html |here} to see how to use ListModelDeploymentShapes API.
+   */
+  public async listModelDeploymentShapes(
+    listModelDeploymentShapesRequest: requests.ListModelDeploymentShapesRequest
+  ): Promise<responses.ListModelDeploymentShapesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#listModelDeploymentShapes.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listModelDeploymentShapesRequest.compartmentId,
+      "limit": listModelDeploymentShapesRequest.limit,
+      "page": listModelDeploymentShapesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listModelDeploymentShapesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelDeploymentShapes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listModelDeploymentShapesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListModelDeploymentShapesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "ModelDeploymentShapeSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ModelDeploymentShapeSummary objects
+   * contained in responses from the listModelDeploymentShapes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllModelDeploymentShapes(
+    request: requests.ListModelDeploymentShapesRequest
+  ): AsyncIterableIterator<models.ModelDeploymentShapeSummary> {
+    return paginateRecords(request, req => this.listModelDeploymentShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listModelDeploymentShapes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllModelDeploymentShapesResponses(
+    request: requests.ListModelDeploymentShapesRequest
+  ): AsyncIterableIterator<responses.ListModelDeploymentShapesResponse> {
+    return paginateResponses(request, req => this.listModelDeploymentShapes(req));
+  }
+
+  /**
+   * Lists all model deployments in the specified compartment. Only one parameter other than compartmentId may also be included in a query. The query must include compartmentId. If the query does not include compartmentId, or includes compartmentId but two or more other parameters an error is returned.
+   *
+   * @param ListModelDeploymentsRequest
+   * @return ListModelDeploymentsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListModelDeployments.ts.html |here} to see how to use ListModelDeployments API.
+   */
+  public async listModelDeployments(
+    listModelDeploymentsRequest: requests.ListModelDeploymentsRequest
+  ): Promise<responses.ListModelDeploymentsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listModelDeployments.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listModelDeploymentsRequest.compartmentId,
+      "id": listModelDeploymentsRequest.id,
+      "projectId": listModelDeploymentsRequest.projectId,
+      "displayName": listModelDeploymentsRequest.displayName,
+      "lifecycleState": listModelDeploymentsRequest.lifecycleState,
+      "createdBy": listModelDeploymentsRequest.createdBy,
+      "limit": listModelDeploymentsRequest.limit,
+      "page": listModelDeploymentsRequest.page,
+      "sortOrder": listModelDeploymentsRequest.sortOrder,
+      "sortBy": listModelDeploymentsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listModelDeploymentsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelDeployments",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listModelDeploymentsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListModelDeploymentsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "ModelDeploymentSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ModelDeploymentSummary objects
+   * contained in responses from the listModelDeployments operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllModelDeployments(
+    request: requests.ListModelDeploymentsRequest
+  ): AsyncIterableIterator<models.ModelDeploymentSummary> {
+    return paginateRecords(request, req => this.listModelDeployments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listModelDeployments operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllModelDeploymentsResponses(
+    request: requests.ListModelDeploymentsRequest
+  ): AsyncIterableIterator<responses.ListModelDeploymentsResponse> {
+    return paginateResponses(request, req => this.listModelDeployments(req));
+  }
+
+  /**
    * Lists models in the specified compartment.
    * @param ListModelsRequest
    * @return ListModelsResponse
@@ -1837,7 +2426,7 @@ export class DataScienceClient {
   }
 
   /**
-   * Lists notebook sessions in the specified compartment.
+   * Lists the notebook sessions in the specified compartment.
    * @param ListNotebookSessionsRequest
    * @return ListNotebookSessionsResponse
    * @throws OciError when an error occurs
@@ -2326,7 +2915,78 @@ export class DataScienceClient {
   }
 
   /**
-   * Updates provenance information for the specified model.
+   * Updates the properties of a model deployment. You can update the `displayName`.
+   * When the model deployment is in the ACTIVE lifecycle state, you can update `modelDeploymentConfigurationDetails` and  change `instanceShapeName` and `modelId`. Any update to
+   * `bandwidthMbps` or `instanceCount` can be done when the model deployment is in the INACTIVE lifecycle state. Changes to the `bandwidthMbps` or `instanceCount` will take effect
+   * the next time the `ActivateModelDeployment` action is invoked on the model deployment resource.
+   *
+   * @param UpdateModelDeploymentRequest
+   * @return UpdateModelDeploymentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/UpdateModelDeployment.ts.html |here} to see how to use UpdateModelDeployment API.
+   */
+  public async updateModelDeployment(
+    updateModelDeploymentRequest: requests.UpdateModelDeploymentRequest
+  ): Promise<responses.UpdateModelDeploymentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#updateModelDeployment.");
+    const pathParams = {
+      "{modelDeploymentId}": updateModelDeploymentRequest.modelDeploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateModelDeploymentRequest.ifMatch,
+      "opc-request-id": updateModelDeploymentRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelDeployments/{modelDeploymentId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateModelDeploymentRequest.updateModelDeploymentDetails,
+        "UpdateModelDeploymentDetails",
+        models.UpdateModelDeploymentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateModelDeploymentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateModelDeploymentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the provenance information for the specified model.
    * @param UpdateModelProvenanceRequest
    * @return UpdateModelProvenanceResponse
    * @throws OciError when an error occurs
@@ -2398,7 +3058,7 @@ export class DataScienceClient {
   /**
    * Updates the properties of a notebook session. You can update the `displayName`, `freeformTags`, and `definedTags` properties.
    * When the notebook session is in the INACTIVE lifecycle state, you can update `notebookSessionConfigurationDetails` and change `shape`, `subnetId`, and `blockStorageSizeInGBs`.
-   * Changes to the `notebookSessionConfigurationDetails` will take effect the next time the `ActivateNotebookSession` action is invoked on the notebook session resource.
+   * Changes to the `notebookSessionConfigurationDetails` take effect the next time the `ActivateNotebookSession` action is invoked on the notebook session resource.
    *
    * @param UpdateNotebookSessionRequest
    * @return UpdateNotebookSessionResponse

@@ -48,5 +48,7 @@ import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
 import * as UpdateClusterResponse from "./update-cluster-response";
 export import UpdateClusterResponse = UpdateClusterResponse.UpdateClusterResponse;
+import * as UpdateClusterEndpointConfigResponse from "./update-cluster-endpoint-config-response";
+export import UpdateClusterEndpointConfigResponse = UpdateClusterEndpointConfigResponse.UpdateClusterEndpointConfigResponse;
 import * as UpdateNodePoolResponse from "./update-node-pool-response";
 export import UpdateNodePoolResponse = UpdateNodePoolResponse.UpdateNodePoolResponse;

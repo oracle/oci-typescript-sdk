@@ -19,7 +19,8 @@ import common = require("oci-common");
  */
 export interface SearchResourcesRequest extends common.BaseRequest {
   /**
-   * Request parameters that describe query criteria.
+   * Request parameters that describe query criteria. For more information, see {@link #searchDetails(SearchDetailsRequest) searchDetails}.
+   *
    */
   "searchDetails": model.StructuredSearchDetails | model.FreeTextSearchDetails;
   /**

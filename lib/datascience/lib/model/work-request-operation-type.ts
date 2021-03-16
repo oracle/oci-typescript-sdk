@@ -23,6 +23,11 @@ export enum WorkRequestOperationType {
   NotebookSessionDelete = "NOTEBOOK_SESSION_DELETE",
   NotebookSessionActivate = "NOTEBOOK_SESSION_ACTIVATE",
   NotebookSessionDeactivate = "NOTEBOOK_SESSION_DEACTIVATE",
+  ModelDeploymentCreate = "MODEL_DEPLOYMENT_CREATE",
+  ModelDeploymentDelete = "MODEL_DEPLOYMENT_DELETE",
+  ModelDeploymentActivate = "MODEL_DEPLOYMENT_ACTIVATE",
+  ModelDeploymentDeactivate = "MODEL_DEPLOYMENT_DEACTIVATE",
+  ModelDeploymentUpdate = "MODEL_DEPLOYMENT_UPDATE",
   ProjectDelete = "PROJECT_DELETE",
   WorkrequestCancel = "WORKREQUEST_CANCEL",
 

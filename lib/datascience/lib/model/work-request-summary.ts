@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface WorkRequestSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/identifiers.htm) of the work request.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
    */
   "id": string;
   /**
@@ -32,7 +32,7 @@ export interface WorkRequestSummary {
    */
   "status": model.WorkRequestStatus;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/identifiers.htm) of the work request's compartment.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request's compartment.
    */
   "compartmentId": string;
   /**
@@ -44,15 +44,15 @@ export interface WorkRequestSummary {
    */
   "resources": Array<model.WorkRequestResource>;
   /**
-   * The date and time the work request was accepted, in the timestamp format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   * The date and time the work request was accepted in the timestamp format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    */
   "timeAccepted": Date;
   /**
-   * The date and time the work request was started, in the timestamp format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   * The date and time the work request was started in the timestamp format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    */
   "timeStarted"?: Date;
   /**
-   * The date and time the work request was finished, in the timestamp format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   * The date and time the work request was finished in the timestamp format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    */
   "timeFinished"?: Date;
 }

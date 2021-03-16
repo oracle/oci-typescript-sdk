@@ -13,6 +13,8 @@ information, see [Overview of Load Balancing](/iaas/Content/Balance/Concepts/bal
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as Action from "./action";
+export import Action = Action.Action;
 import * as Backend from "./backend";
 export import Backend = Backend.Backend;
 import * as BackendDetails from "./backend-details";
@@ -47,6 +49,8 @@ import * as CreateLoadBalancerDetails from "./create-load-balancer-details";
 export import CreateLoadBalancerDetails = CreateLoadBalancerDetails.CreateLoadBalancerDetails;
 import * as CreatePathRouteSetDetails from "./create-path-route-set-details";
 export import CreatePathRouteSetDetails = CreatePathRouteSetDetails.CreatePathRouteSetDetails;
+import * as CreateRoutingPolicyDetails from "./create-routing-policy-details";
+export import CreateRoutingPolicyDetails = CreateRoutingPolicyDetails.CreateRoutingPolicyDetails;
 import * as CreateRuleSetDetails from "./create-rule-set-details";
 export import CreateRuleSetDetails = CreateRuleSetDetails.CreateRuleSetDetails;
 import * as CreateSSLCipherSuiteDetails from "./create-ss-lcipher-suite-details";
@@ -95,6 +99,12 @@ import * as RedirectUri from "./redirect-uri";
 export import RedirectUri = RedirectUri.RedirectUri;
 import * as ReservedIP from "./reserved-ip";
 export import ReservedIP = ReservedIP.ReservedIP;
+import * as RoutingPolicy from "./routing-policy";
+export import RoutingPolicy = RoutingPolicy.RoutingPolicy;
+import * as RoutingPolicyDetails from "./routing-policy-details";
+export import RoutingPolicyDetails = RoutingPolicyDetails.RoutingPolicyDetails;
+import * as RoutingRule from "./routing-rule";
+export import RoutingRule = RoutingRule.RoutingRule;
 import * as Rule from "./rule";
 export import Rule = Rule.Rule;
 import * as RuleCondition from "./rule-condition";
@@ -133,6 +143,8 @@ import * as UpdateNetworkSecurityGroupsDetails from "./update-network-security-g
 export import UpdateNetworkSecurityGroupsDetails = UpdateNetworkSecurityGroupsDetails.UpdateNetworkSecurityGroupsDetails;
 import * as UpdatePathRouteSetDetails from "./update-path-route-set-details";
 export import UpdatePathRouteSetDetails = UpdatePathRouteSetDetails.UpdatePathRouteSetDetails;
+import * as UpdateRoutingPolicyDetails from "./update-routing-policy-details";
+export import UpdateRoutingPolicyDetails = UpdateRoutingPolicyDetails.UpdateRoutingPolicyDetails;
 import * as UpdateRuleSetDetails from "./update-rule-set-details";
 export import UpdateRuleSetDetails = UpdateRuleSetDetails.UpdateRuleSetDetails;
 import * as UpdateSSLCipherSuiteDetails from "./update-ss-lcipher-suite-details";
@@ -154,6 +166,8 @@ import * as ExtendHttpRequestHeaderValueRule from "./extend-http-request-header-
 export import ExtendHttpRequestHeaderValueRule = ExtendHttpRequestHeaderValueRule.ExtendHttpRequestHeaderValueRule;
 import * as ExtendHttpResponseHeaderValueRule from "./extend-http-response-header-value-rule";
 export import ExtendHttpResponseHeaderValueRule = ExtendHttpResponseHeaderValueRule.ExtendHttpResponseHeaderValueRule;
+import * as ForwardToBackendSet from "./forward-to-backend-set";
+export import ForwardToBackendSet = ForwardToBackendSet.ForwardToBackendSet;
 import * as HttpHeaderRule from "./http-header-rule";
 export import HttpHeaderRule = HttpHeaderRule.HttpHeaderRule;
 import * as PathMatchCondition from "./path-match-condition";

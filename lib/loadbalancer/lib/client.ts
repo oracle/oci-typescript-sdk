@@ -695,6 +695,74 @@ When you create a load balancer, the system assigns an IP address.
   }
 
   /**
+   * Adds a routing policy to a load balancer. For more information, see
+   * [Managing Request Routing](https://docs.cloud.oracle.com/Content/Balance/Tasks/managingrequest.htm).
+   *
+   * @param CreateRoutingPolicyRequest
+   * @return CreateRoutingPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/CreateRoutingPolicy.ts.html |here} to see how to use CreateRoutingPolicy API.
+   */
+  public async createRoutingPolicy(
+    createRoutingPolicyRequest: requests.CreateRoutingPolicyRequest
+  ): Promise<responses.CreateRoutingPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createRoutingPolicy.");
+    const pathParams = {
+      "{loadBalancerId}": createRoutingPolicyRequest.loadBalancerId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createRoutingPolicyRequest.opcRequestId,
+      "opc-retry-token": createRoutingPolicyRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/loadBalancers/{loadBalancerId}/routingPolicies",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createRoutingPolicyRequest.createRoutingPolicyDetails,
+        "CreateRoutingPolicyDetails",
+        models.CreateRoutingPolicyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createRoutingPolicyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateRoutingPolicyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new rule set associated with the specified load balancer. For more information, see
    * [Managing Rule Sets](https://docs.cloud.oracle.com/Content/Balance/Tasks/managingrulesets.htm).
    *
@@ -1243,6 +1311,71 @@ To delete a path route rule from a path route set, use the
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeletePathRouteSetResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Deletes a routing policy from the specified load balancer.
+* <p>
+To delete a routing rule from a routing policy, use the
+* {@link #updateRoutingPolicy(UpdateRoutingPolicyRequest) updateRoutingPolicy} operation.
+* 
+     * @param DeleteRoutingPolicyRequest
+     * @return DeleteRoutingPolicyResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/DeleteRoutingPolicy.ts.html |here} to see how to use DeleteRoutingPolicy API.
+     */
+  public async deleteRoutingPolicy(
+    deleteRoutingPolicyRequest: requests.DeleteRoutingPolicyRequest
+  ): Promise<responses.DeleteRoutingPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteRoutingPolicy.");
+    const pathParams = {
+      "{loadBalancerId}": deleteRoutingPolicyRequest.loadBalancerId,
+      "{routingPolicyName}": deleteRoutingPolicyRequest.routingPolicyName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteRoutingPolicyRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/loadBalancers/{loadBalancerId}/routingPolicies/{routingPolicyName}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteRoutingPolicyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteRoutingPolicyResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -1908,6 +2041,65 @@ To delete a rule from a rule set, use the
         body: await response.json(),
         bodyKey: "pathRouteSet",
         bodyModel: "model.PathRouteSet",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the specified routing policy.
+   * @param GetRoutingPolicyRequest
+   * @return GetRoutingPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/GetRoutingPolicy.ts.html |here} to see how to use GetRoutingPolicy API.
+   */
+  public async getRoutingPolicy(
+    getRoutingPolicyRequest: requests.GetRoutingPolicyRequest
+  ): Promise<responses.GetRoutingPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getRoutingPolicy.");
+    const pathParams = {
+      "{loadBalancerId}": getRoutingPolicyRequest.loadBalancerId,
+      "{routingPolicyName}": getRoutingPolicyRequest.routingPolicyName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getRoutingPolicyRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/loadBalancers/{loadBalancerId}/routingPolicies/{routingPolicyName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getRoutingPolicyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetRoutingPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "routingPolicy",
+        bodyModel: "model.RoutingPolicy",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2823,6 +3015,97 @@ To delete a rule from a rule set, use the
   }
 
   /**
+   * Lists all routing policies associated with the specified load balancer.
+   * @param ListRoutingPoliciesRequest
+   * @return ListRoutingPoliciesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/ListRoutingPolicies.ts.html |here} to see how to use ListRoutingPolicies API.
+   */
+  public async listRoutingPolicies(
+    listRoutingPoliciesRequest: requests.ListRoutingPoliciesRequest
+  ): Promise<responses.ListRoutingPoliciesResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listRoutingPolicies.");
+    const pathParams = {
+      "{loadBalancerId}": listRoutingPoliciesRequest.loadBalancerId
+    };
+
+    const queryParams = {
+      "limit": listRoutingPoliciesRequest.limit,
+      "page": listRoutingPoliciesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRoutingPoliciesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/loadBalancers/{loadBalancerId}/routingPolicies",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listRoutingPoliciesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRoutingPoliciesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "RoutingPolicy[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.RoutingPolicy objects
+   * contained in responses from the listRoutingPolicies operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllRoutingPolicies(
+    request: requests.ListRoutingPoliciesRequest
+  ): AsyncIterableIterator<models.RoutingPolicy> {
+    return paginateRecords(request, req => this.listRoutingPolicies(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listRoutingPolicies operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllRoutingPoliciesResponses(
+    request: requests.ListRoutingPoliciesRequest
+  ): AsyncIterableIterator<responses.ListRoutingPoliciesResponse> {
+    return paginateResponses(request, req => this.listRoutingPolicies(req));
+  }
+
+  /**
    * Lists all rule sets associated with the specified load balancer.
    * @param ListRuleSetsRequest
    * @return ListRuleSetsResponse
@@ -3715,6 +3998,77 @@ To add a new path route rule to a path route set, the `pathRoutes` in the
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdatePathRouteSetResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Overwrites an existing routing policy on the specified load balancer. Use this operation to add, delete, or alter
+* routing policy rules in a routing policy.
+* <p>
+To add a new routing rule to a routing policy, the body must include both the new routing rule to add and the existing rules to retain.
+* 
+     * @param UpdateRoutingPolicyRequest
+     * @return UpdateRoutingPolicyResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/UpdateRoutingPolicy.ts.html |here} to see how to use UpdateRoutingPolicy API.
+     */
+  public async updateRoutingPolicy(
+    updateRoutingPolicyRequest: requests.UpdateRoutingPolicyRequest
+  ): Promise<responses.UpdateRoutingPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateRoutingPolicy.");
+    const pathParams = {
+      "{loadBalancerId}": updateRoutingPolicyRequest.loadBalancerId,
+      "{routingPolicyName}": updateRoutingPolicyRequest.routingPolicyName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateRoutingPolicyRequest.opcRequestId,
+      "opc-retry-token": updateRoutingPolicyRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/loadBalancers/{loadBalancerId}/routingPolicies/{routingPolicyName}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateRoutingPolicyRequest.updateRoutingPolicyDetails,
+        "UpdateRoutingPolicyDetails",
+        models.UpdateRoutingPolicyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateRoutingPolicyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateRoutingPolicyResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

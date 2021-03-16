@@ -30,6 +30,11 @@ export interface CreateClusterDetails {
    */
   "compartmentId": string;
   /**
+   * The network configuration for access to the Cluster control plane.
+   *
+   */
+  "endpointConfig"?: model.CreateClusterEndpointConfigDetails;
+  /**
    * The OCID of the virtual cloud network (VCN) in which to create the cluster.
    */
   "vcnId": string;
@@ -54,6 +59,10 @@ export namespace CreateClusterDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "endpointConfig": obj.endpointConfig
+          ? model.CreateClusterEndpointConfigDetails.getJsonObj(obj.endpointConfig)
+          : undefined,
+
         "options": obj.options ? model.ClusterCreateOptions.getJsonObj(obj.options) : undefined
       }
     };

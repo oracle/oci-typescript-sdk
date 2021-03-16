@@ -1294,6 +1294,73 @@ export class ContainerEngineClient {
   }
 
   /**
+   * Update the details of the cluster endpoint configuration.
+   * @param UpdateClusterEndpointConfigRequest
+   * @return UpdateClusterEndpointConfigResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/UpdateClusterEndpointConfig.ts.html |here} to see how to use UpdateClusterEndpointConfig API.
+   */
+  public async updateClusterEndpointConfig(
+    updateClusterEndpointConfigRequest: requests.UpdateClusterEndpointConfigRequest
+  ): Promise<responses.UpdateClusterEndpointConfigResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#updateClusterEndpointConfig.");
+    const pathParams = {
+      "{clusterId}": updateClusterEndpointConfigRequest.clusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateClusterEndpointConfigRequest.ifMatch,
+      "opc-request-id": updateClusterEndpointConfigRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/actions/updateEndpointConfig",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateClusterEndpointConfigRequest.updateClusterEndpointConfigDetails,
+        "UpdateClusterEndpointConfigDetails",
+        models.UpdateClusterEndpointConfigDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateClusterEndpointConfigRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateClusterEndpointConfigResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Update the details of a node pool.
    * @param UpdateNodePoolRequest
    * @return UpdateNodePoolResponse

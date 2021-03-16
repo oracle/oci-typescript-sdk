@@ -31,6 +31,10 @@ export interface UpdateOceInstanceDetails {
    */
   "instanceLicenseType"?: model.LicenseType;
   /**
+   * Instance type based on its usage
+   */
+  "instanceUsageType"?: UpdateOceInstanceDetails.InstanceUsageType;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
    *
@@ -45,6 +49,11 @@ export interface UpdateOceInstanceDetails {
 }
 
 export namespace UpdateOceInstanceDetails {
+  export enum InstanceUsageType {
+    Primary = "PRIMARY",
+    Nonprimary = "NONPRIMARY"
+  }
+
   export function getJsonObj(obj: UpdateOceInstanceDetails): object {
     const jsonObj = { ...obj, ...{} };
 

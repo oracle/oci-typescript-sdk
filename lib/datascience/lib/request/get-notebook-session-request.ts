@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface GetNotebookSessionRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/identifiers.htm) of the notebook session.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the notebook session.
    */
   "notebookSessionId": string;
   /**
-   * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
+   * Unique Oracle assigned identifier for the request. If you need to contact Oracle about a particular request, then provide the request ID.
    *
    */
   "opcRequestId"?: string;
