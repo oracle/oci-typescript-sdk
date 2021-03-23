@@ -1,6 +1,6 @@
 {
   "name": "oci-resourcemanager",
-  "version": "1.16.2",
+  "version": "1.17.0",
   "description": "OCI NodeJS client for Resource manager Service",
   "repository": {
     "type": "git",

@@ -20,8 +20,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A dedicated virtual machine host that enables you to host multiple VM instances
- * on a dedicated host that is not shared with other tenancies.
+ * A dedicated virtual machine host lets you host multiple VM instances
+ * on a dedicated server that is not shared with other tenancies.
  *
  */
 export interface DedicatedVmHost {
@@ -44,7 +44,7 @@ Example: `Uocm:PHX-AD-1`
   "dedicatedVmHostShape": string;
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a
-* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 * 
@@ -73,14 +73,14 @@ Example: `FAULT-DOMAIN-1`
   "faultDomain"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
-* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: `{\"Department\": \"Finance\"}`
 * 
     */
   "freeformTags"?: { [key: string]: string };
   /**
-   * The OCID of the dedicated VM host.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the dedicated VM host.
    */
   "id": string;
   /**

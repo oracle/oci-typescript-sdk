@@ -1,6 +1,6 @@
 /**
- * TenantManager API
- * A description of the TenantManager API
+ * Organizations API
+ * The Organizations API allows you to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and its resources.
  * OpenAPI spec version: 20200801
  *
  *
@@ -43,7 +43,7 @@ export interface SenderInvitation {
    */
   "status": model.SenderInvitationStatus;
   /**
-   * A user-created name to describe the invitation.
+   * A user-created name to describe the invitation. Avoid entering confidential information.
    */
   "displayName"?: string;
   /**

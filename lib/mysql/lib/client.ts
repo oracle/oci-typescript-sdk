@@ -1205,6 +1205,7 @@ export class DbSystemClient {
   }
 
   /**
+   * DEPRECATED -- please use HeatWave API instead.
    * Adds an Analytics Cluster to the DB System.
    *
    * @param AddAnalyticsClusterRequest
@@ -1255,6 +1256,82 @@ export class DbSystemClient {
         body: await response.json(),
         bodyKey: "analyticsCluster",
         bodyModel: "model.AnalyticsCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Adds a HeatWave cluster to the DB System.
+   *
+   * @param AddHeatWaveClusterRequest
+   * @return AddHeatWaveClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/AddHeatWaveCluster.ts.html |here} to see how to use AddHeatWaveCluster API.
+   */
+  public async addHeatWaveCluster(
+    addHeatWaveClusterRequest: requests.AddHeatWaveClusterRequest
+  ): Promise<responses.AddHeatWaveClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#addHeatWaveCluster.");
+    const pathParams = {
+      "{dbSystemId}": addHeatWaveClusterRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addHeatWaveClusterRequest.ifMatch,
+      "opc-request-id": addHeatWaveClusterRequest.opcRequestId,
+      "opc-retry-token": addHeatWaveClusterRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/heatWaveCluster/actions/add",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addHeatWaveClusterRequest.addHeatWaveClusterDetails,
+        "AddHeatWaveClusterDetails",
+        models.AddHeatWaveClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      addHeatWaveClusterRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddHeatWaveClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "heatWaveCluster",
+        bodyModel: "model.HeatWaveCluster",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1359,6 +1436,7 @@ export class DbSystemClient {
   }
 
   /**
+   * DEPRECATED -- please use HeatWave API instead.
    * Deletes the Analytics Cluster including terminating, detaching, removing, finalizing and
    * otherwise deleting all related resources.
    *
@@ -1485,6 +1563,70 @@ export class DbSystemClient {
   }
 
   /**
+   * Deletes the HeatWave cluster including terminating, detaching, removing, finalizing and
+   * otherwise deleting all related resources.
+   *
+   * @param DeleteHeatWaveClusterRequest
+   * @return DeleteHeatWaveClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/DeleteHeatWaveCluster.ts.html |here} to see how to use DeleteHeatWaveCluster API.
+   */
+  public async deleteHeatWaveCluster(
+    deleteHeatWaveClusterRequest: requests.DeleteHeatWaveClusterRequest
+  ): Promise<responses.DeleteHeatWaveClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#deleteHeatWaveCluster.");
+    const pathParams = {
+      "{dbSystemId}": deleteHeatWaveClusterRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteHeatWaveClusterRequest.ifMatch,
+      "opc-request-id": deleteHeatWaveClusterRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/heatWaveCluster",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteHeatWaveClusterRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteHeatWaveClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * DEPRECATED -- please use HeatWave API instead.
    * Sends a request to estimate the memory footprints of user tables when loaded to Analytics Cluster memory.
    *
    * @param GenerateAnalyticsClusterMemoryEstimateRequest
@@ -1551,7 +1693,75 @@ export class DbSystemClient {
   }
 
   /**
+   * Sends a request to estimate the memory footprints of user tables when loaded to HeatWave cluster memory.
+   *
+   * @param GenerateHeatWaveClusterMemoryEstimateRequest
+   * @return GenerateHeatWaveClusterMemoryEstimateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GenerateHeatWaveClusterMemoryEstimate.ts.html |here} to see how to use GenerateHeatWaveClusterMemoryEstimate API.
+   */
+  public async generateHeatWaveClusterMemoryEstimate(
+    generateHeatWaveClusterMemoryEstimateRequest: requests.GenerateHeatWaveClusterMemoryEstimateRequest
+  ): Promise<responses.GenerateHeatWaveClusterMemoryEstimateResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbSystemClient#generateHeatWaveClusterMemoryEstimate.");
+    const pathParams = {
+      "{dbSystemId}": generateHeatWaveClusterMemoryEstimateRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": generateHeatWaveClusterMemoryEstimateRequest.opcRequestId,
+      "opc-retry-token": generateHeatWaveClusterMemoryEstimateRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/heatWaveClusterMemoryEstimate/actions/generate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      generateHeatWaveClusterMemoryEstimateRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateHeatWaveClusterMemoryEstimateResponse>{},
+        body: await response.json(),
+        bodyKey: "heatWaveClusterMemoryEstimate",
+        bodyModel: "model.HeatWaveClusterMemoryEstimate",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * DEPRECATED -- please use HeatWave API instead.
    * Gets information about the Analytics Cluster.
+   *
    * @param GetAnalyticsClusterRequest
    * @return GetAnalyticsClusterResponse
    * @throws OciError when an error occurs
@@ -1615,6 +1825,7 @@ export class DbSystemClient {
   }
 
   /**
+   * DEPRECATED -- please use HeatWave API instead.
    * Gets the most recent Analytics Cluster memory estimate that can be used to determine a suitable
    * Analytics Cluster size.
    *
@@ -1740,6 +1951,131 @@ export class DbSystemClient {
   }
 
   /**
+   * Gets information about the HeatWave cluster.
+   * @param GetHeatWaveClusterRequest
+   * @return GetHeatWaveClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GetHeatWaveCluster.ts.html |here} to see how to use GetHeatWaveCluster API.
+   */
+  public async getHeatWaveCluster(
+    getHeatWaveClusterRequest: requests.GetHeatWaveClusterRequest
+  ): Promise<responses.GetHeatWaveClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#getHeatWaveCluster.");
+    const pathParams = {
+      "{dbSystemId}": getHeatWaveClusterRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getHeatWaveClusterRequest.opcRequestId,
+      "if-none-match": getHeatWaveClusterRequest.ifNoneMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/heatWaveCluster",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getHeatWaveClusterRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetHeatWaveClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "heatWaveCluster",
+        bodyModel: "model.HeatWaveCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the most recent HeatWave cluster memory estimate that can be used to determine a suitable
+   * HeatWave cluster size.
+   *
+   * @param GetHeatWaveClusterMemoryEstimateRequest
+   * @return GetHeatWaveClusterMemoryEstimateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GetHeatWaveClusterMemoryEstimate.ts.html |here} to see how to use GetHeatWaveClusterMemoryEstimate API.
+   */
+  public async getHeatWaveClusterMemoryEstimate(
+    getHeatWaveClusterMemoryEstimateRequest: requests.GetHeatWaveClusterMemoryEstimateRequest
+  ): Promise<responses.GetHeatWaveClusterMemoryEstimateResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbSystemClient#getHeatWaveClusterMemoryEstimate.");
+    const pathParams = {
+      "{dbSystemId}": getHeatWaveClusterMemoryEstimateRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getHeatWaveClusterMemoryEstimateRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/heatWaveClusterMemoryEstimate",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getHeatWaveClusterMemoryEstimateRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetHeatWaveClusterMemoryEstimateResponse>{},
+        body: await response.json(),
+        bodyKey: "heatWaveClusterMemoryEstimate",
+        bodyModel: "model.HeatWaveClusterMemoryEstimate",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Get a list of DB Systems in the specified compartment.
    * The default sort order is by timeUpdated, descending.
    *
@@ -1756,6 +2092,7 @@ export class DbSystemClient {
 
     const queryParams = {
       "isAnalyticsClusterAttached": listDbSystemsRequest.isAnalyticsClusterAttached,
+      "isHeatWaveClusterAttached": listDbSystemsRequest.isHeatWaveClusterAttached,
       "compartmentId": listDbSystemsRequest.compartmentId,
       "dbSystemId": listDbSystemsRequest.dbSystemId,
       "displayName": listDbSystemsRequest.displayName,
@@ -1840,7 +2177,9 @@ export class DbSystemClient {
   }
 
   /**
+   * DEPRECATED -- please use HeatWave API instead.
    * Restarts the Analytics Cluster.
+   *
    * @param RestartAnalyticsClusterRequest
    * @return RestartAnalyticsClusterResponse
    * @throws OciError when an error occurs
@@ -1969,7 +2308,71 @@ export class DbSystemClient {
   }
 
   /**
+   * Restarts the HeatWave cluster.
+   * @param RestartHeatWaveClusterRequest
+   * @return RestartHeatWaveClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/RestartHeatWaveCluster.ts.html |here} to see how to use RestartHeatWaveCluster API.
+   */
+  public async restartHeatWaveCluster(
+    restartHeatWaveClusterRequest: requests.RestartHeatWaveClusterRequest
+  ): Promise<responses.RestartHeatWaveClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#restartHeatWaveCluster.");
+    const pathParams = {
+      "{dbSystemId}": restartHeatWaveClusterRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": restartHeatWaveClusterRequest.ifMatch,
+      "opc-request-id": restartHeatWaveClusterRequest.opcRequestId,
+      "opc-retry-token": restartHeatWaveClusterRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/heatWaveCluster/actions/restart",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      restartHeatWaveClusterRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RestartHeatWaveClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * DEPRECATED -- please use HeatWave API instead.
    * Starts the Analytics Cluster.
+   *
    * @param StartAnalyticsClusterRequest
    * @return StartAnalyticsClusterResponse
    * @throws OciError when an error occurs
@@ -2093,7 +2496,71 @@ export class DbSystemClient {
   }
 
   /**
+   * Starts the HeatWave cluster.
+   * @param StartHeatWaveClusterRequest
+   * @return StartHeatWaveClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/StartHeatWaveCluster.ts.html |here} to see how to use StartHeatWaveCluster API.
+   */
+  public async startHeatWaveCluster(
+    startHeatWaveClusterRequest: requests.StartHeatWaveClusterRequest
+  ): Promise<responses.StartHeatWaveClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#startHeatWaveCluster.");
+    const pathParams = {
+      "{dbSystemId}": startHeatWaveClusterRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": startHeatWaveClusterRequest.ifMatch,
+      "opc-request-id": startHeatWaveClusterRequest.opcRequestId,
+      "opc-retry-token": startHeatWaveClusterRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/heatWaveCluster/actions/start",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      startHeatWaveClusterRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StartHeatWaveClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * DEPRECATED -- please use HeatWave API instead.
    * Stops the Analytics Cluster.
+   *
    * @param StopAnalyticsClusterRequest
    * @return StopAnalyticsClusterResponse
    * @throws OciError when an error occurs
@@ -2225,6 +2692,69 @@ A stopped DB System is not billed.
   }
 
   /**
+   * Stops the HeatWave cluster.
+   * @param StopHeatWaveClusterRequest
+   * @return StopHeatWaveClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/StopHeatWaveCluster.ts.html |here} to see how to use StopHeatWaveCluster API.
+   */
+  public async stopHeatWaveCluster(
+    stopHeatWaveClusterRequest: requests.StopHeatWaveClusterRequest
+  ): Promise<responses.StopHeatWaveClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#stopHeatWaveCluster.");
+    const pathParams = {
+      "{dbSystemId}": stopHeatWaveClusterRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": stopHeatWaveClusterRequest.ifMatch,
+      "opc-request-id": stopHeatWaveClusterRequest.opcRequestId,
+      "opc-retry-token": stopHeatWaveClusterRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/heatWaveCluster/actions/stop",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      stopHeatWaveClusterRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StopHeatWaveClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * DEPRECATED -- please use HeatWave API instead.
    * Updates the Analytics Cluster.
    *
    * @param UpdateAnalyticsClusterRequest
@@ -2345,6 +2875,73 @@ Updating different fields in the DB System will have different results
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDbSystemResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the HeatWave cluster.
+   *
+   * @param UpdateHeatWaveClusterRequest
+   * @return UpdateHeatWaveClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/UpdateHeatWaveCluster.ts.html |here} to see how to use UpdateHeatWaveCluster API.
+   */
+  public async updateHeatWaveCluster(
+    updateHeatWaveClusterRequest: requests.UpdateHeatWaveClusterRequest
+  ): Promise<responses.UpdateHeatWaveClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#updateHeatWaveCluster.");
+    const pathParams = {
+      "{dbSystemId}": updateHeatWaveClusterRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateHeatWaveClusterRequest.ifMatch,
+      "opc-request-id": updateHeatWaveClusterRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/heatWaveCluster",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateHeatWaveClusterRequest.updateHeatWaveClusterDetails,
+        "UpdateHeatWaveClusterDetails",
+        models.UpdateHeatWaveClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateHeatWaveClusterRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateHeatWaveClusterResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

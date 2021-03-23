@@ -1,6 +1,6 @@
 /**
- * TenantManager API
- * A description of the TenantManager API
+ * Organizations API
+ * The Organizations API allows you to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and its resources.
  * OpenAPI spec version: 20200801
  *
  *
@@ -11,6 +11,26 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as CreateDomainResponse from "./create-domain-response";
+export import CreateDomainResponse = CreateDomainResponse.CreateDomainResponse;
+import * as DeleteDomainResponse from "./delete-domain-response";
+export import DeleteDomainResponse = DeleteDomainResponse.DeleteDomainResponse;
+import * as GetDomainResponse from "./get-domain-response";
+export import GetDomainResponse = GetDomainResponse.GetDomainResponse;
+import * as ListDomainsResponse from "./list-domains-response";
+export import ListDomainsResponse = ListDomainsResponse.ListDomainsResponse;
+import * as UpdateDomainResponse from "./update-domain-response";
+export import UpdateDomainResponse = UpdateDomainResponse.UpdateDomainResponse;
+import * as CreateDomainGovernanceResponse from "./create-domain-governance-response";
+export import CreateDomainGovernanceResponse = CreateDomainGovernanceResponse.CreateDomainGovernanceResponse;
+import * as DeleteDomainGovernanceResponse from "./delete-domain-governance-response";
+export import DeleteDomainGovernanceResponse = DeleteDomainGovernanceResponse.DeleteDomainGovernanceResponse;
+import * as GetDomainGovernanceResponse from "./get-domain-governance-response";
+export import GetDomainGovernanceResponse = GetDomainGovernanceResponse.GetDomainGovernanceResponse;
+import * as ListDomainGovernancesResponse from "./list-domain-governances-response";
+export import ListDomainGovernancesResponse = ListDomainGovernancesResponse.ListDomainGovernancesResponse;
+import * as UpdateDomainGovernanceResponse from "./update-domain-governance-response";
+export import UpdateDomainGovernanceResponse = UpdateDomainGovernanceResponse.UpdateDomainGovernanceResponse;
 import * as DeleteLinkResponse from "./delete-link-response";
 export import DeleteLinkResponse = DeleteLinkResponse.DeleteLinkResponse;
 import * as GetLinkResponse from "./get-link-response";

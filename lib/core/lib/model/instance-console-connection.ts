@@ -23,7 +23,7 @@ import common = require("oci-common");
 * The `InstanceConsoleConnection` API provides you with console access to Compute instances,
 * enabling you to troubleshoot malfunctioning instances remotely.
 * <p>
-For more information about instance console connections, see [Troubleshooting Instances Using Instance Console Connections](https://docs.cloud.oracle.com/Content/Compute/References/serialconsole.htm).
+For more information about instance console connections, see [Troubleshooting Instances Using Instance Console Connections](https://docs.cloud.oracle.com/iaas/Content/Compute/References/serialconsole.htm).
 * 
 */
 export interface InstanceConsoleConnection {
@@ -37,7 +37,7 @@ export interface InstanceConsoleConnection {
   "connectionString"?: string;
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a
-* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 * 
@@ -49,7 +49,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
   "fingerprint"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
-* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: `{\"Department\": \"Finance\"}`
 * 

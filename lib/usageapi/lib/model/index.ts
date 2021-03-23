@@ -1,6 +1,6 @@
 /**
  * Usage API
- * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the dimension of your choosing. The Usage API is used by the Cost Analysis tool in the Console.
+ * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the dimension of your choosing. The Usage API is used by the Cost Analysis tool in the Console. Also see [Using the Usage API](/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
  * OpenAPI spec version: 20200107
  *
  *
@@ -15,14 +15,56 @@ import * as Configuration from "./configuration";
 export import Configuration = Configuration.Configuration;
 import * as ConfigurationAggregation from "./configuration-aggregation";
 export import ConfigurationAggregation = ConfigurationAggregation.ConfigurationAggregation;
+import * as CostAnalysisUI from "./cost-analysis-ui";
+export import CostAnalysisUI = CostAnalysisUI.CostAnalysisUI;
+import * as CreateCustomTableDetails from "./create-custom-table-details";
+export import CreateCustomTableDetails = CreateCustomTableDetails.CreateCustomTableDetails;
+import * as CreateQueryDetails from "./create-query-details";
+export import CreateQueryDetails = CreateQueryDetails.CreateQueryDetails;
+import * as CreateScheduleReportDetails from "./create-schedule-report-details";
+export import CreateScheduleReportDetails = CreateScheduleReportDetails.CreateScheduleReportDetails;
+import * as CustomTable from "./custom-table";
+export import CustomTable = CustomTable.CustomTable;
+import * as CustomTableCollection from "./custom-table-collection";
+export import CustomTableCollection = CustomTableCollection.CustomTableCollection;
+import * as CustomTableSummary from "./custom-table-summary";
+export import CustomTableSummary = CustomTableSummary.CustomTableSummary;
 import * as Dimension from "./dimension";
 export import Dimension = Dimension.Dimension;
 import * as Filter from "./filter";
 export import Filter = Filter.Filter;
+import * as Forecast from "./forecast";
+export import Forecast = Forecast.Forecast;
+import * as Query from "./query";
+export import Query = Query.Query;
+import * as QueryCollection from "./query-collection";
+export import QueryCollection = QueryCollection.QueryCollection;
+import * as QueryDefinition from "./query-definition";
+export import QueryDefinition = QueryDefinition.QueryDefinition;
+import * as QuerySummary from "./query-summary";
+export import QuerySummary = QuerySummary.QuerySummary;
+import * as ReportQuery from "./report-query";
+export import ReportQuery = ReportQuery.ReportQuery;
 import * as RequestSummarizedUsagesDetails from "./request-summarized-usages-details";
 export import RequestSummarizedUsagesDetails = RequestSummarizedUsagesDetails.RequestSummarizedUsagesDetails;
+import * as SavedCustomTable from "./saved-custom-table";
+export import SavedCustomTable = SavedCustomTable.SavedCustomTable;
+import * as SavedScheduleReport from "./saved-schedule-report";
+export import SavedScheduleReport = SavedScheduleReport.SavedScheduleReport;
+import * as ScheduleReport from "./schedule-report";
+export import ScheduleReport = ScheduleReport.ScheduleReport;
+import * as ScheduleReportCollection from "./schedule-report-collection";
+export import ScheduleReportCollection = ScheduleReportCollection.ScheduleReportCollection;
+import * as ScheduleReportSummary from "./schedule-report-summary";
+export import ScheduleReportSummary = ScheduleReportSummary.ScheduleReportSummary;
 import * as Tag from "./tag";
 export import Tag = Tag.Tag;
+import * as UpdateCustomTableDetails from "./update-custom-table-details";
+export import UpdateCustomTableDetails = UpdateCustomTableDetails.UpdateCustomTableDetails;
+import * as UpdateQueryDetails from "./update-query-details";
+export import UpdateQueryDetails = UpdateQueryDetails.UpdateQueryDetails;
+import * as UpdateScheduleReportDetails from "./update-schedule-report-details";
+export import UpdateScheduleReportDetails = UpdateScheduleReportDetails.UpdateScheduleReportDetails;
 import * as UsageAggregation from "./usage-aggregation";
 export import UsageAggregation = UsageAggregation.UsageAggregation;
 import * as UsageSummary from "./usage-summary";

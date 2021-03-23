@@ -21,7 +21,7 @@ import common = require("oci-common");
 
 /**
  * Contains the properties of the VNIC for an instance configuration. See {@link CreateVnicDetails}
- * and [Instance Configurations](https://docs.cloud.oracle.com/Content/Compute/Concepts/instancemanagement.htm#config) for more information.
+ * and [Instance Configurations](https://docs.cloud.oracle.com/iaas/Content/Compute/Concepts/instancemanagement.htm#config) for more information.
  *
  */
 export interface InstanceConfigurationCreateVnicDetails {
@@ -33,7 +33,7 @@ export interface InstanceConfigurationCreateVnicDetails {
   "assignPublicIp"?: boolean;
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a
-* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 * 
@@ -47,7 +47,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
   "displayName"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
-* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: `{\"Department\": \"Finance\"}`
 * 

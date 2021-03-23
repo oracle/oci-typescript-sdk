@@ -21,11 +21,11 @@ import common = require("oci-common");
 
 /**
 * A boot disk image for launching an instance. For more information, see
-* [Overview of the Compute Service](https://docs.cloud.oracle.com/Content/Compute/Concepts/computeoverview.htm).
+* [Overview of the Compute Service](https://docs.cloud.oracle.com/iaas/Content/Compute/Concepts/computeoverview.htm).
 * <p>
 To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized,
 * talk to an administrator. If you're an administrator who needs to write policies to give users access, see
-* [Getting Started with Policies](https://docs.cloud.oracle.com/Content/Identity/Concepts/policygetstarted.htm).
+* [Getting Started with Policies](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/policygetstarted.htm).
 * <p>
 **Warning:** Oracle recommends that you avoid using any confidential information when you
 * supply string values using the API.
@@ -51,7 +51,7 @@ Example: `true`
   "createImageAllowed": boolean;
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a
-* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 * 
@@ -69,7 +69,7 @@ Example: `My custom Oracle Linux image`
   "displayName"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
-* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: `{\"Department\": \"Finance\"}`
 * 
@@ -106,7 +106,11 @@ Example: `7.2`
   "operatingSystemVersion": string;
   "agentFeatures"?: model.InstanceAgentFeatures;
   /**
-    * The boot volume size for an instance launched from this image, (1 MB = 1048576 bytes).
+   * The listing type of the image. The default value is \"NONE\".
+   */
+  "listingType"?: Image.ListingType;
+  /**
+    * The boot volume size for an instance launched from this image (1 MB = 1,048,576 bytes).
 * Note this is not the same as the size of the image when it was exported or the actual size of the image.
 * <p>
 Example: `47694`
@@ -142,6 +146,16 @@ export namespace Image {
     Exporting = "EXPORTING",
     Disabled = "DISABLED",
     Deleted = "DELETED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ListingType {
+    Community = "COMMUNITY",
+    None = "NONE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

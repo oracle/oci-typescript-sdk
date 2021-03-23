@@ -16,8 +16,6 @@ import common = require("oci-common");
 
 /**
  * A DB System is the core logical unit of MySQL Database Service.
- * # NOTE: definitions/DbSystemSnapshot is a snapshot version of DbSystem which is stored during backup. Any
- * # addition/deletion of properties should also consider snapshot's definition
  *
  */
 export interface DbSystem {
@@ -43,11 +41,18 @@ export interface DbSystem {
    */
   "subnetId": string;
   /**
+   * DEPRECATED -- please use `isHeatWaveClusterAttached` instead.
    * If the DB System has an Analytics Cluster attached.
    *
    */
   "isAnalyticsClusterAttached"?: boolean;
   "analyticsCluster"?: model.AnalyticsClusterSummary;
+  /**
+   * If the DB System has a HeatWave Cluster attached.
+   *
+   */
+  "isHeatWaveClusterAttached"?: boolean;
+  "heatWaveCluster"?: model.HeatWaveClusterSummary;
   /**
    * The Availability Domain where the primary DB System should be located.
    *
@@ -172,6 +177,10 @@ export namespace DbSystem {
       ...{
         "analyticsCluster": obj.analyticsCluster
           ? model.AnalyticsClusterSummary.getJsonObj(obj.analyticsCluster)
+          : undefined,
+
+        "heatWaveCluster": obj.heatWaveCluster
+          ? model.HeatWaveClusterSummary.getJsonObj(obj.heatWaveCluster)
           : undefined,
 
         "backupPolicy": obj.backupPolicy

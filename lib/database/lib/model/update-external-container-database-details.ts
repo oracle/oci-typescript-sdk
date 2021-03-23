@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details for updating an external container database.
+ * Details for updating an external container database. This API is not currently supported.
  *
  */
 export interface UpdateExternalContainerDatabaseDetails {

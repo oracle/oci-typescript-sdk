@@ -16,6 +16,7 @@ import * as requests from "./request";
 import * as models from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
+import { MarketplaceWaiter } from "./marketplace-waiter";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 
 // ===============================================
@@ -28,6 +29,7 @@ export class MarketplaceClient {
   protected static serviceEndpointTemplate = "https://marketplace.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
+  protected "_waiters": MarketplaceWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
 
@@ -106,6 +108,92 @@ export class MarketplaceClient {
   }
 
   /**
+   * Creates a new MarketplaceWaiter for resources for this service.
+   *
+   * @param config The waiter configuration for termination and delay strategy
+   * @return The service waiters.
+   */
+  public createWaiters(config?: common.WaiterConfiguration): MarketplaceWaiter {
+    this._waiters = new MarketplaceWaiter(this, config);
+    return this._waiters;
+  }
+
+  /**
+   * Gets the waiters available for resources for this service.
+   *
+   * @return The service waiters.
+   */
+  public getWaiters(): MarketplaceWaiter {
+    if (this._waiters) {
+      return this._waiters;
+    }
+    throw Error("Waiters do not exist. Please create waiters.");
+  }
+
+  /**
+   * Changes the compartment of the Publication
+   * @param ChangePublicationCompartmentRequest
+   * @return ChangePublicationCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ChangePublicationCompartment.ts.html |here} to see how to use ChangePublicationCompartment API.
+   */
+  public async changePublicationCompartment(
+    changePublicationCompartmentRequest: requests.ChangePublicationCompartmentRequest
+  ): Promise<responses.ChangePublicationCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MarketplaceClient#changePublicationCompartment.");
+    const pathParams = {
+      "{publicationId}": changePublicationCompartmentRequest.publicationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changePublicationCompartmentRequest.opcRetryToken,
+      "opc-request-id": changePublicationCompartmentRequest.opcRequestId,
+      "if-match": changePublicationCompartmentRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/publications/{publicationId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changePublicationCompartmentRequest.changePublicationCompartmentDetails,
+        "ChangePublicationCompartmentDetails",
+        models.ChangePublicationCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changePublicationCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangePublicationCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Accepts a terms of use agreement for a specific package version of a listing. You must accept all
    * terms of use for a package before you can deploy the package.
    *
@@ -176,6 +264,73 @@ export class MarketplaceClient {
   }
 
   /**
+   * Creates a publication of the given type with an optional default package
+   * @param CreatePublicationRequest
+   * @return CreatePublicationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/CreatePublication.ts.html |here} to see how to use CreatePublication API.
+   */
+  public async createPublication(
+    createPublicationRequest: requests.CreatePublicationRequest
+  ): Promise<responses.CreatePublicationResponse> {
+    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#createPublication.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createPublicationRequest.opcRetryToken,
+      "opc-request-id": createPublicationRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/publications",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createPublicationRequest.createPublicationDetails,
+        "CreatePublicationDetails",
+        models.CreatePublicationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createPublicationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreatePublicationResponse>{},
+        body: await response.json(),
+        bodyKey: "publication",
+        bodyModel: "model.Publication",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Removes a previously accepted terms of use agreement from the list of agreements that Marketplace checks
    * before initiating a deployment. Listings in the Marketplace that require acceptance of the specified terms
    * of use can no longer be deployed, but existing deployments aren't affected.
@@ -222,6 +377,62 @@ export class MarketplaceClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAcceptedAgreementResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a Publication. This will also remove the associated Listing from Marketplace.
+   * @param DeletePublicationRequest
+   * @return DeletePublicationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/DeletePublication.ts.html |here} to see how to use DeletePublication API.
+   */
+  public async deletePublication(
+    deletePublicationRequest: requests.DeletePublicationRequest
+  ): Promise<responses.DeletePublicationResponse> {
+    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#deletePublication.");
+    const pathParams = {
+      "{publicationId}": deletePublicationRequest.publicationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deletePublicationRequest.ifMatch,
+      "opc-request-id": deletePublicationRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/publications/{publicationId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deletePublicationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeletePublicationResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -514,6 +725,134 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get details of a publication
+   * @param GetPublicationRequest
+   * @return GetPublicationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/GetPublication.ts.html |here} to see how to use GetPublication API.
+   */
+  public async getPublication(
+    getPublicationRequest: requests.GetPublicationRequest
+  ): Promise<responses.GetPublicationResponse> {
+    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#getPublication.");
+    const pathParams = {
+      "{publicationId}": getPublicationRequest.publicationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPublicationRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/publications/{publicationId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getPublicationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPublicationResponse>{},
+        body: await response.json(),
+        bodyKey: "publication",
+        bodyModel: "model.Publication",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of a specific package within a given Publication
+   * @param GetPublicationPackageRequest
+   * @return GetPublicationPackageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/GetPublicationPackage.ts.html |here} to see how to use GetPublicationPackage API.
+   */
+  public async getPublicationPackage(
+    getPublicationPackageRequest: requests.GetPublicationPackageRequest
+  ): Promise<responses.GetPublicationPackageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MarketplaceClient#getPublicationPackage.");
+    const pathParams = {
+      "{publicationId}": getPublicationPackageRequest.publicationId,
+      "{packageVersion}": getPublicationPackageRequest.packageVersion
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPublicationPackageRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/publications/{publicationId}/packages/{packageVersion}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getPublicationPackageRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPublicationPackageResponse>{},
+        body: await response.json(),
+        bodyKey: "publicationPackage",
+        bodyModel: "model.PublicationPackage",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -850,6 +1189,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       "category": listListingsRequest.category,
       "pricing": listListingsRequest.pricing,
       "isFeatured": listListingsRequest.isFeatured,
+      "listingTypes": listListingsRequest.listingTypes,
+      "operatingSystems": listListingsRequest.operatingSystems,
       "compartmentId": listListingsRequest.compartmentId
     };
 
@@ -1032,6 +1373,198 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     request: requests.ListPackagesRequest
   ): AsyncIterableIterator<responses.ListPackagesResponse> {
     return paginateResponses(request, req => this.listPackages(req));
+  }
+
+  /**
+   * Lists the packages in the given Publication
+   * @param ListPublicationPackagesRequest
+   * @return ListPublicationPackagesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListPublicationPackages.ts.html |here} to see how to use ListPublicationPackages API.
+   */
+  public async listPublicationPackages(
+    listPublicationPackagesRequest: requests.ListPublicationPackagesRequest
+  ): Promise<responses.ListPublicationPackagesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MarketplaceClient#listPublicationPackages.");
+    const pathParams = {
+      "{publicationId}": listPublicationPackagesRequest.publicationId
+    };
+
+    const queryParams = {
+      "packageVersion": listPublicationPackagesRequest.packageVersion,
+      "packageType": listPublicationPackagesRequest.packageType,
+      "sortBy": listPublicationPackagesRequest.sortBy,
+      "sortOrder": listPublicationPackagesRequest.sortOrder,
+      "limit": listPublicationPackagesRequest.limit,
+      "page": listPublicationPackagesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPublicationPackagesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/publications/{publicationId}/packages",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listPublicationPackagesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPublicationPackagesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "PublicationPackageSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PublicationPackageSummary objects
+   * contained in responses from the listPublicationPackages operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllPublicationPackages(
+    request: requests.ListPublicationPackagesRequest
+  ): AsyncIterableIterator<models.PublicationPackageSummary> {
+    return paginateRecords(request, req => this.listPublicationPackages(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listPublicationPackages operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllPublicationPackagesResponses(
+    request: requests.ListPublicationPackagesRequest
+  ): AsyncIterableIterator<responses.ListPublicationPackagesResponse> {
+    return paginateResponses(request, req => this.listPublicationPackages(req));
+  }
+
+  /**
+   * Lists the publications in the given compartment
+   * @param ListPublicationsRequest
+   * @return ListPublicationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListPublications.ts.html |here} to see how to use ListPublications API.
+   */
+  public async listPublications(
+    listPublicationsRequest: requests.ListPublicationsRequest
+  ): Promise<responses.ListPublicationsResponse> {
+    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listPublications.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listPublicationsRequest.compartmentId,
+      "name": listPublicationsRequest.name,
+      "listingType": listPublicationsRequest.listingType,
+      "publicationId": listPublicationsRequest.publicationId,
+      "operatingSystems": listPublicationsRequest.operatingSystems,
+      "sortBy": listPublicationsRequest.sortBy,
+      "sortOrder": listPublicationsRequest.sortOrder,
+      "limit": listPublicationsRequest.limit,
+      "page": listPublicationsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPublicationsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/publications",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listPublicationsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPublicationsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "PublicationSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PublicationSummary objects
+   * contained in responses from the listPublications operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllPublications(
+    request: requests.ListPublicationsRequest
+  ): AsyncIterableIterator<models.PublicationSummary> {
+    return paginateRecords(request, req => this.listPublications(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listPublications operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllPublicationsResponses(
+    request: requests.ListPublicationsRequest
+  ): AsyncIterableIterator<responses.ListPublicationsResponse> {
+    return paginateResponses(request, req => this.listPublications(req));
   }
 
   /**
@@ -1382,6 +1915,76 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates details of an existing Publication
+   * @param UpdatePublicationRequest
+   * @return UpdatePublicationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/UpdatePublication.ts.html |here} to see how to use UpdatePublication API.
+   */
+  public async updatePublication(
+    updatePublicationRequest: requests.UpdatePublicationRequest
+  ): Promise<responses.UpdatePublicationResponse> {
+    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#updatePublication.");
+    const pathParams = {
+      "{publicationId}": updatePublicationRequest.publicationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updatePublicationRequest.opcRequestId,
+      "opc-retry-token": updatePublicationRequest.opcRetryToken,
+      "if-match": updatePublicationRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/publications/{publicationId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updatePublicationRequest.updatePublicationDetails,
+        "UpdatePublicationDetails",
+        models.UpdatePublicationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updatePublicationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdatePublicationResponse>{},
+        body: await response.json(),
+        bodyKey: "publication",
+        bodyModel: "model.Publication",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

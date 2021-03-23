@@ -1,6 +1,6 @@
 {
   "name": "oci-integration",
-  "version": "1.16.2",
+  "version": "1.17.0",
   "description": "OCI NodeJS client for Integration service",
   "repository": {
     "type": "git",

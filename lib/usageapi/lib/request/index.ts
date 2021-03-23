@@ -1,6 +1,6 @@
 /**
  * Usage API
- * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the dimension of your choosing. The Usage API is used by the Cost Analysis tool in the Console.
+ * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the dimension of your choosing. The Usage API is used by the Cost Analysis tool in the Console. Also see [Using the Usage API](/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
  * OpenAPI spec version: 20200107
  *
  *
@@ -11,7 +11,17 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as CreateQueryRequest from "./create-query-request";
+export import CreateQueryRequest = CreateQueryRequest.CreateQueryRequest;
+import * as DeleteQueryRequest from "./delete-query-request";
+export import DeleteQueryRequest = DeleteQueryRequest.DeleteQueryRequest;
+import * as GetQueryRequest from "./get-query-request";
+export import GetQueryRequest = GetQueryRequest.GetQueryRequest;
+import * as ListQueriesRequest from "./list-queries-request";
+export import ListQueriesRequest = ListQueriesRequest.ListQueriesRequest;
 import * as RequestSummarizedConfigurationsRequest from "./request-summarized-configurations-request";
 export import RequestSummarizedConfigurationsRequest = RequestSummarizedConfigurationsRequest.RequestSummarizedConfigurationsRequest;
 import * as RequestSummarizedUsagesRequest from "./request-summarized-usages-request";
 export import RequestSummarizedUsagesRequest = RequestSummarizedUsagesRequest.RequestSummarizedUsagesRequest;
+import * as UpdateQueryRequest from "./update-query-request";
+export import UpdateQueryRequest = UpdateQueryRequest.UpdateQueryRequest;

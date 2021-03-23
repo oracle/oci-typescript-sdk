@@ -1,6 +1,6 @@
 /**
- * TenantManager API
- * A description of the TenantManager API
+ * Organizations API
+ * The Organizations API allows you to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and its resources.
  * OpenAPI spec version: 20200801
  *
  *
@@ -19,17 +19,17 @@ import common = require("oci-common");
  */
 export interface WorkRequestError {
   /**
-   * A machine-usable code for the error that occured. Error codes are listed on
-   * (https://docs.us-phoenix-1.oraclecloud.com/Content/API/References/apierrors.htm).
+   * A machine-usable code for the error that occured. Error codes are listed in
+   * [API Errors](https://docs.cloud.oracle.com/iaas/Content/API/References/apierrors.htm).
    *
    */
   "code": string;
   /**
-   * A human readable description of the issue encountered.
+   * A human-readable description of the issue encountered.
    */
   "message": string;
   /**
-   * The time the error occured. An RFC3339 formatted datetime string.
+   * The time the error occured. An RFC3339-formatted date and time string.
    */
   "timestamp": Date;
 }

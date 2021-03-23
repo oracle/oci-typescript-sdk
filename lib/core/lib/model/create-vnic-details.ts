@@ -49,14 +49,14 @@ export interface CreateVnicDetails {
 * <p>
 Example: `false`
 * <p>
-If you specify a `vlanId`, the `assignPublicIp` is required to be set to false. See
+If you specify a `vlanId`, then `assignPublicIp` must be set to false. See
 * {@link Vlan}.
 * 
     */
   "assignPublicIp"?: boolean;
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a
-* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 * 
@@ -70,7 +70,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
   "displayName"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
-* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: `{\"Department\": \"Finance\"}`
 * 
@@ -98,8 +98,8 @@ When launching an instance, use this `hostnameLabel` instead
 * <p>
 Example: `bminstance-1`
 * <p>
-If you specify a `vlanId`, the `hostnameLabel` cannot be specified. vnics on a Vlan
-* can not be assigned a hostname  See {@link Vlan}.
+If you specify a `vlanId`, the `hostnameLabel` cannot be specified. VNICs on a VLAN
+* can not be assigned a hostname. See {@link Vlan}.
 * 
     */
   "hostnameLabel"?: string;

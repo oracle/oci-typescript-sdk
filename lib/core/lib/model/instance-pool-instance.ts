@@ -20,15 +20,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Instance data along with the lifecycleState of instance to instance pool attachment.
+ * Information about an instance that belongs to an instance pool.
  */
 export interface InstancePoolInstance {
   /**
-   * The OCID of the instance.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the instance.
    */
   "id": string;
   /**
-   * The OCID of the instance pool.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the instance pool.
    */
   "instancePoolId": string;
   /**
@@ -36,11 +36,13 @@ export interface InstancePoolInstance {
    */
   "availabilityDomain": string;
   /**
-   * the lifecycle state of the instance in the instance pool
+   * The attachment state of the instance in relation to the instance pool.
    */
   "lifecycleState": InstancePoolInstance.LifecycleState;
   /**
-   * The OCID of the compartment that contains the instance.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the
+   * instance.
+   *
    */
   "compartmentId": string;
   /**
@@ -52,7 +54,9 @@ export interface InstancePoolInstance {
    */
   "faultDomain"?: string;
   /**
-   * The OCID of the instance configuration used to create the instance.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the instance configuration
+   * used to create the instance.
+   *
    */
   "instanceConfigurationId": string;
   /**
@@ -60,15 +64,13 @@ export interface InstancePoolInstance {
    */
   "region": string;
   /**
-    * The shape of an instance. The shape determines the number of CPUs, amount of memory,
-* and other resources allocated to the instance.
-* <p>
-You can enumerate all available shapes by calling {@link #listShapes(ListShapesRequest) listShapes}.
-* 
-    */
+   * The shape of the instance. The shape determines the number of CPUs, amount of memory,
+   * and other resources allocated to the instance.
+   *
+   */
   "shape": string;
   /**
-   * The lifecycleState of the underlying instance. Refer lifecycleState in {@link Instance}
+   * The lifecycle state of the instance. Refer to `lifecycleState` in the {@link Instance} resource.
    */
   "state": string;
   /**
@@ -78,7 +80,7 @@ You can enumerate all available shapes by calling {@link #listShapes(ListShapesR
    */
   "timeCreated": Date;
   /**
-   * The load balancer backends that are configured for the instance pool instance.
+   * The load balancer backends that are configured for the instance.
    *
    */
   "loadBalancerBackends"?: Array<model.InstancePoolInstanceLoadBalancerBackend>;

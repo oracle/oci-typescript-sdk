@@ -146,6 +146,7 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
   "refreshableMode"?: UpdateAutonomousDatabaseDetails.RefreshableMode;
   /**
    * Indicates whether the Autonomous Database has Data Guard enabled.
+   *
    */
   "isDataGuardEnabled"?: boolean;
   /**

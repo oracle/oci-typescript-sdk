@@ -1,6 +1,6 @@
 /**
  * Usage API
- * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the dimension of your choosing. The Usage API is used by the Cost Analysis tool in the Console.
+ * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the dimension of your choosing. The Usage API is used by the Cost Analysis tool in the Console. Also see [Using the Usage API](/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
  * OpenAPI spec version: 20200107
  *
  *
@@ -102,6 +102,263 @@ export class UsageapiClient {
       UsageapiClient.serviceEndpointTemplate,
       regionId
     );
+  }
+
+  /**
+   * Returns the created query.
+   *
+   * @param CreateQueryRequest
+   * @return CreateQueryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/CreateQuery.ts.html |here} to see how to use CreateQuery API.
+   */
+  public async createQuery(
+    createQueryRequest: requests.CreateQueryRequest
+  ): Promise<responses.CreateQueryResponse> {
+    if (this.logger) this.logger.debug("Calling operation UsageapiClient#createQuery.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createQueryRequest.opcRequestId,
+      "opc-retry-token": createQueryRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/queries",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createQueryRequest.createQueryDetails,
+        "CreateQueryDetails",
+        models.CreateQueryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createQueryRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateQueryResponse>{},
+        body: await response.json(),
+        bodyKey: "query",
+        bodyModel: "model.Query",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete a saved query by the OCID.
+   *
+   * @param DeleteQueryRequest
+   * @return DeleteQueryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/DeleteQuery.ts.html |here} to see how to use DeleteQuery API.
+   */
+  public async deleteQuery(
+    deleteQueryRequest: requests.DeleteQueryRequest
+  ): Promise<responses.DeleteQueryResponse> {
+    if (this.logger) this.logger.debug("Calling operation UsageapiClient#deleteQuery.");
+    const pathParams = {
+      "{queryId}": deleteQueryRequest.queryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteQueryRequest.opcRequestId,
+      "if-match": deleteQueryRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/queries/{queryId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteQueryRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteQueryResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the saved query.
+   *
+   * @param GetQueryRequest
+   * @return GetQueryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/GetQuery.ts.html |here} to see how to use GetQuery API.
+   */
+  public async getQuery(
+    getQueryRequest: requests.GetQueryRequest
+  ): Promise<responses.GetQueryResponse> {
+    if (this.logger) this.logger.debug("Calling operation UsageapiClient#getQuery.");
+    const pathParams = {
+      "{queryId}": getQueryRequest.queryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getQueryRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/queries/{queryId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getQueryRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetQueryResponse>{},
+        body: await response.json(),
+        bodyKey: "query",
+        bodyModel: "model.Query",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the saved query list.
+   *
+   * @param ListQueriesRequest
+   * @return ListQueriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/ListQueries.ts.html |here} to see how to use ListQueries API.
+   */
+  public async listQueries(
+    listQueriesRequest: requests.ListQueriesRequest
+  ): Promise<responses.ListQueriesResponse> {
+    if (this.logger) this.logger.debug("Calling operation UsageapiClient#listQueries.");
+    const pathParams = {};
+
+    const queryParams = {
+      "limit": listQueriesRequest.limit,
+      "page": listQueriesRequest.page,
+      "compartmentId": listQueriesRequest.compartmentId,
+      "sortBy": listQueriesRequest.sortBy,
+      "sortOrder": listQueriesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listQueriesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/queries",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listQueriesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListQueriesResponse>{},
+        body: await response.json(),
+        bodyKey: "queryCollection",
+        bodyModel: "model.QueryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -223,6 +480,76 @@ export class UsageapiClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update a saved query by the OCID.
+   *
+   * @param UpdateQueryRequest
+   * @return UpdateQueryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/UpdateQuery.ts.html |here} to see how to use UpdateQuery API.
+   */
+  public async updateQuery(
+    updateQueryRequest: requests.UpdateQueryRequest
+  ): Promise<responses.UpdateQueryResponse> {
+    if (this.logger) this.logger.debug("Calling operation UsageapiClient#updateQuery.");
+    const pathParams = {
+      "{queryId}": updateQueryRequest.queryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateQueryRequest.opcRequestId,
+      "if-match": updateQueryRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/queries/{queryId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateQueryRequest.updateQueryDetails,
+        "UpdateQueryDetails",
+        models.UpdateQueryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateQueryRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateQueryResponse>{},
+        body: await response.json(),
+        bodyKey: "query",
+        bodyModel: "model.Query",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]

@@ -23,7 +23,7 @@ export interface DeleteAppCatalogSubscriptionRequest extends common.BaseRequest 
    */
   "listingId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId": string;
   /**

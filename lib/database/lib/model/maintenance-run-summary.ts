@@ -37,7 +37,8 @@ export interface MaintenanceRunSummary {
    */
   "description"?: string;
   /**
-   * The current state of the maintenance run.
+   * The current state of the maintenance run. For Autonomous Database on shared Exadata infrastructure, valid states are IN_PROGRESS, SUCCEEDED and FAILED.
+   *
    */
   "lifecycleState": MaintenanceRunSummary.LifecycleState;
   /**
@@ -106,6 +107,7 @@ export namespace MaintenanceRunSummary {
     ExadataDbSystem = "EXADATA_DB_SYSTEM",
     CloudExadataInfrastructure = "CLOUD_EXADATA_INFRASTRUCTURE",
     ExaccInfrastructure = "EXACC_INFRASTRUCTURE",
+    AutonomousDatabase = "AUTONOMOUS_DATABASE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -127,6 +129,8 @@ export namespace MaintenanceRunSummary {
     Quarterly = "QUARTERLY",
     Hardware = "HARDWARE",
     Critical = "CRITICAL",
+    Infrastructure = "INFRASTRUCTURE",
+    Database = "DATABASE",
     Oneoff = "ONEOFF",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

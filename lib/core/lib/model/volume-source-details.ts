@@ -19,6 +19,12 @@ block storage volumes.
 import * as model from "../model";
 import common = require("oci-common");
 
+/**
+ * Specifies the volume source details for a new Block volume. The volume source is either another Block volume in the same Availability Domain or a Block volume backup.
+ * This is an optional field. If not specified or set to null, the new Block volume will be empty.
+ * When specified, the new Block volume will contain data from the source volume or backup.
+ *
+ */
 export interface VolumeSourceDetails {
   "type": string;
 }

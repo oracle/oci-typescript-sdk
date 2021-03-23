@@ -1,6 +1,6 @@
 /**
- * TenantManager API
- * A description of the TenantManager API
+ * Organizations API
+ * The Organizations API allows you to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and its resources.
  * OpenAPI spec version: 20200801
  *
  *
@@ -13,8 +13,24 @@
 
 import * as ActionType from "./action-type";
 export import ActionType = ActionType.ActionType;
+import * as CreateDomainDetails from "./create-domain-details";
+export import CreateDomainDetails = CreateDomainDetails.CreateDomainDetails;
+import * as CreateDomainGovernanceDetails from "./create-domain-governance-details";
+export import CreateDomainGovernanceDetails = CreateDomainGovernanceDetails.CreateDomainGovernanceDetails;
 import * as CreateSenderInvitationDetails from "./create-sender-invitation-details";
 export import CreateSenderInvitationDetails = CreateSenderInvitationDetails.CreateSenderInvitationDetails;
+import * as Domain from "./domain";
+export import Domain = Domain.Domain;
+import * as DomainCollection from "./domain-collection";
+export import DomainCollection = DomainCollection.DomainCollection;
+import * as DomainGovernance from "./domain-governance";
+export import DomainGovernance = DomainGovernance.DomainGovernance;
+import * as DomainGovernanceCollection from "./domain-governance-collection";
+export import DomainGovernanceCollection = DomainGovernanceCollection.DomainGovernanceCollection;
+import * as DomainGovernanceSummary from "./domain-governance-summary";
+export import DomainGovernanceSummary = DomainGovernanceSummary.DomainGovernanceSummary;
+import * as DomainSummary from "./domain-summary";
+export import DomainSummary = DomainSummary.DomainSummary;
 import * as LifecycleState from "./lifecycle-state";
 export import LifecycleState = LifecycleState.LifecycleState;
 import * as Link from "./link";
@@ -45,6 +61,10 @@ import * as SenderInvitationSummary from "./sender-invitation-summary";
 export import SenderInvitationSummary = SenderInvitationSummary.SenderInvitationSummary;
 import * as SortOrder from "./sort-order";
 export import SortOrder = SortOrder.SortOrder;
+import * as UpdateDomainDetails from "./update-domain-details";
+export import UpdateDomainDetails = UpdateDomainDetails.UpdateDomainDetails;
+import * as UpdateDomainGovernanceDetails from "./update-domain-governance-details";
+export import UpdateDomainGovernanceDetails = UpdateDomainGovernanceDetails.UpdateDomainGovernanceDetails;
 import * as UpdateRecipientInvitationDetails from "./update-recipient-invitation-details";
 export import UpdateRecipientInvitationDetails = UpdateRecipientInvitationDetails.UpdateRecipientInvitationDetails;
 import * as UpdateSenderInvitationDetails from "./update-sender-invitation-details";

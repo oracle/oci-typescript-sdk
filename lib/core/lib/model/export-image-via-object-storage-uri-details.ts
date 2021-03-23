@@ -22,8 +22,8 @@ import common = require("oci-common");
 export interface ExportImageViaObjectStorageUriDetails extends model.ExportImageDetails {
   /**
    * The Object Storage URL to export the image to. See [Object
-   * Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/imageimportexport.htm#URLs)
-   * and [Using Pre-Authenticated Requests](https://docs.cloud.oracle.com/Content/Object/Tasks/usingpreauthenticatedrequests.htm)
+   * Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/imageimportexport.htm#URLs)
+   * and [Using Pre-Authenticated Requests](https://docs.cloud.oracle.com/iaas/Content/Object/Tasks/usingpreauthenticatedrequests.htm)
    * for constructing URLs for image import/export.
    *
    */

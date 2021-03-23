@@ -33,6 +33,13 @@ Example: `Uocm:PHX-AD-1`
     */
   "availabilityDomain": string;
   /**
+   * The OCID of the compute capacity reservation this instance is launched under.
+   * You can opt out of all default reservations by specifying an empty string as input for this field.
+   * For more information, see [Capacity Reservations](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/reserve-capacity.htm#default).
+   *
+   */
+  "capacityReservationId"?: string;
+  /**
    * The OCID of the compartment.
    */
   "compartmentId": string;
@@ -44,7 +51,7 @@ Example: `Uocm:PHX-AD-1`
   "dedicatedVmHostId"?: string;
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a
-* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 * 
@@ -90,7 +97,7 @@ Example: `FAULT-DOMAIN-1`
   "faultDomain"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
-* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: `{\"Department\": \"Finance\"}`
 * 
@@ -131,7 +138,7 @@ The default iPXE script connects to the instance's local boot
 * <p>
 For more information about the Bring Your Own Image feature of
 * Oracle Cloud Infrastructure, see
-* [Bring Your Own Image](https://docs.cloud.oracle.com/Content/Compute/References/bringyourownimage.htm).
+* [Bring Your Own Image](https://docs.cloud.oracle.com/iaas/Content/Compute/References/bringyourownimage.htm).
 * <p>
 For more information about iPXE, see http://ipxe.org.
 * 

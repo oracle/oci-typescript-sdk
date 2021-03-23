@@ -1,6 +1,6 @@
 /**
- * TenantManager API
- * A description of the TenantManager API
+ * Organizations API
+ * The Organizations API allows you to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and its resources.
  * OpenAPI spec version: 20200801
  *
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A description of workrequest status.
+ * A description of work request status.
  */
 export interface WorkRequest {
   /**
@@ -31,10 +31,7 @@ export interface WorkRequest {
    */
   "id": string;
   /**
-   * The ocid of the compartment that contains the work request. Work requests should be scoped to
-   * the same compartment as the resource the work request affects. If the work request affects multiple resources,
-   * and those resources are not in the same compartment, it is up to the service team to pick the primary
-   * resource whose compartment should be used.
+   * The OCID of the compartment that contains the work request.
    *
    */
   "compartmentId": string;

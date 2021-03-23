@@ -20,12 +20,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Contains an instance and availability domain information for attaching an instance to the pool.
+ * An instance that is to be attached to an instance pool.
  *
  */
 export interface AttachInstancePoolInstanceDetails {
   /**
-   * the instance ocid to attach.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the instance.
    */
   "instanceId": string;
 }

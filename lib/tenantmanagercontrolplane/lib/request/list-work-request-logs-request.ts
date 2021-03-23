@@ -23,10 +23,6 @@ export interface ListWorkRequestLogsRequest extends common.BaseRequest {
    */
   "workRequestId": string;
   /**
-   * The ID of the compartment in which to list resources.
-   */
-  "compartmentId": string;
-  /**
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
@@ -39,7 +35,7 @@ export interface ListWorkRequestLogsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The sort order to use, either 'asc' or 'desc'.
+   * The sort order to use, whether 'asc' or 'desc'.
    */
   "sortOrder"?: model.SortOrder;
 }

@@ -20,8 +20,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The platform configuration for the instance. The type of platform configuration is
- * determined by the `type`.
+ * The platform configuration for the instance.
  *
  */
 export interface PlatformConfig {

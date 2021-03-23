@@ -15,6 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * DEPRECATED -- please use HeatWave API instead.
  * Schema with estimated memory footprints for each MySQL user table
  * of the schema when loaded to Analytics Cluster memory.
  *

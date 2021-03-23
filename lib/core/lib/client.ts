@@ -146,7 +146,7 @@ export class BlockstorageClient {
   /**
    * Moves a boot volume backup into a different compartment within the same tenancy.
    * For information about moving resources between compartments,
-   * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * @param ChangeBootVolumeBackupCompartmentRequest
    * @return ChangeBootVolumeBackupCompartmentResponse
@@ -215,7 +215,7 @@ export class BlockstorageClient {
   /**
    * Moves a boot volume into a different compartment within the same tenancy.
    * For information about moving resources between compartments,
-   * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * @param ChangeBootVolumeCompartmentRequest
    * @return ChangeBootVolumeCompartmentResponse
@@ -284,7 +284,7 @@ export class BlockstorageClient {
   /**
    * Moves a volume backup into a different compartment within the same tenancy.
    * For information about moving resources between compartments,
-   * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * @param ChangeVolumeBackupCompartmentRequest
    * @return ChangeVolumeBackupCompartmentResponse
@@ -353,7 +353,7 @@ export class BlockstorageClient {
   /**
    * Moves a volume into a different compartment within the same tenancy.
    * For information about moving resources between compartments,
-   * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * @param ChangeVolumeCompartmentRequest
    * @return ChangeVolumeCompartmentResponse
@@ -422,7 +422,7 @@ export class BlockstorageClient {
   /**
    * Moves a volume group backup into a different compartment within the same tenancy.
    * For information about moving resources between compartments,
-   * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * @param ChangeVolumeGroupBackupCompartmentRequest
    * @return ChangeVolumeGroupBackupCompartmentResponse
@@ -491,7 +491,7 @@ export class BlockstorageClient {
   /**
    * Moves a volume group into a different compartment within the same tenancy.
    * For information about moving resources between compartments,
-   * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * @param ChangeVolumeGroupCompartmentRequest
    * @return ChangeVolumeGroupCompartmentResponse
@@ -559,7 +559,7 @@ export class BlockstorageClient {
 
   /**
    * Creates a boot volume backup copy in specified region. For general information about volume backups,
-   * see [Overview of Boot Volume Backups](https://docs.cloud.oracle.com/Content/Block/Concepts/bootvolumebackups.htm)
+   * see [Overview of Boot Volume Backups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/bootvolumebackups.htm)
    *
    * @param CopyBootVolumeBackupRequest
    * @return CopyBootVolumeBackupResponse
@@ -631,7 +631,7 @@ export class BlockstorageClient {
 
   /**
    * Creates a volume backup copy in specified region. For general information about volume backups,
-   * see [Overview of Block Volume Service Backups](https://docs.cloud.oracle.com/Content/Block/Concepts/blockvolumebackups.htm)
+   * see [Overview of Block Volume Service Backups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/blockvolumebackups.htm)
    *
    * @param CopyVolumeBackupRequest
    * @return CopyVolumeBackupResponse
@@ -702,7 +702,7 @@ export class BlockstorageClient {
 
   /**
    * Creates a new boot volume in the specified compartment from an existing boot volume or a boot volume backup.
-   * For general information about boot volumes, see [Boot Volumes](https://docs.cloud.oracle.com/Content/Block/Concepts/bootvolumes.htm).
+   * For general information about boot volumes, see [Boot Volumes](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/bootvolumes.htm).
    * You may optionally specify a *display name* for the volume, which is simply a friendly name or
    * description. It does not have to be unique, and you can change it. Avoid entering confidential information.
    *
@@ -772,7 +772,7 @@ export class BlockstorageClient {
 
   /**
      * Creates a new boot volume backup of the specified boot volume. For general information about boot volume backups,
-* see [Overview of Boot Volume Backups](https://docs.cloud.oracle.com/Content/Block/Concepts/bootvolumebackups.htm)
+* see [Overview of Boot Volume Backups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/bootvolumebackups.htm)
 * <p>
 When the request is received, the backup object is in a REQUEST_RECEIVED state.
 * When the data is imaged, it goes into a CREATING state.
@@ -847,12 +847,12 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
      * Creates a new volume in the specified compartment. Volumes can be created in sizes ranging from
 * 50 GB (51200 MB) to 32 TB (33554432 MB), in 1 GB (1024 MB) increments. By default, volumes are 1 TB (1048576 MB).
 * For general information about block volumes, see
-* [Overview of Block Volume Service](https://docs.cloud.oracle.com/Content/Block/Concepts/overview.htm).
+* [Overview of Block Volume Service](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/overview.htm).
 * <p>
 A volume and instance can be in separate compartments but must be in the same availability domain.
 * For information about access control and compartments, see
-* [Overview of the IAM Service](https://docs.cloud.oracle.com/Content/Identity/Concepts/overview.htm). For information about
-* availability domains, see [Regions and Availability Domains](https://docs.cloud.oracle.com/Content/General/Concepts/regions.htm).
+* [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm). For information about
+* availability domains, see [Regions and Availability Domains](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/regions.htm).
 * To get a list of availability domains, use the `ListAvailabilityDomains` operation
 * in the Identity and Access Management Service API.
 * <p>
@@ -925,7 +925,7 @@ You may optionally specify a *display name* for the volume, which is simply a fr
 
   /**
      * Creates a new backup of the specified volume. For general information about volume backups,
-* see [Overview of Block Volume Service Backups](https://docs.cloud.oracle.com/Content/Block/Concepts/blockvolumebackups.htm)
+* see [Overview of Block Volume Service Backups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/blockvolumebackups.htm)
 * <p>
 When the request is received, the backup object is in a REQUEST_RECEIVED state.
 * When the data is imaged, it goes into a CREATING state.
@@ -1143,7 +1143,7 @@ For more information about Oracle defined backup policies and user defined backu
 * You may optionally specify a *display name* for the volume group, which is simply a friendly name or
 * description. It does not have to be unique, and you can change it. Avoid entering confidential information.
 * <p>
-For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/Block/Concepts/volumegroups.htm).
+For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
 * 
      * @param CreateVolumeGroupRequest
      * @return CreateVolumeGroupResponse
@@ -1211,7 +1211,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
 
   /**
    * Creates a new backup volume group of the specified volume group.
-   * For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/Block/Concepts/volumegroups.htm).
+   * For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
    *
    * @param CreateVolumeGroupBackupRequest
    * @return CreateVolumeGroupBackupResponse
@@ -1281,7 +1281,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   /**
    * Deletes the specified boot volume. The volume cannot have an active connection to an instance.
    * To disconnect the boot volume from a connected instance, see
-   * [Disconnecting From a Boot Volume](https://docs.cloud.oracle.com/Content/Block/Tasks/deletingbootvolume.htm).
+   * [Disconnecting From a Boot Volume](https://docs.cloud.oracle.com/iaas/Content/Block/Tasks/deletingbootvolume.htm).
    * **Warning:** All data on the boot volume will be permanently lost when the boot volume is deleted.
    *
    * @param DeleteBootVolumeRequest
@@ -1453,7 +1453,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   /**
    * Deletes the specified volume. The volume cannot have an active connection to an instance.
    * To disconnect the volume from a connected instance, see
-   * [Disconnecting From a Volume](https://docs.cloud.oracle.com/Content/Block/Tasks/disconnectingfromavolume.htm).
+   * [Disconnecting From a Volume](https://docs.cloud.oracle.com/iaas/Content/Block/Tasks/disconnectingfromavolume.htm).
    * **Warning:** All data on the volume will be permanently lost when the volume is deleted.
    *
    * @param DeleteVolumeRequest
@@ -1684,7 +1684,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
 
   /**
    * Deletes the specified volume group. Individual volumes are not deleted, only the volume group is deleted.
-   * For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/Block/Concepts/volumegroups.htm).
+   * For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
    *
    * @param DeleteVolumeGroupRequest
    * @return DeleteVolumeGroupResponse
@@ -1741,7 +1741,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
 
   /**
    * Deletes a volume group backup. This operation deletes all the backups in
-   * the volume group. For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/Block/Concepts/volumegroups.htm).
+   * the volume group. For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
    *
    * @param DeleteVolumeGroupBackupRequest
    * @return DeleteVolumeGroupBackupResponse
@@ -2387,7 +2387,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   }
 
   /**
-   * Gets information for the specified volume group. For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/Block/Concepts/volumegroups.htm).
+   * Gets information for the specified volume group. For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
    * @param GetVolumeGroupRequest
    * @return GetVolumeGroupResponse
    * @throws OciError when an error occurs
@@ -2449,7 +2449,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   }
 
   /**
-   * Gets information for the specified volume group backup. For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/Block/Concepts/volumegroups.htm).
+   * Gets information for the specified volume group backup. For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
    * @param GetVolumeGroupBackupRequest
    * @return GetVolumeGroupBackupResponse
    * @throws OciError when an error occurs
@@ -2956,7 +2956,7 @@ For more information about Oracle defined backup policies and user defined backu
 
   /**
    * Lists the volume group backups in the specified compartment. You can filter the results by volume group.
-   * For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/Block/Concepts/volumegroups.htm).
+   * For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
    *
    * @param ListVolumeGroupBackupsRequest
    * @return ListVolumeGroupBackupsResponse
@@ -3052,7 +3052,7 @@ For more information about Oracle defined backup policies and user defined backu
 
   /**
    * Lists the volume groups in the specified compartment and availability domain.
-   * For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/Block/Concepts/volumegroups.htm).
+   * For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
    *
    * @param ListVolumeGroupsRequest
    * @return ListVolumeGroupsResponse
@@ -3663,7 +3663,7 @@ For more information about Oracle defined backup policies and user defined backu
 * volume group. If the volume ID is not specified in the call, it will be removed from the volume group.
 * Avoid entering confidential information.
 * <p>
-For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/Block/Concepts/volumegroups.htm).
+For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
 * 
      * @param UpdateVolumeGroupRequest
      * @return UpdateVolumeGroupResponse
@@ -3732,7 +3732,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/
   }
 
   /**
-   * Updates the display name for the specified volume group backup. For more information, see [Volume Groups](https://docs.cloud.oracle.com/Content/Block/Concepts/volumegroups.htm).
+   * Updates the display name for the specified volume group backup. For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
    * @param UpdateVolumeGroupBackupRequest
    * @return UpdateVolumeGroupBackupResponse
    * @throws OciError when an error occurs
@@ -4109,7 +4109,7 @@ export class ComputeClient {
   /**
    * Creates a secondary VNIC and attaches it to the specified instance.
    * For more information about secondary VNICs, see
-   * [Virtual Network Interface Cards (VNICs)](https://docs.cloud.oracle.com/Content/Network/Tasks/managingVNICs.htm).
+   * [Virtual Network Interface Cards (VNICs)](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingVNICs.htm).
    *
    * @param AttachVnicRequest
    * @return AttachVnicResponse
@@ -4314,6 +4314,80 @@ The `CaptureConsoleHistory` operation works with the other console history opera
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a compute capacity reservation into a different compartment. For information about
+   * moving resources between compartments, see
+   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * @param ChangeComputeCapacityReservationCompartmentRequest
+   * @return ChangeComputeCapacityReservationCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeComputeCapacityReservationCompartment.ts.html |here} to see how to use ChangeComputeCapacityReservationCompartment API.
+   */
+  public async changeComputeCapacityReservationCompartment(
+    changeComputeCapacityReservationCompartmentRequest: requests.ChangeComputeCapacityReservationCompartmentRequest
+  ): Promise<responses.ChangeComputeCapacityReservationCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeClient#changeComputeCapacityReservationCompartment."
+      );
+    const pathParams = {
+      "{capacityReservationId}":
+        changeComputeCapacityReservationCompartmentRequest.capacityReservationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeComputeCapacityReservationCompartmentRequest.ifMatch,
+      "opc-request-id": changeComputeCapacityReservationCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeComputeCapacityReservationCompartmentRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeCapacityReservations/{capacityReservationId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeComputeCapacityReservationCompartmentRequest.changeComputeCapacityReservationCompartmentDetails,
+        "ChangeComputeCapacityReservationCompartmentDetails",
+        models.ChangeComputeCapacityReservationCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeComputeCapacityReservationCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeComputeCapacityReservationCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -4686,6 +4760,89 @@ When you move an instance to a different compartment, associated resources such 
   }
 
   /**
+   * Creates a new compute capacity reservation in the specified compartment and availability domain.
+   * Compute capacity reservations let you reserve instances in a compartment.
+   * When you launch an instance using this reservation, you are assured that you have enough space for your instance,
+   * and you won't get out of capacity errors.
+   * For more information, see [Reserved Capacity](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/reserve-capacity.htm).
+   *
+   * @param CreateComputeCapacityReservationRequest
+   * @return CreateComputeCapacityReservationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateComputeCapacityReservation.ts.html |here} to see how to use CreateComputeCapacityReservation API.
+   */
+  public async createComputeCapacityReservation(
+    createComputeCapacityReservationRequest: requests.CreateComputeCapacityReservationRequest
+  ): Promise<responses.CreateComputeCapacityReservationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#createComputeCapacityReservation.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createComputeCapacityReservationRequest.opcRequestId,
+      "opc-retry-token": createComputeCapacityReservationRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeCapacityReservations",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createComputeCapacityReservationRequest.createComputeCapacityReservationDetails,
+        "CreateComputeCapacityReservationDetails",
+        models.CreateComputeCapacityReservationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createComputeCapacityReservationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateComputeCapacityReservationResponse>{},
+        body: await response.json(),
+        bodyKey: "computeCapacityReservation",
+        bodyModel: "model.ComputeCapacityReservation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates compute image capability schema.
    *
    * @param CreateComputeImageCapabilitySchemaRequest
@@ -4834,7 +4991,7 @@ When you move an instance to a different compartment, associated resources such 
 * <p>
 When creating a new image, you must provide the OCID of the instance you want to use as the basis for the image, and
 * the OCID of the compartment containing that instance. For more information about images,
-* see [Managing Custom Images](https://docs.cloud.oracle.com/Content/Compute/Tasks/managingcustomimages.htm).
+* see [Managing Custom Images](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingcustomimages.htm).
 * <p>
 When importing an exported image from Object Storage, you specify the source information
 * in {@link #imageSourceDetails(ImageSourceDetailsRequest) imageSourceDetails}.
@@ -4844,11 +5001,11 @@ When importing an image based on the namespace, bucket name, and object name,
 * <p>
 When importing an image based on the Object Storage URL, use
 * {@link #imageSourceViaObjectStorageUriDetails(ImageSourceViaObjectStorageUriDetailsRequest) imageSourceViaObjectStorageUriDetails}.
-* See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/imageimportexport.htm#URLs) and [Using Pre-Authenticated Requests](https://docs.cloud.oracle.com/Content/Object/Tasks/usingpreauthenticatedrequests.htm)
+* See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/imageimportexport.htm#URLs) and [Using Pre-Authenticated Requests](https://docs.cloud.oracle.com/iaas/Content/Object/Tasks/usingpreauthenticatedrequests.htm)
 * for constructing URLs for image import/export.
 * <p>
 For more information about importing exported images, see
-* [Image Import/Export](https://docs.cloud.oracle.com/Content/Compute/Tasks/imageimportexport.htm).
+* [Image Import/Export](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/imageimportexport.htm).
 * <p>
 You may optionally specify a *display name* for the image, which is simply a friendly name or description.
 * It does not have to be unique, and you can change it. See {@link #updateImage(UpdateImageRequest) updateImage}.
@@ -4928,7 +5085,7 @@ You may optionally specify a *display name* for the image, which is simply a fri
 * After the console connection has been created and is available,
 * you connect to the console using SSH.
 * <p>
-For more information about instance console connections, see [Troubleshooting Instances Using Instance Console Connections](https://docs.cloud.oracle.com/Content/Compute/References/serialconsole.htm).
+For more information about instance console connections, see [Troubleshooting Instances Using Instance Console Connections](https://docs.cloud.oracle.com/iaas/Content/Compute/References/serialconsole.htm).
 * 
      * @param CreateInstanceConsoleConnectionRequest
      * @return CreateInstanceConsoleConnectionResponse
@@ -5041,6 +5198,68 @@ For more information about instance console connections, see [Troubleshooting In
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified compute capacity reservation.
+   * @param DeleteComputeCapacityReservationRequest
+   * @return DeleteComputeCapacityReservationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteComputeCapacityReservation.ts.html |here} to see how to use DeleteComputeCapacityReservation API.
+   */
+  public async deleteComputeCapacityReservation(
+    deleteComputeCapacityReservationRequest: requests.DeleteComputeCapacityReservationRequest
+  ): Promise<responses.DeleteComputeCapacityReservationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#deleteComputeCapacityReservation.");
+    const pathParams = {
+      "{capacityReservationId}": deleteComputeCapacityReservationRequest.capacityReservationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteComputeCapacityReservationRequest.opcRequestId,
+      "if-match": deleteComputeCapacityReservationRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeCapacityReservations/{capacityReservationId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteComputeCapacityReservationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteComputeCapacityReservationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -5409,7 +5628,7 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
    * <p>
    **Important:** If the VNIC has a
    * {@link PrivateIp} that is the
-   * [target of a route rule](https://docs.cloud.oracle.com/Content/Network/Tasks/managingroutetables.htm#privateip),
+   * [target of a route rule](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingroutetables.htm#privateip),
    * deleting the VNIC causes that route rule to blackhole and the traffic
    * will be dropped.
    *
@@ -5529,12 +5748,12 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
      * Exports the specified image to the Oracle Cloud Infrastructure Object Storage service. You can use the Object Storage URL,
 * or the namespace, bucket name, and object name when specifying the location to export to.
 * <p>
-For more information about exporting images, see [Image Import/Export](https://docs.cloud.oracle.com/Content/Compute/Tasks/imageimportexport.htm).
+For more information about exporting images, see [Image Import/Export](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/imageimportexport.htm).
 * <p>
 To perform an image export, you need write access to the Object Storage bucket for the image,
-* see [Let Users Write Objects to Object Storage Buckets](https://docs.cloud.oracle.com/Content/Identity/Concepts/commonpolicies.htm#Let4).
+* see [Let Users Write Objects to Object Storage Buckets](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/commonpolicies.htm#Let4).
 * <p>
-See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/imageimportexport.htm#URLs) and [Using Pre-Authenticated Requests](https://docs.cloud.oracle.com/Content/Object/Tasks/usingpreauthenticatedrequests.htm)
+See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/imageimportexport.htm#URLs) and [Using Pre-Authenticated Requests](https://docs.cloud.oracle.com/iaas/Content/Object/Tasks/usingpreauthenticatedrequests.htm)
 * for constructing URLs for image import/export.
 * 
      * @param ExportImageRequest
@@ -5841,6 +6060,70 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
         body: await response.json(),
         bodyKey: "bootVolumeAttachment",
         bodyModel: "model.BootVolumeAttachment",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified compute capacity reservation.
+   * @param GetComputeCapacityReservationRequest
+   * @return GetComputeCapacityReservationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetComputeCapacityReservation.ts.html |here} to see how to use GetComputeCapacityReservation API.
+   */
+  public async getComputeCapacityReservation(
+    getComputeCapacityReservationRequest: requests.GetComputeCapacityReservationRequest
+  ): Promise<responses.GetComputeCapacityReservationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#getComputeCapacityReservation.");
+    const pathParams = {
+      "{capacityReservationId}": getComputeCapacityReservationRequest.capacityReservationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getComputeCapacityReservationRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeCapacityReservations/{capacityReservationId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getComputeCapacityReservationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetComputeCapacityReservationResponse>{},
+        body: await response.json(),
+        bodyKey: "computeCapacityReservation",
+        bodyModel: "model.ComputeCapacityReservation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6694,13 +6977,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
 * <p>
 - **RESET** - Powers off the instance and then powers it back on.
 * <p>
-- **SOFTSTOP** - Gracefully shuts down the instance by sending a shutdown command to the operating system. 
+- **SOFTSTOP** - Gracefully shuts down the instance by sending a shutdown command to the operating system.
 * After waiting 15 minutes for the OS to shut down, the instance is powered off.
 * If the applications that run on the instance take more than 15 minutes to shut down, they could be improperly stopped, resulting
 * in data corruption. To avoid this, manually shut down the instance using the commands available in the OS before you softstop the
 * instance.
 * <p>
-- **SOFTRESET** - Gracefully reboots the instance by sending a shutdown command to the operating system. 
+- **SOFTRESET** - Gracefully reboots the instance by sending a shutdown command to the operating system.
 * After waiting 15 minutes for the OS to shut down, the instance is powered off and
 * then powered back on.
 * <p>
@@ -6709,11 +6992,11 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
 * OS to crash and then reboot. Before you send a diagnostic interrupt, you must configure the instance to generate a
 * crash dump file when it crashes. The crash dump captures information about the state of the OS at the time of
 * the crash. After the OS restarts, you can analyze the crash dump to diagnose the issue. For more information, see
-* [Sending a Diagnostic Interrupt](https://docs.cloud.oracle.com/Content/Compute/Tasks/sendingdiagnosticinterrupt.htm).
+* [Sending a Diagnostic Interrupt](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/sendingdiagnosticinterrupt.htm).
 * <p>
 
 * For more information about managing instance lifecycle states, see
-* [Stopping and Starting an Instance](https://docs.cloud.oracle.com/Content/Compute/Tasks/restartinginstance.htm).
+* [Stopping and Starting an Instance](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/restartinginstance.htm).
 * 
      * @param InstanceActionRequest
      * @return InstanceActionResponse
@@ -6782,13 +7065,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/Content/Compute/Tasks/im
   /**
      * Creates a new instance in the specified compartment and the specified availability domain.
 * For general information about instances, see
-* [Overview of the Compute Service](https://docs.cloud.oracle.com/Content/Compute/Concepts/computeoverview.htm).
+* [Overview of the Compute Service](https://docs.cloud.oracle.com/iaas/Content/Compute/Concepts/computeoverview.htm).
 * <p>
 For information about access control and compartments, see
-* [Overview of the IAM Service](https://docs.cloud.oracle.com/Content/Identity/Concepts/overview.htm).
+* [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
 * <p>
 For information about availability domains, see
-* [Regions and Availability Domains](https://docs.cloud.oracle.com/Content/General/Concepts/regions.htm).
+* [Regions and Availability Domains](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/regions.htm).
 * To get a list of availability domains, use the `ListAvailabilityDomains` operation
 * in the Identity and Access Management Service API.
 * <p>
@@ -6810,7 +7093,7 @@ When you launch an instance, it is automatically attached to a virtual
 * {@link #getVnic(GetVnicRequest) getVnic} with the VNIC ID.
 * <p>
 You can later add secondary VNICs to an instance. For more information, see
-* [Virtual Network Interface Cards (VNICs)](https://docs.cloud.oracle.com/Content/Network/Tasks/managingVNICs.htm).
+* [Virtual Network Interface Cards (VNICs)](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingVNICs.htm).
 * <p>
 To launch an instance from a Marketplace image listing, you must provide the image ID of the
 * listing resource version that you want, but you also must subscribe to the listing before you try
@@ -7259,6 +7542,304 @@ To launch an instance from a Marketplace image listing, you must provide the ima
     request: requests.ListBootVolumeAttachmentsRequest
   ): AsyncIterableIterator<responses.ListBootVolumeAttachmentsResponse> {
     return paginateResponses(request, req => this.listBootVolumeAttachments(req));
+  }
+
+  /**
+   * Lists the shapes that can be reserved within the specified compartment.
+   *
+   * @param ListComputeCapacityReservationInstanceShapesRequest
+   * @return ListComputeCapacityReservationInstanceShapesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeCapacityReservationInstanceShapes.ts.html |here} to see how to use ListComputeCapacityReservationInstanceShapes API.
+   */
+  public async listComputeCapacityReservationInstanceShapes(
+    listComputeCapacityReservationInstanceShapesRequest: requests.ListComputeCapacityReservationInstanceShapesRequest
+  ): Promise<responses.ListComputeCapacityReservationInstanceShapesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeClient#listComputeCapacityReservationInstanceShapes."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "availabilityDomain": listComputeCapacityReservationInstanceShapesRequest.availabilityDomain,
+      "compartmentId": listComputeCapacityReservationInstanceShapesRequest.compartmentId,
+      "limit": listComputeCapacityReservationInstanceShapesRequest.limit,
+      "page": listComputeCapacityReservationInstanceShapesRequest.page,
+      "displayName": listComputeCapacityReservationInstanceShapesRequest.displayName,
+      "sortBy": listComputeCapacityReservationInstanceShapesRequest.sortBy,
+      "sortOrder": listComputeCapacityReservationInstanceShapesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listComputeCapacityReservationInstanceShapesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeCapacityReservationInstanceShapes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listComputeCapacityReservationInstanceShapesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListComputeCapacityReservationInstanceShapesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "ComputeCapacityReservationInstanceShapeSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ComputeCapacityReservationInstanceShapeSummary objects
+   * contained in responses from the listComputeCapacityReservationInstanceShapes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllComputeCapacityReservationInstanceShapes(
+    request: requests.ListComputeCapacityReservationInstanceShapesRequest
+  ): AsyncIterableIterator<models.ComputeCapacityReservationInstanceShapeSummary> {
+    return paginateRecords(request, req => this.listComputeCapacityReservationInstanceShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listComputeCapacityReservationInstanceShapes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllComputeCapacityReservationInstanceShapesResponses(
+    request: requests.ListComputeCapacityReservationInstanceShapesRequest
+  ): AsyncIterableIterator<responses.ListComputeCapacityReservationInstanceShapesResponse> {
+    return paginateResponses(request, req =>
+      this.listComputeCapacityReservationInstanceShapes(req)
+    );
+  }
+
+  /**
+   * Lists the instances launched under a capacity reservation. You can filter results by specifying criteria.
+   *
+   * @param ListComputeCapacityReservationInstancesRequest
+   * @return ListComputeCapacityReservationInstancesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeCapacityReservationInstances.ts.html |here} to see how to use ListComputeCapacityReservationInstances API.
+   */
+  public async listComputeCapacityReservationInstances(
+    listComputeCapacityReservationInstancesRequest: requests.ListComputeCapacityReservationInstancesRequest
+  ): Promise<responses.ListComputeCapacityReservationInstancesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listComputeCapacityReservationInstances.");
+    const pathParams = {
+      "{capacityReservationId}":
+        listComputeCapacityReservationInstancesRequest.capacityReservationId
+    };
+
+    const queryParams = {
+      "availabilityDomain": listComputeCapacityReservationInstancesRequest.availabilityDomain,
+      "compartmentId": listComputeCapacityReservationInstancesRequest.compartmentId,
+      "limit": listComputeCapacityReservationInstancesRequest.limit,
+      "page": listComputeCapacityReservationInstancesRequest.page,
+      "sortBy": listComputeCapacityReservationInstancesRequest.sortBy,
+      "sortOrder": listComputeCapacityReservationInstancesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listComputeCapacityReservationInstancesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeCapacityReservations/{capacityReservationId}/instances",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listComputeCapacityReservationInstancesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListComputeCapacityReservationInstancesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "CapacityReservationInstanceSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.CapacityReservationInstanceSummary objects
+   * contained in responses from the listComputeCapacityReservationInstances operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllComputeCapacityReservationInstances(
+    request: requests.ListComputeCapacityReservationInstancesRequest
+  ): AsyncIterableIterator<models.CapacityReservationInstanceSummary> {
+    return paginateRecords(request, req => this.listComputeCapacityReservationInstances(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listComputeCapacityReservationInstances operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllComputeCapacityReservationInstancesResponses(
+    request: requests.ListComputeCapacityReservationInstancesRequest
+  ): AsyncIterableIterator<responses.ListComputeCapacityReservationInstancesResponse> {
+    return paginateResponses(request, req => this.listComputeCapacityReservationInstances(req));
+  }
+
+  /**
+     * Lists the compute capacity reservations that match the specified criteria and compartment.
+* <p>
+You can limit the list by specifying a compute capacity reservation display name
+* (the list will include all the identically-named compute capacity reservations in the compartment).
+* 
+     * @param ListComputeCapacityReservationsRequest
+     * @return ListComputeCapacityReservationsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeCapacityReservations.ts.html |here} to see how to use ListComputeCapacityReservations API.
+     */
+  public async listComputeCapacityReservations(
+    listComputeCapacityReservationsRequest: requests.ListComputeCapacityReservationsRequest
+  ): Promise<responses.ListComputeCapacityReservationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listComputeCapacityReservations.");
+    const pathParams = {};
+
+    const queryParams = {
+      "availabilityDomain": listComputeCapacityReservationsRequest.availabilityDomain,
+      "compartmentId": listComputeCapacityReservationsRequest.compartmentId,
+      "lifecycleState": listComputeCapacityReservationsRequest.lifecycleState,
+      "displayName": listComputeCapacityReservationsRequest.displayName,
+      "limit": listComputeCapacityReservationsRequest.limit,
+      "page": listComputeCapacityReservationsRequest.page,
+      "sortBy": listComputeCapacityReservationsRequest.sortBy,
+      "sortOrder": listComputeCapacityReservationsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listComputeCapacityReservationsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeCapacityReservations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listComputeCapacityReservationsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListComputeCapacityReservationsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "ComputeCapacityReservationSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ComputeCapacityReservationSummary objects
+   * contained in responses from the listComputeCapacityReservations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllComputeCapacityReservations(
+    request: requests.ListComputeCapacityReservationsRequest
+  ): AsyncIterableIterator<models.ComputeCapacityReservationSummary> {
+    return paginateRecords(request, req => this.listComputeCapacityReservations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listComputeCapacityReservations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllComputeCapacityReservationsResponses(
+    request: requests.ListComputeCapacityReservationsRequest
+  ): AsyncIterableIterator<responses.ListComputeCapacityReservationsResponse> {
+    return paginateResponses(request, req => this.listComputeCapacityReservations(req));
   }
 
   /**
@@ -8127,8 +8708,8 @@ You can limit the list by specifying a dedicated virtual machine host display na
 
   /**
      * Lists the available images in the specified compartment, including both
-* [Oracle-provided images](https://docs.cloud.oracle.com/Content/Compute/References/images.htm) and
-* [custom images](https://docs.cloud.oracle.com/Content/Compute/Tasks/managingcustomimages.htm) that have
+* [Oracle-provided images](https://docs.cloud.oracle.com/iaas/Content/Compute/References/images.htm) and
+* [custom images](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingcustomimages.htm) that have
 * been created. The list of images returned is ordered to first show all
 * Oracle-provided images, then all custom images.
 * <p>
@@ -8229,7 +8810,7 @@ The order of images returned may change when new images are released.
   /**
      * Lists the console connections for the specified compartment or instance.
 * <p>
-For more information about instance console connections, see [Troubleshooting Instances Using Instance Console Connections](https://docs.cloud.oracle.com/Content/Compute/References/serialconsole.htm).
+For more information about instance console connections, see [Troubleshooting Instances Using Instance Console Connections](https://docs.cloud.oracle.com/iaas/Content/Compute/References/serialconsole.htm).
 * 
      * @param ListInstanceConsoleConnectionsRequest
      * @return ListInstanceConsoleConnectionsResponse
@@ -8433,6 +9014,7 @@ For more information about instance console connections, see [Troubleshooting In
 
     const queryParams = {
       "availabilityDomain": listInstancesRequest.availabilityDomain,
+      "capacityReservationId": listInstancesRequest.capacityReservationId,
       "compartmentId": listInstancesRequest.compartmentId,
       "displayName": listInstancesRequest.displayName,
       "limit": listInstancesRequest.limit,
@@ -8905,6 +9487,77 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Updates the display name, defined tag, and freeform tag fields for the specified compute capacity reservation.
+* Fields that are not provided in the request will not be updated. Avoid entering confidential information.
+* <p>
+The update also modifies the reservation configurations of the specified compute capacity reservation.
+* 
+     * @param UpdateComputeCapacityReservationRequest
+     * @return UpdateComputeCapacityReservationResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeCapacityReservation.ts.html |here} to see how to use UpdateComputeCapacityReservation API.
+     */
+  public async updateComputeCapacityReservation(
+    updateComputeCapacityReservationRequest: requests.UpdateComputeCapacityReservationRequest
+  ): Promise<responses.UpdateComputeCapacityReservationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#updateComputeCapacityReservation.");
+    const pathParams = {
+      "{capacityReservationId}": updateComputeCapacityReservationRequest.capacityReservationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateComputeCapacityReservationRequest.ifMatch,
+      "opc-request-id": updateComputeCapacityReservationRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeCapacityReservations/{capacityReservationId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateComputeCapacityReservationRequest.updateComputeCapacityReservationDetails,
+        "UpdateComputeCapacityReservationDetails",
+        models.UpdateComputeCapacityReservationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateComputeCapacityReservationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateComputeCapacityReservationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -9461,7 +10114,9 @@ export class ComputeManagementClient {
   }
 
   /**
-   * Attach an instance to the instance pool.
+   * Attaches an instance to an instance pool. For information about the prerequisites
+   * that an instance must meet before you can attach it to a pool, see
+   * [Attaching an Instance to an Instance Pool](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/updatinginstancepool.htm#attach-instance).
    *
    * @param AttachInstancePoolInstanceRequest
    * @return AttachInstancePoolInstanceResponse
@@ -10112,7 +10767,7 @@ When you move an instance pool to a different compartment, associated resources 
   }
 
   /**
-   * Detach instance from the instance pool.
+   * Detaches an instance from an instance pool.
    *
    * @param DetachInstancePoolInstanceRequest
    * @return DetachInstancePoolInstanceResponse
@@ -10439,7 +11094,7 @@ When you move an instance pool to a different compartment, associated resources 
   }
 
   /**
-   * Gets the instance pool instance
+   * Gets information about an instance that belongs to an instance pool.
    * @param GetInstancePoolInstanceRequest
    * @return GetInstancePoolInstanceResponse
    * @throws OciError when an error occurs
@@ -11187,9 +11842,9 @@ If the instance configuration does not include all of the parameters that are
 
   /**
      * Performs the softreset (ACPI shutdown and power on) action on the specified instance pool,
-* which performs the action on all the instances in the pool. 
+* which performs the action on all the instances in the pool.
 * <p>
-Softreset gracefully reboots the instances by sending a shutdown command to the operating systems. 
+Softreset gracefully reboots the instances by sending a shutdown command to the operating systems.
 * After waiting 15 minutes for the OS to shut down, the instances are powered off and then powered back on.
 * 
      * @param SoftresetInstancePoolRequest

@@ -15,6 +15,7 @@ import common = require("oci-common");
 import * as requests from "./request";
 import * as models from "./model";
 import * as responses from "./response";
+import { paginateRecords, paginateResponses } from "oci-common";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 
 // ===============================================
@@ -344,6 +345,390 @@ export class AnnouncementClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAnnouncementUserStatusResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
+export enum AnnouncementsPreferencesApiKeys {}
+
+export class AnnouncementsPreferencesClient {
+  protected static serviceEndpointTemplate = "https://announcements.{region}.{secondLevelDomain}";
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
+
+  protected _httpClient: common.HttpClient;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+    }
+    this._httpClient =
+      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20180904";
+    if (this.logger)
+      this.logger.info(`AnnouncementsPreferencesClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      AnnouncementsPreferencesClient.serviceEndpointTemplate,
+      region
+    );
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      AnnouncementsPreferencesClient.serviceEndpointTemplate,
+      regionId
+    );
+  }
+
+  /**
+   * Creates a request that specifies preferences for the tenancy regarding receiving announcements by email.
+   *
+   * @param CreateAnnouncementsPreferenceRequest
+   * @return CreateAnnouncementsPreferenceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/CreateAnnouncementsPreference.ts.html |here} to see how to use CreateAnnouncementsPreference API.
+   */
+  public async createAnnouncementsPreference(
+    createAnnouncementsPreferenceRequest: requests.CreateAnnouncementsPreferenceRequest
+  ): Promise<responses.CreateAnnouncementsPreferenceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnnouncementsPreferencesClient#createAnnouncementsPreference."
+      );
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createAnnouncementsPreferenceRequest.opcRequestId,
+      "opc-retry-token": createAnnouncementsPreferenceRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/announcementsPreferences",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createAnnouncementsPreferenceRequest.announcementsPreferenceDetails,
+        "CreateAnnouncementsPreferencesDetails",
+        models.CreateAnnouncementsPreferencesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createAnnouncementsPreferenceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateAnnouncementsPreferenceResponse>{},
+        body: await response.json(),
+        bodyKey: "announcementsPreferencesSummary",
+        bodyModel: "model.AnnouncementsPreferencesSummary",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the current preferences of the tenancy regarding receiving announcements by email.
+   *
+   * @param GetAnnouncementsPreferenceRequest
+   * @return GetAnnouncementsPreferenceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/GetAnnouncementsPreference.ts.html |here} to see how to use GetAnnouncementsPreference API.
+   */
+  public async getAnnouncementsPreference(
+    getAnnouncementsPreferenceRequest: requests.GetAnnouncementsPreferenceRequest
+  ): Promise<responses.GetAnnouncementsPreferenceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnnouncementsPreferencesClient#getAnnouncementsPreference."
+      );
+    const pathParams = {
+      "{preferenceId}": getAnnouncementsPreferenceRequest.preferenceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAnnouncementsPreferenceRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/announcementsPreferences/{preferenceId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getAnnouncementsPreferenceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAnnouncementsPreferenceResponse>{},
+        body: await response.json(),
+        bodyKey: "announcementsPreferences",
+        bodyModel: "model.AnnouncementsPreferences",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the current preferences of the tenancy regarding receiving announcements by email.
+   *
+   * @param ListAnnouncementsPreferencesRequest
+   * @return ListAnnouncementsPreferencesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/ListAnnouncementsPreferences.ts.html |here} to see how to use ListAnnouncementsPreferences API.
+   */
+  public async listAnnouncementsPreferences(
+    listAnnouncementsPreferencesRequest: requests.ListAnnouncementsPreferencesRequest
+  ): Promise<responses.ListAnnouncementsPreferencesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnnouncementsPreferencesClient#listAnnouncementsPreferences."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "limit": listAnnouncementsPreferencesRequest.limit,
+      "page": listAnnouncementsPreferencesRequest.page,
+      "compartmentId": listAnnouncementsPreferencesRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAnnouncementsPreferencesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/announcementsPreferences",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listAnnouncementsPreferencesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAnnouncementsPreferencesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "AnnouncementsPreferencesSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AnnouncementsPreferencesSummary objects
+   * contained in responses from the listAnnouncementsPreferences operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllAnnouncementsPreferences(
+    request: requests.ListAnnouncementsPreferencesRequest
+  ): AsyncIterableIterator<models.AnnouncementsPreferencesSummary> {
+    return paginateRecords(request, req => this.listAnnouncementsPreferences(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAnnouncementsPreferences operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllAnnouncementsPreferencesResponses(
+    request: requests.ListAnnouncementsPreferencesRequest
+  ): AsyncIterableIterator<responses.ListAnnouncementsPreferencesResponse> {
+    return paginateResponses(request, req => this.listAnnouncementsPreferences(req));
+  }
+
+  /**
+   * Updates the preferences of the tenancy regarding receiving announcements by email.
+   *
+   * @param UpdateAnnouncementsPreferenceRequest
+   * @return UpdateAnnouncementsPreferenceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/UpdateAnnouncementsPreference.ts.html |here} to see how to use UpdateAnnouncementsPreference API.
+   */
+  public async updateAnnouncementsPreference(
+    updateAnnouncementsPreferenceRequest: requests.UpdateAnnouncementsPreferenceRequest
+  ): Promise<responses.UpdateAnnouncementsPreferenceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnnouncementsPreferencesClient#updateAnnouncementsPreference."
+      );
+    const pathParams = {
+      "{preferenceId}": updateAnnouncementsPreferenceRequest.preferenceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateAnnouncementsPreferenceRequest.opcRequestId,
+      "if-match": updateAnnouncementsPreferenceRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/announcementsPreferences/{preferenceId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAnnouncementsPreferenceRequest.announcementsPreferenceDetails,
+        "UpdateAnnouncementsPreferencesDetails",
+        models.UpdateAnnouncementsPreferencesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateAnnouncementsPreferenceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAnnouncementsPreferenceResponse>{},
+        body: await response.json(),
+        bodyKey: "announcementsPreferencesSummary",
+        bodyModel: "model.AnnouncementsPreferencesSummary",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

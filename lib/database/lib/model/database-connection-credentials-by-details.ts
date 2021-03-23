@@ -16,14 +16,24 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * User information to connect to the database.
+ * User information to connect to the database. Required when performing the {@link #createExternalDatabaseConnectorDetails(CreateExternalDatabaseConnectorDetailsRequest) createExternalDatabaseConnectorDetails} operation.
+ * *IMPORTANT*: Not supported for the {@link #updateExternalDatabaseConnectorDetails(UpdateExternalDatabaseConnectorDetailsRequest) updateExternalDatabaseConnectorDetails} operation.
  *
  */
 export interface DatabaseConnectionCredentialsByDetails
   extends model.DatabaseConnectionCredentials {
   /**
-   * The name of the credential information that used to connect to the database.
-   */
+    * The name of the credential information that used to connect to the database. The name should be in \"x.y\" format, where 
+* the length of \"x\" has a maximum of 64 characters, and length of \"y\" has a maximum of 199 characters. 
+* The name strings can contain letters, numbers and the underscore character only. Other characters are not valid, except for 
+* the \".\" character that separates the \"x\" and \"y\" portions of the name.
+* *IMPORTANT* - The name must be unique within the OCI region the credential is being created in. If you specify a name 
+* that duplicates the name of another credential within the same OCI region, you may overwrite or corrupt the credential that is already
+* using the name.
+* <p>
+For example: inventorydb.abc112233445566778899
+* 
+    */
   "credentialName"?: string;
   /**
    * The username that will be used to connect to the database.

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary representation of an announcement.
+ * A summary representation of an announcement.
  *
  */
 export interface AnnouncementSummary extends model.BaseAnnouncement {
