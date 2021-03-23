@@ -118,6 +118,14 @@ export interface Listing {
    * Indicates whether the listing is included in Featured Listings.
    */
   "isFeatured"?: boolean;
+  /**
+   * In which catalog the listing should exist.
+   */
+  "listingType"?: model.ListingType;
+  /**
+   * List of operating systems supported.
+   */
+  "supportedOperatingSystems"?: Array<model.OperatingSystem>;
 }
 
 export namespace Listing {
@@ -167,6 +175,12 @@ export namespace Listing {
         "links": obj.links
           ? obj.links.map(item => {
               return model.Link.getJsonObj(item);
+            })
+          : undefined,
+
+        "supportedOperatingSystems": obj.supportedOperatingSystems
+          ? obj.supportedOperatingSystems.map(item => {
+              return model.OperatingSystem.getJsonObj(item);
             })
           : undefined
       }

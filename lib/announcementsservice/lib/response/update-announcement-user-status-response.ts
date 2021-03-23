@@ -16,7 +16,7 @@ import common = require("oci-common");
 
 export interface UpdateAnnouncementUserStatusResponse {
   /**
-   *
+   * The unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the complete request ID.
    */
   "opcRequestId": string;
   /**

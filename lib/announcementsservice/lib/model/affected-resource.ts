@@ -31,11 +31,24 @@ export interface AffectedResource {
    * The region where the affected resource exists.
    */
   "region": string;
+  /**
+   * Additional properties associated with the resource.
+   */
+  "additionalProperties"?: Array<model.Property>;
 }
 
 export namespace AffectedResource {
   export function getJsonObj(obj: AffectedResource): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "additionalProperties": obj.additionalProperties
+          ? obj.additionalProperties.map(item => {
+              return model.Property.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

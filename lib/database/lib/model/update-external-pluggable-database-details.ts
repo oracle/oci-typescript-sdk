@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details for updating an external pluggable database.
+ * Details for updating an external pluggable database. This API is not currently supported.
  *
  */
 export interface UpdateExternalPluggableDatabaseDetails {

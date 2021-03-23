@@ -33,8 +33,18 @@ Set `destinationType` to `objectStorageUri` and
 */
 export interface ExportImageDetails {
   /**
-   * The format of the image to be exported. The default value is \"OCI\".
-   */
+    * The format to export the image to. The default value is `OCI`.
+* <p>
+The following image formats are available:
+* <p>
+- `OCI` - Oracle Cloud Infrastructure file with a QCOW2 image and Oracle Cloud Infrastructure metadata (.oci).
+* Use this format to export a custom image that you want to import into other tenancies or regions.
+* - `QCOW2` - QEMU Copy On Write (.qcow2)
+* - `VDI` - Virtual Disk Image (.vdi) for Oracle VM VirtualBox
+* - `VHD` - Virtual Hard Disk (.vhd) for Hyper-V
+* - `VMDK` - Virtual Machine Disk (.vmdk)
+* 
+    */
   "exportFormat"?: ExportImageDetails.ExportFormat;
 
   "destinationType": string;

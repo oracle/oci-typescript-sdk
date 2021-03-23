@@ -21,8 +21,15 @@ import common = require("oci-common");
 
 export interface UpdateInstanceDetails {
   /**
+   * The OCID of the compute capacity reservation this instance is launched under.
+   * You can remove the instance from a reservation by specifying an empty string as input for this field.
+   * For more information, see [Capacity Reservations](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/reserve-capacity.htm#default).
+   *
+   */
+  "capacityReservationId"?: string;
+  /**
     * Defined tags for this resource. Each key is predefined and scoped to a
-* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 * 
@@ -38,7 +45,7 @@ Example: `My bare metal instance`
   "displayName"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
-* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: `{\"Department\": \"Finance\"}`
 * 

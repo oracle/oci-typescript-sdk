@@ -36,11 +36,18 @@ export interface DbSystemSummary {
    */
   "compartmentId"?: string;
   /**
+   * DEPRECATED -- please use `isHeatWaveClusterAttached` instead.
    * If the DB System has an Analytics Cluster attached.
    *
    */
   "isAnalyticsClusterAttached"?: boolean;
   "analyticsCluster"?: model.AnalyticsClusterSummary;
+  /**
+   * If the DB System has a HeatWave Cluster attached.
+   *
+   */
+  "isHeatWaveClusterAttached"?: boolean;
+  "heatWaveCluster"?: model.HeatWaveClusterSummary;
   /**
    * The Availability Domain where the primary DB System should be located.
    *
@@ -93,6 +100,10 @@ export namespace DbSystemSummary {
       ...{
         "analyticsCluster": obj.analyticsCluster
           ? model.AnalyticsClusterSummary.getJsonObj(obj.analyticsCluster)
+          : undefined,
+
+        "heatWaveCluster": obj.heatWaveCluster
+          ? model.HeatWaveClusterSummary.getJsonObj(obj.heatWaveCluster)
           : undefined,
 
         "endpoints": obj.endpoints

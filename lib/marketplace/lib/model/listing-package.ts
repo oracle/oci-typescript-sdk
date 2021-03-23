@@ -36,13 +36,14 @@ export interface ListingPackage {
    */
   "resourceId"?: string;
   /**
-    * The date and time this listing package was created, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) 
+    * The date and time this listing package was created, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339)
 * timestamp format.
 * <p>
 Example: `2016-08-25T21:10:29.600Z`
 * 
     */
   "timeCreated"?: Date;
+  "operatingSystem"?: model.OperatingSystem;
 
   "packageType": string;
 }
@@ -52,7 +53,11 @@ export namespace ListingPackage {
     const jsonObj = {
       ...obj,
       ...{
-        "pricing": obj.pricing ? model.PricingModel.getJsonObj(obj.pricing) : undefined
+        "pricing": obj.pricing ? model.PricingModel.getJsonObj(obj.pricing) : undefined,
+
+        "operatingSystem": obj.operatingSystem
+          ? model.OperatingSystem.getJsonObj(obj.operatingSystem)
+          : undefined
       }
     };
 

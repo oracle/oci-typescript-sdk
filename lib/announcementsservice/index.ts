@@ -20,3 +20,4 @@ export { models };
 export { requests };
 export { responses };
 export import AnnouncementClient = client.AnnouncementClient;
+export import AnnouncementsPreferencesClient = client.AnnouncementsPreferencesClient;

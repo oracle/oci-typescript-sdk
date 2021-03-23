@@ -31,6 +31,32 @@ export class ComputeWaiter {
   ) {}
 
   /**
+   * Waits forChangeComputeCapacityReservationCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeComputeCapacityReservationCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeComputeCapacityReservationCompartment(
+    request: serviceRequests.ChangeComputeCapacityReservationCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeComputeCapacityReservationCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeComputeCapacityReservationCompartmentResponse = await this.client.changeComputeCapacityReservationCompartment(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeComputeCapacityReservationCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeComputeCapacityReservationCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forChangeDedicatedVmHostCompartment
    *
    * @param request the request to send
@@ -81,6 +107,32 @@ export class ComputeWaiter {
   }
 
   /**
+   * Waits forCreateComputeCapacityReservation
+   *
+   * @param request the request to send
+   * @return response returns CreateComputeCapacityReservationResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateComputeCapacityReservation(
+    request: serviceRequests.CreateComputeCapacityReservationRequest
+  ): Promise<{
+    response: serviceResponses.CreateComputeCapacityReservationResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createComputeCapacityReservationResponse = await this.client.createComputeCapacityReservation(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createComputeCapacityReservationResponse.opcWorkRequestId
+    );
+    return {
+      response: createComputeCapacityReservationResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forCreateDedicatedVmHost
    *
    * @param request the request to send
@@ -120,6 +172,32 @@ export class ComputeWaiter {
       createImageResponse.opcWorkRequestId
     );
     return { response: createImageResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forDeleteComputeCapacityReservation
+   *
+   * @param request the request to send
+   * @return response returns DeleteComputeCapacityReservationResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteComputeCapacityReservation(
+    request: serviceRequests.DeleteComputeCapacityReservationRequest
+  ): Promise<{
+    response: serviceResponses.DeleteComputeCapacityReservationResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteComputeCapacityReservationResponse = await this.client.deleteComputeCapacityReservation(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteComputeCapacityReservationResponse.opcWorkRequestId
+    );
+    return {
+      response: deleteComputeCapacityReservationResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
   }
 
   /**
@@ -179,6 +257,25 @@ export class ComputeWaiter {
       this.config,
       () => this.client.getBootVolumeAttachment(request),
       response => targetStates.includes(response.bootVolumeAttachment.lifecycleState!)
+    );
+  }
+
+  /**
+   * Waits forComputeCapacityReservation till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetComputeCapacityReservationResponse | null (null in case of 404 response)
+   */
+  public async forComputeCapacityReservation(
+    request: serviceRequests.GetComputeCapacityReservationRequest,
+    ...targetStates: models.ComputeCapacityReservation.LifecycleState[]
+  ): Promise<serviceResponses.GetComputeCapacityReservationResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getComputeCapacityReservation(request),
+      response => targetStates.includes(response.computeCapacityReservation.lifecycleState!),
+      targetStates.includes(models.ComputeCapacityReservation.LifecycleState.Deleted)
     );
   }
 
@@ -331,6 +428,32 @@ export class ComputeWaiter {
       launchInstanceResponse.opcWorkRequestId
     );
     return { response: launchInstanceResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUpdateComputeCapacityReservation
+   *
+   * @param request the request to send
+   * @return response returns UpdateComputeCapacityReservationResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateComputeCapacityReservation(
+    request: serviceRequests.UpdateComputeCapacityReservationRequest
+  ): Promise<{
+    response: serviceResponses.UpdateComputeCapacityReservationResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateComputeCapacityReservationResponse = await this.client.updateComputeCapacityReservation(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateComputeCapacityReservationResponse.opcWorkRequestId
+    );
+    return {
+      response: updateComputeCapacityReservationResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
   }
 
   /**

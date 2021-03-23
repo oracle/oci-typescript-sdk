@@ -28,9 +28,6 @@ If the parameter is provided, the instance is created with the resources that yo
 * <p>
 Each shape only supports certain configurable values. If the values that you provide are not valid for the
 * specified `shape`, an error is returned.
-* <p>
-For more information about customizing the resources that are allocated to a flexible shapes,
-* see [Flexible Shapes](https://docs.cloud.oracle.com/Content/Compute/References/computeshapes.htm#flexible).
 * 
 */
 export interface LaunchInstanceShapeConfigDetails {

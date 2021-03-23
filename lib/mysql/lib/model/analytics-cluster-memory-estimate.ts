@@ -15,6 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * DEPRECATED -- please use HeatWave API instead.
  * Analytics Cluster memory estimate
  * that can be used to determine a suitable Analytics Cluster size. For each MySQL user table the estimated memory
  * footprint when the table is loaded to the Analytics Cluster memory is returned.

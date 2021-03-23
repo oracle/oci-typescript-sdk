@@ -1,6 +1,6 @@
 /**
- * TenantManager API
- * A description of the TenantManager API
+ * Organizations API
+ * The Organizations API allows you to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and its resources.
  * OpenAPI spec version: 20200801
  *
  *
@@ -15,6 +15,8 @@ import * as requests from "./lib/request";
 import * as models from "./lib/model";
 import * as responses from "./lib/response";
 import * as client from "./lib/client";
+import * as domain_waiter from "./lib/domain-waiter";
+import * as domaingovernance_waiter from "./lib/domaingovernance-waiter";
 import * as link_waiter from "./lib/link-waiter";
 import * as recipientinvitation_waiter from "./lib/recipientinvitation-waiter";
 import * as senderinvitation_waiter from "./lib/senderinvitation-waiter";
@@ -23,6 +25,10 @@ import * as workrequest_waiter from "./lib/workrequest-waiter";
 export { models };
 export { requests };
 export { responses };
+export import DomainClient = client.DomainClient;
+export import DomainWaiter = domain_waiter.DomainWaiter;
+export import DomainGovernanceClient = client.DomainGovernanceClient;
+export import DomainGovernanceWaiter = domaingovernance_waiter.DomainGovernanceWaiter;
 export import LinkClient = client.LinkClient;
 export import LinkWaiter = link_waiter.LinkWaiter;
 export import RecipientInvitationClient = client.RecipientInvitationClient;

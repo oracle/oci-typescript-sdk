@@ -1,6 +1,6 @@
 /**
  * Usage API
- * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the dimension of your choosing. The Usage API is used by the Cost Analysis tool in the Console.
+ * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the dimension of your choosing. The Usage API is used by the Cost Analysis tool in the Console. Also see [Using the Usage API](/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
  * OpenAPI spec version: 20200107
  *
  *
@@ -40,7 +40,11 @@ export interface RequestSummarizedUsagesDetails {
    */
   "granularity": RequestSummarizedUsagesDetails.Granularity;
   /**
-   * The query usage type.
+   * is aggregated by time. true isAggregateByTime will add up all usage/cost over query time period
+   */
+  "isAggregateByTime"?: boolean;
+  /**
+   * The query usage type. COST by default if it is missing
    * Usage - Query the usage data.
    * Cost - Query the cost/billing data.
    *
@@ -49,10 +53,19 @@ export interface RequestSummarizedUsagesDetails {
   /**
    * Aggregate the result by.
    * example:
-   *   `[\"service\"]`
+   *   `[\"tagNamespace\", \"tagKey\", \"tagValue\", \"service\", \"skuName\", \"skuPartNumber\", \"unit\",
+   *     \"compartmentName\", \"compartmentPath\", \"compartmentId\", \"platform\", \"region\", \"logicalAd\",
+   *     \"resourceId\", \"tenantId\", \"tenantName\"]`
    *
    */
   "groupBy"?: Array<string>;
+  /**
+   * GroupBy a specific tagKey. Provide tagNamespace and tagKey in tag object. Only support one tag in the list
+   * example:
+   *   `[{\"namespace\":\"oracle\", \"key\":\"createdBy\"]`
+   *
+   */
+  "groupByTag"?: Array<model.Tag>;
   /**
    * The compartment depth level. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -77,6 +90,12 @@ export namespace RequestSummarizedUsagesDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "groupByTag": obj.groupByTag
+          ? obj.groupByTag.map(item => {
+              return model.Tag.getJsonObj(item);
+            })
+          : undefined,
+
         "filter": obj.filter ? model.Filter.getJsonObj(obj.filter) : undefined
       }
     };

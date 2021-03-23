@@ -1,6 +1,6 @@
 /**
- * TenantManager API
- * A description of the TenantManager API
+ * Organizations API
+ * The Organizations API allows you to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and its resources.
  * OpenAPI spec version: 20200801
  *
  *
@@ -23,7 +23,7 @@ export interface WorkRequestLogEntry {
    */
   "message": string;
   /**
-   * The time the log message was written. An RFC3339 formatted datetime string.
+   * The time the log message was written. An RFC3339-formatted date and time string.
    */
   "timestamp": Date;
 }

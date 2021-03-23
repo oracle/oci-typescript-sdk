@@ -15,7 +15,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * DEPRECATED -- please use HeatWave API instead.
  * Possible operation status.
+ *
  **/
 export enum AnalyticsClusterMemoryEstimateStatus {
   Accepted = "ACCEPTED",

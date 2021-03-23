@@ -1,6 +1,6 @@
 /**
  * Usage API
- * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the dimension of your choosing. The Usage API is used by the Cost Analysis tool in the Console.
+ * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the dimension of your choosing. The Usage API is used by the Cost Analysis tool in the Console. Also see [Using the Usage API](/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
  * OpenAPI spec version: 20200107
  *
  *
@@ -11,7 +11,17 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as CreateQueryResponse from "./create-query-response";
+export import CreateQueryResponse = CreateQueryResponse.CreateQueryResponse;
+import * as DeleteQueryResponse from "./delete-query-response";
+export import DeleteQueryResponse = DeleteQueryResponse.DeleteQueryResponse;
+import * as GetQueryResponse from "./get-query-response";
+export import GetQueryResponse = GetQueryResponse.GetQueryResponse;
+import * as ListQueriesResponse from "./list-queries-response";
+export import ListQueriesResponse = ListQueriesResponse.ListQueriesResponse;
 import * as RequestSummarizedConfigurationsResponse from "./request-summarized-configurations-response";
 export import RequestSummarizedConfigurationsResponse = RequestSummarizedConfigurationsResponse.RequestSummarizedConfigurationsResponse;
 import * as RequestSummarizedUsagesResponse from "./request-summarized-usages-response";
 export import RequestSummarizedUsagesResponse = RequestSummarizedUsagesResponse.RequestSummarizedUsagesResponse;
+import * as UpdateQueryResponse from "./update-query-response";
+export import UpdateQueryResponse = UpdateQueryResponse.UpdateQueryResponse;

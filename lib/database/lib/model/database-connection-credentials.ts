@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Credentials used to connect to the database.
+ * Credentials used to connect to the database. Currently only the `DETAILS` type is supported for creating MACS connector crendentials.
  *
  */
 export interface DatabaseConnectionCredentials {

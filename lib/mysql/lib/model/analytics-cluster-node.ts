@@ -15,6 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * DEPRECATED -- please use HeatWave API instead.
  * An Analytics Cluster Node is a compute host that is part of an Analytics Cluster.
  *
  */

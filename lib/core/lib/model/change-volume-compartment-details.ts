@@ -24,7 +24,7 @@ import common = require("oci-common");
  */
 export interface ChangeVolumeCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment to move the volume to.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to move the volume to.
    */
   "compartmentId": string;
 }

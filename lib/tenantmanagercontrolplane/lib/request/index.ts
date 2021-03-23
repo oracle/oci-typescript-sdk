@@ -1,6 +1,6 @@
 /**
- * TenantManager API
- * A description of the TenantManager API
+ * Organizations API
+ * The Organizations API allows you to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and its resources.
  * OpenAPI spec version: 20200801
  *
  *
@@ -11,6 +11,26 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as CreateDomainRequest from "./create-domain-request";
+export import CreateDomainRequest = CreateDomainRequest.CreateDomainRequest;
+import * as DeleteDomainRequest from "./delete-domain-request";
+export import DeleteDomainRequest = DeleteDomainRequest.DeleteDomainRequest;
+import * as GetDomainRequest from "./get-domain-request";
+export import GetDomainRequest = GetDomainRequest.GetDomainRequest;
+import * as ListDomainsRequest from "./list-domains-request";
+export import ListDomainsRequest = ListDomainsRequest.ListDomainsRequest;
+import * as UpdateDomainRequest from "./update-domain-request";
+export import UpdateDomainRequest = UpdateDomainRequest.UpdateDomainRequest;
+import * as CreateDomainGovernanceRequest from "./create-domain-governance-request";
+export import CreateDomainGovernanceRequest = CreateDomainGovernanceRequest.CreateDomainGovernanceRequest;
+import * as DeleteDomainGovernanceRequest from "./delete-domain-governance-request";
+export import DeleteDomainGovernanceRequest = DeleteDomainGovernanceRequest.DeleteDomainGovernanceRequest;
+import * as GetDomainGovernanceRequest from "./get-domain-governance-request";
+export import GetDomainGovernanceRequest = GetDomainGovernanceRequest.GetDomainGovernanceRequest;
+import * as ListDomainGovernancesRequest from "./list-domain-governances-request";
+export import ListDomainGovernancesRequest = ListDomainGovernancesRequest.ListDomainGovernancesRequest;
+import * as UpdateDomainGovernanceRequest from "./update-domain-governance-request";
+export import UpdateDomainGovernanceRequest = UpdateDomainGovernanceRequest.UpdateDomainGovernanceRequest;
 import * as DeleteLinkRequest from "./delete-link-request";
 export import DeleteLinkRequest = DeleteLinkRequest.DeleteLinkRequest;
 import * as GetLinkRequest from "./get-link-request";

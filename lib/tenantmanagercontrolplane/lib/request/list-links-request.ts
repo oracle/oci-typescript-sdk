@@ -43,7 +43,7 @@ export interface ListLinksRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The sort order to use, either 'asc' or 'desc'.
+   * The sort order to use, whether 'asc' or 'desc'.
    */
   "sortOrder"?: model.SortOrder;
 }

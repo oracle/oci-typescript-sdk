@@ -36,7 +36,7 @@ export interface RequestSummarizedUsagesRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * The maximum number of items to return.
+   * The maximumimum number of items to return.
    */
   "limit"?: number;
 }

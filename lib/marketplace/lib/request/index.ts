@@ -11,10 +11,16 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangePublicationCompartmentRequest from "./change-publication-compartment-request";
+export import ChangePublicationCompartmentRequest = ChangePublicationCompartmentRequest.ChangePublicationCompartmentRequest;
 import * as CreateAcceptedAgreementRequest from "./create-accepted-agreement-request";
 export import CreateAcceptedAgreementRequest = CreateAcceptedAgreementRequest.CreateAcceptedAgreementRequest;
+import * as CreatePublicationRequest from "./create-publication-request";
+export import CreatePublicationRequest = CreatePublicationRequest.CreatePublicationRequest;
 import * as DeleteAcceptedAgreementRequest from "./delete-accepted-agreement-request";
 export import DeleteAcceptedAgreementRequest = DeleteAcceptedAgreementRequest.DeleteAcceptedAgreementRequest;
+import * as DeletePublicationRequest from "./delete-publication-request";
+export import DeletePublicationRequest = DeletePublicationRequest.DeletePublicationRequest;
 import * as GetAcceptedAgreementRequest from "./get-accepted-agreement-request";
 export import GetAcceptedAgreementRequest = GetAcceptedAgreementRequest.GetAcceptedAgreementRequest;
 import * as GetAgreementRequest from "./get-agreement-request";
@@ -23,6 +29,10 @@ import * as GetListingRequest from "./get-listing-request";
 export import GetListingRequest = GetListingRequest.GetListingRequest;
 import * as GetPackageRequest from "./get-package-request";
 export import GetPackageRequest = GetPackageRequest.GetPackageRequest;
+import * as GetPublicationRequest from "./get-publication-request";
+export import GetPublicationRequest = GetPublicationRequest.GetPublicationRequest;
+import * as GetPublicationPackageRequest from "./get-publication-package-request";
+export import GetPublicationPackageRequest = GetPublicationPackageRequest.GetPublicationPackageRequest;
 import * as ListAcceptedAgreementsRequest from "./list-accepted-agreements-request";
 export import ListAcceptedAgreementsRequest = ListAcceptedAgreementsRequest.ListAcceptedAgreementsRequest;
 import * as ListAgreementsRequest from "./list-agreements-request";
@@ -33,6 +43,10 @@ import * as ListListingsRequest from "./list-listings-request";
 export import ListListingsRequest = ListListingsRequest.ListListingsRequest;
 import * as ListPackagesRequest from "./list-packages-request";
 export import ListPackagesRequest = ListPackagesRequest.ListPackagesRequest;
+import * as ListPublicationPackagesRequest from "./list-publication-packages-request";
+export import ListPublicationPackagesRequest = ListPublicationPackagesRequest.ListPublicationPackagesRequest;
+import * as ListPublicationsRequest from "./list-publications-request";
+export import ListPublicationsRequest = ListPublicationsRequest.ListPublicationsRequest;
 import * as ListPublishersRequest from "./list-publishers-request";
 export import ListPublishersRequest = ListPublishersRequest.ListPublishersRequest;
 import * as ListReportTypesRequest from "./list-report-types-request";
@@ -43,3 +57,5 @@ import * as ListTaxesRequest from "./list-taxes-request";
 export import ListTaxesRequest = ListTaxesRequest.ListTaxesRequest;
 import * as UpdateAcceptedAgreementRequest from "./update-accepted-agreement-request";
 export import UpdateAcceptedAgreementRequest = UpdateAcceptedAgreementRequest.UpdateAcceptedAgreementRequest;
+import * as UpdatePublicationRequest from "./update-publication-request";
+export import UpdatePublicationRequest = UpdatePublicationRequest.UpdatePublicationRequest;

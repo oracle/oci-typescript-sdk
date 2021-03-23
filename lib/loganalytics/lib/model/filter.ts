@@ -56,7 +56,12 @@ export namespace Filter {
     IsBetween = "IS_BETWEEN",
     IsNotBetween = "IS_NOT_BETWEEN",
     AddSubquery = "ADD_SUBQUERY",
-    ClearSubquery = "CLEAR_SUBQUERY"
+    ClearSubquery = "CLEAR_SUBQUERY",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Filter): object {

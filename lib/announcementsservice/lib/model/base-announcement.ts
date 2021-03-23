@@ -39,8 +39,14 @@ export interface BaseAnnouncement {
    */
   "timeOneTitle"?: string;
   /**
-   * The actual value of the first time value for the event. Typically, this is the time an event started, but the meaning
-   * can vary, depending on the announcement type.
+   * The type of a time associated with an initial time value. If the `timeOneTitle` attribute is present, then the `timeOneTitle` attribute contains a label of `timeOneType` in English.
+   * Example: `START_TIME`
+   *
+   */
+  "timeOneType"?: BaseAnnouncement.TimeOneType;
+  /**
+   * The actual value of the first time value for the event. Typically, this denotes the time an event started, but the meaning
+   * can vary, depending on the announcement type. The `timeOneType` attribute describes the meaning.
    *
    */
   "timeOneValue"?: Date;
@@ -51,8 +57,14 @@ export interface BaseAnnouncement {
    */
   "timeTwoTitle"?: string;
   /**
-   * The actual value of the second time value. Typically, this is the time an event ended, but the meaning
-   * can vary, depending on the announcement type.
+   * The type of a time associated with second time value. If the `timeTwoTitle` attribute is present, then the `timeTwoTitle` attribute contains a label of `timeTwoType` in English.
+   * Example: `END_TIME`
+   *
+   */
+  "timeTwoType"?: BaseAnnouncement.TimeTwoType;
+  /**
+   * The actual value of the second time value. Typically, this denotes the time an event ended, but the meaning
+   * can vary, depending on the announcement type. The `timeTwoType` attribute describes the meaning.
    *
    */
   "timeTwoValue"?: Date;
@@ -93,6 +105,20 @@ export interface BaseAnnouncement {
 }
 
 export namespace BaseAnnouncement {
+  export enum TimeOneType {
+    ActionRequiredBy = "ACTION_REQUIRED_BY",
+    NewStartTime = "NEW_START_TIME",
+    OriginalEndTime = "ORIGINAL_END_TIME",
+    ReportDate = "REPORT_DATE",
+    StartTime = "START_TIME",
+    TimeDetected = "TIME_DETECTED"
+  }
+
+  export enum TimeTwoType {
+    EndTime = "END_TIME",
+    NewEndTime = "NEW_END_TIME"
+  }
+
   export enum AnnouncementType {
     ActionRecommended = "ACTION_RECOMMENDED",
     ActionRequired = "ACTION_REQUIRED",

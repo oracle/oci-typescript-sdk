@@ -15,6 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * DEPRECATED -- please use HeatWave API instead.
  * Details required to add an Analytics Cluster.
  *
  */

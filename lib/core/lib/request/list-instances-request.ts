@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListInstancesRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId": string;
   /**
@@ -29,6 +29,10 @@ Example: `Uocm:PHX-AD-1`
 * 
  */
   "availabilityDomain"?: string;
+  /**
+   * The OCID of the compute capacity reservation.
+   */
+  "capacityReservationId"?: string;
   /**
    * A filter to return only resources that match the given display name exactly.
    *

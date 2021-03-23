@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface GetInstancePoolInstanceRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the instance pool.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the instance pool.
    */
   "instancePoolId": string;
   /**
-   * The OCID of the instance.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the instance.
    */
   "instanceId": string;
 }

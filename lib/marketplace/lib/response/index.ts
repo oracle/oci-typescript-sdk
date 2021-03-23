@@ -11,10 +11,16 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangePublicationCompartmentResponse from "./change-publication-compartment-response";
+export import ChangePublicationCompartmentResponse = ChangePublicationCompartmentResponse.ChangePublicationCompartmentResponse;
 import * as CreateAcceptedAgreementResponse from "./create-accepted-agreement-response";
 export import CreateAcceptedAgreementResponse = CreateAcceptedAgreementResponse.CreateAcceptedAgreementResponse;
+import * as CreatePublicationResponse from "./create-publication-response";
+export import CreatePublicationResponse = CreatePublicationResponse.CreatePublicationResponse;
 import * as DeleteAcceptedAgreementResponse from "./delete-accepted-agreement-response";
 export import DeleteAcceptedAgreementResponse = DeleteAcceptedAgreementResponse.DeleteAcceptedAgreementResponse;
+import * as DeletePublicationResponse from "./delete-publication-response";
+export import DeletePublicationResponse = DeletePublicationResponse.DeletePublicationResponse;
 import * as GetAcceptedAgreementResponse from "./get-accepted-agreement-response";
 export import GetAcceptedAgreementResponse = GetAcceptedAgreementResponse.GetAcceptedAgreementResponse;
 import * as GetAgreementResponse from "./get-agreement-response";
@@ -23,6 +29,10 @@ import * as GetListingResponse from "./get-listing-response";
 export import GetListingResponse = GetListingResponse.GetListingResponse;
 import * as GetPackageResponse from "./get-package-response";
 export import GetPackageResponse = GetPackageResponse.GetPackageResponse;
+import * as GetPublicationResponse from "./get-publication-response";
+export import GetPublicationResponse = GetPublicationResponse.GetPublicationResponse;
+import * as GetPublicationPackageResponse from "./get-publication-package-response";
+export import GetPublicationPackageResponse = GetPublicationPackageResponse.GetPublicationPackageResponse;
 import * as ListAcceptedAgreementsResponse from "./list-accepted-agreements-response";
 export import ListAcceptedAgreementsResponse = ListAcceptedAgreementsResponse.ListAcceptedAgreementsResponse;
 import * as ListAgreementsResponse from "./list-agreements-response";
@@ -33,6 +43,10 @@ import * as ListListingsResponse from "./list-listings-response";
 export import ListListingsResponse = ListListingsResponse.ListListingsResponse;
 import * as ListPackagesResponse from "./list-packages-response";
 export import ListPackagesResponse = ListPackagesResponse.ListPackagesResponse;
+import * as ListPublicationPackagesResponse from "./list-publication-packages-response";
+export import ListPublicationPackagesResponse = ListPublicationPackagesResponse.ListPublicationPackagesResponse;
+import * as ListPublicationsResponse from "./list-publications-response";
+export import ListPublicationsResponse = ListPublicationsResponse.ListPublicationsResponse;
 import * as ListPublishersResponse from "./list-publishers-response";
 export import ListPublishersResponse = ListPublishersResponse.ListPublishersResponse;
 import * as ListReportTypesResponse from "./list-report-types-response";
@@ -43,3 +57,5 @@ import * as ListTaxesResponse from "./list-taxes-response";
 export import ListTaxesResponse = ListTaxesResponse.ListTaxesResponse;
 import * as UpdateAcceptedAgreementResponse from "./update-accepted-agreement-response";
 export import UpdateAcceptedAgreementResponse = UpdateAcceptedAgreementResponse.UpdateAcceptedAgreementResponse;
+import * as UpdatePublicationResponse from "./update-publication-response";
+export import UpdatePublicationResponse = UpdatePublicationResponse.UpdatePublicationResponse;

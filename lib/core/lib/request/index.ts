@@ -132,6 +132,8 @@ import * as AttachVolumeRequest from "./attach-volume-request";
 export import AttachVolumeRequest = AttachVolumeRequest.AttachVolumeRequest;
 import * as CaptureConsoleHistoryRequest from "./capture-console-history-request";
 export import CaptureConsoleHistoryRequest = CaptureConsoleHistoryRequest.CaptureConsoleHistoryRequest;
+import * as ChangeComputeCapacityReservationCompartmentRequest from "./change-compute-capacity-reservation-compartment-request";
+export import ChangeComputeCapacityReservationCompartmentRequest = ChangeComputeCapacityReservationCompartmentRequest.ChangeComputeCapacityReservationCompartmentRequest;
 import * as ChangeComputeImageCapabilitySchemaCompartmentRequest from "./change-compute-image-capability-schema-compartment-request";
 export import ChangeComputeImageCapabilitySchemaCompartmentRequest = ChangeComputeImageCapabilitySchemaCompartmentRequest.ChangeComputeImageCapabilitySchemaCompartmentRequest;
 import * as ChangeDedicatedVmHostCompartmentRequest from "./change-dedicated-vm-host-compartment-request";
@@ -142,6 +144,8 @@ import * as ChangeInstanceCompartmentRequest from "./change-instance-compartment
 export import ChangeInstanceCompartmentRequest = ChangeInstanceCompartmentRequest.ChangeInstanceCompartmentRequest;
 import * as CreateAppCatalogSubscriptionRequest from "./create-app-catalog-subscription-request";
 export import CreateAppCatalogSubscriptionRequest = CreateAppCatalogSubscriptionRequest.CreateAppCatalogSubscriptionRequest;
+import * as CreateComputeCapacityReservationRequest from "./create-compute-capacity-reservation-request";
+export import CreateComputeCapacityReservationRequest = CreateComputeCapacityReservationRequest.CreateComputeCapacityReservationRequest;
 import * as CreateComputeImageCapabilitySchemaRequest from "./create-compute-image-capability-schema-request";
 export import CreateComputeImageCapabilitySchemaRequest = CreateComputeImageCapabilitySchemaRequest.CreateComputeImageCapabilitySchemaRequest;
 import * as CreateDedicatedVmHostRequest from "./create-dedicated-vm-host-request";
@@ -152,6 +156,8 @@ import * as CreateInstanceConsoleConnectionRequest from "./create-instance-conso
 export import CreateInstanceConsoleConnectionRequest = CreateInstanceConsoleConnectionRequest.CreateInstanceConsoleConnectionRequest;
 import * as DeleteAppCatalogSubscriptionRequest from "./delete-app-catalog-subscription-request";
 export import DeleteAppCatalogSubscriptionRequest = DeleteAppCatalogSubscriptionRequest.DeleteAppCatalogSubscriptionRequest;
+import * as DeleteComputeCapacityReservationRequest from "./delete-compute-capacity-reservation-request";
+export import DeleteComputeCapacityReservationRequest = DeleteComputeCapacityReservationRequest.DeleteComputeCapacityReservationRequest;
 import * as DeleteComputeImageCapabilitySchemaRequest from "./delete-compute-image-capability-schema-request";
 export import DeleteComputeImageCapabilitySchemaRequest = DeleteComputeImageCapabilitySchemaRequest.DeleteComputeImageCapabilitySchemaRequest;
 import * as DeleteConsoleHistoryRequest from "./delete-console-history-request";
@@ -178,6 +184,8 @@ import * as GetAppCatalogListingResourceVersionRequest from "./get-app-catalog-l
 export import GetAppCatalogListingResourceVersionRequest = GetAppCatalogListingResourceVersionRequest.GetAppCatalogListingResourceVersionRequest;
 import * as GetBootVolumeAttachmentRequest from "./get-boot-volume-attachment-request";
 export import GetBootVolumeAttachmentRequest = GetBootVolumeAttachmentRequest.GetBootVolumeAttachmentRequest;
+import * as GetComputeCapacityReservationRequest from "./get-compute-capacity-reservation-request";
+export import GetComputeCapacityReservationRequest = GetComputeCapacityReservationRequest.GetComputeCapacityReservationRequest;
 import * as GetComputeGlobalImageCapabilitySchemaRequest from "./get-compute-global-image-capability-schema-request";
 export import GetComputeGlobalImageCapabilitySchemaRequest = GetComputeGlobalImageCapabilitySchemaRequest.GetComputeGlobalImageCapabilitySchemaRequest;
 import * as GetComputeGlobalImageCapabilitySchemaVersionRequest from "./get-compute-global-image-capability-schema-version-request";
@@ -216,6 +224,12 @@ import * as ListAppCatalogSubscriptionsRequest from "./list-app-catalog-subscrip
 export import ListAppCatalogSubscriptionsRequest = ListAppCatalogSubscriptionsRequest.ListAppCatalogSubscriptionsRequest;
 import * as ListBootVolumeAttachmentsRequest from "./list-boot-volume-attachments-request";
 export import ListBootVolumeAttachmentsRequest = ListBootVolumeAttachmentsRequest.ListBootVolumeAttachmentsRequest;
+import * as ListComputeCapacityReservationInstanceShapesRequest from "./list-compute-capacity-reservation-instance-shapes-request";
+export import ListComputeCapacityReservationInstanceShapesRequest = ListComputeCapacityReservationInstanceShapesRequest.ListComputeCapacityReservationInstanceShapesRequest;
+import * as ListComputeCapacityReservationInstancesRequest from "./list-compute-capacity-reservation-instances-request";
+export import ListComputeCapacityReservationInstancesRequest = ListComputeCapacityReservationInstancesRequest.ListComputeCapacityReservationInstancesRequest;
+import * as ListComputeCapacityReservationsRequest from "./list-compute-capacity-reservations-request";
+export import ListComputeCapacityReservationsRequest = ListComputeCapacityReservationsRequest.ListComputeCapacityReservationsRequest;
 import * as ListComputeGlobalImageCapabilitySchemaVersionsRequest from "./list-compute-global-image-capability-schema-versions-request";
 export import ListComputeGlobalImageCapabilitySchemaVersionsRequest = ListComputeGlobalImageCapabilitySchemaVersionsRequest.ListComputeGlobalImageCapabilitySchemaVersionsRequest;
 import * as ListComputeGlobalImageCapabilitySchemasRequest from "./list-compute-global-image-capability-schemas-request";
@@ -252,6 +266,8 @@ import * as RemoveImageShapeCompatibilityEntryRequest from "./remove-image-shape
 export import RemoveImageShapeCompatibilityEntryRequest = RemoveImageShapeCompatibilityEntryRequest.RemoveImageShapeCompatibilityEntryRequest;
 import * as TerminateInstanceRequest from "./terminate-instance-request";
 export import TerminateInstanceRequest = TerminateInstanceRequest.TerminateInstanceRequest;
+import * as UpdateComputeCapacityReservationRequest from "./update-compute-capacity-reservation-request";
+export import UpdateComputeCapacityReservationRequest = UpdateComputeCapacityReservationRequest.UpdateComputeCapacityReservationRequest;
 import * as UpdateComputeImageCapabilitySchemaRequest from "./update-compute-image-capability-schema-request";
 export import UpdateComputeImageCapabilitySchemaRequest = UpdateComputeImageCapabilitySchemaRequest.UpdateComputeImageCapabilitySchemaRequest;
 import * as UpdateConsoleHistoryRequest from "./update-console-history-request";

@@ -57,6 +57,14 @@ export interface ListingSummary {
    */
   "categories"?: Array<string>;
   "publisher"?: model.PublisherSummary;
+  /**
+   * List of operating systems supported.
+   */
+  "supportedOperatingSystems"?: Array<model.OperatingSystem>;
+  /**
+   * In which catalog the listing should exist.
+   */
+  "listingType"?: model.ListingType;
 }
 
 export namespace ListingSummary {
@@ -83,7 +91,12 @@ export namespace ListingSummary {
             })
           : undefined,
 
-        "publisher": obj.publisher ? model.PublisherSummary.getJsonObj(obj.publisher) : undefined
+        "publisher": obj.publisher ? model.PublisherSummary.getJsonObj(obj.publisher) : undefined,
+        "supportedOperatingSystems": obj.supportedOperatingSystems
+          ? obj.supportedOperatingSystems.map(item => {
+              return model.OperatingSystem.getJsonObj(item);
+            })
+          : undefined
       }
     };
 
