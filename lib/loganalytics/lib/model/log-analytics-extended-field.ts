@@ -22,23 +22,23 @@ export interface LogAnalyticsExtendedField {
   "field"?: model.LogAnalyticsField;
   "extendedFieldDefinition"?: model.LogAnalyticsSourceExtendedFieldDefinition;
   /**
-   * Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The extended field unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "extendedFieldDefinitionId"?: number;
   /**
-   * new field internal name
+   * The field internal name
    */
   "fieldName"?: string;
   /**
-   * new field internal display name
+   * The field internal display name.
    */
   "fieldDisplayName"?: string;
   /**
-   * saved regular expression internal name
+   * The saved regular expression name.
    */
   "savedRegularExpressionName"?: string;
   /**
-   * extended field Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The extended field unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "extendedFieldId"?: number;
 }

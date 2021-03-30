@@ -20,31 +20,36 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsConfigWorkRequestSummary {
   /**
-   * workrequest id
+   * The workrequest unique identifier.
    */
   "id"?: string;
   /**
-   * compartment id
+   * The compartment unique identifier.
    */
   "compartmentId"?: string;
   /**
-   * operation type
+   * The operation type.  There are two classes of operations, association operations and
+   * lookup operations.  Associations may be created or deleted, and lookup operations include
+   * append, update and delete.
+   *
    */
   "operationType"?: LogAnalyticsConfigWorkRequestSummary.OperationType;
   /**
-   * percentage complete Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The completion percentage. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "percentComplete"?: number;
   /**
-   * when the work request finished
+   * The time at which the work request finished.
    */
   "timeFinished"?: Date;
   /**
-   * when the work request accepted
+   * The time at which the work request was accepted.
    */
   "timeAccepted"?: Date;
   /**
-   * status
+   * The lifecycle status.  Valid values are ACCEPTED, IN_PROGRESS, SUCCEEDED
+   * or FAILED.
+   *
    */
   "lifecycleState"?: LogAnalyticsConfigWorkRequestSummary.LifecycleState;
 }

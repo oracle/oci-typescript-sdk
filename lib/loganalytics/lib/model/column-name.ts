@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface ColumnName {
   /**
-   * column name
+   * The column name from a SQL query.
    */
   "name"?: string;
 }

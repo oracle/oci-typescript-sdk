@@ -28,7 +28,8 @@ export interface BatchGetBasicInfoRequest extends common.BaseRequest {
    */
   "basicDetails": model.LabelNames;
   /**
-   * flag for whether or not to include information on deleted labels
+   * A flag specifying whether or not to include information on deleted labels.
+   *
    */
   "isIncludeDeleted": boolean;
   /**
@@ -45,7 +46,7 @@ export interface BatchGetBasicInfoRequest extends common.BaseRequest {
    */
   "sortOrder"?: BatchGetBasicInfoRequest.SortOrder;
   /**
-   * sort by label
+   * The attribute used to sort the returned labels
    */
   "basicLabelSortBy"?: BatchGetBasicInfoRequest.BasicLabelSortBy;
   /**

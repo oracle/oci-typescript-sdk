@@ -80,6 +80,7 @@ export interface LogAnalyticsEntity {
    *
    */
   "properties"?: { [key: string]: string };
+  "creationSource"?: model.CreationSource;
   /**
    * The date and time the resource was created, in the format defined by RFC3339.
    *
@@ -129,7 +130,14 @@ export interface LogAnalyticsEntity {
 
 export namespace LogAnalyticsEntity {
   export function getJsonObj(obj: LogAnalyticsEntity): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "creationSource": obj.creationSource
+          ? model.CreationSource.getJsonObj(obj.creationSource)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

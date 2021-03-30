@@ -24,7 +24,8 @@ export interface GetFieldsSummaryRequest extends common.BaseRequest {
    */
   "namespaceName": string;
   /**
-   * show detail flag
+   * A boolean indicating whether or not to display detailed field summary information
+   *
    */
   "isShowDetail"?: boolean;
   /**

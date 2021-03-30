@@ -20,27 +20,27 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsAssociatedEntity {
   /**
-   * entity guid
+   * The entity unique identifier.
    */
   "entityId"?: string;
   /**
-   * entity name
+   * The entity name.
    */
   "entityName"?: string;
   /**
-   * entity type
+   * The entity type.
    */
   "entityType"?: string;
   /**
-   * entity type display name
+   * The entity type display name.
    */
   "entityTypeDisplayName"?: string;
   /**
-   * on host
+   * The host associated with the entity.
    */
   "onHost"?: string;
   /**
-   * associationCount Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The association count for the entity. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "associationCount"?: number;
 }

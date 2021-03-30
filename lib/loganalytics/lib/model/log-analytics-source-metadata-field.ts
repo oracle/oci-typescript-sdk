@@ -20,23 +20,26 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsSourceMetadataField {
   /**
-   * field internal name
+   * The field internal name.
    */
   "fieldName"?: string;
   /**
-   * is enabled flag
+   * A flag inidcating whether or not the source metadata field is enabled.
+   *
    */
   "isEnabled"?: boolean;
   /**
-   * is system flag
+   * The system flag.  A value of false denotes a custom, or user
+   * defined object.  A value of true denotes a built in object.
+   *
    */
   "isSystem"?: boolean;
   /**
-   * key
+   * The key.
    */
   "key"?: string;
   /**
-   * source internal name
+   * The source internal name.
    */
   "sourceName"?: string;
 }

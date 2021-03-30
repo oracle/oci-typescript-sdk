@@ -20,59 +20,62 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsSourceDataFilter {
   /**
-   * description
+   * The filter description.
    */
   "description"?: string;
   /**
-   * display name
+   * The filter display name.
    */
   "displayName"?: string;
   /**
-   * edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The filter edit version. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**
-   * enabled
+   * A flag inidcating whether or not the filter is enabled.
+   *
    */
   "isEnabled"?: boolean;
   /**
-   * field internal name
+   * The field internal name.
    */
   "fieldName"?: string;
   /**
-   * hash type Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The hash type. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "hashType"?: number;
   /**
-   * filter Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The filter unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataFilterId"?: number;
   /**
-   * is system flag
+   * The system flag.  A value of false denotes a custom, or user
+   * defined object.  A value of true denotes a built in object.
+   *
    */
   "isSystem"?: boolean;
   /**
-   * regular expression match
+   * The regular expression for matching.
    */
   "matchRegularExpression"?: string;
   /**
-   * order Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The filter order. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "order"?: number;
   /**
-   * path
+   * The filter path.
    */
   "path"?: string;
   /**
-   * replacement string
+   * The replacement string.
    */
   "replacementString"?: string;
   /**
-   * source Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The source unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourceId"?: number;
   /**
-   * filterType
+   * The filter type.
    */
   "filterType"?: LogAnalyticsSourceDataFilter.FilterType;
 }

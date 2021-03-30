@@ -16,6 +16,8 @@ running a SQL job on a Managed Database or Managed Database Group.
 
 import * as AddManagedDatabaseToManagedDatabaseGroupResponse from "./add-managed-database-to-managed-database-group-response";
 export import AddManagedDatabaseToManagedDatabaseGroupResponse = AddManagedDatabaseToManagedDatabaseGroupResponse.AddManagedDatabaseToManagedDatabaseGroupResponse;
+import * as ChangeDatabaseParametersResponse from "./change-database-parameters-response";
+export import ChangeDatabaseParametersResponse = ChangeDatabaseParametersResponse.ChangeDatabaseParametersResponse;
 import * as ChangeJobCompartmentResponse from "./change-job-compartment-response";
 export import ChangeJobCompartmentResponse = ChangeJobCompartmentResponse.ChangeJobCompartmentResponse;
 import * as ChangeManagedDatabaseGroupCompartmentResponse from "./change-managed-database-group-compartment-response";
@@ -42,6 +44,8 @@ import * as GetManagedDatabaseResponse from "./get-managed-database-response";
 export import GetManagedDatabaseResponse = GetManagedDatabaseResponse.GetManagedDatabaseResponse;
 import * as GetManagedDatabaseGroupResponse from "./get-managed-database-group-response";
 export import GetManagedDatabaseGroupResponse = GetManagedDatabaseGroupResponse.GetManagedDatabaseGroupResponse;
+import * as ListDatabaseParametersResponse from "./list-database-parameters-response";
+export import ListDatabaseParametersResponse = ListDatabaseParametersResponse.ListDatabaseParametersResponse;
 import * as ListJobExecutionsResponse from "./list-job-executions-response";
 export import ListJobExecutionsResponse = ListJobExecutionsResponse.ListJobExecutionsResponse;
 import * as ListJobRunsResponse from "./list-job-runs-response";
@@ -52,7 +56,11 @@ import * as ListManagedDatabaseGroupsResponse from "./list-managed-database-grou
 export import ListManagedDatabaseGroupsResponse = ListManagedDatabaseGroupsResponse.ListManagedDatabaseGroupsResponse;
 import * as ListManagedDatabasesResponse from "./list-managed-databases-response";
 export import ListManagedDatabasesResponse = ListManagedDatabasesResponse.ListManagedDatabasesResponse;
+import * as ListTablespacesResponse from "./list-tablespaces-response";
+export import ListTablespacesResponse = ListTablespacesResponse.ListTablespacesResponse;
 import * as RemoveManagedDatabaseFromManagedDatabaseGroupResponse from "./remove-managed-database-from-managed-database-group-response";
 export import RemoveManagedDatabaseFromManagedDatabaseGroupResponse = RemoveManagedDatabaseFromManagedDatabaseGroupResponse.RemoveManagedDatabaseFromManagedDatabaseGroupResponse;
+import * as ResetDatabaseParametersResponse from "./reset-database-parameters-response";
+export import ResetDatabaseParametersResponse = ResetDatabaseParametersResponse.ResetDatabaseParametersResponse;
 import * as UpdateManagedDatabaseGroupResponse from "./update-managed-database-group-response";
 export import UpdateManagedDatabaseGroupResponse = UpdateManagedDatabaseGroupResponse.UpdateManagedDatabaseGroupResponse;

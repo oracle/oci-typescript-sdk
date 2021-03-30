@@ -20,96 +20,110 @@ import common = require("oci-common");
  */
 export interface TestParserPayloadDetails {
   /**
-   * content
+   * The content used for testing.
    */
   "content"?: string;
   /**
-   * description
+   * The parser description.
    */
   "description"?: string;
   /**
-   * Display name
+   * The parser display name.
    */
   "displayName"?: string;
   /**
-   * encoding
+   * The content encoding.
    */
   "encoding"?: string;
   /**
-   * exampleContent
+   * The example content.
    */
   "exampleContent"?: string;
   /**
-   * fieldMaps
+   * The parser fields.
    */
   "fieldMaps"?: Array<model.LogAnalyticsParserField>;
   /**
-   * footerRegex
+   * The footer regular expression.
    */
   "footerContent"?: string;
   /**
-   * headerContent
+   * The header content.
    */
   "headerContent"?: string;
   /**
-   * name
+   * The parser name.
    */
   "name"?: string;
   /**
-   * isDefault
+   * A flag indicating if this is a default parser.
+   *
    */
   "isDefault"?: boolean;
   /**
-   * isSingleLineContent
+   * A flag indicating if this is a single line content parser.
+   *
    */
   "isSingleLineContent"?: boolean;
   /**
-   * isSystem
+   * The system flag.  A value of false denotes a custom, or user
+   * defined object.  A value of true denotes a built in object.
+   *
    */
   "isSystem"?: boolean;
   /**
-   * language
+   * The language.
    */
   "language"?: string;
   /**
-   * lastUpdatedDate
+   * The last updated date.
    */
   "timeUpdated"?: Date;
   /**
-   * logTypeTestRequestVersion Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The log type test request version. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "logTypeTestRequestVersion"?: number;
   "metadata"?: model.UiParserTestMetadata;
   /**
-   * parser ignore linechars
+   * The line characters for the parser to ignore.
    */
   "parserIgnorelineCharacters"?: string;
   /**
-   * parser is hidden Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * A flag indicating if the parser is hidden or not. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "isHidden"?: number;
   /**
-   * parser seq Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The parser sequence. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "parserSequence"?: number;
   /**
-   * parser timezone
+   * The parser timezone.
    */
   "parserTimezone"?: string;
   /**
-   * isParserWrittenOnce
+   * A flag indicating whther or not the parser is write once.
+   *
    */
   "isParserWrittenOnce"?: boolean;
   /**
-   * plugin instance list
+   * The parser function list.
    */
   "parserFunctions"?: Array<model.LogAnalyticsParserFunction>;
   /**
-   * tokenize original text
+   * A flag indicating whether or not to tokenize the original text.
+   *
    */
   "shouldTokenizeOriginalText"?: boolean;
   /**
-   * type
+   * The parser field delimiter.
+   */
+  "fieldDelimiter"?: string;
+  /**
+   * The parser field qualifier.
+   */
+  "fieldQualifier"?: string;
+  /**
+   * The parser type.  Default value is REGEX.
    */
   "type"?: TestParserPayloadDetails.Type;
 }
@@ -119,7 +133,8 @@ export namespace TestParserPayloadDetails {
     Xml = "XML",
     Json = "JSON",
     Regex = "REGEX",
-    Odl = "ODL"
+    Odl = "ODL",
+    Delimited = "DELIMITED"
   }
 
   export function getJsonObj(obj: TestParserPayloadDetails): object {

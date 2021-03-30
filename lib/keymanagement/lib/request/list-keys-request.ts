@@ -62,17 +62,17 @@ export interface ListKeysRequest extends common.BaseRequest {
    */
   "protectionMode"?: ListKeysRequest.ProtectionMode;
   /**
-   * The algorithm used by a key's key versions to encrypt or decrypt. Currently, only AES, RSA and ECDSA are supported.
+   * The algorithm used by a key's key versions to encrypt or decrypt data. Currently, support includes AES, RSA, and ECDSA algorithms.
    *
    */
   "algorithm"?: ListKeysRequest.Algorithm;
   /**
-   * The length of the key in bytes, expressed as an integer. Values of 16, 24, 32 are supported.
+   * The length of the key in bytes, expressed as an integer. Supported values include 16, 24, or 32.
    *
    */
   "length"?: number;
   /**
-   * The curve Id of the keys in case of ECDSA keys
+   * The curve ID of the keys. (This pertains only to ECDSA keys.)
    *
    */
   "curveId"?: ListKeysRequest.CurveId;

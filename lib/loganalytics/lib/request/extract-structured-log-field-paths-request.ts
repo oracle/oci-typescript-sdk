@@ -28,7 +28,7 @@ export interface ExtractStructuredLogFieldPathsRequest extends common.BaseReques
    */
   "loganParserDetails": model.LogAnalyticsParser;
   /**
-   * type - possible values are xml or json
+   * The parser type - possible values are XML or JSON.
    */
   "parserType"?: ExtractStructuredLogFieldPathsRequest.ParserType;
   /**

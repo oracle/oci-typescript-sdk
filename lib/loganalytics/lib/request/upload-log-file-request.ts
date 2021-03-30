@@ -104,4 +104,9 @@ export interface UploadLogFileRequest extends common.BaseRequest {
    *
    */
   "opcRetryToken"?: string;
+  /**
+   * The log set that gets associated with the uploaded logs.
+   *
+   */
+  "logSet"?: string;
 }

@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsMetaFunctionCollection {
   /**
-   * list of meta functions
+   * An array of meta functions.
    */
   "items"?: Array<model.LogAnalyticsMetaFunction>;
 }

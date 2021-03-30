@@ -36,11 +36,13 @@ export interface ListWarningsRequest extends common.BaseRequest {
    */
   "warningState"?: ListWarningsRequest.WarningState;
   /**
-   * sourceName
+   * The source name.
    */
   "sourceName"?: string;
   /**
-   * sourcePattern
+   * The source pattern used for filtering.  Only warnings associated with a source with the
+   * specified pattern will be returned.
+   *
    */
   "sourcePattern"?: string;
   /**
@@ -48,11 +50,15 @@ export interface ListWarningsRequest extends common.BaseRequest {
    */
   "warningMessage"?: string;
   /**
-   * entityName
+   * The entity name used for filtering.  Only warnings associated with an entity with the
+   * specified name will be returned.
+   *
    */
   "entityName"?: string;
   /**
-   * entity type name
+   * The entity type used for filtering.  Only associations on an entity with the
+   * specified type will be returned.
+   *
    */
   "entityType"?: string;
   /**
@@ -60,7 +66,10 @@ export interface ListWarningsRequest extends common.BaseRequest {
    */
   "warningType"?: string;
   /**
-   * isNoSource
+   * A flag indicating whether to filter warnings based on source display name or on warning level.
+   * A value of true will filter based on warning level (rule, source, or pattern), while a
+   * value of false will filter based on source display name.
+   *
    */
   "isNoSource"?: boolean;
   /**

@@ -26,83 +26,95 @@ export interface LogAnalyticsField {
    */
   "ceeAlias"?: string;
   /**
-   * data type
+   * The field data type.
    */
   "dataType"?: string;
   /**
-   * default regular expression
+   * The field default regular expression.
    */
   "regularExpression"?: string;
   /**
-   * description
+   * The field description.
    */
   "description"?: string;
   /**
-   * display name
+   * The field display name.
    */
   "displayName"?: string;
   /**
-   * edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The field edit version. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**
-   * facet priority Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The facet priority. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "facetPriority"?: number;
   /**
-   * internal name
+   * The field internal name.
    */
   "name"?: string;
   /**
-   * is facet eligible flag
+   * A flag inidcating whether or not the facet is elibigle for use.
+   *
    */
   "isFacetEligible"?: boolean;
   /**
-   * is high cardinality flag
+   * A flag inidcating whether or not the cardinality of the field is high.
+   *
    */
   "isHighCardinality"?: boolean;
   /**
-   * is larget data flag
+   * A flag inidcating whether or not the field is a large data field.
+   *
    */
   "isLargeData"?: boolean;
   /**
-   * is multi-valued flag
+   * A flag indicating whether or not the field is multi-valued.
+   *
    */
   "isMultiValued"?: boolean;
   /**
-   * is primary flag
+   * A flag inidcating whether or not this is a primary field.
+   *
    */
   "isPrimary"?: boolean;
   /**
-   * is system flag
+   * The system flag.  A value of false denotes a custom, or user
+   * defined object.  A value of true denotes a built in object.
+   *
    */
   "isSystem"?: boolean;
   /**
-   * is summarizable flag
+   * A flag inidcating whether or not the field can be summarized.
+   *
    */
   "isSummarizable"?: boolean;
   /**
-   * mappable
+   * The mapped value.
    */
   "mappedValue"?: string;
   /**
-   * metric key eligible
+   * A flag inidcating whether or not the field is metric key eligible.
+   *
    */
   "isMetricKeyEligible"?: boolean;
   /**
-   * metric value eligible
+   * A flag inidcating whether or not the field is metric value eligible.
+   *
    */
   "isMetricValueEligible"?: boolean;
   /**
-   * range facet eligible Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * A flag inidcating whether or not the field is range facet eligible.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "rangeFacetEligible"?: number;
   /**
-   * table eligible
+   * A flag inidcating whether or not the field is table eligible.
+   *
    */
   "isTableEligible"?: boolean;
   /**
-   * unit type
+   * The field unit type.
    */
   "unitType"?: string;
 }

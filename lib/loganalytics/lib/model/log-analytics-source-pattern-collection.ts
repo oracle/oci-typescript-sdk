@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsSourcePatternCollection {
   /**
-   * list of source patterns
+   * An array of source patterns.
    */
   "items"?: Array<model.LogAnalyticsSourcePattern>;
 }

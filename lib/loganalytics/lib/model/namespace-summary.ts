@@ -31,6 +31,10 @@ export interface NamespaceSummary {
    * This indicates if the tenancy is onboarded to Logging Analytics
    */
   "isOnboarded": boolean;
+  /**
+   * This indicates if the log set feature is enabled for the tenancy
+   */
+  "isLogSetEnabled"?: boolean;
 }
 
 export namespace NamespaceSummary {

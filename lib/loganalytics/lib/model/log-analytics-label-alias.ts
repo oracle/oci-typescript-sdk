@@ -20,27 +20,29 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsLabelAlias {
   /**
-   * alias
+   * The alias.
    */
   "alias"?: string;
   /**
-   * alias display name
+   * The alias display name.
    */
   "aliasDisplayName"?: string;
   /**
-   * is system flag
+   * The system flag.  A value of false denotes a custom, or user
+   * defined object.  A value of true denotes a built in object.
+   *
    */
   "isSystem"?: boolean;
   /**
-   * label display name
+   * The label display name.
    */
   "displayName"?: string;
   /**
-   * label name
+   * The label name.
    */
   "name"?: string;
   /**
-   * priority
+   * The label priority. Default value is NONE.
    */
   "priority"?: LogAnalyticsLabelAlias.Priority;
 }

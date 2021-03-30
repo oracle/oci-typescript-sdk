@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsConfigWorkRequestCollection {
   /**
-   * list of workrequest responses
+   * A list of workrequest responses.
    */
   "items"?: Array<model.LogAnalyticsConfigWorkRequestSummary>;
 }

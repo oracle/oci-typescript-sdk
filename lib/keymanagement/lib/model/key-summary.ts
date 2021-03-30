@@ -73,7 +73,7 @@ Example: `2018-04-03T21:10:29.600Z`
    */
   "protectionMode"?: KeySummary.ProtectionMode;
   /**
-   * The algorithm used by a key's key versions to encrypt or decrypt.
+   * The algorithm used by a key's key versions to encrypt or decrypt data.
    */
   "algorithm"?: KeySummary.Algorithm;
 }

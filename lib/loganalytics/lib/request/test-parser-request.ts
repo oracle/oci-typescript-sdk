@@ -28,11 +28,13 @@ export interface TestParserRequest extends common.BaseRequest {
    */
   "testParserPayloadDetails": model.TestParserPayloadDetails;
   /**
-   * scope
+   * The scope used when testing a parser.
    */
   "scope"?: TestParserRequest.Scope;
   /**
-   * module
+   * The module to test.  A value of 'ParserFunctionTest' will result in testing of
+   * the parser functions.
+   *
    */
   "reqOriginModule"?: string;
   /**

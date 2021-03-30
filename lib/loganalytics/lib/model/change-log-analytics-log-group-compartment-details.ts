@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information to be updated.
+ * The information required to change a log group compartment.
  *
  */
 export interface ChangeLogAnalyticsLogGroupCompartmentDetails {

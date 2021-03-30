@@ -25,6 +25,25 @@ export class LogAnalyticsWaiter {
   ) {}
 
   /**
+   * Waits forLogAnalyticsEmBridge till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetLogAnalyticsEmBridgeResponse | null (null in case of 404 response)
+   */
+  public async forLogAnalyticsEmBridge(
+    request: serviceRequests.GetLogAnalyticsEmBridgeRequest,
+    ...targetStates: models.EmBridgeLifecycleStates[]
+  ): Promise<serviceResponses.GetLogAnalyticsEmBridgeResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getLogAnalyticsEmBridge(request),
+      response => targetStates.includes(response.logAnalyticsEmBridge.lifecycleState!),
+      targetStates.includes(models.EmBridgeLifecycleStates.Deleted)
+    );
+  }
+
+  /**
    * Waits forLogAnalyticsEntity till it reaches any of the provided states
    *
    * @param request the request to send

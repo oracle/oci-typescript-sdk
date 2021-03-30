@@ -20,11 +20,11 @@ import common = require("oci-common");
  */
 export interface AutoLookups {
   /**
-   * canonical link
+   * The canonical link.
    */
   "canonicalLink"?: string;
   /**
-   * total count Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The total count. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalCount"?: number;
 }

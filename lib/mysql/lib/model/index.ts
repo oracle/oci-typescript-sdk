@@ -73,6 +73,8 @@ import * as DbSystem from "./db-system";
 export import DbSystem = DbSystem.DbSystem;
 import * as DbSystemEndpoint from "./db-system-endpoint";
 export import DbSystemEndpoint = DbSystemEndpoint.DbSystemEndpoint;
+import * as DbSystemPlacement from "./db-system-placement";
+export import DbSystemPlacement = DbSystemPlacement.DbSystemPlacement;
 import * as DbSystemSnapshot from "./db-system-snapshot";
 export import DbSystemSnapshot = DbSystemSnapshot.DbSystemSnapshot;
 import * as DbSystemSource from "./db-system-source";

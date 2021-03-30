@@ -36,6 +36,10 @@ export interface EventType {
    *
    */
   "isSystem"?: boolean;
+  /**
+   * The last updated time.
+   */
+  "timeUpdated"?: Date;
 }
 
 export namespace EventType {

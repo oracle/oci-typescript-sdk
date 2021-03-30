@@ -16,15 +16,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * DeleteLogAnalyticsAssociationDetails
+ * The information required to delete a list of associations.
+ *
  */
 export interface DeleteLogAnalyticsAssociationDetails {
   /**
-   * compartmentId
+   * The compartment ID
    */
   "compartmentId"?: string;
   /**
-   * list of rule entity association details
+   * The information required to delete an association.
+   *
    */
   "items"?: Array<model.DeleteLogAnalyticsAssociation>;
 }

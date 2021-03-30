@@ -20,31 +20,31 @@ import common = require("oci-common");
  */
 export interface LabelSourceSummary {
   /**
-   * display name
+   * The source display name.
    */
   "sourceDisplayName"?: string;
   /**
-   * source internal name
+   * The source internal name.
    */
   "sourceName"?: string;
   /**
-   * source Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The source unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourceId"?: number;
   /**
-   * label Operator
+   * The label operator.
    */
   "labelOperatorName"?: string;
   /**
-   * label Condition
+   * The label condition.
    */
   "labelCondition"?: string;
   /**
-   * label Field Display Name
+   * The label field display name.
    */
   "labelFieldDisplayname"?: string;
   /**
-   * label Field name
+   * The label field name.
    */
   "labelFieldName"?: string;
 }

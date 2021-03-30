@@ -24,28 +24,38 @@ export interface ListLabelsRequest extends common.BaseRequest {
    */
   "namespaceName": string;
   /**
-   * label name
+   * The label name used for filtering.  Only items with, or associated with, the
+   * specified label name will be returned.
+   *
    */
   "labelName"?: string;
   /**
-   * search by label display name or description
+   * The label display text used for filtering.  Only labels with the specified name or
+   * description will be returned.
+   *
    */
   "labelDisplayText"?: string;
   /**
-   * Is system param of value (all, custom, sourceUsing)
+   * The system value used for filtering.  Only items with the specified system value
+   * will be returned.  Valid values are built in, custom (for user defined items), or
+   * all (for all items, regardless of system value).
    *
    */
   "isSystem"?: ListLabelsRequest.IsSystem;
   /**
-   * label priority
+   * The label priority used for filtering.  Only labels with the specified
+   * priority will be returned.
+   *
    */
   "labelPriority"?: ListLabelsRequest.LabelPriority;
   /**
-   * isCountPop
+   * A flag indicating whether or not to count the label usage per source and per rule.
+   *
    */
   "isCountPop"?: boolean;
   /**
-   * isAliasPop
+   * A flag indicating whether or not return the aliases used by each label.
+   *
    */
   "isAliasPop"?: boolean;
   /**
@@ -62,7 +72,7 @@ export interface ListLabelsRequest extends common.BaseRequest {
    */
   "sortOrder"?: ListLabelsRequest.SortOrder;
   /**
-   * sort by label
+   * The attribute used to sort the returned labels
    */
   "labelSortBy"?: ListLabelsRequest.LabelSortBy;
   /**

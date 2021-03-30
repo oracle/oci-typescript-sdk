@@ -24,7 +24,7 @@ export interface ListSourceAssociationsRequest extends common.BaseRequest {
    */
   "namespaceName": string;
   /**
-   * sourceName
+   * The souce name used for filtering associations.
    */
   "sourceName": string;
   /**
@@ -37,11 +37,13 @@ export interface ListSourceAssociationsRequest extends common.BaseRequest {
    */
   "entityId"?: string;
   /**
-   * Status
+   * The life cycle state used for filtering.  Only associations with the specified
+   * life cycle state will be returned.
+   *
    */
   "lifeCycleState"?: ListSourceAssociationsRequest.LifeCycleState;
   /**
-   * is Show Total
+   * A flag indicating whether or not to return the total number of items returned.
    */
   "isShowTotal"?: boolean;
   /**
@@ -62,7 +64,7 @@ export interface ListSourceAssociationsRequest extends common.BaseRequest {
    */
   "sortOrder"?: ListSourceAssociationsRequest.SortOrder;
   /**
-   * sort by field
+   * The attribute used to sort the returned associations
    */
   "sortBy"?: ListSourceAssociationsRequest.SortBy;
 }

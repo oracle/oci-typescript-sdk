@@ -20,23 +20,23 @@ import common = require("oci-common");
  */
 export interface Violation {
   /**
-   * indexes
+   * The indices associated with regular expression violations.
    */
   "indexes"?: Array<model.Indexes>;
   /**
-   * ruleDescription
+   * The rule description.
    */
   "ruleDescription"?: string;
   /**
-   * ruleName
+   * The rule name.
    */
   "ruleName"?: string;
   /**
-   * ruleRemediation
+   * The rule remediation.
    */
   "ruleRemediation"?: string;
   /**
-   * ruleType
+   * The rule type.  Either WARN or ERROR.
    */
   "ruleType"?: Violation.RuleType;
 }

@@ -64,9 +64,25 @@ export interface LogAnalyticsEntityType {
    *
    */
   "timeUpdated": Date;
+  /**
+   * This field indicates whether logs for entities of this type can be collected using a management agent.
+   *
+   */
+  "managementAgentEligibilityStatus"?: LogAnalyticsEntityType.ManagementAgentEligibilityStatus;
 }
 
 export namespace LogAnalyticsEntityType {
+  export enum ManagementAgentEligibilityStatus {
+    Eligible = "ELIGIBLE",
+    Ineligible = "INELIGIBLE",
+    Unknown = "UNKNOWN",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: LogAnalyticsEntityType): object {
     const jsonObj = {
       ...obj,

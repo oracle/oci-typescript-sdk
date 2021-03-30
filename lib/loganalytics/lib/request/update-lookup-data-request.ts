@@ -37,7 +37,7 @@ export interface UpdateLookupDataRequest extends common.BaseRequest {
    */
   "isForce"?: boolean;
   /**
-   * Character Encoding
+   * The character encoding of the uploaded file.
    */
   "charEncoding"?: string;
   /**

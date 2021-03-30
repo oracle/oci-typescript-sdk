@@ -20,31 +20,31 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsMetaFunction {
   /**
-   * meta function argument object
+   * An array of meta function arguments.
    */
   "metaFunctionArgument"?: Array<model.LogAnalyticsMetaFunctionArgument>;
   /**
-   * component
+   * The component.
    */
   "component"?: string;
   /**
-   * description
+   * The description.
    */
   "description"?: string;
   /**
-   * edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The edit version. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**
-   * meta function Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The meta function unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "metaFunctionId"?: number;
   /**
-   * java class name
+   * The java class name.
    */
   "javaClassName"?: string;
   /**
-   * meta function name
+   * The meta function name.
    */
   "name"?: string;
 }

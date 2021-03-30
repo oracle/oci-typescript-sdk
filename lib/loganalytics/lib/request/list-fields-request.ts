@@ -24,27 +24,42 @@ export interface ListFieldsRequest extends common.BaseRequest {
    */
   "namespaceName": string;
   /**
-   * isMatchAll
+   * A flag indicating how to handle filtering when multiple filter criteria are specified.
+   * A value of true will always result in the most expansive list of items being returned.
+   * For example, if two field lists are supplies as filter criteria, a value of true will
+   * result in any item matching a field in either list being returned, while a value of
+   * false will result in a list of items which only have fields contained in both input lists.
+   *
    */
   "isMatchAll"?: boolean;
   /**
-   * comma delimited list of source ids
+   * A list of source IDs used for filtering.  Only fields used by the specified
+   * sources will be returned.
+   *
    */
   "sourceIds"?: string;
   /**
-   * comma delimited list of source Names
+   * A list of source names used for filtering.  Only fields used by the specified
+   * sources will be returned.
+   *
    */
   "sourceNames"?: string;
   /**
-   * parserType
+   * The parser type used for filtering.  Only items with, or associated with, parsers
+   * of the specified type will be returned.
+   *
    */
   "parserType"?: ListFieldsRequest.ParserType;
   /**
-   * comma delimited list of parser ids
+   * A list of parser names used for filtering.  Only fields used by the specified
+   * parsers will be returned.
+   *
    */
   "parserIds"?: string;
   /**
-   * comma delimited list of parser names
+   * A list of parser names used for filtering.  Only fields used by the specified
+   * parsers will be returned.
+   *
    */
   "parserNames"?: string;
   /**
@@ -69,7 +84,7 @@ export interface ListFieldsRequest extends common.BaseRequest {
    */
   "sortOrder"?: ListFieldsRequest.SortOrder;
   /**
-   * sort by field
+   * The attribute used to sort the returned fields
    */
   "sortBy"?: ListFieldsRequest.SortBy;
   /**
@@ -83,7 +98,9 @@ export namespace ListFieldsRequest {
     All = "ALL",
     Regex = "REGEX",
     Xml = "XML",
-    Json = "JSON"
+    Json = "JSON",
+    Odl = "ODL",
+    Delimited = "DELIMITED"
   }
 
   export enum SortOrder {

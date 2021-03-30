@@ -20,28 +20,29 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsParserFilter {
   /**
-   * id
+   * The parser filter unique identifier.
    */
   "id"?: string;
   "parser"?: model.LogAnalyticsParser;
   /**
-   * agent version
+   * The agent version.
    */
   "agentVersion"?: string;
   /**
-   * is in use flag Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * A flag idicating whether or not hte filter is currently being used.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "isInUse"?: number;
   /**
-   * operating system
+   * The operating system.
    */
   "operatingSystem"?: string;
   /**
-   * parser Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The parser unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "parserId"?: number;
   /**
-   * version
+   * The version.
    */
   "version"?: string;
 }

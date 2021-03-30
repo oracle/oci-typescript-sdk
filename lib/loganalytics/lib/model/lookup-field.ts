@@ -20,31 +20,32 @@ import common = require("oci-common");
  */
 export interface LookupField {
   /**
-   * common field name
+   * The common field name.
    */
   "commonFieldName"?: string;
   /**
-   * default match value
+   * The default match value.
    */
   "defaultMatchValue"?: string;
   /**
-   * display name
+   * The field display name.
    */
   "displayName"?: string;
   /**
-   * is common field
+   * A flag indicating whether or not the lookup field is a common field.
+   *
    */
   "isCommonField"?: boolean;
   /**
-   * match operator
+   * The match operator.
    */
   "matchOperator"?: string;
   /**
-   * name
+   * The field name.
    */
   "name"?: string;
   /**
-   * position Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * THe field position. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "position"?: number;
 }

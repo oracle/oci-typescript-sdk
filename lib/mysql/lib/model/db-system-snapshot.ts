@@ -103,6 +103,12 @@ export interface DbSystemSnapshot {
    */
   "portX"?: number;
   /**
+   * If the policy is to enable high availability of the instance, by
+   * maintaining secondary/failover capacity as necessary.
+   *
+   */
+  "isHighlyAvailable"?: boolean;
+  /**
    * The network endpoints available for this DB System.
    *
    */

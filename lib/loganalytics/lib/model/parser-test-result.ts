@@ -20,23 +20,23 @@ import common = require("oci-common");
  */
 export interface ParserTestResult {
   /**
-   * additional info
+   * Additional information for the test result.
    */
   "additionalInfo"?: { [key: string]: string };
   /**
-   * entries
+   * The test result log entries.
    */
   "entries"?: Array<model.AbstractParserTestResultLogEntry>;
   /**
-   * example content
+   * The example content.
    */
   "exampleContent"?: string;
   /**
-   * lines
+   * The test result log lines.
    */
   "lines"?: Array<model.AbstractParserTestResultLogLine>;
   /**
-   * named capture groups
+   * The named capture groups.
    */
   "namedCaptureGroups"?: Array<string>;
 }

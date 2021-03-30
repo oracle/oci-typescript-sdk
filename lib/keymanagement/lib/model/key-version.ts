@@ -30,7 +30,7 @@ export interface KeyVersion {
    */
   "keyId": string;
   /**
-   * The public key in PEM format which will be populated only in case of RSA and ECDSA keys.
+   * The public key in PEM format. (This value pertains only to RSA and ECDSA keys.)
    *
    */
   "publicKey"?: string;
@@ -69,6 +69,8 @@ Example: \"2018-04-03T21:10:29.600Z\"
    * The OCID of the key version from which this key version was restored.
    */
   "restoredFromKeyVersionId"?: string;
+  "replicaDetails"?: model.KeyVersionReplicaDetails;
+  "isPrimary"?: boolean;
 }
 
 export namespace KeyVersion {
@@ -101,7 +103,14 @@ export namespace KeyVersion {
   }
 
   export function getJsonObj(obj: KeyVersion): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "replicaDetails": obj.replicaDetails
+          ? model.KeyVersionReplicaDetails.getJsonObj(obj.replicaDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -16,11 +16,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * LogAnalyticsAssociationCollection
+ * A collection of associations.
  */
 export interface LogAnalyticsAssociationCollection {
   /**
-   * list of rule entity association details
+   * An array of associations.
    */
   "items"?: Array<model.LogAnalyticsAssociation>;
 }

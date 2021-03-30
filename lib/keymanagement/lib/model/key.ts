@@ -90,6 +90,8 @@ Example: `2018-04-03T21:10:29.600Z`
    * The OCID of the key from which this key was restored.
    */
   "restoredFromKeyId"?: string;
+  "replicaDetails"?: model.KeyReplicaDetails;
+  "isPrimary"?: boolean;
 }
 
 export namespace Key {
@@ -128,7 +130,11 @@ export namespace Key {
     const jsonObj = {
       ...obj,
       ...{
-        "keyShape": obj.keyShape ? model.KeyShape.getJsonObj(obj.keyShape) : undefined
+        "keyShape": obj.keyShape ? model.KeyShape.getJsonObj(obj.keyShape) : undefined,
+
+        "replicaDetails": obj.replicaDetails
+          ? model.KeyReplicaDetails.getJsonObj(obj.replicaDetails)
+          : undefined
       }
     };
 

@@ -16,6 +16,8 @@ running a SQL job on a Managed Database or Managed Database Group.
 
 import * as AddManagedDatabaseToManagedDatabaseGroupRequest from "./add-managed-database-to-managed-database-group-request";
 export import AddManagedDatabaseToManagedDatabaseGroupRequest = AddManagedDatabaseToManagedDatabaseGroupRequest.AddManagedDatabaseToManagedDatabaseGroupRequest;
+import * as ChangeDatabaseParametersRequest from "./change-database-parameters-request";
+export import ChangeDatabaseParametersRequest = ChangeDatabaseParametersRequest.ChangeDatabaseParametersRequest;
 import * as ChangeJobCompartmentRequest from "./change-job-compartment-request";
 export import ChangeJobCompartmentRequest = ChangeJobCompartmentRequest.ChangeJobCompartmentRequest;
 import * as ChangeManagedDatabaseGroupCompartmentRequest from "./change-managed-database-group-compartment-request";
@@ -42,6 +44,8 @@ import * as GetManagedDatabaseRequest from "./get-managed-database-request";
 export import GetManagedDatabaseRequest = GetManagedDatabaseRequest.GetManagedDatabaseRequest;
 import * as GetManagedDatabaseGroupRequest from "./get-managed-database-group-request";
 export import GetManagedDatabaseGroupRequest = GetManagedDatabaseGroupRequest.GetManagedDatabaseGroupRequest;
+import * as ListDatabaseParametersRequest from "./list-database-parameters-request";
+export import ListDatabaseParametersRequest = ListDatabaseParametersRequest.ListDatabaseParametersRequest;
 import * as ListJobExecutionsRequest from "./list-job-executions-request";
 export import ListJobExecutionsRequest = ListJobExecutionsRequest.ListJobExecutionsRequest;
 import * as ListJobRunsRequest from "./list-job-runs-request";
@@ -52,7 +56,11 @@ import * as ListManagedDatabaseGroupsRequest from "./list-managed-database-group
 export import ListManagedDatabaseGroupsRequest = ListManagedDatabaseGroupsRequest.ListManagedDatabaseGroupsRequest;
 import * as ListManagedDatabasesRequest from "./list-managed-databases-request";
 export import ListManagedDatabasesRequest = ListManagedDatabasesRequest.ListManagedDatabasesRequest;
+import * as ListTablespacesRequest from "./list-tablespaces-request";
+export import ListTablespacesRequest = ListTablespacesRequest.ListTablespacesRequest;
 import * as RemoveManagedDatabaseFromManagedDatabaseGroupRequest from "./remove-managed-database-from-managed-database-group-request";
 export import RemoveManagedDatabaseFromManagedDatabaseGroupRequest = RemoveManagedDatabaseFromManagedDatabaseGroupRequest.RemoveManagedDatabaseFromManagedDatabaseGroupRequest;
+import * as ResetDatabaseParametersRequest from "./reset-database-parameters-request";
+export import ResetDatabaseParametersRequest = ResetDatabaseParametersRequest.ResetDatabaseParametersRequest;
 import * as UpdateManagedDatabaseGroupRequest from "./update-managed-database-group-request";
 export import UpdateManagedDatabaseGroupRequest = UpdateManagedDatabaseGroupRequest.UpdateManagedDatabaseGroupRequest;

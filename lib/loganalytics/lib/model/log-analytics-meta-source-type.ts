@@ -20,35 +20,35 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsMetaSourceType {
   /**
-   * built in parser name
+   * The built in parser name.
    */
   "builtInParserName"?: string;
   /**
-   * type description
+   * The source type description.
    */
   "description"?: string;
   /**
-   * display name
+   * The source type display name.
    */
   "displayName"?: string;
   /**
-   * entity display name
+   * The entity display name.
    */
   "entityDisplayName"?: string;
   /**
-   * entity name
+   * The entity internal name.
    */
   "entityName"?: string;
   /**
-   * source type name
+   * The source type name.
    */
   "name"?: string;
   /**
-   * maximum exclude pattern Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum exclude pattern. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maximumExcludePattern"?: number;
   /**
-   * maximum include pattern Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum include pattern. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maximumIncludePattern"?: number;
 }

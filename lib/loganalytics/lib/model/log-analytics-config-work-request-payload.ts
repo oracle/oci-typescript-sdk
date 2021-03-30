@@ -20,15 +20,15 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsConfigWorkRequestPayload {
   /**
-   * sourceName
+   * The source name.
    */
   "sourceName"?: string;
   /**
-   * entityId
+   * The entity unique identifier.
    */
   "entityId"?: string;
   /**
-   * lookupReference Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The lookup reference as an integer. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "lookupReference"?: number;
   /**

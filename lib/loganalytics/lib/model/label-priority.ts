@@ -16,12 +16,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Label Priority
+ * The label priority.
  *
  */
 export interface LabelPriority {
   /**
-   * tag priority
+   * The label priority. Default value is NONE.
    */
   "priority"?: LabelPriority.Priority;
 }

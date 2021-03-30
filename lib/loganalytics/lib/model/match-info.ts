@@ -20,15 +20,15 @@ import common = require("oci-common");
  */
 export interface MatchInfo {
   /**
-   * matchingLogEntryEndIndex Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The end index of the matching log entry. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "matchingLogEntryEndIndex"?: number;
   /**
-   * regexScore Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The regular expression score. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "regexScore"?: number;
   /**
-   * stepCount Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The step count. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "stepCount"?: number;
 }

@@ -20,11 +20,11 @@ import common = require("oci-common");
  */
 export interface ExtractLogHeaderDetails {
   /**
-   * key
+   * The log key.
    */
   "logKey"?: string;
   /**
-   * log header values
+   * The log header values.
    */
   "headerValues"?: Array<string>;
 }

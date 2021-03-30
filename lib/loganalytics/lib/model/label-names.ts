@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface LabelNames {
   /**
-   * string list
+   * An array of label names.
    */
   "labelNames"?: Array<string>;
 }

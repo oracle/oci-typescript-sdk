@@ -28,11 +28,15 @@ export interface ValidateSourceRequest extends common.BaseRequest {
    */
   "upsertLogAnalyticsSourceDetails": model.UpsertLogAnalyticsSourceDetails;
   /**
-   * create like sourceId
+   * The unique identifier of the source to use as the reference for a create like
+   * operation.
+   *
    */
   "createLikeSourceId"?: number;
   /**
-   * is incremental
+   * A flag indicating whether or not the update of a source is incremental or not.  If incremental,
+   * the name of the source must be specified.
+   *
    */
   "isIncremental"?: boolean;
   /**

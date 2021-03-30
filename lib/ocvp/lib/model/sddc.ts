@@ -1,6 +1,6 @@
 /**
  * Oracle Cloud VMware Solution API
- * Use this API to manage the Oracle Cloud VMware Solution.
+ * Use this API to manage your [Oracle Cloud VMware Solution](/iaas/Content/VMware/Concepts/ocvsoverview.htm).
 
  * OpenAPI spec version: 20200501
  * 
@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* A software-defined data center (SDDC) contains the resources required for a
+* An [Oracle Cloud VMware Solution](https://docs.cloud.oracle.com/iaas/Content/VMware/Concepts/ocvsoverview.htm) software-defined data center (SDDC) contains the resources required for a
 * functional VMware environment. Instances in an SDDC
 * (see {@link EsxiHost}) run in a virtual cloud network (VCN)
 * and are preconfigured with VMware and storage. Use the vCenter utility to manage
@@ -59,7 +59,7 @@ For example, if the value is `MySDDC`, the ESXi hosts are named `MySDDC-1`,
   /**
     * In general, this is a specific version of bundled VMware software supported by
 * Oracle Cloud VMware Solution (see
-* {@link #* ListSupportedVmwareSoftwareVersions(* ListSupportedVmwareSoftwareVersionsRequest) * ListSupportedVmwareSoftwareVersions}).
+* {@link #listSupportedVmwareSoftwareVersions(ListSupportedVmwareSoftwareVersionsRequest) listSupportedVmwareSoftwareVersions}).
 * <p>
 This attribute is not guaranteed to reflect the version of
 * software currently installed on the ESXi hosts in the SDDC. The purpose
@@ -85,14 +85,14 @@ Therefore, if you upgrade the existing ESXi hosts in the SDDC to use a newer
    */
   "esxiHostsCount": number;
   /**
-    * FQDN for vCenter
+    * The FQDN for vCenter.
 * <p>
 Example: `vcenter-my-sddc.sddc.us-phoenix-1.oraclecloud.com`
 * 
     */
   "vcenterFqdn": string;
   /**
-    * FQDN for NSX Manager
+    * The FQDN for NSX Manager.
 * <p>
 Example: `nsx-my-sddc.sddc.us-phoenix-1.oraclecloud.com`
 * 
@@ -299,30 +299,61 @@ Therefore, if you change the existing ESXi hosts in the SDDC to use a different 
     */
   "nsxEdgeUplink2VlanId": string;
   /**
-   * HCX Private IP
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VLAN used by the SDDC
+   * for the vSphere Replication component of the VMware environment.
+   *
+   */
+  "replicationVlanId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VLAN used by the SDDC
+   * for the Provisioning component of the VMware environment.
+   *
+   */
+  "provisioningVlanId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the `PrivateIp` object that is
+   * the virtual IP (VIP) for HCX Manager. For information about `PrivateIp` objects, see the
+   * Core Services API.
    *
    */
   "hcxPrivateIpId"?: string;
   /**
-   * HCX Fully Qualified Domain Name
-   */
+    * The FQDN for HCX Manager.
+* <p>
+Example: `hcx-my-sddc.sddc.us-phoenix-1.oraclecloud.com`
+* 
+    */
   "hcxFqdn"?: string;
   /**
-   * HCX initial password
+   * The SDDC includes an administrator username and initial password for HCX Manager. Make sure
+   * to change this initial HCX Manager password to a different value.
    *
    */
   "hcxInitialPassword"?: string;
   /**
-   * HCX vlan id
-   *
-   */
+    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VLAN used by the SDDC
+* for the HCX component of the VMware environment.
+* <p>
+This attribute is not guaranteed to reflect the HCX VLAN
+* currently used by the ESXi hosts in the SDDC. The purpose
+* of this attribute is to show the HCX VLAN that the Oracle
+* Cloud VMware Solution will use for any new ESXi hosts that you *add to this
+* SDDC in the future* with {@link #createEsxiHost(CreateEsxiHostRequest) createEsxiHost}.
+* <p>
+Therefore, if you change the existing ESXi hosts in the SDDC to use a different VLAN
+* for the HCX component of the VMware environment, you
+* should use {@link #updateSddc(UpdateSddcRequest) updateSddc} to update the SDDC's
+* `hcxVlanId` with that new VLAN's OCID.
+* 
+    */
   "hcxVlanId"?: string;
   /**
-   * HCX enabled or not
+   * Indicates whether HCX is enabled for this SDDC.
    */
   "isHcxEnabled"?: boolean;
   /**
-   * HCX on-premise license key
+   * The activation key to use on the on-premises HCX Enterprise appliance you site pair with HCX Manager in your VMware Solution.
+   * Your implementation might need more than one activation key. To obtain additional keys, contact Oracle Support.
    *
    */
   "hcxOnPremKey"?: string;

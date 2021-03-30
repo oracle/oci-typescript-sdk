@@ -20,27 +20,29 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsParserMetaPluginParameter {
   /**
-   * parameter description
+   * The parameter description.
    */
   "description"?: string;
   /**
-   * parameter internal name
+   * The parameter internal name.
    */
   "name"?: string;
   /**
-   * is mandatory flag
+   * A flag indicating whether or not the parameter is mandatory.
+   *
    */
   "isMandatory"?: boolean;
   /**
-   * is repeatable flag
+   * A flag indicating whether or not the parameter is repeatable.
+   *
    */
   "isRepeatable"?: boolean;
   /**
-   * plugin internal name
+   * The plugin internal name.
    */
   "pluginName"?: string;
   /**
-   * parameter type
+   * The parameter type.
    */
   "type"?: string;
 }

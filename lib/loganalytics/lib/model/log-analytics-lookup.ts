@@ -20,23 +20,23 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsLookup {
   /**
-   * active edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The active edit version. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "activeEditVersion"?: number;
   /**
-   * canonical link
+   * The canonical link.
    */
   "canonicalLink"?: string;
   /**
-   * description
+   * The lookup description.
    */
   "description"?: string;
   /**
-   * edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The edit version. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**
-   * fields
+   * The lookup fields.
    */
   "fields"?: Array<model.LookupField>;
   /**
@@ -52,25 +52,29 @@ export interface LogAnalyticsLookup {
    */
   "type"?: LogAnalyticsLookup.Type;
   /**
-   * iname
+   * The lookup name.
    */
   "name"?: string;
   /**
-   * is built in Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * A flag indicating if the lookup is custom (user-defined) or
+   * built in.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "isBuiltIn"?: number;
   /**
-   * is hidden
+   * A flag indicating if the lookup is hidden or not.  A hidden lookup will
+   * not be returned in list operations by default.
+   *
    */
   "isHidden"?: boolean;
   /**
-   * name
+   * The lookup display name.
    */
   "lookupDisplayName"?: string;
   "referringSources"?: model.AutoLookups;
   "statusSummary"?: model.StatusSummary;
   /**
-   * last updated date
+   * The last updated date.
    */
   "timeUpdated"?: Date;
 }

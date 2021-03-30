@@ -33,11 +33,15 @@ export interface ListAssociatedEntitiesRequest extends common.BaseRequest {
    */
   "entityId"?: string;
   /**
-   * entity type name
+   * The entity type used for filtering.  Only associations on an entity with the
+   * specified type will be returned.
+   *
    */
   "entityType"?: string;
   /**
-   * entity type display name
+   * The entity type display name used for filtering.  Only items associated with the entity
+   * with the specified type display name will be returned.
+   *
    */
   "entityTypeDisplayName"?: string;
   /**
@@ -54,7 +58,7 @@ export interface ListAssociatedEntitiesRequest extends common.BaseRequest {
    */
   "sortOrder"?: ListAssociatedEntitiesRequest.SortOrder;
   /**
-   * sort by field
+   * The attribute used to sort the returned entities
    */
   "sortBy"?: ListAssociatedEntitiesRequest.SortBy;
   /**

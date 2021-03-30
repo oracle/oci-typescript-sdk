@@ -32,7 +32,7 @@ export interface ListParserMetaPluginsRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * sort by field
+   * The attribute used to sort the returned items
    */
   "sortBy"?: ListParserMetaPluginsRequest.SortBy;
   /**

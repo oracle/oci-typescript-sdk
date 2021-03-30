@@ -20,19 +20,20 @@ import common = require("oci-common");
  */
 export interface UsageStatusItem {
   /**
-   * data type
+   * The field data type.
    */
   "dataType"?: string;
   /**
-   * is the field multi valued
+   * A flag indicating whether or not the field is multi-valued.
+   *
    */
   "isMultiValued"?: boolean;
   /**
-   * current usage Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The current usage of the field. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "currentUsage"?: number;
   /**
-   * maximum available Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum availability of the field. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxAvailable"?: number;
 }

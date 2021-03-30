@@ -20,19 +20,20 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsSourceMetric {
   /**
-   * is enabled flag
+   * A flag specifying whether or not the metric source is enabled.
+   *
    */
   "isMetricSourceEnabled"?: boolean;
   /**
-   * metric name
+   * The metric name.
    */
   "metricName"?: string;
   /**
-   * source internal name
+   * The source internal name.
    */
   "sourceName"?: string;
   /**
-   * entity type
+   * The entity type.
    */
   "entityType"?: string;
 }

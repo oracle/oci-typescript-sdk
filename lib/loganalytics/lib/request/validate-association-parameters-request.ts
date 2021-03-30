@@ -41,7 +41,7 @@ export interface ValidateAssociationParametersRequest extends common.BaseRequest
    */
   "sortOrder"?: ValidateAssociationParametersRequest.SortOrder;
   /**
-   * sort by field
+   * The attribute used to sort the returned association parameters
    */
   "sortBy"?: ValidateAssociationParametersRequest.SortBy;
   /**

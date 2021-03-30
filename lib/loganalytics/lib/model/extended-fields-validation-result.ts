@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface ExtendedFieldsValidationResult {
   /**
-   * items
+   * The regular expression evaluation result of an extended field definition.
    */
   "items"?: Array<model.EfdRegexResult>;
 }

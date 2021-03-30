@@ -20,115 +20,120 @@ import common = require("oci-common");
  */
 export interface UpsertLogAnalyticsSourceDetails {
   /**
-   * source label conditions
+   * An array of source label conditions.
    */
   "labelConditions"?: Array<model.LogAnalyticsSourceLabelCondition>;
   /**
-   * data filter definitions
+   * An array of data filter definitions.
    */
   "dataFilterDefinitions"?: Array<model.LogAnalyticsSourceDataFilter>;
   /**
-   * DB credential name
+   * The database credential name.
    */
   "databaseCredential"?: string;
   /**
-   * extended field definition
+   * An array of extended field definitions.
    */
   "extendedFieldDefinitions"?: Array<model.LogAnalyticsSourceExtendedFieldDefinition>;
   /**
-   * is for cloud flag
+   * A flag indicating whether or not this is a cloud source.
+   *
    */
   "isForCloud"?: boolean;
   /**
-   * labels
+   * An array of labels.
    */
   "labels"?: Array<model.LogAnalyticsLabelView>;
   /**
-   * metric definitions
+   * An array of metric definitions.
    */
   "metricDefinitions"?: Array<model.LogAnalyticsMetric>;
   /**
-   * metric source map
+   * An array of metrics.
    */
   "metrics"?: Array<model.LogAnalyticsSourceMetric>;
   /**
-   * out-of-the-box source parser list
+   * An array of built in source parsers.
    */
   "oobParsers"?: Array<model.LogAnalyticsParser>;
   /**
-   * parameters
+   * An array of parameters.
    */
   "parameters"?: Array<model.LogAnalyticsParameter>;
   /**
-   * patterns
+   * An array of patterns.
    */
   "patterns"?: Array<model.LogAnalyticsSourcePattern>;
   /**
-   * description
+   * The source description.
    */
   "description"?: string;
   /**
-   * display name
+   * The source display name.
    */
   "displayName"?: string;
   /**
-   * source edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The source edit version. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**
-   * source functions
+   * An array of source functions.
    */
   "functions"?: Array<model.LogAnalyticsSourceFunction>;
   /**
-   * source Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The source unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourceId"?: number;
   /**
-   * source internal name
+   * The source internal name.
    */
   "name"?: string;
   /**
-   * is secure content flag
+   * A flag indicating whether or not the source content is secure.
+   *
    */
   "isSecureContent"?: boolean;
   /**
-   * is system flag
+   * The system flag.  A value of false denotes a custom, or user
+   * defined object.  A value of true denotes a built in object.
+   *
    */
   "isSystem"?: boolean;
   /**
-   * parser list
+   * An array of parser.
    */
   "parsers"?: Array<model.LogAnalyticsParser>;
   /**
-   * rule Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The rule unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ruleId"?: number;
   /**
-   * source type internal name
+   * The source type internal name.
    */
   "typeName"?: string;
   /**
-   * source warning configuration Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The source warning configuration. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "warningConfig"?: number;
   /**
-   * source metadata fields
+   * An array of source metadata fields.
    */
   "metadataFields"?: Array<model.LogAnalyticsSourceMetadataField>;
   /**
-   * tags
+   * An array of labels.
    */
   "labelDefinitions"?: Array<model.LogAnalyticsLabelDefinition>;
   /**
-   * entity types
+   * An array of entity types.
    */
   "entityTypes"?: Array<model.LogAnalyticsSourceEntityType>;
   /**
-   * time zone override
+   * A flag indicating whether or not the source has a time zone override.
+   *
    */
   "isTimezoneOverride"?: boolean;
   /**
-   * source parser list
+   * An array of custom parsers.
    */
   "userParsers"?: Array<model.LogAnalyticsParser>;
 }

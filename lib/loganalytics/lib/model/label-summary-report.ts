@@ -20,11 +20,11 @@ import common = require("oci-common");
  */
 export interface LabelSummaryReport {
   /**
-   * non out-of-the-box count Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The count of custom (user defined) labels. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "nonOobCount"?: number;
   /**
-   * out-of-the-box count Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The count of built in labels. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "oobCount"?: number;
 }

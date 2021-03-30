@@ -24,15 +24,19 @@ export interface ListLookupsRequest extends common.BaseRequest {
    */
   "namespaceName": string;
   /**
-   * type - possible values are Lookup or Dictionary
+   * The lookup type.  Valid values are Lookup or Dictionary.
    */
   "type": ListLookupsRequest.Type;
   /**
-   * Search by lookup display name or description.
+   * The lookup text used for filtering.  Only lookups with the specified name
+   * or description will be returned.
+   *
    */
   "lookupDisplayText"?: string;
   /**
-   * Is system param of value (all, custom, sourceUsing)
+   * The system value used for filtering.  Only items with the specified system value
+   * will be returned.  Valid values are built in, custom (for user defined items), or
+   * all (for all items, regardless of system value).
    *
    */
   "isSystem"?: ListLookupsRequest.IsSystem;
@@ -45,7 +49,8 @@ export interface ListLookupsRequest extends common.BaseRequest {
    */
   "status"?: ListLookupsRequest.Status;
   /**
-   * is include items
+   * A flag indicating whether or not to return OMC annotated or hidden lookups.
+   *
    */
   "isHideSpecial"?: boolean;
   /**
@@ -89,7 +94,7 @@ export namespace ListLookupsRequest {
 
   export enum Status {
     All = "ALL",
-    Succesful = "SUCCESFUL",
+    Successful = "SUCCESSFUL",
     Failed = "FAILED",
     Inprogress = "INPROGRESS"
   }

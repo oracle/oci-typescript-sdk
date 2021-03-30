@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface ExtractLogFieldResults {
   /**
-   * log field path values
+   * The log field path values.
    */
   "paths"?: Array<string>;
 }

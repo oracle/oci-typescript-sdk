@@ -20,53 +20,78 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsSourceFunction {
   /**
-   * argument
+   * The function argument.
    */
   "arguments"?: Array<model.LogAnalyticsMetaFunctionArgument>;
   /**
-   * enabled flag
+   * A flag inidcating whether or not the source function is enabled.
+   *
    */
   "isEnabled"?: boolean;
   "function"?: model.LogAnalyticsMetaFunction;
   /**
-   * source function Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The source function name
+   */
+  "functionName"?: LogAnalyticsSourceFunction.FunctionName;
+  /**
+   * The source function unique identifier as a string.
+   */
+  "functionReference"?: string;
+  /**
+   * The source unique identifier as a string.
+   */
+  "sourceReference"?: string;
+  /**
+   * The source function unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "functionId"?: number;
   /**
-   * source function order Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The source function order. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "order"?: number;
   /**
-   * is system flag
+   * The system flag.  A value of false denotes a custom, or user
+   * defined object.  A value of true denotes a built in object.
+   *
    */
   "isSystem"?: boolean;
   /**
-   * column
+   * The lookup column.
    */
   "lookupColumn"?: string;
   /**
-   * column position Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The lookup column position. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "lookupColumnPosition"?: number;
   /**
-   * lookup display name
+   * The lookup display name.
    */
   "lookupDisplayName"?: string;
   /**
-   * lookup mode Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The lookup  mode. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "lookupMode"?: number;
   /**
-   * lookup table
+   * The lookup table.
    */
   "lookupTable"?: string;
   /**
-   * source Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The source unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourceId"?: number;
 }
 
 export namespace LogAnalyticsSourceFunction {
+  export enum FunctionName {
+    Geolocation = "GEOLOCATION",
+    Lookup = "LOOKUP",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: LogAnalyticsSourceFunction): object {
     const jsonObj = {
       ...obj,

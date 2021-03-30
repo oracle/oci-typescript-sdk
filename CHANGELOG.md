@@ -3,6 +3,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 1.18.0 - 2021-03-30
+### Added
+- Support for the Vulnerability Scanning service
+- Support for vSphere 7.0 in the VMware Solution service
+- Support for forecasting in the Usage service
+- Support for viewing, searching, and modifying parameters for on-premise Oracle databases in the Database Management service
+- Support for listing tablespaces of managed databases in the Database Management service
+- Support for cross-regional replication of keys in the Key Management service
+- Support for highly-available database systems in the MySQL Database service
+- Support for Oracle Enterprise Manager bridges, source auto-association, source event type mappings, and plugins to upload data in the Logging Analytics service
+
+### Breaking Changes
+- Updated the Status enum `Succesful` to `Successful` from ListLookupsRequest in the log analytics service.
+- Updated the property `forcastType` to `forecastType` from Forecast model in the usageapi service.
+
 ## 1.17.0 - 2021-03-23
 ### Added
 - Support for the Network Load Balancing service

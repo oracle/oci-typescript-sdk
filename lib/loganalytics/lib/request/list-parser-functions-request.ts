@@ -24,7 +24,8 @@ export interface ListParserFunctionsRequest extends common.BaseRequest {
    */
   "namespaceName": string;
   /**
-   * parserName
+   * The parser name used for filtering.
+   *
    */
   "parserName"?: string;
   /**
@@ -36,7 +37,7 @@ export interface ListParserFunctionsRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * sort by field
+   * The attribute used to sort the returned items
    */
   "sortBy"?: ListParserFunctionsRequest.SortBy;
   /**

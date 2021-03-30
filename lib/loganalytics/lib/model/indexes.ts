@@ -20,11 +20,11 @@ import common = require("oci-common");
  */
 export interface Indexes {
   /**
-   * endIndex Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The end index. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "endIndex"?: number;
   /**
-   * startIndex Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The start index. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "startIndex"?: number;
 }

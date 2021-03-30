@@ -127,6 +127,10 @@ export interface UsageSummary {
    */
   "overage"?: string;
   /**
+   * is forecasted data
+   */
+  "isForecast"?: boolean;
+  /**
    * For grouping, a tag definition. For filtering, a definition and key.
    */
   "tags"?: Array<model.Tag>;

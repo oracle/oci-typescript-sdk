@@ -20,15 +20,15 @@ import common = require("oci-common");
  */
 export interface UiParserTestMetadata {
   /**
-   * Last modified time
+   * The last modified time.
    */
   "lastModifiedTime"?: string;
   /**
-   * Name of log file
+   * The log file name.
    */
   "logFileName"?: string;
   /**
-   * timeZone
+   * The time zone.
    */
   "timeZone"?: Date;
 }

@@ -20,63 +20,66 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsLabelView {
   /**
-   * alias list
+   * An arrya of label aliases.
    */
   "aliases"?: Array<model.LogAnalyticsLabelAlias>;
   /**
-   * alert rule usage count Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The label alert rule usage count. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "countUsageInAlertRule"?: number;
   /**
-   * source usage count Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The label source usage count. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "countUsageInSource"?: number;
   /**
-   * id
+   * The label unique identifier.
    */
   "id"?: any;
   /**
-   * suggest type Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The label suggestion type. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "suggestType"?: number;
   /**
-   * label description
+   * The label description.
    */
   "description"?: string;
   /**
-   * label display name
+   * The label display name.
    */
   "displayName"?: string;
   /**
-   * tag edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The label edit version. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**
-   * label impact
+   * The label impact.
    */
   "impact"?: string;
   /**
-   * is system flag
+   * The system flag.  A value of false denotes a custom, or user
+   * defined object.  A value of true denotes a built in object.
+   *
    */
   "isSystem"?: boolean;
   /**
-   * label name
+   * The label name.
    */
   "name"?: string;
   /**
-   * priority
+   * The label priority.  Default value is NONE.
    */
   "priority"?: LogAnalyticsLabelView.Priority;
   /**
-   * recommendation
+   * The label recommendation.
    */
   "recommendation"?: string;
   /**
-   * type Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The label type. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "type"?: number;
   /**
-   * user deleted flag
+   * A flag indicating whether or not the label has been deleted.
+   *
    */
   "isUserDeleted"?: boolean;
 }

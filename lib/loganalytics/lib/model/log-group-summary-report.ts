@@ -16,11 +16,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * LogGroupSummaryReport
+ * A LogAnalytics Log Group summary report.
  */
 export interface LogGroupSummaryReport {
   /**
-   * log group count Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The log group count. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "count"?: number;
 }

@@ -20,11 +20,11 @@ import common = require("oci-common");
  */
 export interface SourceValidateDetails {
   /**
-   * key
+   * The key.
    */
   "key"?: string;
   /**
-   * value
+   * The value.
    */
   "value"?: string;
 }

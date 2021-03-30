@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsParserCollection {
   /**
-   * list of parsers
+   * An array of parsers.
    */
   "items"?: Array<model.LogAnalyticsParserSummary>;
 }
