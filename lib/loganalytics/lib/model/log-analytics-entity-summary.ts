@@ -91,6 +91,7 @@ export interface LogAnalyticsEntitySummary {
    *
    */
   "sourceId"?: string;
+  "creationSource"?: model.CreationSource;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
@@ -107,7 +108,14 @@ export interface LogAnalyticsEntitySummary {
 
 export namespace LogAnalyticsEntitySummary {
   export function getJsonObj(obj: LogAnalyticsEntitySummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "creationSource": obj.creationSource
+          ? model.CreationSource.getJsonObj(obj.creationSource)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

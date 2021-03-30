@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsMetaSourceTypeCollection {
   /**
-   * list of tag priorities
+   * An array of meta source types.
    */
   "items"?: Array<model.LogAnalyticsMetaSourceType>;
 }

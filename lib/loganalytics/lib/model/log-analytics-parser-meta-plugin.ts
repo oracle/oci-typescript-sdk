@@ -20,19 +20,19 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsParserMetaPlugin {
   /**
-   * parameter list
+   * An array of plugin parameters.
    */
   "metaPluginParameters"?: Array<model.LogAnalyticsParserMetaPluginParameter>;
   /**
-   * plugin description
+   * The plugin description.
    */
   "description"?: string;
   /**
-   * plugin display name
+   * The plugin display name.
    */
   "displayName"?: string;
   /**
-   * plugin internal name
+   * The plugin internal name.
    */
   "name"?: string;
 }

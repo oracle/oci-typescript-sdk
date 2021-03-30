@@ -20,31 +20,31 @@ import common = require("oci-common");
  */
 export interface AbstractParserTestResultLogEntry {
   /**
-   * extra info attributes
+   * Extra information attributes.
    */
   "extraInfoAttributes"?: { [key: string]: string };
   /**
-   * field name value map
+   * The field name value map.
    */
   "fieldNameValueMap"?: { [key: string]: string };
   /**
-   * field position value map
+   * The field position value map.
    */
   "fieldPositionValueMap"?: { [key: string]: string };
   /**
-   * fields
+   * The parser fields.
    */
   "fields"?: { [key: string]: string };
   /**
-   * log entry
+   * The log entry.
    */
   "logEntry"?: string;
   /**
-   * match status
+   * The match status.
    */
   "matchStatus"?: string;
   /**
-   * match status description
+   * The match status description.
    */
   "matchStatusDescription"?: string;
 }

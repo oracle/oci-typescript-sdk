@@ -32,7 +32,7 @@ export interface ListMetaSourceTypesRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * sort by field
+   * The attribute used to sort the returned items
    */
   "sortBy"?: ListMetaSourceTypesRequest.SortBy;
   /**

@@ -20,143 +20,150 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsSourceSummary {
   /**
-   * alert conditions
+   * The label alert conditions.
    */
   "labelConditions"?: Array<model.LogAnalyticsSourceLabelCondition>;
   /**
-   * association count Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The association count. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "associationCount"?: number;
   /**
-   * association entity
+   * The association entity.
    */
   "associationEntity"?: Array<model.LogAnalyticsAssociation>;
   /**
-   * data filter definitions
+   * The data filter definition.
    */
   "dataFilterDefinitions"?: Array<model.LogAnalyticsSourceDataFilter>;
   /**
-   * DB credential
+   * The database credential.
    */
   "databaseCredential"?: string;
   /**
-   * extended field definition
+   * The extended field definition.
    */
   "extendedFieldDefinitions"?: Array<model.LogAnalyticsSourceExtendedFieldDefinition>;
   /**
-   * is for cloud flag
+   * A flag indicating whether or not this is a cloud source.
+   *
    */
   "isForCloud"?: boolean;
   /**
-   * labels
+   * The labels associated with this source.
    */
   "labels"?: Array<model.LogAnalyticsLabelView>;
   /**
-   * metric definitions
+   * The metric definitions.
    */
   "metricDefinitions"?: Array<model.LogAnalyticsMetric>;
   /**
-   * metric source map
+   * The metric source map.
    */
   "metrics"?: Array<model.LogAnalyticsSourceMetric>;
   /**
-   * out-of-the-box source parser list
+   * The built in source parser.
    */
   "oobParsers"?: Array<model.LogAnalyticsParser>;
   /**
-   * parameters
+   * The parameter.
    */
   "parameters"?: Array<model.LogAnalyticsParameter>;
   /**
-   * pattern count Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The pattern count. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "patternCount"?: number;
   /**
-   * patterns
+   * The source patterns.
    */
   "patterns"?: Array<model.LogAnalyticsSourcePattern>;
   /**
-   * description
+   * The source description.
    */
   "description"?: string;
   /**
-   * display name
+   * The source display name.
    */
   "displayName"?: string;
   /**
-   * source edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The source edit version. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**
-   * source functions
+   * The source functions.
    */
   "functions"?: Array<model.LogAnalyticsSourceFunction>;
   /**
-   * source Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The source unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourceId"?: number;
   /**
-   * source internal name
+   * The source internal name.
    */
   "name"?: string;
   /**
-   * is secure content flag
+   * A flag indicating whether or not the source content is secure.
+   *
    */
   "isSecureContent"?: boolean;
   /**
-   * is system flag
+   * The system flag.  A value of false denotes a custom, or user
+   * defined object.  A value of true denotes a built in object.
+   *
    */
   "isSystem"?: boolean;
   /**
-   * parser list
+   * The list of parsers associated with this source.
    */
   "parsers"?: Array<model.LogAnalyticsParser>;
   /**
-   * rule auto association enabled flag
+   * A flag indicating whether or not the source is marked for auto-association.
+   *
    */
   "isAutoAssociationEnabled"?: boolean;
   /**
-   * rule auto association override
+   * A flag indicating whether or not the auto-association state should be overriden.
+   *
    */
   "isAutoAssociationOverride"?: boolean;
   /**
-   * rule Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The rule unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ruleId"?: number;
   /**
-   * source type internal name
+   * The source type internal name.
    */
   "typeName"?: string;
   /**
-   * source type name
+   * The source type name.
    */
   "typeDisplayName"?: string;
   /**
-   * source warning configuration Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The source warning configuration. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "warningConfig"?: number;
   /**
-   * source metadata fields
+   * The source metadata fields.
    */
   "metadataFields"?: Array<model.LogAnalyticsSourceMetadataField>;
   /**
-   * tags
+   * The label definitions.
    */
   "labelDefinitions"?: Array<model.LogAnalyticsLabelDefinition>;
   /**
-   * Entity types
+   * The entity types.
    */
   "entityTypes"?: Array<model.LogAnalyticsSourceEntityType>;
   /**
-   * time zone override
+   * A flag indicating whether or not the source has a time zone override.
+   *
    */
   "isTimezoneOverride"?: boolean;
   /**
-   * source parser list
+   * An array of custom parsers.
    */
   "userParsers"?: Array<model.LogAnalyticsParser>;
   /**
-   * timeUpdated
+   * The last updated date.
    */
   "timeUpdated"?: Date;
 }

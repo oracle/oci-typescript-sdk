@@ -20,71 +20,75 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsAssociation {
   /**
-   * failure message
+   * The failure message.
    */
   "failureMessage"?: string;
   /**
-   * Lama Idf
+   * The agent unique identifier.
    */
   "agentId"?: string;
   /**
-   * last attempt date
+   * The last attempt date.
    */
   "timeLastAttempted"?: Date;
   /**
-   * retry count Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of times the association will be attempted
+   * before failing.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "retryCount"?: number;
   /**
-   * source name
+   * The source name.
    */
   "sourceName"?: string;
   /**
-   * source display name
+   * The source display name.
    */
   "sourceDisplayName"?: string;
   /**
-   * source type internal name
+   * The source type internal name.
    */
   "sourceTypeName"?: string;
   /**
-   * lifeCycleState
+   * The lifecycle status.  Valid values are ACCEPTED, IN_PROGRESS, SUCCEEDED
+   * or FAILED.
+   *
    */
   "lifeCycleState"?: LogAnalyticsAssociation.LifeCycleState;
   /**
-   * entity GUID
+   * The entity unique identifier.
    */
   "entityId"?: string;
   /**
-   * entity name
+   * The entity name.
    */
   "entityName"?: string;
   /**
-   * entity type internal name
+   * The entity type internal name.
    */
   "entityTypeName"?: string;
   /**
-   * host name
+   * The host name.
    */
   "host"?: string;
   /**
-   * Agent entity name
+   * The name of the entity which contains the agent.
    */
   "agentEntityName"?: string;
   /**
-   * entity type display name
+   * The entity type display name.
    */
   "entityTypeDisplayName"?: string;
   /**
-   * log group ocid
+   * The log group unique identifier.
    */
   "logGroupId"?: string;
   /**
-   * log group name
+   * The log group name.
    */
   "logGroupName"?: string;
   /**
-   * log group compartment
+   * The log group compartment.
    */
   "logGroupCompartment"?: string;
 }

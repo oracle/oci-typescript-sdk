@@ -156,3 +156,4 @@ export import apmsynthetics = require("oci-apmsynthetics");
 export import apmtraces = require("oci-apmtraces");
 export import goldengate = require("oci-goldengate");
 export import networkloadbalancer = require("oci-networkloadbalancer");
+export import vulnerabilityscanning = require("oci-vulnerabilityscanning");

@@ -15,17 +15,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Forcast configuration of usage/cost.
+ * Forecast configuration of usage/cost.
  */
 export interface Forecast {
   /**
    * BASIC uses ETS to project future usage/cost based on history data. The basis for projections will be a rolling set of equivalent historical days for which projection is being made.
    */
-  "forcastType"?: Forecast.ForcastType;
+  "forecastType"?: Forecast.ForecastType;
   /**
-   * forecast start time.
+   * forecast start time. Will default to UTC-1 if not specified
    */
-  "timeForecastStarted": Date;
+  "timeForecastStarted"?: Date;
   /**
    * forecast end time.
    */
@@ -33,8 +33,13 @@ export interface Forecast {
 }
 
 export namespace Forecast {
-  export enum ForcastType {
-    Basic = "BASIC"
+  export enum ForecastType {
+    Basic = "BASIC",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Forecast): object {

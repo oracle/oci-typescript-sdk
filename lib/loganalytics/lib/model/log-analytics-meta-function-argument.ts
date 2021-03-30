@@ -20,57 +20,61 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsMetaFunctionArgument {
   /**
-   * override output fields
+   * The override output fields.
    */
   "isOverrideOutputFields"?: boolean;
   /**
-   * argument display name
+   * The argument display name.
    */
   "argumentDisplayName"?: string;
   /**
-   * argument example
+   * The argument example.
    */
   "argumentExample"?: string;
   /**
-   * argument service
+   * The argument service.
    */
   "argumentService"?: string;
   /**
-   * argument data type
+   * The argument data type.
    */
   "argumentDataType"?: string;
   /**
-   * argument description
+   * The argument description.
    */
   "argumentDescription"?: string;
   /**
-   * argument name
+   * The argument name.
    */
   "argumentName"?: string;
   /**
-   * argument order Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The argument order. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "argumentOrder"?: number;
   /**
-   * argument type Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The argument type. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "argumentType"?: number;
   /**
-   * meta function id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The argument unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "argumentId"?: number;
   /**
-   * column
+   * The lookup column.
    */
   "argumentLookupColumn"?: string;
   /**
-   * column position Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The lookup column position. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "argumentLookupColumnPosition"?: number;
   /**
-   * value
+   * The argument value.
    */
   "argumentValue"?: string;
+  /**
+   * The argument unique identifier as a string.
+   */
+  "argumentReference"?: string;
 }
 
 export namespace LogAnalyticsMetaFunctionArgument {

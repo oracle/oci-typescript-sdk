@@ -20,31 +20,31 @@ import common = require("oci-common");
  */
 export interface DeleteLogAnalyticsAssociation {
   /**
-   * Lama Idf
+   * The agent unique identifier.
    */
   "agentId"?: string;
   /**
-   * source name
+   * The source name.
    */
   "sourceName"?: string;
   /**
-   * source type internal name
+   * The source type internal name.
    */
   "sourceTypeName"?: string;
   /**
-   * entity GUID
+   * The entity unique identifier.
    */
   "entityId"?: string;
   /**
-   * entity type internal name
+   * The entity type internal name.
    */
   "entityTypeName"?: string;
   /**
-   * host name
+   * The host name.
    */
   "host"?: string;
   /**
-   * log group ocid
+   * The log group unique identifier.
    */
   "logGroupId"?: string;
 }

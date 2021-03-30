@@ -20,87 +20,94 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsMetric {
   /**
-   * aggregation field
+   * The aggregation field.
    */
   "aggregationField"?: string;
   /**
-   * bucket metadata
+   * The bucket metadata.
    */
   "bucketMetadata"?: string;
   /**
-   * clock period
+   * The clock period.
    */
   "clockPeriod"?: string;
   /**
-   * description
+   * The metric description.
    */
   "description"?: string;
   /**
-   * edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The metric edit version. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**
-   * field name
+   * The field name.
    */
   "fieldName"?: string;
   /**
-   * field value array
+   * The field values.
    */
   "fieldValues"?: Array<string>;
   /**
-   * grouping fields
+   * The grouping fields.
    */
   "groupingField"?: string;
   /**
-   * is enabled flag
+   * A flag inidcating whether or not the metric is enabled.
+   *
    */
   "isEnabled"?: boolean;
   /**
-   * is system flag
+   * The system flag.  A value of false denotes a custom, or user
+   * defined object.  A value of true denotes a built in object.
+   *
    */
   "isSystem"?: boolean;
   /**
-   * metric display name
+   * The metric display name.
    */
   "displayName"?: string;
   /**
-   * metric Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The metric unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "metricReference"?: number;
   /**
-   * name
+   * The metric name.
    */
   "name"?: string;
   /**
-   * metric type
+   * The metric type, specifying the type of aggreation to perform.  Default value
+   * is COUNT.
+   *
    */
   "metricType"?: LogAnalyticsMetric.MetricType;
   /**
-   * is metric source map enabled flag
+   * A flag specifying whether or not the metric source is enabled.
+   *
    */
   "isMetricSourceEnabled"?: boolean;
   /**
-   * operator
+   * The metric operator.
    */
   "operator"?: LogAnalyticsMetric.Operator;
   /**
-   * sources
+   * The metric sources.
    */
   "sources"?: Array<model.LogAnalyticsSource>;
   /**
-   * entity type
+   * The entity type.
    */
   "entityType"?: string;
   /**
-   * last updated date
+   * The last updated date.
    */
   "timeUpdated"?: Date;
   /**
-   * unit type
+   * The unit type.
    */
   "unitType"?: string;
   /**
-   * user customized
+   * A flag specifying whether or not this is a custom (user defined) metric.
+   *
    */
   "isUserCustomized"?: boolean;
 }

@@ -24,7 +24,9 @@ export interface ListLabelSourceDetailsRequest extends common.BaseRequest {
    */
   "namespaceName": string;
   /**
-   * label name
+   * The label name used for filtering.  Only items with, or associated with, the
+   * specified label name will be returned.
+   *
    */
   "labelName"?: string;
   /**
@@ -41,7 +43,7 @@ export interface ListLabelSourceDetailsRequest extends common.BaseRequest {
    */
   "sortOrder"?: ListLabelSourceDetailsRequest.SortOrder;
   /**
-   * sort by source displayname
+   * The attribute used to sort the returned sources
    */
   "labelSourceSortBy"?: ListLabelSourceDetailsRequest.LabelSourceSortBy;
   /**

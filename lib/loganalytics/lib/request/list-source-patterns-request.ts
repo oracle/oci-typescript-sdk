@@ -24,7 +24,7 @@ export interface ListSourcePatternsRequest extends common.BaseRequest {
    */
   "namespaceName": string;
   /**
-   * source name
+   * The source name.
    */
   "sourceName": string;
   /**
@@ -40,7 +40,7 @@ export interface ListSourcePatternsRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * sort by source pattern text
+   * The attribute used to sort the returned source patterns
    */
   "sortBy"?: ListSourcePatternsRequest.SortBy;
   /**

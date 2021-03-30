@@ -20,27 +20,27 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsParserFunctionParameter {
   /**
-   * plugin Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The parser function unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "parserFunctionId"?: number;
   /**
-   * internal name
+   * The internal name
    */
   "parserFunctionParameterName"?: string;
   /**
-   * plugin instance Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The parameter unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "parserFunctionParameterId"?: number;
   /**
-   * parameter internal name
+   * The parameter internal name.
    */
   "parserMetaPluginParameterName"?: string;
   /**
-   * parameter value
+   * The parameter value.
    */
   "parserMetaPluginParameterValue"?: string;
   /**
-   * parser internal name
+   * The parser internal name.
    */
   "parserName"?: string;
   "parserMetaPluginParameter"?: model.LogAnalyticsParserMetaPluginParameter;

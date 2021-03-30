@@ -20,11 +20,11 @@ import common = require("oci-common");
  */
 export interface ExtractLogHeaderResults {
   /**
-   * log header json paths
+   * The log header json paths.
    */
   "jsonPaths"?: Array<model.ExtractLogHeaderDetails>;
   /**
-   * log field or header values
+   * The log field or log header values.
    */
   "xmlPaths"?: Array<string>;
 }

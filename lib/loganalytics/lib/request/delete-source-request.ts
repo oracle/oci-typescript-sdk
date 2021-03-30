@@ -24,7 +24,7 @@ export interface DeleteSourceRequest extends common.BaseRequest {
    */
   "namespaceName": string;
   /**
-   * source name
+   * The source name.
    */
   "sourceName": string;
   /**

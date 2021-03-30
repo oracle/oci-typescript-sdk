@@ -21,63 +21,66 @@ import common = require("oci-common");
 export interface LogAnalyticsSourceExtendedFieldDefinition {
   "field"?: model.LogAnalyticsField;
   /**
-   * display regular expression
+   * The regular expression.
    */
   "displayRegularExpression"?: string;
   /**
-   * extended fields
+   * An array of extended fields.
    */
   "extendedFields"?: Array<model.LogAnalyticsExtendedField>;
   /**
-   * base field internal name
+   * The base field internal name.
    */
   "baseFieldName"?: string;
   /**
-   * base field log text
+   * The base field log text.
    */
   "baseFieldLogText"?: string;
   /**
-   * conditional data type
+   * The conditional data type.
    */
   "conditionDataType"?: string;
   /**
-   * conditional field
+   * The onditional field.
    */
   "conditionField"?: string;
   /**
-   * conditional operator
+   * The conditional operator.
    */
   "conditionOperator"?: string;
   /**
-   * conditional value
+   * The conditional value.
    */
   "conditionValue"?: string;
   /**
-   * converted regular expression
+   * The converted regular expression.
    */
   "convertedRegularExpression"?: string;
   /**
-   * enabled
+   * A flag inidcating whether or not the extended definition is enabled.
+   *
    */
   "isEnabled"?: boolean;
   /**
-   * id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The extended field definition unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "extendedFieldDefinitionId"?: number;
   /**
-   * is system flag
+   * The system flag.  A value of false denotes a custom, or user
+   * defined object.  A value of true denotes a built in object.
+   *
    */
   "isSystem"?: boolean;
   /**
-   * regular expression
+   * The regular expression.
    */
   "regularExpression"?: string;
   /**
-   * source Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The source unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourceId"?: number;
   /**
-   * last updated date
+   * The last updated date.
    */
   "timeUpdated"?: Date;
 }

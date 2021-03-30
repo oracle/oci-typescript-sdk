@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsAssociationParameterCollection {
   /**
-   * list of entities
+   * A list of association parameters.
    */
   "items"?: Array<model.LogAnalyticsAssociationParameter>;
 }

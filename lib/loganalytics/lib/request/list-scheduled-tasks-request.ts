@@ -58,6 +58,17 @@ export interface ListScheduledTasksRequest extends common.BaseRequest {
    *
    */
   "sortBy"?: ListScheduledTasksRequest.SortBy;
+  /**
+   * A filter to return only scheduled tasks whose stream action savedSearchId matches the given
+   * ManagementSavedSearch id [OCID] exactly.
+   *
+   */
+  "savedSearchId"?: string;
+  /**
+   * A filter to return only resources whose display name contains the substring.
+   *
+   */
+  "displayNameContains"?: string;
 }
 
 export namespace ListScheduledTasksRequest {

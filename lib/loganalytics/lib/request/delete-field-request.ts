@@ -24,7 +24,7 @@ export interface DeleteFieldRequest extends common.BaseRequest {
    */
   "namespaceName": string;
   /**
-   * name of the field to get
+   * The field name.
    */
   "fieldName": string;
   /**

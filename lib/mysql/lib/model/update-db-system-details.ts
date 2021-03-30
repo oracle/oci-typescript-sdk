@@ -33,14 +33,32 @@ export interface UpdateDbSystemDetails {
    */
   "subnetId"?: string;
   /**
-   * The Availability Domain where the primary instance should be located.
+   * If the policy is to enable high availability of the instance, by
+   * maintaining secondary/failover capacity as necessary.
    *
    */
+  "isHighlyAvailable"?: boolean;
+  /**
+    * The availability domain on which to deploy the Read/Write endpoint. This defines the preferred primary instance.
+* <p>
+In a failover scenario, the Read/Write endpoint is redirected to one of the other availability domains
+* and the MySQL instance in that domain is promoted to the primary instance.
+* This redirection does not affect the IP address of the DB System in any way.
+* <p>
+For a standalone DB System, this defines the availability domain in which the DB System is placed.
+* 
+    */
   "availabilityDomain"?: string;
   /**
-   * The name of the Fault Domain the DB System is located in.
-   *
-   */
+    * The fault domain on which to deploy the Read/Write endpoint. This defines the preferred primary instance.
+* <p>
+In a failover scenario, the Read/Write endpoint is redirected to one of the other fault domains
+* and the MySQL instance in that domain is promoted to the primary instance.
+* This redirection does not affect the IP address of the DB System in any way.
+* <p>
+For a standalone DB System, this defines the fault domain in which the DB System is placed.
+* 
+    */
   "faultDomain"?: string;
   /**
     * The shape of the DB System. The shape determines resources

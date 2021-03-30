@@ -20,11 +20,11 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsLabelOperator {
   /**
-   * operator display name
+   * The operator display name.
    */
   "displayName"?: string;
   /**
-   * operator internal name
+   * The operator internal name.
    */
   "name"?: string;
 }

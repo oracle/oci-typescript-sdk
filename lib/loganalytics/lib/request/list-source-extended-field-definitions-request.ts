@@ -24,7 +24,7 @@ export interface ListSourceExtendedFieldDefinitionsRequest extends common.BaseRe
    */
   "namespaceName": string;
   /**
-   * source name
+   * The source name.
    */
   "sourceName": string;
   /**
@@ -36,7 +36,7 @@ export interface ListSourceExtendedFieldDefinitionsRequest extends common.BaseRe
    */
   "page"?: string;
   /**
-   * sort by source extended field definition
+   * The attribute used to sort the returned source patterns
    */
   "sortBy"?: ListSourceExtendedFieldDefinitionsRequest.SortBy;
   /**

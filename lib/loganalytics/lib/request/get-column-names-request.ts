@@ -24,7 +24,7 @@ export interface GetColumnNamesRequest extends common.BaseRequest {
    */
   "namespaceName": string;
   /**
-   * sql query to get the columns
+   * The SQL query from which column names are to be extracted.
    */
   "sqlQuery": string;
   /**

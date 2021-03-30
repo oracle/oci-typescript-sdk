@@ -20,23 +20,24 @@ import common = require("oci-common");
  */
 export interface UpsertLogAnalyticsFieldDetails {
   /**
-   * data type
+   * The data type.
    */
   "dataType"?: string;
   /**
-   * is multi-valued flag
+   * A flag indicating whether or not the field is multi-valued.
+   *
    */
   "isMultiValued"?: boolean;
   /**
-   * description
+   * The field description.
    */
   "description"?: string;
   /**
-   * display name
+   * The field display name.
    */
   "displayName"?: string;
   /**
-   * internal name
+   * The field internal name.
    */
   "name"?: string;
 }

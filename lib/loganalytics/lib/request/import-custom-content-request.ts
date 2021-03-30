@@ -29,7 +29,9 @@ export interface ImportCustomContentRequest extends common.BaseRequest {
    */
   "importCustomContentFileBody": Blob | stream.Readable | ReadableStream | string;
   /**
-   * is overwrite
+   * A flag indicating whether or not to overwrite existing content if a conflict is
+   * found during import content operation.
+   *
    */
   "isOverwrite"?: boolean;
   /**

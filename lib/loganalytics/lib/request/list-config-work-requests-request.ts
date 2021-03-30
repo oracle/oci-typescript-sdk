@@ -33,7 +33,7 @@ export interface ListConfigWorkRequestsRequest extends common.BaseRequest {
    */
   "sortOrder"?: ListConfigWorkRequestsRequest.SortOrder;
   /**
-   * work requests sort by
+   * The attribute used to sort the returned work requests
    */
   "sortBy"?: ListConfigWorkRequestsRequest.SortBy;
   /**

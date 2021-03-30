@@ -20,15 +20,15 @@ import common = require("oci-common");
  */
 export interface StepInfo {
   /**
-   * inputSequenceCurrentMatch
+   * The currnet input sequence match.
    */
   "inputSequenceCurrentMatch"?: string;
   /**
-   * regexEngineClassName
+   * The regular expression engine class name.
    */
   "regexEngineClassName"?: string;
   /**
-   * stepCount Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The step count. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "stepCount"?: number;
 }

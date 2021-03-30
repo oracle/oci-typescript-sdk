@@ -94,6 +94,8 @@ Example: `2018-04-03T21:10:29.600Z`
    * The OCID of the vault's wrapping key.
    */
   "wrappingkeyId": string;
+  "replicaDetails"?: model.VaultReplicaDetails;
+  "isPrimary"?: boolean;
 }
 
 export namespace Vault {
@@ -126,7 +128,14 @@ export namespace Vault {
   }
 
   export function getJsonObj(obj: Vault): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "replicaDetails": obj.replicaDetails
+          ? model.VaultReplicaDetails.getJsonObj(obj.replicaDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

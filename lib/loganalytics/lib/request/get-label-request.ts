@@ -24,7 +24,7 @@ export interface GetLabelRequest extends common.BaseRequest {
    */
   "namespaceName": string;
   /**
-   * name of the label to get
+   * The label name.
    */
   "labelName": string;
   /**

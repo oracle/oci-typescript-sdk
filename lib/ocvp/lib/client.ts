@@ -1,6 +1,6 @@
 /**
  * Oracle Cloud VMware Solution API
- * Use this API to manage the Oracle Cloud VMware Solution.
+ * Use this API to manage your [Oracle Cloud VMware Solution](/iaas/Content/VMware/Concepts/ocvsoverview.htm).
 
  * OpenAPI spec version: 20200501
  * 
@@ -661,10 +661,12 @@ export class SddcClient {
   }
 
   /**
-     * Creates a software-defined data center (SDDC).
+     * Creates an Oracle Cloud VMware Solution software-defined data center (SDDC).
 * <p>
 Use the {@link WorkRequest} operations to track the
 * creation of the SDDC.
+* <p>
+**Important:** You must configure the SDDC's networking resources with the security rules detailed in [Security Rules for Oracle Cloud VMware Solution SDDCs](https://docs.cloud.oracle.com/iaas/Content/VMware/Reference/ocvssecurityrules.htm). Otherwise, provisioning the SDDC will fail. The rules are based on the requirements set by VMware.
 * 
      * @param CreateSddcRequest
      * @return CreateSddcResponse

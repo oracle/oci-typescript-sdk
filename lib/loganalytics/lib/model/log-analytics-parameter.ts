@@ -20,23 +20,24 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsParameter {
   /**
-   * default value
+   * The default value of the parameter.
    */
   "defaultValue"?: string;
   /**
-   * description
+   * The parameter description.
    */
   "description"?: string;
   /**
-   * is active flag
+   * A flag indicating whether or not the parameter is active.
+   *
    */
   "isActive"?: boolean;
   /**
-   * parameter name
+   * The parameter name.
    */
   "name"?: string;
   /**
-   * source Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The source unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourceId"?: number;
 }

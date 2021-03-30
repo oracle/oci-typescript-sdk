@@ -20,15 +20,15 @@ import common = require("oci-common");
  */
 export interface FieldSummaryReport {
   /**
-   * non out-of-the-box count Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The count of custom (user defined) fields. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "nonOobCount"?: number;
   /**
-   * out-of-the-box count Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The count of built in fields. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "oobCount"?: number;
   /**
-   * usage detail
+   * Field usage detailss
    */
   "usageDetails"?: Array<model.UsageStatusItem>;
 }

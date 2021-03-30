@@ -197,8 +197,70 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Append data to a lookup.  The file containing the information to append
-   * must be provided.
+   * Add one or more event types to a source. An event type and version can be enabled only on one source.
+   *
+   * @param AddSourceEventTypesRequest
+   * @return AddSourceEventTypesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/AddSourceEventTypes.ts.html |here} to see how to use AddSourceEventTypes API.
+   */
+  public async addSourceEventTypes(
+    addSourceEventTypesRequest: requests.AddSourceEventTypesRequest
+  ): Promise<responses.AddSourceEventTypesResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#addSourceEventTypes.");
+    const pathParams = {
+      "{namespaceName}": addSourceEventTypesRequest.namespaceName,
+      "{sourceName}": addSourceEventTypesRequest.sourceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": addSourceEventTypesRequest.opcRetryToken,
+      "opc-request-id": addSourceEventTypesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/sources/{sourceName}/actions/addEventTypes",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addSourceEventTypesRequest.addEventTypeDetails,
+        "EventTypeDetails",
+        models.EventTypeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      addSourceEventTypesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddSourceEventTypesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Appends data to the lookup content. The csv file containing the content to be appended is passed in as binary data in the request.
    *
    * @param AppendLookupDataRequest
    * @return AppendLookupDataResponse
@@ -265,7 +327,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * get basic information about a specified set of labels
+   * Lists basic information about a specified set of labels in batch.
+   *
    * @param BatchGetBasicInfoRequest
    * @return BatchGetBasicInfoResponse
    * @throws OciError when an error occurs
@@ -402,6 +465,74 @@ export class LogAnalyticsClient {
   }
 
   /**
+   * Update the compartment of the log analytics enterprise manager bridge with the given id.
+   * @param ChangeLogAnalyticsEmBridgeCompartmentRequest
+   * @return ChangeLogAnalyticsEmBridgeCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ChangeLogAnalyticsEmBridgeCompartment.ts.html |here} to see how to use ChangeLogAnalyticsEmBridgeCompartment API.
+   */
+  public async changeLogAnalyticsEmBridgeCompartment(
+    changeLogAnalyticsEmBridgeCompartmentRequest: requests.ChangeLogAnalyticsEmBridgeCompartmentRequest
+  ): Promise<responses.ChangeLogAnalyticsEmBridgeCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation LogAnalyticsClient#changeLogAnalyticsEmBridgeCompartment."
+      );
+    const pathParams = {
+      "{namespaceName}": changeLogAnalyticsEmBridgeCompartmentRequest.namespaceName,
+      "{logAnalyticsEmBridgeId}":
+        changeLogAnalyticsEmBridgeCompartmentRequest.logAnalyticsEmBridgeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeLogAnalyticsEmBridgeCompartmentRequest.ifMatch,
+      "opc-request-id": changeLogAnalyticsEmBridgeCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeLogAnalyticsEmBridgeCompartmentRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/namespaces/{namespaceName}/logAnalyticsEmBridges/{logAnalyticsEmBridgeId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeLogAnalyticsEmBridgeCompartmentRequest.changeLogAnalyticsEmBridgeCompartmentDetails,
+        "ChangeLogAnalyticsEmBridgeCompartmentDetails",
+        models.ChangeLogAnalyticsEmBridgeCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeLogAnalyticsEmBridgeCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeLogAnalyticsEmBridgeCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Update the compartment of the log analytics entity with the given id.
    * @param ChangeLogAnalyticsEntityCompartmentRequest
    * @return ChangeLogAnalyticsEntityCompartmentResponse
@@ -469,7 +600,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Updates the compartment of the Log-Analytics group with the given id.
+   * Moves the specified log group to a different compartment.
+   *
    * @param ChangeLogAnalyticsLogGroupCompartmentRequest
    * @return ChangeLogAnalyticsLogGroupCompartmentResponse
    * @throws OciError when an error occurs
@@ -730,6 +862,76 @@ export class LogAnalyticsClient {
   }
 
   /**
+   * Add configuration for enterprise manager bridge. Enterprise manager bridge is used to automatically add selected entities from enterprise manager cloud control. A corresponding OCI bridge configuration is required in enterprise manager.
+   * @param CreateLogAnalyticsEmBridgeRequest
+   * @return CreateLogAnalyticsEmBridgeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/CreateLogAnalyticsEmBridge.ts.html |here} to see how to use CreateLogAnalyticsEmBridge API.
+   */
+  public async createLogAnalyticsEmBridge(
+    createLogAnalyticsEmBridgeRequest: requests.CreateLogAnalyticsEmBridgeRequest
+  ): Promise<responses.CreateLogAnalyticsEmBridgeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#createLogAnalyticsEmBridge.");
+    const pathParams = {
+      "{namespaceName}": createLogAnalyticsEmBridgeRequest.namespaceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createLogAnalyticsEmBridgeRequest.opcRetryToken,
+      "opc-request-id": createLogAnalyticsEmBridgeRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/logAnalyticsEmBridges",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createLogAnalyticsEmBridgeRequest.createLogAnalyticsEmBridgeDetails,
+        "CreateLogAnalyticsEmBridgeDetails",
+        models.CreateLogAnalyticsEmBridgeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createLogAnalyticsEmBridgeRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateLogAnalyticsEmBridgeResponse>{},
+        body: await response.json(),
+        bodyKey: "logAnalyticsEmBridge",
+        bodyModel: "model.LogAnalyticsEmBridge",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Create a new log analytics entity.
    * @param CreateLogAnalyticsEntityRequest
    * @return CreateLogAnalyticsEntityResponse
@@ -862,7 +1064,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Creates a new Log-Analytics group.
+   * Creates a new log group in the specified compartment with the input display name. You may also specify optional information such as description, defined tags, and free-form tags.
+   *
    * @param CreateLogAnalyticsLogGroupRequest
    * @return CreateLogAnalyticsLogGroupResponse
    * @throws OciError when an error occurs
@@ -1072,7 +1275,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * delete associations
+   * Deletes the associations between the sources and entities specified.
+   *
    * @param DeleteAssociationsRequest
    * @return DeleteAssociationsResponse
    * @throws OciError when an error occurs
@@ -1138,7 +1342,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * delete field with specified name
+   * Deletes field with the specified name.
+   *
    * @param DeleteFieldRequest
    * @return DeleteFieldResponse
    * @throws OciError when an error occurs
@@ -1196,7 +1401,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * delete a label
+   * Deletes label with the specified name.
+   *
    * @param DeleteLabelRequest
    * @return DeleteLabelResponse
    * @throws OciError when an error occurs
@@ -1238,6 +1444,64 @@ export class LogAnalyticsClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteLabelResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete log analytics enterprise manager bridge with the given id.
+   * @param DeleteLogAnalyticsEmBridgeRequest
+   * @return DeleteLogAnalyticsEmBridgeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteLogAnalyticsEmBridge.ts.html |here} to see how to use DeleteLogAnalyticsEmBridge API.
+   */
+  public async deleteLogAnalyticsEmBridge(
+    deleteLogAnalyticsEmBridgeRequest: requests.DeleteLogAnalyticsEmBridgeRequest
+  ): Promise<responses.DeleteLogAnalyticsEmBridgeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#deleteLogAnalyticsEmBridge.");
+    const pathParams = {
+      "{namespaceName}": deleteLogAnalyticsEmBridgeRequest.namespaceName,
+      "{logAnalyticsEmBridgeId}": deleteLogAnalyticsEmBridgeRequest.logAnalyticsEmBridgeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteLogAnalyticsEmBridgeRequest.ifMatch,
+      "opc-request-id": deleteLogAnalyticsEmBridgeRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/logAnalyticsEmBridges/{logAnalyticsEmBridgeId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteLogAnalyticsEmBridgeRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteLogAnalyticsEmBridgeResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1370,7 +1634,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Deletes the Log-Analytics group with the given id.
+   * Deletes the specified log group. The log group cannot be part of an active association or have an active upload.
+   *
    * @param DeleteLogAnalyticsLogGroupRequest
    * @return DeleteLogAnalyticsLogGroupResponse
    * @throws OciError when an error occurs
@@ -1492,7 +1757,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Delete the specified lookup.
+   * Deletes lookup with the specified name.
    *
    * @param DeleteLookupRequest
    * @return DeleteLookupResponse
@@ -1558,7 +1823,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * delete parser with specified name
+   * Deletes parser with the specified name.
+   *
    * @param DeleteParserRequest
    * @return DeleteParserResponse
    * @throws OciError when an error occurs
@@ -1673,7 +1939,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * delete source with specified ID
+   * Deletes source with the specified name.
+   *
    * @param DeleteSourceRequest
    * @return DeleteSourceResponse
    * @throws OciError when an error occurs
@@ -1992,6 +2259,141 @@ export class LogAnalyticsClient {
   }
 
   /**
+   * Disables auto association for a log source. In the future, this log source would not be automatically
+   * associated with any entity that becomes eligible for association. In addition, you may also optionally
+   * remove all existing associations for this log source.
+   *
+   * @param DisableAutoAssociationRequest
+   * @return DisableAutoAssociationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DisableAutoAssociation.ts.html |here} to see how to use DisableAutoAssociation API.
+   */
+  public async disableAutoAssociation(
+    disableAutoAssociationRequest: requests.DisableAutoAssociationRequest
+  ): Promise<responses.DisableAutoAssociationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#disableAutoAssociation.");
+    const pathParams = {
+      "{namespaceName}": disableAutoAssociationRequest.namespaceName,
+      "{sourceName}": disableAutoAssociationRequest.sourceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": disableAutoAssociationRequest.opcRetryToken,
+      "opc-request-id": disableAutoAssociationRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/sources/{sourceName}/actions/disableAutoAssociation",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        disableAutoAssociationRequest.disableAutoAssociationDetails,
+        "DisableAutoAssociationDetails",
+        models.DisableAutoAssociationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      disableAutoAssociationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableAutoAssociationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Disable one or more event types in a source.
+   *
+   * @param DisableSourceEventTypesRequest
+   * @return DisableSourceEventTypesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DisableSourceEventTypes.ts.html |here} to see how to use DisableSourceEventTypes API.
+   */
+  public async disableSourceEventTypes(
+    disableSourceEventTypesRequest: requests.DisableSourceEventTypesRequest
+  ): Promise<responses.DisableSourceEventTypesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#disableSourceEventTypes.");
+    const pathParams = {
+      "{namespaceName}": disableSourceEventTypesRequest.namespaceName,
+      "{sourceName}": disableSourceEventTypesRequest.sourceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": disableSourceEventTypesRequest.opcRetryToken,
+      "opc-request-id": disableSourceEventTypesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/sources/{sourceName}/actions/disableEventTypes",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        disableSourceEventTypesRequest.disableEventTypeDetails,
+        "EventTypeDetails",
+        models.EventTypeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      disableSourceEventTypesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableSourceEventTypesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * THis API enables archiving.
    *
    * @param EnableArchivingRequest
@@ -2045,6 +2447,141 @@ export class LogAnalyticsClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enables auto association for a log source. This would initiate immediate association of the source
+   * to any eligible entities it is not already associated with, and would also ensure the log source gets
+   * associated with entities that are added or become eligible in the future.
+   *
+   * @param EnableAutoAssociationRequest
+   * @return EnableAutoAssociationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/EnableAutoAssociation.ts.html |here} to see how to use EnableAutoAssociation API.
+   */
+  public async enableAutoAssociation(
+    enableAutoAssociationRequest: requests.EnableAutoAssociationRequest
+  ): Promise<responses.EnableAutoAssociationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#enableAutoAssociation.");
+    const pathParams = {
+      "{namespaceName}": enableAutoAssociationRequest.namespaceName,
+      "{sourceName}": enableAutoAssociationRequest.sourceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": enableAutoAssociationRequest.opcRetryToken,
+      "opc-request-id": enableAutoAssociationRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/sources/{sourceName}/actions/enableAutoAssociation",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableAutoAssociationRequest.enableAutoAssociationDetails,
+        "EnableAutoAssociationDetails",
+        models.EnableAutoAssociationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      enableAutoAssociationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableAutoAssociationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enable one or more event types in a source. An event type and version can be enabled only in one source.
+   *
+   * @param EnableSourceEventTypesRequest
+   * @return EnableSourceEventTypesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/EnableSourceEventTypes.ts.html |here} to see how to use EnableSourceEventTypes API.
+   */
+  public async enableSourceEventTypes(
+    enableSourceEventTypesRequest: requests.EnableSourceEventTypesRequest
+  ): Promise<responses.EnableSourceEventTypesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#enableSourceEventTypes.");
+    const pathParams = {
+      "{namespaceName}": enableSourceEventTypesRequest.namespaceName,
+      "{sourceName}": enableSourceEventTypesRequest.sourceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": enableSourceEventTypesRequest.opcRetryToken,
+      "opc-request-id": enableSourceEventTypesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/sources/{sourceName}/actions/enableEventTypes",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableSourceEventTypesRequest.enableEventTypeDetails,
+        "EventTypeDetails",
+        models.EventTypeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      enableSourceEventTypesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableSourceEventTypesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -2259,7 +2796,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * export
+   * Exports all custom details of the specified sources, parsers, fields and labels, in zip format.
+   *
    * @param ExportCustomContentRequest
    * @return ExportCustomContentResponse
    * @throws OciError when an error occurs
@@ -2388,7 +2926,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * structured log fieldpaths
+   * Extracts the field paths from the example json or xml content.
+   *
    * @param ExtractStructuredLogFieldPathsRequest
    * @return ExtractStructuredLogFieldPathsResponse
    * @throws OciError when an error occurs
@@ -2455,7 +2994,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * structured log header paths
+   * Extracts the header paths from the example json or xml content.
+   *
    * @param ExtractStructuredLogHeaderPathsRequest
    * @return ExtractStructuredLogHeaderPathsResponse
    * @throws OciError when an error occurs
@@ -2583,7 +3123,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * association summary
+   * Returns the count of source associations for entities in the specified compartment.
+   *
    * @param GetAssociationSummaryRequest
    * @return GetAssociationSummaryResponse
    * @throws OciError when an error occurs
@@ -2644,7 +3185,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * extract column names from SQL query
+   * Extracts column names from the input SQL query.
+   *
    * @param GetColumnNamesRequest
    * @return GetColumnNamesResponse
    * @throws OciError when an error occurs
@@ -2705,7 +3247,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * association summary by source
+   * Returns detailed information about the configuration work request with the specified id.
+   *
    * @param GetConfigWorkRequestRequest
    * @return GetConfigWorkRequestResponse
    * @throws OciError when an error occurs
@@ -2765,7 +3308,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * get common field with specified name
+   * Gets detailed information about the field with the specified name.
+   *
    * @param GetFieldRequest
    * @return GetFieldResponse
    * @throws OciError when an error occurs
@@ -2829,7 +3373,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * get field summary
+   * Returns the count of fields. You may optionally specify isShowDetail=true to view a summary of each field data type.
+   *
    * @param GetFieldsSummaryRequest
    * @return GetFieldsSummaryResponse
    * @throws OciError when an error occurs
@@ -2889,7 +3434,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * get label with specified name
+   * Gets detailed information about the label with the specified name.
+   *
    * @param GetLabelRequest
    * @return GetLabelResponse
    * @throws OciError when an error occurs
@@ -2953,7 +3499,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * get total count
+   * Returns the count of labels.
+   *
    * @param GetLabelSummaryRequest
    * @return GetLabelSummaryResponse
    * @throws OciError when an error occurs
@@ -2995,6 +3542,132 @@ export class LogAnalyticsClient {
         body: await response.json(),
         bodyKey: "labelSummaryReport",
         bodyModel: "model.LabelSummaryReport",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieve the log analytics enterprise manager bridge with the given id.
+   * @param GetLogAnalyticsEmBridgeRequest
+   * @return GetLogAnalyticsEmBridgeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLogAnalyticsEmBridge.ts.html |here} to see how to use GetLogAnalyticsEmBridge API.
+   */
+  public async getLogAnalyticsEmBridge(
+    getLogAnalyticsEmBridgeRequest: requests.GetLogAnalyticsEmBridgeRequest
+  ): Promise<responses.GetLogAnalyticsEmBridgeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsEmBridge.");
+    const pathParams = {
+      "{namespaceName}": getLogAnalyticsEmBridgeRequest.namespaceName,
+      "{logAnalyticsEmBridgeId}": getLogAnalyticsEmBridgeRequest.logAnalyticsEmBridgeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getLogAnalyticsEmBridgeRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/logAnalyticsEmBridges/{logAnalyticsEmBridgeId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getLogAnalyticsEmBridgeRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetLogAnalyticsEmBridgeResponse>{},
+        body: await response.json(),
+        bodyKey: "logAnalyticsEmBridge",
+        bodyModel: "model.LogAnalyticsEmBridge",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns log analytics enterprise manager bridges summary report.
+   * @param GetLogAnalyticsEmBridgeSummaryRequest
+   * @return GetLogAnalyticsEmBridgeSummaryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLogAnalyticsEmBridgeSummary.ts.html |here} to see how to use GetLogAnalyticsEmBridgeSummary API.
+   */
+  public async getLogAnalyticsEmBridgeSummary(
+    getLogAnalyticsEmBridgeSummaryRequest: requests.GetLogAnalyticsEmBridgeSummaryRequest
+  ): Promise<responses.GetLogAnalyticsEmBridgeSummaryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsEmBridgeSummary.");
+    const pathParams = {
+      "{namespaceName}": getLogAnalyticsEmBridgeSummaryRequest.namespaceName
+    };
+
+    const queryParams = {
+      "compartmentId": getLogAnalyticsEmBridgeSummaryRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getLogAnalyticsEmBridgeSummaryRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/logAnalyticsEmBridges/emBridgeSummary",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getLogAnalyticsEmBridgeSummaryRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetLogAnalyticsEmBridgeSummaryResponse>{},
+        body: await response.json(),
+        bodyKey: "logAnalyticsEmBridgeSummaryReport",
+        bodyModel: "model.LogAnalyticsEmBridgeSummaryReport",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3202,7 +3875,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Retrieves the Log-Analytics group with the given id.
+   * Gets detailed information about the specified log group such as display name, description, defined tags, and free-form tags.
+   *
    * @param GetLogAnalyticsLogGroupRequest
    * @return GetLogAnalyticsLogGroupResponse
    * @throws OciError when an error occurs
@@ -3267,7 +3941,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Returns a count of Log-Analytics groups.
+   * Returns the count of log groups in a compartment.
+   *
    * @param GetLogAnalyticsLogGroupsSummaryRequest
    * @return GetLogAnalyticsLogGroupsSummaryResponse
    * @throws OciError when an error occurs
@@ -3397,7 +4072,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Obtains the lookup with the specified reference.
+   * Gets detailed information about the lookup with the specified name.
    *
    * @param GetLookupRequest
    * @return GetLookupResponse
@@ -3447,6 +4122,64 @@ export class LogAnalyticsClient {
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the count of user created and oracle defined lookups.
+   * @param GetLookupSummaryRequest
+   * @return GetLookupSummaryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLookupSummary.ts.html |here} to see how to use GetLookupSummary API.
+   */
+  public async getLookupSummary(
+    getLookupSummaryRequest: requests.GetLookupSummaryRequest
+  ): Promise<responses.GetLookupSummaryResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getLookupSummary.");
+    const pathParams = {
+      "{namespaceName}": getLookupSummaryRequest.namespaceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getLookupSummaryRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/lookupSummary",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getLookupSummaryRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetLookupSummaryResponse>{},
+        body: await response.json(),
+        bodyKey: "lookupSummaryReport",
+        bodyModel: "model.LookupSummaryReport",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -3526,7 +4259,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * get parser with fields by Name
+   * Gets detailed information about the parser with the specified name.
+   *
    * @param GetParserRequest
    * @return GetParserResponse
    * @throws OciError when an error occurs
@@ -3590,7 +4324,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * parser summary
+   * Returns the count of parsers.
+   *
    * @param GetParserSummaryRequest
    * @return GetParserSummaryResponse
    * @throws OciError when an error occurs
@@ -3863,7 +4598,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * get source with specified name
+   * Gets detailed information about the source with the specified name.
+   *
    * @param GetSourceRequest
    * @return GetSourceResponse
    * @throws OciError when an error occurs
@@ -3929,7 +4665,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * source summary
+   * Returns the count of sources.
+   *
    * @param GetSourceSummaryRequest
    * @return GetSourceSummaryResponse
    * @throws OciError when an error occurs
@@ -4311,7 +5048,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * register custom content
+   * Imports the specified custom content from the input in zip format.
+   *
    * @param ImportCustomContentRequest
    * @return ImportCustomContentResponse
    * @throws OciError when an error occurs
@@ -4372,7 +5110,87 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * list of entities that have been associated to at least one source
+   * Lists the entities in the specified compartment which are (in)eligible for association with this source.
+   *
+   * @param ListAssociableEntitiesRequest
+   * @return ListAssociableEntitiesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListAssociableEntities.ts.html |here} to see how to use ListAssociableEntities API.
+   */
+  public async listAssociableEntities(
+    listAssociableEntitiesRequest: requests.ListAssociableEntitiesRequest
+  ): Promise<responses.ListAssociableEntitiesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#listAssociableEntities.");
+    const pathParams = {
+      "{namespaceName}": listAssociableEntitiesRequest.namespaceName,
+      "{sourceName}": listAssociableEntitiesRequest.sourceName
+    };
+
+    const queryParams = {
+      "compartmentId": listAssociableEntitiesRequest.compartmentId,
+      "type": listAssociableEntitiesRequest.type,
+      "searchText": listAssociableEntitiesRequest.searchText,
+      "limit": listAssociableEntitiesRequest.limit,
+      "page": listAssociableEntitiesRequest.page,
+      "sortBy": listAssociableEntitiesRequest.sortBy,
+      "sortOrder": listAssociableEntitiesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAssociableEntitiesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/sources/{sourceName}/associableEntities",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listAssociableEntitiesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAssociableEntitiesResponse>{},
+        body: await response.json(),
+        bodyKey: "associableEntityCollection",
+        bodyModel: "model.AssociableEntityCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the association details of entities in the specified compartment that are associated with at least one source.
+   *
    * @param ListAssociatedEntitiesRequest
    * @return ListAssociatedEntitiesResponse
    * @throws OciError when an error occurs
@@ -4450,7 +5268,84 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * association summary by source
+   * Gets information related to auto association for the source with the specified name.
+   *
+   * @param ListAutoAssociationsRequest
+   * @return ListAutoAssociationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListAutoAssociations.ts.html |here} to see how to use ListAutoAssociations API.
+   */
+  public async listAutoAssociations(
+    listAutoAssociationsRequest: requests.ListAutoAssociationsRequest
+  ): Promise<responses.ListAutoAssociationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#listAutoAssociations.");
+    const pathParams = {
+      "{namespaceName}": listAutoAssociationsRequest.namespaceName,
+      "{sourceName}": listAutoAssociationsRequest.sourceName
+    };
+
+    const queryParams = {
+      "limit": listAutoAssociationsRequest.limit,
+      "page": listAutoAssociationsRequest.page,
+      "sortBy": listAutoAssociationsRequest.sortBy,
+      "sortOrder": listAutoAssociationsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAutoAssociationsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/sources/{sourceName}/autoAssociations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listAutoAssociationsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAutoAssociationsResponse>{},
+        body: await response.json(),
+        bodyKey: "autoAssociationCollection",
+        bodyModel: "model.AutoAssociationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the list of configuration work requests such as association or lookup operations, containing detailed information about them. You may paginate or limit the number of results.
+   *
    * @param ListConfigWorkRequestsRequest
    * @return ListConfigWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -4596,7 +5491,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * entity associations summary
+   * Returns the list of source associations for the specified entity.
+   *
    * @param ListEntitySourceAssociationsRequest
    * @return ListEntitySourceAssociationsResponse
    * @throws OciError when an error occurs
@@ -4676,7 +5572,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * get all common field with specified display name and description
+   * Returns a list of log fields, containing detailed information about them. You may limit the number of results, provide sorting order, and filter by specifying various options including parser and source names.
+   *
    * @param ListFieldsRequest
    * @return ListFieldsResponse
    * @throws OciError when an error occurs
@@ -4757,7 +5654,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * get list of priorities
+   * Lists the available problem priorities that could be associated with a label.
+   *
    * @param ListLabelPrioritiesRequest
    * @return ListLabelPrioritiesResponse
    * @throws OciError when an error occurs
@@ -4828,7 +5726,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * get details of sources using the label
+   * Lists sources using the label, along with configuration details like base field, operator and condition.
+   *
    * @param ListLabelSourceDetailsRequest
    * @return ListLabelSourceDetailsResponse
    * @throws OciError when an error occurs
@@ -4903,7 +5802,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * get labels passing specified filter
+   * Returns a list of labels, containing detailed information about them. You may limit the number of results, provide sorting order, and filter by information such as label name, display name, description and priority.
+   *
    * @param ListLabelsRequest
    * @return ListLabelsResponse
    * @throws OciError when an error occurs
@@ -4982,6 +5882,80 @@ export class LogAnalyticsClient {
   }
 
   /**
+   * Return a list of log analytics enterprise manager bridges.
+   * @param ListLogAnalyticsEmBridgesRequest
+   * @return ListLogAnalyticsEmBridgesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLogAnalyticsEmBridges.ts.html |here} to see how to use ListLogAnalyticsEmBridges API.
+   */
+  public async listLogAnalyticsEmBridges(
+    listLogAnalyticsEmBridgesRequest: requests.ListLogAnalyticsEmBridgesRequest
+  ): Promise<responses.ListLogAnalyticsEmBridgesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#listLogAnalyticsEmBridges.");
+    const pathParams = {
+      "{namespaceName}": listLogAnalyticsEmBridgesRequest.namespaceName
+    };
+
+    const queryParams = {
+      "compartmentId": listLogAnalyticsEmBridgesRequest.compartmentId,
+      "displayName": listLogAnalyticsEmBridgesRequest.displayName,
+      "lifecycleState": listLogAnalyticsEmBridgesRequest.lifecycleState,
+      "lifecycleDetailsContains": listLogAnalyticsEmBridgesRequest.lifecycleDetailsContains,
+      "importStatus": listLogAnalyticsEmBridgesRequest.importStatus,
+      "limit": listLogAnalyticsEmBridgesRequest.limit,
+      "page": listLogAnalyticsEmBridgesRequest.page,
+      "sortOrder": listLogAnalyticsEmBridgesRequest.sortOrder,
+      "sortBy": listLogAnalyticsEmBridgesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listLogAnalyticsEmBridgesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/logAnalyticsEmBridges",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listLogAnalyticsEmBridgesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListLogAnalyticsEmBridgesResponse>{},
+        body: await response.json(),
+        bodyKey: "logAnalyticsEmBridgeCollection",
+        bodyModel: "model.LogAnalyticsEmBridgeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Return a list of log analytics entities.
    * @param ListLogAnalyticsEntitiesRequest
    * @return ListLogAnalyticsEntitiesResponse
@@ -5009,6 +5983,8 @@ export class LogAnalyticsClient {
       "hostname": listLogAnalyticsEntitiesRequest.hostname,
       "hostnameContains": listLogAnalyticsEntitiesRequest.hostnameContains,
       "sourceId": listLogAnalyticsEntitiesRequest.sourceId,
+      "creationSourceType": listLogAnalyticsEntitiesRequest.creationSourceType,
+      "creationSourceDetails": listLogAnalyticsEntitiesRequest.creationSourceDetails,
       "limit": listLogAnalyticsEntitiesRequest.limit,
       "page": listLogAnalyticsEntitiesRequest.page,
       "sortOrder": listLogAnalyticsEntitiesRequest.sortOrder,
@@ -5135,7 +6111,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Returns a list of Log-Analytics groups.
+   * Returns a list of log groups in a compartment. You may limit the number of log groups, provide sorting options, and filter the results by specifying a display name.
+   *
    * @param ListLogAnalyticsLogGroupsRequest
    * @return ListLogAnalyticsLogGroupsResponse
    * @throws OciError when an error occurs
@@ -5285,8 +6262,75 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Obtains a list of lookups.  The list is filtered according to the filter criteria
-   * specified by the user, and sorted according to the ordering criteria specified.
+   * This API returns a list of log sets.
+   *
+   * @param ListLogSetsRequest
+   * @return ListLogSetsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLogSets.ts.html |here} to see how to use ListLogSets API.
+   */
+  public async listLogSets(
+    listLogSetsRequest: requests.ListLogSetsRequest
+  ): Promise<responses.ListLogSetsResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listLogSets.");
+    const pathParams = {
+      "{namespaceName}": listLogSetsRequest.namespaceName
+    };
+
+    const queryParams = {
+      "limit": listLogSetsRequest.limit,
+      "page": listLogSetsRequest.page,
+      "sortOrder": listLogSetsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listLogSetsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/storage/logSets",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listLogSetsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListLogSetsResponse>{},
+        body: await response.json(),
+        bodyKey: "logSetCollection",
+        bodyModel: "model.LogSetCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of lookups, containing detailed information about them. You may limit the number of results, provide sorting order, and filter by information such as lookup name, description and type.
    *
    * @param ListLookupsRequest
    * @return ListLookupsResponse
@@ -5365,7 +6409,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * get all meta source types
+   * Lists the types of log sources supported.
+   *
    * @param ListMetaSourceTypesRequest
    * @return ListMetaSourceTypesResponse
    * @throws OciError when an error occurs
@@ -5498,7 +6543,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * get pre-process plugin instance
+   * Lists the parser functions defined for the specified parser.
+   *
    * @param ListParserFunctionsRequest
    * @return ListParserFunctionsResponse
    * @throws OciError when an error occurs
@@ -5572,7 +6618,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * get pre-process Meta plugins
+   * Lists the parser meta plugins available for defining parser functions.
+   *
    * @param ListParserMetaPluginsRequest
    * @return ListParserMetaPluginsResponse
    * @throws OciError when an error occurs
@@ -5646,7 +6693,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * List parsers passing specified filter
+   * Returns a list of parsers, containing detailed information about them. You may limit the number of results, provide sorting order, and filter by information such as parser name, type, display name and description.
+   *
    * @param ListParsersRequest
    * @return ListParsersResponse
    * @throws OciError when an error occurs
@@ -5899,7 +6947,9 @@ export class LogAnalyticsClient {
       "page": listScheduledTasksRequest.page,
       "displayName": listScheduledTasksRequest.displayName,
       "sortOrder": listScheduledTasksRequest.sortOrder,
-      "sortBy": listScheduledTasksRequest.sortBy
+      "sortBy": listScheduledTasksRequest.sortBy,
+      "savedSearchId": listScheduledTasksRequest.savedSearchId,
+      "displayNameContains": listScheduledTasksRequest.displayNameContains
     };
 
     let headerParams = {
@@ -5954,7 +7004,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * association summary by source
+   * Returns the list of entity associations in the input compartment for the specified source.
+   *
    * @param ListSourceAssociationsRequest
    * @return ListSourceAssociationsResponse
    * @throws OciError when an error occurs
@@ -6033,7 +7084,87 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * get source extended fields for source with specified Id
+   * Lists the event types mapped to the source with the specified name. The event type string could be the fully qualified name or a prefix that matches the event type.
+   *
+   * @param ListSourceEventTypesRequest
+   * @return ListSourceEventTypesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListSourceEventTypes.ts.html |here} to see how to use ListSourceEventTypes API.
+   */
+  public async listSourceEventTypes(
+    listSourceEventTypesRequest: requests.ListSourceEventTypesRequest
+  ): Promise<responses.ListSourceEventTypesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#listSourceEventTypes.");
+    const pathParams = {
+      "{namespaceName}": listSourceEventTypesRequest.namespaceName,
+      "{sourceName}": listSourceEventTypesRequest.sourceName
+    };
+
+    const queryParams = {
+      "displayText": listSourceEventTypesRequest.displayText,
+      "isSystem": listSourceEventTypesRequest.isSystem,
+      "isEnabled": listSourceEventTypesRequest.isEnabled,
+      "limit": listSourceEventTypesRequest.limit,
+      "page": listSourceEventTypesRequest.page,
+      "sortBy": listSourceEventTypesRequest.sortBy,
+      "sortOrder": listSourceEventTypesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSourceEventTypesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/sources/{sourceName}/eventTypes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listSourceEventTypesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSourceEventTypesResponse>{},
+        body: await response.json(),
+        bodyKey: "eventTypeCollection",
+        bodyModel: "model.EventTypeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the extended field definitions for the source with the specified name.
+   *
    * @param ListSourceExtendedFieldDefinitionsRequest
    * @return ListSourceExtendedFieldDefinitionsResponse
    * @throws OciError when an error occurs
@@ -6108,7 +7239,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * list source label operators
+   * Lists the supported conditional operators that could be used for matching log field values to generate a label. You may use patterns to specify a condition. If a log entry matches that condition, it is tagged with the corresponding label.
+   *
    * @param ListSourceLabelOperatorsRequest
    * @return ListSourceLabelOperatorsResponse
    * @throws OciError when an error occurs
@@ -6182,7 +7314,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * get source meta functions
+   * Lists the functions that could be used to enrich log entries based on meaningful information extracted from the log fields.
+   *
    * @param ListSourceMetaFunctionsRequest
    * @return ListSourceMetaFunctionsResponse
    * @throws OciError when an error occurs
@@ -6256,7 +7389,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * get source patterns for source with specified Id
+   * Lists the source patterns for the source with the specified name.
+   *
    * @param ListSourcePatternsRequest
    * @return ListSourcePatternsResponse
    * @throws OciError when an error occurs
@@ -6331,7 +7465,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * source list
+   * Returns a list of sources, containing detailed information about them. You may limit the number of results, provide sorting order, and filter by information such as display name, description and entity type.
+   *
    * @param ListSourcesRequest
    * @return ListSourcesResponse
    * @throws OciError when an error occurs
@@ -6873,7 +8008,8 @@ export class LogAnalyticsClient {
       "limit": listUploadsRequest.limit,
       "page": listUploadsRequest.page,
       "sortOrder": listUploadsRequest.sortOrder,
-      "sortBy": listUploadsRequest.sortBy
+      "sortBy": listUploadsRequest.sortBy,
+      "warningsFilter": listUploadsRequest.warningsFilter
     };
 
     let headerParams = {
@@ -6928,8 +8064,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Obtains a list of warnings.  The list is filtered according to the filter criteria
-   * specified by the user, and sorted according to the ordering criteria specified.
+   * Returns a list of collection warnings, containing detailed information about them. You may limit the number of results, provide sorting order, and filter by information such as start time, end time, warning type, warning state, source name, source pattern and entity name.
    *
    * @param ListWarningsRequest
    * @return ListWarningsResponse
@@ -7769,7 +8904,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * register lookup
+   * Creates a lookup with the specified name, type and description. The csv file containing the lookup content is passed in as binary data in the request.
+   *
    * @param RegisterLookupRequest
    * @return RegisterLookupResponse
    * @throws OciError when an error occurs
@@ -7977,6 +9113,70 @@ export class LogAnalyticsClient {
   }
 
   /**
+   * Remove one or more event types from a source.
+   *
+   * @param RemoveSourceEventTypesRequest
+   * @return RemoveSourceEventTypesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/RemoveSourceEventTypes.ts.html |here} to see how to use RemoveSourceEventTypes API.
+   */
+  public async removeSourceEventTypes(
+    removeSourceEventTypesRequest: requests.RemoveSourceEventTypesRequest
+  ): Promise<responses.RemoveSourceEventTypesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#removeSourceEventTypes.");
+    const pathParams = {
+      "{namespaceName}": removeSourceEventTypesRequest.namespaceName,
+      "{sourceName}": removeSourceEventTypesRequest.sourceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": removeSourceEventTypesRequest.opcRetryToken,
+      "opc-request-id": removeSourceEventTypesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/sources/{sourceName}/actions/removeEventTypes",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeSourceEventTypesRequest.removeEventTypeDetails,
+        "EventTypeDetails",
+        models.EventTypeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      removeSourceEventTypesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveSourceEventTypesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Resume the scheduled task specified by {scheduledTaskId}.
    *
    * @param ResumeScheduledTaskRequest
@@ -8167,9 +9367,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Accepts a list of warnings.  Any unsuppressed warnings in the input list will
-   * be suppressed.  Warnings in the input list which are already suppressed will
-   * not be modified.
+   * Supresses a list of warnings. Any unsuppressed warnings in the input list would be suppressed. Warnings in the input list which are already suppressed will not be modified.
    *
    * @param SuppressWarningRequest
    * @return SuppressWarningResponse
@@ -8233,7 +9431,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * test parser
+   * Tests the parser definition against the specified example content to ensure fields are successfully extracted.
+   *
    * @param TestParserRequest
    * @return TestParserResponse
    * @throws OciError when an error occurs
@@ -8300,9 +9499,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Accepts a list of warnings.  Any suppressed warnings in the input list will
-   * be unsuppressed.  Warnings in the input list which are unsuppressed will
-   * not be modified.
+   * Unsupresses a list of warnings. Any suppressed warnings in the input list would be unsuppressed. Warnings in the input list which are already unsuppressed will not be modified.
    *
    * @param UnsuppressWarningRequest
    * @return UnsuppressWarningResponse
@@ -8351,6 +9548,77 @@ export class LogAnalyticsClient {
       const sdkResponse = composeResponse({
         responseObject: <responses.UnsuppressWarningResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update log analytics enterprise manager bridge with the given id.
+   * @param UpdateLogAnalyticsEmBridgeRequest
+   * @return UpdateLogAnalyticsEmBridgeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateLogAnalyticsEmBridge.ts.html |here} to see how to use UpdateLogAnalyticsEmBridge API.
+   */
+  public async updateLogAnalyticsEmBridge(
+    updateLogAnalyticsEmBridgeRequest: requests.UpdateLogAnalyticsEmBridgeRequest
+  ): Promise<responses.UpdateLogAnalyticsEmBridgeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#updateLogAnalyticsEmBridge.");
+    const pathParams = {
+      "{namespaceName}": updateLogAnalyticsEmBridgeRequest.namespaceName,
+      "{logAnalyticsEmBridgeId}": updateLogAnalyticsEmBridgeRequest.logAnalyticsEmBridgeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateLogAnalyticsEmBridgeRequest.ifMatch,
+      "opc-request-id": updateLogAnalyticsEmBridgeRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/logAnalyticsEmBridges/{logAnalyticsEmBridgeId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateLogAnalyticsEmBridgeRequest.updateLogAnalyticsEmBridgeDetails,
+        "UpdateLogAnalyticsEmBridgeDetails",
+        models.UpdateLogAnalyticsEmBridgeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateLogAnalyticsEmBridgeRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateLogAnalyticsEmBridgeResponse>{},
+        body: await response.json(),
+        bodyKey: "logAnalyticsEmBridge",
+        bodyModel: "model.LogAnalyticsEmBridge",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -8500,7 +9768,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Updates the Log-Analytics group with the given id.
+   * Updates the specified log group's display name, description, defined tags, and free-form tags.
+   *
    * @param UpdateLogAnalyticsLogGroupRequest
    * @return UpdateLogAnalyticsLogGroupResponse
    * @throws OciError when an error occurs
@@ -8718,8 +9987,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Updates the specified lookup with the details provided.  This API will not update
-   * lookup metadata (such as lookup description).
+   * Updates the lookup content. The csv file containing the content to be updated is passed in as binary data in the request.
    *
    * @param UpdateLookupDataRequest
    * @return UpdateLookupDataResponse
@@ -8926,6 +10194,78 @@ export class LogAnalyticsClient {
   }
 
   /**
+   * Accepts log events for processing by Logging Analytics.
+   *
+   * @param UploadLogEventsFileRequest
+   * @return UploadLogEventsFileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UploadLogEventsFile.ts.html |here} to see how to use UploadLogEventsFile API.
+   */
+  public async uploadLogEventsFile(
+    uploadLogEventsFileRequest: requests.UploadLogEventsFileRequest
+  ): Promise<responses.UploadLogEventsFileResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#uploadLogEventsFile.");
+    const pathParams = {
+      "{namespaceName}": uploadLogEventsFileRequest.namespaceName
+    };
+
+    const queryParams = {
+      "logGroupId": uploadLogEventsFileRequest.logGroupId,
+      "logSet": uploadLogEventsFileRequest.logSet,
+      "payloadType": uploadLogEventsFileRequest.payloadType
+    };
+
+    let headerParams = {
+      "opc-request-id": uploadLogEventsFileRequest.opcRequestId,
+      "content-type": uploadLogEventsFileRequest.contentType,
+      "opc-retry-token": uploadLogEventsFileRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/actions/uploadLogEventsFile",
+      method: "POST",
+      bodyContent: uploadLogEventsFileRequest.uploadLogEventsFileDetails,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      uploadLogEventsFileRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request, true);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UploadLogEventsFileResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-object-id"),
+            key: "opcObjectId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("timeCreated"),
+            key: "timeCreated",
+            dataType: "Date"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Accepts log data for processing by Logging Analytics.
    *
    * @param UploadLogFileRequest
@@ -8950,7 +10290,8 @@ export class LogAnalyticsClient {
       "dateFormat": uploadLogFileRequest.dateFormat,
       "dateYear": uploadLogFileRequest.dateYear,
       "invalidateCache": uploadLogFileRequest.invalidateCache,
-      "filename": uploadLogFileRequest.filename
+      "filename": uploadLogFileRequest.filename,
+      "logSet": uploadLogFileRequest.logSet
     };
 
     let headerParams = {
@@ -9009,7 +10350,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * create or update associations for a source
+   * Creates or updates associations between sources and entities. All entities should belong to the specified input compartment.
+   *
    * @param UpsertAssociationsRequest
    * @return UpsertAssociationsResponse
    * @throws OciError when an error occurs
@@ -9077,7 +10419,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Defines or update a field.
+   * Creates or updates a field that could be used in parser expressions to extract and assign value. To create a field, specify its display name. A name would be generated for the field. For subsequent calls to update the field, include the name attribute.
+   *
    * @param UpsertFieldRequest
    * @return UpsertFieldResponse
    * @throws OciError when an error occurs
@@ -9147,7 +10490,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Define or update a label.
+   * Creates or updates a label that could be used to tag a log entry. You may optionally designate the label as a problem, and assign it a priority. You may also provide its related terms (aliases). To create a label, specify its display name. A name would be generated for the label. For subsequent calls to update the label, include the name attribute.
+   *
    * @param UpsertLabelRequest
    * @return UpsertLabelResponse
    * @throws OciError when an error occurs
@@ -9217,7 +10561,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Define or update parser
+   * Creates or updates a parser, which defines how fields are extracted from a log entry.
+   *
    * @param UpsertParserRequest
    * @return UpsertParserResponse
    * @throws OciError when an error occurs
@@ -9287,7 +10632,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Define or update a source
+   * Creates or updates a log source. You may also specify parsers, labels, extended fields etc., for the source.
+   *
    * @param UpsertSourceRequest
    * @return UpsertSourceResponse
    * @throws OciError when an error occurs
@@ -9361,7 +10707,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * association parameter validation
+   * Checks if the passed in entities could be associated with the specified sources. The validation is performed to ensure that the entities have the relevant property values that are used in the corresponding source patterns.
+   *
    * @param ValidateAssociationParametersRequest
    * @return ValidateAssociationParametersResponse
    * @throws OciError when an error occurs
@@ -9497,7 +10844,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Pre-define or update a source
+   * Checks if the specified input is a valid log source definition.
+   *
    * @param ValidateSourceRequest
    * @return ValidateSourceResponse
    * @throws OciError when an error occurs
@@ -9565,7 +10913,8 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * test extended fields
+   * Checks if the specified input contains valid extended field definitions against the provided example content.
+   *
    * @param ValidateSourceExtendedFieldDetailsRequest
    * @return ValidateSourceExtendedFieldDetailsResponse
    * @throws OciError when an error occurs

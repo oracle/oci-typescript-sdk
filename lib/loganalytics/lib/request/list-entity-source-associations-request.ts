@@ -33,19 +33,25 @@ export interface ListEntitySourceAssociationsRequest extends common.BaseRequest 
    */
   "entityId"?: string;
   /**
-   * entity type name
+   * The entity type used for filtering.  Only associations on an entity with the
+   * specified type will be returned.
+   *
    */
   "entityType"?: string;
   /**
-   * entity type display name
+   * The entity type display name used for filtering.  Only items associated with the entity
+   * with the specified type display name will be returned.
+   *
    */
   "entityTypeDisplayName"?: string;
   /**
-   * Status
+   * The life cycle state used for filtering.  Only associations with the specified
+   * life cycle state will be returned.
+   *
    */
   "lifeCycleState"?: ListEntitySourceAssociationsRequest.LifeCycleState;
   /**
-   * is Show Total
+   * A flag indicating whether or not to return the total number of items returned.
    */
   "isShowTotal"?: boolean;
   /**
@@ -62,7 +68,7 @@ export interface ListEntitySourceAssociationsRequest extends common.BaseRequest 
    */
   "sortOrder"?: ListEntitySourceAssociationsRequest.SortOrder;
   /**
-   * sort by field
+   * The attribute used to sort the returned associations
    */
   "sortBy"?: ListEntitySourceAssociationsRequest.SortBy;
   /**

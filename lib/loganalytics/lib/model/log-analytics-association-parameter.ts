@@ -20,39 +20,39 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsAssociationParameter {
   /**
-   * agent guid
+   * The agent unique identifier.
    */
   "agentId"?: string;
   /**
-   * entity type
+   * The entity type.
    */
   "entityType"?: string;
   /**
-   * entity guid
+   * The entity unique identifier.
    */
   "entityId"?: string;
   /**
-   * source name
+   * The source name.
    */
   "sourceId"?: string;
   /**
-   * source display name
+   * The source display name.
    */
   "sourceDisplayName"?: string;
   /**
-   * source type
+   * The source type.
    */
   "sourceType"?: string;
   /**
-   * status
+   * The status.  Either FAILED or SUCCEEDED.
    */
   "status"?: LogAnalyticsAssociationParameter.Status;
   /**
-   * missingProperties
+   * A list of missing properties.
    */
   "missingProperties"?: Array<string>;
   /**
-   * requiredProperties
+   * A list of requried properties.
    */
   "requiredProperties"?: Array<string>;
 }

@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface ColumnNameCollection {
   /**
-   * list of column names
+   * A list of SQL query column names.
    */
   "items"?: Array<model.ColumnName>;
 }

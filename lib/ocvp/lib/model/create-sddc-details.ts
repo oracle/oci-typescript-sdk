@@ -1,6 +1,6 @@
 /**
  * Oracle Cloud VMware Solution API
- * Use this API to manage the Oracle Cloud VMware Solution.
+ * Use this API to manage your [Oracle Cloud VMware Solution](/iaas/Content/VMware/Concepts/ocvsoverview.htm).
 
  * OpenAPI spec version: 20200501
  * 
@@ -34,7 +34,7 @@ export interface CreateSddcDetails {
   /**
    * The VMware software bundle to install on the ESXi hosts in the SDDC. To get a
    * list of the available versions, use
-   * {@link #* ListSupportedVmwareSoftwareVersions(* ListSupportedVmwareSoftwareVersionsRequest) * ListSupportedVmwareSoftwareVersions}.
+   * {@link #listSupportedVmwareSoftwareVersions(ListSupportedVmwareSoftwareVersionsRequest) listSupportedVmwareSoftwareVersions}.
    *
    */
   "vmwareSoftwareVersion": string;
@@ -64,12 +64,13 @@ For example, if the value is `mySDDC`, the ESXi hosts are named `mySDDC-1`,
    */
   "esxiHostsCount": number;
   /**
-   * This flag tells us if HCX is enabled or not.
+   * Indicates whether to enable HCX for this SDDC.
    *
    */
   "isHcxEnabled"?: boolean;
   /**
-   * This id is required only when hcxEnabled is true
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VLAN to use for the HCX
+   * component of the VMware environment. This value is required only when `isHcxEnabled` is true.
    *
    */
   "hcxVlanId"?: string;
@@ -131,9 +132,23 @@ For example, if the value is `mySDDC`, the ESXi hosts are named `mySDDC-1`,
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VLAN to use for the NSX Edge
    * Uplink 2 component of the VMware environment.
+   * <p>
+   **Note:** This VLAN is reserved for future use to deploy public-facing applications on the VMware SDDC.
    *
    */
   "nsxEdgeUplink2VlanId": string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VLAN used by the SDDC
+   * for the vSphere Replication component of the VMware environment.
+   *
+   */
+  "replicationVlanId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VLAN used by the SDDC
+   * for the Provisioning component of the VMware environment.
+   *
+   */
+  "provisioningVlanId"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).

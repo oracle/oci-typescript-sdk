@@ -41,6 +41,13 @@ export interface DbSystem {
    */
   "subnetId": string;
   /**
+   * If the policy is to enable high availability of the instance, by
+   * maintaining secondary/failover capacity as necessary.
+   *
+   */
+  "isHighlyAvailable"?: boolean;
+  "currentPlacement"?: model.DbSystemPlacement;
+  /**
    * DEPRECATED -- please use `isHeatWaveClusterAttached` instead.
    * If the DB System has an Analytics Cluster attached.
    *
@@ -54,14 +61,26 @@ export interface DbSystem {
   "isHeatWaveClusterAttached"?: boolean;
   "heatWaveCluster"?: model.HeatWaveClusterSummary;
   /**
-   * The Availability Domain where the primary DB System should be located.
-   *
-   */
+    * The availability domain on which to deploy the Read/Write endpoint. This defines the preferred primary instance.
+* <p>
+In a failover scenario, the Read/Write endpoint is redirected to one of the other availability domains
+* and the MySQL instance in that domain is promoted to the primary instance.
+* This redirection does not affect the IP address of the DB System in any way.
+* <p>
+For a standalone DB System, this defines the availability domain in which the DB System is placed.
+* 
+    */
   "availabilityDomain"?: string;
   /**
-   * The name of the Fault Domain the DB System is located in.
-   *
-   */
+    * The fault domain on which to deploy the Read/Write endpoint. This defines the preferred primary instance.
+* <p>
+In a failover scenario, the Read/Write endpoint is redirected to one of the other fault domains
+* and the MySQL instance in that domain is promoted to the primary instance.
+* This redirection does not affect the IP address of the DB System in any way.
+* <p>
+For a standalone DB System, this defines the fault domain in which the DB System is placed.
+* 
+    */
   "faultDomain"?: string;
   /**
    * The shape of the primary instances of the DB System. The shape
@@ -175,6 +194,10 @@ export namespace DbSystem {
     const jsonObj = {
       ...obj,
       ...{
+        "currentPlacement": obj.currentPlacement
+          ? model.DbSystemPlacement.getJsonObj(obj.currentPlacement)
+          : undefined,
+
         "analyticsCluster": obj.analyticsCluster
           ? model.AnalyticsClusterSummary.getJsonObj(obj.analyticsCluster)
           : undefined,

@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsParserFunctionCollection {
   /**
-   * meta pre-process pagination list
+   * An array of parser function.
    */
   "items"?: Array<model.LogAnalyticsParserFunction>;
 }

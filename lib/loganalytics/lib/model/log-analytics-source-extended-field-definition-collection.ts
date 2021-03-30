@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsSourceExtendedFieldDefinitionCollection {
   /**
-   * list of extended field definitions
+   * An array of extended field definitions.
    */
   "items"?: Array<model.LogAnalyticsSourceExtendedFieldDefinition>;
 }

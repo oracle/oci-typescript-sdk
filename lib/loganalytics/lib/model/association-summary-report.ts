@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface AssociationSummaryReport {
   /**
-   * association count Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The association count. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "associationCount"?: number;
 }

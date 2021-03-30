@@ -28,20 +28,28 @@ export interface ListSourcesRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * entityType
+   * A filter to return only sources associated with entities of the specified type.
+   * The match is case-insensitive.
+   *
    */
   "entityType"?: string;
   /**
-   * Search by source display name or description.
+   * The source display text used for filtering.  Only sources with the specified name
+   * or description will be returned.
+   *
    */
   "sourceDisplayText"?: string;
   /**
-   * Is system param of value (all, custom, sourceUsing)
+   * The system value used for filtering.  Only items with the specified system value
+   * will be returned.  Valid values are built in, custom (for user defined items), or
+   * all (for all items, regardless of system value).
    *
    */
   "isSystem"?: ListSourcesRequest.IsSystem;
   /**
-   * auto association flag
+   * An auto-associate flag used for filtering.  Only sources which are marked for automatic
+   * association will be returned.
+   *
    */
   "isAutoAssociated"?: boolean;
   /**
@@ -50,7 +58,7 @@ export interface ListSourcesRequest extends common.BaseRequest {
    */
   "sortOrder"?: ListSourcesRequest.SortOrder;
   /**
-   * sort by source
+   * The attribute used to sort the returned sources
    */
   "sortBy"?: ListSourcesRequest.SortBy;
   /**
@@ -68,7 +76,11 @@ export interface ListSourcesRequest extends common.BaseRequest {
    */
   "name"?: string;
   /**
-   * is simplified
+   * A flag specifying whether or not to return all source information, or a subset of the
+   * information about each source.  A value of true will return only the source unique
+   * identifier and the source name.  A value of false will return all source information
+   * (such as author, updated date, system flag, etc.)
+   *
    */
   "isSimplified"?: boolean;
   /**

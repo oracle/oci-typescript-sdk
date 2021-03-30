@@ -20,39 +20,39 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsImportCustomChangeList {
   /**
-   * createdParserNames
+   * An array of created parser names.
    */
   "createdParserNames"?: Array<string>;
   /**
-   * updatedParserNames
+   * An array of updated parser names.
    */
   "updatedParserNames"?: Array<string>;
   /**
-   * createdSourceNames
+   * An array of created source names.
    */
   "createdSourceNames"?: Array<string>;
   /**
-   * updatedSourceNames
+   * An array of updated source names.
    */
   "updatedSourceNames"?: Array<string>;
   /**
-   * createdFieldDisplayNames
+   * An array of created field display names.
    */
   "createdFieldDisplayNames"?: Array<string>;
   /**
-   * updatedFieldDisplayNames
+   * An array of updated field display names.
    */
   "updatedFieldDisplayNames"?: Array<string>;
   /**
-   * conflictParserNames
+   * A list of parser names with conflicts.
    */
   "conflictParserNames"?: Array<string>;
   /**
-   * conflictSourceNames
+   * A list of source names with conflicts.
    */
   "conflictSourceNames"?: Array<string>;
   /**
-   * conflictFieldDisplayNames
+   * A list of field display names with conflicts.
    */
   "conflictFieldDisplayNames"?: Array<string>;
 }

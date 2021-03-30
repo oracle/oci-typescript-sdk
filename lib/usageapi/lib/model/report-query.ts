@@ -43,6 +43,7 @@ export interface ReportQuery {
    * is aggregated by time. true isAggregateByTime will add up all usage/cost over query time period
    */
   "isAggregateByTime"?: boolean;
+  "forecast"?: model.Forecast;
   /**
    * The query usage type. COST by default if it is missing
    * Usage - Query the usage data.
@@ -60,8 +61,8 @@ export interface ReportQuery {
    */
   "groupBy"?: Array<string>;
   /**
-   * GroupBy a specific tagKey. Provide tagNamespace and tagKey in tag object. Only support one tag in the list
-   * example:
+   * GroupBy a specific tagKey. Provide the tagNamespace and tagKey in the tag object. Only supports one tag in the list.
+   * For example:
    *   `[{\"namespace\":\"oracle\", \"key\":\"createdBy\"]`
    *
    */
@@ -122,6 +123,8 @@ export namespace ReportQuery {
     const jsonObj = {
       ...obj,
       ...{
+        "forecast": obj.forecast ? model.Forecast.getJsonObj(obj.forecast) : undefined,
+
         "groupByTag": obj.groupByTag
           ? obj.groupByTag.map(item => {
               return model.Tag.getJsonObj(item);

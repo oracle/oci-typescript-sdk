@@ -20,11 +20,11 @@ import common = require("oci-common");
  */
 export interface AbstractParserTestResultLogLine {
   /**
-   * original log line
+   * The original log line.
    */
   "originalLogLine"?: string;
   /**
-   * pre-processed log line
+   * The pre-processed log line.
    */
   "preProcessedLogLine"?: string;
 }

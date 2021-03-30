@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsLabelOperatorCollection {
   /**
-   * list of label operators
+   * An array of of label operators.
    */
   "items"?: Array<model.LogAnalyticsLabelOperator>;
 }

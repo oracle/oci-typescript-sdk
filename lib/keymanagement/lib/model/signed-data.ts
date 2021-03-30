@@ -18,25 +18,25 @@ import common = require("oci-common");
 
 export interface SignedData {
   /**
-   * The OCID of the key used to sign the message
+   * The OCID of the key used to sign the message.
    */
   "keyId": string;
   /**
-   * The OCID of the keyVersion used to sign the message
+   * The OCID of the key version used to sign the message.
    */
   "keyVersionId": string;
   /**
-   * The Base64-encoded binary data object denoting the cryptographic signature that was generated for the message or message digest.
+   * The base64-encoded binary data object denoting the cryptographic signature generated for the message or message digest.
    *
    */
   "signature": string;
   /**
-   * The algorithm to be used for signing the message or message digest
-   * For RSA keys, there are two supported Signature Schemes: PKCS1 and PSS along with
-   * different Hashing algorithms.
+   * The algorithm to use to sign the message or message digest.
+   * For RSA keys, supported signature schemes include PKCS #1 and RSASSA-PSS, along with
+   * different hashing algorithms.
    * For ECDSA keys, ECDSA is the supported signature scheme with different hashing algorithms.
-   * In case of passing digest for signing, make sure the same hashing algorithm is
-   * specified as used for created for digest.
+   * When you pass a message digest for signing, ensure that you specify the same hashing algorithm
+   * as used when creating the message digest.
    *
    */
   "signingAlgorithm": SignedData.SigningAlgorithm;

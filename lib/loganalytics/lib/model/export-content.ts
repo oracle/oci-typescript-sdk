@@ -16,19 +16,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * ExportContent
+ * The content to export.
  */
 export interface ExportContent {
   /**
-   * fieldNames
+   * The field names.
    */
   "fieldNames"?: Array<string>;
   /**
-   * parserNames
+   * The parser names.
    */
   "parserNames"?: Array<string>;
   /**
-   * sourceNames
+   * The source names.
    */
   "sourceNames"?: Array<string>;
 }

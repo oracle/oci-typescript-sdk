@@ -25,7 +25,7 @@ export interface RegisterLookupRequest extends common.BaseRequest {
    */
   "namespaceName": string;
   /**
-   * type - possible values are Lookup or Dictionary
+   * The lookup type.  Valid values are Lookup or Dictionary.
    */
   "type": RegisterLookupRequest.Type;
   /**
@@ -39,15 +39,17 @@ export interface RegisterLookupRequest extends common.BaseRequest {
    */
   "name"?: string;
   /**
-   * Description of the fields to get
+   * The description for a created lookup.
+   *
    */
   "description"?: string;
   /**
-   * Character Encoding
+   * The character encoding of the uploaded file.
    */
   "charEncoding"?: string;
   /**
-   * is hidden
+   * A flag indicating whether or not the new lookup should be hidden.
+   *
    */
   "isHidden"?: boolean;
   /**

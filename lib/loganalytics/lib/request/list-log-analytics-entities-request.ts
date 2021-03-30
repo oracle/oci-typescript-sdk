@@ -83,6 +83,16 @@ export interface ListLogAnalyticsEntitiesRequest extends common.BaseRequest {
    */
   "sourceId"?: string;
   /**
+   * A filter to return only those log analytics entities with the specified auto-creation source.
+   *
+   */
+  "creationSourceType"?: Array<model.CreationSourceType>;
+  /**
+   * A filter to return only log analytics entities whose auto-creation source details contains the specified string.
+   *
+   */
+  "creationSourceDetails"?: string;
+  /**
    * The maximum number of items to return.
    */
   "limit"?: number;

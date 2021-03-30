@@ -20,91 +20,105 @@ import common = require("oci-common");
  */
 export interface UpsertLogAnalyticsParserDetails {
   /**
-   * content
+   * The content.
    */
   "content"?: string;
   /**
-   * description
+   * The parser description.
    */
   "description"?: string;
   /**
-   * display name
+   * The parser display name.
    */
   "displayName"?: string;
   /**
-   * edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The parser edit version. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**
-   * encoding
+   * The encoding.
    */
   "encoding"?: string;
   /**
-   * example content
+   * Example content.
    */
   "exampleContent"?: string;
   /**
-   * fields Maps
+   * The parser fields.
    */
   "fieldMaps"?: Array<model.LogAnalyticsParserField>;
   /**
-   * footer regular expression
+   * The footer regular expression.
    */
   "footerContent"?: string;
   /**
-   * header content
+   * The header content.
    */
   "headerContent"?: string;
   /**
-   * Name
+   * The parser internal name.
    */
   "name"?: string;
   /**
-   * is default flag
+   * A flag indicating if this is a default parser.
+   *
    */
   "isDefault"?: boolean;
   /**
-   * is single line content
+   * A flag indicating if this is a single line content parser.
+   *
    */
   "isSingleLineContent"?: boolean;
   /**
-   * is system flag
+   * The system flag.  A value of false denotes a custom, or user
+   * defined object.  A value of true denotes a built in object.
+   *
    */
   "isSystem"?: boolean;
   /**
-   * language
+   * The language.
    */
   "language"?: string;
   /**
-   * log type test request version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The log type test request version. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "logTypeTestRequestVersion"?: number;
   /**
-   * parser ignore line characters
+   * The line characters for the parser to ignore.
    */
   "parserIgnorelineCharacters"?: string;
   /**
-   * sequence Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The parser sequence. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "parserSequence"?: number;
   /**
-   * time zone
+   * The time zone.
    */
   "parserTimezone"?: string;
   /**
-   * write once
+   * A flag indicating whther or not the parser is write once.
+   *
    */
   "isParserWrittenOnce"?: boolean;
   /**
-   * plugin instance list
+   * The parser function list.
    */
   "parserFunctions"?: Array<model.LogAnalyticsParserFunction>;
   /**
-   * tokenize original text
+   * A flag indicating whether or not to tokenize the original text.
+   *
    */
   "shouldTokenizeOriginalText"?: boolean;
   /**
-   * type
+   * The parser field delimiter.
+   */
+  "fieldDelimiter"?: string;
+  /**
+   * The parser field qualifier.
+   */
+  "fieldQualifier"?: string;
+  /**
+   * The parser type.  Default value is REGEX.
    */
   "type"?: UpsertLogAnalyticsParserDetails.Type;
 }
@@ -114,7 +128,8 @@ export namespace UpsertLogAnalyticsParserDetails {
     Xml = "XML",
     Json = "JSON",
     Regex = "REGEX",
-    Odl = "ODL"
+    Odl = "ODL",
+    Delimited = "DELIMITED"
   }
 
   export function getJsonObj(obj: UpsertLogAnalyticsParserDetails): object {

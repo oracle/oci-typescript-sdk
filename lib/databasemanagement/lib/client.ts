@@ -201,6 +201,84 @@ export class DbManagementClient {
   }
 
   /**
+     * Changes database parameters' values. There are two kinds of database
+* parameters:
+* <p>
+- Dynamic parameters: They can be changed for the current Oracle
+* Database instance. The changes take effect immediately.
+* - Static parameters: They cannot be changed for the current instance.
+* You must change these parameters and then restart the database before
+* changes take effect.
+* <p>
+**Note:** If the instance is started using a text initialization
+* parameter file, the parameter changes are applicable only for the
+* current instance. You must update them manually to be passed to
+* a future instance.
+* 
+     * @param ChangeDatabaseParametersRequest
+     * @return ChangeDatabaseParametersResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeDatabaseParameters.ts.html |here} to see how to use ChangeDatabaseParameters API.
+     */
+  public async changeDatabaseParameters(
+    changeDatabaseParametersRequest: requests.ChangeDatabaseParametersRequest
+  ): Promise<responses.ChangeDatabaseParametersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#changeDatabaseParameters.");
+    const pathParams = {
+      "{managedDatabaseId}": changeDatabaseParametersRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeDatabaseParametersRequest.opcRequestId,
+      "opc-retry-token": changeDatabaseParametersRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/actions/changeDatabaseParameters",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDatabaseParametersRequest.changeDatabaseParametersDetails,
+        "ChangeDatabaseParametersDetails",
+        models.ChangeDatabaseParametersDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeDatabaseParametersRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDatabaseParametersResponse>{},
+        body: await response.json(),
+        bodyKey: "updateDatabaseParametersResult",
+        bodyModel: "model.UpdateDatabaseParametersResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a job.
    *
    * @param ChangeJobCompartmentRequest
@@ -1037,6 +1115,72 @@ export class DbManagementClient {
   }
 
   /**
+   * Gets the list of database parameters for the specified Managed Database. The parameters are listed in alphabetical order, along with their current values.
+   *
+   * @param ListDatabaseParametersRequest
+   * @return ListDatabaseParametersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListDatabaseParameters.ts.html |here} to see how to use ListDatabaseParameters API.
+   */
+  public async listDatabaseParameters(
+    listDatabaseParametersRequest: requests.ListDatabaseParametersRequest
+  ): Promise<responses.ListDatabaseParametersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listDatabaseParameters.");
+    const pathParams = {
+      "{managedDatabaseId}": listDatabaseParametersRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "source": listDatabaseParametersRequest.source,
+      "name": listDatabaseParametersRequest.name,
+      "isAllowedValuesIncluded": listDatabaseParametersRequest.isAllowedValuesIncluded,
+      "sortBy": listDatabaseParametersRequest.sortBy,
+      "sortOrder": listDatabaseParametersRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDatabaseParametersRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/databaseParameters",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listDatabaseParametersRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDatabaseParametersResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseParametersCollection",
+        bodyModel: "model.DatabaseParametersCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the job execution for a specific ID or the list of job executions for a job, Managed Database or Managed Database Group
    * in a specific compartment. Only one of the parameters, ID, jobId, managedDatabaseId or managedDatabaseGroupId should be provided.
    * If none of these parameters is provided, all the job executions in the compartment are listed. Job executions can also be filtered
@@ -1415,6 +1559,75 @@ export class DbManagementClient {
   }
 
   /**
+   * Gets the list of tablespaces for the specified managedDatabaseId.
+   * @param ListTablespacesRequest
+   * @return ListTablespacesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListTablespaces.ts.html |here} to see how to use ListTablespaces API.
+   */
+  public async listTablespaces(
+    listTablespacesRequest: requests.ListTablespacesRequest
+  ): Promise<responses.ListTablespacesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listTablespaces.");
+    const pathParams = {
+      "{managedDatabaseId}": listTablespacesRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "name": listTablespacesRequest.name,
+      "sortBy": listTablespacesRequest.sortBy,
+      "sortOrder": listTablespacesRequest.sortOrder,
+      "page": listTablespacesRequest.page,
+      "limit": listTablespacesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listTablespacesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/tablespaces",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listTablespacesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListTablespacesResponse>{},
+        body: await response.json(),
+        bodyKey: "tablespaceCollection",
+        bodyModel: "model.TablespaceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Removes a Managed Database from a Managed Database Group. Any management
    * activities that are currently running on this database will continue to
    * run to completion. However, any activities scheduled to run in the future
@@ -1468,6 +1681,72 @@ export class DbManagementClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveManagedDatabaseFromManagedDatabaseGroupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Resets database parameters' values to their default or startup values.
+   *
+   * @param ResetDatabaseParametersRequest
+   * @return ResetDatabaseParametersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ResetDatabaseParameters.ts.html |here} to see how to use ResetDatabaseParameters API.
+   */
+  public async resetDatabaseParameters(
+    resetDatabaseParametersRequest: requests.ResetDatabaseParametersRequest
+  ): Promise<responses.ResetDatabaseParametersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#resetDatabaseParameters.");
+    const pathParams = {
+      "{managedDatabaseId}": resetDatabaseParametersRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": resetDatabaseParametersRequest.opcRequestId,
+      "opc-retry-token": resetDatabaseParametersRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/actions/resetDatabaseParameters",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        resetDatabaseParametersRequest.resetDatabaseParametersDetails,
+        "ResetDatabaseParametersDetails",
+        models.ResetDatabaseParametersDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      resetDatabaseParametersRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ResetDatabaseParametersResponse>{},
+        body: await response.json(),
+        bodyKey: "updateDatabaseParametersResult",
+        bodyModel: "model.UpdateDatabaseParametersResult",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

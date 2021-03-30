@@ -20,76 +20,83 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsSourcePattern {
   /**
-   * converted text
+   * The converted text.
    */
   "convertedText"?: string;
   /**
-   * parser Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The parser unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dbParserId"?: number;
   /**
-   * date time columns
+   * The date time columns.
    */
   "dbPatternDateTimeColumns"?: string;
   /**
-   * date time field
+   * The date time field.
    */
   "dbPatternDateTimeField"?: string;
   /**
-   * sequence column
+   * The sequence column.
    */
   "dbPatternSequenceColumn"?: string;
   /**
-   * field list
+   * The parser field list.
    */
   "fields"?: Array<model.LogAnalyticsParserField>;
   /**
-   * is include flag
+   * A flag indicating if this is source pattern is included.
+   *
    */
   "isInclude"?: boolean;
   /**
-   * is default flag
+   * A flag indicating if this is the default source pattern.
+   *
    */
   "isDefault"?: boolean;
   "patternFilter"?: model.LogAnalyticsPatternFilter;
   /**
-   * alias
+   * The source pattern alias.
    */
   "alias"?: string;
   /**
-   * description
+   * The source pattern description.
    */
   "description"?: string;
   /**
-   * is enabled flag
+   * A flag inidcating whether or not the source pattern is enabled.
+   *
    */
   "isEnabled"?: boolean;
   /**
-   * pattern Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The source pattern unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "patternId"?: number;
   /**
-   * is system flag
+   * The system flag.  A value of false denotes a custom, or user
+   * defined object.  A value of true denotes a built in object.
+   *
    */
   "isSystem"?: boolean;
   /**
-   * source Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The source unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourceId"?: number;
   /**
-   * suppress agent warning
+   * A flag indicating whether or not agent warnings are suppressed for
+   * this source pattern.
+   *
    */
   "isAgentWarningSuppressed"?: boolean;
   /**
-   * pattern text
+   * The pattern text.
    */
   "patternText"?: string;
   /**
-   * pattern type Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The pattern type. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "patternType"?: number;
   /**
-   * source entity types
+   * The source entity type.
    */
   "entityType"?: Array<string>;
 }

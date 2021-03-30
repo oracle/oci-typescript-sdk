@@ -24,7 +24,7 @@ export interface GetParserRequest extends common.BaseRequest {
    */
   "namespaceName": string;
   /**
-   * parserName
+   * The parser name.
    */
   "parserName": string;
   /**

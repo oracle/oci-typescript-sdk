@@ -55,6 +55,12 @@ export interface ListUploadsRequest extends common.BaseRequest {
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
+  /**
+   * Use this for filtering uploads w.r.t warnings. Only one value is allowed. If no value is specified then ALL is taken as default,
+   * which means that all the uploads with and without warnings will be returned.
+   *
+   */
+  "warningsFilter"?: ListUploadsRequest.WarningsFilter;
 }
 
 export namespace ListUploadsRequest {
@@ -67,5 +73,11 @@ export namespace ListUploadsRequest {
     TimeUpdated = "timeUpdated",
     TimeCreated = "timeCreated",
     Name = "name"
+  }
+
+  export enum WarningsFilter {
+    WithWarnings = "WITH_WARNINGS",
+    WithoutWarnings = "WITHOUT_WARNINGS",
+    All = "ALL"
   }
 }

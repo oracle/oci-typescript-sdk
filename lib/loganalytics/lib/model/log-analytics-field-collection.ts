@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsFieldCollection {
   /**
-   * list of fields
+   * An array of fields.
    */
   "items"?: Array<model.LogAnalyticsFieldSummary>;
 }

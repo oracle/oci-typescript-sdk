@@ -20,20 +20,20 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsImportCustomContent {
   /**
-   * parserNames
+   * The parser names.
    */
   "parserNames"?: Array<string>;
   /**
-   * sourceNames
+   * The source names.
    */
   "sourceNames"?: Array<string>;
   /**
-   * fieldNames
+   * The field names.
    */
   "fieldNames"?: Array<string>;
   "changeList"?: model.LogAnalyticsImportCustomChangeList;
   /**
-   * contentName
+   * The content name.
    */
   "contentName"?: string;
 }

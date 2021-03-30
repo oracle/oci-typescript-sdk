@@ -20,75 +20,80 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsSourceLabelCondition {
   /**
-   * message
+   * The message.
    */
   "message"?: string;
   /**
-   * visible flag
+   * A flag indicating whether or not the label condition is visible.
+   *
    */
   "isVisible"?: boolean;
   /**
-   * block condition field
+   * The block condition field.
    */
   "blockConditionField"?: string;
   /**
-   * block condition operator
+   * The block condition operator.
    */
   "blockConditionOperator"?: string;
   /**
-   * block condition value
+   * The block condition value.
    */
   "blockConditionValue"?: string;
   /**
-   * condition value
+   * The condition value.
    */
   "labelConditionValue"?: string;
   /**
-   * list of condition values
+   * A list of condition values.
    */
   "labelConditionValues"?: Array<string>;
   /**
-   * content example
+   * The content example.
    */
   "contentExample"?: string;
   /**
-   * enabled
+   * A flag inidcating whether or not the condition is enabled.
+   *
    */
   "isEnabled"?: boolean;
   /**
-   * field internal name
+   * The internal field name.
    */
   "fieldName"?: string;
   /**
-   * Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The unique identifier of the condition. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "labelConditionId"?: number;
   /**
-   * is system flag
+   * The system flag.  A value of false denotes a custom, or user
+   * defined object.  A value of true denotes a built in object.
+   *
    */
   "isSystem"?: boolean;
   /**
-   * operator
+   * The condition operator.
    */
   "labelConditionOperator"?: string;
   /**
-   * source Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The unique identifier of the source. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourceId"?: number;
   /**
-   * label display name
+   * The label display name.
    */
   "labelDisplayName"?: string;
   /**
-   * label storage field
+   * The label storage field.
    */
   "storageField"?: string;
   /**
-   * label name
+   * The label name.
    */
   "labelName"?: string;
   /**
-   * inline label exists in DB flag
+   * A flag indicating whether or not the inline label exists in the database.
+   *
    */
   "isInlineLabelExistingInDatabase"?: boolean;
 }

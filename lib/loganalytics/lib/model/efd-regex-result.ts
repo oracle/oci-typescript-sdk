@@ -20,40 +20,41 @@ import common = require("oci-common");
  */
 export interface EfdRegexResult {
   /**
-   * baseFieldName
+   * The base field name.
    */
   "baseFieldName"?: string;
   /**
-   * id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * the unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "id"?: number;
   "matchResult"?: model.RegexMatchResult;
   /**
-   * parsedFieldCount Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The parsed field count. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "parsedFieldCount"?: number;
   /**
-   * parsedFields
+   * The parsed fields.
    */
   "parsedFields"?: { [key: string]: string };
   /**
-   * regex
+   * The regular expression.
    */
   "regex"?: string;
   /**
-   * status
+   * The status.
    */
   "status"?: string;
   /**
-   * statusDescription
+   * The Status description.
    */
   "statusDescription"?: string;
   /**
-   * isValidRegexSyntax
+   * A flag indicating whether or not the regular expression is valid.
+   *
    */
   "isValidRegexSyntax"?: boolean;
   /**
-   * violations
+   * The list of violations (if any).
    */
   "violations"?: Array<model.Violation>;
 }

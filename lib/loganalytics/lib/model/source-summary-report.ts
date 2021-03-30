@@ -20,15 +20,15 @@ import common = require("oci-common");
  */
 export interface SourceSummaryReport {
   /**
-   * non out-of-the-box count Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The count of custom (user defined) sources. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "nonOobCount"?: number;
   /**
-   * count of sources set to auto-associate Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The count of sources set to auto-associate. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "autoAssociationSourceCount"?: number;
   /**
-   * out-of-the-box count Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The count of built in sources. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "oobCount"?: number;
 }

@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface LabelPriorityCollection {
   /**
-   * list of tag priorities
+   * An array of label priorities.
    */
   "items"?: Array<model.LabelPriority>;
 }

@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface LabelSourceCollection {
   /**
-   * list of fields
+   * An array labels.
    */
   "items"?: Array<model.LabelSourceSummary>;
 }

@@ -16,12 +16,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * LogAnalytics Label Collection
+ * A collection of LogAnalytics Labels.
  *
  */
 export interface LogAnalyticsLabelCollection {
   /**
-   * Array of log analytics label summary.
+   * An array of log analytics label summaries.
    */
   "items"?: Array<model.LogAnalyticsLabelSummary>;
 }

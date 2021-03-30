@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface UpsertLogAnalyticsLabelDetails {
   /**
-   * alias list
+   * The alias list.
    */
   "aliases"?: Array<model.LogAnalyticsLabelAlias>;
   /**
@@ -28,39 +28,41 @@ export interface UpsertLogAnalyticsLabelDetails {
    */
   "suggestType"?: number;
   /**
-   * description
+   * The label description.
    */
   "description"?: string;
   /**
-   * display name
+   * The label display name.
    */
   "displayName"?: string;
   /**
-   * edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The edit version. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**
-   * impact
+   * The label impact.
    */
   "impact"?: string;
   /**
-   * is system flag
+   * The system flag.  A value of false denotes a custom, or user
+   * defined label.  A value of true denotes a built in label.
+   *
    */
   "isSystem"?: boolean;
   /**
-   * label identifier
+   * The label name.
    */
   "name"?: string;
   /**
-   * Valid values are (NONE, LOW, HIGH). NONE is default.
+   * The label priority. Valid values are (NONE, LOW, HIGH). NONE is default.
    */
   "priority"?: UpsertLogAnalyticsLabelDetails.Priority;
   /**
-   * tag recommendation
+   * The label recommendation.
    */
   "recommendation"?: string;
   /**
-   * Valid values are (INFO, PROBLEM). INFO is default.
+   * The label type. Valid values are (INFO, PROBLEM). INFO is default.
    */
   "type"?: UpsertLogAnalyticsLabelDetails.Type;
 }

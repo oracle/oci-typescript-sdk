@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of an Log-Analytics log group.
+ * Summary of a Log-Analytics log group.
  *
  */
 export interface LogAnalyticsLogGroupSummary {

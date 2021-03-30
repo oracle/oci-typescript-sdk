@@ -21,27 +21,29 @@ import common = require("oci-common");
 export interface LogAnalyticsPatternFilter {
   "pattern"?: model.LogAnalyticsSourcePattern;
   /**
-   * agent version
+   * The agent version.
    */
   "agentVersion"?: string;
   /**
-   * is in use flag
+   * A flag indicating whether or not the pattern filter is currently
+   * in use.
+   *
    */
   "isInUse"?: boolean;
   /**
-   * operating system
+   * The operating system.
    */
   "operatingSystem"?: string;
   /**
-   * pattern Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The pattern unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "patternId"?: number;
   /**
-   * source Id Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The source unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourceId"?: number;
   /**
-   * version
+   * The pattern filter version.
    */
   "version"?: string;
   "source"?: model.LogAnalyticsSource;

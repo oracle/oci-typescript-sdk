@@ -20,55 +20,58 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsLabel {
   /**
-   * alias list
+   * An array of label aliases.
    */
   "aliases"?: Array<model.LogAnalyticsLabelAlias>;
   /**
-   * count usage in source Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The source usage count for this label. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "countUsageInSource"?: number;
   /**
-   * suggest type Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The type of suggestion for label usage. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "suggestType"?: number;
   /**
-   * description
+   * The label description.
    */
   "description"?: string;
   /**
-   * display name
+   * The label display name.
    */
   "displayName"?: string;
   /**
-   * edit version Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The label edit version. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "editVersion"?: number;
   /**
-   * impact
+   * The label impact.
    */
   "impact"?: string;
   /**
-   * is system flag
+   * The system flag.  A value of false denotes a custom, or user
+   * defined label.  A value of true denotes a built in label.
+   *
    */
   "isSystem"?: boolean;
   /**
-   * label identifier
+   * The label name.
    */
   "name"?: string;
   /**
-   * Valid values are (NONE, LOW, HIGH). NONE is default.
+   * The label priority. Valid values are (NONE, LOW, HIGH). NONE is default.
    */
   "priority"?: LogAnalyticsLabel.Priority;
   /**
-   * tag recommendation
+   * The label recommendation.
    */
   "recommendation"?: string;
   /**
-   * Valid values are (INFO, PROBLEM). INFO is default.
+   * The label type. Valid values are (INFO, PROBLEM). INFO is default.
    */
   "type"?: LogAnalyticsLabel.Type;
   /**
-   * user deleted flag
+   * A flag indicating whether or not the label has been deleted.
+   *
    */
   "isUserDeleted"?: boolean;
 }

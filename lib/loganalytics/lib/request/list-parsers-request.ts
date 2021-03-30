@@ -24,27 +24,41 @@ export interface ListParsersRequest extends common.BaseRequest {
    */
   "namespaceName": string;
   /**
-   * isMatchAll
+   * A flag indicating how to handle filtering when multiple filter criteria are specified.
+   * A value of true will always result in the most expansive list of items being returned.
+   * For example, if two field lists are supplies as filter criteria, a value of true will
+   * result in any item matching a field in either list being returned, while a value of
+   * false will result in a list of items which only have fields contained in both input lists.
+   *
    */
   "isMatchAll"?: boolean;
   /**
-   * source type
+   * The source type used for filtering.  Only parsers associated with a source of the
+   * specified type will be returned.
+   *
    */
   "sourceType"?: ListParsersRequest.SourceType;
   /**
-   * parserName
+   * The parser name used for filtering.
+   *
    */
   "parserName"?: string;
   /**
-   * search by parser display name or description
+   * The parser display text used for filtering.  Only parsers with the specified name
+   * or description will be returned.
+   *
    */
   "parserDisplayText"?: string;
   /**
-   * parserType
+   * The parser type used for filtering.  Only items with, or associated with, parsers
+   * of the specified type will be returned.
+   *
    */
   "parserType"?: ListParsersRequest.ParserType;
   /**
-   * Is system param of value (all, custom, sourceUsing)
+   * The system value used for filtering.  Only items with the specified system value
+   * will be returned.  Valid values are built in, custom (for user defined items), or
+   * all (for all items, regardless of system value).
    *
    */
   "isSystem"?: ListParsersRequest.IsSystem;
@@ -62,7 +76,7 @@ export interface ListParsersRequest extends common.BaseRequest {
    */
   "sortOrder"?: ListParsersRequest.SortOrder;
   /**
-   * sort by parser
+   * The attribute used to sort the returned parsers
    */
   "sortBy"?: ListParsersRequest.SortBy;
   /**
@@ -83,7 +97,9 @@ export namespace ListParsersRequest {
     All = "ALL",
     Regex = "REGEX",
     Xml = "XML",
-    Json = "JSON"
+    Json = "JSON",
+    Odl = "ODL",
+    Delimited = "DELIMITED"
   }
 
   export enum IsSystem {

@@ -1,6 +1,6 @@
 /**
  * Oracle Cloud VMware Solution API
- * Use this API to manage the Oracle Cloud VMware Solution.
+ * Use this API to manage your [Oracle Cloud VMware Solution](/iaas/Content/VMware/Concepts/ocvsoverview.htm).
 
  * OpenAPI spec version: 20200501
  * 
@@ -40,7 +40,7 @@ export interface SddcSummary {
   /**
     * In general, this is a specific version of bundled VMware software supported by
 * Oracle Cloud VMware Solution (see
-* {@link #* ListSupportedVmwareSoftwareVersions(* ListSupportedVmwareSoftwareVersionsRequest) * ListSupportedVmwareSoftwareVersions}).
+* {@link #listSupportedVmwareSoftwareVersions(ListSupportedVmwareSoftwareVersionsRequest) listSupportedVmwareSoftwareVersions}).
 * <p>
 This attribute is not guaranteed to reflect the version of
 * software currently installed on the ESXi hosts in the SDDC. The purpose
