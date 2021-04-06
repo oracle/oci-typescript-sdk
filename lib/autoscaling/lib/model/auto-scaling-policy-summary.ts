@@ -39,7 +39,7 @@ export interface AutoScalingPolicySummary {
    */
   "policyType": string;
   /**
-   * Boolean field indicated whether this policy is enabled or not.
+   * Whether the autoscaling policy is enabled.
    */
   "isEnabled"?: boolean;
 }

@@ -31,7 +31,7 @@ export interface UpdateAutoScalingPolicyDetails {
    */
   "capacity"?: model.Capacity;
   /**
-   * Boolean field indicating whether this policy is enabled or not.
+   * Whether the autoscaling policy is enabled.
    */
   "isEnabled"?: boolean;
 

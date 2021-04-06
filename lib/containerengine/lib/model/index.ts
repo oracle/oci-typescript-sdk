@@ -40,12 +40,18 @@ import * as CreateClusterEndpointConfigDetails from "./create-cluster-endpoint-c
 export import CreateClusterEndpointConfigDetails = CreateClusterEndpointConfigDetails.CreateClusterEndpointConfigDetails;
 import * as CreateClusterKubeconfigContentDetails from "./create-cluster-kubeconfig-content-details";
 export import CreateClusterKubeconfigContentDetails = CreateClusterKubeconfigContentDetails.CreateClusterKubeconfigContentDetails;
+import * as CreateImagePolicyConfigDetails from "./create-image-policy-config-details";
+export import CreateImagePolicyConfigDetails = CreateImagePolicyConfigDetails.CreateImagePolicyConfigDetails;
 import * as CreateNodePoolDetails from "./create-node-pool-details";
 export import CreateNodePoolDetails = CreateNodePoolDetails.CreateNodePoolDetails;
 import * as CreateNodePoolNodeConfigDetails from "./create-node-pool-node-config-details";
 export import CreateNodePoolNodeConfigDetails = CreateNodePoolNodeConfigDetails.CreateNodePoolNodeConfigDetails;
 import * as CreateNodeShapeConfigDetails from "./create-node-shape-config-details";
 export import CreateNodeShapeConfigDetails = CreateNodeShapeConfigDetails.CreateNodeShapeConfigDetails;
+import * as ImagePolicyConfig from "./image-policy-config";
+export import ImagePolicyConfig = ImagePolicyConfig.ImagePolicyConfig;
+import * as KeyDetails from "./key-details";
+export import KeyDetails = KeyDetails.KeyDetails;
 import * as KeyValue from "./key-value";
 export import KeyValue = KeyValue.KeyValue;
 import * as KubernetesNetworkConfig from "./kubernetes-network-config";
@@ -80,6 +86,8 @@ import * as UpdateClusterEndpointConfigDetails from "./update-cluster-endpoint-c
 export import UpdateClusterEndpointConfigDetails = UpdateClusterEndpointConfigDetails.UpdateClusterEndpointConfigDetails;
 import * as UpdateClusterOptionsDetails from "./update-cluster-options-details";
 export import UpdateClusterOptionsDetails = UpdateClusterOptionsDetails.UpdateClusterOptionsDetails;
+import * as UpdateImagePolicyConfigDetails from "./update-image-policy-config-details";
+export import UpdateImagePolicyConfigDetails = UpdateImagePolicyConfigDetails.UpdateImagePolicyConfigDetails;
 import * as UpdateNodePoolDetails from "./update-node-pool-details";
 export import UpdateNodePoolDetails = UpdateNodePoolDetails.UpdateNodePoolDetails;
 import * as UpdateNodePoolNodeConfigDetails from "./update-node-pool-node-config-details";

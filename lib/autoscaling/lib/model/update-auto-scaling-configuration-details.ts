@@ -46,11 +46,6 @@ Example: `{\"Department\": \"Finance\"}`
    * Whether the autoscaling configuration is enabled.
    */
   "isEnabled"?: boolean;
-  /**
-   * The minimum period of time to wait between scaling actions. The cooldown period gives the system time
-   * to stabilize before rescaling. The minimum value is 300 seconds, which is also the default.
-   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
   "coolDownInSeconds"?: number;
 }
 

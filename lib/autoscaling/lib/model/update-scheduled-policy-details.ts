@@ -21,7 +21,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 export interface UpdateScheduledPolicyDetails extends model.UpdateAutoScalingPolicyDetails {
+  /**
+   * The schedule for executing the autoscaling policy.
+   */
   "executionSchedule"?: model.CronExecutionSchedule;
+  "resourceAction"?: model.ResourcePowerAction;
 
   "policyType": string;
 }
@@ -35,6 +39,9 @@ export namespace UpdateScheduledPolicyDetails {
       ...{
         "executionSchedule": obj.executionSchedule
           ? model.ExecutionSchedule.getJsonObj(obj.executionSchedule)
+          : undefined,
+        "resourceAction": obj.resourceAction
+          ? model.ResourceAction.getJsonObj(obj.resourceAction)
           : undefined
       }
     };

@@ -25,13 +25,18 @@ import common = require("oci-common");
 * <p>
 An autoscaling policy is part of an autoscaling configuration. For more information, see
 * [Autoscaling](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/autoscalinginstancepools.htm).
+* <p>
+You can create the following types of autoscaling policies:
+*   
+*   - **Schedule-based:** Autoscaling events take place at the specific times that you schedule.
+*   - **Threshold-based:** An autoscaling action is triggered when a performance metric meets or exceeds a threshold.
 * 
 */
 export interface AutoScalingPolicy {
   /**
    * The capacity requirements of the autoscaling policy.
    */
-  "capacity": model.Capacity;
+  "capacity"?: model.Capacity;
   /**
    * The ID of the autoscaling policy that is assigned after creation.
    */
@@ -49,7 +54,7 @@ Example: `2016-08-25T21:10:29.600Z`
     */
   "timeCreated": Date;
   /**
-   * Boolean field indicating whether this policy is enabled or not.
+   * Whether the autoscaling policy is enabled.
    */
   "isEnabled"?: boolean;
 

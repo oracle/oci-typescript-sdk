@@ -15,18 +15,26 @@ Use this API to manage resources such as container images and repositories.
 
 import * as ChangeContainerRepositoryCompartmentRequest from "./change-container-repository-compartment-request";
 export import ChangeContainerRepositoryCompartmentRequest = ChangeContainerRepositoryCompartmentRequest.ChangeContainerRepositoryCompartmentRequest;
+import * as CreateContainerImageSignatureRequest from "./create-container-image-signature-request";
+export import CreateContainerImageSignatureRequest = CreateContainerImageSignatureRequest.CreateContainerImageSignatureRequest;
 import * as CreateContainerRepositoryRequest from "./create-container-repository-request";
 export import CreateContainerRepositoryRequest = CreateContainerRepositoryRequest.CreateContainerRepositoryRequest;
 import * as DeleteContainerImageRequest from "./delete-container-image-request";
 export import DeleteContainerImageRequest = DeleteContainerImageRequest.DeleteContainerImageRequest;
+import * as DeleteContainerImageSignatureRequest from "./delete-container-image-signature-request";
+export import DeleteContainerImageSignatureRequest = DeleteContainerImageSignatureRequest.DeleteContainerImageSignatureRequest;
 import * as DeleteContainerRepositoryRequest from "./delete-container-repository-request";
 export import DeleteContainerRepositoryRequest = DeleteContainerRepositoryRequest.DeleteContainerRepositoryRequest;
 import * as GetContainerConfigurationRequest from "./get-container-configuration-request";
 export import GetContainerConfigurationRequest = GetContainerConfigurationRequest.GetContainerConfigurationRequest;
 import * as GetContainerImageRequest from "./get-container-image-request";
 export import GetContainerImageRequest = GetContainerImageRequest.GetContainerImageRequest;
+import * as GetContainerImageSignatureRequest from "./get-container-image-signature-request";
+export import GetContainerImageSignatureRequest = GetContainerImageSignatureRequest.GetContainerImageSignatureRequest;
 import * as GetContainerRepositoryRequest from "./get-container-repository-request";
 export import GetContainerRepositoryRequest = GetContainerRepositoryRequest.GetContainerRepositoryRequest;
+import * as ListContainerImageSignaturesRequest from "./list-container-image-signatures-request";
+export import ListContainerImageSignaturesRequest = ListContainerImageSignaturesRequest.ListContainerImageSignaturesRequest;
 import * as ListContainerImagesRequest from "./list-container-images-request";
 export import ListContainerImagesRequest = ListContainerImagesRequest.ListContainerImagesRequest;
 import * as ListContainerRepositoriesRequest from "./list-container-repositories-request";

@@ -21,14 +21,22 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specifies the execution schedule of CRON type.
+ * An autoscaling execution schedule that uses a cron expression.
  *
  */
 export interface CronExecutionSchedule extends model.ExecutionSchedule {
   /**
-   * The value representing the execution schedule, as defined by cron format.
-   *
-   */
+    * A cron expression that represents the time at which to execute the autoscaling policy.
+* <p>
+Cron expressions have this format: `<second> <minute> <hour> <day of month> <month> <day of week> <year>`
+* <p>
+You can use special characters that are supported with the Quartz cron implementation.
+* <p>
+You must specify `0` as the value for seconds.
+* <p>
+Example: `0 15 10 ? * *`
+* 
+    */
   "expression": string;
 
   "type": string;

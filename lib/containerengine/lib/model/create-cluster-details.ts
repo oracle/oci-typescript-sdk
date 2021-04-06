@@ -52,6 +52,13 @@ export interface CreateClusterDetails {
    * Optional attributes for the cluster.
    */
   "options"?: model.ClusterCreateOptions;
+  /**
+   * The image verification policy for signature validation. Once a policy is created and enabled with
+   * one or more kms keys, the policy will ensure all images deployed has been signed with the key(s)
+   * attached to the policy.
+   *
+   */
+  "imagePolicyConfig"?: model.CreateImagePolicyConfigDetails;
 }
 
 export namespace CreateClusterDetails {
@@ -63,7 +70,10 @@ export namespace CreateClusterDetails {
           ? model.CreateClusterEndpointConfigDetails.getJsonObj(obj.endpointConfig)
           : undefined,
 
-        "options": obj.options ? model.ClusterCreateOptions.getJsonObj(obj.options) : undefined
+        "options": obj.options ? model.ClusterCreateOptions.getJsonObj(obj.options) : undefined,
+        "imagePolicyConfig": obj.imagePolicyConfig
+          ? model.CreateImagePolicyConfigDetails.getJsonObj(obj.imagePolicyConfig)
+          : undefined
       }
     };
 

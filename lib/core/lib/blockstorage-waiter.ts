@@ -31,6 +31,25 @@ export class BlockstorageWaiter {
   ) {}
 
   /**
+   * Waits forBlockVolumeReplica till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetBlockVolumeReplicaResponse | null (null in case of 404 response)
+   */
+  public async forBlockVolumeReplica(
+    request: serviceRequests.GetBlockVolumeReplicaRequest,
+    ...targetStates: models.BlockVolumeReplica.LifecycleState[]
+  ): Promise<serviceResponses.GetBlockVolumeReplicaResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getBlockVolumeReplica(request),
+      response => targetStates.includes(response.blockVolumeReplica.lifecycleState!),
+      targetStates.includes(models.BlockVolumeReplica.LifecycleState.Terminated)
+    );
+  }
+
+  /**
    * Waits forBootVolume till it reaches any of the provided states
    *
    * @param request the request to send
@@ -65,6 +84,25 @@ export class BlockstorageWaiter {
       () => this.client.getBootVolumeBackup(request),
       response => targetStates.includes(response.bootVolumeBackup.lifecycleState!),
       targetStates.includes(models.BootVolumeBackup.LifecycleState.Terminated)
+    );
+  }
+
+  /**
+   * Waits forBootVolumeReplica till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetBootVolumeReplicaResponse | null (null in case of 404 response)
+   */
+  public async forBootVolumeReplica(
+    request: serviceRequests.GetBootVolumeReplicaRequest,
+    ...targetStates: models.BootVolumeReplica.LifecycleState[]
+  ): Promise<serviceResponses.GetBootVolumeReplicaResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getBootVolumeReplica(request),
+      response => targetStates.includes(response.bootVolumeReplica.lifecycleState!),
+      targetStates.includes(models.BootVolumeReplica.LifecycleState.Terminated)
     );
   }
 

@@ -36,6 +36,7 @@ export interface UpdateSourceDetails {
   "authorizationDetails"?:
     | model.OccAuthorizationDetails
     | model.InternalAuthorizationDetails
+    | model.OcicAuthorizationTokenDetails
     | model.OcicAuthorizationDetails;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.

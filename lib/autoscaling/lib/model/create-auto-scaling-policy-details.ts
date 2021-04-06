@@ -21,26 +21,28 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* Creation details for an autoscaling policy.
+* Creation details for an autoscaling policy. You can create the following types of autoscaling policies:
 * <p>
-Each autoscaling configuration can have one autoscaling policy.
-* <p>
-In a threshold-based autoscaling policy, an autoscaling action is triggered when a performance metric meets
+- **Schedule-based:** Autoscaling events take place at the specific times that you schedule.
+* - **Threshold-based:** An autoscaling action is triggered when a performance metric meets
 * or exceeds a threshold.
+* <p>
+An autoscaling configuration can either have multiple schedule-based autoscaling policies, or one
+* threshold-based autoscaling policy.
 * 
 */
 export interface CreateAutoScalingPolicyDetails {
   /**
    * The capacity requirements of the autoscaling policy.
    */
-  "capacity": model.Capacity;
+  "capacity"?: model.Capacity;
   /**
    * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
    *
    */
   "displayName"?: string;
   /**
-   * Boolean field indicating whether this policy is enabled or not.
+   * Whether the autoscaling policy is enabled.
    */
   "isEnabled"?: boolean;
 

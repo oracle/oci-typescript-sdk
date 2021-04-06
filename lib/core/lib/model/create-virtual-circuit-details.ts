@@ -41,6 +41,14 @@ Example: `10 Gbps`
    */
   "crossConnectMappings"?: Array<model.CrossConnectMapping>;
   /**
+   * The routing policy sets how routing information about the Oracle cloud is shared over a public virtual circuit.
+   * Policies available are: `ORACLE_SERVICE_NETWORK`, `REGIONAL`, `MARKET_LEVEL`, and `GLOBAL`.
+   * See [Route Filtering](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/routingonprem.htm#route_filtering) for details.
+   * By default, routing information is shared for all routes in the same market.
+   *
+   */
+  "routingPolicy"?: Array<CreateVirtualCircuitDetails.RoutingPolicy>;
+  /**
    * Deprecated. Instead use `customerAsn`.
    * If you specify values for both, the request will be rejected.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -132,6 +140,13 @@ Example: `{\"Department\": \"Finance\"}`
 }
 
 export namespace CreateVirtualCircuitDetails {
+  export enum RoutingPolicy {
+    OracleServiceNetwork = "ORACLE_SERVICE_NETWORK",
+    Regional = "REGIONAL",
+    MarketLevel = "MARKET_LEVEL",
+    Global = "GLOBAL"
+  }
+
   export enum Type {
     Public = "PUBLIC",
     Private = "PRIVATE"

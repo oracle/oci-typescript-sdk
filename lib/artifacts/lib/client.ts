@@ -198,6 +198,75 @@ export class ArtifactsClient {
   }
 
   /**
+   * Upload a signature to an image.
+   * @param CreateContainerImageSignatureRequest
+   * @return CreateContainerImageSignatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/CreateContainerImageSignature.ts.html |here} to see how to use CreateContainerImageSignature API.
+   */
+  public async createContainerImageSignature(
+    createContainerImageSignatureRequest: requests.CreateContainerImageSignatureRequest
+  ): Promise<responses.CreateContainerImageSignatureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#createContainerImageSignature.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createContainerImageSignatureRequest.opcRequestId,
+      "opc-retry-token": createContainerImageSignatureRequest.opcRetryToken,
+      "if-match": createContainerImageSignatureRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/container/imageSignatures",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createContainerImageSignatureRequest.createContainerImageSignatureDetails,
+        "CreateContainerImageSignatureDetails",
+        models.CreateContainerImageSignatureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createContainerImageSignatureRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateContainerImageSignatureResponse>{},
+        body: await response.json(),
+        bodyKey: "containerImageSignature",
+        bodyModel: "model.ContainerImageSignature",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Create a new empty container repository. Avoid entering confidential information.
    * @param CreateContainerRepositoryRequest
    * @return CreateContainerRepositoryResponse
@@ -306,6 +375,63 @@ export class ArtifactsClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteContainerImageResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete a container image signature.
+   * @param DeleteContainerImageSignatureRequest
+   * @return DeleteContainerImageSignatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/DeleteContainerImageSignature.ts.html |here} to see how to use DeleteContainerImageSignature API.
+   */
+  public async deleteContainerImageSignature(
+    deleteContainerImageSignatureRequest: requests.DeleteContainerImageSignatureRequest
+  ): Promise<responses.DeleteContainerImageSignatureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#deleteContainerImageSignature.");
+    const pathParams = {
+      "{imageSignatureId}": deleteContainerImageSignatureRequest.imageSignatureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteContainerImageSignatureRequest.opcRequestId,
+      "if-match": deleteContainerImageSignatureRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/container/imageSignatures/{imageSignatureId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteContainerImageSignatureRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteContainerImageSignatureResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -506,6 +632,70 @@ export class ArtifactsClient {
   }
 
   /**
+   * Get container image signature metadata.
+   * @param GetContainerImageSignatureRequest
+   * @return GetContainerImageSignatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/GetContainerImageSignature.ts.html |here} to see how to use GetContainerImageSignature API.
+   */
+  public async getContainerImageSignature(
+    getContainerImageSignatureRequest: requests.GetContainerImageSignatureRequest
+  ): Promise<responses.GetContainerImageSignatureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#getContainerImageSignature.");
+    const pathParams = {
+      "{imageSignatureId}": getContainerImageSignatureRequest.imageSignatureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getContainerImageSignatureRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/container/imageSignatures/{imageSignatureId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getContainerImageSignatureRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetContainerImageSignatureResponse>{},
+        body: await response.json(),
+        bodyKey: "containerImageSignature",
+        bodyModel: "model.ContainerImageSignature",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Get container repository.
    * @param GetContainerRepositoryRequest
    * @return GetContainerRepositoryResponse
@@ -552,6 +742,83 @@ export class ArtifactsClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List container image signatures in an image.
+   * @param ListContainerImageSignaturesRequest
+   * @return ListContainerImageSignaturesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/ListContainerImageSignatures.ts.html |here} to see how to use ListContainerImageSignatures API.
+   */
+  public async listContainerImageSignatures(
+    listContainerImageSignaturesRequest: requests.ListContainerImageSignaturesRequest
+  ): Promise<responses.ListContainerImageSignaturesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#listContainerImageSignatures.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentIdInSubtree": listContainerImageSignaturesRequest.compartmentIdInSubtree,
+      "compartmentId": listContainerImageSignaturesRequest.compartmentId,
+      "imageId": listContainerImageSignaturesRequest.imageId,
+      "repositoryId": listContainerImageSignaturesRequest.repositoryId,
+      "repositoryName": listContainerImageSignaturesRequest.repositoryName,
+      "imageDigest": listContainerImageSignaturesRequest.imageDigest,
+      "displayName": listContainerImageSignaturesRequest.displayName,
+      "kmsKeyId": listContainerImageSignaturesRequest.kmsKeyId,
+      "kmsKeyVersionId": listContainerImageSignaturesRequest.kmsKeyVersionId,
+      "signingAlgorithm": listContainerImageSignaturesRequest.signingAlgorithm,
+      "limit": listContainerImageSignaturesRequest.limit,
+      "page": listContainerImageSignaturesRequest.page,
+      "sortBy": listContainerImageSignaturesRequest.sortBy,
+      "sortOrder": listContainerImageSignaturesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listContainerImageSignaturesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/container/imageSignatures",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listContainerImageSignaturesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListContainerImageSignaturesResponse>{},
+        body: await response.json(),
+        bodyKey: "containerImageSignatureCollection",
+        bodyModel: "model.ContainerImageSignatureCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           },
           {

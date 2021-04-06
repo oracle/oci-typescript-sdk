@@ -1,6 +1,6 @@
 {
   "name": "oci-tenantmanagercontrolplane",
-  "version": "1.18.0",
+  "version": "1.18.1",
   "description": "OCI NodeJS client for Tenant Manager Control Plane Service",
   "repository": {
     "type": "git",

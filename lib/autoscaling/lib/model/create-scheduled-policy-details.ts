@@ -23,11 +23,12 @@ import common = require("oci-common");
 /**
 * Creation details for a schedule-based autoscaling policy.
 * <p>
-In a schedule-based autoscaling policy, an autoscaling action is triggered when execution time is current.
+In a schedule-based autoscaling policy, an autoscaling action is triggered at the scheduled execution time.
 * 
 */
 export interface CreateScheduledPolicyDetails extends model.CreateAutoScalingPolicyDetails {
   "executionSchedule": model.CronExecutionSchedule;
+  "resourceAction"?: model.ResourcePowerAction;
 
   "policyType": string;
 }
@@ -41,6 +42,9 @@ export namespace CreateScheduledPolicyDetails {
       ...{
         "executionSchedule": obj.executionSchedule
           ? model.ExecutionSchedule.getJsonObj(obj.executionSchedule)
+          : undefined,
+        "resourceAction": obj.resourceAction
+          ? model.ResourceAction.getJsonObj(obj.resourceAction)
           : undefined
       }
     };

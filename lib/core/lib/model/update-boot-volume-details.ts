@@ -64,11 +64,26 @@ Allowed values:
    *
    */
   "isAutoTuneEnabled"?: boolean;
+  /**
+   * The list of boot volume replicas that this boot volume will be updated to have
+   * in the specified destination availability domains.
+   *
+   */
+  "bootVolumeReplicas"?: Array<model.BootVolumeReplicaDetails>;
 }
 
 export namespace UpdateBootVolumeDetails {
   export function getJsonObj(obj: UpdateBootVolumeDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "bootVolumeReplicas": obj.bootVolumeReplicas
+          ? obj.bootVolumeReplicas.map(item => {
+              return model.BootVolumeReplicaDetails.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

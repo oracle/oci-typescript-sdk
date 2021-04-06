@@ -63,4 +63,23 @@ export class ApiGatewayWaiter {
       targetStates.includes(models.Certificate.LifecycleState.Deleted)
     );
   }
+
+  /**
+   * Waits forSdk till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetSdkResponse | null (null in case of 404 response)
+   */
+  public async forSdk(
+    request: serviceRequests.GetSdkRequest,
+    ...targetStates: models.Sdk.LifecycleState[]
+  ): Promise<serviceResponses.GetSdkResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getSdk(request),
+      response => targetStates.includes(response.sdk.lifecycleState!),
+      targetStates.includes(models.Sdk.LifecycleState.Deleted)
+    );
+  }
 }

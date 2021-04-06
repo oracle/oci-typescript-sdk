@@ -66,11 +66,26 @@ Allowed values:
    *
    */
   "isAutoTuneEnabled"?: boolean;
+  /**
+   * The list of block volume replicas that this volume will be updated to have
+   * in the specified destination availability domains.
+   *
+   */
+  "blockVolumeReplicas"?: Array<model.BlockVolumeReplicaDetails>;
 }
 
 export namespace UpdateVolumeDetails {
   export function getJsonObj(obj: UpdateVolumeDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "blockVolumeReplicas": obj.blockVolumeReplicas
+          ? obj.blockVolumeReplicas.map(item => {
+              return model.BlockVolumeReplicaDetails.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

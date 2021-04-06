@@ -1854,6 +1854,69 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   }
 
   /**
+   * Gets information for the specified block volume replica.
+   * @param GetBlockVolumeReplicaRequest
+   * @return GetBlockVolumeReplicaResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetBlockVolumeReplica.ts.html |here} to see how to use GetBlockVolumeReplica API.
+   */
+  public async getBlockVolumeReplica(
+    getBlockVolumeReplicaRequest: requests.GetBlockVolumeReplicaRequest
+  ): Promise<responses.GetBlockVolumeReplicaResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#getBlockVolumeReplica.");
+    const pathParams = {
+      "{blockVolumeReplicaId}": getBlockVolumeReplicaRequest.blockVolumeReplicaId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/blockVolumeReplicas/{blockVolumeReplicaId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getBlockVolumeReplicaRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetBlockVolumeReplicaResponse>{},
+        body: await response.json(),
+        bodyKey: "blockVolumeReplica",
+        bodyModel: "model.BlockVolumeReplica",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets information for the specified boot volume.
    * @param GetBootVolumeRequest
    * @return GetBootVolumeResponse
@@ -2021,6 +2084,69 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
         body: await response.json(),
         bodyKey: "bootVolumeKmsKey",
         bodyModel: "model.BootVolumeKmsKey",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information for the specified boot volume replica.
+   * @param GetBootVolumeReplicaRequest
+   * @return GetBootVolumeReplicaResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetBootVolumeReplica.ts.html |here} to see how to use GetBootVolumeReplica API.
+   */
+  public async getBootVolumeReplica(
+    getBootVolumeReplicaRequest: requests.GetBootVolumeReplicaRequest
+  ): Promise<responses.GetBootVolumeReplicaResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#getBootVolumeReplica.");
+    const pathParams = {
+      "{bootVolumeReplicaId}": getBootVolumeReplicaRequest.bootVolumeReplicaId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bootVolumeReplicas/{bootVolumeReplicaId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getBootVolumeReplicaRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetBootVolumeReplicaResponse>{},
+        body: await response.json(),
+        bodyKey: "bootVolumeReplica",
+        bodyModel: "model.BootVolumeReplica",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2576,6 +2702,102 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   }
 
   /**
+   * Lists the block volume replicas in the specified compartment and availability domain.
+   *
+   * @param ListBlockVolumeReplicasRequest
+   * @return ListBlockVolumeReplicasResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListBlockVolumeReplicas.ts.html |here} to see how to use ListBlockVolumeReplicas API.
+   */
+  public async listBlockVolumeReplicas(
+    listBlockVolumeReplicasRequest: requests.ListBlockVolumeReplicasRequest
+  ): Promise<responses.ListBlockVolumeReplicasResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#listBlockVolumeReplicas.");
+    const pathParams = {};
+
+    const queryParams = {
+      "availabilityDomain": listBlockVolumeReplicasRequest.availabilityDomain,
+      "compartmentId": listBlockVolumeReplicasRequest.compartmentId,
+      "limit": listBlockVolumeReplicasRequest.limit,
+      "page": listBlockVolumeReplicasRequest.page,
+      "displayName": listBlockVolumeReplicasRequest.displayName,
+      "sortBy": listBlockVolumeReplicasRequest.sortBy,
+      "sortOrder": listBlockVolumeReplicasRequest.sortOrder,
+      "lifecycleState": listBlockVolumeReplicasRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/blockVolumeReplicas",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listBlockVolumeReplicasRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListBlockVolumeReplicasResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "BlockVolumeReplica[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.BlockVolumeReplica objects
+   * contained in responses from the listBlockVolumeReplicas operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllBlockVolumeReplicas(
+    request: requests.ListBlockVolumeReplicasRequest
+  ): AsyncIterableIterator<models.BlockVolumeReplica> {
+    return paginateRecords(request, req => this.listBlockVolumeReplicas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listBlockVolumeReplicas operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllBlockVolumeReplicasResponses(
+    request: requests.ListBlockVolumeReplicasRequest
+  ): AsyncIterableIterator<responses.ListBlockVolumeReplicasResponse> {
+    return paginateResponses(request, req => this.listBlockVolumeReplicas(req));
+  }
+
+  /**
    * Lists the boot volume backups in the specified compartment. You can filter the results by boot volume.
    *
    * @param ListBootVolumeBackupsRequest
@@ -2670,6 +2892,102 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
     request: requests.ListBootVolumeBackupsRequest
   ): AsyncIterableIterator<responses.ListBootVolumeBackupsResponse> {
     return paginateResponses(request, req => this.listBootVolumeBackups(req));
+  }
+
+  /**
+   * Lists the boot volume replicas in the specified compartment and availability domain.
+   *
+   * @param ListBootVolumeReplicasRequest
+   * @return ListBootVolumeReplicasResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListBootVolumeReplicas.ts.html |here} to see how to use ListBootVolumeReplicas API.
+   */
+  public async listBootVolumeReplicas(
+    listBootVolumeReplicasRequest: requests.ListBootVolumeReplicasRequest
+  ): Promise<responses.ListBootVolumeReplicasResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#listBootVolumeReplicas.");
+    const pathParams = {};
+
+    const queryParams = {
+      "availabilityDomain": listBootVolumeReplicasRequest.availabilityDomain,
+      "compartmentId": listBootVolumeReplicasRequest.compartmentId,
+      "limit": listBootVolumeReplicasRequest.limit,
+      "page": listBootVolumeReplicasRequest.page,
+      "displayName": listBootVolumeReplicasRequest.displayName,
+      "sortBy": listBootVolumeReplicasRequest.sortBy,
+      "sortOrder": listBootVolumeReplicasRequest.sortOrder,
+      "lifecycleState": listBootVolumeReplicasRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bootVolumeReplicas",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listBootVolumeReplicasRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListBootVolumeReplicasResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "BootVolumeReplica[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.BootVolumeReplica objects
+   * contained in responses from the listBootVolumeReplicas operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllBootVolumeReplicas(
+    request: requests.ListBootVolumeReplicasRequest
+  ): AsyncIterableIterator<models.BootVolumeReplica> {
+    return paginateRecords(request, req => this.listBootVolumeReplicas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listBootVolumeReplicas operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllBootVolumeReplicasResponses(
+    request: requests.ListBootVolumeReplicasRequest
+  ): AsyncIterableIterator<responses.ListBootVolumeReplicasResponse> {
+    return paginateResponses(request, req => this.listBootVolumeReplicas(req));
   }
 
   /**
@@ -8540,7 +8858,11 @@ You can limit the list by specifying a dedicated virtual machine host display na
       "limit": listDedicatedVmHostsRequest.limit,
       "page": listDedicatedVmHostsRequest.page,
       "sortBy": listDedicatedVmHostsRequest.sortBy,
-      "sortOrder": listDedicatedVmHostsRequest.sortOrder
+      "sortOrder": listDedicatedVmHostsRequest.sortOrder,
+      "remainingMemoryInGBsGreaterThanOrEqualTo":
+        listDedicatedVmHostsRequest.remainingMemoryInGBsGreaterThanOrEqualTo,
+      "remainingOcpusGreaterThanOrEqualTo":
+        listDedicatedVmHostsRequest.remainingOcpusGreaterThanOrEqualTo
     };
 
     let headerParams = {

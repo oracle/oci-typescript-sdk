@@ -132,6 +132,7 @@ export namespace DatabaseSoftwareImageSummary {
   export enum ImageShapeFamily {
     VmBmShape = "VM_BM_SHAPE",
     ExadataShape = "EXADATA_SHAPE",
+    ExaccShape = "EXACC_SHAPE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

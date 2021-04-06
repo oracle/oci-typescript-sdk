@@ -422,6 +422,83 @@ export class ApiGatewayClient {
   }
 
   /**
+   * Creates a new SDK.
+   * @param CreateSdkRequest
+   * @return CreateSdkResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/CreateSdk.ts.html |here} to see how to use CreateSdk API.
+   */
+  public async createSdk(
+    createSdkRequest: requests.CreateSdkRequest
+  ): Promise<responses.CreateSdkResponse> {
+    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#createSdk.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createSdkRequest.opcRetryToken,
+      "opc-request-id": createSdkRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sdks",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSdkRequest.createSdkDetails,
+        "CreateSdkDetails",
+        models.CreateSdkDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createSdkRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSdkResponse>{},
+        body: await response.json(),
+        bodyKey: "sdk",
+        bodyModel: "model.Sdk",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the API with the given identifier.
    * @param DeleteApiRequest
    * @return DeleteApiResponse
@@ -523,6 +600,67 @@ export class ApiGatewayClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteCertificateResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes provided SDK.
+   * @param DeleteSdkRequest
+   * @return DeleteSdkResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/DeleteSdk.ts.html |here} to see how to use DeleteSdk API.
+   */
+  public async deleteSdk(
+    deleteSdkRequest: requests.DeleteSdkRequest
+  ): Promise<responses.DeleteSdkResponse> {
+    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#deleteSdk.");
+    const pathParams = {
+      "{sdkId}": deleteSdkRequest.sdkId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteSdkRequest.opcRequestId,
+      "if-match": deleteSdkRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sdks/{sdkId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteSdkRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSdkResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -867,6 +1005,67 @@ export class ApiGatewayClient {
   }
 
   /**
+   * Return object store downloadable URL and metadata.
+   * @param GetSdkRequest
+   * @return GetSdkResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/GetSdk.ts.html |here} to see how to use GetSdk API.
+   */
+  public async getSdk(getSdkRequest: requests.GetSdkRequest): Promise<responses.GetSdkResponse> {
+    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#getSdk.");
+    const pathParams = {
+      "{sdkId}": getSdkRequest.sdkId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSdkRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sdks/{sdkId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getSdkRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSdkResponse>{},
+        body: await response.json(),
+        bodyKey: "sdk",
+        bodyModel: "model.Sdk",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of APIs.
    *
    * @param ListApisRequest
@@ -1017,6 +1216,154 @@ export class ApiGatewayClient {
   }
 
   /**
+   * Lists programming languages in which SDK can be generated.
+   * @param ListSdkLanguageTypesRequest
+   * @return ListSdkLanguageTypesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/ListSdkLanguageTypes.ts.html |here} to see how to use ListSdkLanguageTypes API.
+   */
+  public async listSdkLanguageTypes(
+    listSdkLanguageTypesRequest: requests.ListSdkLanguageTypesRequest
+  ): Promise<responses.ListSdkLanguageTypesResponse> {
+    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#listSdkLanguageTypes.");
+    const pathParams = {};
+
+    const queryParams = {
+      "displayName": listSdkLanguageTypesRequest.displayName,
+      "limit": listSdkLanguageTypesRequest.limit,
+      "page": listSdkLanguageTypesRequest.page,
+      "sortOrder": listSdkLanguageTypesRequest.sortOrder,
+      "sortBy": listSdkLanguageTypesRequest.sortBy,
+      "compartmentId": listSdkLanguageTypesRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSdkLanguageTypesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sdkLanguageTypes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listSdkLanguageTypesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSdkLanguageTypesResponse>{},
+        body: await response.json(),
+        bodyKey: "sdkLanguageTypeCollection",
+        bodyModel: "model.SdkLanguageTypeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns list of generated SDKs.
+   * @param ListSdksRequest
+   * @return ListSdksResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/ListSdks.ts.html |here} to see how to use ListSdks API.
+   */
+  public async listSdks(
+    listSdksRequest: requests.ListSdksRequest
+  ): Promise<responses.ListSdksResponse> {
+    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#listSdks.");
+    const pathParams = {};
+
+    const queryParams = {
+      "sdkId": listSdksRequest.sdkId,
+      "displayName": listSdksRequest.displayName,
+      "lifecycleState": listSdksRequest.lifecycleState,
+      "limit": listSdksRequest.limit,
+      "page": listSdksRequest.page,
+      "sortOrder": listSdksRequest.sortOrder,
+      "sortBy": listSdksRequest.sortBy,
+      "apiId": listSdksRequest.apiId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSdksRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sdks",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listSdksRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSdksResponse>{},
+        body: await response.json(),
+        bodyKey: "sdkCollection",
+        bodyModel: "model.SdkCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the API with the given identifier.
    * @param UpdateApiRequest
    * @return UpdateApiResponse
@@ -1134,6 +1481,67 @@ export class ApiGatewayClient {
             key: "opcWorkRequestId",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the SDK with the given identifier.
+   * @param UpdateSdkRequest
+   * @return UpdateSdkResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/UpdateSdk.ts.html |here} to see how to use UpdateSdk API.
+   */
+  public async updateSdk(
+    updateSdkRequest: requests.UpdateSdkRequest
+  ): Promise<responses.UpdateSdkResponse> {
+    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#updateSdk.");
+    const pathParams = {
+      "{sdkId}": updateSdkRequest.sdkId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateSdkRequest.ifMatch,
+      "opc-request-id": updateSdkRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sdks/{sdkId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateSdkRequest.updateSdkDetails,
+        "UpdateSdkDetails",
+        models.UpdateSdkDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateSdkRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateSdkResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",

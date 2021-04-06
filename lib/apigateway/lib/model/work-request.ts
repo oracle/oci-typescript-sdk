@@ -82,6 +82,8 @@ export namespace WorkRequest {
     UpdateApi = "UPDATE_API",
     DeleteApi = "DELETE_API",
     ValidateApi = "VALIDATE_API",
+    CreateSdk = "CREATE_SDK",
+    DeleteSdk = "DELETE_SDK",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

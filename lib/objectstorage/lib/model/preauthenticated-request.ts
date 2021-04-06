@@ -49,6 +49,13 @@ export interface PreauthenticatedRequest {
    */
   "objectName"?: string;
   /**
+   * Specifies whether a list operation is allowed on a PAR with accessType \"AnyObjectRead\" or \"AnyObjectReadWrite\".
+   * Deny: Prevents the user from performing a list operation.
+   * ListObjects: Authorizes the user to perform a list operation.
+   *
+   */
+  "bucketListingAction"?: PreauthenticatedRequest.BucketListingAction;
+  /**
    * The operation that can be performed on this resource.
    */
   "accessType": PreauthenticatedRequest.AccessType;
@@ -67,11 +74,23 @@ export interface PreauthenticatedRequest {
 }
 
 export namespace PreauthenticatedRequest {
+  export enum BucketListingAction {
+    Deny = "Deny",
+    ListObjects = "ListObjects",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export enum AccessType {
     ObjectRead = "ObjectRead",
     ObjectWrite = "ObjectWrite",
     ObjectReadWrite = "ObjectReadWrite",
     AnyObjectWrite = "AnyObjectWrite",
+    AnyObjectRead = "AnyObjectRead",
+    AnyObjectReadWrite = "AnyObjectReadWrite",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

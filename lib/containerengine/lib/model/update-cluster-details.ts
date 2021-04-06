@@ -30,6 +30,13 @@ export interface UpdateClusterDetails {
    */
   "kubernetesVersion"?: string;
   "options"?: model.UpdateClusterOptionsDetails;
+  /**
+   * The image verification policy for signature validation. Once a policy is created and enabled with
+   * one or more kms keys, the policy will ensure all images deployed has been signed with the key(s)
+   * attached to the policy.
+   *
+   */
+  "imagePolicyConfig"?: model.UpdateImagePolicyConfigDetails;
 }
 
 export namespace UpdateClusterDetails {
@@ -39,6 +46,9 @@ export namespace UpdateClusterDetails {
       ...{
         "options": obj.options
           ? model.UpdateClusterOptionsDetails.getJsonObj(obj.options)
+          : undefined,
+        "imagePolicyConfig": obj.imagePolicyConfig
+          ? model.UpdateImagePolicyConfigDetails.getJsonObj(obj.imagePolicyConfig)
           : undefined
       }
     };

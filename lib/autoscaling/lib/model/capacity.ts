@@ -26,19 +26,31 @@ import common = require("oci-common");
  */
 export interface Capacity {
   /**
-   * The maximum number of instances the instance pool is allowed to increase to (scale out). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
+    * For a threshold-based autoscaling policy, this value is the maximum number of instances the instance pool is allowed
+* to increase to (scale out).
+* <p>
+For a schedule-based autoscaling policy, this value is not used.
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
   "max"?: number;
   /**
-   * The minimum number of instances the instance pool is allowed to decrease to (scale in). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
+    * For a threshold-based autoscaling policy, this value is the minimum number of instances the instance pool is allowed
+* to decrease to (scale in).
+* <p>
+For a schedule-based autoscaling policy, this value is not used.
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
   "min"?: number;
   /**
-   * The initial number of instances to launch in the instance pool immediately after autoscaling is
-   * enabled. After autoscaling retrieves performance metrics, the number of instances is automatically adjusted from this
-   * initial number to a number that is based on the limits that you set.
-   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
+    * For a threshold-based autoscaling policy, this value is the initial number of instances to launch in the instance pool
+* immediately after autoscaling is enabled. After autoscaling retrieves performance metrics, the number of
+* instances is automatically adjusted from this initial number to a number that is based on the limits that
+* you set.
+* <p>
+For a schedule-based autoscaling policy, this value is the target pool size to scale to when executing the schedule
+* that's defined in the autoscaling policy.
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
   "initial"?: number;
 }
 

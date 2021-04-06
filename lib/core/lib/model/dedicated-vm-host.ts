@@ -105,6 +105,16 @@ Example: `2016-08-25T21:10:29.600Z`
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "remainingOcpus": number;
+  /**
+   * The total memory of the dedicated VM host, in GBs.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalMemoryInGBs"?: number;
+  /**
+   * The remaining memory of the dedicated VM host, in GBs.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "remainingMemoryInGBs"?: number;
 }
 
 export namespace DedicatedVmHost {

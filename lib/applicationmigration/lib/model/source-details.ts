@@ -27,7 +27,7 @@ Specify `OCIC` if you want to migrate Oracle Java Cloud Service, Oracle Analytic
 Specify `INTERNAL_COMPUTE` if you have a traditional Oracle Cloud Infrastructure - Classic account and you want to migrate Oracle
 * Process Cloud Service or Oracle Integration Cloud Service applications.
 * <p>
-Specify `OCC` if you have an Oracle Cloud @ Customer account.
+Specify `OCC` if you want to migrate applications from Oracle Cloud@Customer.
 * 
 */
 export interface SourceDetails {
