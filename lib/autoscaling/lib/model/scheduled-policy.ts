@@ -24,7 +24,11 @@ import common = require("oci-common");
  * An autoscaling policy that defines execution schedules for an autoscaling configuration.
  */
 export interface ScheduledPolicy extends model.AutoScalingPolicy {
+  /**
+   * The schedule for executing the autoscaling policy.
+   */
   "executionSchedule": model.CronExecutionSchedule;
+  "resourceAction"?: model.ResourcePowerAction;
 
   "policyType": string;
 }
@@ -36,6 +40,9 @@ export namespace ScheduledPolicy {
       ...{
         "executionSchedule": obj.executionSchedule
           ? model.ExecutionSchedule.getJsonObj(obj.executionSchedule)
+          : undefined,
+        "resourceAction": obj.resourceAction
+          ? model.ResourceAction.getJsonObj(obj.resourceAction)
           : undefined
       }
     };

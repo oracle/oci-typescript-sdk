@@ -40,10 +40,13 @@ export interface AutoScalingConfigurationSummary {
    */
   "id": string;
   /**
-   * The minimum period of time to wait between scaling actions. The cooldown period gives the system time to stabilize
-   * before rescaling. The minimum value is 300 seconds, which is also the default.
-   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
+    * For threshold-based autoscaling policies, this value is the minimum period of time to wait between scaling actions.
+* The cooldown period gives the system time to stabilize before rescaling. The minimum value is 300 seconds, which
+* is also the default. The cooldown period starts when the instance pool reaches the running state.
+* <p>
+For schedule-based autoscaling policies, this value is not used.
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
   "coolDownInSeconds"?: number;
   /**
    * Whether the autoscaling configuration is enabled.
@@ -67,7 +70,7 @@ Example: `{\"Department\": \"Finance\"}`
     */
   "freeformTags"?: { [key: string]: string };
   /**
-    * The date and time the AutoScalingConfiguration was created, in the format defined by RFC3339.
+    * The date and time the autoscaling configuration was created, in the format defined by RFC3339.
 * <p>
 Example: `2016-08-25T21:10:29.600Z`
 * 

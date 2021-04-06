@@ -21,12 +21,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specifies the execution schedule for a policy.
+ * An execution schedule for an autoscaling policy.
  *
  */
 export interface ExecutionSchedule {
   /**
-   * Specifies the time zone the schedule is in.
+   * The time zone for the execution schedule.
    */
   "timezone": ExecutionSchedule.Timezone;
 

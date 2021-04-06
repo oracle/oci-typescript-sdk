@@ -19,12 +19,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Credentials to access Oracle Cloud @ Customer, which is the source environment from which you want to migrate the application.
+ * Credentials to access Oracle Cloud@Customer, which is the source environment from which you want to migrate the application.
  *
  */
 export interface OccAuthorizationDetails extends model.AuthorizationDetails {
   /**
-   * User with Compute Operations role in Oracle Cloud @ Customer.
+   * User with Compute Operations role in Oracle Cloud@Customer.
    */
   "username": string;
   /**

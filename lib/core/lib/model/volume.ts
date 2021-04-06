@@ -115,7 +115,10 @@ Allowed values:
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sizeInMBs": number;
-  "sourceDetails"?: model.VolumeSourceFromVolumeDetails | model.VolumeSourceFromVolumeBackupDetails;
+  "sourceDetails"?:
+    | model.VolumeSourceFromBlockVolumeReplicaDetails
+    | model.VolumeSourceFromVolumeDetails
+    | model.VolumeSourceFromVolumeBackupDetails;
   /**
    * The date and time the volume was created. Format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    */
@@ -134,6 +137,10 @@ Allowed values:
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "autoTunedVpusPerGB"?: number;
+  /**
+   * The list of block volume replicas of this volume.
+   */
+  "blockVolumeReplicas"?: Array<model.BlockVolumeReplicaInfo>;
 }
 
 export namespace Volume {
@@ -157,6 +164,12 @@ export namespace Volume {
       ...{
         "sourceDetails": obj.sourceDetails
           ? model.VolumeSourceDetails.getJsonObj(obj.sourceDetails)
+          : undefined,
+
+        "blockVolumeReplicas": obj.blockVolumeReplicas
+          ? obj.blockVolumeReplicas.map(item => {
+              return model.BlockVolumeReplicaInfo.getJsonObj(item);
+            })
           : undefined
       }
     };

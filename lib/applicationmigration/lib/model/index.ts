@@ -92,6 +92,8 @@ import * as OccSourceDetails from "./occ-source-details";
 export import OccSourceDetails = OccSourceDetails.OccSourceDetails;
 import * as OcicAuthorizationDetails from "./ocic-authorization-details";
 export import OcicAuthorizationDetails = OcicAuthorizationDetails.OcicAuthorizationDetails;
+import * as OcicAuthorizationTokenDetails from "./ocic-authorization-token-details";
+export import OcicAuthorizationTokenDetails = OcicAuthorizationTokenDetails.OcicAuthorizationTokenDetails;
 import * as OcicSourceDetails from "./ocic-source-details";
 export import OcicSourceDetails = OcicSourceDetails.OcicSourceDetails;
 import * as OicDiscoveryDetails from "./oic-discovery-details";

@@ -73,7 +73,8 @@ Example: `{\"Department\": \"Finance\"}`
 export namespace CreateDatabaseSoftwareImageDetails {
   export enum ImageShapeFamily {
     VmBmShape = "VM_BM_SHAPE",
-    ExadataShape = "EXADATA_SHAPE"
+    ExadataShape = "EXADATA_SHAPE",
+    ExaccShape = "EXACC_SHAPE"
   }
 
   export enum ImageType {

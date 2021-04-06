@@ -114,7 +114,8 @@ Allowed values:
   "sizeInMBs": number;
   "sourceDetails"?:
     | model.BootVolumeSourceFromBootVolumeBackupDetails
-    | model.BootVolumeSourceFromBootVolumeDetails;
+    | model.BootVolumeSourceFromBootVolumeDetails
+    | model.BootVolumeSourceFromBootVolumeReplicaDetails;
   /**
    * The date and time the boot volume was created. Format defined
    * by [RFC3339](https://tools.ietf.org/html/rfc3339).
@@ -139,6 +140,10 @@ Allowed values:
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "autoTunedVpusPerGB"?: number;
+  /**
+   * The list of boot volume replicas of this boot volume
+   */
+  "bootVolumeReplicas"?: Array<model.BootVolumeReplicaInfo>;
 }
 
 export namespace BootVolume {
@@ -162,6 +167,12 @@ export namespace BootVolume {
       ...{
         "sourceDetails": obj.sourceDetails
           ? model.BootVolumeSourceDetails.getJsonObj(obj.sourceDetails)
+          : undefined,
+
+        "bootVolumeReplicas": obj.bootVolumeReplicas
+          ? obj.bootVolumeReplicas.map(item => {
+              return model.BootVolumeReplicaInfo.getJsonObj(item);
+            })
           : undefined
       }
     };

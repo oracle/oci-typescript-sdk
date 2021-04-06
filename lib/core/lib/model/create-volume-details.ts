@@ -90,7 +90,10 @@ Allowed values:
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sizeInMBs"?: number;
-  "sourceDetails"?: model.VolumeSourceFromVolumeDetails | model.VolumeSourceFromVolumeBackupDetails;
+  "sourceDetails"?:
+    | model.VolumeSourceFromBlockVolumeReplicaDetails
+    | model.VolumeSourceFromVolumeDetails
+    | model.VolumeSourceFromVolumeBackupDetails;
   /**
    * The OCID of the volume backup from which the data should be restored on the newly created volume.
    * This field is deprecated. Use the sourceDetails field instead to specify the
@@ -103,6 +106,12 @@ Allowed values:
    *
    */
   "isAutoTuneEnabled"?: boolean;
+  /**
+   * The list of block volume replicas to be enabled for this volume
+   * in the specified destination availability domains.
+   *
+   */
+  "blockVolumeReplicas"?: Array<model.BlockVolumeReplicaDetails>;
 }
 
 export namespace CreateVolumeDetails {
@@ -112,6 +121,12 @@ export namespace CreateVolumeDetails {
       ...{
         "sourceDetails": obj.sourceDetails
           ? model.VolumeSourceDetails.getJsonObj(obj.sourceDetails)
+          : undefined,
+
+        "blockVolumeReplicas": obj.blockVolumeReplicas
+          ? obj.blockVolumeReplicas.map(item => {
+              return model.BlockVolumeReplicaDetails.getJsonObj(item);
+            })
           : undefined
       }
     };

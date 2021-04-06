@@ -37,6 +37,13 @@ export interface PreauthenticatedRequestSummary {
    */
   "objectName"?: string;
   /**
+   * Specifies whether a list operation is allowed on a PAR with accessType \"AnyObjectRead\" or \"AnyObjectReadWrite\".
+   * Deny: Prevents the user from performing a list operation.
+   * ListObjects: Authorizes the user to perform a list operation.
+   *
+   */
+  "bucketListingAction"?: string;
+  /**
    * The operation that can be performed on this resource.
    */
   "accessType": PreauthenticatedRequestSummary.AccessType;
@@ -58,6 +65,8 @@ export namespace PreauthenticatedRequestSummary {
     ObjectWrite = "ObjectWrite",
     ObjectReadWrite = "ObjectReadWrite",
     AnyObjectWrite = "AnyObjectWrite",
+    AnyObjectRead = "AnyObjectRead",
+    AnyObjectReadWrite = "AnyObjectReadWrite",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

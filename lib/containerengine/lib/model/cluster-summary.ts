@@ -70,6 +70,11 @@ export interface ClusterSummary {
    * Available Kubernetes versions to which the clusters masters may be upgraded.
    */
   "availableKubernetesUpgrades"?: Array<string>;
+  /**
+   * The image verification policy for signature validation.
+   *
+   */
+  "imagePolicyConfig"?: model.ImagePolicyConfig;
 }
 
 export namespace ClusterSummary {
@@ -84,7 +89,11 @@ export namespace ClusterSummary {
         "options": obj.options ? model.ClusterCreateOptions.getJsonObj(obj.options) : undefined,
         "metadata": obj.metadata ? model.ClusterMetadata.getJsonObj(obj.metadata) : undefined,
 
-        "endpoints": obj.endpoints ? model.ClusterEndpoints.getJsonObj(obj.endpoints) : undefined
+        "endpoints": obj.endpoints ? model.ClusterEndpoints.getJsonObj(obj.endpoints) : undefined,
+
+        "imagePolicyConfig": obj.imagePolicyConfig
+          ? model.ImagePolicyConfig.getJsonObj(obj.imagePolicyConfig)
+          : undefined
       }
     };
 

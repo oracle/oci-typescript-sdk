@@ -83,6 +83,14 @@ Example: `50`
    *
    */
   "sortOrder"?: ListDedicatedVmHostsRequest.SortOrder;
+  /**
+   * The remaining memory of the dedicated VM host, in GBs.
+   */
+  "remainingMemoryInGBsGreaterThanOrEqualTo"?: number;
+  /**
+   * The available OCPUs of the dedicated VM host.
+   */
+  "remainingOcpusGreaterThanOrEqualTo"?: number;
 }
 
 export namespace ListDedicatedVmHostsRequest {

@@ -39,6 +39,11 @@ export namespace BootVolumeSourceDetails {
             <model.BootVolumeSourceFromBootVolumeDetails>(<object>jsonObj),
             true
           );
+        case "bootVolumeReplica":
+          return model.BootVolumeSourceFromBootVolumeReplicaDetails.getJsonObj(
+            <model.BootVolumeSourceFromBootVolumeReplicaDetails>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.type);
       }

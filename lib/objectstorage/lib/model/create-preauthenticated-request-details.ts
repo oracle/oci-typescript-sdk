@@ -25,8 +25,17 @@ export interface CreatePreauthenticatedRequestDetails {
    */
   "name": string;
   /**
+   * Specifies whether a list operation is allowed on a PAR with accessType \"AnyObjectRead\" or \"AnyObjectReadWrite\".
+   * Deny: Prevents the user from performing a list operation.
+   * ListObjects: Authorizes the user to perform a list operation.
+   *
+   */
+  "bucketListingAction"?: string;
+  /**
    * The name of the object that is being granted access to by the pre-authenticated request. Avoid entering confidential
-   * information. The object name can be null and if so, the pre-authenticated request grants access to the entire bucket.
+   * information. The object name can be null and if so, the pre-authenticated request grants access to the entire bucket
+   * if the access type allows that. The object name can be a prefix as well, in that case pre-authenticated request
+   * grants access to all the objects within the bucket starting with that prefix provided that we have the correct access type.
    *
    */
   "objectName"?: string;
@@ -47,7 +56,9 @@ export namespace CreatePreauthenticatedRequestDetails {
     ObjectRead = "ObjectRead",
     ObjectWrite = "ObjectWrite",
     ObjectReadWrite = "ObjectReadWrite",
-    AnyObjectWrite = "AnyObjectWrite"
+    AnyObjectWrite = "AnyObjectWrite",
+    AnyObjectRead = "AnyObjectRead",
+    AnyObjectReadWrite = "AnyObjectReadWrite"
   }
 
   export function getJsonObj(obj: CreatePreauthenticatedRequestDetails): object {

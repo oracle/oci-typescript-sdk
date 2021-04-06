@@ -35,6 +35,11 @@ export namespace VolumeSourceDetails {
 
     if ("type" in obj && obj.type) {
       switch (obj.type) {
+        case "blockVolumeReplica":
+          return model.VolumeSourceFromBlockVolumeReplicaDetails.getJsonObj(
+            <model.VolumeSourceFromBlockVolumeReplicaDetails>(<object>jsonObj),
+            true
+          );
         case "volume":
           return model.VolumeSourceFromVolumeDetails.getJsonObj(
             <model.VolumeSourceFromVolumeDetails>(<object>jsonObj),

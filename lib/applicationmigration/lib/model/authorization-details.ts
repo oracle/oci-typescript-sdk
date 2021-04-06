@@ -43,6 +43,11 @@ export namespace AuthorizationDetails {
             <model.InternalAuthorizationDetails>(<object>jsonObj),
             true
           );
+        case "OCIC_IDCS":
+          return model.OcicAuthorizationTokenDetails.getJsonObj(
+            <model.OcicAuthorizationTokenDetails>(<object>jsonObj),
+            true
+          );
         case "OCIC":
           return model.OcicAuthorizationDetails.getJsonObj(
             <model.OcicAuthorizationDetails>(<object>jsonObj),

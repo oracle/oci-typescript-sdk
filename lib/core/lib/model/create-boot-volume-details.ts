@@ -84,12 +84,19 @@ Allowed values:
   "vpusPerGB"?: number;
   "sourceDetails":
     | model.BootVolumeSourceFromBootVolumeBackupDetails
-    | model.BootVolumeSourceFromBootVolumeDetails;
+    | model.BootVolumeSourceFromBootVolumeDetails
+    | model.BootVolumeSourceFromBootVolumeReplicaDetails;
   /**
    * Specifies whether the auto-tune performance is enabled for this boot volume.
    *
    */
   "isAutoTuneEnabled"?: boolean;
+  /**
+   * The list of boot volume replicas to be enabled for this boot volume
+   * in the specified destination availability domains.
+   *
+   */
+  "bootVolumeReplicas"?: Array<model.BootVolumeReplicaDetails>;
 }
 
 export namespace CreateBootVolumeDetails {
@@ -99,6 +106,12 @@ export namespace CreateBootVolumeDetails {
       ...{
         "sourceDetails": obj.sourceDetails
           ? model.BootVolumeSourceDetails.getJsonObj(obj.sourceDetails)
+          : undefined,
+
+        "bootVolumeReplicas": obj.bootVolumeReplicas
+          ? obj.bootVolumeReplicas.map(item => {
+              return model.BootVolumeReplicaDetails.getJsonObj(item);
+            })
           : undefined
       }
     };

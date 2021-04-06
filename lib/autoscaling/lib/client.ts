@@ -257,13 +257,21 @@ When you move an autoscaling configuration to a different compartment, associate
   }
 
   /**
-   * Creates an autoscaling policy for the specified autoscaling configuration.
-   *
-   * @param CreateAutoScalingPolicyRequest
-   * @return CreateAutoScalingPolicyResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/CreateAutoScalingPolicy.ts.html |here} to see how to use CreateAutoScalingPolicy API.
-   */
+     * Creates an autoscaling policy for the specified autoscaling configuration.
+* <p>
+You can create the following types of autoscaling policies:
+* <p>
+- **Schedule-based:** Autoscaling events take place at the specific times that you schedule.
+* - **Threshold-based:** An autoscaling action is triggered when a performance metric meets or exceeds a threshold.
+* <p>
+An autoscaling configuration can either have multiple schedule-based autoscaling policies, or one
+* threshold-based autoscaling policy.
+* 
+     * @param CreateAutoScalingPolicyRequest
+     * @return CreateAutoScalingPolicyResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/CreateAutoScalingPolicy.ts.html |here} to see how to use CreateAutoScalingPolicy API.
+     */
   public async createAutoScalingPolicy(
     createAutoScalingPolicyRequest: requests.CreateAutoScalingPolicyRequest
   ): Promise<responses.CreateAutoScalingPolicyResponse> {
