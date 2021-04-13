@@ -201,7 +201,7 @@ export class DbManagementClient {
   }
 
   /**
-     * Changes database parameters' values. There are two kinds of database
+     * Changes database parameter values. There are two kinds of database
 * parameters:
 * <p>
 - Dynamic parameters: They can be changed for the current Oracle
@@ -661,6 +661,71 @@ export class DbManagementClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteManagedDatabaseGroupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the metrics related to cluster cache for the Oracle
+   * Real Application Clusters (Oracle RAC) database specified
+   * by managedDatabaseId.
+   *
+   * @param GetClusterCacheMetricRequest
+   * @return GetClusterCacheMetricResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetClusterCacheMetric.ts.html |here} to see how to use GetClusterCacheMetric API.
+   */
+  public async getClusterCacheMetric(
+    getClusterCacheMetricRequest: requests.GetClusterCacheMetricRequest
+  ): Promise<responses.GetClusterCacheMetricResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getClusterCacheMetric.");
+    const pathParams = {
+      "{managedDatabaseId}": getClusterCacheMetricRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "startTime": getClusterCacheMetricRequest.startTime,
+      "endTime": getClusterCacheMetricRequest.endTime
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getClusterCacheMetricRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/clusterCacheMetrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getClusterCacheMetricRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetClusterCacheMetricResponse>{},
+        body: await response.json(),
+        bodyKey: "clusterCacheMetric",
+        bodyModel: "model.ClusterCacheMetric",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1697,7 +1762,7 @@ export class DbManagementClient {
   }
 
   /**
-   * Resets database parameters' values to their default or startup values.
+   * Resets database parameter values to their default or startup values.
    *
    * @param ResetDatabaseParametersRequest
    * @return ResetDatabaseParametersResponse

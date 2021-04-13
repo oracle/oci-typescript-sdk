@@ -66,6 +66,7 @@ export interface FunctionSummary {
    * Timeout for executions of the function. Value in seconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeoutInSeconds"?: number;
+  "traceConfig"?: model.FunctionTraceConfig;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -121,7 +122,14 @@ export namespace FunctionSummary {
   }
 
   export function getJsonObj(obj: FunctionSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "traceConfig": obj.traceConfig
+          ? model.FunctionTraceConfig.getJsonObj(obj.traceConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -31,9 +31,9 @@ export interface InstanceConfigurationLaunchOptions {
    * * `SCSI` - Emulated SCSI disk.
    * * `IDE` - Emulated IDE disk.
    * * `VFIO` - Direct attached Virtual Function storage. This is the default option for local data
-   * volumes on Oracle provided images.
+   * volumes on platform images.
    * * `PARAVIRTUALIZED` - Paravirtualized disk. This is the default for boot volumes and remote block
-   * storage volumes on Oracle-provided images.
+   * storage volumes on platform images.
    *
    */
   "bootVolumeType"?: InstanceConfigurationLaunchOptions.BootVolumeType;
@@ -42,7 +42,7 @@ export interface InstanceConfigurationLaunchOptions {
    * * `BIOS` - Boot VM using BIOS style firmware. This is compatible with both 32 bit and 64 bit operating
    * systems that boot using MBR style bootloaders.
    * * `UEFI_64` - Boot VM using UEFI style firmware compatible with 64 bit operating systems. This is the
-   * default for Oracle-provided images.
+   * default for platform images.
    *
    */
   "firmware"?: InstanceConfigurationLaunchOptions.Firmware;
@@ -61,9 +61,9 @@ export interface InstanceConfigurationLaunchOptions {
    * * `SCSI` - Emulated SCSI disk.
    * * `IDE` - Emulated IDE disk.
    * * `VFIO` - Direct attached Virtual Function storage. This is the default option for local data
-   * volumes on Oracle provided images.
+   * volumes on platform images.
    * * `PARAVIRTUALIZED` - Paravirtualized disk. This is the default for boot volumes and remote block
-   * storage volumes on Oracle-provided images.
+   * storage volumes on platform images.
    *
    */
   "remoteDataVolumeType"?: InstanceConfigurationLaunchOptions.RemoteDataVolumeType;

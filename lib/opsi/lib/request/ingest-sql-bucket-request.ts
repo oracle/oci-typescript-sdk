@@ -19,18 +19,23 @@ import common = require("oci-common");
  */
 export interface IngestSqlBucketRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
-   */
-  "compartmentId": string;
-  /**
-   * Required [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database.
-   *
-   */
-  "databaseId": string;
-  /**
    * Collection of SQL bucket objects for a particular database.
    */
   "ingestSqlBucketDetails": model.IngestSqlBucketDetails;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
+   */
+  "compartmentId"?: string;
+  /**
+   * Optional [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the associated DBaaS entity.
+   *
+   */
+  "databaseId"?: string;
+  /**
+   * [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database insight resource.
+   *
+   */
+  "id"?: string;
   /**
    * Unique Oracle-assigned identifier for the request. If you need to contact
    * Oracle about a particular request, please provide the request ID.

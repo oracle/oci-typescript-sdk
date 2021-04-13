@@ -95,6 +95,11 @@ Example: `{\"Department\": \"Finance\"}`
    * The OCID of the source block volume.
    */
   "blockVolumeId": string;
+  /**
+   * The total size of the data transferred from the source block volume to the block volume replica, in GBs.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalDataTransferredInGBs"?: number;
 }
 
 export namespace BlockVolumeReplica {

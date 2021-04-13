@@ -20,13 +20,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A link between a DRG and VCN. For more information, see
- * [Overview of the Networking Service](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/overview.htm).
- *
- */
+* A DRG attachment serves as a link between a DRG and a network resource. A DRG can be attached to a VCN,
+* IPSec tunnel, remote peering connection, or virtual circuit.
+* <p>
+For more information, see [Overview of the Networking Service](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/overview.htm).
+* 
+*/
 export interface DrgAttachment {
   /**
-   * The OCID of the compartment containing the DRG attachment.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment containing the DRG attachment.
    */
   "compartmentId": string;
   /**
@@ -36,11 +38,11 @@ export interface DrgAttachment {
    */
   "displayName"?: string;
   /**
-   * The OCID of the DRG.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the DRG.
    */
   "drgId": string;
   /**
-   * The DRG attachment's Oracle ID (OCID).
+   * The DRG attachment's Oracle ID ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)).
    */
   "id": string;
   /**
@@ -55,20 +57,65 @@ Example: `2016-08-25T21:10:29.600Z`
     */
   "timeCreated"?: Date;
   /**
+    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the DRG route table that is assigned to this attachment.
+* <p>
+The DRG route table manages traffic inside the DRG.
+* 
+    */
+  "drgRouteTableId"?: string;
+  "networkDetails"?:
+    | model.VcnDrgAttachmentNetworkDetails
+    | model.IpsecTunnelDrgAttachmentNetworkDetails
+    | model.VirtualCircuitDrgAttachmentNetworkDetails
+    | model.RemotePeeringConnectionDrgAttachmentNetworkDetails;
+  /**
+    * Defined tags for this resource. Each key is predefined and scoped to a
+* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* <p>
+Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+* 
+    */
+  "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+    * Free-form tags for this resource. Each tag is a simple key-value pair with no
+* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* <p>
+Example: `{\"Department\": \"Finance\"}`
+* 
+    */
+  "freeformTags"?: { [key: string]: string };
+  /**
     * The OCID of the route table the DRG attachment is using.
 * <p>
 For information about why you would associate a route table with a DRG attachment, see:
 * <p>
   * [Transit Routing: Access to Multiple VCNs in Same Region](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/transitrouting.htm)
 *   * [Transit Routing: Private Access to Oracle Services](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/transitroutingoracleservices.htm)
+*   
+* This field is deprecated. Instead, use the `networkDetails` field to view the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the attached resource.
 * 
     */
   "routeTableId"?: string;
   /**
-   * The OCID of the VCN.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VCN.
+   * This field is deprecated. Instead, use the `networkDetails` field to view the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the attached resource.
    *
    */
-  "vcnId": string;
+  "vcnId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the export route distribution used to specify how routes in the assigned DRG route table
+   * are advertised to the attachment.
+   * If this value is null, no routes are advertised through this attachment.
+   *
+   */
+  "exportDrgRouteDistributionId"?: string;
+  /**
+    * Indicates whether the DRG attachment and attached network live in a different tenancy than the DRG.
+* <p>
+Example: `false`
+* 
+    */
+  "isCrossTenancy"?: boolean;
 }
 
 export namespace DrgAttachment {
@@ -85,7 +132,14 @@ export namespace DrgAttachment {
   }
 
   export function getJsonObj(obj: DrgAttachment): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "networkDetails": obj.networkDetails
+          ? model.DrgAttachmentNetworkDetails.getJsonObj(obj.networkDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

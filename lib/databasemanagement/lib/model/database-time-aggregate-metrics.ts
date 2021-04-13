@@ -25,6 +25,7 @@ export interface DatabaseTimeAggregateMetrics {
   "cpuTime"?: model.MetricDataPoint;
   "waitTime"?: model.MetricDataPoint;
   "userIoTime"?: model.MetricDataPoint;
+  "cluster"?: model.MetricDataPoint;
 }
 
 export namespace DatabaseTimeAggregateMetrics {
@@ -35,7 +36,8 @@ export namespace DatabaseTimeAggregateMetrics {
         "cpuCount": obj.cpuCount ? model.MetricDataPoint.getJsonObj(obj.cpuCount) : undefined,
         "cpuTime": obj.cpuTime ? model.MetricDataPoint.getJsonObj(obj.cpuTime) : undefined,
         "waitTime": obj.waitTime ? model.MetricDataPoint.getJsonObj(obj.waitTime) : undefined,
-        "userIoTime": obj.userIoTime ? model.MetricDataPoint.getJsonObj(obj.userIoTime) : undefined
+        "userIoTime": obj.userIoTime ? model.MetricDataPoint.getJsonObj(obj.userIoTime) : undefined,
+        "cluster": obj.cluster ? model.MetricDataPoint.getJsonObj(obj.cluster) : undefined
       }
     };
 

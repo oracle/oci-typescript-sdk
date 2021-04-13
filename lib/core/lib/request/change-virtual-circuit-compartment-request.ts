@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ChangeVirtualCircuitCompartmentRequest extends common.BaseRequest {
   /**
-   * The OCID of the virtual circuit.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the virtual circuit.
    */
   "virtualCircuitId": string;
   /**

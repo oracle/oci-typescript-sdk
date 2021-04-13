@@ -39,6 +39,19 @@ Avoid entering confidential information.
     */
   "displayName"?: string;
   /**
+   * Billing option selected during SDDC creation.
+   * {@link #listSupportedSkus(ListSupportedSkusRequest) listSupportedSkus}.
+   *
+   */
+  "currentSku": model.Sku;
+  /**
+   * Billing option to switch to once existing billing cycle ends.
+   * If nextSku is null or empty, currentSku will be used to continue with next billing term.
+   * {@link #listSupportedSkus(ListSupportedSkusRequest) listSupportedSkus}.
+   *
+   */
+  "nextSku"?: model.Sku;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>

@@ -23,11 +23,6 @@ export interface ListSqlPlansRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * Required [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database.
-   *
-   */
-  "databaseId": string;
-  /**
    * Unique SQL_ID for a SQL Statement.
    * Example: `6rgjh9bjmy2s7`
    *
@@ -39,6 +34,16 @@ export interface ListSqlPlansRequest extends common.BaseRequest {
    *
    */
   "planHash": Array<number>;
+  /**
+   * Optional [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the associated DBaaS entity.
+   *
+   */
+  "databaseId"?: string;
+  /**
+   * [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database insight resource.
+   *
+   */
+  "id"?: string;
   /**
    * For list pagination. The value of the `opc-next-page` response header from
    * the previous \"List\" call. For important details about how pagination works,

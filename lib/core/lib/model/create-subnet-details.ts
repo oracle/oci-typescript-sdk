@@ -109,6 +109,19 @@ Example: `2001:0db8:0123:1111::/64`
     */
   "ipv6CidrBlock"?: string;
   /**
+    * Whether to disallow ingress internet traffic to VNICs within this subnet. Defaults to false.
+* <p>
+For IPv6, if `prohibitInternetIngress` is set to `true`, internet access is not allowed for any
+* IPv6s assigned to VNICs in the subnet. Otherwise, ingress internet traffic is allowed by default.
+* <p>
+`prohibitPublicIpOnVnic` will be set to the value of `prohibitInternetIngress` to dictate IPv4
+* behavior in this subnet. Only one or the other flag should be specified.
+* <p>
+Example: `true`
+* 
+    */
+  "prohibitInternetIngress"?: boolean;
+  /**
     * Whether VNICs within this subnet can have public IP addresses.
 * Defaults to false, which means VNICs created in this subnet will
 * automatically be assigned public IP addresses unless specified
@@ -118,8 +131,8 @@ Example: `2001:0db8:0123:1111::/64`
 * subnet cannot have public IP addresses (that is, it's a private
 * subnet).
 * <p>
-For IPv6, if `prohibitPublicIpOnVnic` is set to `true`, internet access is not allowed for any
-* IPv6s assigned to VNICs in the subnet.
+If you intend to use an IPv6 CIDR block, you should use the flag `prohibitInternetIngress` to
+* specify ingress internet traffic behavior of the subnet.
 * <p>
 Example: `true`
 * 

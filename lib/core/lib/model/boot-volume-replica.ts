@@ -100,6 +100,11 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "imageId"?: string;
+  /**
+   * The total size of the data transferred from the source boot volume to the boot volume replica, in GBs.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalDataTransferredInGBs"?: number;
 }
 
 export namespace BootVolumeReplica {

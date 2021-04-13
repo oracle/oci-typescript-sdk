@@ -104,6 +104,10 @@ Example: [`192.168.0.0/16`, `172.16.0.0/24`]
    */
   "peeringStatusDetails"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the peered LPG.
+   */
+  "peerId": string;
+  /**
     * The OCID of the route table the LPG is using.
 * <p>
 For information about why you would associate a route table with an LPG, see

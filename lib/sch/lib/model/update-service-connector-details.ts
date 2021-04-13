@@ -33,7 +33,7 @@ export interface UpdateServiceConnectorDetails {
    *
    */
   "description"?: string;
-  "source"?: model.LoggingSourceDetails;
+  "source"?: model.LoggingSourceDetails | model.StreamingSourceDetails;
   /**
    * The list of the tasks.
    *

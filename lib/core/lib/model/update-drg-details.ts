@@ -28,6 +28,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  "defaultDrgRouteTables"?: model.DefaultDrgRouteTables;
   /**
    * A user-friendly name. Does not have to be unique, and it's changeable.
    * Avoid entering confidential information.
@@ -46,7 +47,14 @@ Example: `{\"Department\": \"Finance\"}`
 
 export namespace UpdateDrgDetails {
   export function getJsonObj(obj: UpdateDrgDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "defaultDrgRouteTables": obj.defaultDrgRouteTables
+          ? model.DefaultDrgRouteTables.getJsonObj(obj.defaultDrgRouteTables)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

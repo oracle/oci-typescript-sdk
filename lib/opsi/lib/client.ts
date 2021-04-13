@@ -1,6 +1,6 @@
 /**
  * Operations Insights API
- * Use the Operations Insights API to perform data extraction operations to obtain database 
+ * Use the Operations Insights API to perform data extraction operations to obtain database
 resource utilization, performance statistics, and reference information. For more information,
 see [About Oracle Cloud Infrastructure Operations Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
 
@@ -18,6 +18,7 @@ import common = require("oci-common");
 import * as requests from "./request";
 import * as models from "./model";
 import * as responses from "./response";
+import { OperationsInsightsWaiter } from "./operationsinsights-waiter";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 
 // ===============================================
@@ -31,6 +32,7 @@ export class OperationsInsightsClient {
     "https://operationsinsights.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
+  protected "_waiters": OperationsInsightsWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
 
@@ -109,7 +111,1414 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Creates a new OperationsInsightsWaiter for resources for this service.
+   *
+   * @param config The waiter configuration for termination and delay strategy
+   * @return The service waiters.
+   */
+  public createWaiters(config?: common.WaiterConfiguration): OperationsInsightsWaiter {
+    this._waiters = new OperationsInsightsWaiter(this, config);
+    return this._waiters;
+  }
+
+  /**
+   * Gets the waiters available for resources for this service.
+   *
+   * @return The service waiters.
+   */
+  public getWaiters(): OperationsInsightsWaiter {
+    if (this._waiters) {
+      return this._waiters;
+    }
+    throw Error("Waiters do not exist. Please create waiters.");
+  }
+
+  /**
+   * Moves a DatabaseInsight resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
+   * @param ChangeDatabaseInsightCompartmentRequest
+   * @return ChangeDatabaseInsightCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeDatabaseInsightCompartment.ts.html |here} to see how to use ChangeDatabaseInsightCompartment API.
+   */
+  public async changeDatabaseInsightCompartment(
+    changeDatabaseInsightCompartmentRequest: requests.ChangeDatabaseInsightCompartmentRequest
+  ): Promise<responses.ChangeDatabaseInsightCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#changeDatabaseInsightCompartment."
+      );
+    const pathParams = {
+      "{databaseInsightId}": changeDatabaseInsightCompartmentRequest.databaseInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeDatabaseInsightCompartmentRequest.ifMatch,
+      "opc-request-id": changeDatabaseInsightCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeDatabaseInsightCompartmentRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/{databaseInsightId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDatabaseInsightCompartmentRequest.changeDatabaseInsightCompartmentDetails,
+        "ChangeDatabaseInsightCompartmentDetails",
+        models.ChangeDatabaseInsightCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeDatabaseInsightCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDatabaseInsightCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a EnterpriseManagerBridge resource from one compartment to another. When provided, If-Match is checked against ETag values of the resource.
+   * @param ChangeEnterpriseManagerBridgeCompartmentRequest
+   * @return ChangeEnterpriseManagerBridgeCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeEnterpriseManagerBridgeCompartment.ts.html |here} to see how to use ChangeEnterpriseManagerBridgeCompartment API.
+   */
+  public async changeEnterpriseManagerBridgeCompartment(
+    changeEnterpriseManagerBridgeCompartmentRequest: requests.ChangeEnterpriseManagerBridgeCompartmentRequest
+  ): Promise<responses.ChangeEnterpriseManagerBridgeCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#changeEnterpriseManagerBridgeCompartment."
+      );
+    const pathParams = {
+      "{enterpriseManagerBridgeId}":
+        changeEnterpriseManagerBridgeCompartmentRequest.enterpriseManagerBridgeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeEnterpriseManagerBridgeCompartmentRequest.ifMatch,
+      "opc-request-id": changeEnterpriseManagerBridgeCompartmentRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/enterpriseManagerBridges/{enterpriseManagerBridgeId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeEnterpriseManagerBridgeCompartmentRequest.changeEnterpriseManagerBridgeCompartmentDetails,
+        "ChangeEnterpriseManagerBridgeCompartmentDetails",
+        models.ChangeEnterpriseManagerBridgeCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeEnterpriseManagerBridgeCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeEnterpriseManagerBridgeCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a HostInsight resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
+   * @param ChangeHostInsightCompartmentRequest
+   * @return ChangeHostInsightCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeHostInsightCompartment.ts.html |here} to see how to use ChangeHostInsightCompartment API.
+   */
+  public async changeHostInsightCompartment(
+    changeHostInsightCompartmentRequest: requests.ChangeHostInsightCompartmentRequest
+  ): Promise<responses.ChangeHostInsightCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#changeHostInsightCompartment.");
+    const pathParams = {
+      "{hostInsightId}": changeHostInsightCompartmentRequest.hostInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeHostInsightCompartmentRequest.ifMatch,
+      "opc-request-id": changeHostInsightCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeHostInsightCompartmentRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostInsights/{hostInsightId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeHostInsightCompartmentRequest.changeHostInsightCompartmentDetails,
+        "ChangeHostInsightCompartmentDetails",
+        models.ChangeHostInsightCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeHostInsightCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeHostInsightCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a Database Insight resource for a database in Operations Insights. The database will be enabled in Operations Insights. Database metric collection and analysis will be started.
+   *
+   * @param CreateDatabaseInsightRequest
+   * @return CreateDatabaseInsightResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateDatabaseInsight.ts.html |here} to see how to use CreateDatabaseInsight API.
+   */
+  public async createDatabaseInsight(
+    createDatabaseInsightRequest: requests.CreateDatabaseInsightRequest
+  ): Promise<responses.CreateDatabaseInsightResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#createDatabaseInsight.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createDatabaseInsightRequest.opcRetryToken,
+      "opc-request-id": createDatabaseInsightRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDatabaseInsightRequest.createDatabaseInsightDetails,
+        "CreateDatabaseInsightDetails",
+        models.CreateDatabaseInsightDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createDatabaseInsightRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDatabaseInsightResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseInsight",
+        bodyModel: "model.DatabaseInsight",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a Enterprise Manager bridge in Operations Insights.
+   *
+   * @param CreateEnterpriseManagerBridgeRequest
+   * @return CreateEnterpriseManagerBridgeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateEnterpriseManagerBridge.ts.html |here} to see how to use CreateEnterpriseManagerBridge API.
+   */
+  public async createEnterpriseManagerBridge(
+    createEnterpriseManagerBridgeRequest: requests.CreateEnterpriseManagerBridgeRequest
+  ): Promise<responses.CreateEnterpriseManagerBridgeResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#createEnterpriseManagerBridge."
+      );
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createEnterpriseManagerBridgeRequest.opcRetryToken,
+      "opc-request-id": createEnterpriseManagerBridgeRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/enterpriseManagerBridges",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createEnterpriseManagerBridgeRequest.createEnterpriseManagerBridgeDetails,
+        "CreateEnterpriseManagerBridgeDetails",
+        models.CreateEnterpriseManagerBridgeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createEnterpriseManagerBridgeRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateEnterpriseManagerBridgeResponse>{},
+        body: await response.json(),
+        bodyKey: "enterpriseManagerBridge",
+        bodyModel: "model.EnterpriseManagerBridge",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a Host Insight resource for a host in Operations Insights. The host will be enabled in Operations Insights. Host metric collection and analysis will be started.
+   *
+   * @param CreateHostInsightRequest
+   * @return CreateHostInsightResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateHostInsight.ts.html |here} to see how to use CreateHostInsight API.
+   */
+  public async createHostInsight(
+    createHostInsightRequest: requests.CreateHostInsightRequest
+  ): Promise<responses.CreateHostInsightResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#createHostInsight.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createHostInsightRequest.opcRetryToken,
+      "opc-request-id": createHostInsightRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostInsights",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createHostInsightRequest.createHostInsightDetails,
+        "CreateHostInsightDetails",
+        models.CreateHostInsightDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createHostInsightRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateHostInsightResponse>{},
+        body: await response.json(),
+        bodyKey: "hostInsight",
+        bodyModel: "model.HostInsight",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a database insight. The database insight will be deleted and cannot be enabled again.
+   * @param DeleteDatabaseInsightRequest
+   * @return DeleteDatabaseInsightResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteDatabaseInsight.ts.html |here} to see how to use DeleteDatabaseInsight API.
+   */
+  public async deleteDatabaseInsight(
+    deleteDatabaseInsightRequest: requests.DeleteDatabaseInsightRequest
+  ): Promise<responses.DeleteDatabaseInsightResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#deleteDatabaseInsight.");
+    const pathParams = {
+      "{databaseInsightId}": deleteDatabaseInsightRequest.databaseInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDatabaseInsightRequest.ifMatch,
+      "opc-request-id": deleteDatabaseInsightRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/{databaseInsightId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteDatabaseInsightRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDatabaseInsightResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes an Operations Insights Enterprise Manager bridge. If any database insight is still referencing this bridge, the operation will fail.
+   * @param DeleteEnterpriseManagerBridgeRequest
+   * @return DeleteEnterpriseManagerBridgeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteEnterpriseManagerBridge.ts.html |here} to see how to use DeleteEnterpriseManagerBridge API.
+   */
+  public async deleteEnterpriseManagerBridge(
+    deleteEnterpriseManagerBridgeRequest: requests.DeleteEnterpriseManagerBridgeRequest
+  ): Promise<responses.DeleteEnterpriseManagerBridgeResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#deleteEnterpriseManagerBridge."
+      );
+    const pathParams = {
+      "{enterpriseManagerBridgeId}": deleteEnterpriseManagerBridgeRequest.enterpriseManagerBridgeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteEnterpriseManagerBridgeRequest.ifMatch,
+      "opc-request-id": deleteEnterpriseManagerBridgeRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/enterpriseManagerBridges/{enterpriseManagerBridgeId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteEnterpriseManagerBridgeRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteEnterpriseManagerBridgeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a host insight. The host insight will be deleted and cannot be enabled again.
+   * @param DeleteHostInsightRequest
+   * @return DeleteHostInsightResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteHostInsight.ts.html |here} to see how to use DeleteHostInsight API.
+   */
+  public async deleteHostInsight(
+    deleteHostInsightRequest: requests.DeleteHostInsightRequest
+  ): Promise<responses.DeleteHostInsightResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#deleteHostInsight.");
+    const pathParams = {
+      "{hostInsightId}": deleteHostInsightRequest.hostInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteHostInsightRequest.ifMatch,
+      "opc-request-id": deleteHostInsightRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostInsights/{hostInsightId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteHostInsightRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteHostInsightResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Disables a database in Operations Insights. Database metric collection and analysis will be stopped.
+   * @param DisableDatabaseInsightRequest
+   * @return DisableDatabaseInsightResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DisableDatabaseInsight.ts.html |here} to see how to use DisableDatabaseInsight API.
+   */
+  public async disableDatabaseInsight(
+    disableDatabaseInsightRequest: requests.DisableDatabaseInsightRequest
+  ): Promise<responses.DisableDatabaseInsightResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#disableDatabaseInsight.");
+    const pathParams = {
+      "{databaseInsightId}": disableDatabaseInsightRequest.databaseInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": disableDatabaseInsightRequest.ifMatch,
+      "opc-request-id": disableDatabaseInsightRequest.opcRequestId,
+      "opc-retry-token": disableDatabaseInsightRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/{databaseInsightId}/actions/disable",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      disableDatabaseInsightRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableDatabaseInsightResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Disables a host in Operations Insights. Host metric collection and analysis will be stopped.
+   * @param DisableHostInsightRequest
+   * @return DisableHostInsightResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DisableHostInsight.ts.html |here} to see how to use DisableHostInsight API.
+   */
+  public async disableHostInsight(
+    disableHostInsightRequest: requests.DisableHostInsightRequest
+  ): Promise<responses.DisableHostInsightResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#disableHostInsight.");
+    const pathParams = {
+      "{hostInsightId}": disableHostInsightRequest.hostInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": disableHostInsightRequest.ifMatch,
+      "opc-request-id": disableHostInsightRequest.opcRequestId,
+      "opc-retry-token": disableHostInsightRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostInsights/{hostInsightId}/actions/disable",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      disableHostInsightRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableHostInsightResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enables a database in Operations Insights. Database metric collection and analysis will be started.
+   * @param EnableDatabaseInsightRequest
+   * @return EnableDatabaseInsightResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/EnableDatabaseInsight.ts.html |here} to see how to use EnableDatabaseInsight API.
+   */
+  public async enableDatabaseInsight(
+    enableDatabaseInsightRequest: requests.EnableDatabaseInsightRequest
+  ): Promise<responses.EnableDatabaseInsightResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#enableDatabaseInsight.");
+    const pathParams = {
+      "{databaseInsightId}": enableDatabaseInsightRequest.databaseInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": enableDatabaseInsightRequest.ifMatch,
+      "opc-request-id": enableDatabaseInsightRequest.opcRequestId,
+      "opc-retry-token": enableDatabaseInsightRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/{databaseInsightId}/actions/enable",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableDatabaseInsightRequest.enableDatabaseInsightDetails,
+        "EnableDatabaseInsightDetails",
+        models.EnableDatabaseInsightDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      enableDatabaseInsightRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableDatabaseInsightResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enables a host in Operations Insights. Host metric collection and analysis will be started.
+   * @param EnableHostInsightRequest
+   * @return EnableHostInsightResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/EnableHostInsight.ts.html |here} to see how to use EnableHostInsight API.
+   */
+  public async enableHostInsight(
+    enableHostInsightRequest: requests.EnableHostInsightRequest
+  ): Promise<responses.EnableHostInsightResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#enableHostInsight.");
+    const pathParams = {
+      "{hostInsightId}": enableHostInsightRequest.hostInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": enableHostInsightRequest.ifMatch,
+      "opc-request-id": enableHostInsightRequest.opcRequestId,
+      "opc-retry-token": enableHostInsightRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostInsights/{hostInsightId}/actions/enable",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableHostInsightRequest.enableHostInsightDetails,
+        "EnableHostInsightDetails",
+        models.EnableHostInsightDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      enableHostInsightRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableHostInsightResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets details of a database insight.
+   * @param GetDatabaseInsightRequest
+   * @return GetDatabaseInsightResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetDatabaseInsight.ts.html |here} to see how to use GetDatabaseInsight API.
+   */
+  public async getDatabaseInsight(
+    getDatabaseInsightRequest: requests.GetDatabaseInsightRequest
+  ): Promise<responses.GetDatabaseInsightResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#getDatabaseInsight.");
+    const pathParams = {
+      "{databaseInsightId}": getDatabaseInsightRequest.databaseInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDatabaseInsightRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/{databaseInsightId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getDatabaseInsightRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDatabaseInsightResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseInsight",
+        bodyModel: "model.DatabaseInsight",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets details of an Operations Insights Enterprise Manager bridge.
+   * @param GetEnterpriseManagerBridgeRequest
+   * @return GetEnterpriseManagerBridgeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetEnterpriseManagerBridge.ts.html |here} to see how to use GetEnterpriseManagerBridge API.
+   */
+  public async getEnterpriseManagerBridge(
+    getEnterpriseManagerBridgeRequest: requests.GetEnterpriseManagerBridgeRequest
+  ): Promise<responses.GetEnterpriseManagerBridgeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#getEnterpriseManagerBridge.");
+    const pathParams = {
+      "{enterpriseManagerBridgeId}": getEnterpriseManagerBridgeRequest.enterpriseManagerBridgeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getEnterpriseManagerBridgeRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/enterpriseManagerBridges/{enterpriseManagerBridgeId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getEnterpriseManagerBridgeRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetEnterpriseManagerBridgeResponse>{},
+        body: await response.json(),
+        bodyKey: "enterpriseManagerBridge",
+        bodyModel: "model.EnterpriseManagerBridge",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets details of a host insight.
+   * @param GetHostInsightRequest
+   * @return GetHostInsightResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetHostInsight.ts.html |here} to see how to use GetHostInsight API.
+   */
+  public async getHostInsight(
+    getHostInsightRequest: requests.GetHostInsightRequest
+  ): Promise<responses.GetHostInsightResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#getHostInsight.");
+    const pathParams = {
+      "{hostInsightId}": getHostInsightRequest.hostInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getHostInsightRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostInsights/{hostInsightId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getHostInsightRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetHostInsightResponse>{},
+        body: await response.json(),
+        bodyKey: "hostInsight",
+        bodyModel: "model.HostInsight",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the status of the work request with the given ID.
+   * @param GetWorkRequestRequest
+   * @return GetWorkRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   */
+  public async getWorkRequest(
+    getWorkRequestRequest: requests.GetWorkRequestRequest
+  ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#getWorkRequest.");
+    const pathParams = {
+      "{workRequestId}": getWorkRequestRequest.workRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getWorkRequestRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getWorkRequestRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetWorkRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequest",
+        bodyModel: "model.WorkRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This is a generic ingest endpoint for all database configuration metrics.
+   * @param IngestDatabaseConfigurationRequest
+   * @return IngestDatabaseConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestDatabaseConfiguration.ts.html |here} to see how to use IngestDatabaseConfiguration API.
+   */
+  public async ingestDatabaseConfiguration(
+    ingestDatabaseConfigurationRequest: requests.IngestDatabaseConfigurationRequest
+  ): Promise<responses.IngestDatabaseConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#ingestDatabaseConfiguration.");
+    const pathParams = {};
+
+    const queryParams = {
+      "databaseId": ingestDatabaseConfigurationRequest.databaseId,
+      "id": ingestDatabaseConfigurationRequest.id
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": ingestDatabaseConfigurationRequest.opcRequestId,
+      "if-match": ingestDatabaseConfigurationRequest.ifMatch,
+      "opc-retry-token": ingestDatabaseConfigurationRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/actions/ingestDatabaseConfiguration",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        ingestDatabaseConfigurationRequest.ingestDatabaseConfigurationDetails,
+        "IngestDatabaseConfigurationDetails",
+        models.IngestDatabaseConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      ingestDatabaseConfigurationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.IngestDatabaseConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "ingestDatabaseConfigurationResponseDetails",
+        bodyModel: "model.IngestDatabaseConfigurationResponseDetails",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This is a generic ingest endpoint for all the host configuration metrics
+   * @param IngestHostConfigurationRequest
+   * @return IngestHostConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestHostConfiguration.ts.html |here} to see how to use IngestHostConfiguration API.
+   */
+  public async ingestHostConfiguration(
+    ingestHostConfigurationRequest: requests.IngestHostConfigurationRequest
+  ): Promise<responses.IngestHostConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#ingestHostConfiguration.");
+    const pathParams = {};
+
+    const queryParams = {
+      "id": ingestHostConfigurationRequest.id
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": ingestHostConfigurationRequest.opcRequestId,
+      "if-match": ingestHostConfigurationRequest.ifMatch,
+      "opc-retry-token": ingestHostConfigurationRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostInsights/actions/ingestHostConfiguration",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        ingestHostConfigurationRequest.ingestHostConfigurationDetails,
+        "IngestHostConfigurationDetails",
+        models.IngestHostConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      ingestHostConfigurationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.IngestHostConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "ingestHostConfigurationResponseDetails",
+        bodyModel: "model.IngestHostConfigurationResponseDetails",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This is a generic ingest endpoint for all the host performance metrics
+   * @param IngestHostMetricsRequest
+   * @return IngestHostMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestHostMetrics.ts.html |here} to see how to use IngestHostMetrics API.
+   */
+  public async ingestHostMetrics(
+    ingestHostMetricsRequest: requests.IngestHostMetricsRequest
+  ): Promise<responses.IngestHostMetricsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#ingestHostMetrics.");
+    const pathParams = {};
+
+    const queryParams = {
+      "id": ingestHostMetricsRequest.id
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": ingestHostMetricsRequest.opcRequestId,
+      "if-match": ingestHostMetricsRequest.ifMatch,
+      "opc-retry-token": ingestHostMetricsRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostInsights/actions/ingestHostMetrics",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        ingestHostMetricsRequest.ingestHostMetricsDetails,
+        "IngestHostMetricsDetails",
+        models.IngestHostMetricsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      ingestHostMetricsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.IngestHostMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "ingestHostMetricsResponseDetails",
+        bodyModel: "model.IngestHostMetricsResponseDetails",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * The sqlbucket endpoint takes in a JSON payload, persists it in Operations Insights ingest pipeline.
+   * Either databaseId or id must be specified.
+   *
    * @param IngestSqlBucketRequest
    * @return IngestSqlBucketResponse
    * @throws OciError when an error occurs
@@ -124,7 +1533,8 @@ export class OperationsInsightsClient {
 
     const queryParams = {
       "compartmentId": ingestSqlBucketRequest.compartmentId,
-      "databaseId": ingestSqlBucketRequest.databaseId
+      "databaseId": ingestSqlBucketRequest.databaseId,
+      "id": ingestSqlBucketRequest.id
     };
 
     let headerParams = {
@@ -182,6 +1592,8 @@ export class OperationsInsightsClient {
 
   /**
    * The SqlPlanLines endpoint takes in a JSON payload, persists it in Operation Insights ingest pipeline.
+   * Either databaseId or id must be specified.
+   *
    * @param IngestSqlPlanLinesRequest
    * @return IngestSqlPlanLinesResponse
    * @throws OciError when an error occurs
@@ -196,7 +1608,8 @@ export class OperationsInsightsClient {
 
     const queryParams = {
       "compartmentId": ingestSqlPlanLinesRequest.compartmentId,
-      "databaseId": ingestSqlPlanLinesRequest.databaseId
+      "databaseId": ingestSqlPlanLinesRequest.databaseId,
+      "id": ingestSqlPlanLinesRequest.id
     };
 
     let headerParams = {
@@ -254,6 +1667,7 @@ export class OperationsInsightsClient {
 
   /**
    * The SqlText endpoint takes in a JSON payload, persists it in Operation Insights ingest pipeline.
+   * Either databaseId or id must be specified.
    * Disclaimer: SQL text being uploaded explicitly via APIs is not masked. Any sensitive literals contained in the sqlFullText column should be masked prior to ingestion.
    *
    * @param IngestSqlTextRequest
@@ -269,7 +1683,8 @@ export class OperationsInsightsClient {
 
     const queryParams = {
       "compartmentId": ingestSqlTextRequest.compartmentId,
-      "databaseId": ingestSqlTextRequest.databaseId
+      "databaseId": ingestSqlTextRequest.databaseId,
+      "id": ingestSqlTextRequest.id
     };
 
     let headerParams = {
@@ -326,7 +1741,7 @@ export class OperationsInsightsClient {
   }
 
   /**
-   * Lists database insight resources
+   * Gets a list of database insights based on the query parameters specified. Either compartmentId or id query parameter must be specified.
    * @param ListDatabaseInsightsRequest
    * @return ListDatabaseInsightsResponse
    * @throws OciError when an error occurs
@@ -341,6 +1756,10 @@ export class OperationsInsightsClient {
 
     const queryParams = {
       "compartmentId": listDatabaseInsightsRequest.compartmentId,
+      "enterpriseManagerBridgeId": listDatabaseInsightsRequest.enterpriseManagerBridgeId,
+      "id": listDatabaseInsightsRequest.id,
+      "status": listDatabaseInsightsRequest.status,
+      "lifecycleState": listDatabaseInsightsRequest.lifecycleState,
       "databaseType": listDatabaseInsightsRequest.databaseType,
       "databaseId": listDatabaseInsightsRequest.databaseId,
       "fields": listDatabaseInsightsRequest.fields,
@@ -402,7 +1821,305 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Gets a list of Operations Insights Enterprise Manager bridges. Either compartmentId or id must be specified.
+   *
+   * @param ListEnterpriseManagerBridgesRequest
+   * @return ListEnterpriseManagerBridgesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListEnterpriseManagerBridges.ts.html |here} to see how to use ListEnterpriseManagerBridges API.
+   */
+  public async listEnterpriseManagerBridges(
+    listEnterpriseManagerBridgesRequest: requests.ListEnterpriseManagerBridgesRequest
+  ): Promise<responses.ListEnterpriseManagerBridgesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listEnterpriseManagerBridges.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listEnterpriseManagerBridgesRequest.compartmentId,
+      "displayName": listEnterpriseManagerBridgesRequest.displayName,
+      "id": listEnterpriseManagerBridgesRequest.id,
+      "lifecycleState": listEnterpriseManagerBridgesRequest.lifecycleState,
+      "limit": listEnterpriseManagerBridgesRequest.limit,
+      "page": listEnterpriseManagerBridgesRequest.page,
+      "sortOrder": listEnterpriseManagerBridgesRequest.sortOrder,
+      "sortBy": listEnterpriseManagerBridgesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listEnterpriseManagerBridgesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/enterpriseManagerBridges",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listEnterpriseManagerBridgesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListEnterpriseManagerBridgesResponse>{},
+        body: await response.json(),
+        bodyKey: "enterpriseManagerBridgeCollection",
+        bodyModel: "model.EnterpriseManagerBridgeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of host insights based on the query parameters specified. Either compartmentId or id query parameter must be specified.
+   * @param ListHostInsightsRequest
+   * @return ListHostInsightsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListHostInsights.ts.html |here} to see how to use ListHostInsights API.
+   */
+  public async listHostInsights(
+    listHostInsightsRequest: requests.ListHostInsightsRequest
+  ): Promise<responses.ListHostInsightsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listHostInsights.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listHostInsightsRequest.compartmentId,
+      "id": listHostInsightsRequest.id,
+      "status": listHostInsightsRequest.status,
+      "lifecycleState": listHostInsightsRequest.lifecycleState,
+      "hostType": listHostInsightsRequest.hostType,
+      "platformType": listHostInsightsRequest.platformType,
+      "limit": listHostInsightsRequest.limit,
+      "page": listHostInsightsRequest.page,
+      "sortOrder": listHostInsightsRequest.sortOrder,
+      "sortBy": listHostInsightsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listHostInsightsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostInsights",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listHostInsightsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListHostInsightsResponse>{},
+        body: await response.json(),
+        bodyKey: "hostInsightSummaryCollection",
+        bodyModel: "model.HostInsightSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get a list of hosted entities details.
+   *
+   * @param ListHostedEntitiesRequest
+   * @return ListHostedEntitiesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListHostedEntities.ts.html |here} to see how to use ListHostedEntities API.
+   */
+  public async listHostedEntities(
+    listHostedEntitiesRequest: requests.ListHostedEntitiesRequest
+  ): Promise<responses.ListHostedEntitiesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listHostedEntities.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listHostedEntitiesRequest.compartmentId,
+      "analysisTimeInterval": listHostedEntitiesRequest.analysisTimeInterval,
+      "timeIntervalStart": listHostedEntitiesRequest.timeIntervalStart,
+      "timeIntervalEnd": listHostedEntitiesRequest.timeIntervalEnd,
+      "platformType": listHostedEntitiesRequest.platformType,
+      "id": listHostedEntitiesRequest.id,
+      "limit": listHostedEntitiesRequest.limit,
+      "page": listHostedEntitiesRequest.page,
+      "sortOrder": listHostedEntitiesRequest.sortOrder,
+      "sortBy": listHostedEntitiesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listHostedEntitiesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostInsights/hostedEntities",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listHostedEntitiesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListHostedEntitiesResponse>{},
+        body: await response.json(),
+        bodyKey: "hostedEntityCollection",
+        bodyModel: "model.HostedEntityCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of importable entities for an Operations Insights Enterprise Manager bridge that have not been imported before.
+   *
+   * @param ListImportableEnterpriseManagerEntitiesRequest
+   * @return ListImportableEnterpriseManagerEntitiesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListImportableEnterpriseManagerEntities.ts.html |here} to see how to use ListImportableEnterpriseManagerEntities API.
+   */
+  public async listImportableEnterpriseManagerEntities(
+    listImportableEnterpriseManagerEntitiesRequest: requests.ListImportableEnterpriseManagerEntitiesRequest
+  ): Promise<responses.ListImportableEnterpriseManagerEntitiesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#listImportableEnterpriseManagerEntities."
+      );
+    const pathParams = {
+      "{enterpriseManagerBridgeId}":
+        listImportableEnterpriseManagerEntitiesRequest.enterpriseManagerBridgeId
+    };
+
+    const queryParams = {
+      "limit": listImportableEnterpriseManagerEntitiesRequest.limit,
+      "page": listImportableEnterpriseManagerEntitiesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listImportableEnterpriseManagerEntitiesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/enterpriseManagerBridges/{enterpriseManagerBridgeId}/importableEnterpriseManagerEntities",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listImportableEnterpriseManagerEntitiesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListImportableEnterpriseManagerEntitiesResponse>{},
+        body: await response.json(),
+        bodyKey: "importableEnterpriseManagerEntityCollection",
+        bodyModel: "model.ImportableEnterpriseManagerEntityCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Query SQL Warehouse to list the plan xml for a given SQL execution plan. This returns a SqlPlanCollection object, but is currently limited to a single plan.
+   * Either databaseId or id must be specified.
+   *
    * @param ListSqlPlansRequest
    * @return ListSqlPlansResponse
    * @throws OciError when an error occurs
@@ -417,6 +2134,7 @@ export class OperationsInsightsClient {
     const queryParams = {
       "compartmentId": listSqlPlansRequest.compartmentId,
       "databaseId": listSqlPlansRequest.databaseId,
+      "id": listSqlPlansRequest.id,
       "sqlIdentifier": listSqlPlansRequest.sqlIdentifier,
       "planHash": listSqlPlansRequest.planHash,
       "page": listSqlPlansRequest.page
@@ -553,6 +2271,7 @@ export class OperationsInsightsClient {
     const queryParams = {
       "compartmentId": listSqlTextsRequest.compartmentId,
       "databaseId": listSqlTextsRequest.databaseId,
+      "id": listSqlTextsRequest.id,
       "sqlIdentifier": listSqlTextsRequest.sqlIdentifier,
       "page": listSqlTextsRequest.page
     };
@@ -604,6 +2323,209 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Return a (paginated) list of errors for a given work request.
+   *
+   * @param ListWorkRequestErrorsRequest
+   * @return ListWorkRequestErrorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   */
+  public async listWorkRequestErrors(
+    listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
+  ): Promise<responses.ListWorkRequestErrorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listWorkRequestErrors.");
+    const pathParams = {
+      "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
+    };
+
+    const queryParams = {
+      "page": listWorkRequestErrorsRequest.page,
+      "limit": listWorkRequestErrorsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}/errors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listWorkRequestErrorsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWorkRequestErrorsResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequestErrorCollection",
+        bodyModel: "model.WorkRequestErrorCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Return a (paginated) list of logs for a given work request.
+   *
+   * @param ListWorkRequestLogsRequest
+   * @return ListWorkRequestLogsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   */
+  public async listWorkRequestLogs(
+    listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
+  ): Promise<responses.ListWorkRequestLogsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listWorkRequestLogs.");
+    const pathParams = {
+      "{workRequestId}": listWorkRequestLogsRequest.workRequestId
+    };
+
+    const queryParams = {
+      "page": listWorkRequestLogsRequest.page,
+      "limit": listWorkRequestLogsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWorkRequestLogsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}/logs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listWorkRequestLogsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWorkRequestLogsResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequestLogEntryCollection",
+        bodyModel: "model.WorkRequestLogEntryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the work requests in a compartment.
+   *
+   * @param ListWorkRequestsRequest
+   * @return ListWorkRequestsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   */
+  public async listWorkRequests(
+    listWorkRequestsRequest: requests.ListWorkRequestsRequest
+  ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listWorkRequests.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listWorkRequestsRequest.compartmentId,
+      "page": listWorkRequestsRequest.page,
+      "limit": listWorkRequestsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWorkRequestsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listWorkRequestsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWorkRequestsResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequestCollection",
+        bodyModel: "model.WorkRequestCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns response with time series data (endTimestamp, capacity, baseCapacity) for the time period specified.
    * The maximum time range for analysis is 2 years, hence this is intentionally not paginated.
    *
@@ -630,10 +2552,13 @@ export class OperationsInsightsClient {
       "timeIntervalEnd": summarizeDatabaseInsightResourceCapacityTrendRequest.timeIntervalEnd,
       "databaseType": summarizeDatabaseInsightResourceCapacityTrendRequest.databaseType,
       "databaseId": summarizeDatabaseInsightResourceCapacityTrendRequest.databaseId,
+      "id": summarizeDatabaseInsightResourceCapacityTrendRequest.id,
       "utilizationLevel": summarizeDatabaseInsightResourceCapacityTrendRequest.utilizationLevel,
       "page": summarizeDatabaseInsightResourceCapacityTrendRequest.page,
       "sortOrder": summarizeDatabaseInsightResourceCapacityTrendRequest.sortOrder,
-      "sortBy": summarizeDatabaseInsightResourceCapacityTrendRequest.sortBy
+      "sortBy": summarizeDatabaseInsightResourceCapacityTrendRequest.sortBy,
+      "tablespaceName": summarizeDatabaseInsightResourceCapacityTrendRequest.tablespaceName,
+      "hostName": summarizeDatabaseInsightResourceCapacityTrendRequest.hostName
     };
 
     let headerParams = {
@@ -708,12 +2633,15 @@ export class OperationsInsightsClient {
       "timeIntervalEnd": summarizeDatabaseInsightResourceForecastTrendRequest.timeIntervalEnd,
       "databaseType": summarizeDatabaseInsightResourceForecastTrendRequest.databaseType,
       "databaseId": summarizeDatabaseInsightResourceForecastTrendRequest.databaseId,
+      "id": summarizeDatabaseInsightResourceForecastTrendRequest.id,
       "statistic": summarizeDatabaseInsightResourceForecastTrendRequest.statistic,
       "forecastDays": summarizeDatabaseInsightResourceForecastTrendRequest.forecastDays,
       "forecastModel": summarizeDatabaseInsightResourceForecastTrendRequest.forecastModel,
       "utilizationLevel": summarizeDatabaseInsightResourceForecastTrendRequest.utilizationLevel,
       "confidence": summarizeDatabaseInsightResourceForecastTrendRequest.confidence,
-      "page": summarizeDatabaseInsightResourceForecastTrendRequest.page
+      "page": summarizeDatabaseInsightResourceForecastTrendRequest.page,
+      "hostName": summarizeDatabaseInsightResourceForecastTrendRequest.hostName,
+      "tablespaceName": summarizeDatabaseInsightResourceForecastTrendRequest.tablespaceName
     };
 
     let headerParams = {
@@ -787,13 +2715,15 @@ export class OperationsInsightsClient {
       "timeIntervalEnd": summarizeDatabaseInsightResourceStatisticsRequest.timeIntervalEnd,
       "databaseType": summarizeDatabaseInsightResourceStatisticsRequest.databaseType,
       "databaseId": summarizeDatabaseInsightResourceStatisticsRequest.databaseId,
+      "id": summarizeDatabaseInsightResourceStatisticsRequest.id,
       "percentile": summarizeDatabaseInsightResourceStatisticsRequest.percentile,
       "insightBy": summarizeDatabaseInsightResourceStatisticsRequest.insightBy,
       "forecastDays": summarizeDatabaseInsightResourceStatisticsRequest.forecastDays,
       "limit": summarizeDatabaseInsightResourceStatisticsRequest.limit,
       "page": summarizeDatabaseInsightResourceStatisticsRequest.page,
       "sortOrder": summarizeDatabaseInsightResourceStatisticsRequest.sortOrder,
-      "sortBy": summarizeDatabaseInsightResourceStatisticsRequest.sortBy
+      "sortBy": summarizeDatabaseInsightResourceStatisticsRequest.sortBy,
+      "hostName": summarizeDatabaseInsightResourceStatisticsRequest.hostName
     };
 
     let headerParams = {
@@ -869,6 +2799,7 @@ export class OperationsInsightsClient {
       "timeIntervalEnd": summarizeDatabaseInsightResourceUsageRequest.timeIntervalEnd,
       "databaseType": summarizeDatabaseInsightResourceUsageRequest.databaseType,
       "databaseId": summarizeDatabaseInsightResourceUsageRequest.databaseId,
+      "id": summarizeDatabaseInsightResourceUsageRequest.id,
       "page": summarizeDatabaseInsightResourceUsageRequest.page,
       "percentile": summarizeDatabaseInsightResourceUsageRequest.percentile
     };
@@ -946,6 +2877,7 @@ export class OperationsInsightsClient {
       "timeIntervalEnd": summarizeDatabaseInsightResourceUsageTrendRequest.timeIntervalEnd,
       "databaseType": summarizeDatabaseInsightResourceUsageTrendRequest.databaseType,
       "databaseId": summarizeDatabaseInsightResourceUsageTrendRequest.databaseId,
+      "id": summarizeDatabaseInsightResourceUsageTrendRequest.id,
       "page": summarizeDatabaseInsightResourceUsageTrendRequest.page,
       "sortOrder": summarizeDatabaseInsightResourceUsageTrendRequest.sortOrder,
       "sortBy": summarizeDatabaseInsightResourceUsageTrendRequest.sortBy
@@ -1023,6 +2955,7 @@ export class OperationsInsightsClient {
       "timeIntervalEnd": summarizeDatabaseInsightResourceUtilizationInsightRequest.timeIntervalEnd,
       "databaseType": summarizeDatabaseInsightResourceUtilizationInsightRequest.databaseType,
       "databaseId": summarizeDatabaseInsightResourceUtilizationInsightRequest.databaseId,
+      "id": summarizeDatabaseInsightResourceUtilizationInsightRequest.id,
       "forecastDays": summarizeDatabaseInsightResourceUtilizationInsightRequest.forecastDays,
       "page": summarizeDatabaseInsightResourceUtilizationInsightRequest.page
     };
@@ -1074,6 +3007,535 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Returns response with usage time series data (endTimestamp, usage, capacity) with breakdown by tablespaceName for the time period specified.
+   * The maximum time range for analysis is 2 years, hence this is intentionally not paginated.
+   * Either databaseId or id must be specified.
+   *
+   * @param SummarizeDatabaseInsightTablespaceUsageTrendRequest
+   * @return SummarizeDatabaseInsightTablespaceUsageTrendResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeDatabaseInsightTablespaceUsageTrend.ts.html |here} to see how to use SummarizeDatabaseInsightTablespaceUsageTrend API.
+   */
+  public async summarizeDatabaseInsightTablespaceUsageTrend(
+    summarizeDatabaseInsightTablespaceUsageTrendRequest: requests.SummarizeDatabaseInsightTablespaceUsageTrendRequest
+  ): Promise<responses.SummarizeDatabaseInsightTablespaceUsageTrendResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeDatabaseInsightTablespaceUsageTrend."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeDatabaseInsightTablespaceUsageTrendRequest.compartmentId,
+      "analysisTimeInterval":
+        summarizeDatabaseInsightTablespaceUsageTrendRequest.analysisTimeInterval,
+      "timeIntervalStart": summarizeDatabaseInsightTablespaceUsageTrendRequest.timeIntervalStart,
+      "timeIntervalEnd": summarizeDatabaseInsightTablespaceUsageTrendRequest.timeIntervalEnd,
+      "databaseId": summarizeDatabaseInsightTablespaceUsageTrendRequest.databaseId,
+      "id": summarizeDatabaseInsightTablespaceUsageTrendRequest.id,
+      "page": summarizeDatabaseInsightTablespaceUsageTrendRequest.page,
+      "limit": summarizeDatabaseInsightTablespaceUsageTrendRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeDatabaseInsightTablespaceUsageTrendRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/tablespaceUsageTrend",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeDatabaseInsightTablespaceUsageTrendRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeDatabaseInsightTablespaceUsageTrendResponse>{},
+        body: await response.json(),
+        bodyKey: "summarizeDatabaseInsightTablespaceUsageTrendAggregationCollection",
+        bodyModel: "model.SummarizeDatabaseInsightTablespaceUsageTrendAggregationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns response with time series data (endTimestamp, capacity) for the time period specified.
+   * The maximum time range for analysis is 2 years, hence this is intentionally not paginated.
+   *
+   * @param SummarizeHostInsightResourceCapacityTrendRequest
+   * @return SummarizeHostInsightResourceCapacityTrendResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightResourceCapacityTrend.ts.html |here} to see how to use SummarizeHostInsightResourceCapacityTrend API.
+   */
+  public async summarizeHostInsightResourceCapacityTrend(
+    summarizeHostInsightResourceCapacityTrendRequest: requests.SummarizeHostInsightResourceCapacityTrendRequest
+  ): Promise<responses.SummarizeHostInsightResourceCapacityTrendResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeHostInsightResourceCapacityTrend."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeHostInsightResourceCapacityTrendRequest.compartmentId,
+      "resourceMetric": summarizeHostInsightResourceCapacityTrendRequest.resourceMetric,
+      "analysisTimeInterval": summarizeHostInsightResourceCapacityTrendRequest.analysisTimeInterval,
+      "timeIntervalStart": summarizeHostInsightResourceCapacityTrendRequest.timeIntervalStart,
+      "timeIntervalEnd": summarizeHostInsightResourceCapacityTrendRequest.timeIntervalEnd,
+      "platformType": summarizeHostInsightResourceCapacityTrendRequest.platformType,
+      "id": summarizeHostInsightResourceCapacityTrendRequest.id,
+      "utilizationLevel": summarizeHostInsightResourceCapacityTrendRequest.utilizationLevel,
+      "page": summarizeHostInsightResourceCapacityTrendRequest.page,
+      "sortOrder": summarizeHostInsightResourceCapacityTrendRequest.sortOrder,
+      "sortBy": summarizeHostInsightResourceCapacityTrendRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeHostInsightResourceCapacityTrendRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostInsights/resourceCapacityTrend",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeHostInsightResourceCapacityTrendRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeHostInsightResourceCapacityTrendResponse>{},
+        body: await response.json(),
+        bodyKey: "summarizeHostInsightResourceCapacityTrendAggregationCollection",
+        bodyModel: "model.SummarizeHostInsightResourceCapacityTrendAggregationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get Forecast predictions for CPU or memory resources since a time in the past.
+   *
+   * @param SummarizeHostInsightResourceForecastTrendRequest
+   * @return SummarizeHostInsightResourceForecastTrendResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightResourceForecastTrend.ts.html |here} to see how to use SummarizeHostInsightResourceForecastTrend API.
+   */
+  public async summarizeHostInsightResourceForecastTrend(
+    summarizeHostInsightResourceForecastTrendRequest: requests.SummarizeHostInsightResourceForecastTrendRequest
+  ): Promise<responses.SummarizeHostInsightResourceForecastTrendResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeHostInsightResourceForecastTrend."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeHostInsightResourceForecastTrendRequest.compartmentId,
+      "resourceMetric": summarizeHostInsightResourceForecastTrendRequest.resourceMetric,
+      "analysisTimeInterval": summarizeHostInsightResourceForecastTrendRequest.analysisTimeInterval,
+      "timeIntervalStart": summarizeHostInsightResourceForecastTrendRequest.timeIntervalStart,
+      "timeIntervalEnd": summarizeHostInsightResourceForecastTrendRequest.timeIntervalEnd,
+      "platformType": summarizeHostInsightResourceForecastTrendRequest.platformType,
+      "id": summarizeHostInsightResourceForecastTrendRequest.id,
+      "statistic": summarizeHostInsightResourceForecastTrendRequest.statistic,
+      "forecastDays": summarizeHostInsightResourceForecastTrendRequest.forecastDays,
+      "forecastModel": summarizeHostInsightResourceForecastTrendRequest.forecastModel,
+      "utilizationLevel": summarizeHostInsightResourceForecastTrendRequest.utilizationLevel,
+      "confidence": summarizeHostInsightResourceForecastTrendRequest.confidence,
+      "page": summarizeHostInsightResourceForecastTrendRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeHostInsightResourceForecastTrendRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostInsights/resourceForecastTrend",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeHostInsightResourceForecastTrendRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeHostInsightResourceForecastTrendResponse>{},
+        body: await response.json(),
+        bodyKey: "summarizeHostInsightResourceForecastTrendAggregation",
+        bodyModel: "model.SummarizeHostInsightResourceForecastTrendAggregation",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the resource statistics (usage, capacity, usage change percent, utilization percent, load) for each host filtered
+   * by utilization level.
+   *
+   * @param SummarizeHostInsightResourceStatisticsRequest
+   * @return SummarizeHostInsightResourceStatisticsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightResourceStatistics.ts.html |here} to see how to use SummarizeHostInsightResourceStatistics API.
+   */
+  public async summarizeHostInsightResourceStatistics(
+    summarizeHostInsightResourceStatisticsRequest: requests.SummarizeHostInsightResourceStatisticsRequest
+  ): Promise<responses.SummarizeHostInsightResourceStatisticsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeHostInsightResourceStatistics."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeHostInsightResourceStatisticsRequest.compartmentId,
+      "resourceMetric": summarizeHostInsightResourceStatisticsRequest.resourceMetric,
+      "analysisTimeInterval": summarizeHostInsightResourceStatisticsRequest.analysisTimeInterval,
+      "timeIntervalStart": summarizeHostInsightResourceStatisticsRequest.timeIntervalStart,
+      "timeIntervalEnd": summarizeHostInsightResourceStatisticsRequest.timeIntervalEnd,
+      "platformType": summarizeHostInsightResourceStatisticsRequest.platformType,
+      "id": summarizeHostInsightResourceStatisticsRequest.id,
+      "percentile": summarizeHostInsightResourceStatisticsRequest.percentile,
+      "insightBy": summarizeHostInsightResourceStatisticsRequest.insightBy,
+      "forecastDays": summarizeHostInsightResourceStatisticsRequest.forecastDays,
+      "limit": summarizeHostInsightResourceStatisticsRequest.limit,
+      "page": summarizeHostInsightResourceStatisticsRequest.page,
+      "sortOrder": summarizeHostInsightResourceStatisticsRequest.sortOrder,
+      "sortBy": summarizeHostInsightResourceStatisticsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeHostInsightResourceStatisticsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostInsights/resourceStatistics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeHostInsightResourceStatisticsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeHostInsightResourceStatisticsResponse>{},
+        body: await response.json(),
+        bodyKey: "summarizeHostInsightResourceStatisticsAggregationCollection",
+        bodyModel: "model.SummarizeHostInsightResourceStatisticsAggregationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * A cumulative distribution function is used to rank the usage data points per host within the specified time period.
+   * For each host, the minimum data point with a ranking > the percentile value is included in the summation.
+   * Linear regression functions are used to calculate the usage change percentage.
+   *
+   * @param SummarizeHostInsightResourceUsageRequest
+   * @return SummarizeHostInsightResourceUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightResourceUsage.ts.html |here} to see how to use SummarizeHostInsightResourceUsage API.
+   */
+  public async summarizeHostInsightResourceUsage(
+    summarizeHostInsightResourceUsageRequest: requests.SummarizeHostInsightResourceUsageRequest
+  ): Promise<responses.SummarizeHostInsightResourceUsageResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeHostInsightResourceUsage."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeHostInsightResourceUsageRequest.compartmentId,
+      "resourceMetric": summarizeHostInsightResourceUsageRequest.resourceMetric,
+      "analysisTimeInterval": summarizeHostInsightResourceUsageRequest.analysisTimeInterval,
+      "timeIntervalStart": summarizeHostInsightResourceUsageRequest.timeIntervalStart,
+      "timeIntervalEnd": summarizeHostInsightResourceUsageRequest.timeIntervalEnd,
+      "platformType": summarizeHostInsightResourceUsageRequest.platformType,
+      "id": summarizeHostInsightResourceUsageRequest.id,
+      "page": summarizeHostInsightResourceUsageRequest.page,
+      "percentile": summarizeHostInsightResourceUsageRequest.percentile
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeHostInsightResourceUsageRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostInsights/resourceUsageSummary",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeHostInsightResourceUsageRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeHostInsightResourceUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "summarizeHostInsightResourceUsageAggregation",
+        bodyModel: "model.SummarizeHostInsightResourceUsageAggregation",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns response with time series data (endTimestamp, usage, capacity) for the time period specified.
+   * The maximum time range for analysis is 2 years, hence this is intentionally not paginated.
+   *
+   * @param SummarizeHostInsightResourceUsageTrendRequest
+   * @return SummarizeHostInsightResourceUsageTrendResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightResourceUsageTrend.ts.html |here} to see how to use SummarizeHostInsightResourceUsageTrend API.
+   */
+  public async summarizeHostInsightResourceUsageTrend(
+    summarizeHostInsightResourceUsageTrendRequest: requests.SummarizeHostInsightResourceUsageTrendRequest
+  ): Promise<responses.SummarizeHostInsightResourceUsageTrendResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeHostInsightResourceUsageTrend."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeHostInsightResourceUsageTrendRequest.compartmentId,
+      "resourceMetric": summarizeHostInsightResourceUsageTrendRequest.resourceMetric,
+      "analysisTimeInterval": summarizeHostInsightResourceUsageTrendRequest.analysisTimeInterval,
+      "timeIntervalStart": summarizeHostInsightResourceUsageTrendRequest.timeIntervalStart,
+      "timeIntervalEnd": summarizeHostInsightResourceUsageTrendRequest.timeIntervalEnd,
+      "platformType": summarizeHostInsightResourceUsageTrendRequest.platformType,
+      "id": summarizeHostInsightResourceUsageTrendRequest.id,
+      "page": summarizeHostInsightResourceUsageTrendRequest.page,
+      "sortOrder": summarizeHostInsightResourceUsageTrendRequest.sortOrder,
+      "sortBy": summarizeHostInsightResourceUsageTrendRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeHostInsightResourceUsageTrendRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostInsights/resourceUsageTrend",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeHostInsightResourceUsageTrendRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeHostInsightResourceUsageTrendResponse>{},
+        body: await response.json(),
+        bodyKey: "summarizeHostInsightResourceUsageTrendAggregationCollection",
+        bodyModel: "model.SummarizeHostInsightResourceUsageTrendAggregationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets resources with current utilization (high and low) and projected utilization (high and low) for a resource type over specified time period.
+   * @param SummarizeHostInsightResourceUtilizationInsightRequest
+   * @return SummarizeHostInsightResourceUtilizationInsightResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightResourceUtilizationInsight.ts.html |here} to see how to use SummarizeHostInsightResourceUtilizationInsight API.
+   */
+  public async summarizeHostInsightResourceUtilizationInsight(
+    summarizeHostInsightResourceUtilizationInsightRequest: requests.SummarizeHostInsightResourceUtilizationInsightRequest
+  ): Promise<responses.SummarizeHostInsightResourceUtilizationInsightResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeHostInsightResourceUtilizationInsight."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeHostInsightResourceUtilizationInsightRequest.compartmentId,
+      "resourceMetric": summarizeHostInsightResourceUtilizationInsightRequest.resourceMetric,
+      "analysisTimeInterval":
+        summarizeHostInsightResourceUtilizationInsightRequest.analysisTimeInterval,
+      "timeIntervalStart": summarizeHostInsightResourceUtilizationInsightRequest.timeIntervalStart,
+      "timeIntervalEnd": summarizeHostInsightResourceUtilizationInsightRequest.timeIntervalEnd,
+      "platformType": summarizeHostInsightResourceUtilizationInsightRequest.platformType,
+      "id": summarizeHostInsightResourceUtilizationInsightRequest.id,
+      "forecastDays": summarizeHostInsightResourceUtilizationInsightRequest.forecastDays,
+      "page": summarizeHostInsightResourceUtilizationInsightRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeHostInsightResourceUtilizationInsightRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostInsights/resourceUtilizationInsight",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeHostInsightResourceUtilizationInsightRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeHostInsightResourceUtilizationInsightResponse>{},
+        body: await response.json(),
+        bodyKey: "summarizeHostInsightResourceUtilizationInsightAggregation",
+        bodyModel: "model.SummarizeHostInsightResourceUtilizationInsightAggregation",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Query SQL Warehouse to get the performance insights for SQLs taking greater than X% database time for a given time period across the given databases or database types.
    * @param SummarizeSqlInsightsRequest
    * @return SummarizeSqlInsightsResponse
@@ -1091,6 +3553,7 @@ export class OperationsInsightsClient {
       "compartmentId": summarizeSqlInsightsRequest.compartmentId,
       "databaseType": summarizeSqlInsightsRequest.databaseType,
       "databaseId": summarizeSqlInsightsRequest.databaseId,
+      "id": summarizeSqlInsightsRequest.id,
       "databaseTimePctGreaterThan": summarizeSqlInsightsRequest.databaseTimePctGreaterThan,
       "analysisTimeInterval": summarizeSqlInsightsRequest.analysisTimeInterval,
       "timeIntervalStart": summarizeSqlInsightsRequest.timeIntervalStart,
@@ -1146,6 +3609,8 @@ export class OperationsInsightsClient {
 
   /**
    * Query SQL Warehouse to get the performance insights on the execution plans for a given SQL for a given time period.
+   * Either databaseId or id must be specified.
+   *
    * @param SummarizeSqlPlanInsightsRequest
    * @return SummarizeSqlPlanInsightsResponse
    * @throws OciError when an error occurs
@@ -1161,6 +3626,7 @@ export class OperationsInsightsClient {
     const queryParams = {
       "compartmentId": summarizeSqlPlanInsightsRequest.compartmentId,
       "databaseId": summarizeSqlPlanInsightsRequest.databaseId,
+      "id": summarizeSqlPlanInsightsRequest.id,
       "sqlIdentifier": summarizeSqlPlanInsightsRequest.sqlIdentifier,
       "analysisTimeInterval": summarizeSqlPlanInsightsRequest.analysisTimeInterval,
       "timeIntervalStart": summarizeSqlPlanInsightsRequest.timeIntervalStart,
@@ -1216,6 +3682,8 @@ export class OperationsInsightsClient {
 
   /**
    * Query SQL Warehouse to summarize the response time distribution of query executions for a given SQL for a given time period.
+   * Either databaseId or id must be specified.
+   *
    * @param SummarizeSqlResponseTimeDistributionsRequest
    * @return SummarizeSqlResponseTimeDistributionsResponse
    * @throws OciError when an error occurs
@@ -1233,6 +3701,7 @@ export class OperationsInsightsClient {
     const queryParams = {
       "compartmentId": summarizeSqlResponseTimeDistributionsRequest.compartmentId,
       "databaseId": summarizeSqlResponseTimeDistributionsRequest.databaseId,
+      "id": summarizeSqlResponseTimeDistributionsRequest.id,
       "sqlIdentifier": summarizeSqlResponseTimeDistributionsRequest.sqlIdentifier,
       "analysisTimeInterval": summarizeSqlResponseTimeDistributionsRequest.analysisTimeInterval,
       "timeIntervalStart": summarizeSqlResponseTimeDistributionsRequest.timeIntervalStart,
@@ -1304,6 +3773,7 @@ export class OperationsInsightsClient {
       "compartmentId": summarizeSqlStatisticsRequest.compartmentId,
       "databaseType": summarizeSqlStatisticsRequest.databaseType,
       "databaseId": summarizeSqlStatisticsRequest.databaseId,
+      "id": summarizeSqlStatisticsRequest.id,
       "databaseTimePctGreaterThan": summarizeSqlStatisticsRequest.databaseTimePctGreaterThan,
       "sqlIdentifier": summarizeSqlStatisticsRequest.sqlIdentifier,
       "analysisTimeInterval": summarizeSqlStatisticsRequest.analysisTimeInterval,
@@ -1364,6 +3834,7 @@ export class OperationsInsightsClient {
 
   /**
    * Query SQL Warehouse to get the performance statistics time series for a given SQL across given databases for a given time period.
+   *
    * @param SummarizeSqlStatisticsTimeSeriesRequest
    * @return SummarizeSqlStatisticsTimeSeriesResponse
    * @throws OciError when an error occurs
@@ -1381,6 +3852,7 @@ export class OperationsInsightsClient {
     const queryParams = {
       "compartmentId": summarizeSqlStatisticsTimeSeriesRequest.compartmentId,
       "databaseId": summarizeSqlStatisticsTimeSeriesRequest.databaseId,
+      "id": summarizeSqlStatisticsTimeSeriesRequest.id,
       "sqlIdentifier": summarizeSqlStatisticsTimeSeriesRequest.sqlIdentifier,
       "analysisTimeInterval": summarizeSqlStatisticsTimeSeriesRequest.analysisTimeInterval,
       "timeIntervalStart": summarizeSqlStatisticsTimeSeriesRequest.timeIntervalStart,
@@ -1436,6 +3908,8 @@ export class OperationsInsightsClient {
 
   /**
    * Query SQL Warehouse to get the performance statistics time series for a given SQL by execution plans for a given time period.
+   * Either databaseId or id must be specified.
+   *
    * @param SummarizeSqlStatisticsTimeSeriesByPlanRequest
    * @return SummarizeSqlStatisticsTimeSeriesByPlanResponse
    * @throws OciError when an error occurs
@@ -1453,6 +3927,7 @@ export class OperationsInsightsClient {
     const queryParams = {
       "compartmentId": summarizeSqlStatisticsTimeSeriesByPlanRequest.compartmentId,
       "databaseId": summarizeSqlStatisticsTimeSeriesByPlanRequest.databaseId,
+      "id": summarizeSqlStatisticsTimeSeriesByPlanRequest.id,
       "sqlIdentifier": summarizeSqlStatisticsTimeSeriesByPlanRequest.sqlIdentifier,
       "analysisTimeInterval": summarizeSqlStatisticsTimeSeriesByPlanRequest.analysisTimeInterval,
       "timeIntervalStart": summarizeSqlStatisticsTimeSeriesByPlanRequest.timeIntervalStart,
@@ -1495,6 +3970,209 @@ export class OperationsInsightsClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates configuration of a database insight.
+   * @param UpdateDatabaseInsightRequest
+   * @return UpdateDatabaseInsightResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateDatabaseInsight.ts.html |here} to see how to use UpdateDatabaseInsight API.
+   */
+  public async updateDatabaseInsight(
+    updateDatabaseInsightRequest: requests.UpdateDatabaseInsightRequest
+  ): Promise<responses.UpdateDatabaseInsightResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#updateDatabaseInsight.");
+    const pathParams = {
+      "{databaseInsightId}": updateDatabaseInsightRequest.databaseInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDatabaseInsightRequest.ifMatch,
+      "opc-request-id": updateDatabaseInsightRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/{databaseInsightId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDatabaseInsightRequest.updateDatabaseInsightDetails,
+        "UpdateDatabaseInsightDetails",
+        models.UpdateDatabaseInsightDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateDatabaseInsightRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDatabaseInsightResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates configuration of an Operations Insights Enterprise Manager bridge.
+   * @param UpdateEnterpriseManagerBridgeRequest
+   * @return UpdateEnterpriseManagerBridgeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateEnterpriseManagerBridge.ts.html |here} to see how to use UpdateEnterpriseManagerBridge API.
+   */
+  public async updateEnterpriseManagerBridge(
+    updateEnterpriseManagerBridgeRequest: requests.UpdateEnterpriseManagerBridgeRequest
+  ): Promise<responses.UpdateEnterpriseManagerBridgeResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#updateEnterpriseManagerBridge."
+      );
+    const pathParams = {
+      "{enterpriseManagerBridgeId}": updateEnterpriseManagerBridgeRequest.enterpriseManagerBridgeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateEnterpriseManagerBridgeRequest.ifMatch,
+      "opc-request-id": updateEnterpriseManagerBridgeRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/enterpriseManagerBridges/{enterpriseManagerBridgeId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateEnterpriseManagerBridgeRequest.updateEnterpriseManagerBridgeDetails,
+        "UpdateEnterpriseManagerBridgeDetails",
+        models.UpdateEnterpriseManagerBridgeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateEnterpriseManagerBridgeRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateEnterpriseManagerBridgeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates configuration of a host insight.
+   * @param UpdateHostInsightRequest
+   * @return UpdateHostInsightResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateHostInsight.ts.html |here} to see how to use UpdateHostInsight API.
+   */
+  public async updateHostInsight(
+    updateHostInsightRequest: requests.UpdateHostInsightRequest
+  ): Promise<responses.UpdateHostInsightResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#updateHostInsight.");
+    const pathParams = {
+      "{hostInsightId}": updateHostInsightRequest.hostInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateHostInsightRequest.ifMatch,
+      "opc-request-id": updateHostInsightRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostInsights/{hostInsightId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateHostInsightRequest.updateHostInsightDetails,
+        "UpdateHostInsightDetails",
+        models.UpdateHostInsightDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateHostInsightRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateHostInsightResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

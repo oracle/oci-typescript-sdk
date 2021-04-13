@@ -147,6 +147,7 @@ For more information about iPXE, see http://ipxe.org.
   "launchOptions"?: model.LaunchOptions;
   "instanceOptions"?: model.InstanceOptions;
   "availabilityConfig"?: model.LaunchInstanceAvailabilityConfigDetails;
+  "preemptibleInstanceConfig"?: model.PreemptibleInstanceConfigDetails;
   /**
     * Custom metadata key/value pairs that you provide, such as the SSH public key
 * required to connect to the instance.
@@ -241,6 +242,9 @@ export namespace LaunchInstanceDetails {
           : undefined,
         "availabilityConfig": obj.availabilityConfig
           ? model.LaunchInstanceAvailabilityConfigDetails.getJsonObj(obj.availabilityConfig)
+          : undefined,
+        "preemptibleInstanceConfig": obj.preemptibleInstanceConfig
+          ? model.PreemptibleInstanceConfigDetails.getJsonObj(obj.preemptibleInstanceConfig)
           : undefined,
 
         "agentConfig": obj.agentConfig

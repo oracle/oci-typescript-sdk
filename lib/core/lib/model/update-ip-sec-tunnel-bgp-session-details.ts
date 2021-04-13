@@ -59,6 +59,38 @@ Example: `10.0.0.5/31`
     */
   "customerInterfaceIp"?: string;
   /**
+    * The IPv6 address for the Oracle end of the inside tunnel interface. This IP address is optional.
+* <p>
+If the tunnel's `routing` attribute is set to `BGP`
+* (see {@link IPSecConnectionTunnel}), this IP address
+* is used for the tunnel's BGP session.
+* <p>
+If `routing` is instead set to `STATIC`, you can set this IP
+* address to troubleshoot or monitor the tunnel.
+* <p>
+Only subnet masks from /64 up to /127 are allowed.
+* <p>
+Example: `2001:db8::1/64`
+* 
+    */
+  "oracleInterfaceIpv6"?: string;
+  /**
+    * The IPv6 address for the CPE end of the inside tunnel interface. This IP address is optional.
+* <p>
+If the tunnel's `routing` attribute is set to `BGP`
+* (see {@link IPSecConnectionTunnel}), this IP address
+* is used for the tunnel's BGP session.
+* <p>
+If `routing` is instead set to `STATIC`, you can set this IP
+* address to troubleshoot or monitor the tunnel.
+* <p>
+Only subnet masks from /64 up to /127 are allowed.
+* <p>
+Example: `2001:db8::1/64`
+* 
+    */
+  "customerInterfaceIpv6"?: string;
+  /**
     * The BGP ASN of the network on the CPE end of the BGP session. Can be a 2-byte or 4-byte ASN.
 * Uses \"asplain\" format.
 * <p>

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DeleteDrgAttachmentRequest extends common.BaseRequest {
   /**
-   * The OCID of the DRG attachment.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the DRG attachment.
    */
   "drgAttachmentId": string;
   /**

@@ -75,6 +75,19 @@ Example: `172.16.0.0/16`
 * 
     */
   "cidrBlock"?: string;
+  /**
+    * This is the IPv6 CIDR block for the subnet's IP address space.
+* The subnet size is always /64.
+* See [IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
+* The provided CIDR must maintain the following rules -
+* <p>
+a. The IPv6 CIDR block is valid and correctly formatted.
+* b. The IPv6 CIDR is within the parent VCN IPv6 range.
+* <p>
+Example: `2001:0db8:0123:1111::/64`
+* 
+    */
+  "ipv6CidrBlock"?: string;
 }
 
 export namespace UpdateSubnetDetails {

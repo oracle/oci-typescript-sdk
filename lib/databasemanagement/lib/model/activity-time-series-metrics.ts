@@ -29,6 +29,7 @@ export interface ActivityTimeSeriesMetrics {
   "waitTime"?: model.MetricDataPoint;
   "userIoTime"?: model.MetricDataPoint;
   "cpuCount"?: model.MetricDataPoint;
+  "cluster"?: model.MetricDataPoint;
 }
 
 export namespace ActivityTimeSeriesMetrics {
@@ -39,7 +40,8 @@ export namespace ActivityTimeSeriesMetrics {
         "cpuTime": obj.cpuTime ? model.MetricDataPoint.getJsonObj(obj.cpuTime) : undefined,
         "waitTime": obj.waitTime ? model.MetricDataPoint.getJsonObj(obj.waitTime) : undefined,
         "userIoTime": obj.userIoTime ? model.MetricDataPoint.getJsonObj(obj.userIoTime) : undefined,
-        "cpuCount": obj.cpuCount ? model.MetricDataPoint.getJsonObj(obj.cpuCount) : undefined
+        "cpuCount": obj.cpuCount ? model.MetricDataPoint.getJsonObj(obj.cpuCount) : undefined,
+        "cluster": obj.cluster ? model.MetricDataPoint.getJsonObj(obj.cluster) : undefined
       }
     };
 

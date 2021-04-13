@@ -58,9 +58,13 @@ Example: `10 Gbps`
    */
   "bgpManagement"?: VirtualCircuit.BgpManagement;
   /**
-   * The state of the BGP session associated with the virtual circuit.
+   * The state of the Ipv4 BGP session associated with the virtual circuit.
    */
   "bgpSessionState"?: VirtualCircuit.BgpSessionState;
+  /**
+   * The state of the Ipv6 BGP session associated with the virtual circuit.
+   */
+  "bgpIpv6SessionState"?: VirtualCircuit.BgpIpv6SessionState;
   /**
    * The OCID of the compartment containing the virtual circuit.
    */
@@ -220,6 +224,16 @@ export namespace VirtualCircuit {
   }
 
   export enum BgpSessionState {
+    Up = "UP",
+    Down = "DOWN",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum BgpIpv6SessionState {
     Up = "UP",
     Down = "DOWN",
     /**

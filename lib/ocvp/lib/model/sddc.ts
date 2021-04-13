@@ -85,6 +85,12 @@ Therefore, if you upgrade the existing ESXi hosts in the SDDC to use a newer
    */
   "esxiHostsCount": number;
   /**
+   * Billing option selected during SDDC creation
+   * {@link #listSupportedSkus(ListSupportedSkusRequest) listSupportedSkus}.
+   *
+   */
+  "initialSku": model.Sku;
+  /**
     * The FQDN for vCenter.
 * <p>
 Example: `vcenter-my-sddc.sddc.us-phoenix-1.oraclecloud.com`

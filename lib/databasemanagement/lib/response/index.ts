@@ -30,6 +30,8 @@ import * as DeleteJobResponse from "./delete-job-response";
 export import DeleteJobResponse = DeleteJobResponse.DeleteJobResponse;
 import * as DeleteManagedDatabaseGroupResponse from "./delete-managed-database-group-response";
 export import DeleteManagedDatabaseGroupResponse = DeleteManagedDatabaseGroupResponse.DeleteManagedDatabaseGroupResponse;
+import * as GetClusterCacheMetricResponse from "./get-cluster-cache-metric-response";
+export import GetClusterCacheMetricResponse = GetClusterCacheMetricResponse.GetClusterCacheMetricResponse;
 import * as GetDatabaseFleetHealthMetricsResponse from "./get-database-fleet-health-metrics-response";
 export import GetDatabaseFleetHealthMetricsResponse = GetDatabaseFleetHealthMetricsResponse.GetDatabaseFleetHealthMetricsResponse;
 import * as GetDatabaseHomeMetricsResponse from "./get-database-home-metrics-response";

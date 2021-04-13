@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DeleteCpeRequest extends common.BaseRequest {
   /**
-   * The OCID of the CPE.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the CPE.
    */
   "cpeId": string;
   /**

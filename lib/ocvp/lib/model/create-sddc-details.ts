@@ -64,6 +64,12 @@ For example, if the value is `mySDDC`, the ESXi hosts are named `mySDDC-1`,
    */
   "esxiHostsCount": number;
   /**
+   * Billing option selected during SDDC creation
+   * {@link #listSupportedSkus(ListSupportedSkusRequest) listSupportedSkus}.
+   *
+   */
+  "initialSku": model.Sku;
+  /**
    * Indicates whether to enable HCX for this SDDC.
    *
    */

@@ -31,7 +31,7 @@ export interface AddressRateLimiting {
    */
   "maxDelayedCountPerAddress"?: number;
   /**
-   * The response status code returned when a request is blocked. If unspecified, defaults to `503`. The list of available response codes: `200`, `201`, `202`, `204`, `206`, `300`, `301`, `302`, `303`, `304`, `307`, `400`, `401`, `403`, `404`, `405`, `408`, `409`, `411`, `412`, `413`, `414`, `415`, `416`, `422`, `444`, `499`, `500`, `501`, `502`, `503`, `504`, `507`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The response status code returned when a request is blocked. If unspecified, defaults to `503`. The list of available response codes: `400`, `401`, `403`, `404`, `405`, `408`, `409`, `411`, `412`, `413`, `414`, `415`, `416`, `422`, `494`, `495`, `496`, `497`, `499`, `500`, `501`, `502`, `503`, `504`, `507`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "blockResponseCode"?: number;
 }

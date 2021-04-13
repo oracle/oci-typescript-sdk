@@ -24,7 +24,7 @@ export interface SummarizeDatabaseInsightResourceStatisticsRequest extends commo
   "compartmentId": string;
   /**
    * Filter by resource metric.
-   * Supported values are CPU and STORAGE.
+   * Supported values are CPU , STORAGE, MEMORY and IO.
    *
    */
   "resourceMetric": string;
@@ -55,15 +55,20 @@ export interface SummarizeDatabaseInsightResourceStatisticsRequest extends commo
   "timeIntervalEnd"?: Date;
   /**
    * Filter by one or more database type.
-   * Possible values are ADW-S, ATP-S, ADW-D, ATP-D
+   * Possible values are ADW-S, ATP-S, ADW-D, ATP-D, EXTERNAL-PDB, EXTERNAL-NONCDB.
    *
    */
   "databaseType"?: Array<SummarizeDatabaseInsightResourceStatisticsRequest.DatabaseType>;
   /**
-   * Optional list of database [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Optional list of database [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the associated DBaaS entity.
    *
    */
   "databaseId"?: Array<string>;
+  /**
+   * Optional list of database insight resource [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database insight resource.
+   *
+   */
+  "id"?: Array<string>;
   /**
    * Percentile values of daily usage to be used for computing the aggregate resource usage.
    *
@@ -108,6 +113,11 @@ export interface SummarizeDatabaseInsightResourceStatisticsRequest extends commo
    */
   "sortBy"?: SummarizeDatabaseInsightResourceStatisticsRequest.SortBy;
   /**
+   * Filter by one or more hostname.
+   *
+   */
+  "hostName"?: Array<string>;
+  /**
    * Unique Oracle-assigned identifier for the request. If you need to contact
    * Oracle about a particular request, please provide the request ID.
    *
@@ -120,7 +130,9 @@ export namespace SummarizeDatabaseInsightResourceStatisticsRequest {
     AdwS = "ADW-S",
     AtpS = "ATP-S",
     AdwD = "ADW-D",
-    AtpD = "ATP-D"
+    AtpD = "ATP-D",
+    ExternalPdb = "EXTERNAL-PDB",
+    ExternalNoncdb = "EXTERNAL-NONCDB"
   }
 
   export enum SortBy {

@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ChangeRemotePeeringConnectionCompartmentRequest extends common.BaseRequest {
   /**
-   * The OCID of the remote peering connection (RPC).
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the remote peering connection (RPC).
    */
   "remotePeeringConnectionId": string;
   /**
-   * Request to change the compartment of a Remote Peering Connection.
+   * Request to change the compartment of a remote peering connection.
    */
   "changeRemotePeeringConnectionCompartmentDetails": model.ChangeRemotePeeringConnectionCompartmentDetails;
   /**

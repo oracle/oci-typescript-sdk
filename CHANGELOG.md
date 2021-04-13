@@ -3,6 +3,36 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 1.19.0 - 2021-04-13
+### Added
+- Support for the Database Migration service
+- Support for the Networking Topology service
+- Support for getting the id of peered VCNs on local peering gateways in the Networking service
+- Support for burstable instances in the Compute service
+- Support for preemptible instances in the Compute service
+- Support for fractional resource usage and availability in the Limits service
+- Support for streaming analytics in the Service Connector Hub service
+- Support for flexible routing inside DRGs to enable packet flow between any two attachments in the Networking service 
+- Support for routing policy to customize dynamic import/export of routes in the Networking service
+- Support for IPv6, including on FastConnect and IPsec resources, in the Networking service
+- Support for request validation policies in the API Gateway service
+- Support for RESP-compliant (e.g. REDIS) response caches, and for configuring response caching per-route in the API Gateway service
+- Support for flexible billing in the VMWare Solution service
+- Support for new DNS format for the Web Application Acceleration and Security service
+- Support for configuring APM tracing on applications and functions in the Functions service
+- Support for Enterprise Manager external databases and Management Agent Service managed external databases and hosts in the Operations Insights service
+- Support for getting cluster cache metrics for RAC CDB managed databases in the Database Management service
+
+### Breaking Changes
+- Removed the property `isInternetAccessAllowed` from `CreateIpv6Details` model in the core service
+- Removed the property `ipv6CidrBlock` from `CreateVcnDetails` model in the core service
+- Removed the property `isInternetAccessAllowed` from `Ipv6` model in the core service
+- Removed the property `publicIpAddress` from `Ipv6` model in the core service
+- Removed the property `ipv6PublicCidrBlock` from `Subnet` model in the core service
+- Removed the property `isInternetAccessAllowed` from `UpdateIpv6Details` model in the core service
+- Removed the property `ipv6CidrBlock` from `Vcn` model in the core service
+- Removed the property `ipv6PublicCidrBlock` from `Vcn` model in the core service
+
 ## 1.18.1 - 2021-04-06
 ### Added
 - Support for scheduling the suspension and resumption of compute instance pools based on predefined schedules in the Autoscaling service

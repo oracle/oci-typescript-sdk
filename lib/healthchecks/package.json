@@ -1,6 +1,6 @@
 {
   "name": "oci-healthchecks",
-  "version": "1.18.1",
+  "version": "1.19.0",
   "description": "OCI NodeJS client for Healthchecks Service",
   "repository": {
     "type": "git",

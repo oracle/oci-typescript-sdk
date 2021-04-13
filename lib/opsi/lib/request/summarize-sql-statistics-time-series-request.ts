@@ -29,10 +29,15 @@ export interface SummarizeSqlStatisticsTimeSeriesRequest extends common.BaseRequ
    */
   "sqlIdentifier": string;
   /**
-   * Optional list of database [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Optional list of database [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the associated DBaaS entity.
    *
    */
   "databaseId"?: Array<string>;
+  /**
+   * Optional list of database [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database insight resource.
+   *
+   */
+  "id"?: Array<string>;
   /**
    * Specify time period in ISO 8601 format with respect to current time.
    * Default is last 30 days represented by P30D.

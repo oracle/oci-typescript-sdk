@@ -1,6 +1,6 @@
 /**
  * Operations Insights API
- * Use the Operations Insights API to perform data extraction operations to obtain database 
+ * Use the Operations Insights API to perform data extraction operations to obtain database
 resource utilization, performance statistics, and reference information. For more information,
 see [About Oracle Cloud Infrastructure Operations Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
 
@@ -18,8 +18,10 @@ import * as requests from "./lib/request";
 import * as models from "./lib/model";
 import * as responses from "./lib/response";
 import * as client from "./lib/client";
+import * as operationsinsights_waiter from "./lib/operationsinsights-waiter";
 
 export { models };
 export { requests };
 export { responses };
 export import OperationsInsightsClient = client.OperationsInsightsClient;
+export import OperationsInsightsWaiter = operationsinsights_waiter.OperationsInsightsWaiter;

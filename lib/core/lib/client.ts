@@ -9029,13 +9029,14 @@ You can limit the list by specifying a dedicated virtual machine host display na
   }
 
   /**
-     * Lists the available images in the specified compartment, including both
-* [Oracle-provided images](https://docs.cloud.oracle.com/iaas/Content/Compute/References/images.htm) and
+     * Lists the available images in the specified compartment, including
+* [platform images](https://docs.cloud.oracle.com/iaas/Content/Compute/References/images.htm) and
 * [custom images](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingcustomimages.htm) that have
-* been created. The list of images returned is ordered to first show all
-* Oracle-provided images, then all custom images.
+* been created.
 * <p>
-The order of images returned may change when new images are released.
+The list of images that's returned is ordered to first show all
+* platform images, then all custom images. The order of images might
+* change when new images are released.
 * 
      * @param ListImagesRequest
      * @return ListImagesResponse
@@ -12821,6 +12822,201 @@ export class VirtualNetworkClient {
   }
 
   /**
+   * Adds one or more route distribution statements to the specified route distribution.
+   *
+   * @param AddDrgRouteDistributionStatementsRequest
+   * @return AddDrgRouteDistributionStatementsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AddDrgRouteDistributionStatements.ts.html |here} to see how to use AddDrgRouteDistributionStatements API.
+   */
+  public async addDrgRouteDistributionStatements(
+    addDrgRouteDistributionStatementsRequest: requests.AddDrgRouteDistributionStatementsRequest
+  ): Promise<responses.AddDrgRouteDistributionStatementsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#addDrgRouteDistributionStatements."
+      );
+    const pathParams = {
+      "{drgRouteDistributionId}": addDrgRouteDistributionStatementsRequest.drgRouteDistributionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/drgRouteDistributions/{drgRouteDistributionId}/actions/addDrgRouteDistributionStatements",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addDrgRouteDistributionStatementsRequest.addDrgRouteDistributionStatementsDetails,
+        "AddDrgRouteDistributionStatementsDetails",
+        models.AddDrgRouteDistributionStatementsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      addDrgRouteDistributionStatementsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddDrgRouteDistributionStatementsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "DrgRouteDistributionStatement[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Adds one or more static route rules to the specified DRG route table.
+   *
+   * @param AddDrgRouteRulesRequest
+   * @return AddDrgRouteRulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AddDrgRouteRules.ts.html |here} to see how to use AddDrgRouteRules API.
+   */
+  public async addDrgRouteRules(
+    addDrgRouteRulesRequest: requests.AddDrgRouteRulesRequest
+  ): Promise<responses.AddDrgRouteRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#addDrgRouteRules.");
+    const pathParams = {
+      "{drgRouteTableId}": addDrgRouteRulesRequest.drgRouteTableId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": addDrgRouteRulesRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgRouteTables/{drgRouteTableId}/actions/addDrgRouteRules",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addDrgRouteRulesRequest.addDrgRouteRulesDetails,
+        "AddDrgRouteRulesDetails",
+        models.AddDrgRouteRulesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      addDrgRouteRulesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddDrgRouteRulesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "DrgRouteRule[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Add an IPv6 CIDR to a VCN. The VCN size is always /56 and assigned by Oracle.
+   * Once added the IPv6 CIDR block cannot be removed or modified.
+   *
+   * @param AddIpv6VcnCidrRequest
+   * @return AddIpv6VcnCidrResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AddIpv6VcnCidr.ts.html |here} to see how to use AddIpv6VcnCidr API.
+   */
+  public async addIpv6VcnCidr(
+    addIpv6VcnCidrRequest: requests.AddIpv6VcnCidrRequest
+  ): Promise<responses.AddIpv6VcnCidrResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#addIpv6VcnCidr.");
+    const pathParams = {
+      "{vcnId}": addIpv6VcnCidrRequest.vcnId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addIpv6VcnCidrRequest.opcRequestId,
+      "opc-retry-token": addIpv6VcnCidrRequest.opcRetryToken,
+      "if-match": addIpv6VcnCidrRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vcns/{vcnId}/actions/addIpv6Cidr",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      addIpv6VcnCidrRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddIpv6VcnCidrResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Adds one or more security rules to the specified network security group.
    *
    * @param AddNetworkSecurityGroupSecurityRulesRequest
@@ -14981,7 +15177,7 @@ This operation must be called by the VCN administrator who is designated as
      * Creates a new virtual customer-premises equipment (CPE) object in the specified compartment. For
 * more information, see [IPSec VPNs](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingIPsec.htm).
 * <p>
-For the purposes of access control, you must provide the OCID of the compartment where you want
+For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment where you want
 * the CPE to reside. Notice that the CPE doesn't have to be in the same compartment as the IPSec
 * connection or other Networking Service components. If you're not sure which compartment to
 * use, put the CPE in the same compartment as the DRG. For more information about
@@ -15067,7 +15263,7 @@ After creating the `CrossConnect` object, you need to go the FastConnect locatio
 * and request to have the physical cable installed. For more information, see
 * [FastConnect Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
 * <p>
-For the purposes of access control, you must provide the OCID of the
+For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the
 * compartment where you want the cross-connect to reside. If you're
 * not sure which compartment to use, put the cross-connect in the
 * same compartment with your VCN. For more information about
@@ -15149,7 +15345,7 @@ You may optionally specify a *display name* for the cross-connect.
 * FastConnect. For more information, see
 * [FastConnect Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
 * <p>
-For the purposes of access control, you must provide the OCID of the
+For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the
 * compartment where you want the cross-connect group to reside. If you're
 * not sure which compartment to use, put the cross-connect group in the
 * same compartment with your VCN. For more information about
@@ -15230,7 +15426,7 @@ You may optionally specify a *display name* for the cross-connect group.
      * Creates a new set of DHCP options for the specified VCN. For more information, see
 * {@link DhcpOptions}.
 * <p>
-For the purposes of access control, you must provide the OCID of the compartment where you want the set of
+For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment where you want the set of
 * DHCP options to reside. Notice that the set of options doesn't have to be in the same compartment as the VCN,
 * subnets, or other Networking Service components. If you're not sure which compartment to use, put the set
 * of DHCP options in the same compartment as the VCN. For more information about compartments and access control, see
@@ -15383,16 +15579,16 @@ You may optionally specify a *display name* for the DRG, otherwise a default is 
   }
 
   /**
-     * Attaches the specified DRG to the specified VCN. A VCN can be attached to only one DRG at a time,
-* and vice versa. The response includes a `DrgAttachment` object with its own OCID. For more
-* information about DRGs, see
+     * Attaches the specified DRG to the specified network resource. A VCN can be attached to only one DRG
+* at a time, but a DRG can be attached to more than one VCN. The response includes a `DrgAttachment`
+* object with its own [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm). For more information about DRGs, see
 * [Dynamic Routing Gateways (DRGs)](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm).
 * <p>
 You may optionally specify a *display name* for the attachment, otherwise a default is provided.
 * It does not have to be unique, and you can change it. Avoid entering confidential information.
 * <p>
-For the purposes of access control, the DRG attachment is automatically placed into the same compartment
-* as the VCN. For more information about compartments and access control, see
+For the purposes of access control, the DRG attachment is automatically placed into the currently selected compartment.
+* For more information about compartments and access control, see
 * [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
 * 
      * @param CreateDrgAttachmentRequest
@@ -15461,6 +15657,146 @@ For the purposes of access control, the DRG attachment is automatically placed i
   }
 
   /**
+   * Creates a new route distribution for the specified DRG.
+   * Assign the route distribution as an import distribution to a DRG route table using the `UpdateDrgRouteTable` or `CreateDrgRouteTable` operations.
+   * Assign the route distribution as an export distribution to a DRG attachment
+   * using the `UpdateDrgAttachment` or `CreateDrgAttachment` operations.
+   *
+   * @param CreateDrgRouteDistributionRequest
+   * @return CreateDrgRouteDistributionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateDrgRouteDistribution.ts.html |here} to see how to use CreateDrgRouteDistribution API.
+   */
+  public async createDrgRouteDistribution(
+    createDrgRouteDistributionRequest: requests.CreateDrgRouteDistributionRequest
+  ): Promise<responses.CreateDrgRouteDistributionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createDrgRouteDistribution.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createDrgRouteDistributionRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgRouteDistributions",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDrgRouteDistributionRequest.createDrgRouteDistributionDetails,
+        "CreateDrgRouteDistributionDetails",
+        models.CreateDrgRouteDistributionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createDrgRouteDistributionRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDrgRouteDistributionResponse>{},
+        body: await response.json(),
+        bodyKey: "drgRouteDistribution",
+        bodyModel: "model.DrgRouteDistribution",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new DRG route table for the specified DRG. Assign the DRG route table to a DRG attachment
+   * using the `UpdateDrgAttachment` or `CreateDrgAttachment` operations.
+   *
+   * @param CreateDrgRouteTableRequest
+   * @return CreateDrgRouteTableResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateDrgRouteTable.ts.html |here} to see how to use CreateDrgRouteTable API.
+   */
+  public async createDrgRouteTable(
+    createDrgRouteTableRequest: requests.CreateDrgRouteTableRequest
+  ): Promise<responses.CreateDrgRouteTableResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createDrgRouteTable.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createDrgRouteTableRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgRouteTables",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDrgRouteTableRequest.createDrgRouteTableDetails,
+        "CreateDrgRouteTableDetails",
+        models.CreateDrgRouteTableDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createDrgRouteTableRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDrgRouteTableResponse>{},
+        body: await response.json(),
+        bodyKey: "drgRouteTable",
+        bodyModel: "model.DrgRouteTable",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Creates a new IPSec connection between the specified DRG and CPE. For more information, see
 * [IPSec VPNs](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingIPsec.htm).
 * <p>
@@ -15470,13 +15806,12 @@ If you configure at least one tunnel to use static routing, then in the request 
 * the static routes. For more information, see the important note in
 * {@link IPSecConnection}.
 * <p>
-For the purposes of access control, you must provide the OCID of the compartment where you want the
+For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment where you want the
 * IPSec connection to reside. Notice that the IPSec connection doesn't have to be in the same compartment
 * as the DRG, CPE, or other Networking Service components. If you're not sure which compartment to
 * use, put the IPSec connection in the same compartment as the DRG. For more information about
 * compartments and access control, see
 * [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
-* For information about OCIDs, see [Resource Identifiers](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 * <p>
 You may optionally specify a *display name* for the IPSec connection, otherwise a default is provided.
 * It does not have to be unique, and you can change it. Avoid entering confidential information.
@@ -15560,12 +15895,11 @@ For each tunnel, you need the IP address of Oracle's VPN headend and the shared 
      * Creates a new internet gateway for the specified VCN. For more information, see
 * [Access to the Internet](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingIGs.htm).
 * <p>
-For the purposes of access control, you must provide the OCID of the compartment where you want the Internet
+For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment where you want the Internet
 * Gateway to reside. Notice that the internet gateway doesn't have to be in the same compartment as the VCN or
 * other Networking Service components. If you're not sure which compartment to use, put the Internet
 * Gateway in the same compartment with the VCN. For more information about compartments and access control, see
-* [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm). For information about OCIDs, see
-* [Resource Identifiers](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+* [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
 * <p>
 You may optionally specify a *display name* for the internet gateway, otherwise a default is provided. It
 * does not have to be unique, and you can change it. Avoid entering confidential information.
@@ -17155,8 +17489,8 @@ This is an asynchronous operation. The state of the set of options will switch t
   }
 
   /**
-   * Detaches a DRG from a VCN by deleting the corresponding `DrgAttachment`. This is an asynchronous
-   * operation. The attachment's `lifecycleState` will change to DETACHING temporarily until the attachment
+   * Detaches a DRG from a network resource by deleting the corresponding `DrgAttachment` resource. This is an asynchronous
+   * operation. The attachment's `lifecycleState` will temporarily change to DETACHING until the attachment
    * is completely removed.
    *
    * @param DeleteDrgAttachmentRequest
@@ -17198,6 +17532,122 @@ This is an asynchronous operation. The state of the set of options will switch t
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDrgAttachmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Deletes the specified route distribution. You can't delete a route distribution currently in use by a DRG attachment or DRG route table.
+* <p>
+Remove the DRG route distribution from a DRG attachment or DRG route table by using the \"RemoveExportDrgRouteDistribution\" or \"RemoveImportDrgRouteDistribution' operations.
+* 
+     * @param DeleteDrgRouteDistributionRequest
+     * @return DeleteDrgRouteDistributionResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteDrgRouteDistribution.ts.html |here} to see how to use DeleteDrgRouteDistribution API.
+     */
+  public async deleteDrgRouteDistribution(
+    deleteDrgRouteDistributionRequest: requests.DeleteDrgRouteDistributionRequest
+  ): Promise<responses.DeleteDrgRouteDistributionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteDrgRouteDistribution.");
+    const pathParams = {
+      "{drgRouteDistributionId}": deleteDrgRouteDistributionRequest.drgRouteDistributionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDrgRouteDistributionRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgRouteDistributions/{drgRouteDistributionId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteDrgRouteDistributionRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDrgRouteDistributionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified DRG route table. There must not be any DRG attachments assigned.
+   *
+   * @param DeleteDrgRouteTableRequest
+   * @return DeleteDrgRouteTableResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteDrgRouteTable.ts.html |here} to see how to use DeleteDrgRouteTable API.
+   */
+  public async deleteDrgRouteTable(
+    deleteDrgRouteTableRequest: requests.DeleteDrgRouteTableRequest
+  ): Promise<responses.DeleteDrgRouteTableResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteDrgRouteTable.");
+    const pathParams = {
+      "{drgRouteTableId}": deleteDrgRouteTableRequest.drgRouteTableId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDrgRouteTableRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgRouteTables/{drgRouteTableId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteDrgRouteTableRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDrgRouteTableResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -17339,7 +17789,7 @@ This is an asynchronous operation. The gateway's `lifecycleState` will change to
   }
 
   /**
-   * Unassigns and deletes the specified IPv6. You must specify the object's OCID.
+   * Unassigns and deletes the specified IPv6. You must specify the object's [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    * The IPv6 address is returned to the subnet's pool of available addresses.
    *
    * @param DeleteIpv6Request
@@ -18324,6 +18774,101 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   }
 
   /**
+   * Returns a complete list of DRG attachments that belong to a particular DRG.
+   *
+   * @param GetAllDrgAttachmentsRequest
+   * @return GetAllDrgAttachmentsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetAllDrgAttachments.ts.html |here} to see how to use GetAllDrgAttachments API.
+   */
+  public async getAllDrgAttachments(
+    getAllDrgAttachmentsRequest: requests.GetAllDrgAttachmentsRequest
+  ): Promise<responses.GetAllDrgAttachmentsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getAllDrgAttachments.");
+    const pathParams = {
+      "{drgId}": getAllDrgAttachmentsRequest.drgId
+    };
+
+    const queryParams = {
+      "limit": getAllDrgAttachmentsRequest.limit,
+      "page": getAllDrgAttachmentsRequest.page,
+      "attachmentType": getAllDrgAttachmentsRequest.attachmentType,
+      "isCrossTenancy": getAllDrgAttachmentsRequest.isCrossTenancy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAllDrgAttachmentsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgs/{drgId}/actions/getAllDrgAttachments",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getAllDrgAttachmentsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAllDrgAttachmentsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "DrgAttachmentInfo[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DrgAttachmentInfo objects
+   * contained in responses from the getAllDrgAttachments operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public getAllAllDrgAttachments(
+    request: requests.GetAllDrgAttachmentsRequest
+  ): AsyncIterableIterator<models.DrgAttachmentInfo> {
+    return paginateRecords(request, req => this.getAllDrgAttachments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the getAllDrgAttachments operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public getAllAllDrgAttachmentsResponses(
+    request: requests.GetAllDrgAttachmentsRequest
+  ): AsyncIterableIterator<responses.GetAllDrgAttachmentsResponse> {
+    return paginateResponses(request, req => this.getAllDrgAttachments(req));
+  }
+
+  /**
    * Gets the `ByoipRange` resource. You must specify the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * @param GetByoipRangeRequest
@@ -18957,7 +19502,7 @@ The operation returns configuration information for *all* of the
   }
 
   /**
-   * Gets the information for the specified `DrgAttachment`.
+   * Gets the `DrgAttachment` resource.
    * @param GetDrgAttachmentRequest
    * @return GetDrgAttachmentResponse
    * @throws OciError when an error occurs
@@ -19065,6 +19610,131 @@ The operation returns configuration information for *all* of the
         bodyKey: "drgRedundancyStatus",
         bodyModel: "model.DrgRedundancyStatus",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the specified route distribution's information.
+   * @param GetDrgRouteDistributionRequest
+   * @return GetDrgRouteDistributionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetDrgRouteDistribution.ts.html |here} to see how to use GetDrgRouteDistribution API.
+   */
+  public async getDrgRouteDistribution(
+    getDrgRouteDistributionRequest: requests.GetDrgRouteDistributionRequest
+  ): Promise<responses.GetDrgRouteDistributionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getDrgRouteDistribution.");
+    const pathParams = {
+      "{drgRouteDistributionId}": getDrgRouteDistributionRequest.drgRouteDistributionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgRouteDistributions/{drgRouteDistributionId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getDrgRouteDistributionRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDrgRouteDistributionResponse>{},
+        body: await response.json(),
+        bodyKey: "drgRouteDistribution",
+        bodyModel: "model.DrgRouteDistribution",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the specified DRG route table's information.
+   * @param GetDrgRouteTableRequest
+   * @return GetDrgRouteTableResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetDrgRouteTable.ts.html |here} to see how to use GetDrgRouteTable API.
+   */
+  public async getDrgRouteTable(
+    getDrgRouteTableRequest: requests.GetDrgRouteTableRequest
+  ): Promise<responses.GetDrgRouteTableResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getDrgRouteTable.");
+    const pathParams = {
+      "{drgRouteTableId}": getDrgRouteTableRequest.drgRouteTableId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgRouteTables/{drgRouteTableId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getDrgRouteTableRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDrgRouteTableResponse>{},
+        body: await response.json(),
+        bodyKey: "drgRouteTable",
+        bodyModel: "model.DrgRouteTable",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -19677,7 +20347,7 @@ The operation returns configuration information for all tunnels in the single sp
   }
 
   /**
-   * Gets the specified IPv6. You must specify the object's OCID.
+   * Gets the specified IPv6. You must specify the object's [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    * Alternatively, you can get the object by using
    * {@link #listIpv6s(ListIpv6sRequest) listIpv6s}
    * with the IPv6 address (for example, 2001:0db8:0123:1111:98fe:dcba:9876:4321) and subnet OCID.
@@ -19918,6 +20588,74 @@ To list the security rules in an NSG, see
         body: await response.json(),
         bodyKey: "networkSecurityGroup",
         bodyModel: "model.NetworkSecurityGroup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a virtual networking topology for the current region.
+   * @param GetNetworkingTopologyRequest
+   * @return GetNetworkingTopologyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetNetworkingTopology.ts.html |here} to see how to use GetNetworkingTopology API.
+   */
+  public async getNetworkingTopology(
+    getNetworkingTopologyRequest: requests.GetNetworkingTopologyRequest
+  ): Promise<responses.GetNetworkingTopologyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getNetworkingTopology.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": getNetworkingTopologyRequest.compartmentId,
+      "accessLevel": getNetworkingTopologyRequest.accessLevel,
+      "queryCompartmentSubtree": getNetworkingTopologyRequest.queryCompartmentSubtree
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getNetworkingTopologyRequest.opcRequestId,
+      "if-none-match": getNetworkingTopologyRequest.ifNoneMatch,
+      "cache-control": getNetworkingTopologyRequest.cacheControl
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/networkingTopology",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getNetworkingTopologyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetNetworkingTopologyResponse>{},
+        body: await response.json(),
+        bodyKey: "networkingTopology",
+        bodyModel: "model.NetworkingTopology",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -20814,6 +21552,65 @@ The operation returns configuration information for only the specified IPSec tun
   }
 
   /**
+   * Returns the DRG upgrade status. The status can be not updated, in progress, or updated. Also indicates how much of the upgrade is completed.
+   *
+   * @param GetUpgradeStatusRequest
+   * @return GetUpgradeStatusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetUpgradeStatus.ts.html |here} to see how to use GetUpgradeStatus API.
+   */
+  public async getUpgradeStatus(
+    getUpgradeStatusRequest: requests.GetUpgradeStatusRequest
+  ): Promise<responses.GetUpgradeStatusResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getUpgradeStatus.");
+    const pathParams = {
+      "{drgId}": getUpgradeStatusRequest.drgId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getUpgradeStatusRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgs/{drgId}/actions/upgradeStatus",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getUpgradeStatusRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetUpgradeStatusResponse>{},
+        body: await response.json(),
+        bodyKey: "upgradeStatus",
+        bodyModel: "model.UpgradeStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the specified VCN's information.
    * @param GetVcnRequest
    * @return GetVcnResponse
@@ -20917,6 +21714,74 @@ The operation returns configuration information for only the specified IPSec tun
         body: await response.json(),
         bodyKey: "vcnDnsResolverAssociation",
         bodyModel: "model.VcnDnsResolverAssociation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a virtual network topology for a given VCN.
+   * @param GetVcnTopologyRequest
+   * @return GetVcnTopologyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVcnTopology.ts.html |here} to see how to use GetVcnTopology API.
+   */
+  public async getVcnTopology(
+    getVcnTopologyRequest: requests.GetVcnTopologyRequest
+  ): Promise<responses.GetVcnTopologyResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getVcnTopology.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": getVcnTopologyRequest.compartmentId,
+      "accessLevel": getVcnTopologyRequest.accessLevel,
+      "queryCompartmentSubtree": getVcnTopologyRequest.queryCompartmentSubtree,
+      "vcnId": getVcnTopologyRequest.vcnId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getVcnTopologyRequest.opcRequestId,
+      "if-none-match": getVcnTopologyRequest.ifNoneMatch,
+      "cache-control": getVcnTopologyRequest.cacheControl
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vcnTopology",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getVcnTopologyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetVcnTopologyResponse>{},
+        body: await response.json(),
+        bodyKey: "vcnTopology",
+        bodyModel: "model.VcnTopology",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -21335,7 +22200,7 @@ The operation returns configuration information for only the specified IPSec tun
 * <p>
 If you want to generate CPE configuration content for one of the returned CPE device types,
 * ensure that the {@link Cpe} object's `cpeDeviceShapeId` attribute is set
-* to the CPE device type's OCID (returned by this operation).
+* to the CPE device type's [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) (returned by this operation).
 * <p>
 For information about generating CPE configuration content, see these operations:
 * <p>
@@ -21707,8 +22572,69 @@ For information about generating CPE configuration content, see these operations
   }
 
   /**
+   * Lists the Cross Connect mapping Details for the specified
+   * virtual circuit.
+   *
+   * @param ListCrossConnectMappingsRequest
+   * @return ListCrossConnectMappingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListCrossConnectMappings.ts.html |here} to see how to use ListCrossConnectMappings API.
+   */
+  public async listCrossConnectMappings(
+    listCrossConnectMappingsRequest: requests.ListCrossConnectMappingsRequest
+  ): Promise<responses.ListCrossConnectMappingsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listCrossConnectMappings.");
+    const pathParams = {
+      "{virtualCircuitId}": listCrossConnectMappingsRequest.virtualCircuitId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCrossConnectMappingsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/virtualCircuits/{virtualCircuitId}/crossConnectMappings",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listCrossConnectMappingsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCrossConnectMappingsResponse>{},
+        body: await response.json(),
+        bodyKey: "crossConnectMappingDetailsCollection",
+        bodyModel: "model.CrossConnectMappingDetailsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists the cross-connects in the specified compartment. You can filter the list
-   * by specifying the OCID of a cross-connect group.
+   * by specifying the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a cross-connect group.
    *
    * @param ListCrossConnectsRequest
    * @return ListCrossConnectsResponse
@@ -21994,14 +22920,18 @@ For information about generating CPE configuration content, see these operations
   }
 
   /**
-   * Lists the `DrgAttachment` objects for the specified compartment. You can filter the
-   * results by VCN or DRG.
-   *
-   * @param ListDrgAttachmentsRequest
-   * @return ListDrgAttachmentsResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDrgAttachments.ts.html |here} to see how to use ListDrgAttachments API.
-   */
+     * Lists the `DrgAttachment` resource for the specified compartment. You can filter the
+* results by DRG, attached network, attachment type, DRG route table or
+* VCN route table.
+* <p>
+The LIST API lists DRG attachments by attachment type. It will default to list VCN attachments,
+* but you may request to list ALL attachments of ALL types. 
+* 
+     * @param ListDrgAttachmentsRequest
+     * @return ListDrgAttachmentsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDrgAttachments.ts.html |here} to see how to use ListDrgAttachments API.
+     */
   public async listDrgAttachments(
     listDrgAttachmentsRequest: requests.ListDrgAttachmentsRequest
   ): Promise<responses.ListDrgAttachmentsResponse> {
@@ -22014,7 +22944,14 @@ For information about generating CPE configuration content, see these operations
       "vcnId": listDrgAttachmentsRequest.vcnId,
       "drgId": listDrgAttachmentsRequest.drgId,
       "limit": listDrgAttachmentsRequest.limit,
-      "page": listDrgAttachmentsRequest.page
+      "page": listDrgAttachmentsRequest.page,
+      "networkId": listDrgAttachmentsRequest.networkId,
+      "attachmentType": listDrgAttachmentsRequest.attachmentType,
+      "drgRouteTableId": listDrgAttachmentsRequest.drgRouteTableId,
+      "displayName": listDrgAttachmentsRequest.displayName,
+      "sortBy": listDrgAttachmentsRequest.sortBy,
+      "sortOrder": listDrgAttachmentsRequest.sortOrder,
+      "lifecycleState": listDrgAttachmentsRequest.lifecycleState
     };
 
     let headerParams = {
@@ -22085,6 +23022,388 @@ For information about generating CPE configuration content, see these operations
     request: requests.ListDrgAttachmentsRequest
   ): AsyncIterableIterator<responses.ListDrgAttachmentsResponse> {
     return paginateResponses(request, req => this.listDrgAttachments(req));
+  }
+
+  /**
+   * Lists the statements for the specified route distribution.
+   * @param ListDrgRouteDistributionStatementsRequest
+   * @return ListDrgRouteDistributionStatementsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDrgRouteDistributionStatements.ts.html |here} to see how to use ListDrgRouteDistributionStatements API.
+   */
+  public async listDrgRouteDistributionStatements(
+    listDrgRouteDistributionStatementsRequest: requests.ListDrgRouteDistributionStatementsRequest
+  ): Promise<responses.ListDrgRouteDistributionStatementsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#listDrgRouteDistributionStatements."
+      );
+    const pathParams = {
+      "{drgRouteDistributionId}": listDrgRouteDistributionStatementsRequest.drgRouteDistributionId
+    };
+
+    const queryParams = {
+      "limit": listDrgRouteDistributionStatementsRequest.limit,
+      "page": listDrgRouteDistributionStatementsRequest.page,
+      "sortBy": listDrgRouteDistributionStatementsRequest.sortBy,
+      "sortOrder": listDrgRouteDistributionStatementsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgRouteDistributions/{drgRouteDistributionId}/drgRouteDistributionStatements",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listDrgRouteDistributionStatementsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDrgRouteDistributionStatementsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "DrgRouteDistributionStatement[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DrgRouteDistributionStatement objects
+   * contained in responses from the listDrgRouteDistributionStatements operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDrgRouteDistributionStatements(
+    request: requests.ListDrgRouteDistributionStatementsRequest
+  ): AsyncIterableIterator<models.DrgRouteDistributionStatement> {
+    return paginateRecords(request, req => this.listDrgRouteDistributionStatements(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDrgRouteDistributionStatements operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDrgRouteDistributionStatementsResponses(
+    request: requests.ListDrgRouteDistributionStatementsRequest
+  ): AsyncIterableIterator<responses.ListDrgRouteDistributionStatementsResponse> {
+    return paginateResponses(request, req => this.listDrgRouteDistributionStatements(req));
+  }
+
+  /**
+     * Lists the route distributions in the specified DRG.
+* <p>
+To retrieve the statements in a distribution, use the
+* ListDrgRouteDistributionStatements operation.
+* 
+     * @param ListDrgRouteDistributionsRequest
+     * @return ListDrgRouteDistributionsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDrgRouteDistributions.ts.html |here} to see how to use ListDrgRouteDistributions API.
+     */
+  public async listDrgRouteDistributions(
+    listDrgRouteDistributionsRequest: requests.ListDrgRouteDistributionsRequest
+  ): Promise<responses.ListDrgRouteDistributionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listDrgRouteDistributions.");
+    const pathParams = {};
+
+    const queryParams = {
+      "drgId": listDrgRouteDistributionsRequest.drgId,
+      "limit": listDrgRouteDistributionsRequest.limit,
+      "page": listDrgRouteDistributionsRequest.page,
+      "displayName": listDrgRouteDistributionsRequest.displayName,
+      "sortBy": listDrgRouteDistributionsRequest.sortBy,
+      "sortOrder": listDrgRouteDistributionsRequest.sortOrder,
+      "lifecycleState": listDrgRouteDistributionsRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgRouteDistributions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listDrgRouteDistributionsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDrgRouteDistributionsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "DrgRouteDistribution[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DrgRouteDistribution objects
+   * contained in responses from the listDrgRouteDistributions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDrgRouteDistributions(
+    request: requests.ListDrgRouteDistributionsRequest
+  ): AsyncIterableIterator<models.DrgRouteDistribution> {
+    return paginateRecords(request, req => this.listDrgRouteDistributions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDrgRouteDistributions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDrgRouteDistributionsResponses(
+    request: requests.ListDrgRouteDistributionsRequest
+  ): AsyncIterableIterator<responses.ListDrgRouteDistributionsResponse> {
+    return paginateResponses(request, req => this.listDrgRouteDistributions(req));
+  }
+
+  /**
+   * Lists the route rules in the specified DRG route table.
+   * @param ListDrgRouteRulesRequest
+   * @return ListDrgRouteRulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDrgRouteRules.ts.html |here} to see how to use ListDrgRouteRules API.
+   */
+  public async listDrgRouteRules(
+    listDrgRouteRulesRequest: requests.ListDrgRouteRulesRequest
+  ): Promise<responses.ListDrgRouteRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listDrgRouteRules.");
+    const pathParams = {
+      "{drgRouteTableId}": listDrgRouteRulesRequest.drgRouteTableId
+    };
+
+    const queryParams = {
+      "limit": listDrgRouteRulesRequest.limit,
+      "page": listDrgRouteRulesRequest.page,
+      "routeType": listDrgRouteRulesRequest.routeType
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgRouteTables/{drgRouteTableId}/drgRouteRules",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listDrgRouteRulesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDrgRouteRulesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "DrgRouteRule[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DrgRouteRule objects
+   * contained in responses from the listDrgRouteRules operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDrgRouteRules(
+    request: requests.ListDrgRouteRulesRequest
+  ): AsyncIterableIterator<models.DrgRouteRule> {
+    return paginateRecords(request, req => this.listDrgRouteRules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDrgRouteRules operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDrgRouteRulesResponses(
+    request: requests.ListDrgRouteRulesRequest
+  ): AsyncIterableIterator<responses.ListDrgRouteRulesResponse> {
+    return paginateResponses(request, req => this.listDrgRouteRules(req));
+  }
+
+  /**
+     * Lists the DRG route tables for the specified DRG.
+* <p>
+Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
+* 
+     * @param ListDrgRouteTablesRequest
+     * @return ListDrgRouteTablesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDrgRouteTables.ts.html |here} to see how to use ListDrgRouteTables API.
+     */
+  public async listDrgRouteTables(
+    listDrgRouteTablesRequest: requests.ListDrgRouteTablesRequest
+  ): Promise<responses.ListDrgRouteTablesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listDrgRouteTables.");
+    const pathParams = {};
+
+    const queryParams = {
+      "drgId": listDrgRouteTablesRequest.drgId,
+      "limit": listDrgRouteTablesRequest.limit,
+      "page": listDrgRouteTablesRequest.page,
+      "displayName": listDrgRouteTablesRequest.displayName,
+      "sortBy": listDrgRouteTablesRequest.sortBy,
+      "sortOrder": listDrgRouteTablesRequest.sortOrder,
+      "importDrgRouteDistributionId": listDrgRouteTablesRequest.importDrgRouteDistributionId,
+      "lifecycleState": listDrgRouteTablesRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgRouteTables",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listDrgRouteTablesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDrgRouteTablesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "DrgRouteTable[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DrgRouteTable objects
+   * contained in responses from the listDrgRouteTables operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDrgRouteTables(
+    request: requests.ListDrgRouteTablesRequest
+  ): AsyncIterableIterator<models.DrgRouteTable> {
+    return paginateRecords(request, req => this.listDrgRouteTables(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDrgRouteTables operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDrgRouteTablesResponses(
+    request: requests.ListDrgRouteTablesRequest
+  ): AsyncIterableIterator<responses.ListDrgRouteTablesResponse> {
+    return paginateResponses(request, req => this.listDrgRouteTables(req));
   }
 
   /**
@@ -22180,7 +23499,7 @@ For information about generating CPE configuration content, see these operations
 * information so you can specify your desired provider and service
 * offering when you create a virtual circuit.
 * <p>
-For the compartment ID, provide the OCID of your tenancy (the root compartment).
+For the compartment ID, provide the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of your tenancy (the root compartment).
 * <p>
 For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
 * 
@@ -24606,6 +25925,264 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * Removes one or more route distribution statements from the specified route distribution's map.
+   *
+   * @param RemoveDrgRouteDistributionStatementsRequest
+   * @return RemoveDrgRouteDistributionStatementsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveDrgRouteDistributionStatements.ts.html |here} to see how to use RemoveDrgRouteDistributionStatements API.
+   */
+  public async removeDrgRouteDistributionStatements(
+    removeDrgRouteDistributionStatementsRequest: requests.RemoveDrgRouteDistributionStatementsRequest
+  ): Promise<responses.RemoveDrgRouteDistributionStatementsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#removeDrgRouteDistributionStatements."
+      );
+    const pathParams = {
+      "{drgRouteDistributionId}": removeDrgRouteDistributionStatementsRequest.drgRouteDistributionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/drgRouteDistributions/{drgRouteDistributionId}/actions/removeDrgRouteDistributionStatements",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeDrgRouteDistributionStatementsRequest.removeDrgRouteDistributionStatementsDetails,
+        "RemoveDrgRouteDistributionStatementsDetails",
+        models.RemoveDrgRouteDistributionStatementsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      removeDrgRouteDistributionStatementsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveDrgRouteDistributionStatementsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes one or more route rules from the specified DRG route table.
+   *
+   * @param RemoveDrgRouteRulesRequest
+   * @return RemoveDrgRouteRulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveDrgRouteRules.ts.html |here} to see how to use RemoveDrgRouteRules API.
+   */
+  public async removeDrgRouteRules(
+    removeDrgRouteRulesRequest: requests.RemoveDrgRouteRulesRequest
+  ): Promise<responses.RemoveDrgRouteRulesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#removeDrgRouteRules.");
+    const pathParams = {
+      "{drgRouteTableId}": removeDrgRouteRulesRequest.drgRouteTableId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgRouteTables/{drgRouteTableId}/actions/removeDrgRouteRules",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeDrgRouteRulesRequest.removeDrgRouteRulesDetails,
+        "RemoveDrgRouteRulesDetails",
+        models.RemoveDrgRouteRulesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      removeDrgRouteRulesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveDrgRouteRulesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes the export route distribution from the DRG attachment so no routes are advertised to it.
+   *
+   * @param RemoveExportDrgRouteDistributionRequest
+   * @return RemoveExportDrgRouteDistributionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveExportDrgRouteDistribution.ts.html |here} to see how to use RemoveExportDrgRouteDistribution API.
+   */
+  public async removeExportDrgRouteDistribution(
+    removeExportDrgRouteDistributionRequest: requests.RemoveExportDrgRouteDistributionRequest
+  ): Promise<responses.RemoveExportDrgRouteDistributionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#removeExportDrgRouteDistribution.");
+    const pathParams = {
+      "{drgAttachmentId}": removeExportDrgRouteDistributionRequest.drgAttachmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeExportDrgRouteDistributionRequest.opcRequestId,
+      "if-match": removeExportDrgRouteDistributionRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgAttachments/{drgAttachmentId}/actions/removeExportDrgRouteDistribution",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      removeExportDrgRouteDistributionRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveExportDrgRouteDistributionResponse>{},
+        body: await response.json(),
+        bodyKey: "drgAttachment",
+        bodyModel: "model.DrgAttachment",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes the import route distribution from the DRG route table so no routes are imported
+   * into it.
+   *
+   * @param RemoveImportDrgRouteDistributionRequest
+   * @return RemoveImportDrgRouteDistributionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveImportDrgRouteDistribution.ts.html |here} to see how to use RemoveImportDrgRouteDistribution API.
+   */
+  public async removeImportDrgRouteDistribution(
+    removeImportDrgRouteDistributionRequest: requests.RemoveImportDrgRouteDistributionRequest
+  ): Promise<responses.RemoveImportDrgRouteDistributionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#removeImportDrgRouteDistribution.");
+    const pathParams = {
+      "{drgRouteTableId}": removeImportDrgRouteDistributionRequest.drgRouteTableId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeImportDrgRouteDistributionRequest.opcRequestId,
+      "if-match": removeImportDrgRouteDistributionRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgRouteTables/{drgRouteTableId}/actions/removeImportDrgRouteDistribution",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      removeImportDrgRouteDistributionRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveImportDrgRouteDistributionResponse>{},
+        body: await response.json(),
+        bodyKey: "drgRouteTable",
+        bodyModel: "model.DrgRouteTable",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Removes one or more security rules from the specified network security group.
    *
    * @param RemoveNetworkSecurityGroupSecurityRulesRequest
@@ -25234,7 +26811,7 @@ Note that the `options` object you provide replaces the entire existing set of o
   }
 
   /**
-   * Updates the display name for the specified `DrgAttachment`.
+   * Updates the display name and routing information for the specified `DrgAttachment`.
    * Avoid entering confidential information.
    *
    * @param UpdateDrgAttachmentRequest
@@ -25284,6 +26861,277 @@ Note that the `options` object you provide replaces the entire existing set of o
         body: await response.json(),
         bodyKey: "drgAttachment",
         bodyModel: "model.DrgAttachment",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified route distribution
+   *
+   * @param UpdateDrgRouteDistributionRequest
+   * @return UpdateDrgRouteDistributionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateDrgRouteDistribution.ts.html |here} to see how to use UpdateDrgRouteDistribution API.
+   */
+  public async updateDrgRouteDistribution(
+    updateDrgRouteDistributionRequest: requests.UpdateDrgRouteDistributionRequest
+  ): Promise<responses.UpdateDrgRouteDistributionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateDrgRouteDistribution.");
+    const pathParams = {
+      "{drgRouteDistributionId}": updateDrgRouteDistributionRequest.drgRouteDistributionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDrgRouteDistributionRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgRouteDistributions/{drgRouteDistributionId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDrgRouteDistributionRequest.updateDrgRouteDistributionDetails,
+        "UpdateDrgRouteDistributionDetails",
+        models.UpdateDrgRouteDistributionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateDrgRouteDistributionRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDrgRouteDistributionResponse>{},
+        body: await response.json(),
+        bodyKey: "drgRouteDistribution",
+        bodyModel: "model.DrgRouteDistribution",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more route distribution statements in the specified route distribution.
+   *
+   * @param UpdateDrgRouteDistributionStatementsRequest
+   * @return UpdateDrgRouteDistributionStatementsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateDrgRouteDistributionStatements.ts.html |here} to see how to use UpdateDrgRouteDistributionStatements API.
+   */
+  public async updateDrgRouteDistributionStatements(
+    updateDrgRouteDistributionStatementsRequest: requests.UpdateDrgRouteDistributionStatementsRequest
+  ): Promise<responses.UpdateDrgRouteDistributionStatementsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#updateDrgRouteDistributionStatements."
+      );
+    const pathParams = {
+      "{drgRouteDistributionId}": updateDrgRouteDistributionStatementsRequest.drgRouteDistributionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/drgRouteDistributions/{drgRouteDistributionId}/actions/updateDrgRouteDistributionStatements",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDrgRouteDistributionStatementsRequest.updateDrgRouteDistributionStatementsDetails,
+        "UpdateDrgRouteDistributionStatementsDetails",
+        models.UpdateDrgRouteDistributionStatementsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateDrgRouteDistributionStatementsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDrgRouteDistributionStatementsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "DrgRouteDistributionStatement[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more route rules in the specified DRG route table.
+   *
+   * @param UpdateDrgRouteRulesRequest
+   * @return UpdateDrgRouteRulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateDrgRouteRules.ts.html |here} to see how to use UpdateDrgRouteRules API.
+   */
+  public async updateDrgRouteRules(
+    updateDrgRouteRulesRequest: requests.UpdateDrgRouteRulesRequest
+  ): Promise<responses.UpdateDrgRouteRulesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateDrgRouteRules.");
+    const pathParams = {
+      "{drgRouteTableId}": updateDrgRouteRulesRequest.drgRouteTableId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgRouteTables/{drgRouteTableId}/actions/updateDrgRouteRules",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDrgRouteRulesRequest.updateDrgRouteRulesDetails,
+        "UpdateDrgRouteRulesDetails",
+        models.UpdateDrgRouteRulesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateDrgRouteRulesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDrgRouteRulesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "DrgRouteRule[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified DRG route table.
+   *
+   * @param UpdateDrgRouteTableRequest
+   * @return UpdateDrgRouteTableResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateDrgRouteTable.ts.html |here} to see how to use UpdateDrgRouteTable API.
+   */
+  public async updateDrgRouteTable(
+    updateDrgRouteTableRequest: requests.UpdateDrgRouteTableRequest
+  ): Promise<responses.UpdateDrgRouteTableResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateDrgRouteTable.");
+    const pathParams = {
+      "{drgRouteTableId}": updateDrgRouteTableRequest.drgRouteTableId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDrgRouteTableRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgRouteTables/{drgRouteTableId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDrgRouteTableRequest.updateDrgRouteTableDetails,
+        "UpdateDrgRouteTableDetails",
+        models.UpdateDrgRouteTableDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateDrgRouteTableRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDrgRouteTableResponse>{},
+        body: await response.json(),
+        bodyKey: "drgRouteTable",
+        bodyModel: "model.DrgRouteTable",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -26953,6 +28801,69 @@ To change the list of public IP prefixes for a public virtual circuit,
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Upgrades the DRG. After upgrade, you can control routing inside your DRG
+   * via DRG attachments, route distributions, and DRG route tables.
+   *
+   * @param UpgradeDrgRequest
+   * @return UpgradeDrgResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpgradeDrg.ts.html |here} to see how to use UpgradeDrg API.
+   */
+  public async upgradeDrg(
+    upgradeDrgRequest: requests.UpgradeDrgRequest
+  ): Promise<responses.UpgradeDrgResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#upgradeDrg.");
+    const pathParams = {
+      "{drgId}": upgradeDrgRequest.drgId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": upgradeDrgRequest.opcRequestId,
+      "opc-retry-token": upgradeDrgRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgs/{drgId}/actions/upgrade",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      upgradeDrgRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpgradeDrgResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
