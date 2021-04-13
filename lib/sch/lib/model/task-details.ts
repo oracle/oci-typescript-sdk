@@ -34,6 +34,11 @@ export namespace TaskDetails {
 
     if ("kind" in obj && obj.kind) {
       switch (obj.kind) {
+        case "function":
+          return model.FunctionTaskDetails.getJsonObj(
+            <model.FunctionTaskDetails>(<object>jsonObj),
+            true
+          );
         case "logRule":
           return model.LogRuleTaskDetails.getJsonObj(
             <model.LogRuleTaskDetails>(<object>jsonObj),

@@ -83,6 +83,16 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
    * The date and time the certificate was created, expressed in RFC 3339 timestamp format.
    */
   "timeCreated"?: Date;
+  /**
+   * This indicates whether trust verification was disabled during the creation of SSL certificate.
+   * If `true` SSL certificate trust verification was disabled and this SSL certificate is most likely self-signed.
+   *
+   */
+  "isTrustVerificationDisabled"?: boolean;
+  /**
+   * The data of the SSL certificate.
+   */
+  "certificateData"?: string;
 }
 
 export namespace Certificate {

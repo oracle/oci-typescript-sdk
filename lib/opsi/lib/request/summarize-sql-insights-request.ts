@@ -24,15 +24,20 @@ export interface SummarizeSqlInsightsRequest extends common.BaseRequest {
   "compartmentId": string;
   /**
    * Filter by one or more database type.
-   * Possible values are ADW-S, ATP-S, ADW-D, ATP-D
+   * Possible values are ADW-S, ATP-S, ADW-D, ATP-D, EXTERNAL-PDB, EXTERNAL-NONCDB.
    *
    */
   "databaseType"?: Array<SummarizeSqlInsightsRequest.DatabaseType>;
   /**
-   * Optional list of database [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Optional list of database [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the associated DBaaS entity.
    *
    */
   "databaseId"?: Array<string>;
+  /**
+   * Optional list of database insight resource [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database insight resource.
+   *
+   */
+  "id"?: Array<string>;
   /**
    * Filter sqls by percentage of db time.
    *
@@ -83,6 +88,8 @@ export namespace SummarizeSqlInsightsRequest {
     AdwS = "ADW-S",
     AtpS = "ATP-S",
     AdwD = "ADW-D",
-    AtpD = "ATP-D"
+    AtpD = "ATP-D",
+    ExternalPdb = "EXTERNAL-PDB",
+    ExternalNoncdb = "EXTERNAL-NONCDB"
   }
 }

@@ -933,6 +933,73 @@ Use the {@link WorkRequest} operations to track the
   }
 
   /**
+   * Lists supported SKUs. HHOUR, MONTH, ONE_YEAR and THREE_YEARS supported by the Oracle Cloud
+   * VMware Solution.
+   *
+   * @param ListSupportedSkusRequest
+   * @return ListSupportedSkusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListSupportedSkus.ts.html |here} to see how to use ListSupportedSkus API.
+   */
+  public async listSupportedSkus(
+    listSupportedSkusRequest: requests.ListSupportedSkusRequest
+  ): Promise<responses.ListSupportedSkusResponse> {
+    if (this.logger) this.logger.debug("Calling operation SddcClient#listSupportedSkus.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSupportedSkusRequest.compartmentId,
+      "limit": listSupportedSkusRequest.limit,
+      "page": listSupportedSkusRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSupportedSkusRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/supportedSkus",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listSupportedSkusRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSupportedSkusResponse>{},
+        body: await response.json(),
+        bodyKey: "supportedSkuSummaryCollection",
+        bodyModel: "model.SupportedSkuSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists the versions of bundled VMware software supported by the Oracle Cloud
    * VMware Solution.
    *

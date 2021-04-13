@@ -71,7 +71,7 @@ export interface ServiceConnector {
    *
    */
   "lifecyleDetails"?: string;
-  "source"?: model.LoggingSourceDetails;
+  "source"?: model.LoggingSourceDetails | model.StreamingSourceDetails;
   /**
    * The list of tasks.
    *

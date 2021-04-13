@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "1.18.1",
+  "version": "1.19.0",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -92,7 +92,8 @@
     "oci-apmtraces": "file:lib/apmtraces",
     "oci-goldengate": "file:lib/goldengate",
     "oci-networkloadbalancer": "file:lib/networkloadbalancer",
-    "oci-vulnerabilityscanning": "file:lib/vulnerabilityscanning"
+    "oci-vulnerabilityscanning": "file:lib/vulnerabilityscanning",
+    "oci-databasemigration": "file:lib/databasemigration"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

@@ -29,10 +29,15 @@ export interface ListSqlTextsRequest extends common.BaseRequest {
    */
   "sqlIdentifier": Array<string>;
   /**
-   * Optional list of database [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Optional list of database [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the assosicated DBaaS entity.
    *
    */
   "databaseId"?: Array<string>;
+  /**
+   * Optional list of database [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database insight resource.
+   *
+   */
+  "id"?: Array<string>;
   /**
    * For list pagination. The value of the `opc-next-page` response header from
    * the previous \"List\" call. For important details about how pagination works,

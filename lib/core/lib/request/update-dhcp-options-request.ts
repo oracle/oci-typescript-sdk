@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface UpdateDhcpOptionsRequest extends common.BaseRequest {
   /**
-   * The OCID for the set of DHCP options.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) for the set of DHCP options.
    */
   "dhcpId": string;
   /**

@@ -1,6 +1,6 @@
 /**
  * Operations Insights API
- * Use the Operations Insights API to perform data extraction operations to obtain database 
+ * Use the Operations Insights API to perform data extraction operations to obtain database
 resource utilization, performance statistics, and reference information. For more information,
 see [About Oracle Cloud Infrastructure Operations Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
 
@@ -14,6 +14,46 @@ see [About Oracle Cloud Infrastructure Operations Insights](https://docs.cloud.o
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeDatabaseInsightCompartmentRequest from "./change-database-insight-compartment-request";
+export import ChangeDatabaseInsightCompartmentRequest = ChangeDatabaseInsightCompartmentRequest.ChangeDatabaseInsightCompartmentRequest;
+import * as ChangeEnterpriseManagerBridgeCompartmentRequest from "./change-enterprise-manager-bridge-compartment-request";
+export import ChangeEnterpriseManagerBridgeCompartmentRequest = ChangeEnterpriseManagerBridgeCompartmentRequest.ChangeEnterpriseManagerBridgeCompartmentRequest;
+import * as ChangeHostInsightCompartmentRequest from "./change-host-insight-compartment-request";
+export import ChangeHostInsightCompartmentRequest = ChangeHostInsightCompartmentRequest.ChangeHostInsightCompartmentRequest;
+import * as CreateDatabaseInsightRequest from "./create-database-insight-request";
+export import CreateDatabaseInsightRequest = CreateDatabaseInsightRequest.CreateDatabaseInsightRequest;
+import * as CreateEnterpriseManagerBridgeRequest from "./create-enterprise-manager-bridge-request";
+export import CreateEnterpriseManagerBridgeRequest = CreateEnterpriseManagerBridgeRequest.CreateEnterpriseManagerBridgeRequest;
+import * as CreateHostInsightRequest from "./create-host-insight-request";
+export import CreateHostInsightRequest = CreateHostInsightRequest.CreateHostInsightRequest;
+import * as DeleteDatabaseInsightRequest from "./delete-database-insight-request";
+export import DeleteDatabaseInsightRequest = DeleteDatabaseInsightRequest.DeleteDatabaseInsightRequest;
+import * as DeleteEnterpriseManagerBridgeRequest from "./delete-enterprise-manager-bridge-request";
+export import DeleteEnterpriseManagerBridgeRequest = DeleteEnterpriseManagerBridgeRequest.DeleteEnterpriseManagerBridgeRequest;
+import * as DeleteHostInsightRequest from "./delete-host-insight-request";
+export import DeleteHostInsightRequest = DeleteHostInsightRequest.DeleteHostInsightRequest;
+import * as DisableDatabaseInsightRequest from "./disable-database-insight-request";
+export import DisableDatabaseInsightRequest = DisableDatabaseInsightRequest.DisableDatabaseInsightRequest;
+import * as DisableHostInsightRequest from "./disable-host-insight-request";
+export import DisableHostInsightRequest = DisableHostInsightRequest.DisableHostInsightRequest;
+import * as EnableDatabaseInsightRequest from "./enable-database-insight-request";
+export import EnableDatabaseInsightRequest = EnableDatabaseInsightRequest.EnableDatabaseInsightRequest;
+import * as EnableHostInsightRequest from "./enable-host-insight-request";
+export import EnableHostInsightRequest = EnableHostInsightRequest.EnableHostInsightRequest;
+import * as GetDatabaseInsightRequest from "./get-database-insight-request";
+export import GetDatabaseInsightRequest = GetDatabaseInsightRequest.GetDatabaseInsightRequest;
+import * as GetEnterpriseManagerBridgeRequest from "./get-enterprise-manager-bridge-request";
+export import GetEnterpriseManagerBridgeRequest = GetEnterpriseManagerBridgeRequest.GetEnterpriseManagerBridgeRequest;
+import * as GetHostInsightRequest from "./get-host-insight-request";
+export import GetHostInsightRequest = GetHostInsightRequest.GetHostInsightRequest;
+import * as GetWorkRequestRequest from "./get-work-request-request";
+export import GetWorkRequestRequest = GetWorkRequestRequest.GetWorkRequestRequest;
+import * as IngestDatabaseConfigurationRequest from "./ingest-database-configuration-request";
+export import IngestDatabaseConfigurationRequest = IngestDatabaseConfigurationRequest.IngestDatabaseConfigurationRequest;
+import * as IngestHostConfigurationRequest from "./ingest-host-configuration-request";
+export import IngestHostConfigurationRequest = IngestHostConfigurationRequest.IngestHostConfigurationRequest;
+import * as IngestHostMetricsRequest from "./ingest-host-metrics-request";
+export import IngestHostMetricsRequest = IngestHostMetricsRequest.IngestHostMetricsRequest;
 import * as IngestSqlBucketRequest from "./ingest-sql-bucket-request";
 export import IngestSqlBucketRequest = IngestSqlBucketRequest.IngestSqlBucketRequest;
 import * as IngestSqlPlanLinesRequest from "./ingest-sql-plan-lines-request";
@@ -22,12 +62,26 @@ import * as IngestSqlTextRequest from "./ingest-sql-text-request";
 export import IngestSqlTextRequest = IngestSqlTextRequest.IngestSqlTextRequest;
 import * as ListDatabaseInsightsRequest from "./list-database-insights-request";
 export import ListDatabaseInsightsRequest = ListDatabaseInsightsRequest.ListDatabaseInsightsRequest;
+import * as ListEnterpriseManagerBridgesRequest from "./list-enterprise-manager-bridges-request";
+export import ListEnterpriseManagerBridgesRequest = ListEnterpriseManagerBridgesRequest.ListEnterpriseManagerBridgesRequest;
+import * as ListHostInsightsRequest from "./list-host-insights-request";
+export import ListHostInsightsRequest = ListHostInsightsRequest.ListHostInsightsRequest;
+import * as ListHostedEntitiesRequest from "./list-hosted-entities-request";
+export import ListHostedEntitiesRequest = ListHostedEntitiesRequest.ListHostedEntitiesRequest;
+import * as ListImportableEnterpriseManagerEntitiesRequest from "./list-importable-enterprise-manager-entities-request";
+export import ListImportableEnterpriseManagerEntitiesRequest = ListImportableEnterpriseManagerEntitiesRequest.ListImportableEnterpriseManagerEntitiesRequest;
 import * as ListSqlPlansRequest from "./list-sql-plans-request";
 export import ListSqlPlansRequest = ListSqlPlansRequest.ListSqlPlansRequest;
 import * as ListSqlSearchesRequest from "./list-sql-searches-request";
 export import ListSqlSearchesRequest = ListSqlSearchesRequest.ListSqlSearchesRequest;
 import * as ListSqlTextsRequest from "./list-sql-texts-request";
 export import ListSqlTextsRequest = ListSqlTextsRequest.ListSqlTextsRequest;
+import * as ListWorkRequestErrorsRequest from "./list-work-request-errors-request";
+export import ListWorkRequestErrorsRequest = ListWorkRequestErrorsRequest.ListWorkRequestErrorsRequest;
+import * as ListWorkRequestLogsRequest from "./list-work-request-logs-request";
+export import ListWorkRequestLogsRequest = ListWorkRequestLogsRequest.ListWorkRequestLogsRequest;
+import * as ListWorkRequestsRequest from "./list-work-requests-request";
+export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
 import * as SummarizeDatabaseInsightResourceCapacityTrendRequest from "./summarize-database-insight-resource-capacity-trend-request";
 export import SummarizeDatabaseInsightResourceCapacityTrendRequest = SummarizeDatabaseInsightResourceCapacityTrendRequest.SummarizeDatabaseInsightResourceCapacityTrendRequest;
 import * as SummarizeDatabaseInsightResourceForecastTrendRequest from "./summarize-database-insight-resource-forecast-trend-request";
@@ -40,6 +94,20 @@ import * as SummarizeDatabaseInsightResourceUsageTrendRequest from "./summarize-
 export import SummarizeDatabaseInsightResourceUsageTrendRequest = SummarizeDatabaseInsightResourceUsageTrendRequest.SummarizeDatabaseInsightResourceUsageTrendRequest;
 import * as SummarizeDatabaseInsightResourceUtilizationInsightRequest from "./summarize-database-insight-resource-utilization-insight-request";
 export import SummarizeDatabaseInsightResourceUtilizationInsightRequest = SummarizeDatabaseInsightResourceUtilizationInsightRequest.SummarizeDatabaseInsightResourceUtilizationInsightRequest;
+import * as SummarizeDatabaseInsightTablespaceUsageTrendRequest from "./summarize-database-insight-tablespace-usage-trend-request";
+export import SummarizeDatabaseInsightTablespaceUsageTrendRequest = SummarizeDatabaseInsightTablespaceUsageTrendRequest.SummarizeDatabaseInsightTablespaceUsageTrendRequest;
+import * as SummarizeHostInsightResourceCapacityTrendRequest from "./summarize-host-insight-resource-capacity-trend-request";
+export import SummarizeHostInsightResourceCapacityTrendRequest = SummarizeHostInsightResourceCapacityTrendRequest.SummarizeHostInsightResourceCapacityTrendRequest;
+import * as SummarizeHostInsightResourceForecastTrendRequest from "./summarize-host-insight-resource-forecast-trend-request";
+export import SummarizeHostInsightResourceForecastTrendRequest = SummarizeHostInsightResourceForecastTrendRequest.SummarizeHostInsightResourceForecastTrendRequest;
+import * as SummarizeHostInsightResourceStatisticsRequest from "./summarize-host-insight-resource-statistics-request";
+export import SummarizeHostInsightResourceStatisticsRequest = SummarizeHostInsightResourceStatisticsRequest.SummarizeHostInsightResourceStatisticsRequest;
+import * as SummarizeHostInsightResourceUsageRequest from "./summarize-host-insight-resource-usage-request";
+export import SummarizeHostInsightResourceUsageRequest = SummarizeHostInsightResourceUsageRequest.SummarizeHostInsightResourceUsageRequest;
+import * as SummarizeHostInsightResourceUsageTrendRequest from "./summarize-host-insight-resource-usage-trend-request";
+export import SummarizeHostInsightResourceUsageTrendRequest = SummarizeHostInsightResourceUsageTrendRequest.SummarizeHostInsightResourceUsageTrendRequest;
+import * as SummarizeHostInsightResourceUtilizationInsightRequest from "./summarize-host-insight-resource-utilization-insight-request";
+export import SummarizeHostInsightResourceUtilizationInsightRequest = SummarizeHostInsightResourceUtilizationInsightRequest.SummarizeHostInsightResourceUtilizationInsightRequest;
 import * as SummarizeSqlInsightsRequest from "./summarize-sql-insights-request";
 export import SummarizeSqlInsightsRequest = SummarizeSqlInsightsRequest.SummarizeSqlInsightsRequest;
 import * as SummarizeSqlPlanInsightsRequest from "./summarize-sql-plan-insights-request";
@@ -52,3 +120,9 @@ import * as SummarizeSqlStatisticsTimeSeriesRequest from "./summarize-sql-statis
 export import SummarizeSqlStatisticsTimeSeriesRequest = SummarizeSqlStatisticsTimeSeriesRequest.SummarizeSqlStatisticsTimeSeriesRequest;
 import * as SummarizeSqlStatisticsTimeSeriesByPlanRequest from "./summarize-sql-statistics-time-series-by-plan-request";
 export import SummarizeSqlStatisticsTimeSeriesByPlanRequest = SummarizeSqlStatisticsTimeSeriesByPlanRequest.SummarizeSqlStatisticsTimeSeriesByPlanRequest;
+import * as UpdateDatabaseInsightRequest from "./update-database-insight-request";
+export import UpdateDatabaseInsightRequest = UpdateDatabaseInsightRequest.UpdateDatabaseInsightRequest;
+import * as UpdateEnterpriseManagerBridgeRequest from "./update-enterprise-manager-bridge-request";
+export import UpdateEnterpriseManagerBridgeRequest = UpdateEnterpriseManagerBridgeRequest.UpdateEnterpriseManagerBridgeRequest;
+import * as UpdateHostInsightRequest from "./update-host-insight-request";
+export import UpdateHostInsightRequest = UpdateHostInsightRequest.UpdateHostInsightRequest;

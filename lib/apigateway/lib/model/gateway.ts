@@ -88,6 +88,7 @@ Example: `PUBLIC` or `PRIVATE`
    * An array of IP addresses associated with the gateway.
    */
   "ipAddresses"?: Array<model.IpAddress>;
+  "responseCacheDetails"?: model.ExternalRespCache | model.NoCache;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair
 * with no predefined name, type, or namespace. For more information, see
@@ -141,6 +142,9 @@ export namespace Gateway {
           ? obj.ipAddresses.map(item => {
               return model.IpAddress.getJsonObj(item);
             })
+          : undefined,
+        "responseCacheDetails": obj.responseCacheDetails
+          ? model.ResponseCacheDetails.getJsonObj(obj.responseCacheDetails)
           : undefined
       }
     };

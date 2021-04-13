@@ -20,7 +20,7 @@ import common = require("oci-common");
 export interface ListFastConnectProviderVirtualCircuitBandwidthShapesRequest
   extends common.BaseRequest {
   /**
-   * The OCID of the provider service.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the provider service.
    */
   "providerServiceId": string;
   /**

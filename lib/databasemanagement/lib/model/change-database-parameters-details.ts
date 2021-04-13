@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details required to change database parameters' values.
+ * The details required to change database parameter values.
  */
 export interface ChangeDatabaseParametersDetails {
   "credentials": model.DatabaseCredentials;

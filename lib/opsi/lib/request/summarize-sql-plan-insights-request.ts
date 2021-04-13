@@ -23,16 +23,21 @@ export interface SummarizeSqlPlanInsightsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * Required [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database.
-   *
-   */
-  "databaseId": string;
-  /**
    * Unique SQL_ID for a SQL Statement.
    * Example: `6rgjh9bjmy2s7`
    *
    */
   "sqlIdentifier": string;
+  /**
+   * Optional [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the associated DBaaS entity.
+   *
+   */
+  "databaseId"?: string;
+  /**
+   * [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database insight resource.
+   *
+   */
+  "id"?: string;
   /**
    * Specify time period in ISO 8601 format with respect to current time.
    * Default is last 30 days represented by P30D.

@@ -30,6 +30,8 @@ import * as DeleteJobRequest from "./delete-job-request";
 export import DeleteJobRequest = DeleteJobRequest.DeleteJobRequest;
 import * as DeleteManagedDatabaseGroupRequest from "./delete-managed-database-group-request";
 export import DeleteManagedDatabaseGroupRequest = DeleteManagedDatabaseGroupRequest.DeleteManagedDatabaseGroupRequest;
+import * as GetClusterCacheMetricRequest from "./get-cluster-cache-metric-request";
+export import GetClusterCacheMetricRequest = GetClusterCacheMetricRequest.GetClusterCacheMetricRequest;
 import * as GetDatabaseFleetHealthMetricsRequest from "./get-database-fleet-health-metrics-request";
 export import GetDatabaseFleetHealthMetricsRequest = GetDatabaseFleetHealthMetricsRequest.GetDatabaseFleetHealthMetricsRequest;
 import * as GetDatabaseHomeMetricsRequest from "./get-database-home-metrics-request";

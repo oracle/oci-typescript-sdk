@@ -54,6 +54,7 @@ Example: `tcp://logserver.myserver:1234`
 * 
     */
   "syslogUrl"?: string;
+  "traceConfig"?: model.ApplicationTraceConfig;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -73,7 +74,14 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 
 export namespace CreateApplicationDetails {
   export function getJsonObj(obj: CreateApplicationDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "traceConfig": obj.traceConfig
+          ? model.ApplicationTraceConfig.getJsonObj(obj.traceConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

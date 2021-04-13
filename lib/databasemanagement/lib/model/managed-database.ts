@@ -66,6 +66,33 @@ export interface ManagedDatabase {
    */
   "databaseStatus"?: model.DatabaseStatus;
   /**
+   * The name of the parent Container Database.
+   */
+  "parentContainerName"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment
+   * in which the parent Container Database resides, if the Managed Database
+   * is a Pluggable Database (PDB).
+   *
+   */
+  "parentContainerCompartmentId"?: string;
+  /**
+   * The number of Oracle Real Application Clusters (Oracle RAC) database instances. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "instanceCount"?: number;
+  /**
+   * The details of the Oracle Real Application Clusters (Oracle RAC) database instances.
+   */
+  "instanceDetails"?: Array<model.InstanceDetails>;
+  /**
+   * The number of PDBs in the Container Database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "pdbCount"?: number;
+  /**
+   * The status of the PDB in the Container Database.
+   */
+  "pdbStatus"?: Array<model.PdbStatusDetails>;
+  /**
    * The additional details specific to a type of database defined in `{\"key\": \"value\"}` format.
    * Example: `{\"bar-key\": \"value\"}`
    *
@@ -81,6 +108,18 @@ export namespace ManagedDatabase {
         "managedDatabaseGroups": obj.managedDatabaseGroups
           ? obj.managedDatabaseGroups.map(item => {
               return model.ParentGroup.getJsonObj(item);
+            })
+          : undefined,
+
+        "instanceDetails": obj.instanceDetails
+          ? obj.instanceDetails.map(item => {
+              return model.InstanceDetails.getJsonObj(item);
+            })
+          : undefined,
+
+        "pdbStatus": obj.pdbStatus
+          ? obj.pdbStatus.map(item => {
+              return model.PdbStatusDetails.getJsonObj(item);
             })
           : undefined
       }

@@ -27,11 +27,35 @@ export interface CreateDrgAttachmentDetails {
    */
   "displayName"?: string;
   /**
-   * The OCID of the DRG.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the DRG.
    */
   "drgId": string;
   /**
-    * The OCID of the route table the DRG attachment will use.
+    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the DRG route table that is assigned to this attachment.
+* <p>
+The DRG route table manages traffic inside the DRG.
+* 
+    */
+  "drgRouteTableId"?: string;
+  "networkDetails"?: model.VcnDrgAttachmentNetworkCreateDetails;
+  /**
+    * Defined tags for this resource. Each key is predefined and scoped to a
+* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* <p>
+Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+* 
+    */
+  "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+    * Free-form tags for this resource. Each tag is a simple key-value pair with no
+* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* <p>
+Example: `{\"Department\": \"Finance\"}`
+* 
+    */
+  "freeformTags"?: { [key: string]: string };
+  /**
+    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the route table used by the DRG attachment.
 * <p>
 If you don't specify a route table here, the DRG attachment is created without an associated route
 * table. The Networking service does NOT automatically associate the attached VCN's default route table
@@ -40,19 +64,28 @@ If you don't specify a route table here, the DRG attachment is created without a
 * <p>
   * [Transit Routing: Access to Multiple VCNs in Same Region](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/transitrouting.htm)
 *   * [Transit Routing: Private Access to Oracle Services](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/transitroutingoracleservices.htm)
+* This field is deprecated. Instead, use the networkDetails field to specify the VCN route table for this attachment.
 * 
     */
   "routeTableId"?: string;
   /**
-   * The OCID of the VCN.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VCN.
+   * This field is deprecated. Instead, use the `networkDetails` field to specify the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the attached resource.
    *
    */
-  "vcnId": string;
+  "vcnId"?: string;
 }
 
 export namespace CreateDrgAttachmentDetails {
   export function getJsonObj(obj: CreateDrgAttachmentDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "networkDetails": obj.networkDetails
+          ? model.DrgAttachmentNetworkCreateDetails.getJsonObj(obj.networkDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

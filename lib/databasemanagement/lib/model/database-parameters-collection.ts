@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details of the database parameters.
+ * A collection of database parameters.
  */
 export interface DatabaseParametersCollection {
   /**

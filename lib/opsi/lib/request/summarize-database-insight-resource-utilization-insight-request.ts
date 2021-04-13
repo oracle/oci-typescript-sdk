@@ -25,7 +25,7 @@ export interface SummarizeDatabaseInsightResourceUtilizationInsightRequest
   "compartmentId": string;
   /**
    * Filter by resource metric.
-   * Supported values are CPU and STORAGE.
+   * Supported values are CPU , STORAGE, MEMORY and IO.
    *
    */
   "resourceMetric": string;
@@ -56,15 +56,20 @@ export interface SummarizeDatabaseInsightResourceUtilizationInsightRequest
   "timeIntervalEnd"?: Date;
   /**
    * Filter by one or more database type.
-   * Possible values are ADW-S, ATP-S, ADW-D, ATP-D
+   * Possible values are ADW-S, ATP-S, ADW-D, ATP-D, EXTERNAL-PDB, EXTERNAL-NONCDB.
    *
    */
   "databaseType"?: Array<SummarizeDatabaseInsightResourceUtilizationInsightRequest.DatabaseType>;
   /**
-   * Optional list of database [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Optional list of database [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the associated DBaaS entity.
    *
    */
   "databaseId"?: Array<string>;
+  /**
+   * Optional list of database insight resource [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database insight resource.
+   *
+   */
+  "id"?: Array<string>;
   /**
    * Number of days used for utilization forecast analysis.
    *
@@ -90,6 +95,8 @@ export namespace SummarizeDatabaseInsightResourceUtilizationInsightRequest {
     AdwS = "ADW-S",
     AtpS = "ATP-S",
     AdwD = "ADW-D",
-    AtpD = "ATP-D"
+    AtpD = "ATP-D",
+    ExternalPdb = "EXTERNAL-PDB",
+    ExternalNoncdb = "EXTERNAL-NONCDB"
   }
 }

@@ -34,6 +34,7 @@ Example: `My new resource`
    *
    */
   "certificateId"?: string;
+  "responseCacheDetails"?: model.ExternalRespCache | model.NoCache;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair
 * with no predefined name, type, or namespace. For more information, see
@@ -56,7 +57,14 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 
 export namespace UpdateGatewayDetails {
   export function getJsonObj(obj: UpdateGatewayDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "responseCacheDetails": obj.responseCacheDetails
+          ? model.ResponseCacheDetails.getJsonObj(obj.responseCacheDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -1,6 +1,6 @@
 /**
  * Operations Insights API
- * Use the Operations Insights API to perform data extraction operations to obtain database 
+ * Use the Operations Insights API to perform data extraction operations to obtain database
 resource utilization, performance statistics, and reference information. For more information,
 see [About Oracle Cloud Infrastructure Operations Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
 
@@ -22,6 +22,10 @@ import common = require("oci-common");
  */
 export interface DatabaseDetails {
   /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database insight resource.
+   */
+  "id": string;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database.
    */
   "databaseId": string;
@@ -41,11 +45,24 @@ export interface DatabaseDetails {
    * The version of the database.
    */
   "databaseVersion"?: string;
+  /**
+   * Array of hostname and instance name.
+   */
+  "instances"?: Array<model.HostInstanceMap>;
 }
 
 export namespace DatabaseDetails {
   export function getJsonObj(obj: DatabaseDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "instances": obj.instances
+          ? obj.instances.map(item => {
+              return model.HostInstanceMap.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

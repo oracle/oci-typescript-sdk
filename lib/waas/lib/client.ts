@@ -29,7 +29,7 @@ export enum RedirectApiKeys {
 }
 
 export class RedirectClient {
-  protected static serviceEndpointTemplate = "https://waas.{region}.{secondLevelDomain}";
+  protected static serviceEndpointTemplate = "https://waas.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": RedirectWaiter;
@@ -554,7 +554,7 @@ export enum WaasApiKeys {
 }
 
 export class WaasClient {
-  protected static serviceEndpointTemplate = "https://waas.{region}.{secondLevelDomain}";
+  protected static serviceEndpointTemplate = "https://waas.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": WaasWaiter;

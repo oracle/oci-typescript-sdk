@@ -27,6 +27,17 @@ import common = require("oci-common");
  */
 export interface Shape {
   /**
+   * For a subcore burstable VM, the supported baseline OCPU utilization for instances that use this shape.
+   *
+   */
+  "baselineOcpuUtilizations"?: Array<Shape.BaselineOcpuUtilizations>;
+  /**
+   * For a subcore burstable VM, the minimum total baseline OCPUs required. The total baseline OCPUs is equal to
+   * baselineOcpuUtilization chosen multiplied by the number of OCPUs chosen.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "minTotalBaselineOcpusRequired"?: number;
+  /**
    * The name of the shape. You can enumerate all available shapes by calling
    * {@link #listShapes(ListShapesRequest) listShapes}.
    *
@@ -95,6 +106,17 @@ If the shape does not have any local disks, this field is `null`.
 }
 
 export namespace Shape {
+  export enum BaselineOcpuUtilizations {
+    Baseline18 = "BASELINE_1_8",
+    Baseline12 = "BASELINE_1_2",
+    Baseline11 = "BASELINE_1_1",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: Shape): object {
     const jsonObj = {
       ...obj,

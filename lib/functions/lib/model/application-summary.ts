@@ -45,6 +45,7 @@ export interface ApplicationSummary {
    *
    */
   "subnetIds"?: Array<string>;
+  "traceConfig"?: model.ApplicationTraceConfig;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -79,7 +80,14 @@ Example: `2018-09-12T22:47:12.613Z`
 
 export namespace ApplicationSummary {
   export function getJsonObj(obj: ApplicationSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "traceConfig": obj.traceConfig
+          ? model.ApplicationTraceConfig.getJsonObj(obj.traceConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

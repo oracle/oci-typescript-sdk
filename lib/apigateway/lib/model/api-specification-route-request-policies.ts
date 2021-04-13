@@ -27,8 +27,12 @@ export interface ApiSpecificationRouteRequestPolicies {
     | model.AnonymousRouteAuthorizationPolicy
     | model.AuthenticationOnlyRouteAuthorizationPolicy;
   "cors"?: model.CorsPolicy;
+  "queryParameterValidations"?: model.QueryParameterValidationRequestPolicy;
+  "headerValidations"?: model.HeaderValidationRequestPolicy;
+  "bodyValidation"?: model.BodyValidationRequestPolicy;
   "headerTransformations"?: model.HeaderTransformationPolicy;
   "queryParameterTransformations"?: model.QueryParameterTransformationPolicy;
+  "responseCacheLookup"?: model.SimpleLookupPolicy;
 }
 
 export namespace ApiSpecificationRouteRequestPolicies {
@@ -40,11 +44,23 @@ export namespace ApiSpecificationRouteRequestPolicies {
           ? model.RouteAuthorizationPolicy.getJsonObj(obj.authorization)
           : undefined,
         "cors": obj.cors ? model.CorsPolicy.getJsonObj(obj.cors) : undefined,
+        "queryParameterValidations": obj.queryParameterValidations
+          ? model.QueryParameterValidationRequestPolicy.getJsonObj(obj.queryParameterValidations)
+          : undefined,
+        "headerValidations": obj.headerValidations
+          ? model.HeaderValidationRequestPolicy.getJsonObj(obj.headerValidations)
+          : undefined,
+        "bodyValidation": obj.bodyValidation
+          ? model.BodyValidationRequestPolicy.getJsonObj(obj.bodyValidation)
+          : undefined,
         "headerTransformations": obj.headerTransformations
           ? model.HeaderTransformationPolicy.getJsonObj(obj.headerTransformations)
           : undefined,
         "queryParameterTransformations": obj.queryParameterTransformations
           ? model.QueryParameterTransformationPolicy.getJsonObj(obj.queryParameterTransformations)
+          : undefined,
+        "responseCacheLookup": obj.responseCacheLookup
+          ? model.ResponseCacheLookupPolicy.getJsonObj(obj.responseCacheLookup)
           : undefined
       }
     };

@@ -21,7 +21,7 @@ import common = require("oci-common");
 
 export interface CreateDrgDetails {
   /**
-   * The OCID of the compartment to contain the DRG.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment to contain the DRG.
    */
   "compartmentId": string;
   /**

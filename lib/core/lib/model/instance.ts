@@ -142,7 +142,7 @@ For more information about iPXE, see http://ipxe.org.
   "ipxeScript"?: string;
   /**
    * Specifies the configuration mode for launching virtual machine (VM) instances. The configuration modes are:
-   * * `NATIVE` - VM instances launch with iSCSI boot and VFIO devices. The default value for Oracle-provided images.
+   * * `NATIVE` - VM instances launch with iSCSI boot and VFIO devices. The default value for platform images.
    * * `EMULATED` - VM instances launch with emulated devices, such as the E1000 network driver and emulated SCSI disk controller.
    * * `PARAVIRTUALIZED` - VM instances launch with paravirtualized devices using VirtIO drivers.
    * * `CUSTOM` - VM instances launch with custom configuration settings specified in the `LaunchOptions` parameter.
@@ -152,6 +152,7 @@ For more information about iPXE, see http://ipxe.org.
   "launchOptions"?: model.LaunchOptions;
   "instanceOptions"?: model.InstanceOptions;
   "availabilityConfig"?: model.InstanceAvailabilityConfig;
+  "preemptibleInstanceConfig"?: model.PreemptibleInstanceConfigDetails;
   /**
    * The current state of the instance.
    */
@@ -246,6 +247,9 @@ export namespace Instance {
           : undefined,
         "availabilityConfig": obj.availabilityConfig
           ? model.InstanceAvailabilityConfig.getJsonObj(obj.availabilityConfig)
+          : undefined,
+        "preemptibleInstanceConfig": obj.preemptibleInstanceConfig
+          ? model.PreemptibleInstanceConfigDetails.getJsonObj(obj.preemptibleInstanceConfig)
           : undefined,
 
         "shapeConfig": obj.shapeConfig

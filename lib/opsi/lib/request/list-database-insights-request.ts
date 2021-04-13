@@ -21,15 +21,32 @@ export interface ListDatabaseInsightsRequest extends common.BaseRequest {
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
    */
-  "compartmentId": string;
+  "compartmentId"?: string;
+  /**
+   * Unique Enterprise Manager bridge identifier
+   */
+  "enterpriseManagerBridgeId"?: string;
+  /**
+   * Optional list of database insight resource [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database insight resource.
+   *
+   */
+  "id"?: Array<string>;
+  /**
+   * Resource Status
+   */
+  "status"?: Array<model.ResourceStatus>;
+  /**
+   * Lifecycle states
+   */
+  "lifecycleState"?: Array<model.LifecycleState>;
   /**
    * Filter by one or more database type.
-   * Possible values are ADW-S, ATP-S, ADW-D, ATP-D
+   * Possible values are ADW-S, ATP-S, ADW-D, ATP-D, EXTERNAL-PDB, EXTERNAL-NONCDB.
    *
    */
   "databaseType"?: Array<ListDatabaseInsightsRequest.DatabaseType>;
   /**
-   * Optional list of database [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Optional list of database [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the associated DBaaS entity.
    *
    */
   "databaseId"?: Array<string>;
@@ -77,7 +94,9 @@ export namespace ListDatabaseInsightsRequest {
     AdwS = "ADW-S",
     AtpS = "ATP-S",
     AdwD = "ADW-D",
-    AtpD = "ATP-D"
+    AtpD = "ATP-D",
+    ExternalPdb = "EXTERNAL-PDB",
+    ExternalNoncdb = "EXTERNAL-NONCDB"
   }
 
   export enum Fields {

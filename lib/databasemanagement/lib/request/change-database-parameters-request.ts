@@ -23,7 +23,7 @@ export interface ChangeDatabaseParametersRequest extends common.BaseRequest {
    */
   "managedDatabaseId": string;
   /**
-   * The details required to change database parameters' values.
+   * The details required to change database parameter values.
    */
   "changeDatabaseParametersDetails": model.ChangeDatabaseParametersDetails;
   /**

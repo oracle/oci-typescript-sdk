@@ -31,6 +31,27 @@ export class VirtualNetworkWaiter {
   ) {}
 
   /**
+   * Waits forAddIpv6VcnCidr
+   *
+   * @param request the request to send
+   * @return response returns AddIpv6VcnCidrResponse, GetWorkRequestResponse tuple
+   */
+  public async forAddIpv6VcnCidr(
+    request: serviceRequests.AddIpv6VcnCidrRequest
+  ): Promise<{
+    response: serviceResponses.AddIpv6VcnCidrResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const addIpv6VcnCidrResponse = await this.client.addIpv6VcnCidr(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      addIpv6VcnCidrResponse.opcWorkRequestId
+    );
+    return { response: addIpv6VcnCidrResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forAddVcnCidr
    *
    * @param request the request to send
@@ -269,6 +290,44 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getDrgAttachment(request),
       response => targetStates.includes(response.drgAttachment.lifecycleState!)
+    );
+  }
+
+  /**
+   * Waits forDrgRouteDistribution till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDrgRouteDistributionResponse | null (null in case of 404 response)
+   */
+  public async forDrgRouteDistribution(
+    request: serviceRequests.GetDrgRouteDistributionRequest,
+    ...targetStates: models.DrgRouteDistribution.LifecycleState[]
+  ): Promise<serviceResponses.GetDrgRouteDistributionResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getDrgRouteDistribution(request),
+      response => targetStates.includes(response.drgRouteDistribution.lifecycleState!),
+      targetStates.includes(models.DrgRouteDistribution.LifecycleState.Terminated)
+    );
+  }
+
+  /**
+   * Waits forDrgRouteTable till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDrgRouteTableResponse | null (null in case of 404 response)
+   */
+  public async forDrgRouteTable(
+    request: serviceRequests.GetDrgRouteTableRequest,
+    ...targetStates: models.DrgRouteTable.LifecycleState[]
+  ): Promise<serviceResponses.GetDrgRouteTableResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getDrgRouteTable(request),
+      response => targetStates.includes(response.drgRouteTable.lifecycleState!),
+      targetStates.includes(models.DrgRouteTable.LifecycleState.Terminated)
     );
   }
 
@@ -711,6 +770,27 @@ export class VirtualNetworkWaiter {
       removeVcnCidrResponse.opcWorkRequestId
     );
     return { response: removeVcnCidrResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUpgradeDrg
+   *
+   * @param request the request to send
+   * @return response returns UpgradeDrgResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpgradeDrg(
+    request: serviceRequests.UpgradeDrgRequest
+  ): Promise<{
+    response: serviceResponses.UpgradeDrgResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const upgradeDrgResponse = await this.client.upgradeDrg(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      upgradeDrgResponse.opcWorkRequestId
+    );
+    return { response: upgradeDrgResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**

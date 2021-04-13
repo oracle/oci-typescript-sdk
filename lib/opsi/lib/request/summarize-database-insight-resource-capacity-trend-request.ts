@@ -24,7 +24,7 @@ export interface SummarizeDatabaseInsightResourceCapacityTrendRequest extends co
   "compartmentId": string;
   /**
    * Filter by resource metric.
-   * Supported values are CPU and STORAGE.
+   * Supported values are CPU , STORAGE, MEMORY and IO.
    *
    */
   "resourceMetric": string;
@@ -55,15 +55,20 @@ export interface SummarizeDatabaseInsightResourceCapacityTrendRequest extends co
   "timeIntervalEnd"?: Date;
   /**
    * Filter by one or more database type.
-   * Possible values are ADW-S, ATP-S, ADW-D, ATP-D
+   * Possible values are ADW-S, ATP-S, ADW-D, ATP-D, EXTERNAL-PDB, EXTERNAL-NONCDB.
    *
    */
   "databaseType"?: Array<SummarizeDatabaseInsightResourceCapacityTrendRequest.DatabaseType>;
   /**
-   * Optional list of database [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Optional list of database [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the associated DBaaS entity.
    *
    */
   "databaseId"?: Array<string>;
+  /**
+   * Optional list of database insight resource [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database insight resource.
+   *
+   */
+  "id"?: Array<string>;
   /**
    * Filter by utilization level by the following buckets:
    *   - HIGH_UTILIZATION: DBs with utilization greater or equal than 75.
@@ -91,6 +96,16 @@ export interface SummarizeDatabaseInsightResourceCapacityTrendRequest extends co
    */
   "sortBy"?: SummarizeDatabaseInsightResourceCapacityTrendRequest.SortBy;
   /**
+   * Tablespace name for a database
+   *
+   */
+  "tablespaceName"?: string;
+  /**
+   * Filter by one or more hostname.
+   *
+   */
+  "hostName"?: Array<string>;
+  /**
    * Unique Oracle-assigned identifier for the request. If you need to contact
    * Oracle about a particular request, please provide the request ID.
    *
@@ -103,7 +118,9 @@ export namespace SummarizeDatabaseInsightResourceCapacityTrendRequest {
     AdwS = "ADW-S",
     AtpS = "ATP-S",
     AdwD = "ADW-D",
-    AtpD = "ATP-D"
+    AtpD = "ATP-D",
+    ExternalPdb = "EXTERNAL-PDB",
+    ExternalNoncdb = "EXTERNAL-NONCDB"
   }
 
   export enum UtilizationLevel {

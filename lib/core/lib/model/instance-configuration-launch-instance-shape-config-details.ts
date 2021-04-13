@@ -42,9 +42,31 @@ export interface InstanceConfigurationLaunchInstanceShapeConfigDetails {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryInGBs"?: number;
+  /**
+    * The baseline OCPU utilization for a subcore burstable VM instance. Leave this attribute blank for a
+* non-burstable instance, or explicitly specify non-burstable with `BASELINE_1_1`.
+* <p>
+The following values are supported:
+* - `BASELINE_1_8` - baseline usage is 1/8 of an OCPU.
+* - `BASELINE_1_2` - baseline usage is 1/2 of an OCPU.
+* - `BASELINE_1_1` - baseline usage is an entire OCPU. This represents a non-burstable instance.
+* 
+    */
+  "baselineOcpuUtilization"?: InstanceConfigurationLaunchInstanceShapeConfigDetails.BaselineOcpuUtilization;
 }
 
 export namespace InstanceConfigurationLaunchInstanceShapeConfigDetails {
+  export enum BaselineOcpuUtilization {
+    Baseline18 = "BASELINE_1_8",
+    Baseline12 = "BASELINE_1_2",
+    Baseline11 = "BASELINE_1_1",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: InstanceConfigurationLaunchInstanceShapeConfigDetails): object {
     const jsonObj = { ...obj, ...{} };
 

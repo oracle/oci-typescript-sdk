@@ -1,6 +1,6 @@
 /**
  * Operations Insights API
- * Use the Operations Insights API to perform data extraction operations to obtain database 
+ * Use the Operations Insights API to perform data extraction operations to obtain database
 resource utilization, performance statistics, and reference information. For more information,
 see [About Oracle Cloud Infrastructure Operations Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
 
@@ -18,9 +18,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Partial definition of the database insight resource.
+ * Summary of a database insight resource.
  */
 export interface DatabaseInsightSummary {
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database insight resource.
+   */
+  "id": string;
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database.
    */
@@ -67,12 +71,59 @@ export interface DatabaseInsightSummary {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Processor count. This is the OCPU count for Autonomous Database and CPU core count for other database types. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "processorCount"?: number;
+  /**
+   * Indicates the status of a database insight in Operations Insights
+   */
+  "status"?: model.ResourceStatus;
+  /**
+   * The time the the database insight was first enabled. An RFC3339 formatted datetime string
+   */
+  "timeCreated"?: Date;
+  /**
+   * The time the database insight was updated. An RFC3339 formatted datetime string
+   */
+  "timeUpdated"?: Date;
+  /**
+   * The current state of the database.
+   */
+  "lifecycleState"?: model.LifecycleState;
+  /**
+   * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
+   */
+  "lifecycleDetails"?: string;
+
+  "entitySource": string;
 }
 
 export namespace DatabaseInsightSummary {
   export function getJsonObj(obj: DatabaseInsightSummary): object {
     const jsonObj = { ...obj, ...{} };
 
+    if ("entitySource" in obj && obj.entitySource) {
+      switch (obj.entitySource) {
+        case "MACS_MANAGED_EXTERNAL_DATABASE":
+          return model.MacsManagedExternalDatabaseInsightSummary.getJsonObj(
+            <model.MacsManagedExternalDatabaseInsightSummary>(<object>jsonObj),
+            true
+          );
+        case "AUTONOMOUS_DATABASE":
+          return model.AutonomousDatabaseInsightSummary.getJsonObj(
+            <model.AutonomousDatabaseInsightSummary>(<object>jsonObj),
+            true
+          );
+        case "EM_MANAGED_EXTERNAL_DATABASE":
+          return model.EmManagedExternalDatabaseInsightSummary.getJsonObj(
+            <model.EmManagedExternalDatabaseInsightSummary>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.entitySource);
+      }
+    }
     return jsonObj;
   }
 }

@@ -27,7 +27,7 @@ export interface ListDrgAttachmentsRequest extends common.BaseRequest {
    */
   "vcnId"?: string;
   /**
-   * The OCID of the DRG.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the DRG.
    */
   "drgId"?: string;
   /**
@@ -46,4 +46,65 @@ Example: `50`
    *
    */
   "page"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource (virtual circuit, VCN, IPSec tunnel, or remote peering connection) attached to the DRG.
+   */
+  "networkId"?: string;
+  /**
+   * The type for the network resource attached to the DRG.
+   */
+  "attachmentType"?: ListDrgAttachmentsRequest.AttachmentType;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the DRG route table assigned to the DRG attachment.
+   */
+  "drgRouteTableId"?: string;
+  /**
+   * A filter to return only resources that match the given display name exactly.
+   *
+   */
+  "displayName"?: string;
+  /**
+   * The field to sort by. You can provide one sort order (`sortOrder`). Default order for
+   * TIMECREATED is descending. Default order for DISPLAYNAME is ascending. The DISPLAYNAME
+   * sort order is case sensitive.
+   * <p>
+   **Note:** In general, some \"List\" operations (for example, `ListInstances`) let you
+   * optionally filter by availability domain if the scope of the resource type is within a
+   * single availability domain. If you call one of these \"List\" operations without specifying
+   * an availability domain, the resources are grouped by availability domain, then sorted.
+   *
+   */
+  "sortBy"?: ListDrgAttachmentsRequest.SortBy;
+  /**
+   * The sort order to use, either ascending (`ASC`) or descending (`DESC`). The DISPLAYNAME sort order
+   * is case sensitive.
+   *
+   */
+  "sortOrder"?: ListDrgAttachmentsRequest.SortOrder;
+  /**
+   * A filter to return only resources that match the specified lifecycle
+   * state. The value is case insensitive.
+   *
+   */
+  "lifecycleState"?: string;
+}
+
+export namespace ListDrgAttachmentsRequest {
+  export enum AttachmentType {
+    Vcn = "VCN",
+    VirtualCircuit = "VIRTUAL_CIRCUIT",
+    RemotePeeringConnection = "REMOTE_PEERING_CONNECTION",
+    IpsecTunnel = "IPSEC_TUNNEL",
+    All = "ALL"
+  }
+
+  export enum SortBy {
+    Timecreated = "TIMECREATED",
+    Displayname = "DISPLAYNAME"
+  }
+
+  export enum SortOrder {
+    Asc = "ASC",
+    Desc = "DESC"
+  }
 }

@@ -23,7 +23,7 @@ export interface ListRemotePeeringConnectionsRequest extends common.BaseRequest 
    */
   "compartmentId": string;
   /**
-   * The OCID of the DRG.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the DRG.
    */
   "drgId"?: string;
   /**

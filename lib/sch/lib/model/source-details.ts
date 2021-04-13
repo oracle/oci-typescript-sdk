@@ -39,6 +39,11 @@ export namespace SourceDetails {
             <model.LoggingSourceDetails>(<object>jsonObj),
             true
           );
+        case "streaming":
+          return model.StreamingSourceDetails.getJsonObj(
+            <model.StreamingSourceDetails>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.kind);
       }

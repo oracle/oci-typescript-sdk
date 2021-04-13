@@ -23,6 +23,7 @@ import common = require("oci-common");
  */
 export interface ApiSpecificationRouteResponsePolicies {
   "headerTransformations"?: model.HeaderTransformationPolicy;
+  "responseCacheStore"?: model.FixedTTLResponseCacheStorePolicy;
 }
 
 export namespace ApiSpecificationRouteResponsePolicies {
@@ -32,6 +33,9 @@ export namespace ApiSpecificationRouteResponsePolicies {
       ...{
         "headerTransformations": obj.headerTransformations
           ? model.HeaderTransformationPolicy.getJsonObj(obj.headerTransformations)
+          : undefined,
+        "responseCacheStore": obj.responseCacheStore
+          ? model.ResponseCacheStorePolicy.getJsonObj(obj.responseCacheStore)
           : undefined
       }
     };

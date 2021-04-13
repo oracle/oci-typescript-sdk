@@ -39,7 +39,7 @@ export interface CreateServiceConnectorDetails {
    *
    */
   "description"?: string;
-  "source": model.LoggingSourceDetails;
+  "source": model.LoggingSourceDetails | model.StreamingSourceDetails;
   /**
    * The list of tasks.
    *

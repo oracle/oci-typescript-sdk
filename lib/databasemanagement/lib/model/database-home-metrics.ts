@@ -22,6 +22,10 @@ import common = require("oci-common");
  */
 export interface DatabaseHomeMetrics {
   "databaseHomeMetrics": model.DatabaseHomeMetricDefinition;
+  /**
+   * The metrics for the RAC database instances.
+   */
+  "databaseInstanceHomeMetrics"?: Array<model.DatabaseInstanceHomeMetricsDefinition>;
 }
 
 export namespace DatabaseHomeMetrics {
@@ -31,6 +35,11 @@ export namespace DatabaseHomeMetrics {
       ...{
         "databaseHomeMetrics": obj.databaseHomeMetrics
           ? model.DatabaseHomeMetricDefinition.getJsonObj(obj.databaseHomeMetrics)
+          : undefined,
+        "databaseInstanceHomeMetrics": obj.databaseInstanceHomeMetrics
+          ? obj.databaseInstanceHomeMetrics.map(item => {
+              return model.DatabaseInstanceHomeMetricsDefinition.getJsonObj(item);
+            })
           : undefined
       }
     };
