@@ -35,6 +35,17 @@ export interface ListAttributesRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
+   * A filter to return only resources that match the entire business name given. The match is not case sensitive.
+   */
+  "businessName"?: string;
+  /**
+   * A filter to return only resources that match display name or business name pattern given. The match is not case sensitive.
+   * For Example : /folders?displayOrBusinessNameContains=Cu.*
+   * The above would match all folders with display name or business name that starts with \"Cu\".
+   *
+   */
+  "displayOrBusinessNameContains"?: string;
+  /**
    * A filter to return only resources that match display name pattern given. The match is not case sensitive.
    * For Example : /folders?displayNameContains=Cu.*
    * The above would match all folders with display name that starts with \"Cu\".

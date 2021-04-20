@@ -130,6 +130,14 @@ export interface SearchResult {
    */
   "path"?: string;
   /**
+   * Optional user friendly business name of the data object. If set, this supplements the harvested display name of the object.
+   */
+  "businessName"?: string;
+  /**
+   * The current state of the data object.
+   */
+  "lifecycleState"?: model.LifecycleState;
+  /**
    * Expression for logical entities against which names of dataObjects will be matched.
    */
   "expression"?: string;

@@ -32,6 +32,10 @@ export interface EntitySummary {
    */
   "displayName"?: string;
   /**
+   * Optional user friendly business name of the data entity. If set, this supplements the harvested display name of the object.
+   */
+  "businessName"?: string;
+  /**
    * Detailed description of a data entity.
    */
   "description"?: string;
@@ -55,6 +59,10 @@ export interface EntitySummary {
    * Key of the associated pattern if this is a logical entity.
    */
   "patternKey"?: string;
+  /**
+   * The type of data entity object. Type keys can be found via the '/types' endpoint.
+   */
+  "typeKey"?: string;
   /**
    * The expression realized after resolving qualifiers . Used in deriving this logical entity
    */

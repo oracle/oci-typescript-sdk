@@ -102,6 +102,10 @@ export interface JobSummary {
    */
   "jobDefinitionName"?: string;
   /**
+   * Unique key of the data asset to which this job applies, if the job involves a data asset.
+   */
+  "dataAssetKey"?: string;
+  /**
    * Error code returned from the latest job execution for this job. Useful when the latest Job execution is in FAILED state.
    *
    */

@@ -29,6 +29,10 @@ export interface AttributeSummary {
    */
   "displayName"?: string;
   /**
+   * Optional user friendly business name of the attribute. If set, this supplements the harvested display name of the object.
+   */
+  "businessName"?: string;
+  /**
    * Detailed description of the attribute.
    */
   "description"?: string;
@@ -106,6 +110,10 @@ export interface AttributeSummary {
    */
   "path"?: string;
   /**
+   * The list of customized properties along with the values for this object
+   */
+  "customPropertyMembers"?: Array<model.CustomPropertyGetUsage>;
+  /**
    * Rule types associated with attribute.
    */
   "associatedRuleTypes"?: Array<AttributeSummary.AssociatedRuleTypes>;
@@ -124,7 +132,16 @@ export namespace AttributeSummary {
   }
 
   export function getJsonObj(obj: AttributeSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customPropertyMembers": obj.customPropertyMembers
+          ? obj.customPropertyMembers.map(item => {
+              return model.CustomPropertyGetUsage.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

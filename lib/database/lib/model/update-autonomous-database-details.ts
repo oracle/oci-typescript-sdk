@@ -186,6 +186,10 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    *
    */
   "nsgIds"?: Array<string>;
+  /**
+   * Customer Contacts. Setting this to an empty list removes all customer contacts of an Oracle Autonomous Database.
+   */
+  "customerContacts"?: Array<model.CustomerContact>;
 }
 
 export namespace UpdateAutonomousDatabaseDetails {
@@ -217,7 +221,16 @@ export namespace UpdateAutonomousDatabaseDetails {
   }
 
   export function getJsonObj(obj: UpdateAutonomousDatabaseDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

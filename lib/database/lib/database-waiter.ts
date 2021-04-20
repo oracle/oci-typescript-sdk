@@ -1460,6 +1460,32 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forDisableExternalNonContainerDatabaseOperationsInsights
+   *
+   * @param request the request to send
+   * @return response returns DisableExternalNonContainerDatabaseOperationsInsightsResponse, GetWorkRequestResponse tuple
+   */
+  public async forDisableExternalNonContainerDatabaseOperationsInsights(
+    request: serviceRequests.DisableExternalNonContainerDatabaseOperationsInsightsRequest
+  ): Promise<{
+    response: serviceResponses.DisableExternalNonContainerDatabaseOperationsInsightsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const disableExternalNonContainerDatabaseOperationsInsightsResponse = await this.client.disableExternalNonContainerDatabaseOperationsInsights(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      disableExternalNonContainerDatabaseOperationsInsightsResponse.opcWorkRequestId
+    );
+    return {
+      response: disableExternalNonContainerDatabaseOperationsInsightsResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forDisableExternalPluggableDatabaseDatabaseManagement
    *
    * @param request the request to send
@@ -1481,6 +1507,32 @@ export class DatabaseWaiter {
     );
     return {
       response: disableExternalPluggableDatabaseDatabaseManagementResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDisableExternalPluggableDatabaseOperationsInsights
+   *
+   * @param request the request to send
+   * @return response returns DisableExternalPluggableDatabaseOperationsInsightsResponse, GetWorkRequestResponse tuple
+   */
+  public async forDisableExternalPluggableDatabaseOperationsInsights(
+    request: serviceRequests.DisableExternalPluggableDatabaseOperationsInsightsRequest
+  ): Promise<{
+    response: serviceResponses.DisableExternalPluggableDatabaseOperationsInsightsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const disableExternalPluggableDatabaseOperationsInsightsResponse = await this.client.disableExternalPluggableDatabaseOperationsInsights(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      disableExternalPluggableDatabaseOperationsInsightsResponse.opcWorkRequestId
+    );
+    return {
+      response: disableExternalPluggableDatabaseOperationsInsightsResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -1564,6 +1616,32 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forEnableExternalNonContainerDatabaseOperationsInsights
+   *
+   * @param request the request to send
+   * @return response returns EnableExternalNonContainerDatabaseOperationsInsightsResponse, GetWorkRequestResponse tuple
+   */
+  public async forEnableExternalNonContainerDatabaseOperationsInsights(
+    request: serviceRequests.EnableExternalNonContainerDatabaseOperationsInsightsRequest
+  ): Promise<{
+    response: serviceResponses.EnableExternalNonContainerDatabaseOperationsInsightsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const enableExternalNonContainerDatabaseOperationsInsightsResponse = await this.client.enableExternalNonContainerDatabaseOperationsInsights(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      enableExternalNonContainerDatabaseOperationsInsightsResponse.opcWorkRequestId
+    );
+    return {
+      response: enableExternalNonContainerDatabaseOperationsInsightsResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forEnableExternalPluggableDatabaseDatabaseManagement
    *
    * @param request the request to send
@@ -1585,6 +1663,32 @@ export class DatabaseWaiter {
     );
     return {
       response: enableExternalPluggableDatabaseDatabaseManagementResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forEnableExternalPluggableDatabaseOperationsInsights
+   *
+   * @param request the request to send
+   * @return response returns EnableExternalPluggableDatabaseOperationsInsightsResponse, GetWorkRequestResponse tuple
+   */
+  public async forEnableExternalPluggableDatabaseOperationsInsights(
+    request: serviceRequests.EnableExternalPluggableDatabaseOperationsInsightsRequest
+  ): Promise<{
+    response: serviceResponses.EnableExternalPluggableDatabaseOperationsInsightsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const enableExternalPluggableDatabaseOperationsInsightsResponse = await this.client.enableExternalPluggableDatabaseOperationsInsights(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      enableExternalPluggableDatabaseOperationsInsightsResponse.opcWorkRequestId
+    );
+    return {
+      response: enableExternalPluggableDatabaseOperationsInsightsResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }

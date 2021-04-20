@@ -84,6 +84,10 @@ export interface JobDefinitionSummary {
    * Type of job schedule for the latest job executed.
    */
   "scheduleType"?: model.JobScheduleType;
+  /**
+   * Unique key of the data asset to which this job applies, if the job involves a data asset.
+   */
+  "dataAssetKey"?: string;
 }
 
 export namespace JobDefinitionSummary {

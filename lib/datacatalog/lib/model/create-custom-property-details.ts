@@ -53,6 +53,10 @@ export interface CreateCustomPropertyDetails {
    */
   "isEditable"?: boolean;
   /**
+   * If this field is displayed in a list view of applicable objects.
+   */
+  "isShownInList"?: boolean;
+  /**
    * If this field is allowed to pop in search results
    */
   "isHiddenInSearch"?: boolean;

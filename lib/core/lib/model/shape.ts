@@ -99,6 +99,11 @@ If the shape does not have any local disks, this field is `null`.
 * 
     */
   "localDiskDescription"?: string;
+  /**
+   * Whether live migration is supported for this shape.
+   *
+   */
+  "isLiveMigrationSupported"?: boolean;
   "ocpuOptions"?: model.ShapeOcpuOptions;
   "memoryOptions"?: model.ShapeMemoryOptions;
   "networkingBandwidthOptions"?: model.ShapeNetworkingBandwidthOptions;

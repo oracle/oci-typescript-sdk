@@ -4675,6 +4675,79 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
+   * Disable Operations Insights for the external non-container database.
+   *
+   * @param DisableExternalNonContainerDatabaseOperationsInsightsRequest
+   * @return DisableExternalNonContainerDatabaseOperationsInsightsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalNonContainerDatabaseOperationsInsights.ts.html |here} to see how to use DisableExternalNonContainerDatabaseOperationsInsights API.
+   */
+  public async disableExternalNonContainerDatabaseOperationsInsights(
+    disableExternalNonContainerDatabaseOperationsInsightsRequest: requests.DisableExternalNonContainerDatabaseOperationsInsightsRequest
+  ): Promise<responses.DisableExternalNonContainerDatabaseOperationsInsightsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#disableExternalNonContainerDatabaseOperationsInsights."
+      );
+    const pathParams = {
+      "{externalNonContainerDatabaseId}":
+        disableExternalNonContainerDatabaseOperationsInsightsRequest.externalNonContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": disableExternalNonContainerDatabaseOperationsInsightsRequest.opcRetryToken,
+      "opc-request-id": disableExternalNonContainerDatabaseOperationsInsightsRequest.opcRequestId,
+      "if-match": disableExternalNonContainerDatabaseOperationsInsightsRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalnoncontainerdatabases/{externalNonContainerDatabaseId}/actions/disableOperationsInsights",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      disableExternalNonContainerDatabaseOperationsInsightsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableExternalNonContainerDatabaseOperationsInsightsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Disable Database Management Service for the external pluggable database.
    * For more information about the Database Management Service, see
    * [Database Management Service](https://docs.cloud.oracle.com/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
@@ -4724,6 +4797,79 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DisableExternalPluggableDatabaseDatabaseManagementResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Disable Operations Insights for the external pluggable database.
+   *
+   * @param DisableExternalPluggableDatabaseOperationsInsightsRequest
+   * @return DisableExternalPluggableDatabaseOperationsInsightsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalPluggableDatabaseOperationsInsights.ts.html |here} to see how to use DisableExternalPluggableDatabaseOperationsInsights API.
+   */
+  public async disableExternalPluggableDatabaseOperationsInsights(
+    disableExternalPluggableDatabaseOperationsInsightsRequest: requests.DisableExternalPluggableDatabaseOperationsInsightsRequest
+  ): Promise<responses.DisableExternalPluggableDatabaseOperationsInsightsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#disableExternalPluggableDatabaseOperationsInsights."
+      );
+    const pathParams = {
+      "{externalPluggableDatabaseId}":
+        disableExternalPluggableDatabaseOperationsInsightsRequest.externalPluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": disableExternalPluggableDatabaseOperationsInsightsRequest.opcRetryToken,
+      "opc-request-id": disableExternalPluggableDatabaseOperationsInsightsRequest.opcRequestId,
+      "if-match": disableExternalPluggableDatabaseOperationsInsightsRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalpluggabledatabases/{externalPluggableDatabaseId}/actions/disableOperationsInsights",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      disableExternalPluggableDatabaseOperationsInsightsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableExternalPluggableDatabaseOperationsInsightsResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5135,6 +5281,84 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
+   * Enable Operations Insights for the external non-container database.
+   *
+   * @param EnableExternalNonContainerDatabaseOperationsInsightsRequest
+   * @return EnableExternalNonContainerDatabaseOperationsInsightsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalNonContainerDatabaseOperationsInsights.ts.html |here} to see how to use EnableExternalNonContainerDatabaseOperationsInsights API.
+   */
+  public async enableExternalNonContainerDatabaseOperationsInsights(
+    enableExternalNonContainerDatabaseOperationsInsightsRequest: requests.EnableExternalNonContainerDatabaseOperationsInsightsRequest
+  ): Promise<responses.EnableExternalNonContainerDatabaseOperationsInsightsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#enableExternalNonContainerDatabaseOperationsInsights."
+      );
+    const pathParams = {
+      "{externalNonContainerDatabaseId}":
+        enableExternalNonContainerDatabaseOperationsInsightsRequest.externalNonContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": enableExternalNonContainerDatabaseOperationsInsightsRequest.opcRetryToken,
+      "opc-request-id": enableExternalNonContainerDatabaseOperationsInsightsRequest.opcRequestId,
+      "if-match": enableExternalNonContainerDatabaseOperationsInsightsRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalnoncontainerdatabases/{externalNonContainerDatabaseId}/actions/enableOperationsInsights",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableExternalNonContainerDatabaseOperationsInsightsRequest.enableExternalNonContainerDatabaseOperationsInsightsDetails,
+        "EnableExternalNonContainerDatabaseOperationsInsightsDetails",
+        models.EnableExternalNonContainerDatabaseOperationsInsightsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      enableExternalNonContainerDatabaseOperationsInsightsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableExternalNonContainerDatabaseOperationsInsightsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Enable Database Management Service for the external pluggable database.
    * For more information about the Database Management Service, see
    * [Database Management Service](https://docs.cloud.oracle.com/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
@@ -5189,6 +5413,84 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableExternalPluggableDatabaseDatabaseManagementResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enable Operations Insights for the external pluggable database.
+   *
+   * @param EnableExternalPluggableDatabaseOperationsInsightsRequest
+   * @return EnableExternalPluggableDatabaseOperationsInsightsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalPluggableDatabaseOperationsInsights.ts.html |here} to see how to use EnableExternalPluggableDatabaseOperationsInsights API.
+   */
+  public async enableExternalPluggableDatabaseOperationsInsights(
+    enableExternalPluggableDatabaseOperationsInsightsRequest: requests.EnableExternalPluggableDatabaseOperationsInsightsRequest
+  ): Promise<responses.EnableExternalPluggableDatabaseOperationsInsightsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#enableExternalPluggableDatabaseOperationsInsights."
+      );
+    const pathParams = {
+      "{externalPluggableDatabaseId}":
+        enableExternalPluggableDatabaseOperationsInsightsRequest.externalPluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": enableExternalPluggableDatabaseOperationsInsightsRequest.opcRetryToken,
+      "opc-request-id": enableExternalPluggableDatabaseOperationsInsightsRequest.opcRequestId,
+      "if-match": enableExternalPluggableDatabaseOperationsInsightsRequest.ifMatch
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalpluggabledatabases/{externalPluggableDatabaseId}/actions/enableOperationsInsights",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableExternalPluggableDatabaseOperationsInsightsRequest.enableExternalPluggableDatabaseOperationsInsightsDetails,
+        "EnableExternalPluggableDatabaseOperationsInsightsDetails",
+        models.EnableExternalPluggableDatabaseOperationsInsightsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      enableExternalPluggableDatabaseOperationsInsightsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableExternalPluggableDatabaseOperationsInsightsResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("etag"),

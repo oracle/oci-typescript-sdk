@@ -5169,6 +5169,8 @@ export class DataCatalogClient {
 
     const queryParams = {
       "displayName": listAttributesRequest.displayName,
+      "businessName": listAttributesRequest.businessName,
+      "displayOrBusinessNameContains": listAttributesRequest.displayOrBusinessNameContains,
       "displayNameContains": listAttributesRequest.displayNameContains,
       "lifecycleState": listAttributesRequest.lifecycleState,
       "timeCreated": listAttributesRequest.timeCreated,
@@ -5827,6 +5829,9 @@ export class DataCatalogClient {
 
     const queryParams = {
       "displayName": listEntitiesRequest.displayName,
+      "businessName": listEntitiesRequest.businessName,
+      "displayOrBusinessNameContains": listEntitiesRequest.displayOrBusinessNameContains,
+      "typeKey": listEntitiesRequest.typeKey,
       "displayNameContains": listEntitiesRequest.displayNameContains,
       "lifecycleState": listEntitiesRequest.lifecycleState,
       "timeCreated": listEntitiesRequest.timeCreated,
@@ -6068,6 +6073,8 @@ export class DataCatalogClient {
 
     const queryParams = {
       "displayName": listFoldersRequest.displayName,
+      "businessName": listFoldersRequest.businessName,
+      "displayOrBusinessNameContains": listFoldersRequest.displayOrBusinessNameContains,
       "displayNameContains": listFoldersRequest.displayNameContains,
       "lifecycleState": listFoldersRequest.lifecycleState,
       "parentFolderKey": listFoldersRequest.parentFolderKey,
@@ -6561,6 +6568,7 @@ export class DataCatalogClient {
       "updatedById": listJobsRequest.updatedById,
       "jobType": listJobsRequest.jobType,
       "jobDefinitionKey": listJobsRequest.jobDefinitionKey,
+      "dataAssetKey": listJobsRequest.dataAssetKey,
       "scheduleCronExpression": listJobsRequest.scheduleCronExpression,
       "timeScheduleBegin": listJobsRequest.timeScheduleBegin,
       "timeScheduleEnd": listJobsRequest.timeScheduleEnd,
@@ -7850,6 +7858,68 @@ export class DataCatalogClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of potential string matches for a given input string.
+   * @param SuggestMatchesRequest
+   * @return SuggestMatchesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/SuggestMatches.ts.html |here} to see how to use SuggestMatches API.
+   */
+  public async suggestMatches(
+    suggestMatchesRequest: requests.SuggestMatchesRequest
+  ): Promise<responses.SuggestMatchesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#suggestMatches.");
+    const pathParams = {
+      "{catalogId}": suggestMatchesRequest.catalogId
+    };
+
+    const queryParams = {
+      "timeout": suggestMatchesRequest.timeout,
+      "inputText": suggestMatchesRequest.inputText,
+      "limit": suggestMatchesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": suggestMatchesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/actions/suggest",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      suggestMatchesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SuggestMatchesResponse>{},
+        body: await response.json(),
+        bodyKey: "suggestResults",
+        bodyModel: "model.SuggestResults",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

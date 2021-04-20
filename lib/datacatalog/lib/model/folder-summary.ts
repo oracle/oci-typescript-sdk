@@ -34,6 +34,10 @@ export interface FolderSummary {
    */
   "displayName"?: string;
   /**
+   * Optional user friendly business name of the folder. If set, this supplements the harvested display name of the object.
+   */
+  "businessName"?: string;
+  /**
    * Detailed description of a folder.
    */
   "description"?: string;

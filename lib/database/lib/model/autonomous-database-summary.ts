@@ -308,7 +308,8 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
   "failedDataRecoveryInSeconds"?: number;
   "standbyDb"?: model.AutonomousDatabaseStandbySummary;
   /**
-   * The role of the Autonomous Data Guard-enabled Autonomous Container Database.
+   * The Data Guard role of the Autonomous Container Database, if Autonomous Data Guard is enabled.
+   *
    */
   "role"?: AutonomousDatabaseSummary.Role;
   /**
@@ -323,6 +324,10 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
    * The wallet name for Oracle Key Vault.
    */
   "keyStoreWalletName"?: string;
+  /**
+   * Customer Contacts.
+   */
+  "customerContacts"?: Array<model.CustomerContact>;
 }
 
 export namespace AutonomousDatabaseSummary {
@@ -484,6 +489,12 @@ export namespace AutonomousDatabaseSummary {
 
         "standbyDb": obj.standbyDb
           ? model.AutonomousDatabaseStandbySummary.getJsonObj(obj.standbyDb)
+          : undefined,
+
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getJsonObj(item);
+            })
           : undefined
       }
     };
