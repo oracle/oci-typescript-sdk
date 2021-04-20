@@ -32,6 +32,10 @@ export interface Entity {
    */
   "displayName"?: string;
   /**
+   * Optional user friendly business name of the data entity. If set, this supplements the harvested display name of the object.
+   */
+  "businessName"?: string;
+  /**
    * Detailed description of a data entity.
    */
   "description"?: string;

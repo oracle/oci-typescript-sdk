@@ -60,6 +60,10 @@ export interface CustomPropertySummary {
    */
   "isEditable"?: boolean;
   /**
+   * If this field is displayed in a list view of applicable objects.
+   */
+  "isShownInList"?: boolean;
+  /**
    * If this field is defined by service or by a user
    */
   "isServiceDefined"?: boolean;

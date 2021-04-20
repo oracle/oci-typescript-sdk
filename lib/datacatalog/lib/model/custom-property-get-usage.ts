@@ -59,6 +59,10 @@ export interface CustomPropertyGetUsage {
    */
   "isEditable"?: boolean;
   /**
+   * If this field is displayed in a list view of applicable objects.
+   */
+  "isShownInList"?: boolean;
+  /**
    * Is this property allowed to have list of values
    */
   "isListType"?: boolean;

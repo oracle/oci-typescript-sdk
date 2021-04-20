@@ -32,7 +32,8 @@ export interface AutonomousDatabaseDataguardAssociation {
    */
   "autonomousDatabaseId": string;
   /**
-   * The role of the Autonomous Data Guard-enabled Autonomous Container Database.
+   * The Data Guard role of the Autonomous Container Database, if Autonomous Data Guard is enabled.
+   *
    */
   "role": AutonomousDatabaseDataguardAssociation.Role;
   /**
@@ -45,7 +46,8 @@ export interface AutonomousDatabaseDataguardAssociation {
    */
   "lifecycleDetails"?: string;
   /**
-   * The role of the Autonomous Data Guard-enabled Autonomous Container Database.
+   * The Data Guard role of the Autonomous Container Database, if Autonomous Data Guard is enabled.
+   *
    */
   "peerRole": AutonomousDatabaseDataguardAssociation.PeerRole;
   /**

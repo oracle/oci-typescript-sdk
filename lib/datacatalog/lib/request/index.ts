@@ -231,6 +231,8 @@ import * as RemoveDataSelectorPatternsRequest from "./remove-data-selector-patte
 export import RemoveDataSelectorPatternsRequest = RemoveDataSelectorPatternsRequest.RemoveDataSelectorPatternsRequest;
 import * as SearchCriteriaRequest from "./search-criteria-request";
 export import SearchCriteriaRequest = SearchCriteriaRequest.SearchCriteriaRequest;
+import * as SuggestMatchesRequest from "./suggest-matches-request";
+export import SuggestMatchesRequest = SuggestMatchesRequest.SuggestMatchesRequest;
 import * as TestConnectionRequest from "./test-connection-request";
 export import TestConnectionRequest = TestConnectionRequest.TestConnectionRequest;
 import * as UpdateAttributeRequest from "./update-attribute-request";

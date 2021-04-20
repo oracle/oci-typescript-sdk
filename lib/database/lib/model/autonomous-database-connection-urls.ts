@@ -34,6 +34,10 @@ export interface AutonomousDatabaseConnectionUrls {
    * Oracle Machine Learning user management URL.
    */
   "machineLearningUserManagementUrl"?: string;
+  /**
+   * The URL of the Graph Studio for the Autonomous Database.
+   */
+  "graphStudioUrl"?: string;
 }
 
 export namespace AutonomousDatabaseConnectionUrls {

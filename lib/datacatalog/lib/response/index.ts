@@ -231,6 +231,8 @@ import * as RemoveDataSelectorPatternsResponse from "./remove-data-selector-patt
 export import RemoveDataSelectorPatternsResponse = RemoveDataSelectorPatternsResponse.RemoveDataSelectorPatternsResponse;
 import * as SearchCriteriaResponse from "./search-criteria-response";
 export import SearchCriteriaResponse = SearchCriteriaResponse.SearchCriteriaResponse;
+import * as SuggestMatchesResponse from "./suggest-matches-response";
+export import SuggestMatchesResponse = SuggestMatchesResponse.SuggestMatchesResponse;
 import * as TestConnectionResponse from "./test-connection-response";
 export import TestConnectionResponse = TestConnectionResponse.TestConnectionResponse;
 import * as UpdateAttributeResponse from "./update-attribute-response";

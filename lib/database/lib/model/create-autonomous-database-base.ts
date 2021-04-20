@@ -182,6 +182,10 @@ Example: `{\"Department\": \"Finance\"}`
    * A valid Oracle Database version for Autonomous Database.
    */
   "dbVersion"?: string;
+  /**
+   * Customer Contacts.
+   */
+  "customerContacts"?: Array<model.CustomerContact>;
 
   "source": string;
 }
@@ -200,7 +204,16 @@ export namespace CreateAutonomousDatabaseBase {
   }
 
   export function getJsonObj(obj: CreateAutonomousDatabaseBase): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     if ("source" in obj && obj.source) {
       switch (obj.source) {

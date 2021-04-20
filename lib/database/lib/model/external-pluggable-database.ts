@@ -32,6 +32,7 @@ export interface ExternalPluggableDatabase {
    *
    */
   "externalContainerDatabaseId": string;
+  "operationsInsightsConfig"?: model.OperationsInsightsConfig;
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
    */
@@ -143,6 +144,10 @@ export namespace ExternalPluggableDatabase {
     const jsonObj = {
       ...obj,
       ...{
+        "operationsInsightsConfig": obj.operationsInsightsConfig
+          ? model.OperationsInsightsConfig.getJsonObj(obj.operationsInsightsConfig)
+          : undefined,
+
         "databaseManagementConfig": obj.databaseManagementConfig
           ? model.DatabaseManagementConfig.getJsonObj(obj.databaseManagementConfig)
           : undefined

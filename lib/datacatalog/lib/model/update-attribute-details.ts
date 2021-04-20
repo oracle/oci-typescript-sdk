@@ -25,6 +25,10 @@ export interface UpdateAttributeDetails {
    */
   "displayName"?: string;
   /**
+   * Optional user friendly business name of the attribute. If set, this supplements the harvested display name of the object.
+   */
+  "businessName"?: string;
+  /**
    * Detailed description of the attribute.
    */
   "description"?: string;

@@ -29,7 +29,7 @@ export interface CreateDatabaseSoftwareImageDetails {
   /**
    * The database version with which the database software image is to be built.
    */
-  "databaseVersion": string;
+  "databaseVersion"?: string;
   /**
    * The user-friendly name for the database software image. The name does not have to be unique.
    */
@@ -45,7 +45,7 @@ export interface CreateDatabaseSoftwareImageDetails {
   /**
    * The PSU or PBP or Release Updates. To get a list of supported versions, use the {@link #listDbVersions(ListDbVersionsRequest) listDbVersions} operation.
    */
-  "patchSet": string;
+  "patchSet"?: string;
   /**
    * List of one-off patches for Database Homes.
    */
