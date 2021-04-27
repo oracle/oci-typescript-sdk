@@ -1,6 +1,6 @@
 /**
- * REST API for Zero Downtime Migration (Oracle Database Migration Service --ODMS-- as customer-facing service name)
- * Provides users the ability to perform Zero Downtime migration operations
+ * Database Migration API
+ * Use the Oracle Cloud Infrastructure Database Migration APIs to perform database migration operations.
  * OpenAPI spec version: 20200720
  *
  *
@@ -40,12 +40,12 @@ export interface Job {
    */
   "type": model.JobTypes;
   /**
-   * The time the DB Migration Job was created. An RFC3339 formatted datetime string
+   * The time the Migration Job was created. An RFC3339 formatted datetime string
    *
    */
   "timeCreated": Date;
   /**
-   * The time the DB Migration Job was last updated. An RFC3339 formatted datetime string
+   * The time the Migration Job was last updated. An RFC3339 formatted datetime string
    *
    */
   "timeUpdated"?: Date;

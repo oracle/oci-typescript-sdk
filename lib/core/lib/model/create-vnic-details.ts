@@ -55,6 +55,15 @@ If you specify a `vlanId`, then `assignPublicIp` must be set to false. See
     */
   "assignPublicIp"?: boolean;
   /**
+    * Whether the VNIC should be assigned a DNS record. If set to false, there will be no DNS record
+* registration for the VNIC. If set to true, the DNS record will be registered. The default
+* value is true.
+* <p>
+If you specify a `hostnameLabel`, then `assignPrivateDnsRecord` must be set to true.
+* 
+    */
+  "assignPrivateDnsRecord"?: boolean;
+  /**
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>

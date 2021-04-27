@@ -109,6 +109,10 @@ Example: `{\"Department\": \"Finance\"}`
    * The database packs licensed for the external Oracle Database.
    */
   "dbPacks"?: string;
+  /**
+   * The Oracle Database configuration
+   */
+  "databaseConfiguration"?: ExternalPluggableDatabase.DatabaseConfiguration;
   "databaseManagementConfig"?: model.DatabaseManagementConfig;
 }
 
@@ -133,6 +137,16 @@ export namespace ExternalPluggableDatabase {
     EnterpriseEdition = "ENTERPRISE_EDITION",
     EnterpriseEditionHighPerformance = "ENTERPRISE_EDITION_HIGH_PERFORMANCE",
     EnterpriseEditionExtremePerformance = "ENTERPRISE_EDITION_EXTREME_PERFORMANCE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum DatabaseConfiguration {
+    Rac = "RAC",
+    SingleInstance = "SINGLE_INSTANCE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

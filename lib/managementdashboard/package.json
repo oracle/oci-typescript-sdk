@@ -1,6 +1,6 @@
 {
   "name": "oci-managementdashboard",
-  "version": "1.19.1",
+  "version": "1.19.2",
   "description": "OCI NodeJS client for Management Dashboard Service",
   "repository": {
     "type": "git",

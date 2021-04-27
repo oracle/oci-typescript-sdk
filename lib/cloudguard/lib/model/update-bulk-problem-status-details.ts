@@ -26,6 +26,10 @@ export interface UpdateBulkProblemStatusDetails {
    * List of ProblemIds to be passed in to update the Problem status.
    */
   "problemIds": Array<string>;
+  /**
+   * User defined comment to be passed in to update the problem.
+   */
+  "comment"?: string;
 }
 
 export namespace UpdateBulkProblemStatusDetails {

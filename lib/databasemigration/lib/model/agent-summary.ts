@@ -1,6 +1,6 @@
 /**
- * REST API for Zero Downtime Migration (Oracle Database Migration Service --ODMS-- as customer-facing service name)
- * Provides users the ability to perform Zero Downtime migration operations
+ * Database Migration API
+ * Use the Oracle Cloud Infrastructure Database Migration APIs to perform database migration operations.
  * OpenAPI spec version: 20200720
  *
  *
@@ -55,7 +55,7 @@ export interface AgentSummary {
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the ODMS On Prem Agent.
+   * The current state of the ODMS on-premises Agent.
    *
    */
   "lifecycleState": model.LifecycleStates;

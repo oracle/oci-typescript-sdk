@@ -47,8 +47,9 @@ export interface GetBucketRequest extends common.BaseRequest {
   "opcClientRequestId"?: string;
   /**
    * Bucket summary includes the 'namespace', 'name', 'compartmentId', 'createdBy', 'timeCreated',
-   * and 'etag' fields. This parameter can also include 'approximateCount' (approximate number of objects) and 'approximateSize'
-   * (total approximate size in bytes of all objects). For example 'approximateCount,approximateSize'.
+   * and 'etag' fields. This parameter can also include 'approximateCount' (approximate number of objects), 'approximateSize'
+   * (total approximate size in bytes of all objects) and 'autoTiering' (state of auto tiering on the bucket).
+   * For example 'approximateCount,approximateSize,autoTiering'.
    *
    */
   "fields"?: Array<GetBucketRequest.Fields>;
@@ -57,6 +58,7 @@ export interface GetBucketRequest extends common.BaseRequest {
 export namespace GetBucketRequest {
   export enum Fields {
     ApproximateCount = "approximateCount",
-    ApproximateSize = "approximateSize"
+    ApproximateSize = "approximateSize",
+    AutoTiering = "autoTiering"
   }
 }

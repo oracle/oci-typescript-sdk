@@ -1,6 +1,6 @@
 /**
- * REST API for Zero Downtime Migration (Oracle Database Migration Service --ODMS-- as customer-facing service name)
- * Provides users the ability to perform Zero Downtime migration operations
+ * Database Migration API
+ * Use the Oracle Cloud Infrastructure Database Migration APIs to perform database migration operations.
  * OpenAPI spec version: 20200720
  *
  *
@@ -15,13 +15,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Optional parameters for Datapump Export and Import. Refer to https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/ODMS_DATAPUMP.html#GUID-62324358-2F26-4A94-B69F-1075D53FA96D__BABDECJE
+ * Optional parameters for Data Pump Export and Import. Refer to [Configuring Optional Initial Load Advanced Settings](https://docs-uat.us.oracle.com/en/cloud/paas/database-migration/dmsus/working-migration-resources.html#GUID-24BD3054-FDF8-48FF-8492-636C1D4B71ED)
  * If an empty object is specified, the stored Data Pump Parameter details will be removed.
  *
  */
 export interface UpdateDataPumpParameters {
   /**
-   * False to force datapump worker process to run on one instance.
+   * Set to false to force Data Pump worker processes to run on one instance.
    *
    */
   "isCluster"?: boolean;
@@ -36,18 +36,18 @@ export interface UpdateDataPumpParameters {
    */
   "tableExistsAction"?: model.DataPumpTableExistsAction;
   /**
-   * Exclude paratemers for export and import. If specified, the stored list will be replaced.
+   * Exclude paratemers for Export and Import. If specified, the stored list will be replaced.
    *
    */
   "excludeParameters"?: Array<model.DataPumpExcludeParameters>;
   /**
-   * Maximum number of worker processes that can be used for a Datapump Import job.
+   * Maximum number of worker processes that can be used for a Data Pump Import job.
    * For an Autonomous Database, ODMS will automatically query its CPU core count and set this property.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "importParallelismDegree"?: number;
   /**
-   * Maximum number of worker processes that can be used for a Datapump Export job.
+   * Maximum number of worker processes that can be used for a Data Pump Export job.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "exportParallelismDegree"?: number;

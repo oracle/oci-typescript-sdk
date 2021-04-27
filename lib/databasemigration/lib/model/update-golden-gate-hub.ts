@@ -1,6 +1,6 @@
 /**
- * REST API for Zero Downtime Migration (Oracle Database Migration Service --ODMS-- as customer-facing service name)
- * Provides users the ability to perform Zero Downtime migration operations
+ * Database Migration API
+ * Use the Oracle Cloud Infrastructure Database Migration APIs to perform database migration operations.
  * OpenAPI spec version: 20200720
  *
  *
@@ -30,17 +30,17 @@ export interface UpdateGoldenGateHub {
    */
   "url"?: string;
   /**
-   * Name of Microservices deployment to operate on source DB
+   * Name of GoldenGate deployment to operate on source database
    *
    */
   "sourceMicroservicesDeploymentName"?: string;
   /**
-   * Name of Microservices deployment to operate on target DB
+   * Name of GoldenGate deployment to operate on target database
    *
    */
   "targetMicroservicesDeploymentName"?: string;
   /**
-   * OCID of Golden Gate compute instance. An empty value will remove the stored computeId.
+   * OCID of GoldenGate compute instance. An empty value will remove the stored computeId.
    *
    */
   "computeId"?: string;

@@ -88,6 +88,14 @@ export interface CreateBucketDetails {
    *
    */
   "versioning"?: CreateBucketDetails.Versioning;
+  /**
+   * Set the auto tiering status on the bucket. By default, a bucket is created with auto tiering `Disabled`.
+   * Use this option to enable auto tiering during bucket creation. Objects in a bucket with auto tiering set to
+   * `InfrequentAccess` are transitioned automatically between the 'Standard' and 'InfrequentAccess'
+   * tiers based on the access pattern of the objects.
+   *
+   */
+  "autoTiering"?: string;
 }
 
 export namespace CreateBucketDetails {

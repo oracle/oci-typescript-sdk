@@ -1,6 +1,6 @@
 /**
- * REST API for Zero Downtime Migration (Oracle Database Migration Service --ODMS-- as customer-facing service name)
- * Provides users the ability to perform Zero Downtime migration operations
+ * Database Migration API
+ * Use the Oracle Cloud Infrastructure Database Migration APIs to perform database migration operations.
  * OpenAPI spec version: 20200720
  *
  *
@@ -21,7 +21,7 @@ import common = require("oci-common");
 export interface WorkRequestError {
   /**
    * A machine-usable code for the error that occured. Error codes are listed on
-   * (https://docs.cloud.oracle.com/Content/API/References/apierrors.htm)
+   * [API Errors](https://docs.cloud.oracle.com/Content/API/References/apierrors.htm)
    *
    */
   "code": string;

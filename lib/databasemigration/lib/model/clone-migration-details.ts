@@ -1,6 +1,6 @@
 /**
- * REST API for Zero Downtime Migration (Oracle Database Migration Service --ODMS-- as customer-facing service name)
- * Provides users the ability to perform Zero Downtime migration operations
+ * Database Migration API
+ * Use the Oracle Cloud Infrastructure Database Migration APIs to perform database migration operations.
  * OpenAPI spec version: 20200720
  *
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details to specify that will override an existing Migration configuration that will be cloned.
+ * Details that will override an existing Migration configuration that will be cloned.
  *
  */
 export interface CloneMigrationDetails {
@@ -30,7 +30,7 @@ export interface CloneMigrationDetails {
    */
   "compartmentId"?: string;
   /**
-   * The OCID of the registered On-Prem ODMS Agent. Required for OFFLINE Migrations.
+   * The OCID of the registered on-premises ODMS Agent. Only valid for Offline Logical Migrations.
    *
    */
   "agentId"?: string;
@@ -40,7 +40,7 @@ export interface CloneMigrationDetails {
    */
   "sourceDatabaseConnectionId": string;
   /**
-   * The OCID of the Source Container Database Connection. Only used for ONLINE migrations.
+   * The OCID of the Source Container Database Connection. Only used for Online migrations.
    * Only Connections of type Non-Autonomous can be used as source container databases.
    *
    */

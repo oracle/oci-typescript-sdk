@@ -614,6 +614,8 @@ import * as UpdateByoipRangeDetails from "./update-byoip-range-details";
 export import UpdateByoipRangeDetails = UpdateByoipRangeDetails.UpdateByoipRangeDetails;
 import * as UpdateClusterNetworkDetails from "./update-cluster-network-details";
 export import UpdateClusterNetworkDetails = UpdateClusterNetworkDetails.UpdateClusterNetworkDetails;
+import * as UpdateClusterNetworkInstancePoolDetails from "./update-cluster-network-instance-pool-details";
+export import UpdateClusterNetworkInstancePoolDetails = UpdateClusterNetworkInstancePoolDetails.UpdateClusterNetworkInstancePoolDetails;
 import * as UpdateComputeCapacityReservationDetails from "./update-compute-capacity-reservation-details";
 export import UpdateComputeCapacityReservationDetails = UpdateComputeCapacityReservationDetails.UpdateComputeCapacityReservationDetails;
 import * as UpdateComputeImageCapabilitySchemaDetails from "./update-compute-image-capability-schema-details";
