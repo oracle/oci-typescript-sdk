@@ -45,11 +45,25 @@ Example: `{\"Department\": \"Finance\"}`
 * 
     */
   "freeformTags"?: { [key: string]: string };
+  /**
+   * The instance pools in the cluster network to update.
+   *
+   */
+  "instancePools"?: Array<model.UpdateClusterNetworkInstancePoolDetails>;
 }
 
 export namespace UpdateClusterNetworkDetails {
   export function getJsonObj(obj: UpdateClusterNetworkDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "instancePools": obj.instancePools
+          ? obj.instancePools.map(item => {
+              return model.UpdateClusterNetworkInstancePoolDetails.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

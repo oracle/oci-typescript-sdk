@@ -83,6 +83,18 @@ export interface Problem {
    */
   "targetId"?: string;
   /**
+   * The additional details of the Problem
+   */
+  "additionalDetails"?: { [key: string]: string };
+  /**
+   * Description of the problem
+   */
+  "description"?: string;
+  /**
+   * Recommendation for the problem
+   */
+  "recommendation"?: string;
+  /**
    * User Comments
    */
   "comment"?: string;

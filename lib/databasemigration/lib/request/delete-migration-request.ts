@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DeleteMigrationRequest extends common.BaseRequest {
   /**
-   * The OCID of the job
+   * The OCID of the migration
    *
    */
   "migrationId": string;

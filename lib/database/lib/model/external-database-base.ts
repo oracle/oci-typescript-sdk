@@ -96,6 +96,10 @@ Example: `{\"Department\": \"Finance\"}`
    * The database packs licensed for the external Oracle Database.
    */
   "dbPacks"?: string;
+  /**
+   * The Oracle Database configuration
+   */
+  "databaseConfiguration"?: ExternalDatabaseBase.DatabaseConfiguration;
   "databaseManagementConfig"?: model.DatabaseManagementConfig;
 }
 
@@ -115,6 +119,11 @@ export namespace ExternalDatabaseBase {
     EnterpriseEdition = "ENTERPRISE_EDITION",
     EnterpriseEditionHighPerformance = "ENTERPRISE_EDITION_HIGH_PERFORMANCE",
     EnterpriseEditionExtremePerformance = "ENTERPRISE_EDITION_EXTREME_PERFORMANCE"
+  }
+
+  export enum DatabaseConfiguration {
+    Rac = "RAC",
+    SingleInstance = "SINGLE_INSTANCE"
   }
 
   export function getJsonObj(obj: ExternalDatabaseBase): object {

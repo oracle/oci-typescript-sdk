@@ -1,6 +1,6 @@
 /**
- * REST API for Zero Downtime Migration (Oracle Database Migration Service --ODMS-- as customer-facing service name)
- * Provides users the ability to perform Zero Downtime migration operations
+ * Database Migration API
+ * Use the Oracle Cloud Infrastructure Database Migration APIs to perform database migration operations.
  * OpenAPI spec version: 20200720
  *
  *
@@ -15,17 +15,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Database Admin Credentials details. An empty object would result in the removal of the stored details.
+ * Database Administrator Credentials details. An empty object would result in the removal of the stored details.
  *
  */
 export interface UpdateAdminCredentials {
   /**
-   * Admin username
+   * Administrator username
    *
    */
   "username"?: string;
   /**
-   * Admin password
+   * Administrator password
    *
    */
   "password"?: string;

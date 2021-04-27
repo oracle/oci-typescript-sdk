@@ -47,11 +47,11 @@ export interface DetectorRecipe {
    */
   "detector": model.DetectorEnum;
   /**
-   * List of detetor rules for the detector type for recipe
+   * List of detector rules for the detector type for recipe - user input
    */
   "detectorRules"?: Array<model.DetectorRecipeDetectorRule>;
   /**
-   * List of detetor rules for the detector type for recipe
+   * List of effective detector rules for the detector type for recipe after applying defaults
    */
   "effectiveDetectorRules"?: Array<model.DetectorRecipeDetectorRule>;
   /**

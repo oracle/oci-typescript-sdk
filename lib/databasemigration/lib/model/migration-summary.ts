@@ -1,6 +1,6 @@
 /**
- * REST API for Zero Downtime Migration (Oracle Database Migration Service --ODMS-- as customer-facing service name)
- * Provides users the ability to perform Zero Downtime migration operations
+ * Database Migration API
+ * Use the Oracle Cloud Infrastructure Database Migration APIs to perform database migration operations.
  * OpenAPI spec version: 20200720
  *
  *
@@ -60,7 +60,7 @@ export interface MigrationSummary {
    */
   "executingJobId"?: string;
   /**
-   * The OCID of the registered On-Prem ODMS Agent. Required for Offline Migrations.
+   * The OCID of the registered on-premises ODMS Agent. Only valid for Offline Migrations.
    *
    */
   "agentId"?: string;

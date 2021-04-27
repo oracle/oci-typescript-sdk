@@ -320,6 +320,74 @@ export class CloudGuardClient {
   }
 
   /**
+   * Creates a new Data Mask Rule Definition
+   *
+   * @param CreateDataMaskRuleRequest
+   * @return CreateDataMaskRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateDataMaskRule.ts.html |here} to see how to use CreateDataMaskRule API.
+   */
+  public async createDataMaskRule(
+    createDataMaskRuleRequest: requests.CreateDataMaskRuleRequest
+  ): Promise<responses.CreateDataMaskRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#createDataMaskRule.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createDataMaskRuleRequest.opcRetryToken,
+      "opc-request-id": createDataMaskRuleRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dataMaskRules",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDataMaskRuleRequest.createDataMaskRuleDetails,
+        "CreateDataMaskRuleDetails",
+        models.CreateDataMaskRuleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createDataMaskRuleRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDataMaskRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "dataMaskRule",
+        bodyModel: "model.DataMaskRule",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a DetectorRecipe
    *
    * @param CreateDetectorRecipeRequest
@@ -719,6 +787,62 @@ export class CloudGuardClient {
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a DataMaskRule identified by dataMaskRuleId
+   * @param DeleteDataMaskRuleRequest
+   * @return DeleteDataMaskRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteDataMaskRule.ts.html |here} to see how to use DeleteDataMaskRule API.
+   */
+  public async deleteDataMaskRule(
+    deleteDataMaskRuleRequest: requests.DeleteDataMaskRuleRequest
+  ): Promise<responses.DeleteDataMaskRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#deleteDataMaskRule.");
+    const pathParams = {
+      "{dataMaskRuleId}": deleteDataMaskRuleRequest.dataMaskRuleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDataMaskRuleRequest.ifMatch,
+      "opc-request-id": deleteDataMaskRuleRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dataMaskRules/{dataMaskRuleId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteDataMaskRuleRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDataMaskRuleResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -1266,6 +1390,69 @@ export class CloudGuardClient {
             value: response.headers.get("retry-after"),
             key: "retryAfter",
             dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a DataMaskRule identified by DataMaskRuleId
+   * @param GetDataMaskRuleRequest
+   * @return GetDataMaskRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetDataMaskRule.ts.html |here} to see how to use GetDataMaskRule API.
+   */
+  public async getDataMaskRule(
+    getDataMaskRuleRequest: requests.GetDataMaskRuleRequest
+  ): Promise<responses.GetDataMaskRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getDataMaskRule.");
+    const pathParams = {
+      "{dataMaskRuleId}": getDataMaskRuleRequest.dataMaskRuleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDataMaskRuleRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dataMaskRules/{dataMaskRuleId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getDataMaskRuleRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDataMaskRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "dataMaskRule",
+        bodyModel: "model.DataMaskRule",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -2320,6 +2507,81 @@ export class CloudGuardClient {
   }
 
   /**
+   * Returns a list of all Data Mask Rules in the root 'compartmentId' passed.
+   *
+   * @param ListDataMaskRulesRequest
+   * @return ListDataMaskRulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListDataMaskRules.ts.html |here} to see how to use ListDataMaskRules API.
+   */
+  public async listDataMaskRules(
+    listDataMaskRulesRequest: requests.ListDataMaskRulesRequest
+  ): Promise<responses.ListDataMaskRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listDataMaskRules.");
+    const pathParams = {};
+
+    const queryParams = {
+      "displayName": listDataMaskRulesRequest.displayName,
+      "compartmentId": listDataMaskRulesRequest.compartmentId,
+      "lifecycleState": listDataMaskRulesRequest.lifecycleState,
+      "accessLevel": listDataMaskRulesRequest.accessLevel,
+      "limit": listDataMaskRulesRequest.limit,
+      "page": listDataMaskRulesRequest.page,
+      "sortOrder": listDataMaskRulesRequest.sortOrder,
+      "sortBy": listDataMaskRulesRequest.sortBy,
+      "dataMaskRuleStatus": listDataMaskRulesRequest.dataMaskRuleStatus,
+      "targetId": listDataMaskRulesRequest.targetId,
+      "iamGroupId": listDataMaskRulesRequest.iamGroupId,
+      "targetType": listDataMaskRulesRequest.targetType
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDataMaskRulesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dataMaskRules",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listDataMaskRulesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDataMaskRulesResponse>{},
+        body: await response.json(),
+        bodyKey: "dataMaskRuleCollection",
+        bodyModel: "model.DataMaskRuleCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of DetectorRule associated with DetectorRecipe.
    *
    * @param ListDetectorRecipeDetectorRulesRequest
@@ -2824,6 +3086,74 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
         body: await response.json(),
         bodyKey: "managedListCollection",
         bodyModel: "model.ManagedListCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the list of global policy statements needed by Cloud Guard when enabling
+   *
+   * @param ListPoliciesRequest
+   * @return ListPoliciesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListPolicies.ts.html |here} to see how to use ListPolicies API.
+   */
+  public async listPolicies(
+    listPoliciesRequest: requests.ListPoliciesRequest
+  ): Promise<responses.ListPoliciesResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listPolicies.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listPoliciesRequest.compartmentId,
+      "limit": listPoliciesRequest.limit,
+      "page": listPoliciesRequest.page,
+      "sortOrder": listPoliciesRequest.sortOrder,
+      "sortBy": listPoliciesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPoliciesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/policies",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listPoliciesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPoliciesResponse>{},
+        body: await response.json(),
+        bodyKey: "policyCollection",
+        bodyModel: "model.PolicyCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5051,6 +5381,75 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
         body: await response.json(),
         bodyKey: "configuration",
         bodyModel: "model.Configuration",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates a DataMaskRule identified by dataMaskRuleId
+   * @param UpdateDataMaskRuleRequest
+   * @return UpdateDataMaskRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateDataMaskRule.ts.html |here} to see how to use UpdateDataMaskRule API.
+   */
+  public async updateDataMaskRule(
+    updateDataMaskRuleRequest: requests.UpdateDataMaskRuleRequest
+  ): Promise<responses.UpdateDataMaskRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateDataMaskRule.");
+    const pathParams = {
+      "{dataMaskRuleId}": updateDataMaskRuleRequest.dataMaskRuleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDataMaskRuleRequest.ifMatch,
+      "opc-request-id": updateDataMaskRuleRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dataMaskRules/{dataMaskRuleId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDataMaskRuleRequest.updateDataMaskRuleDetails,
+        "UpdateDataMaskRuleDetails",
+        models.UpdateDataMaskRuleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateDataMaskRuleRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDataMaskRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "dataMaskRule",
+        bodyModel: "model.DataMaskRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

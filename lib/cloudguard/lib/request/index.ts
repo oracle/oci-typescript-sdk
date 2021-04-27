@@ -17,6 +17,8 @@ import * as ChangeManagedListCompartmentRequest from "./change-managed-list-comp
 export import ChangeManagedListCompartmentRequest = ChangeManagedListCompartmentRequest.ChangeManagedListCompartmentRequest;
 import * as ChangeResponderRecipeCompartmentRequest from "./change-responder-recipe-compartment-request";
 export import ChangeResponderRecipeCompartmentRequest = ChangeResponderRecipeCompartmentRequest.ChangeResponderRecipeCompartmentRequest;
+import * as CreateDataMaskRuleRequest from "./create-data-mask-rule-request";
+export import CreateDataMaskRuleRequest = CreateDataMaskRuleRequest.CreateDataMaskRuleRequest;
 import * as CreateDetectorRecipeRequest from "./create-detector-recipe-request";
 export import CreateDetectorRecipeRequest = CreateDetectorRecipeRequest.CreateDetectorRecipeRequest;
 import * as CreateManagedListRequest from "./create-managed-list-request";
@@ -29,6 +31,8 @@ import * as CreateTargetDetectorRecipeRequest from "./create-target-detector-rec
 export import CreateTargetDetectorRecipeRequest = CreateTargetDetectorRecipeRequest.CreateTargetDetectorRecipeRequest;
 import * as CreateTargetResponderRecipeRequest from "./create-target-responder-recipe-request";
 export import CreateTargetResponderRecipeRequest = CreateTargetResponderRecipeRequest.CreateTargetResponderRecipeRequest;
+import * as DeleteDataMaskRuleRequest from "./delete-data-mask-rule-request";
+export import DeleteDataMaskRuleRequest = DeleteDataMaskRuleRequest.DeleteDataMaskRuleRequest;
 import * as DeleteDetectorRecipeRequest from "./delete-detector-recipe-request";
 export import DeleteDetectorRecipeRequest = DeleteDetectorRecipeRequest.DeleteDetectorRecipeRequest;
 import * as DeleteManagedListRequest from "./delete-managed-list-request";
@@ -47,6 +51,8 @@ import * as GetConditionMetadataTypeRequest from "./get-condition-metadata-type-
 export import GetConditionMetadataTypeRequest = GetConditionMetadataTypeRequest.GetConditionMetadataTypeRequest;
 import * as GetConfigurationRequest from "./get-configuration-request";
 export import GetConfigurationRequest = GetConfigurationRequest.GetConfigurationRequest;
+import * as GetDataMaskRuleRequest from "./get-data-mask-rule-request";
+export import GetDataMaskRuleRequest = GetDataMaskRuleRequest.GetDataMaskRuleRequest;
 import * as GetDetectorRequest from "./get-detector-request";
 export import GetDetectorRequest = GetDetectorRequest.GetDetectorRequest;
 import * as GetDetectorRecipeRequest from "./get-detector-recipe-request";
@@ -79,6 +85,8 @@ import * as GetTargetResponderRecipeResponderRuleRequest from "./get-target-resp
 export import GetTargetResponderRecipeResponderRuleRequest = GetTargetResponderRecipeResponderRuleRequest.GetTargetResponderRecipeResponderRuleRequest;
 import * as ListConditionMetadataTypesRequest from "./list-condition-metadata-types-request";
 export import ListConditionMetadataTypesRequest = ListConditionMetadataTypesRequest.ListConditionMetadataTypesRequest;
+import * as ListDataMaskRulesRequest from "./list-data-mask-rules-request";
+export import ListDataMaskRulesRequest = ListDataMaskRulesRequest.ListDataMaskRulesRequest;
 import * as ListDetectorRecipeDetectorRulesRequest from "./list-detector-recipe-detector-rules-request";
 export import ListDetectorRecipeDetectorRulesRequest = ListDetectorRecipeDetectorRulesRequest.ListDetectorRecipeDetectorRulesRequest;
 import * as ListDetectorRecipesRequest from "./list-detector-recipes-request";
@@ -93,6 +101,8 @@ import * as ListManagedListTypesRequest from "./list-managed-list-types-request"
 export import ListManagedListTypesRequest = ListManagedListTypesRequest.ListManagedListTypesRequest;
 import * as ListManagedListsRequest from "./list-managed-lists-request";
 export import ListManagedListsRequest = ListManagedListsRequest.ListManagedListsRequest;
+import * as ListPoliciesRequest from "./list-policies-request";
+export import ListPoliciesRequest = ListPoliciesRequest.ListPoliciesRequest;
 import * as ListProblemHistoriesRequest from "./list-problem-histories-request";
 export import ListProblemHistoriesRequest = ListProblemHistoriesRequest.ListProblemHistoriesRequest;
 import * as ListProblemsRequest from "./list-problems-request";
@@ -153,6 +163,8 @@ import * as UpdateBulkProblemStatusRequest from "./update-bulk-problem-status-re
 export import UpdateBulkProblemStatusRequest = UpdateBulkProblemStatusRequest.UpdateBulkProblemStatusRequest;
 import * as UpdateConfigurationRequest from "./update-configuration-request";
 export import UpdateConfigurationRequest = UpdateConfigurationRequest.UpdateConfigurationRequest;
+import * as UpdateDataMaskRuleRequest from "./update-data-mask-rule-request";
+export import UpdateDataMaskRuleRequest = UpdateDataMaskRuleRequest.UpdateDataMaskRuleRequest;
 import * as UpdateDetectorRecipeRequest from "./update-detector-recipe-request";
 export import UpdateDetectorRecipeRequest = UpdateDetectorRecipeRequest.UpdateDetectorRecipeRequest;
 import * as UpdateDetectorRecipeDetectorRuleRequest from "./update-detector-recipe-detector-rule-request";

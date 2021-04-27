@@ -1,6 +1,6 @@
 /**
- * REST API for Zero Downtime Migration (Oracle Database Migration Service --ODMS-- as customer-facing service name)
- * Provides users the ability to perform Zero Downtime migration operations
+ * Database Migration API
+ * Use the Oracle Cloud Infrastructure Database Migration APIs to perform database migration operations.
  * OpenAPI spec version: 20200720
  *
  *
@@ -16,12 +16,12 @@ import common = require("oci-common");
 
 /**
  * Defines remapping to be applied to objects as they are processed.
- * Refer to https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/ODMS_DATAPUMP.html#GUID-0FC32790-91E6-4781-87A3-229DE024CB3D.
+ * Refer to [METADATA_REMAP Procedure ](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DATAPUMP.html#GUID-0FC32790-91E6-4781-87A3-229DE024CB3D)
  *
  */
 export interface MetadataRemap {
   /**
-   * Type of remap. Refer to https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/ODMS_DATAPUMP.html#GUID-0FC32790-91E6-4781-87A3-229DE024CB3D__BABDJGDI
+   * Type of remap. Refer to [METADATA_REMAP Procedure ](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DATAPUMP.html#GUID-0FC32790-91E6-4781-87A3-229DE024CB3D)
    *
    */
   "type": MetadataRemap.Type;

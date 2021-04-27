@@ -1,6 +1,6 @@
 /**
- * REST API for Zero Downtime Migration (Oracle Database Migration Service --ODMS-- as customer-facing service name)
- * Provides users the ability to perform Zero Downtime migration operations
+ * Database Migration API
+ * Use the Oracle Cloud Infrastructure Database Migration APIs to perform database migration operations.
  * OpenAPI spec version: 20200720
  *
  *
@@ -22,19 +22,18 @@ import common = require("oci-common");
 export interface CreatePrivateEndpoint {
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment to contain the
-   * private endpoint. Required if the id was not specified.
+   * private endpoint.
    *
    */
   "compartmentId": string;
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VCN where the Private Endpoint will be bound to.
-   * Required if the id was not specified.
    *
    */
   "vcnId": string;
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the customer's subnet where the private endpoint VNIC
-   * will reside.  Required if the id was not specified.
+   * will reside.
    *
    */
   "subnetId": string;

@@ -1,6 +1,6 @@
 /**
- * REST API for Zero Downtime Migration (Oracle Database Migration Service --ODMS-- as customer-facing service name)
- * Provides users the ability to perform Zero Downtime migration operations
+ * Database Migration API
+ * Use the Oracle Cloud Infrastructure Database Migration APIs to perform database migration operations.
  * OpenAPI spec version: 20200720
  *
  *
@@ -196,7 +196,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
-   * Used to configure a ODMS Agent Compartment Id.
+   * Used to configure an ODMS Agent Compartment ID.
    *
    * @param ChangeAgentCompartmentRequest
    * @return ChangeAgentCompartmentResponse
@@ -260,7 +260,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
-   * Used to change the Databasee Connection compartment.
+   * Used to change the Database Connection compartment.
    *
    * @param ChangeConnectionCompartmentRequest
    * @return ChangeConnectionCompartmentResponse
@@ -540,7 +540,7 @@ export class DatabaseMigrationClient {
 
   /**
    * Create a Migration resource that contains all the details to perform the
-   * database migration operation like source and destination database
+   * database migration operation, such as source and destination database
    * details, credentials, etc.
    *
    * @param CreateMigrationRequest
@@ -615,7 +615,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
-   * Delete the ODMS Agent represented by the given ODMS Agent id.
+   * Delete the ODMS Agent represented by the specified ODMS Agent ID.
    *
    * @param DeleteAgentRequest
    * @return DeleteAgentResponse
@@ -2144,7 +2144,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
-   * Modifies the ODMS Agent represented by the given ODMS agent Id.
+   * Modifies the ODMS Agent represented by the given ODMS Agent ID.
    *
    * @param UpdateAgentRequest
    * @return UpdateAgentResponse
@@ -2215,7 +2215,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
-   * Update a Database Connection resource details.
+   * Update Database Connection resource details.
    *
    * @param UpdateConnectionRequest
    * @return UpdateConnectionResponse
@@ -2283,7 +2283,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
-   * Update a Migration Job resource details.
+   * Update Migration Job resource details.
    *
    * @param UpdateJobRequest
    * @return UpdateJobResponse
@@ -2353,7 +2353,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
-   * Update a Migration resource details.
+   * Update Migration resource details.
    *
    * @param UpdateMigrationRequest
    * @return UpdateMigrationResponse

@@ -24,6 +24,25 @@ export class CloudGuardWaiter {
   ) {}
 
   /**
+   * Waits forDataMaskRule till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDataMaskRuleResponse | null (null in case of 404 response)
+   */
+  public async forDataMaskRule(
+    request: serviceRequests.GetDataMaskRuleRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetDataMaskRuleResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getDataMaskRule(request),
+      response => targetStates.includes(response.dataMaskRule.lifecycleState!),
+      targetStates.includes(models.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forDetector till it reaches any of the provided states
    *
    * @param request the request to send

@@ -1,6 +1,6 @@
 /**
- * REST API for Zero Downtime Migration (Oracle Database Migration Service --ODMS-- as customer-facing service name)
- * Provides users the ability to perform Zero Downtime migration operations
+ * Database Migration API
+ * Use the Oracle Cloud Infrastructure Database Migration APIs to perform database migration operations.
  * OpenAPI spec version: 20200720
  *
  *
@@ -15,18 +15,18 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of the ssh key that will be used. Required for source database Manual and UserManagerOci connection types.
+ * Details of the SSH key that will be used. Required for source database Manual and UserManagerOci connection types.
  * Not required for source container database connections.
  *
  */
 export interface CreateSshDetails {
   /**
-   * Name of the host the sshkey is valid for.
+   * Name of the host the SSH key is valid for.
    *
    */
   "host": string;
   /**
-   * Private ssh key string.
+   * Private SSH key string.
    *
    */
   "sshkey": string;

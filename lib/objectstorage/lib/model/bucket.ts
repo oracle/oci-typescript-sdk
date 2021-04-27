@@ -141,6 +141,13 @@ export interface Bucket {
    *
    */
   "versioning"?: Bucket.Versioning;
+  /**
+   * The auto tiering status on the bucket. A bucket is created with auto tiering `Disabled` by default.
+   * For auto tiering `InfrequentAccess`, objects are transitioned automatically between the 'Standard'
+   * and 'InfrequentAccess' tiers based on the access pattern of the objects.
+   *
+   */
+  "autoTiering"?: Bucket.AutoTiering;
 }
 
 export namespace Bucket {
@@ -169,6 +176,16 @@ export namespace Bucket {
     Enabled = "Enabled",
     Suspended = "Suspended",
     Disabled = "Disabled",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum AutoTiering {
+    Disabled = "Disabled",
+    InfrequentAccess = "InfrequentAccess",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
