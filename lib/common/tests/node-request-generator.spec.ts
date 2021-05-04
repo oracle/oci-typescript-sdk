@@ -7,6 +7,7 @@ import { composeRequest } from "../lib/request-generator";
 import { expect } from "chai";
 import { version } from "../../../package.json";
 const os = require("os");
+import fs from "fs";
 
 describe("Test Request Generator ", () => {
   const pathParams = {
@@ -45,5 +46,72 @@ describe("Test Request Generator ", () => {
     expect(sdkRequest.headers.get("X-Orcl-User-Agent")).not.exist;
     expect(sdkRequest.headers.get("User-Agent")).equals(userAgent);
     expect(sdkRequest.headers.get("opc-retry-token")).exist;
+  });
+
+  it("should calculate content-length without reading content if path provided and content-length not given for request body", async function() {
+    const headerParams = {
+      "opc-request-id": "test-request-id",
+      "Content-Type": "application/json",
+      "Content-Length": undefined
+    };
+    const fileLocation = __dirname + "/resources/large_file.bin";
+    const objectData = await fs.createReadStream(fileLocation);
+    const size = fs.statSync(fileLocation).size;
+    const sdkRequest = await composeRequest({
+      baseEndpoint: "http://test-end-point/20191002",
+      defaultHeaders: {},
+      path: "/testUrl/{testId}/actions",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams,
+      bodyContent: objectData
+    });
+
+    expect(sdkRequest.body).to.exist;
+    expect(sdkRequest.uri).equals(
+      "http://test-end-point/20191002/testUrl/Test-Id/actions?imageId=test"
+    );
+    expect(sdkRequest.headers.get("opc-request-id")).exist;
+    expect(sdkRequest.headers.get("X-Orcl-User-Agent")).not.exist;
+    expect(sdkRequest.headers.get("User-Agent")).equals(userAgent);
+    expect(sdkRequest.headers.get("opc-retry-token")).exist;
+    expect(sdkRequest.headers.get("content-length")).exist;
+    expect(sdkRequest.headers.get("content-length")).equal(String(size));
+    expect(typeof sdkRequest.body).equal("object");
+  });
+
+  it("should calculate content-length by reading content if path was not provided and content-length not given for request body", async function() {
+    const headerParams = {
+      "opc-request-id": "test-request-id",
+      "Content-Type": "application/json",
+      "Content-Length": undefined
+    };
+    const fileLocation = __dirname + "/resources/large_file.bin";
+    const size = fs.statSync(fileLocation).size;
+    const objectData = await fs.createReadStream(fileLocation);
+    objectData.path = ""; // Force the path to be an empty string
+    const sdkRequest = await composeRequest({
+      baseEndpoint: "http://test-end-point/20191002",
+      defaultHeaders: {},
+      path: "/testUrl/{testId}/actions",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams,
+      bodyContent: objectData
+    });
+
+    expect(sdkRequest.body).to.exist;
+    expect(sdkRequest.uri).equals(
+      "http://test-end-point/20191002/testUrl/Test-Id/actions?imageId=test"
+    );
+    expect(sdkRequest.headers.get("opc-request-id")).exist;
+    expect(sdkRequest.headers.get("X-Orcl-User-Agent")).not.exist;
+    expect(sdkRequest.headers.get("User-Agent")).equals(userAgent);
+    expect(sdkRequest.headers.get("opc-retry-token")).exist;
+    expect(sdkRequest.headers.get("content-length")).exist;
+    expect(sdkRequest.headers.get("content-length")).equal(String(size));
+    expect(typeof sdkRequest.body).equal("object");
   });
 });
