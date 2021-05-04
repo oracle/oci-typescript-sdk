@@ -5,7 +5,11 @@
 
 import { Range } from "./range";
 import { HttpRequest } from "./http-request";
-import { addAdditionalHeaders, formatDateToRFC3339 } from "./helper";
+import {
+  addAdditionalHeaders,
+  autoDetectContentLengthAndReadBody,
+  formatDateToRFC3339
+} from "./helper";
 
 interface Params {
   [key: string]: string | Date | Range | string[] | number | number[] | boolean | undefined;
@@ -40,8 +44,13 @@ export interface RequestParams {
 export async function composeRequest(params: RequestParams): Promise<HttpRequest> {
   const headers = computeHeaders(params);
   const uri = computeUri(params);
-  const body = params.bodyContent;
+  let body = params.bodyContent;
 
+  // If body exists, lets check if we need to calculate content length
+  if (body) {
+    const content = await autoDetectContentLengthAndReadBody(headers, params);
+    body = content ? content : body;
+  }
   return {
     method: params.method,
     headers: headers,

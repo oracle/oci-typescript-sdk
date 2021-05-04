@@ -1,6 +1,6 @@
 {
   "name": "oci-datasafe",
-  "version": "1.19.2",
+  "version": "1.19.3",
   "description": "OCI NodeJS client for Data Safe ",
   "repository": {
     "type": "git",

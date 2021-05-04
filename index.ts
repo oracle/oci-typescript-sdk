@@ -158,3 +158,6 @@ export import goldengate = require("oci-goldengate");
 export import networkloadbalancer = require("oci-networkloadbalancer");
 export import vulnerabilityscanning = require("oci-vulnerabilityscanning");
 export import databasemigration = require("oci-databasemigration");
+export import ailanguage = require("oci-ailanguage");
+export import operatoraccesscontrol = require("oci-operatoraccesscontrol");
+export import servicecatalog = require("oci-servicecatalog");
