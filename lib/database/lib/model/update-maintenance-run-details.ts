@@ -36,9 +36,18 @@ export interface UpdateMaintenanceRunDetails {
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the patch to be applied in the maintenance run.
    */
   "patchId"?: string;
+  /**
+   * Maintenance method, it will be either \"ROLLING\" or \"NONROLLING\". Default value is ROLLING.
+   */
+  "patchingMode"?: UpdateMaintenanceRunDetails.PatchingMode;
 }
 
 export namespace UpdateMaintenanceRunDetails {
+  export enum PatchingMode {
+    Rolling = "ROLLING",
+    Nonrolling = "NONROLLING"
+  }
+
   export function getJsonObj(obj: UpdateMaintenanceRunDetails): object {
     const jsonObj = { ...obj, ...{} };
 
