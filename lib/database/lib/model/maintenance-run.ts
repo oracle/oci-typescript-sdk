@@ -81,6 +81,14 @@ export interface MaintenanceRun {
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the maintenance run for the Autonomous Data Guard association's peer container database.
    */
   "peerMaintenanceRunId"?: string;
+  /**
+   * Maintenance method, it will be either \"ROLLING\" or \"NONROLLING\". Default value is ROLLING.
+   */
+  "patchingMode"?: MaintenanceRun.PatchingMode;
+  /**
+   * Contain the patch failure count. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "patchFailureCount"?: number;
 }
 
 export namespace MaintenanceRun {
@@ -132,6 +140,16 @@ export namespace MaintenanceRun {
     Infrastructure = "INFRASTRUCTURE",
     Database = "DATABASE",
     Oneoff = "ONEOFF",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum PatchingMode {
+    Rolling = "ROLLING",
+    Nonrolling = "NONROLLING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
