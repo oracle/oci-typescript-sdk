@@ -38,6 +38,7 @@ export interface CreateStackDetails {
   "configSource":
     | model.CreateZipUploadConfigSourceDetails
     | model.CreateGitConfigSourceDetails
+    | model.CreateObjectStorageConfigSourceDetails
     | model.CreateCompartmentConfigSourceDetails
     | model.CreateStackTemplateConfigSourceDetails;
   /**

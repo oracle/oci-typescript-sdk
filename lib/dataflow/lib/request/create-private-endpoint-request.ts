@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreatePrivateEndpointRequest extends common.BaseRequest {
   /**
-   * Details to create a private endpoint.
+   * The parameters required to create a private endpoint.
    *
    */
   "createPrivateEndpointDetails": model.CreatePrivateEndpointDetails;

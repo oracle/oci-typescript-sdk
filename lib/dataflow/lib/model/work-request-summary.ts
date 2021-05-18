@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A Data Flow work request object.
+ * A Data Flow work request summary object.
  *
  */
 export interface WorkRequestSummary {

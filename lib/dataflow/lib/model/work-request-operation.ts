@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The operation related to this work request.
+ * The operation related to a work request.
  *
  **/
 export enum WorkRequestOperation {

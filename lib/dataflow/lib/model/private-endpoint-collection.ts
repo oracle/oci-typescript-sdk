@@ -16,12 +16,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of a query for a list of private endpoints. Contains PrivateEndpointSummary items.
+ * The results of a query for a list of private endpoints. It contains PrivateEndpointSummary items.
  *
  */
 export interface PrivateEndpointCollection {
   /**
-   * A list of private endpoints
+   * A list of private endpoints.
    *
    */
   "items": Array<model.PrivateEndpointSummary>;

@@ -132,6 +132,8 @@ import * as CreateGitlabAccessTokenConfigurationSourceProviderDetails from "./cr
 export import CreateGitlabAccessTokenConfigurationSourceProviderDetails = CreateGitlabAccessTokenConfigurationSourceProviderDetails.CreateGitlabAccessTokenConfigurationSourceProviderDetails;
 import * as CreateImportTfStateJobOperationDetails from "./create-import-tf-state-job-operation-details";
 export import CreateImportTfStateJobOperationDetails = CreateImportTfStateJobOperationDetails.CreateImportTfStateJobOperationDetails;
+import * as CreateObjectStorageConfigSourceDetails from "./create-object-storage-config-source-details";
+export import CreateObjectStorageConfigSourceDetails = CreateObjectStorageConfigSourceDetails.CreateObjectStorageConfigSourceDetails;
 import * as CreatePlanJobOperationDetails from "./create-plan-job-operation-details";
 export import CreatePlanJobOperationDetails = CreatePlanJobOperationDetails.CreatePlanJobOperationDetails;
 import * as CreateStackTemplateConfigSourceDetails from "./create-stack-template-config-source-details";
@@ -160,6 +162,10 @@ import * as ImportTfStateJobOperationDetails from "./import-tf-state-job-operati
 export import ImportTfStateJobOperationDetails = ImportTfStateJobOperationDetails.ImportTfStateJobOperationDetails;
 import * as ImportTfStateJobOperationDetailsSummary from "./import-tf-state-job-operation-details-summary";
 export import ImportTfStateJobOperationDetailsSummary = ImportTfStateJobOperationDetailsSummary.ImportTfStateJobOperationDetailsSummary;
+import * as ObjectStorageConfigSource from "./object-storage-config-source";
+export import ObjectStorageConfigSource = ObjectStorageConfigSource.ObjectStorageConfigSource;
+import * as ObjectStorageConfigSourceRecord from "./object-storage-config-source-record";
+export import ObjectStorageConfigSourceRecord = ObjectStorageConfigSourceRecord.ObjectStorageConfigSourceRecord;
 import * as PlanJobOperationDetails from "./plan-job-operation-details";
 export import PlanJobOperationDetails = PlanJobOperationDetails.PlanJobOperationDetails;
 import * as PlanJobOperationDetailsSummary from "./plan-job-operation-details-summary";
@@ -172,6 +178,8 @@ import * as UpdateGithubAccessTokenConfigurationSourceProviderDetails from "./up
 export import UpdateGithubAccessTokenConfigurationSourceProviderDetails = UpdateGithubAccessTokenConfigurationSourceProviderDetails.UpdateGithubAccessTokenConfigurationSourceProviderDetails;
 import * as UpdateGitlabAccessTokenConfigurationSourceProviderDetails from "./update-gitlab-access-token-configuration-source-provider-details";
 export import UpdateGitlabAccessTokenConfigurationSourceProviderDetails = UpdateGitlabAccessTokenConfigurationSourceProviderDetails.UpdateGitlabAccessTokenConfigurationSourceProviderDetails;
+import * as UpdateObjectStorageConfigSourceDetails from "./update-object-storage-config-source-details";
+export import UpdateObjectStorageConfigSourceDetails = UpdateObjectStorageConfigSourceDetails.UpdateObjectStorageConfigSourceDetails;
 import * as UpdateTemplateZipUploadConfigSourceDetails from "./update-template-zip-upload-config-source-details";
 export import UpdateTemplateZipUploadConfigSourceDetails = UpdateTemplateZipUploadConfigSourceDetails.UpdateTemplateZipUploadConfigSourceDetails;
 import * as UpdateZipUploadConfigSourceDetails from "./update-zip-upload-config-source-details";
