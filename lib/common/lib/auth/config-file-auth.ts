@@ -116,8 +116,12 @@ export class ConfigFileAuthenticationDetailsProvider
   }
 
   getPvtKey(filePath: string): string {
-    const key = readFileSync(filePath, "utf8");
-    return key;
+    try {
+      const key = readFileSync(filePath, "utf8");
+      return key;
+    } catch (e) {
+      throw "Failed to read private key from file path.";
+    }
   }
 
   /**

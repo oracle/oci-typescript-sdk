@@ -42,6 +42,11 @@ export namespace ConfigSource {
       switch (obj.configSourceType) {
         case "GIT_CONFIG_SOURCE":
           return model.GitConfigSource.getJsonObj(<model.GitConfigSource>(<object>jsonObj), true);
+        case "OBJECT_STORAGE_CONFIG_SOURCE":
+          return model.ObjectStorageConfigSource.getJsonObj(
+            <model.ObjectStorageConfigSource>(<object>jsonObj),
+            true
+          );
         case "COMPARTMENT_CONFIG_SOURCE":
           return model.CompartmentConfigSource.getJsonObj(
             <model.CompartmentConfigSource>(<object>jsonObj),

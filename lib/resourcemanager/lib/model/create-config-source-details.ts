@@ -50,6 +50,11 @@ export namespace CreateConfigSourceDetails {
             <model.CreateGitConfigSourceDetails>(<object>jsonObj),
             true
           );
+        case "OBJECT_STORAGE_CONFIG_SOURCE":
+          return model.CreateObjectStorageConfigSourceDetails.getJsonObj(
+            <model.CreateObjectStorageConfigSourceDetails>(<object>jsonObj),
+            true
+          );
         case "COMPARTMENT_CONFIG_SOURCE":
           return model.CreateCompartmentConfigSourceDetails.getJsonObj(
             <model.CreateCompartmentConfigSourceDetails>(<object>jsonObj),

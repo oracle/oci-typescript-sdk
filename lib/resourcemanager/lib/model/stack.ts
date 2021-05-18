@@ -56,6 +56,7 @@ export interface Stack {
   "lifecycleState"?: Stack.LifecycleState;
   "configSource"?:
     | model.GitConfigSource
+    | model.ObjectStorageConfigSource
     | model.CompartmentConfigSource
     | model.ZipUploadConfigSource;
   /**

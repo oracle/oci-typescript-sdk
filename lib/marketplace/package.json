@@ -1,6 +1,6 @@
 {
   "name": "oci-marketplace",
-  "version": "1.19.4",
+  "version": "1.19.5",
   "description": "OCI NodeJS client for Marketplace Service",
   "repository": {
     "type": "git",

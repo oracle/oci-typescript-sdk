@@ -42,6 +42,11 @@ export namespace UpdateConfigSourceDetails {
             <model.UpdateGitConfigSourceDetails>(<object>jsonObj),
             true
           );
+        case "OBJECT_STORAGE_CONFIG_SOURCE":
+          return model.UpdateObjectStorageConfigSourceDetails.getJsonObj(
+            <model.UpdateObjectStorageConfigSourceDetails>(<object>jsonObj),
+            true
+          );
         case "ZIP_UPLOAD":
           return model.UpdateZipUploadConfigSourceDetails.getJsonObj(
             <model.UpdateZipUploadConfigSourceDetails>(<object>jsonObj),

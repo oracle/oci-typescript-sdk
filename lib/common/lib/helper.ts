@@ -31,9 +31,12 @@ export function handleErrorResponse(response: Response, body: any): OciError {
   if (body && body.code && body.message) {
     return new OciError(statusCode, body.code, body.message, requestId);
   } else if (typeof body == "string" && body.length > 0) {
-    return new OciError(statusCode, "unknown code", body, requestId);
+    return new OciError(statusCode, "None", body, requestId);
+  } else if (response.statusText && response.statusText.length > 0) {
+    // There is no body text but statusText exists
+    return new OciError(statusCode, "None", response.statusText, requestId);
   } else {
-    return new OciError(statusCode, "unknown code", "unknown reason.", requestId);
+    return new OciError(statusCode, "None", "unknown reason.", requestId);
   }
 }
 
@@ -43,7 +46,7 @@ export async function handleErrorBody(response: Response): Promise<string | obje
   try {
     data = JSON.parse(data);
   } catch (err) {
-    console.log("Cannot parse data into JSON");
+    return data;
   }
   return data;
 }

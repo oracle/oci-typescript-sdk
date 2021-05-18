@@ -42,6 +42,11 @@ export namespace ConfigSourceRecord {
             <model.ZipUploadConfigSourceRecord>(<object>jsonObj),
             true
           );
+        case "OBJECT_STORAGE_CONFIG_SOURCE":
+          return model.ObjectStorageConfigSourceRecord.getJsonObj(
+            <model.ObjectStorageConfigSourceRecord>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.configSourceRecordType);
       }

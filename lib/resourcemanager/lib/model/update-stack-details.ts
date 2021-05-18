@@ -31,7 +31,10 @@ export interface UpdateStackDetails {
    * Description of the stack.
    */
   "description"?: string;
-  "configSource"?: model.UpdateGitConfigSourceDetails | model.UpdateZipUploadConfigSourceDetails;
+  "configSource"?:
+    | model.UpdateGitConfigSourceDetails
+    | model.UpdateObjectStorageConfigSourceDetails
+    | model.UpdateZipUploadConfigSourceDetails;
   /**
    * Terraform variables associated with this resource.
    * The maximum number of variables supported is 250.

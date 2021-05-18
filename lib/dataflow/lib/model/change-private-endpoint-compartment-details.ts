@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The change private endpoint compartment details.
+ * The details required to change a private endpoint compartment.
  *
  */
 export interface ChangePrivateEndpointCompartmentDetails {

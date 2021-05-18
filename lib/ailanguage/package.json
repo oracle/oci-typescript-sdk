@@ -1,6 +1,6 @@
 {
   "name": "oci-ailanguage",
-  "version": "1.19.4",
+  "version": "1.19.5",
   "description": "OCI NodeJS client for Ai Language Service",
   "repository": {
     "type": "git",

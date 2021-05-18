@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The create private endpoint details.
+ * The details required to create a private endpoint.
  *
  */
 export interface CreatePrivateEndpointDetails {
