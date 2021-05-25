@@ -677,6 +677,146 @@ export class DbManagementClient {
   }
 
   /**
+   * Gets the AWR report for the specified Managed Database.
+   *
+   * @param GetAwrDbReportRequest
+   * @return GetAwrDbReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetAwrDbReport.ts.html |here} to see how to use GetAwrDbReport API.
+   */
+  public async getAwrDbReport(
+    getAwrDbReportRequest: requests.GetAwrDbReportRequest
+  ): Promise<responses.GetAwrDbReportResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getAwrDbReport.");
+    const pathParams = {
+      "{managedDatabaseId}": getAwrDbReportRequest.managedDatabaseId,
+      "{awrDbId}": getAwrDbReportRequest.awrDbId
+    };
+
+    const queryParams = {
+      "instNums": getAwrDbReportRequest.instNums,
+      "beginSnIdGreaterThanOrEqualTo": getAwrDbReportRequest.beginSnIdGreaterThanOrEqualTo,
+      "endSnIdLessThanOrEqualTo": getAwrDbReportRequest.endSnIdLessThanOrEqualTo,
+      "timeGreaterThanOrEqualTo": getAwrDbReportRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": getAwrDbReportRequest.timeLessThanOrEqualTo,
+      "reportType": getAwrDbReportRequest.reportType,
+      "containerId": getAwrDbReportRequest.containerId,
+      "reportFormat": getAwrDbReportRequest.reportFormat
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAwrDbReportRequest.opcRequestId,
+      "opc-retry-token": getAwrDbReportRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/awrDbs/{awrDbId}/awrDbReport",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getAwrDbReportRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAwrDbReportResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDbReport",
+        bodyModel: "model.AwrDbReport",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get a AWR SQL report for one SQL.
+   *
+   * @param GetAwrDbSqlReportRequest
+   * @return GetAwrDbSqlReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetAwrDbSqlReport.ts.html |here} to see how to use GetAwrDbSqlReport API.
+   */
+  public async getAwrDbSqlReport(
+    getAwrDbSqlReportRequest: requests.GetAwrDbSqlReportRequest
+  ): Promise<responses.GetAwrDbSqlReportResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getAwrDbSqlReport.");
+    const pathParams = {
+      "{managedDatabaseId}": getAwrDbSqlReportRequest.managedDatabaseId,
+      "{awrDbId}": getAwrDbSqlReportRequest.awrDbId
+    };
+
+    const queryParams = {
+      "instNum": getAwrDbSqlReportRequest.instNum,
+      "beginSnIdGreaterThanOrEqualTo": getAwrDbSqlReportRequest.beginSnIdGreaterThanOrEqualTo,
+      "endSnIdLessThanOrEqualTo": getAwrDbSqlReportRequest.endSnIdLessThanOrEqualTo,
+      "timeGreaterThanOrEqualTo": getAwrDbSqlReportRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": getAwrDbSqlReportRequest.timeLessThanOrEqualTo,
+      "sqlId": getAwrDbSqlReportRequest.sqlId,
+      "reportFormat": getAwrDbSqlReportRequest.reportFormat,
+      "containerId": getAwrDbSqlReportRequest.containerId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAwrDbSqlReportRequest.opcRequestId,
+      "opc-retry-token": getAwrDbSqlReportRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/awrDbs/{awrDbId}/awrDbSqlReport",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getAwrDbSqlReportRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAwrDbSqlReportResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDbSqlReport",
+        bodyModel: "model.AwrDbSqlReport",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the metrics related to cluster cache for the Oracle
    * Real Application Clusters (Oracle RAC) database specified
    * by managedDatabaseId.
@@ -1168,6 +1308,156 @@ export class DbManagementClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists AWR snapshots for the specified database in the AWR.
+   *
+   * @param ListAwrDbSnapshotsRequest
+   * @return ListAwrDbSnapshotsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListAwrDbSnapshots.ts.html |here} to see how to use ListAwrDbSnapshots API.
+   */
+  public async listAwrDbSnapshots(
+    listAwrDbSnapshotsRequest: requests.ListAwrDbSnapshotsRequest
+  ): Promise<responses.ListAwrDbSnapshotsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listAwrDbSnapshots.");
+    const pathParams = {
+      "{managedDatabaseId}": listAwrDbSnapshotsRequest.managedDatabaseId,
+      "{awrDbId}": listAwrDbSnapshotsRequest.awrDbId
+    };
+
+    const queryParams = {
+      "instNum": listAwrDbSnapshotsRequest.instNum,
+      "beginSnIdGreaterThanOrEqualTo": listAwrDbSnapshotsRequest.beginSnIdGreaterThanOrEqualTo,
+      "endSnIdLessThanOrEqualTo": listAwrDbSnapshotsRequest.endSnIdLessThanOrEqualTo,
+      "timeGreaterThanOrEqualTo": listAwrDbSnapshotsRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": listAwrDbSnapshotsRequest.timeLessThanOrEqualTo,
+      "containerId": listAwrDbSnapshotsRequest.containerId,
+      "page": listAwrDbSnapshotsRequest.page,
+      "limit": listAwrDbSnapshotsRequest.limit,
+      "sortBy": listAwrDbSnapshotsRequest.sortBy,
+      "sortOrder": listAwrDbSnapshotsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAwrDbSnapshotsRequest.opcRequestId,
+      "opc-retry-token": listAwrDbSnapshotsRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/awrDbs/{awrDbId}/awrDbSnapshots",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listAwrDbSnapshotsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAwrDbSnapshotsResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDbSnapshotCollection",
+        bodyModel: "model.AwrDbSnapshotCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the list of databases and their snapshot summary details available in the AWR of the specified Managed Database.
+   *
+   * @param ListAwrDbsRequest
+   * @return ListAwrDbsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListAwrDbs.ts.html |here} to see how to use ListAwrDbs API.
+   */
+  public async listAwrDbs(
+    listAwrDbsRequest: requests.ListAwrDbsRequest
+  ): Promise<responses.ListAwrDbsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listAwrDbs.");
+    const pathParams = {
+      "{managedDatabaseId}": listAwrDbsRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "name": listAwrDbsRequest.name,
+      "timeGreaterThanOrEqualTo": listAwrDbsRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": listAwrDbsRequest.timeLessThanOrEqualTo,
+      "page": listAwrDbsRequest.page,
+      "limit": listAwrDbsRequest.limit,
+      "sortBy": listAwrDbsRequest.sortBy,
+      "sortOrder": listAwrDbsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAwrDbsRequest.opcRequestId,
+      "opc-retry-token": listAwrDbsRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/awrDbs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listAwrDbsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAwrDbsResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDbCollection",
+        bodyModel: "model.AwrDbCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]
@@ -1816,6 +2106,736 @@ export class DbManagementClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Summarizes the AWR CPU resource limits and metrics for the specified database in AWR.
+   *
+   * @param SummarizeAwrDbCpuUsagesRequest
+   * @return SummarizeAwrDbCpuUsagesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbCpuUsages.ts.html |here} to see how to use SummarizeAwrDbCpuUsages API.
+   */
+  public async summarizeAwrDbCpuUsages(
+    summarizeAwrDbCpuUsagesRequest: requests.SummarizeAwrDbCpuUsagesRequest
+  ): Promise<responses.SummarizeAwrDbCpuUsagesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbCpuUsages.");
+    const pathParams = {
+      "{managedDatabaseId}": summarizeAwrDbCpuUsagesRequest.managedDatabaseId,
+      "{awrDbId}": summarizeAwrDbCpuUsagesRequest.awrDbId
+    };
+
+    const queryParams = {
+      "instNum": summarizeAwrDbCpuUsagesRequest.instNum,
+      "beginSnIdGreaterThanOrEqualTo": summarizeAwrDbCpuUsagesRequest.beginSnIdGreaterThanOrEqualTo,
+      "endSnIdLessThanOrEqualTo": summarizeAwrDbCpuUsagesRequest.endSnIdLessThanOrEqualTo,
+      "timeGreaterThanOrEqualTo": summarizeAwrDbCpuUsagesRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": summarizeAwrDbCpuUsagesRequest.timeLessThanOrEqualTo,
+      "sessionType": summarizeAwrDbCpuUsagesRequest.sessionType,
+      "containerId": summarizeAwrDbCpuUsagesRequest.containerId,
+      "page": summarizeAwrDbCpuUsagesRequest.page,
+      "limit": summarizeAwrDbCpuUsagesRequest.limit,
+      "sortBy": summarizeAwrDbCpuUsagesRequest.sortBy,
+      "sortOrder": summarizeAwrDbCpuUsagesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAwrDbCpuUsagesRequest.opcRequestId,
+      "opc-retry-token": summarizeAwrDbCpuUsagesRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/awrDbs/{awrDbId}/awrDbCpuUsages",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeAwrDbCpuUsagesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAwrDbCpuUsagesResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDbCpuUsageCollection",
+        bodyModel: "model.AwrDbCpuUsageCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Summarizes the metric samples for the specified database in the AWR. The metric samples are summarized based on the Time dimension for each metric.
+   *
+   * @param SummarizeAwrDbMetricsRequest
+   * @return SummarizeAwrDbMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbMetrics.ts.html |here} to see how to use SummarizeAwrDbMetrics API.
+   */
+  public async summarizeAwrDbMetrics(
+    summarizeAwrDbMetricsRequest: requests.SummarizeAwrDbMetricsRequest
+  ): Promise<responses.SummarizeAwrDbMetricsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbMetrics.");
+    const pathParams = {
+      "{managedDatabaseId}": summarizeAwrDbMetricsRequest.managedDatabaseId,
+      "{awrDbId}": summarizeAwrDbMetricsRequest.awrDbId
+    };
+
+    const queryParams = {
+      "instNum": summarizeAwrDbMetricsRequest.instNum,
+      "beginSnIdGreaterThanOrEqualTo": summarizeAwrDbMetricsRequest.beginSnIdGreaterThanOrEqualTo,
+      "endSnIdLessThanOrEqualTo": summarizeAwrDbMetricsRequest.endSnIdLessThanOrEqualTo,
+      "timeGreaterThanOrEqualTo": summarizeAwrDbMetricsRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": summarizeAwrDbMetricsRequest.timeLessThanOrEqualTo,
+      "name": summarizeAwrDbMetricsRequest.name,
+      "containerId": summarizeAwrDbMetricsRequest.containerId,
+      "page": summarizeAwrDbMetricsRequest.page,
+      "limit": summarizeAwrDbMetricsRequest.limit,
+      "sortBy": summarizeAwrDbMetricsRequest.sortBy,
+      "sortOrder": summarizeAwrDbMetricsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAwrDbMetricsRequest.opcRequestId,
+      "opc-retry-token": summarizeAwrDbMetricsRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/awrDbs/{awrDbId}/awrDbMetrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeAwrDbMetricsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAwrDbMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDbMetricCollection",
+        bodyModel: "model.AwrDbMetricCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Summarizes the AWR database parameter change history for one database parameter of the specified Managed Database. One change history record contains
+   * the previous value, the changed value, and the corresponding time range. If the database parameter value was changed multiple times within the time range, then multiple change history records are created for the same parameter.
+   * Note that this API only returns information on change history details for one database parameter.
+   * To get a list of all the database parameters whose values were changed during a specified time range, use the following API endpoint:
+   * /managedDatabases/{managedDatabaseId}/awrDbs/{awrDbId}/awrDbParameters
+   *
+   * @param SummarizeAwrDbParameterChangesRequest
+   * @return SummarizeAwrDbParameterChangesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbParameterChanges.ts.html |here} to see how to use SummarizeAwrDbParameterChanges API.
+   */
+  public async summarizeAwrDbParameterChanges(
+    summarizeAwrDbParameterChangesRequest: requests.SummarizeAwrDbParameterChangesRequest
+  ): Promise<responses.SummarizeAwrDbParameterChangesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbParameterChanges.");
+    const pathParams = {
+      "{managedDatabaseId}": summarizeAwrDbParameterChangesRequest.managedDatabaseId,
+      "{awrDbId}": summarizeAwrDbParameterChangesRequest.awrDbId
+    };
+
+    const queryParams = {
+      "instNum": summarizeAwrDbParameterChangesRequest.instNum,
+      "beginSnIdGreaterThanOrEqualTo":
+        summarizeAwrDbParameterChangesRequest.beginSnIdGreaterThanOrEqualTo,
+      "endSnIdLessThanOrEqualTo": summarizeAwrDbParameterChangesRequest.endSnIdLessThanOrEqualTo,
+      "timeGreaterThanOrEqualTo": summarizeAwrDbParameterChangesRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": summarizeAwrDbParameterChangesRequest.timeLessThanOrEqualTo,
+      "containerId": summarizeAwrDbParameterChangesRequest.containerId,
+      "name": summarizeAwrDbParameterChangesRequest.name,
+      "page": summarizeAwrDbParameterChangesRequest.page,
+      "limit": summarizeAwrDbParameterChangesRequest.limit,
+      "sortBy": summarizeAwrDbParameterChangesRequest.sortBy,
+      "sortOrder": summarizeAwrDbParameterChangesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAwrDbParameterChangesRequest.opcRequestId,
+      "opc-retry-token": summarizeAwrDbParameterChangesRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/awrDbs/{awrDbId}/awrDbParameterChanges",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeAwrDbParameterChangesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAwrDbParameterChangesResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDbParameterChangeCollection",
+        bodyModel: "model.AwrDbParameterChangeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Summarizes the AWR database parameter history for the specified Managed Database. This includes the list of database
+   * parameters, with information on whether the parameter values were modified within the query time range. Note that
+   * each database parameter is only listed once. The returned summary gets all the database parameters, which include:
+   *  -Each parameter whose value was changed during the time range: AwrDbParameterValueOptionalQueryParam (valueChanged =\"Y\")
+   *  -Each parameter whose value was unchanged during the time range: AwrDbParameterValueOptionalQueryParam (valueChanged =\"N\")
+   *  -Each parameter whose value was changed at the system level during the time range: (valueChanged =\"Y\"  and valueModified = \"SYSTEM_MOD\").
+   *  -Each parameter whose value was unchanged during the time range, however, the value is not the default value: (valueChanged =\"N\" and  valueDefault = \"FALSE\")
+   * Note that this API does not return information on the number of times each database parameter has been changed within the time range. To get the database parameter value change history for a specific parameter, use the following API endpoint:
+   * /managedDatabases/{managedDatabaseId}/awrDbs/{awrDbId}/awrDbParameterChanges
+   *
+   * @param SummarizeAwrDbParametersRequest
+   * @return SummarizeAwrDbParametersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbParameters.ts.html |here} to see how to use SummarizeAwrDbParameters API.
+   */
+  public async summarizeAwrDbParameters(
+    summarizeAwrDbParametersRequest: requests.SummarizeAwrDbParametersRequest
+  ): Promise<responses.SummarizeAwrDbParametersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbParameters.");
+    const pathParams = {
+      "{managedDatabaseId}": summarizeAwrDbParametersRequest.managedDatabaseId,
+      "{awrDbId}": summarizeAwrDbParametersRequest.awrDbId
+    };
+
+    const queryParams = {
+      "instNum": summarizeAwrDbParametersRequest.instNum,
+      "beginSnIdGreaterThanOrEqualTo":
+        summarizeAwrDbParametersRequest.beginSnIdGreaterThanOrEqualTo,
+      "endSnIdLessThanOrEqualTo": summarizeAwrDbParametersRequest.endSnIdLessThanOrEqualTo,
+      "timeGreaterThanOrEqualTo": summarizeAwrDbParametersRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": summarizeAwrDbParametersRequest.timeLessThanOrEqualTo,
+      "containerId": summarizeAwrDbParametersRequest.containerId,
+      "name": summarizeAwrDbParametersRequest.name,
+      "nameContains": summarizeAwrDbParametersRequest.nameContains,
+      "valueChanged": summarizeAwrDbParametersRequest.valueChanged,
+      "valueDefault": summarizeAwrDbParametersRequest.valueDefault,
+      "valueModified": summarizeAwrDbParametersRequest.valueModified,
+      "page": summarizeAwrDbParametersRequest.page,
+      "limit": summarizeAwrDbParametersRequest.limit,
+      "sortBy": summarizeAwrDbParametersRequest.sortBy,
+      "sortOrder": summarizeAwrDbParametersRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAwrDbParametersRequest.opcRequestId,
+      "opc-retry-token": summarizeAwrDbParametersRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/awrDbs/{awrDbId}/awrDbParameters",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeAwrDbParametersRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAwrDbParametersResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDbParameterCollection",
+        bodyModel: "model.AwrDbParameterCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Summarizes the AWR snapshot ranges that contain continuous snapshots, for the specified Managed Database.
+   *
+   * @param SummarizeAwrDbSnapshotRangesRequest
+   * @return SummarizeAwrDbSnapshotRangesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbSnapshotRanges.ts.html |here} to see how to use SummarizeAwrDbSnapshotRanges API.
+   */
+  public async summarizeAwrDbSnapshotRanges(
+    summarizeAwrDbSnapshotRangesRequest: requests.SummarizeAwrDbSnapshotRangesRequest
+  ): Promise<responses.SummarizeAwrDbSnapshotRangesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbSnapshotRanges.");
+    const pathParams = {
+      "{managedDatabaseId}": summarizeAwrDbSnapshotRangesRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "name": summarizeAwrDbSnapshotRangesRequest.name,
+      "timeGreaterThanOrEqualTo": summarizeAwrDbSnapshotRangesRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": summarizeAwrDbSnapshotRangesRequest.timeLessThanOrEqualTo,
+      "page": summarizeAwrDbSnapshotRangesRequest.page,
+      "limit": summarizeAwrDbSnapshotRangesRequest.limit,
+      "sortBy": summarizeAwrDbSnapshotRangesRequest.sortBy,
+      "sortOrder": summarizeAwrDbSnapshotRangesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAwrDbSnapshotRangesRequest.opcRequestId,
+      "opc-retry-token": summarizeAwrDbSnapshotRangesRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/awrDbSnapshotRanges",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeAwrDbSnapshotRangesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAwrDbSnapshotRangesResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDbSnapshotRangeCollection",
+        bodyModel: "model.AwrDbSnapshotRangeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Summarizes the AWR SYSSTAT sample data for the specified database in AWR. The statistical data is summarized based on the Time dimension for each statistic.
+   *
+   * @param SummarizeAwrDbSysstatsRequest
+   * @return SummarizeAwrDbSysstatsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbSysstats.ts.html |here} to see how to use SummarizeAwrDbSysstats API.
+   */
+  public async summarizeAwrDbSysstats(
+    summarizeAwrDbSysstatsRequest: requests.SummarizeAwrDbSysstatsRequest
+  ): Promise<responses.SummarizeAwrDbSysstatsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbSysstats.");
+    const pathParams = {
+      "{managedDatabaseId}": summarizeAwrDbSysstatsRequest.managedDatabaseId,
+      "{awrDbId}": summarizeAwrDbSysstatsRequest.awrDbId
+    };
+
+    const queryParams = {
+      "instNum": summarizeAwrDbSysstatsRequest.instNum,
+      "beginSnIdGreaterThanOrEqualTo": summarizeAwrDbSysstatsRequest.beginSnIdGreaterThanOrEqualTo,
+      "endSnIdLessThanOrEqualTo": summarizeAwrDbSysstatsRequest.endSnIdLessThanOrEqualTo,
+      "timeGreaterThanOrEqualTo": summarizeAwrDbSysstatsRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": summarizeAwrDbSysstatsRequest.timeLessThanOrEqualTo,
+      "name": summarizeAwrDbSysstatsRequest.name,
+      "containerId": summarizeAwrDbSysstatsRequest.containerId,
+      "page": summarizeAwrDbSysstatsRequest.page,
+      "limit": summarizeAwrDbSysstatsRequest.limit,
+      "sortBy": summarizeAwrDbSysstatsRequest.sortBy,
+      "sortOrder": summarizeAwrDbSysstatsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAwrDbSysstatsRequest.opcRequestId,
+      "opc-retry-token": summarizeAwrDbSysstatsRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/awrDbs/{awrDbId}/awrDbSysstats",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeAwrDbSysstatsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAwrDbSysstatsResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDbSysstatCollection",
+        bodyModel: "model.AwrDbSysstatCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Summarizes the AWR top wait events.
+   *
+   * @param SummarizeAwrDbTopWaitEventsRequest
+   * @return SummarizeAwrDbTopWaitEventsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbTopWaitEvents.ts.html |here} to see how to use SummarizeAwrDbTopWaitEvents API.
+   */
+  public async summarizeAwrDbTopWaitEvents(
+    summarizeAwrDbTopWaitEventsRequest: requests.SummarizeAwrDbTopWaitEventsRequest
+  ): Promise<responses.SummarizeAwrDbTopWaitEventsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbTopWaitEvents.");
+    const pathParams = {
+      "{managedDatabaseId}": summarizeAwrDbTopWaitEventsRequest.managedDatabaseId,
+      "{awrDbId}": summarizeAwrDbTopWaitEventsRequest.awrDbId
+    };
+
+    const queryParams = {
+      "instNum": summarizeAwrDbTopWaitEventsRequest.instNum,
+      "beginSnIdGreaterThanOrEqualTo":
+        summarizeAwrDbTopWaitEventsRequest.beginSnIdGreaterThanOrEqualTo,
+      "endSnIdLessThanOrEqualTo": summarizeAwrDbTopWaitEventsRequest.endSnIdLessThanOrEqualTo,
+      "timeGreaterThanOrEqualTo": summarizeAwrDbTopWaitEventsRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": summarizeAwrDbTopWaitEventsRequest.timeLessThanOrEqualTo,
+      "sessionType": summarizeAwrDbTopWaitEventsRequest.sessionType,
+      "containerId": summarizeAwrDbTopWaitEventsRequest.containerId,
+      "topN": summarizeAwrDbTopWaitEventsRequest.topN,
+      "sortBy": summarizeAwrDbTopWaitEventsRequest.sortBy,
+      "sortOrder": summarizeAwrDbTopWaitEventsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAwrDbTopWaitEventsRequest.opcRequestId,
+      "opc-retry-token": summarizeAwrDbTopWaitEventsRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/awrDbs/{awrDbId}/awrDbTopWaitEvents",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeAwrDbTopWaitEventsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAwrDbTopWaitEventsResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDbTopWaitEventCollection",
+        bodyModel: "model.AwrDbTopWaitEventCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Summarizes AWR wait event data into value buckets and frequency, for the specified database in the AWR.
+   *
+   * @param SummarizeAwrDbWaitEventBucketsRequest
+   * @return SummarizeAwrDbWaitEventBucketsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbWaitEventBuckets.ts.html |here} to see how to use SummarizeAwrDbWaitEventBuckets API.
+   */
+  public async summarizeAwrDbWaitEventBuckets(
+    summarizeAwrDbWaitEventBucketsRequest: requests.SummarizeAwrDbWaitEventBucketsRequest
+  ): Promise<responses.SummarizeAwrDbWaitEventBucketsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbWaitEventBuckets.");
+    const pathParams = {
+      "{managedDatabaseId}": summarizeAwrDbWaitEventBucketsRequest.managedDatabaseId,
+      "{awrDbId}": summarizeAwrDbWaitEventBucketsRequest.awrDbId
+    };
+
+    const queryParams = {
+      "instNum": summarizeAwrDbWaitEventBucketsRequest.instNum,
+      "beginSnIdGreaterThanOrEqualTo":
+        summarizeAwrDbWaitEventBucketsRequest.beginSnIdGreaterThanOrEqualTo,
+      "endSnIdLessThanOrEqualTo": summarizeAwrDbWaitEventBucketsRequest.endSnIdLessThanOrEqualTo,
+      "timeGreaterThanOrEqualTo": summarizeAwrDbWaitEventBucketsRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": summarizeAwrDbWaitEventBucketsRequest.timeLessThanOrEqualTo,
+      "name": summarizeAwrDbWaitEventBucketsRequest.name,
+      "numBucket": summarizeAwrDbWaitEventBucketsRequest.numBucket,
+      "minValue": summarizeAwrDbWaitEventBucketsRequest.minValue,
+      "maxValue": summarizeAwrDbWaitEventBucketsRequest.maxValue,
+      "containerId": summarizeAwrDbWaitEventBucketsRequest.containerId,
+      "page": summarizeAwrDbWaitEventBucketsRequest.page,
+      "limit": summarizeAwrDbWaitEventBucketsRequest.limit,
+      "sortBy": summarizeAwrDbWaitEventBucketsRequest.sortBy,
+      "sortOrder": summarizeAwrDbWaitEventBucketsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAwrDbWaitEventBucketsRequest.opcRequestId,
+      "opc-retry-token": summarizeAwrDbWaitEventBucketsRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/awrDbs/{awrDbId}/awrDbWaitEventBuckets",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeAwrDbWaitEventBucketsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAwrDbWaitEventBucketsResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDbWaitEventBucketCollection",
+        bodyModel: "model.AwrDbWaitEventBucketCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Summarizes the AWR wait event sample data for the specified database in the AWR. The event data is summarized based on the Time dimension for each event.
+   *
+   * @param SummarizeAwrDbWaitEventsRequest
+   * @return SummarizeAwrDbWaitEventsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbWaitEvents.ts.html |here} to see how to use SummarizeAwrDbWaitEvents API.
+   */
+  public async summarizeAwrDbWaitEvents(
+    summarizeAwrDbWaitEventsRequest: requests.SummarizeAwrDbWaitEventsRequest
+  ): Promise<responses.SummarizeAwrDbWaitEventsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbWaitEvents.");
+    const pathParams = {
+      "{managedDatabaseId}": summarizeAwrDbWaitEventsRequest.managedDatabaseId,
+      "{awrDbId}": summarizeAwrDbWaitEventsRequest.awrDbId
+    };
+
+    const queryParams = {
+      "instNum": summarizeAwrDbWaitEventsRequest.instNum,
+      "beginSnIdGreaterThanOrEqualTo":
+        summarizeAwrDbWaitEventsRequest.beginSnIdGreaterThanOrEqualTo,
+      "endSnIdLessThanOrEqualTo": summarizeAwrDbWaitEventsRequest.endSnIdLessThanOrEqualTo,
+      "timeGreaterThanOrEqualTo": summarizeAwrDbWaitEventsRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": summarizeAwrDbWaitEventsRequest.timeLessThanOrEqualTo,
+      "name": summarizeAwrDbWaitEventsRequest.name,
+      "sessionType": summarizeAwrDbWaitEventsRequest.sessionType,
+      "containerId": summarizeAwrDbWaitEventsRequest.containerId,
+      "page": summarizeAwrDbWaitEventsRequest.page,
+      "limit": summarizeAwrDbWaitEventsRequest.limit,
+      "sortBy": summarizeAwrDbWaitEventsRequest.sortBy,
+      "sortOrder": summarizeAwrDbWaitEventsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAwrDbWaitEventsRequest.opcRequestId,
+      "opc-retry-token": summarizeAwrDbWaitEventsRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/awrDbs/{awrDbId}/awrDbWaitEvents",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeAwrDbWaitEventsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAwrDbWaitEventsResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDbWaitEventCollection",
+        bodyModel: "model.AwrDbWaitEventCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]

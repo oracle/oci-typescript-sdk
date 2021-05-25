@@ -31,7 +31,7 @@ export interface UpdateLookupDataRequest extends common.BaseRequest {
   /**
    * The file to use for the lookup update.
    */
-  "updateLookupFileBody": Blob | stream.Readable | ReadableStream | string;
+  "updateLookupFileBody": Uint8Array | Buffer | Blob | stream.Readable | ReadableStream | string;
   /**
    * is force
    */

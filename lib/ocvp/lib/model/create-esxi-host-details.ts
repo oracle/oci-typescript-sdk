@@ -40,10 +40,12 @@ Avoid entering confidential information.
   "displayName"?: string;
   /**
    * Billing option selected during SDDC creation.
+   * Oracle Cloud Infrastructure VMware Solution supports the following billing interval SKUs:
+   * HOUR, MONTH, ONE_YEAR, and THREE_YEARS.
    * {@link #listSupportedSkus(ListSupportedSkusRequest) listSupportedSkus}.
    *
    */
-  "currentSku": model.Sku;
+  "currentSku"?: model.Sku;
   /**
    * Billing option to switch to once existing billing cycle ends.
    * If nextSku is null or empty, currentSku will be used to continue with next billing term.

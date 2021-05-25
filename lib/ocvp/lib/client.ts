@@ -596,6 +596,69 @@ export class SddcClient {
   }
 
   /**
+   * Cancel the pending SDDC downgrade from HCX Enterprise to HCX Advanced
+   *
+   * @param CancelDowngradeHcxRequest
+   * @return CancelDowngradeHcxResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/CancelDowngradeHcx.ts.html |here} to see how to use CancelDowngradeHcx API.
+   */
+  public async cancelDowngradeHcx(
+    cancelDowngradeHcxRequest: requests.CancelDowngradeHcxRequest
+  ): Promise<responses.CancelDowngradeHcxResponse> {
+    if (this.logger) this.logger.debug("Calling operation SddcClient#cancelDowngradeHcx.");
+    const pathParams = {
+      "{sddcId}": cancelDowngradeHcxRequest.sddcId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": cancelDowngradeHcxRequest.opcRetryToken,
+      "if-match": cancelDowngradeHcxRequest.ifMatch,
+      "opc-request-id": cancelDowngradeHcxRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sddcs/{sddcId}/actions/cancelDowngradeHcx",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      cancelDowngradeHcxRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelDowngradeHcxResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves an SDDC into a different compartment within the same tenancy. For information
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
@@ -798,6 +861,74 @@ Use the {@link WorkRequest} operations to track the
   }
 
   /**
+   * Downgrade the specified SDDC from HCX Enterprise to HCX Advanced
+   *
+   * @param DowngradeHcxRequest
+   * @return DowngradeHcxResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/DowngradeHcx.ts.html |here} to see how to use DowngradeHcx API.
+   */
+  public async downgradeHcx(
+    downgradeHcxRequest: requests.DowngradeHcxRequest
+  ): Promise<responses.DowngradeHcxResponse> {
+    if (this.logger) this.logger.debug("Calling operation SddcClient#downgradeHcx.");
+    const pathParams = {
+      "{sddcId}": downgradeHcxRequest.sddcId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": downgradeHcxRequest.opcRetryToken,
+      "if-match": downgradeHcxRequest.ifMatch,
+      "opc-request-id": downgradeHcxRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sddcs/{sddcId}/actions/downgradeHcx",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        downgradeHcxRequest.downgradeHcxDetails,
+        "DowngradeHcxDetails",
+        models.DowngradeHcxDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      downgradeHcxRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DowngradeHcxResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the specified SDDC's information.
    * @param GetSddcRequest
    * @return GetSddcResponse
@@ -933,8 +1064,8 @@ Use the {@link WorkRequest} operations to track the
   }
 
   /**
-   * Lists supported SKUs. HHOUR, MONTH, ONE_YEAR and THREE_YEARS supported by the Oracle Cloud
-   * VMware Solution.
+   * Lists supported SKUs. Oracle Cloud Infrastructure VMware Solution supports the following billing interval SKUs:
+   * HOUR, MONTH, ONE_YEAR, and THREE_YEARS.
    *
    * @param ListSupportedSkusRequest
    * @return ListSupportedSkusResponse
@@ -1068,6 +1199,68 @@ Use the {@link WorkRequest} operations to track the
   }
 
   /**
+   * Refresh HCX on-premise licenses status of the specified SDDC.
+   * @param RefreshHcxLicenseStatusRequest
+   * @return RefreshHcxLicenseStatusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/RefreshHcxLicenseStatus.ts.html |here} to see how to use RefreshHcxLicenseStatus API.
+   */
+  public async refreshHcxLicenseStatus(
+    refreshHcxLicenseStatusRequest: requests.RefreshHcxLicenseStatusRequest
+  ): Promise<responses.RefreshHcxLicenseStatusResponse> {
+    if (this.logger) this.logger.debug("Calling operation SddcClient#refreshHcxLicenseStatus.");
+    const pathParams = {
+      "{sddcId}": refreshHcxLicenseStatusRequest.sddcId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": refreshHcxLicenseStatusRequest.opcRetryToken,
+      "if-match": refreshHcxLicenseStatusRequest.ifMatch,
+      "opc-request-id": refreshHcxLicenseStatusRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sddcs/{sddcId}/actions/refreshHcxLicenses",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      refreshHcxLicenseStatusRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RefreshHcxLicenseStatusResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the specified SDDC.
    * <p>
    **Important:** Updating an SDDC affects only certain attributes in the `Sddc`
@@ -1126,6 +1319,69 @@ Use the {@link WorkRequest} operations to track the
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Upgrade the specified SDDC from HCX Advanced to HCX Enterprise.
+   *
+   * @param UpgradeHcxRequest
+   * @return UpgradeHcxResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/UpgradeHcx.ts.html |here} to see how to use UpgradeHcx API.
+   */
+  public async upgradeHcx(
+    upgradeHcxRequest: requests.UpgradeHcxRequest
+  ): Promise<responses.UpgradeHcxResponse> {
+    if (this.logger) this.logger.debug("Calling operation SddcClient#upgradeHcx.");
+    const pathParams = {
+      "{sddcId}": upgradeHcxRequest.sddcId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": upgradeHcxRequest.opcRetryToken,
+      "if-match": upgradeHcxRequest.ifMatch,
+      "opc-request-id": upgradeHcxRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sddcs/{sddcId}/actions/upgradeHcx",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      upgradeHcxRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpgradeHcxResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {

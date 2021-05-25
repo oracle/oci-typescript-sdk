@@ -85,11 +85,13 @@ Therefore, if you upgrade the existing ESXi hosts in the SDDC to use a newer
    */
   "esxiHostsCount": number;
   /**
-   * Billing option selected during SDDC creation
+   * Billing option selected during SDDC creation.
+   * Oracle Cloud Infrastructure VMware Solution supports the following billing interval SKUs:
+   * HOUR, MONTH, ONE_YEAR, and THREE_YEARS.
    * {@link #listSupportedSkus(ListSupportedSkusRequest) listSupportedSkus}.
    *
    */
-  "initialSku": model.Sku;
+  "initialSku"?: model.Sku;
   /**
     * The FQDN for vCenter.
 * <p>
@@ -364,6 +366,34 @@ Therefore, if you change the existing ESXi hosts in the SDDC to use a different 
    */
   "hcxOnPremKey"?: string;
   /**
+   * Indicates whether HCX Enterprise is enabled for this SDDC.
+   */
+  "isHcxEnterpriseEnabled"?: boolean;
+  /**
+   * Indicates whether SDDC is pending downgrade from HCX Enterprise to HCX Advanced.
+   */
+  "isHcxPendingDowngrade"?: boolean;
+  /**
+   * The activation licenses to use on the on-premises HCX Enterprise appliance you site pair with HCX Manager in your VMware Solution.
+   *
+   */
+  "hcxOnPremLicenses"?: Array<model.HcxLicenseSummary>;
+  /**
+    * The date and time current HCX Enterprise billing cycle ends, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+* <p>
+Example: `2016-08-25T21:10:29.600Z`
+* 
+    */
+  "timeHcxBillingCycleEnd"?: Date;
+  /**
+    * The date and time the SDDC's HCX on-premise license status was updated, in the format defined by
+* [RFC3339](https://tools.ietf.org/html/rfc3339).
+* <p>
+Example: `2016-08-25T21:10:29.600Z`
+* 
+    */
+  "timeHcxLicenseStatusUpdated"?: Date;
+  /**
     * The date and time the SDDC was created, in the format defined by
 * [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
@@ -401,7 +431,16 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 
 export namespace Sddc {
   export function getJsonObj(obj: Sddc): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "hcxOnPremLicenses": obj.hcxOnPremLicenses
+          ? obj.hcxOnPremLicenses.map(item => {
+              return model.HcxLicenseSummary.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

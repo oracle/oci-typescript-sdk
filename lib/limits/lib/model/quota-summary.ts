@@ -1,6 +1,6 @@
 /**
  * Service Limits APIs
- * APIs that interact with the resource limits of a specific resource type
+ * APIs that interact with the resource limits of a specific resource type.
  * OpenAPI spec version: 20181025
  *
  *
@@ -15,8 +15,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Entails a subset of all the properties of the corresponding Quota and is recommended to be used in cases requiring
- * security of quota details and slightly better API performance.
+ * Consists of a subset of all the properties of the corresponding quota, and is recommended to be used in cases requiring
+ * security of quota details, and for slightly better API performance.
  *
  */
 export interface QuotaSummary {
@@ -40,7 +40,7 @@ export interface QuotaSummary {
    */
   "description": string;
   /**
-   * Date and time the quota was created, in the format defined by RFC3339.
+   * Date and time the quota was created, in the format defined by RFC 3339.
    * Example: `2016-08-25T21:10:29.600Z`
    *
    */

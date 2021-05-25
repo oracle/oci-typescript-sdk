@@ -1,5 +1,5 @@
 /**
- * Secrets
+ * Vault Service Secret Retrieval API
  * API for retrieving secrets from vaults.
  * OpenAPI spec version: 20190301
  *
@@ -13,5 +13,7 @@
 
 import * as GetSecretBundleRequest from "./get-secret-bundle-request";
 export import GetSecretBundleRequest = GetSecretBundleRequest.GetSecretBundleRequest;
+import * as GetSecretBundleByNameRequest from "./get-secret-bundle-by-name-request";
+export import GetSecretBundleByNameRequest = GetSecretBundleByNameRequest.GetSecretBundleByNameRequest;
 import * as ListSecretBundleVersionsRequest from "./list-secret-bundle-versions-request";
 export import ListSecretBundleVersionsRequest = ListSecretBundleVersionsRequest.ListSecretBundleVersionsRequest;

@@ -118,6 +118,13 @@ Example: `47694`
     */
   "sizeInMBs"?: number;
   /**
+    * The size of the internal storage for this image that is subject to billing (1 GB = 1,073,741,824 bytes).
+* <p>
+Example: `100`
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "billableSizeInGBs"?: number;
+  /**
     * The date and time the image was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: `2016-08-25T21:10:29.600Z`

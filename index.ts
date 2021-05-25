@@ -161,3 +161,5 @@ export import databasemigration = require("oci-databasemigration");
 export import ailanguage = require("oci-ailanguage");
 export import operatoraccesscontrol = require("oci-operatoraccesscontrol");
 export import servicecatalog = require("oci-servicecatalog");
+export import bastion = require("oci-bastion");
+export import genericartifactscontent = require("oci-genericartifactscontent");

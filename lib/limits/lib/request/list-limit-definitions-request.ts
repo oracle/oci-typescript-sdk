@@ -37,7 +37,7 @@ export interface ListLimitDefinitionsRequest extends common.BaseRequest {
    */
   "sortBy"?: ListLimitDefinitionsRequest.SortBy;
   /**
-   * The sort order to use, either 'asc' or 'desc'. By default it will be ascending.
+   * The sort order to use, either 'asc' or 'desc'. By default, it is ascending.
    *
    */
   "sortOrder"?: ListLimitDefinitionsRequest.SortOrder;

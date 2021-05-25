@@ -64,6 +64,10 @@ import * as NotebookSessionConfigurationDetails from "./notebook-session-configu
 export import NotebookSessionConfigurationDetails = NotebookSessionConfigurationDetails.NotebookSessionConfigurationDetails;
 import * as NotebookSessionLifecycleState from "./notebook-session-lifecycle-state";
 export import NotebookSessionLifecycleState = NotebookSessionLifecycleState.NotebookSessionLifecycleState;
+import * as NotebookSessionShapeConfigDetails from "./notebook-session-shape-config-details";
+export import NotebookSessionShapeConfigDetails = NotebookSessionShapeConfigDetails.NotebookSessionShapeConfigDetails;
+import * as NotebookSessionShapeSeries from "./notebook-session-shape-series";
+export import NotebookSessionShapeSeries = NotebookSessionShapeSeries.NotebookSessionShapeSeries;
 import * as NotebookSessionShapeSummary from "./notebook-session-shape-summary";
 export import NotebookSessionShapeSummary = NotebookSessionShapeSummary.NotebookSessionShapeSummary;
 import * as NotebookSessionSummary from "./notebook-session-summary";

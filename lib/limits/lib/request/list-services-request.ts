@@ -29,7 +29,7 @@ export interface ListServicesRequest extends common.BaseRequest {
    */
   "sortBy"?: ListServicesRequest.SortBy;
   /**
-   * The sort order to use, either 'asc' or 'desc'. By default it will be ascending.
+   * The sort order to use, either 'asc' or 'desc'. By default, it is ascending.
    *
    */
   "sortOrder"?: ListServicesRequest.SortOrder;

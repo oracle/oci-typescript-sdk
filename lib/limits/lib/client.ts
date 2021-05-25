@@ -1,6 +1,6 @@
 /**
  * Service Limits APIs
- * APIs that interact with the resource limits of a specific resource type
+ * APIs that interact with the resource limits of a specific resource type.
  * OpenAPI spec version: 20181025
  *
  *
@@ -107,9 +107,9 @@ export class LimitsClient {
 
   /**
    * For a given compartmentId, resource limit name, and scope, returns the following:
-   *   - the number of available resources associated with the given limit
-   *   - the usage in the selected compartment for the given limit
-   *   Note: not all resource limits support this API. If the value is not available, the API will return 404.
+   *   * The number of available resources associated with the given limit.
+   *   * The usage in the selected compartment for the given limit.
+   *   Note that not all resource limits support this API. If the value is not available, the API returns a 404 response.
    *
    * @param GetResourceAvailabilityRequest
    * @return GetResourceAvailabilityResponse
@@ -367,7 +367,7 @@ export class LimitsClient {
 
   /**
    * Returns the list of supported services.
-   * This will include the programmatic service name, along with the friendly service name.
+   * This includes the programmatic service name, along with the friendly service name.
    *
    * @param ListServicesRequest
    * @return ListServicesResponse
@@ -752,7 +752,7 @@ export class QuotasClient {
   }
 
   /**
-   * Lists all quotas on resources from the given compartment
+   * Lists all quotas on resources from the given compartment.
    * @param ListQuotasRequest
    * @return ListQuotasResponse
    * @throws OciError when an error occurs

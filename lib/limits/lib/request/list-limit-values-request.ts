@@ -24,7 +24,7 @@ export interface ListLimitValuesRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * The target service name
+   * The target service name.
    */
   "serviceName": string;
   /**
@@ -32,7 +32,7 @@ export interface ListLimitValuesRequest extends common.BaseRequest {
    */
   "scopeType"?: ListLimitValuesRequest.ScopeType;
   /**
-   * Filter entries by availability domain. This implies that only AD-specific values will be returned.
+   * Filter entries by availability domain. This implies that only AD-specific values are returned.
    *
    */
   "availabilityDomain"?: string;
@@ -41,12 +41,12 @@ export interface ListLimitValuesRequest extends common.BaseRequest {
    */
   "name"?: string;
   /**
-   * The field to sort by. We will be implicitly sorting by availabilityDomain, as a second level field, if available.
+   * The field to sort by. The sorting is by availabilityDomain, as a second level field, if available.
    *
    */
   "sortBy"?: ListLimitValuesRequest.SortBy;
   /**
-   * The sort order to use, either 'asc' or 'desc'. By default it will be ascending.
+   * The sort order to use, either 'asc' or 'desc'. By default, it is ascending.
    *
    */
   "sortOrder"?: ListLimitValuesRequest.SortOrder;

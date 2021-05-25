@@ -42,7 +42,7 @@ export interface PutObjectRequest extends common.BaseRequest {
   /**
    * The object to upload to the object store.
    */
-  "putObjectBody": Blob | stream.Readable | ReadableStream | string;
+  "putObjectBody": Uint8Array | Buffer | Blob | stream.Readable | ReadableStream | string;
   /**
    * The entity tag (ETag) to match with the ETag of an existing resource. If the specified ETag matches the ETag of
    * the existing resource, GET and HEAD requests will return the resource and PUT and POST requests will upload

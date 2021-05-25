@@ -16,29 +16,18 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A specific SKU. HOUR, MONTH, ONE_YEAR and THREE_YEARS supported by the Oracle Cloud VMware Solution.
+ * A specific SKU. Oracle Cloud Infrastructure VMware Solution supports the following billing interval SKUs:
+ * HOUR, MONTH, ONE_YEAR, and THREE_YEARS.
  *
  */
 export interface SupportedSkuSummary {
   /**
    * name of SKU
    */
-  "name": SupportedSkuSummary.Name;
+  "name": model.Sku;
 }
 
 export namespace SupportedSkuSummary {
-  export enum Name {
-    Hour = "HOUR",
-    Month = "MONTH",
-    OneYear = "ONE_YEAR",
-    ThreeYears = "THREE_YEARS",
-    /**
-     * This value is used if a service returns a value for this enum that is not recognized by this
-     * version of the SDK.
-     */
-    UnknownValue = "UNKNOWN_VALUE"
-  }
-
   export function getJsonObj(obj: SupportedSkuSummary): object {
     const jsonObj = { ...obj, ...{} };
 

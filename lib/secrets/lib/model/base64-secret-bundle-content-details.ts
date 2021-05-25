@@ -1,5 +1,5 @@
 /**
- * Secrets
+ * Vault Service Secret Retrieval API
  * API for retrieving secrets from vaults.
  * OpenAPI spec version: 20190301
  *

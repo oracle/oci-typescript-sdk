@@ -30,7 +30,13 @@ export interface RestoreVaultFromFileRequest extends common.BaseRequest {
   /**
    * The encrypted backup file to upload to restore the vault.
    */
-  "restoreVaultFromFileDetails": Blob | stream.Readable | ReadableStream | string;
+  "restoreVaultFromFileDetails":
+    | Uint8Array
+    | Buffer
+    | Blob
+    | stream.Readable
+    | ReadableStream
+    | string;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call for a
    * resource, set the `if-match` parameter to the value of the etag from a
