@@ -37,7 +37,13 @@ export interface UploadLogEventsFileRequest extends common.BaseRequest {
    *    Supported filename format with logSet detail is &lt;filename&gt;_logSet=&lt;logset&gt;.json
    *
    */
-  "uploadLogEventsFileDetails": Blob | stream.Readable | ReadableStream | string;
+  "uploadLogEventsFileDetails":
+    | Uint8Array
+    | Buffer
+    | Blob
+    | stream.Readable
+    | ReadableStream
+    | string;
   /**
    * The client request ID for tracing.
    */

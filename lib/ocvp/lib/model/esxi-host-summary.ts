@@ -69,6 +69,8 @@ Example: `2016-08-25T21:10:29.600Z`
   "lifecycleState"?: model.LifecycleStates;
   /**
    * Billing option selected during SDDC creation.
+   * Oracle Cloud Infrastructure VMware Solution supports the following billing interval SKUs:
+   * HOUR, MONTH, ONE_YEAR, and THREE_YEARS.
    * {@link #listSupportedSkus(ListSupportedSkusRequest) listSupportedSkus}.
    *
    */

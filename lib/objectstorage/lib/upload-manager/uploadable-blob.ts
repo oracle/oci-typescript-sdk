@@ -4,6 +4,7 @@
  */
 
 import { Readable } from "stream";
+import { BinaryBody } from "./types";
 
 /*
  * Interface for UploadableBlob.
@@ -11,7 +12,7 @@ import { Readable } from "stream";
 export interface UploadableBlob extends Blob {
   size: number;
   type: string;
-  getData(): Promise<Readable | Blob>;
+  getData(): Promise<BinaryBody>;
   getMD5Hash(): Promise<string>;
   slice(
     start?: number | undefined,

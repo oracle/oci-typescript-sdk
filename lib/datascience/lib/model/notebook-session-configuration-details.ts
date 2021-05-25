@@ -34,11 +34,21 @@ export interface NotebookSessionConfigurationDetails {
    *
    */
   "subnetId": string;
+  "notebookSessionShapeConfigDetails"?: model.NotebookSessionShapeConfigDetails;
 }
 
 export namespace NotebookSessionConfigurationDetails {
   export function getJsonObj(obj: NotebookSessionConfigurationDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "notebookSessionShapeConfigDetails": obj.notebookSessionShapeConfigDetails
+          ? model.NotebookSessionShapeConfigDetails.getJsonObj(
+              obj.notebookSessionShapeConfigDetails
+            )
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

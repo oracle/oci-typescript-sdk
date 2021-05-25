@@ -47,7 +47,7 @@ export interface UploadLogFileRequest extends common.BaseRequest {
   /**
    * Log data
    */
-  "uploadLogFileBody": Blob | stream.Readable | ReadableStream | string;
+  "uploadLogFileBody": Uint8Array | Buffer | Blob | stream.Readable | ReadableStream | string;
   /**
    * The entity OCID.
    *

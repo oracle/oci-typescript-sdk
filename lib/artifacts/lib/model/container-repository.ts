@@ -72,6 +72,10 @@ Example: `ocid1.containerrepo.oc1..exampleuniqueID`
    * An RFC 3339 timestamp indicating when an image was last pushed to the repository.
    */
   "timeLastPushed"?: Date;
+  /**
+   * Total storage size in GBs that will be charged. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "billableSizeInGBs": number;
 }
 
 export namespace ContainerRepository {

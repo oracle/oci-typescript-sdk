@@ -27,7 +27,13 @@ export interface ImportCustomContentRequest extends common.BaseRequest {
   /**
    * The file to upload which contains the custom content.
    */
-  "importCustomContentFileBody": Blob | stream.Readable | ReadableStream | string;
+  "importCustomContentFileBody":
+    | Uint8Array
+    | Buffer
+    | Blob
+    | stream.Readable
+    | ReadableStream
+    | string;
   /**
    * A flag indicating whether or not to overwrite existing content if a conflict is
    * found during import content operation.

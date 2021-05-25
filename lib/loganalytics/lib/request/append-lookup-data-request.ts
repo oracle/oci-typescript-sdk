@@ -31,7 +31,7 @@ export interface AppendLookupDataRequest extends common.BaseRequest {
   /**
    * The file to append.
    */
-  "appendLookupFileBody": Blob | stream.Readable | ReadableStream | string;
+  "appendLookupFileBody": Uint8Array | Buffer | Blob | stream.Readable | ReadableStream | string;
   /**
    * is force
    */

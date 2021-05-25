@@ -29,7 +29,7 @@ export interface InvokeFunctionRequest extends common.BaseRequest {
    * Note: The maximum size of the request is limited. This limit is currently 6MB and the endpoint will not accept requests that are bigger than this limit.
    *
    */
-  "invokeFunctionBody"?: Blob | stream.Readable | ReadableStream | string;
+  "invokeFunctionBody"?: Uint8Array | Buffer | Blob | stream.Readable | ReadableStream | string;
   /**
    * An optional intent header that indicates to the FDK the way the event should be interpreted. E.g. 'httprequest', 'cloudevent'.
    *

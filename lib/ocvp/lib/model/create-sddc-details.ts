@@ -64,11 +64,13 @@ For example, if the value is `mySDDC`, the ESXi hosts are named `mySDDC-1`,
    */
   "esxiHostsCount": number;
   /**
-   * Billing option selected during SDDC creation
+   * Billing option selected during SDDC creation.
+   * Oracle Cloud Infrastructure VMware Solution supports the following billing interval SKUs:
+   * HOUR, MONTH, ONE_YEAR, and THREE_YEARS.
    * {@link #listSupportedSkus(ListSupportedSkusRequest) listSupportedSkus}.
    *
    */
-  "initialSku": model.Sku;
+  "initialSku"?: model.Sku;
   /**
    * Indicates whether to enable HCX for this SDDC.
    *
@@ -80,6 +82,11 @@ For example, if the value is `mySDDC`, the ESXi hosts are named `mySDDC-1`,
    *
    */
   "hcxVlanId"?: string;
+  /**
+   * Indicates whether to enable HCX Enterprise for this SDDC.
+   *
+   */
+  "isHcxEnterpriseEnabled"?: boolean;
   /**
    * One or more public SSH keys to be included in the `~/.ssh/authorized_keys` file for
    * the default user on each ESXi host. Use a newline character to separate multiple keys.

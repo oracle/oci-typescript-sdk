@@ -198,6 +198,72 @@ export class ArtifactsClient {
   }
 
   /**
+   * Moves a repository into a different compartment within the same tenancy. For information about moving
+   * resources between compartments, see
+   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * @param ChangeRepositoryCompartmentRequest
+   * @return ChangeRepositoryCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/ChangeRepositoryCompartment.ts.html |here} to see how to use ChangeRepositoryCompartment API.
+   */
+  public async changeRepositoryCompartment(
+    changeRepositoryCompartmentRequest: requests.ChangeRepositoryCompartmentRequest
+  ): Promise<responses.ChangeRepositoryCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#changeRepositoryCompartment.");
+    const pathParams = {
+      "{repositoryId}": changeRepositoryCompartmentRequest.repositoryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeRepositoryCompartmentRequest.ifMatch,
+      "opc-request-id": changeRepositoryCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeRepositoryCompartmentRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeRepositoryCompartmentRequest.changeRepositoryCompartmentDetails,
+        "ChangeRepositoryCompartmentDetails",
+        models.ChangeRepositoryCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeRepositoryCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeRepositoryCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Upload a signature to an image.
    * @param CreateContainerImageSignatureRequest
    * @return CreateContainerImageSignatureResponse
@@ -314,6 +380,73 @@ export class ArtifactsClient {
         body: await response.json(),
         bodyKey: "containerRepository",
         bodyModel: "model.ContainerRepository",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new repository for storing artifacts.
+   * @param CreateRepositoryRequest
+   * @return CreateRepositoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/CreateRepository.ts.html |here} to see how to use CreateRepository API.
+   */
+  public async createRepository(
+    createRepositoryRequest: requests.CreateRepositoryRequest
+  ): Promise<responses.CreateRepositoryResponse> {
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#createRepository.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createRepositoryRequest.opcRequestId,
+      "opc-retry-token": createRepositoryRequest.opcRetryToken
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createRepositoryRequest.createRepositoryDetails,
+        "CreateRepositoryDetails",
+        models.CreateRepositoryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createRepositoryRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateRepositoryResponse>{},
+        body: await response.json(),
+        bodyKey: "repository",
+        bodyModel: "model.Repository",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -489,6 +622,177 @@ export class ArtifactsClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteContainerRepositoryResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes an artifact with a specified [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * @param DeleteGenericArtifactRequest
+   * @return DeleteGenericArtifactResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/DeleteGenericArtifact.ts.html |here} to see how to use DeleteGenericArtifact API.
+   */
+  public async deleteGenericArtifact(
+    deleteGenericArtifactRequest: requests.DeleteGenericArtifactRequest
+  ): Promise<responses.DeleteGenericArtifactResponse> {
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#deleteGenericArtifact.");
+    const pathParams = {
+      "{artifactId}": deleteGenericArtifactRequest.artifactId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteGenericArtifactRequest.ifMatch,
+      "opc-request-id": deleteGenericArtifactRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/generic/artifacts/{artifactId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteGenericArtifactRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteGenericArtifactResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes an artifact with a specified `artifactPath` and `version`.
+   * @param DeleteGenericArtifactByPathRequest
+   * @return DeleteGenericArtifactByPathResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/DeleteGenericArtifactByPath.ts.html |here} to see how to use DeleteGenericArtifactByPath API.
+   */
+  public async deleteGenericArtifactByPath(
+    deleteGenericArtifactByPathRequest: requests.DeleteGenericArtifactByPathRequest
+  ): Promise<responses.DeleteGenericArtifactByPathResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#deleteGenericArtifactByPath.");
+    const pathParams = {
+      "{repositoryId}": deleteGenericArtifactByPathRequest.repositoryId,
+      "{artifactPath}": deleteGenericArtifactByPathRequest.artifactPath,
+      "{version}": deleteGenericArtifactByPathRequest.version
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteGenericArtifactByPathRequest.ifMatch,
+      "opc-request-id": deleteGenericArtifactByPathRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/generic/repositories/{repositoryId}/artifactPaths/{artifactPath}/versions/{version}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteGenericArtifactByPathRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteGenericArtifactByPathResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified repository. This operation fails unless all associated artifacts are in a DELETED state. You must delete all associated artifacts before deleting a repository.
+   * @param DeleteRepositoryRequest
+   * @return DeleteRepositoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/DeleteRepository.ts.html |here} to see how to use DeleteRepository API.
+   */
+  public async deleteRepository(
+    deleteRepositoryRequest: requests.DeleteRepositoryRequest
+  ): Promise<responses.DeleteRepositoryResponse> {
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#deleteRepository.");
+    const pathParams = {
+      "{repositoryId}": deleteRepositoryRequest.repositoryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteRepositoryRequest.ifMatch,
+      "opc-request-id": deleteRepositoryRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteRepositoryRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteRepositoryResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -759,6 +1063,198 @@ export class ArtifactsClient {
   }
 
   /**
+   * Gets information about an artifact with a specified [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * @param GetGenericArtifactRequest
+   * @return GetGenericArtifactResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/GetGenericArtifact.ts.html |here} to see how to use GetGenericArtifact API.
+   */
+  public async getGenericArtifact(
+    getGenericArtifactRequest: requests.GetGenericArtifactRequest
+  ): Promise<responses.GetGenericArtifactResponse> {
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#getGenericArtifact.");
+    const pathParams = {
+      "{artifactId}": getGenericArtifactRequest.artifactId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getGenericArtifactRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/generic/artifacts/{artifactId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getGenericArtifactRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetGenericArtifactResponse>{},
+        body: await response.json(),
+        bodyKey: "genericArtifact",
+        bodyModel: "model.GenericArtifact",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about an artifact with a specified `artifactPath` and `version`.
+   * @param GetGenericArtifactByPathRequest
+   * @return GetGenericArtifactByPathResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/GetGenericArtifactByPath.ts.html |here} to see how to use GetGenericArtifactByPath API.
+   */
+  public async getGenericArtifactByPath(
+    getGenericArtifactByPathRequest: requests.GetGenericArtifactByPathRequest
+  ): Promise<responses.GetGenericArtifactByPathResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#getGenericArtifactByPath.");
+    const pathParams = {
+      "{repositoryId}": getGenericArtifactByPathRequest.repositoryId,
+      "{artifactPath}": getGenericArtifactByPathRequest.artifactPath,
+      "{version}": getGenericArtifactByPathRequest.version
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getGenericArtifactByPathRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/generic/repositories/{repositoryId}/artifactPaths/{artifactPath}/versions/{version}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getGenericArtifactByPathRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetGenericArtifactByPathResponse>{},
+        body: await response.json(),
+        bodyKey: "genericArtifact",
+        bodyModel: "model.GenericArtifact",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the specified repository's information.
+   * @param GetRepositoryRequest
+   * @return GetRepositoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/GetRepository.ts.html |here} to see how to use GetRepository API.
+   */
+  public async getRepository(
+    getRepositoryRequest: requests.GetRepositoryRequest
+  ): Promise<responses.GetRepositoryResponse> {
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#getRepository.");
+    const pathParams = {
+      "{repositoryId}": getRepositoryRequest.repositoryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getRepositoryRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getRepositoryRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetRepositoryResponse>{},
+        body: await response.json(),
+        bodyKey: "repository",
+        bodyModel: "model.Repository",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * List container image signatures in an image.
    * @param ListContainerImageSignaturesRequest
    * @return ListContainerImageSignaturesResponse
@@ -963,6 +1459,151 @@ export class ArtifactsClient {
         body: await response.json(),
         bodyKey: "containerRepositoryCollection",
         bodyModel: "model.ContainerRepositoryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists artifacts in the specified repository.
+   * @param ListGenericArtifactsRequest
+   * @return ListGenericArtifactsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/ListGenericArtifacts.ts.html |here} to see how to use ListGenericArtifacts API.
+   */
+  public async listGenericArtifacts(
+    listGenericArtifactsRequest: requests.ListGenericArtifactsRequest
+  ): Promise<responses.ListGenericArtifactsResponse> {
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#listGenericArtifacts.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listGenericArtifactsRequest.compartmentId,
+      "repositoryId": listGenericArtifactsRequest.repositoryId,
+      "id": listGenericArtifactsRequest.id,
+      "displayName": listGenericArtifactsRequest.displayName,
+      "artifactPath": listGenericArtifactsRequest.artifactPath,
+      "version": listGenericArtifactsRequest.version,
+      "sha256": listGenericArtifactsRequest.sha256,
+      "lifecycleState": listGenericArtifactsRequest.lifecycleState,
+      "limit": listGenericArtifactsRequest.limit,
+      "page": listGenericArtifactsRequest.page,
+      "sortBy": listGenericArtifactsRequest.sortBy,
+      "sortOrder": listGenericArtifactsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listGenericArtifactsRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/generic/artifacts",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listGenericArtifactsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListGenericArtifactsResponse>{},
+        body: await response.json(),
+        bodyKey: "genericArtifactCollection",
+        bodyModel: "model.GenericArtifactCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists repositories in the specified compartment.
+   * @param ListRepositoriesRequest
+   * @return ListRepositoriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/ListRepositories.ts.html |here} to see how to use ListRepositories API.
+   */
+  public async listRepositories(
+    listRepositoriesRequest: requests.ListRepositoriesRequest
+  ): Promise<responses.ListRepositoriesResponse> {
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#listRepositories.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listRepositoriesRequest.compartmentId,
+      "id": listRepositoriesRequest.id,
+      "displayName": listRepositoriesRequest.displayName,
+      "isImmutable": listRepositoriesRequest.isImmutable,
+      "lifecycleState": listRepositoriesRequest.lifecycleState,
+      "limit": listRepositoriesRequest.limit,
+      "page": listRepositoriesRequest.page,
+      "sortBy": listRepositoriesRequest.sortBy,
+      "sortOrder": listRepositoriesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRepositoriesRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listRepositoriesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRepositoriesResponse>{},
+        body: await response.json(),
+        bodyKey: "repositoryCollection",
+        bodyModel: "model.RepositoryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1243,6 +1884,216 @@ export class ArtifactsClient {
         body: await response.json(),
         bodyKey: "containerRepository",
         bodyModel: "model.ContainerRepository",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the artifact with the specified [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm). You can only update the tags of an artifact.
+   * @param UpdateGenericArtifactRequest
+   * @return UpdateGenericArtifactResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/UpdateGenericArtifact.ts.html |here} to see how to use UpdateGenericArtifact API.
+   */
+  public async updateGenericArtifact(
+    updateGenericArtifactRequest: requests.UpdateGenericArtifactRequest
+  ): Promise<responses.UpdateGenericArtifactResponse> {
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#updateGenericArtifact.");
+    const pathParams = {
+      "{artifactId}": updateGenericArtifactRequest.artifactId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateGenericArtifactRequest.ifMatch,
+      "opc-request-id": updateGenericArtifactRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/generic/artifacts/{artifactId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateGenericArtifactRequest.updateGenericArtifactDetails,
+        "UpdateGenericArtifactDetails",
+        models.UpdateGenericArtifactDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateGenericArtifactRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateGenericArtifactResponse>{},
+        body: await response.json(),
+        bodyKey: "genericArtifact",
+        bodyModel: "model.GenericArtifact",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates an artifact with a specified `artifactPath` and `version`. You can only update the tags of an artifact.
+   * @param UpdateGenericArtifactByPathRequest
+   * @return UpdateGenericArtifactByPathResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/UpdateGenericArtifactByPath.ts.html |here} to see how to use UpdateGenericArtifactByPath API.
+   */
+  public async updateGenericArtifactByPath(
+    updateGenericArtifactByPathRequest: requests.UpdateGenericArtifactByPathRequest
+  ): Promise<responses.UpdateGenericArtifactByPathResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#updateGenericArtifactByPath.");
+    const pathParams = {
+      "{repositoryId}": updateGenericArtifactByPathRequest.repositoryId,
+      "{artifactPath}": updateGenericArtifactByPathRequest.artifactPath,
+      "{version}": updateGenericArtifactByPathRequest.version
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateGenericArtifactByPathRequest.ifMatch,
+      "opc-request-id": updateGenericArtifactByPathRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/generic/repositories/{repositoryId}/artifactPaths/{artifactPath}/versions/{version}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateGenericArtifactByPathRequest.updateGenericArtifactByPathDetails,
+        "UpdateGenericArtifactByPathDetails",
+        models.UpdateGenericArtifactByPathDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateGenericArtifactByPathRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateGenericArtifactByPathResponse>{},
+        body: await response.json(),
+        bodyKey: "genericArtifact",
+        bodyModel: "model.GenericArtifact",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the properties of a repository. You can update the `displayName` and  `description` properties.
+   * @param UpdateRepositoryRequest
+   * @return UpdateRepositoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/UpdateRepository.ts.html |here} to see how to use UpdateRepository API.
+   */
+  public async updateRepository(
+    updateRepositoryRequest: requests.UpdateRepositoryRequest
+  ): Promise<responses.UpdateRepositoryResponse> {
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#updateRepository.");
+    const pathParams = {
+      "{repositoryId}": updateRepositoryRequest.repositoryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateRepositoryRequest.ifMatch,
+      "opc-request-id": updateRepositoryRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateRepositoryRequest.updateRepositoryDetails,
+        "UpdateRepositoryDetails",
+        models.UpdateRepositoryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateRepositoryRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateRepositoryResponse>{},
+        body: await response.json(),
+        bodyKey: "repository",
+        bodyModel: "model.Repository",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

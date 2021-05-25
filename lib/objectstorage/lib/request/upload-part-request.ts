@@ -50,7 +50,7 @@ export interface UploadPartRequest extends common.BaseRequest {
   /**
    * The part being uploaded to the Object Storage service.
    */
-  "uploadPartBody": Blob | stream.Readable | ReadableStream | string;
+  "uploadPartBody": Uint8Array | Buffer | Blob | stream.Readable | ReadableStream | string;
   /**
    * The client request ID for tracing.
    */

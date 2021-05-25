@@ -10,9 +10,13 @@ import { Content, RequestDetails } from "./types";
  */
 export interface UploadRequest {
   /*
-   *  contains one of the ContenTypes (blob or filepath)
+   *  contains one of the ContentTypes (blob, filepath, or stream)
    */
   content: Content;
+  /*
+   *  contains one of the ContentTypes (blob, filepath, or stream)
+   */
+  singleUpload?: boolean;
   /*
    * request details for upload manager
    */

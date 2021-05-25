@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "1.19.5",
+  "version": "1.20.0",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -96,7 +96,9 @@
     "oci-databasemigration": "file:lib/databasemigration",
     "oci-ailanguage": "file:lib/ailanguage",
     "oci-operatoraccesscontrol": "file:lib/operatoraccesscontrol",
-    "oci-servicecatalog": "file:lib/servicecatalog"
+    "oci-servicecatalog": "file:lib/servicecatalog",
+    "oci-bastion": "file:lib/bastion",
+    "oci-genericartifactscontent": "file:lib/genericartifactscontent"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

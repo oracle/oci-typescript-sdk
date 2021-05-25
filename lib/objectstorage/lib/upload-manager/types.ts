@@ -5,10 +5,14 @@
 
 import { RequireOnlyOne } from "oci-common";
 import { requests } from "oci-objectstorage";
+import { Readable } from "stream";
 
-interface ContentTypes {
+export type BinaryBody = Uint8Array | Buffer | Readable | ReadableStream | string | Blob;
+
+export interface ContentTypes {
   blob?: Blob;
   filePath?: string;
+  stream?: BinaryBody;
 }
 
 type PutObjectContent = "putObjectBody" | "contentLength";

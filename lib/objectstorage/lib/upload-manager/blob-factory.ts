@@ -5,8 +5,10 @@
 
 import { BrowserBlob } from "./browser-blob";
 import { NodeFSBlob } from "./node-fs-blob";
+import { StreamBlob } from "./stream-blob";
 import { UploadOptions } from "./upload-options";
 import { UploadableBlob } from "./uploadable-blob";
+import { UploadableStream } from "./uploadable-stream";
 import { Content } from "./types";
 
 /*
@@ -16,9 +18,14 @@ import { Content } from "./types";
  * @param UploadOptions
  * @returns UploadableBlob Object
  */
-export function getContent(content: Content, options: UploadOptions): UploadableBlob {
+
+export async function getContent(
+  content: Content,
+  options: UploadOptions
+): Promise<UploadableBlob | UploadableStream> {
   const chunkSize = options.allowedMemoryUsage / options.maxConcurrentUploads;
   if (content.blob) return new BrowserBlob(content.blob, chunkSize);
   else if (content.filePath) return new NodeFSBlob(content.filePath, chunkSize);
+  else if (content.stream) return new StreamBlob(content.stream, chunkSize);
   else throw Error("Unidentified Blob type Found");
 }

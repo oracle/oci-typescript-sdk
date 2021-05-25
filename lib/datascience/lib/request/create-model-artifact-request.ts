@@ -30,7 +30,7 @@ export interface CreateModelArtifactRequest extends common.BaseRequest {
   /**
    * The model artifact to upload.
    */
-  "modelArtifact": Blob | stream.Readable | ReadableStream | string;
+  "modelArtifact": Uint8Array | Buffer | Blob | stream.Readable | ReadableStream | string;
   /**
    * Unique Oracle assigned identifier for the request. If you need to contact Oracle about a particular request, then provide the request ID.
    *

@@ -1,6 +1,6 @@
 /**
  * Service Limits APIs
- * APIs that interact with the resource limits of a specific resource type
+ * APIs that interact with the resource limits of a specific resource type.
  * OpenAPI spec version: 20181025
  *
  *
@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ServiceSummary {
   /**
-   * The service name. Use this when calling the other APIs.
+   * The service name. Use this when calling other APIs.
    */
   "name"?: string;
   /**

@@ -17,9 +17,12 @@ import {
   PutObjectContentMD5HashDetails,
   UploadPartContentMD5HashDetails,
   UploadPartDetails,
-  RequestDetails
+  RequestDetails,
+  BinaryBody
 } from "./types";
 import { UploadOptions } from "./upload-options";
+import getChunk from "./chunker";
+import { UploadableStream } from "./uploadable-stream";
 
 /**
  * UploadManager simplifies interaction with the Object Storage service by abstracting away the method used
@@ -33,13 +36,24 @@ import { UploadOptions } from "./upload-options";
  * Do not make the partSize greater than the buffer size limitation.
  */
 
+export interface RawData {
+  size: number;
+  data: BinaryBody;
+  md5Hash: string;
+}
+
 export class UploadManager {
   private readonly options: UploadOptions;
-
   // uploadSize will be a dictionary that keeps track of uploadSize per uploadId. This helps prevent mismatch uploadSize with
   // different upload when uploading multiple things in parallel.
   private uploadSize: { [key: string]: number } = {};
+  private MAX_PARTS = 10000; // Object storage multipart upload does not allow more than 10000 parts.
+  private MAX_READ_SIZE = Number.MAX_SAFE_INTEGER;
+  // numberOfRetries will be a dictionary that keeps track of numberOfRetries per uploadId. This helps prevent mismatch numberOfRetries with
+  // different upload when uploading multiple things in parallel.
+  private numberOfRetries: { [key: string]: number } = {};
 
+  private numberOfSingleUploadRetry = 0;
   public constructor(
     private readonly client: ObjectStorageClient,
     options?: Partial<UploadOptions>
@@ -59,7 +73,16 @@ export class UploadManager {
     isDisableAutoAbort: false
   };
 
-  private shouldUseMultipartUpload(content: UploadableBlob): boolean {
+  private shouldUseMultipartUpload(
+    content: UploadableBlob | UploadableStream,
+    singleUpload?: boolean
+  ): boolean {
+    if (singleUpload) {
+      return false;
+    } // Return false to force the upload to be a single upload
+    if (!content.size) {
+      return true;
+    } // Always use multiupload if content.size is not able to initially calculated.
     return content.size > this.options.partSize;
   }
 
@@ -78,40 +101,54 @@ export class UploadManager {
    */
 
   public async upload(request: UploadRequest, callback?: Function): Promise<UploadResponse> {
-    const content = getContent(request.content, this.options);
-    if (this.shouldUseMultipartUpload(content)) {
+    const content = await getContent(request.content, this.options);
+    if (this.shouldUseMultipartUpload(content, request.singleUpload)) {
       return this.multiUpload(request.requestDetails, content, callback);
+    } else {
+      let body = await content.getData();
+      const dataFeeder = getChunk(body, this.MAX_READ_SIZE);
+      const dataPart = (await dataFeeder.next()).value as RawData;
+      return this.singleUpload(request.requestDetails, dataPart);
     }
-    return this.singleUpload(request.requestDetails, content);
   }
 
   private async singleUpload(
     requestDetails: RequestDetails,
-    content: UploadableBlob
+    content: RawData
   ): Promise<UploadResponse> {
     const contentDetails: PutObjectContentDetails = {
-      putObjectBody: await content.getData(),
+      putObjectBody: content.data,
       contentLength: content.size
     };
     const contentMD5Hash: PutObjectContentMD5HashDetails = this.options.enforceMD5
-      ? { contentMD5: await content.getMD5Hash() }
+      ? { contentMD5: content.md5Hash }
       : {};
     if (this.logger) this.logger.debug("uploading using single upload");
-    const response = await this.client.putObject({
-      ...requestDetails,
-      ...contentDetails,
-      ...contentMD5Hash
-    });
-    return {
-      eTag: response.eTag,
-      contentMd5: response.opcContentMd5,
-      opcRequestId: response.opcRequestId,
-      opcClientRequestId: response.opcClientRequestId
-    };
+    try {
+      const response = await this.client.putObject({
+        ...requestDetails,
+        ...contentDetails,
+        ...contentMD5Hash
+      });
+      this.numberOfSingleUploadRetry = 0;
+      return {
+        eTag: response.eTag,
+        contentMd5: response.opcContentMd5,
+        opcRequestId: response.opcRequestId,
+        opcClientRequestId: response.opcClientRequestId
+      };
+    } catch (e) {
+      if (this.numberOfSingleUploadRetry < 3) {
+        this.numberOfSingleUploadRetry += 1;
+        return await this.singleUpload(requestDetails, content);
+      } else {
+        throw "Failed to upload object 3 times. Aborting";
+      }
+    }
   }
 
   private async triggerUploadPart(
-    content: UploadableBlob,
+    content: RawData,
     requestDetails: RequestDetails,
     uploadId: string,
     uploadPartNum: number,
@@ -122,22 +159,23 @@ export class UploadManager {
     try {
       return await semaphore.use(async () => {
         const contentDetails: UploadPartContentDetails = {
-          uploadPartBody: await content.getData(),
+          uploadPartBody: content.data,
           contentLength: content.size
         };
         const contentMD5Hash: UploadPartContentMD5HashDetails = this.options.enforceMD5
-          ? { contentMD5: await content.getMD5Hash() }
+          ? { contentMD5: content.md5Hash }
           : {};
         const uploadPartDetails: UploadPartDetails = {
           uploadId: uploadId,
           uploadPartNum: uploadPartNum
         };
-        const response = await this.client.uploadPart({
+        let response = await this.client.uploadPart({
           ...requestDetails,
           ...uploadPartDetails,
           ...contentDetails,
           ...contentMD5Hash
         });
+
         const uploadSize = (this.uploadSize[uploadId] += content.size);
         const progress = (uploadSize / totalSize) * 100;
         const result = {
@@ -151,14 +189,69 @@ export class UploadManager {
         return result;
       });
     } catch (ex) {
-      if (this.logger) this.logger.error(`Upload of part: ${uploadPartNum} failed due to ${ex}`);
-      throw ex;
+      this.numberOfRetries[uploadId] = this.numberOfRetries[uploadId]
+        ? (this.numberOfRetries[uploadId] += 1)
+        : 1;
+      if (this.numberOfRetries[uploadId] < 3) {
+        return await this.triggerUploadPart(
+          content,
+          requestDetails,
+          uploadId,
+          uploadPartNum,
+          semaphore,
+          totalSize,
+          callback
+        );
+      } else {
+        if (this.logger) this.logger.error(`Upload of part: ${uploadPartNum} failed due to ${ex}`);
+        throw ex;
+      }
     }
+  }
+
+  private async pushUploadParts(
+    totalSize: number,
+    requestDetails: RequestDetails,
+    uploadId: string,
+    content: UploadableBlob | UploadableStream,
+    callback?: Function
+  ) {
+    let uploadPartNum = 1;
+    const semaphore = new Semaphore(this.options.maxConcurrentUploads);
+    const partUploadPromises = [];
+    let body = await content.getData();
+    const dataFeeder = getChunk(body, this.options.partSize);
+    for await (const dataPart of dataFeeder) {
+      if (partUploadPromises.length > this.MAX_PARTS) {
+        throw new Error(
+          `Exceeded ${this.MAX_PARTS} as part of the upload to ${requestDetails.bucketName}.`
+        );
+      }
+      if (dataPart.size === 0) {
+        // If we have a 0 length part, we don't want to upload this.
+        continue;
+      }
+      // let partToUpload = new StreamBlob(dataPart.data, this.options.partSize);
+      partUploadPromises.push(
+        this.triggerUploadPart(
+          dataPart,
+          requestDetails,
+          uploadId,
+          uploadPartNum,
+          semaphore,
+          totalSize,
+          callback
+        )
+      );
+      uploadPartNum++;
+    }
+    // }
+    return partUploadPromises;
   }
 
   private async multiUpload(
     requestDetails: RequestDetails,
-    content: UploadableBlob,
+    content: UploadableBlob | UploadableStream,
     callback?: Function
   ): Promise<UploadResponse> {
     const createUploadResponse = await this.client.createMultipartUpload({
@@ -174,32 +267,14 @@ export class UploadManager {
     this.uploadSize[uploadId] = 0;
     try {
       const totalSize = content.size;
-      const partUploadPromises = new Array<Promise<models.CommitMultipartUploadPartDetails>>();
-      let uploadPartNum = 1;
-      const semaphore = new Semaphore(this.options.maxConcurrentUploads);
-      for (
-        let currentChunkStart = 0;
-        currentChunkStart < totalSize;
-        currentChunkStart += this.options.partSize
-      ) {
-        const slicedContent = content.slice(
-          currentChunkStart,
-          currentChunkStart + this.options.partSize
-        );
-        partUploadPromises.push(
-          this.triggerUploadPart(
-            slicedContent,
-            requestDetails,
-            uploadId,
-            uploadPartNum,
-            semaphore,
-            totalSize,
-            callback
-          )
-        );
-        uploadPartNum++;
-      }
 
+      const partUploadPromises = await this.pushUploadParts(
+        totalSize,
+        requestDetails,
+        uploadId,
+        content,
+        callback
+      );
       const uploadPartDetails = await Promise.all(partUploadPromises);
       const response = await this.client.commitMultipartUpload({
         ...UploadManager.composeRequestDetails(requestDetails),

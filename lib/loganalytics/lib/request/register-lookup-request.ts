@@ -31,7 +31,13 @@ export interface RegisterLookupRequest extends common.BaseRequest {
   /**
    * file containing data for lookup creation
    */
-  "registerLookupContentFileBody": Blob | stream.Readable | ReadableStream | string;
+  "registerLookupContentFileBody":
+    | Uint8Array
+    | Buffer
+    | Blob
+    | stream.Readable
+    | ReadableStream
+    | string;
   /**
    * A filter to return only log analytics entities whose name matches the entire name given. The match
    * is case-insensitive.

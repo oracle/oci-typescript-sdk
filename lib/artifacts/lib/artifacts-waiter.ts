@@ -62,4 +62,42 @@ export class ArtifactsWaiter {
       targetStates.includes(models.ContainerRepository.LifecycleState.Deleted)
     );
   }
+
+  /**
+   * Waits forGenericArtifact till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetGenericArtifactResponse | null (null in case of 404 response)
+   */
+  public async forGenericArtifact(
+    request: serviceRequests.GetGenericArtifactRequest,
+    ...targetStates: models.GenericArtifact.LifecycleState[]
+  ): Promise<serviceResponses.GetGenericArtifactResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getGenericArtifact(request),
+      response => targetStates.includes(response.genericArtifact.lifecycleState!),
+      targetStates.includes(models.GenericArtifact.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forRepository till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetRepositoryResponse | null (null in case of 404 response)
+   */
+  public async forRepository(
+    request: serviceRequests.GetRepositoryRequest,
+    ...targetStates: models.Repository.LifecycleState[]
+  ): Promise<serviceResponses.GetRepositoryResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getRepository(request),
+      response => targetStates.includes(response.repository.lifecycleState!),
+      targetStates.includes(models.Repository.LifecycleState.Deleted)
+    );
+  }
 }

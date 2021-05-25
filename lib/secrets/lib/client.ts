@@ -1,5 +1,5 @@
 /**
- * Secrets
+ * Vault Service Secret Retrieval API
  * API for retrieving secrets from vaults.
  * OpenAPI spec version: 20190301
  *
@@ -107,7 +107,7 @@ export class SecretsClient {
   }
 
   /**
-   * Gets a secret bundle that matches either the specified `stage`, `label`, or `versionNumber` parameter.
+   * Gets a secret bundle that matches either the specified `stage`, `secretVersionName`, or `versionNumber` parameter.
    * If none of these parameters are provided, the bundle for the secret version marked as `CURRENT` will be returned.
    *
    * @param GetSecretBundleRequest
@@ -161,6 +161,70 @@ export class SecretsClient {
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a secret bundle by secret name and vault ID, and secret version that matches either the specified `stage`, `secretVersionName`, or `versionNumber` parameter.
+   * If none of these parameters are provided, the bundle for the secret version marked as `CURRENT` is returned.
+   *
+   * @param GetSecretBundleByNameRequest
+   * @return GetSecretBundleByNameResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/secrets/GetSecretBundleByName.ts.html |here} to see how to use GetSecretBundleByName API.
+   */
+  public async getSecretBundleByName(
+    getSecretBundleByNameRequest: requests.GetSecretBundleByNameRequest
+  ): Promise<responses.GetSecretBundleByNameResponse> {
+    if (this.logger) this.logger.debug("Calling operation SecretsClient#getSecretBundleByName.");
+    const pathParams = {};
+
+    const queryParams = {
+      "secretName": getSecretBundleByNameRequest.secretName,
+      "vaultId": getSecretBundleByNameRequest.vaultId,
+      "versionNumber": getSecretBundleByNameRequest.versionNumber,
+      "secretVersionName": getSecretBundleByNameRequest.secretVersionName,
+      "stage": getSecretBundleByNameRequest.stage
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSecretBundleByNameRequest.opcRequestId
+    };
+
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/secretbundles/actions/getByName",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getSecretBundleByNameRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSecretBundleByNameResponse>{},
+        body: await response.json(),
+        bodyKey: "secretBundle",
+        bodyModel: "model.SecretBundle",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
