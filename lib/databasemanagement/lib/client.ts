@@ -162,6 +162,11 @@ export class DbManagementClient {
       "opc-retry-token": addManagedDatabaseToManagedDatabaseGroupRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      addManagedDatabaseToManagedDatabaseGroupRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -176,11 +181,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      addManagedDatabaseToManagedDatabaseGroupRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -237,6 +237,11 @@ export class DbManagementClient {
       "opc-retry-token": changeDatabaseParametersRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeDatabaseParametersRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -251,11 +256,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeDatabaseParametersRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -304,6 +304,11 @@ export class DbManagementClient {
       "if-match": changeJobCompartmentRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeJobCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -318,11 +323,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeJobCompartmentRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -373,6 +373,11 @@ export class DbManagementClient {
       "if-match": changeManagedDatabaseGroupCompartmentRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeManagedDatabaseGroupCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -387,11 +392,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeManagedDatabaseGroupCompartmentRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -435,6 +435,11 @@ export class DbManagementClient {
       "opc-retry-token": createJobRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createJobRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -449,11 +454,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createJobRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -510,6 +510,11 @@ export class DbManagementClient {
       "opc-retry-token": createManagedDatabaseGroupRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createManagedDatabaseGroupRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -524,11 +529,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createManagedDatabaseGroupRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -584,6 +584,11 @@ export class DbManagementClient {
       "opc-request-id": deleteJobRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteJobRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -593,11 +598,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteJobRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -643,6 +643,11 @@ export class DbManagementClient {
       "opc-request-id": deleteManagedDatabaseGroupRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteManagedDatabaseGroupRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -652,11 +657,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteManagedDatabaseGroupRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -710,6 +710,11 @@ export class DbManagementClient {
       "opc-retry-token": getAwrDbReportRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getAwrDbReportRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -719,11 +724,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAwrDbReportRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -780,6 +780,11 @@ export class DbManagementClient {
       "opc-retry-token": getAwrDbSqlReportRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getAwrDbSqlReportRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -789,11 +794,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAwrDbSqlReportRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -845,6 +845,11 @@ export class DbManagementClient {
       "opc-request-id": getClusterCacheMetricRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getClusterCacheMetricRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -854,11 +859,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getClusterCacheMetricRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -913,6 +913,11 @@ export class DbManagementClient {
       "opc-request-id": getDatabaseFleetHealthMetricsRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getDatabaseFleetHealthMetricsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -922,11 +927,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDatabaseFleetHealthMetricsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -974,6 +974,11 @@ export class DbManagementClient {
       "opc-request-id": getDatabaseHomeMetricsRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getDatabaseHomeMetricsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -983,11 +988,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDatabaseHomeMetricsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1031,6 +1031,11 @@ export class DbManagementClient {
       "opc-request-id": getJobRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getJobRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1040,11 +1045,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getJobRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1100,6 +1100,11 @@ export class DbManagementClient {
       "opc-request-id": getJobExecutionRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getJobExecutionRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1109,11 +1114,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getJobExecutionRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1159,6 +1159,11 @@ export class DbManagementClient {
       "opc-request-id": getJobRunRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getJobRunRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1168,11 +1173,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getJobRunRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1218,6 +1218,11 @@ export class DbManagementClient {
       "opc-request-id": getManagedDatabaseRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getManagedDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1227,11 +1232,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getManagedDatabaseRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1278,6 +1278,11 @@ export class DbManagementClient {
       "opc-request-id": getManagedDatabaseGroupRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getManagedDatabaseGroupRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1287,11 +1292,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getManagedDatabaseGroupRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1355,6 +1355,11 @@ export class DbManagementClient {
       "opc-retry-token": listAwrDbSnapshotsRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listAwrDbSnapshotsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1364,11 +1369,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAwrDbSnapshotsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1428,6 +1428,11 @@ export class DbManagementClient {
       "opc-retry-token": listAwrDbsRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listAwrDbsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1437,11 +1442,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAwrDbsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1499,6 +1499,11 @@ export class DbManagementClient {
       "opc-request-id": listDatabaseParametersRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listDatabaseParametersRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1508,11 +1513,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDatabaseParametersRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1571,6 +1571,11 @@ export class DbManagementClient {
       "opc-request-id": listJobExecutionsRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listJobExecutionsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1580,11 +1585,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listJobExecutionsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1648,6 +1648,11 @@ export class DbManagementClient {
       "opc-request-id": listJobRunsRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listJobRunsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1657,11 +1662,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listJobRunsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1724,6 +1724,11 @@ export class DbManagementClient {
       "opc-request-id": listJobsRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listJobsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1733,11 +1738,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listJobsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1799,6 +1799,11 @@ export class DbManagementClient {
       "opc-request-id": listManagedDatabaseGroupsRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listManagedDatabaseGroupsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1808,11 +1813,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listManagedDatabaseGroupsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1872,6 +1872,11 @@ export class DbManagementClient {
       "opc-request-id": listManagedDatabasesRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listManagedDatabasesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1881,11 +1886,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listManagedDatabasesRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1941,6 +1941,11 @@ export class DbManagementClient {
       "opc-request-id": listTablespacesRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listTablespacesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1950,11 +1955,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTablespacesRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2013,6 +2013,11 @@ export class DbManagementClient {
       "opc-retry-token": removeManagedDatabaseFromManagedDatabaseGroupRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      removeManagedDatabaseFromManagedDatabaseGroupRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2027,11 +2032,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      removeManagedDatabaseFromManagedDatabaseGroupRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2076,6 +2076,11 @@ export class DbManagementClient {
       "opc-retry-token": resetDatabaseParametersRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      resetDatabaseParametersRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2090,11 +2095,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      resetDatabaseParametersRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2155,6 +2155,11 @@ export class DbManagementClient {
       "opc-retry-token": summarizeAwrDbCpuUsagesRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeAwrDbCpuUsagesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2164,11 +2169,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeAwrDbCpuUsagesRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2234,6 +2234,11 @@ export class DbManagementClient {
       "opc-retry-token": summarizeAwrDbMetricsRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeAwrDbMetricsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2243,11 +2248,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeAwrDbMetricsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2318,6 +2318,11 @@ export class DbManagementClient {
       "opc-retry-token": summarizeAwrDbParameterChangesRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeAwrDbParameterChangesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2327,11 +2332,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeAwrDbParameterChangesRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2410,6 +2410,11 @@ export class DbManagementClient {
       "opc-retry-token": summarizeAwrDbParametersRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeAwrDbParametersRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2419,11 +2424,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeAwrDbParametersRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2484,6 +2484,11 @@ export class DbManagementClient {
       "opc-retry-token": summarizeAwrDbSnapshotRangesRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeAwrDbSnapshotRangesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2493,11 +2498,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeAwrDbSnapshotRangesRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2563,6 +2563,11 @@ export class DbManagementClient {
       "opc-retry-token": summarizeAwrDbSysstatsRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeAwrDbSysstatsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2572,11 +2577,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeAwrDbSysstatsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2642,6 +2642,11 @@ export class DbManagementClient {
       "opc-retry-token": summarizeAwrDbTopWaitEventsRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeAwrDbTopWaitEventsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2651,11 +2656,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeAwrDbTopWaitEventsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2725,6 +2725,11 @@ export class DbManagementClient {
       "opc-retry-token": summarizeAwrDbWaitEventBucketsRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeAwrDbWaitEventBucketsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2734,11 +2739,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeAwrDbWaitEventBucketsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2806,6 +2806,11 @@ export class DbManagementClient {
       "opc-retry-token": summarizeAwrDbWaitEventsRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeAwrDbWaitEventsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2815,11 +2820,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeAwrDbWaitEventsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2872,6 +2872,11 @@ export class DbManagementClient {
       "opc-request-id": updateManagedDatabaseGroupRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateManagedDatabaseGroupRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2886,11 +2891,6 @@ export class DbManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateManagedDatabaseGroupRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({

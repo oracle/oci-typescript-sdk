@@ -128,6 +128,11 @@ export class AnnouncementClient {
       "opc-request-id": getAnnouncementRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getAnnouncementRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -137,11 +142,6 @@ export class AnnouncementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAnnouncementRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -188,6 +188,11 @@ export class AnnouncementClient {
       "opc-request-id": getAnnouncementUserStatusRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getAnnouncementUserStatusRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -197,11 +202,6 @@ export class AnnouncementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAnnouncementUserStatusRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -256,6 +256,11 @@ export class AnnouncementClient {
       "opc-request-id": listAnnouncementsRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listAnnouncementsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -265,11 +270,6 @@ export class AnnouncementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAnnouncementsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -322,6 +322,11 @@ export class AnnouncementClient {
       "opc-request-id": updateAnnouncementUserStatusRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateAnnouncementUserStatusRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -336,11 +341,6 @@ export class AnnouncementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAnnouncementUserStatusRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -474,6 +474,11 @@ export class AnnouncementsPreferencesClient {
       "opc-retry-token": createAnnouncementsPreferenceRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createAnnouncementsPreferenceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -488,11 +493,6 @@ export class AnnouncementsPreferencesClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createAnnouncementsPreferenceRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -546,6 +546,11 @@ export class AnnouncementsPreferencesClient {
       "opc-request-id": getAnnouncementsPreferenceRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getAnnouncementsPreferenceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -555,11 +560,6 @@ export class AnnouncementsPreferencesClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAnnouncementsPreferenceRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -610,6 +610,11 @@ export class AnnouncementsPreferencesClient {
       "opc-request-id": listAnnouncementsPreferencesRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listAnnouncementsPreferencesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -619,11 +624,6 @@ export class AnnouncementsPreferencesClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAnnouncementsPreferencesRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -703,6 +703,11 @@ export class AnnouncementsPreferencesClient {
       "if-match": updateAnnouncementsPreferenceRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateAnnouncementsPreferenceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -717,11 +722,6 @@ export class AnnouncementsPreferencesClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAnnouncementsPreferenceRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({

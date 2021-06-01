@@ -128,6 +128,11 @@ export class ResourceSearchClient {
       "opc-request-id": getResourceTypeRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getResourceTypeRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -137,11 +142,6 @@ export class ResourceSearchClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getResourceTypeRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -188,6 +188,11 @@ export class ResourceSearchClient {
       "opc-request-id": listResourceTypesRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listResourceTypesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -197,11 +202,6 @@ export class ResourceSearchClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listResourceTypesRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -281,6 +281,11 @@ export class ResourceSearchClient {
       "opc-request-id": searchResourcesRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      searchResourcesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -295,11 +300,6 @@ export class ResourceSearchClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      searchResourcesRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({

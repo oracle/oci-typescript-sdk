@@ -155,6 +155,11 @@ export class IdentityClient {
       "opc-retry-token": activateMfaTotpDeviceRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      activateMfaTotpDeviceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -169,11 +174,6 @@ export class IdentityClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      activateMfaTotpDeviceRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -225,6 +225,11 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       "opc-retry-token": addUserToGroupRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      addUserToGroupRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -239,11 +244,6 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      addUserToGroupRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -297,6 +297,11 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      assembleEffectiveTagSetRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -306,11 +311,6 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      assembleEffectiveTagSetRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -366,6 +366,11 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       "opc-retry-token": bulkDeleteResourcesRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      bulkDeleteResourcesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -380,11 +385,6 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      bulkDeleteResourcesRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -451,6 +451,11 @@ In order to delete tags, you must first retire the tags. Use {@link #updateTag(U
       "opc-retry-token": bulkDeleteTagsRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      bulkDeleteTagsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -465,11 +470,6 @@ In order to delete tags, you must first retire the tags. Use {@link #updateTag(U
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      bulkDeleteTagsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -529,6 +529,11 @@ The edits can include a combination of operations and tag sets.
       "opc-retry-token": bulkEditTagsRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      bulkEditTagsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -543,11 +548,6 @@ The edits can include a combination of operations and tag sets.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      bulkEditTagsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -600,6 +600,11 @@ The edits can include a combination of operations and tag sets.
       "opc-retry-token": bulkMoveResourcesRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      bulkMoveResourcesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -614,11 +619,6 @@ The edits can include a combination of operations and tag sets.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      bulkMoveResourcesRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -687,6 +687,11 @@ To delete a tag namespace, you must first retire it. Use {@link #updateTagNamesp
       "opc-retry-token": cascadeDeleteTagNamespaceRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      cascadeDeleteTagNamespaceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -696,11 +701,6 @@ To delete a tag namespace, you must first retire it. Use {@link #updateTagNamesp
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      cascadeDeleteTagNamespaceRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -754,6 +754,11 @@ Moving a tag namespace moves all the tag key definitions contained in the tag na
       "opc-retry-token": changeTagNamespaceCompartmentRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeTagNamespaceCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -768,11 +773,6 @@ Moving a tag namespace moves all the tag key definitions contained in the tag na
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeTagNamespaceCompartmentRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -824,6 +824,11 @@ Every user has permission to create an auth token for *their own user ID*. An ad
       "opc-retry-token": createAuthTokenRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createAuthTokenRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -838,11 +843,6 @@ Every user has permission to create an auth token for *their own user ID*. An ad
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createAuthTokenRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -909,6 +909,11 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       "opc-retry-token": createCompartmentRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -923,11 +928,6 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createCompartmentRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -988,6 +988,11 @@ Every user has permission to create a secret key for *their own user ID*. An adm
       "opc-retry-token": createCustomerSecretKeyRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createCustomerSecretKeyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1002,11 +1007,6 @@ Every user has permission to create a secret key for *their own user ID*. An adm
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createCustomerSecretKeyRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1072,6 +1072,11 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       "opc-retry-token": createDynamicGroupRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createDynamicGroupRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1086,11 +1091,6 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDynamicGroupRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1159,6 +1159,11 @@ After creating the group, you need to put users in it and write policies for it.
       "opc-retry-token": createGroupRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createGroupRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1173,11 +1178,6 @@ After creating the group, you need to put users in it and write policies for it.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createGroupRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1243,6 +1243,11 @@ After you send your request, the new object's `lifecycleState` will temporarily
       "opc-retry-token": createIdentityProviderRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createIdentityProviderRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1257,11 +1262,6 @@ After you send your request, the new object's `lifecycleState` will temporarily
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createIdentityProviderRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1313,6 +1313,11 @@ After you send your request, the new object's `lifecycleState` will temporarily
       "opc-retry-token": createIdpGroupMappingRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createIdpGroupMappingRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1327,11 +1332,6 @@ After you send your request, the new object's `lifecycleState` will temporarily
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createIdpGroupMappingRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1382,6 +1382,11 @@ After you send your request, the new object's `lifecycleState` will temporarily
       "opc-retry-token": createMfaTotpDeviceRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createMfaTotpDeviceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1391,11 +1396,6 @@ After you send your request, the new object's `lifecycleState` will temporarily
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createMfaTotpDeviceRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1464,6 +1464,11 @@ After your network resource is created, you can use it in policy to restrict acc
       "opc-retry-token": createNetworkSourceRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createNetworkSourceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1478,11 +1483,6 @@ After your network resource is created, you can use it in policy to restrict acc
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createNetworkSourceRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1534,6 +1534,11 @@ After your network resource is created, you can use it in policy to restrict acc
       "opc-retry-token": createOAuthClientCredentialRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createOAuthClientCredentialRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1548,11 +1553,6 @@ After your network resource is created, you can use it in policy to restrict acc
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createOAuthClientCredentialRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1613,6 +1613,11 @@ Use this operation after creating a new user, or if a user forgets their passwor
       "opc-retry-token": createOrResetUIPasswordRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createOrResetUIPasswordRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1622,11 +1627,6 @@ Use this operation after creating a new user, or if a user forgets their passwor
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createOrResetUIPasswordRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1691,6 +1691,11 @@ New policies take effect typically within 10 seconds.
       "opc-retry-token": createPolicyRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createPolicyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1705,11 +1710,6 @@ New policies take effect typically within 10 seconds.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createPolicyRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1761,6 +1761,11 @@ New policies take effect typically within 10 seconds.
       "opc-retry-token": createRegionSubscriptionRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createRegionSubscriptionRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1775,11 +1780,6 @@ New policies take effect typically within 10 seconds.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createRegionSubscriptionRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1828,6 +1828,11 @@ New policies take effect typically within 10 seconds.
       "opc-retry-token": createSmtpCredentialRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createSmtpCredentialRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1842,11 +1847,6 @@ New policies take effect typically within 10 seconds.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createSmtpCredentialRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1908,6 +1908,11 @@ Every user has permission to create a Swift password for *their own user ID*. An
       "opc-retry-token": createSwiftPasswordRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createSwiftPasswordRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1922,11 +1927,6 @@ Every user has permission to create a Swift password for *their own user ID*. An
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createSwiftPasswordRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1998,6 +1998,11 @@ The tag must have a value type, which is specified with a validator. Tags can us
       "opc-retry-token": createTagRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createTagRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2012,11 +2017,6 @@ The tag must have a value type, which is specified with a validator. Tags can us
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createTagRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2073,6 +2073,11 @@ If you specify that a value is required, a value is set during resource creation
       "opc-request-id": createTagDefaultRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createTagDefaultRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2087,11 +2092,6 @@ If you specify that a value is required, a value is set during resource creation
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createTagDefaultRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2153,6 +2153,11 @@ You must also specify a *description* for the namespace.
       "opc-retry-token": createTagNamespaceRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createTagNamespaceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2167,11 +2172,6 @@ You must also specify a *description* for the namespace.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createTagNamespaceRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2249,6 +2249,11 @@ A new user has no permissions until you place the user in one or more groups (se
       "opc-retry-token": createUserRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createUserRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2263,11 +2268,6 @@ A new user has no permissions until you place the user in one or more groups (se
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createUserRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2324,6 +2324,11 @@ Every user has permission to use this operation to delete a key for *their own u
       "if-match": deleteApiKeyRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteApiKeyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2333,11 +2338,6 @@ Every user has permission to use this operation to delete a key for *their own u
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteApiKeyRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2381,6 +2381,11 @@ Every user has permission to use this operation to delete a key for *their own u
       "if-match": deleteAuthTokenRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteAuthTokenRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2390,11 +2395,6 @@ Every user has permission to use this operation to delete a key for *their own u
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteAuthTokenRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2437,6 +2437,11 @@ Every user has permission to use this operation to delete a key for *their own u
       "if-match": deleteCompartmentRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2446,11 +2451,6 @@ Every user has permission to use this operation to delete a key for *their own u
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteCompartmentRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2499,6 +2499,11 @@ Every user has permission to use this operation to delete a key for *their own u
       "if-match": deleteCustomerSecretKeyRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteCustomerSecretKeyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2508,11 +2513,6 @@ Every user has permission to use this operation to delete a key for *their own u
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteCustomerSecretKeyRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2555,6 +2555,11 @@ Every user has permission to use this operation to delete a key for *their own u
       "if-match": deleteDynamicGroupRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteDynamicGroupRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2564,11 +2569,6 @@ Every user has permission to use this operation to delete a key for *their own u
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDynamicGroupRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2611,6 +2611,11 @@ Every user has permission to use this operation to delete a key for *their own u
       "if-match": deleteGroupRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteGroupRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2620,11 +2625,6 @@ Every user has permission to use this operation to delete a key for *their own u
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteGroupRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2668,6 +2668,11 @@ Every user has permission to use this operation to delete a key for *their own u
       "if-match": deleteIdentityProviderRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteIdentityProviderRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2677,11 +2682,6 @@ Every user has permission to use this operation to delete a key for *their own u
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteIdentityProviderRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2724,6 +2724,11 @@ Every user has permission to use this operation to delete a key for *their own u
       "if-match": deleteIdpGroupMappingRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteIdpGroupMappingRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2733,11 +2738,6 @@ Every user has permission to use this operation to delete a key for *their own u
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteIdpGroupMappingRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2781,6 +2781,11 @@ Every user has permission to use this operation to delete a key for *their own u
       "if-match": deleteMfaTotpDeviceRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteMfaTotpDeviceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2790,11 +2795,6 @@ Every user has permission to use this operation to delete a key for *their own u
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteMfaTotpDeviceRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2837,6 +2837,11 @@ Every user has permission to use this operation to delete a key for *their own u
       "if-match": deleteNetworkSourceRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteNetworkSourceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2846,11 +2851,6 @@ Every user has permission to use this operation to delete a key for *their own u
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteNetworkSourceRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2895,6 +2895,11 @@ Every user has permission to use this operation to delete a key for *their own u
       "if-match": deleteOAuthClientCredentialRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteOAuthClientCredentialRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2904,11 +2909,6 @@ Every user has permission to use this operation to delete a key for *their own u
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteOAuthClientCredentialRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2950,6 +2950,11 @@ Every user has permission to use this operation to delete a key for *their own u
       "if-match": deletePolicyRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deletePolicyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2959,11 +2964,6 @@ Every user has permission to use this operation to delete a key for *their own u
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deletePolicyRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -3007,6 +3007,11 @@ Every user has permission to use this operation to delete a key for *their own u
       "if-match": deleteSmtpCredentialRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteSmtpCredentialRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3016,11 +3021,6 @@ Every user has permission to use this operation to delete a key for *their own u
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteSmtpCredentialRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -3066,6 +3066,11 @@ Deletes the specified Swift password for the specified user.
       "if-match": deleteSwiftPasswordRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteSwiftPasswordRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3075,11 +3080,6 @@ Deletes the specified Swift password for the specified user.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteSwiftPasswordRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -3143,6 +3143,11 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
       "if-match": deleteTagRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteTagRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3152,11 +3157,6 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteTagRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -3205,6 +3205,11 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
       "if-match": deleteTagDefaultRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteTagDefaultRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3214,11 +3219,6 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteTagDefaultRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -3268,6 +3268,11 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
       "opc-request-id": deleteTagNamespaceRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteTagNamespaceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3277,11 +3282,6 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteTagNamespaceRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -3323,6 +3323,11 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
       "if-match": deleteUserRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteUserRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3332,11 +3337,6 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteUserRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -3380,6 +3380,11 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
       "if-match": generateTotpSeedRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      generateTotpSeedRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3389,11 +3394,6 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      generateTotpSeedRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -3444,6 +3444,11 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getAuthenticationPolicyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3453,11 +3458,6 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAuthenticationPolicyRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -3514,6 +3514,11 @@ This operation does not return a list of all the resources inside the compartmen
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3523,11 +3528,6 @@ This operation does not return a list of all the resources inside the compartmen
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getCompartmentRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -3577,6 +3577,11 @@ This operation does not return a list of all the resources inside the compartmen
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getDynamicGroupRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3586,11 +3591,6 @@ This operation does not return a list of all the resources inside the compartmen
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDynamicGroupRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -3644,6 +3644,11 @@ This operation does not return a list of all the users in the group. To do that,
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getGroupRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3653,11 +3658,6 @@ This operation does not return a list of all the users in the group. To do that,
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getGroupRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -3706,6 +3706,11 @@ This operation does not return a list of all the users in the group. To do that,
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getIdentityProviderRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3715,11 +3720,6 @@ This operation does not return a list of all the users in the group. To do that,
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getIdentityProviderRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -3769,6 +3769,11 @@ This operation does not return a list of all the users in the group. To do that,
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getIdpGroupMappingRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3778,11 +3783,6 @@ This operation does not return a list of all the users in the group. To do that,
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getIdpGroupMappingRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -3833,6 +3833,11 @@ This operation does not return a list of all the users in the group. To do that,
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getMfaTotpDeviceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3842,11 +3847,6 @@ This operation does not return a list of all the users in the group. To do that,
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getMfaTotpDeviceRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -3896,6 +3896,11 @@ This operation does not return a list of all the users in the group. To do that,
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getNetworkSourceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3905,11 +3910,6 @@ This operation does not return a list of all the users in the group. To do that,
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getNetworkSourceRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -3958,6 +3958,11 @@ This operation does not return a list of all the users in the group. To do that,
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getPolicyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3967,11 +3972,6 @@ This operation does not return a list of all the users in the group. To do that,
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPolicyRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -4019,6 +4019,11 @@ This operation does not return a list of all the users in the group. To do that,
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getTagRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4028,11 +4033,6 @@ This operation does not return a list of all the users in the group. To do that,
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTagRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -4082,6 +4082,11 @@ This operation does not return a list of all the users in the group. To do that,
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getTagDefaultRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4091,11 +4096,6 @@ This operation does not return a list of all the users in the group. To do that,
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTagDefaultRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -4145,6 +4145,11 @@ This operation does not return a list of all the users in the group. To do that,
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getTagNamespaceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4154,11 +4159,6 @@ This operation does not return a list of all the users in the group. To do that,
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTagNamespaceRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -4204,6 +4204,11 @@ This operation does not return a list of all the users in the group. To do that,
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getTaggingWorkRequestRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4213,11 +4218,6 @@ This operation does not return a list of all the users in the group. To do that,
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTaggingWorkRequestRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -4266,6 +4266,11 @@ This operation does not return a list of all the users in the group. To do that,
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getTenancyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4275,11 +4280,6 @@ This operation does not return a list of all the users in the group. To do that,
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTenancyRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -4323,6 +4323,11 @@ This operation does not return a list of all the users in the group. To do that,
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getUserRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4332,11 +4337,6 @@ This operation does not return a list of all the users in the group. To do that,
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getUserRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -4385,6 +4385,11 @@ This operation does not return a list of all the users in the group. To do that,
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getUserGroupMembershipRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4394,11 +4399,6 @@ This operation does not return a list of all the users in the group. To do that,
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getUserGroupMembershipRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -4450,6 +4450,11 @@ This operation does not return a list of all the users in the group. To do that,
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getUserUIPasswordInformationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4459,11 +4464,6 @@ This operation does not return a list of all the users in the group. To do that,
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getUserUIPasswordInformationRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -4514,6 +4514,11 @@ This operation does not return a list of all the users in the group. To do that,
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getWorkRequestRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4523,11 +4528,6 @@ This operation does not return a list of all the users in the group. To do that,
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -4580,6 +4580,11 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listApiKeysRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4589,11 +4594,6 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listApiKeysRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -4644,6 +4644,11 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listAuthTokensRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4653,11 +4658,6 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAuthTokensRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -4711,6 +4711,11 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listAvailabilityDomainsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4720,11 +4725,6 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAvailabilityDomainsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -4783,6 +4783,11 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listBulkActionResourceTypesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4792,11 +4797,6 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listBulkActionResourceTypesRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -4848,6 +4848,11 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listBulkEditTagsResourceTypesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4857,11 +4862,6 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listBulkEditTagsResourceTypesRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -4936,6 +4936,11 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listCompartmentsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4945,11 +4950,6 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCompartmentsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -5027,6 +5027,11 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listCostTrackingTagsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5036,11 +5041,6 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCostTrackingTagsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -5116,6 +5116,11 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listCustomerSecretKeysRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5125,11 +5130,6 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCustomerSecretKeysRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -5187,6 +5187,11 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listDynamicGroupsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5196,11 +5201,6 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDynamicGroupsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -5278,6 +5278,11 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listFaultDomainsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5287,11 +5292,6 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listFaultDomainsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -5344,6 +5344,11 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listGroupsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5353,11 +5358,6 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listGroupsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -5435,6 +5435,11 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listIdentityProviderGroupsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5444,11 +5449,6 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listIdentityProviderGroupsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -5533,6 +5533,11 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listIdentityProvidersRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5542,11 +5547,6 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listIdentityProvidersRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -5624,6 +5624,11 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listIdpGroupMappingsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5633,11 +5638,6 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listIdpGroupMappingsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -5718,6 +5718,11 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listMfaTotpDevicesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5727,11 +5732,6 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listMfaTotpDevicesRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -5814,6 +5814,11 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listNetworkSourcesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5823,11 +5828,6 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listNetworkSourcesRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -5907,6 +5907,11 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listOAuthClientCredentialsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5916,11 +5921,6 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listOAuthClientCredentialsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -6005,6 +6005,11 @@ To determine which policies apply to a particular group or compartment, you must
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listPoliciesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6014,11 +6019,6 @@ To determine which policies apply to a particular group or compartment, you must
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPoliciesRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -6092,6 +6092,11 @@ To determine which policies apply to a particular group or compartment, you must
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listRegionSubscriptionsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6101,11 +6106,6 @@ To determine which policies apply to a particular group or compartment, you must
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listRegionSubscriptionsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -6147,6 +6147,11 @@ To determine which policies apply to a particular group or compartment, you must
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listRegionsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6156,11 +6161,6 @@ To determine which policies apply to a particular group or compartment, you must
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listRegionsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -6206,6 +6206,11 @@ To determine which policies apply to a particular group or compartment, you must
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listSmtpCredentialsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6215,11 +6220,6 @@ To determine which policies apply to a particular group or compartment, you must
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSmtpCredentialsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -6272,6 +6272,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listSwiftPasswordsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6281,11 +6286,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSwiftPasswordsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -6340,6 +6340,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listTagDefaultsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6349,11 +6354,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTagDefaultsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -6432,6 +6432,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listTagNamespacesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6441,11 +6446,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTagNamespacesRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -6524,6 +6524,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listTaggingWorkRequestErrorsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6533,11 +6538,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTaggingWorkRequestErrorsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -6621,6 +6621,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listTaggingWorkRequestLogsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6630,11 +6635,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTaggingWorkRequestLogsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -6717,6 +6717,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listTaggingWorkRequestsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6726,11 +6731,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTaggingWorkRequestsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -6809,6 +6809,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listTagsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6818,11 +6823,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTagsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -6909,6 +6909,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listUserGroupMembershipsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6918,11 +6923,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listUserGroupMembershipsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -7007,6 +7007,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listUsersRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7016,11 +7021,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listUsersRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -7096,6 +7096,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listWorkRequestsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7105,11 +7110,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -7194,6 +7194,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "opc-retry-token": moveCompartmentRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      moveCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7208,11 +7213,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      moveCompartmentRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -7261,6 +7261,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "opc-request-id": recoverCompartmentRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      recoverCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7270,11 +7275,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      recoverCompartmentRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -7324,6 +7324,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "if-match": removeUserFromGroupRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      removeUserFromGroupRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7333,11 +7338,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      removeUserFromGroupRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -7379,6 +7379,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      resetIdpScimClientRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7388,11 +7393,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      resetIdpScimClientRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -7439,6 +7439,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "if-match": updateAuthTokenRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateAuthTokenRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7453,11 +7458,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAuthTokenRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -7509,6 +7509,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "if-match": updateAuthenticationPolicyRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateAuthenticationPolicyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7523,11 +7528,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAuthenticationPolicyRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -7577,6 +7577,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "if-match": updateCompartmentRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7591,11 +7596,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateCompartmentRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -7647,6 +7647,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "if-match": updateCustomerSecretKeyRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateCustomerSecretKeyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7661,11 +7666,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateCustomerSecretKeyRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -7715,6 +7715,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "if-match": updateDynamicGroupRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateDynamicGroupRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7729,11 +7734,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDynamicGroupRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -7783,6 +7783,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "if-match": updateGroupRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateGroupRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7797,11 +7802,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateGroupRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -7851,6 +7851,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "if-match": updateIdentityProviderRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateIdentityProviderRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7865,11 +7870,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateIdentityProviderRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -7920,6 +7920,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "if-match": updateIdpGroupMappingRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateIdpGroupMappingRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7934,11 +7939,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateIdpGroupMappingRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -7988,6 +7988,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "if-match": updateNetworkSourceRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateNetworkSourceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8002,11 +8007,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateNetworkSourceRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -8059,6 +8059,11 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "if-match": updateOAuthClientCredentialRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateOAuthClientCredentialRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8073,11 +8078,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateOAuthClientCredentialRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -8130,6 +8130,11 @@ Policy changes take effect typically within 10 seconds.
       "if-match": updatePolicyRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updatePolicyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8144,11 +8149,6 @@ Policy changes take effect typically within 10 seconds.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updatePolicyRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -8200,6 +8200,11 @@ Policy changes take effect typically within 10 seconds.
       "if-match": updateSmtpCredentialRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateSmtpCredentialRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8214,11 +8219,6 @@ Policy changes take effect typically within 10 seconds.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateSmtpCredentialRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -8272,6 +8272,11 @@ Updates the specified Swift password's description.
       "if-match": updateSwiftPasswordRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateSwiftPasswordRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8286,11 +8291,6 @@ Updates the specified Swift password's description.
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateSwiftPasswordRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -8351,6 +8351,11 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
       "if-match": updateTagRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateTagRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8365,11 +8370,6 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateTagRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -8426,6 +8426,11 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
       "opc-request-id": updateTagDefaultRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateTagDefaultRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8440,11 +8445,6 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateTagDefaultRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -8502,6 +8502,11 @@ You can't add a namespace with the same name as a retired namespace in the same 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateTagNamespaceRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8516,11 +8521,6 @@ You can't add a namespace with the same name as a retired namespace in the same 
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateTagNamespaceRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -8565,6 +8565,11 @@ You can't add a namespace with the same name as a retired namespace in the same 
       "if-match": updateUserRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateUserRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8579,11 +8584,6 @@ You can't add a namespace with the same name as a retired namespace in the same 
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateUserRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -8634,6 +8634,11 @@ You can't add a namespace with the same name as a retired namespace in the same 
       "if-match": updateUserCapabilitiesRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateUserCapabilitiesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8648,11 +8653,6 @@ You can't add a namespace with the same name as a retired namespace in the same 
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateUserCapabilitiesRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -8703,6 +8703,11 @@ You can't add a namespace with the same name as a retired namespace in the same 
       "if-match": updateUserStateRequest.ifMatch
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateUserStateRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8717,11 +8722,6 @@ You can't add a namespace with the same name as a retired namespace in the same 
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateUserStateRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -8786,6 +8786,11 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       "opc-retry-token": uploadApiKeyRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      uploadApiKeyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8800,11 +8805,6 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      uploadApiKeyRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({

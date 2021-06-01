@@ -80,6 +80,14 @@ export interface AutonomousDatabaseBackupSummary {
    * The wallet name for Oracle Key Vault.
    */
   "keyStoreWalletName"?: string;
+  /**
+   * The OCID of the key container that is used as the master encryption key in database transparent data encryption (TDE) operations.
+   */
+  "kmsKeyId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Oracle Cloud Infrastructure [vault](https://docs.cloud.oracle.com/Content/KeyManagement/Concepts/keyoverview.htm#concepts).
+   */
+  "vaultId"?: string;
 }
 
 export namespace AutonomousDatabaseBackupSummary {

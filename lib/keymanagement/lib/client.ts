@@ -92,6 +92,11 @@ export class KmsCryptoClient {
       "opc-request-id": decryptRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      decryptRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -106,11 +111,6 @@ export class KmsCryptoClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      decryptRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -155,6 +155,11 @@ export class KmsCryptoClient {
       "opc-request-id": encryptRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      encryptRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -169,11 +174,6 @@ export class KmsCryptoClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      encryptRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -218,6 +218,11 @@ export class KmsCryptoClient {
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      exportKeyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -232,11 +237,6 @@ export class KmsCryptoClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      exportKeyRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -281,6 +281,11 @@ export class KmsCryptoClient {
       "opc-request-id": generateDataEncryptionKeyRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      generateDataEncryptionKeyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -295,11 +300,6 @@ export class KmsCryptoClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      generateDataEncryptionKeyRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -343,6 +343,11 @@ export class KmsCryptoClient {
       "opc-request-id": signRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      signRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -357,11 +362,6 @@ export class KmsCryptoClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      signRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -405,6 +405,11 @@ export class KmsCryptoClient {
       "opc-request-id": verifyRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      verifyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -419,11 +424,6 @@ export class KmsCryptoClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      verifyRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -541,6 +541,11 @@ export class KmsManagementClient {
       "opc-retry-token": backupKeyRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      backupKeyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -555,11 +560,6 @@ export class KmsManagementClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      backupKeyRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -624,6 +624,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": cancelKeyDeletionRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      cancelKeyDeletionRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -633,11 +638,6 @@ As a provisioning operation, this call is subject to a Key Management limit that
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      cancelKeyDeletionRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -699,6 +699,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": cancelKeyVersionDeletionRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      cancelKeyVersionDeletionRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -708,11 +713,6 @@ As a provisioning operation, this call is subject to a Key Management limit that
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      cancelKeyVersionDeletionRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -774,6 +774,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": changeKeyCompartmentRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeKeyCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -788,11 +793,6 @@ As a provisioning operation, this call is subject to a Key Management limit that
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeKeyCompartmentRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -844,6 +844,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-retry-token": createKeyRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createKeyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -858,11 +863,6 @@ As a management operation, this call is subject to a Key Management limit that a
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createKeyRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -920,6 +920,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-retry-token": createKeyVersionRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createKeyVersionRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -929,11 +934,6 @@ As a management operation, this call is subject to a Key Management limit that a
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createKeyVersionRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -992,6 +992,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-retry-token": disableKeyRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      disableKeyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1001,11 +1006,6 @@ As a management operation, this call is subject to a Key Management limit that a
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      disableKeyRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1064,6 +1064,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-retry-token": enableKeyRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      enableKeyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1073,11 +1078,6 @@ As a management operation, this call is subject to a Key Management limit that a
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      enableKeyRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1131,6 +1131,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-request-id": getKeyRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getKeyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1140,11 +1145,6 @@ As a management operation, this call is subject to a Key Management limit that a
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getKeyRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1201,6 +1201,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-request-id": getKeyVersionRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getKeyVersionRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1210,11 +1215,6 @@ As a management operation, this call is subject to a Key Management limit that a
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getKeyVersionRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1269,6 +1269,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-request-id": getReplicationStatusRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getReplicationStatusRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1278,11 +1283,6 @@ As a management operation, this call is subject to a Key Management limit that a
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getReplicationStatusRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1332,6 +1332,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-request-id": getWrappingKeyRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getWrappingKeyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1341,11 +1346,6 @@ As a management operation, this call is subject to a Key Management limit that a
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWrappingKeyRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1397,6 +1397,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-retry-token": importKeyRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      importKeyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1411,11 +1416,6 @@ As a management operation, this call is subject to a Key Management limit that a
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      importKeyRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1471,6 +1471,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-retry-token": importKeyVersionRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      importKeyVersionRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1485,11 +1490,6 @@ As a management operation, this call is subject to a Key Management limit that a
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      importKeyVersionRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1551,6 +1551,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-request-id": listKeyVersionsRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listKeyVersionsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1560,11 +1565,6 @@ As a management operation, this call is subject to a Key Management limit that a
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listKeyVersionsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1653,6 +1653,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-request-id": listKeysRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listKeysRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1662,11 +1667,6 @@ As a management operation, this call is subject to a Key Management limit that a
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listKeysRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1743,6 +1743,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-retry-token": restoreKeyFromFileRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      restoreKeyFromFileRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1751,13 +1756,9 @@ As a management operation, this call is subject to a Key Management limit that a
       bodyContent: restoreKeyFromFileRequest.restoreKeyFromFileDetails,
       pathParams: pathParams,
       headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      restoreKeyFromFileRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1821,6 +1822,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-retry-token": restoreKeyFromObjectStoreRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      restoreKeyFromObjectStoreRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1835,11 +1841,6 @@ As a management operation, this call is subject to a Key Management limit that a
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      restoreKeyFromObjectStoreRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1904,6 +1905,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": scheduleKeyDeletionRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      scheduleKeyDeletionRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1918,11 +1924,6 @@ As a provisioning operation, this call is subject to a Key Management limit that
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      scheduleKeyDeletionRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -1983,6 +1984,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": scheduleKeyVersionDeletionRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      scheduleKeyVersionDeletionRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1997,11 +2003,6 @@ As a provisioning operation, this call is subject to a Key Management limit that
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      scheduleKeyVersionDeletionRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2060,6 +2061,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-request-id": updateKeyRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateKeyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2074,11 +2080,6 @@ As a management operation, this call is subject to a Key Management limit that a
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateKeyRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2239,6 +2240,11 @@ export class KmsVaultClient {
       "opc-retry-token": backupVaultRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      backupVaultRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2253,11 +2259,6 @@ export class KmsVaultClient {
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      backupVaultRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2323,6 +2324,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": cancelVaultDeletionRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      cancelVaultDeletionRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2332,11 +2338,6 @@ As a provisioning operation, this call is subject to a Key Management limit that
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      cancelVaultDeletionRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2397,6 +2398,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": changeVaultCompartmentRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeVaultCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2411,11 +2417,6 @@ As a provisioning operation, this call is subject to a Key Management limit that
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeVaultCompartmentRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2470,6 +2471,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": createVaultRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createVaultRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2484,11 +2490,6 @@ As a provisioning operation, this call is subject to a Key Management limit that
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createVaultRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2550,6 +2551,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": createVaultReplicaRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createVaultReplicaRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2564,11 +2570,6 @@ As a provisioning operation, this call is subject to a Key Management limit that
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createVaultReplicaRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2623,6 +2624,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": deleteVaultReplicaRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteVaultReplicaRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2637,11 +2643,6 @@ As a provisioning operation, this call is subject to a Key Management limit that
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteVaultReplicaRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2694,6 +2695,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-request-id": getVaultRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getVaultRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2703,11 +2709,6 @@ As a provisioning operation, this call is subject to a Key Management limit that
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVaultRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2758,6 +2759,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-request-id": getVaultUsageRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getVaultUsageRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2767,11 +2773,6 @@ As a provisioning operation, this call is subject to a Key Management limit that
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVaultUsageRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2829,6 +2830,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": listVaultReplicasRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listVaultReplicasRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2838,11 +2844,6 @@ As a provisioning operation, this call is subject to a Key Management limit that
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listVaultReplicasRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -2932,6 +2933,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-request-id": listVaultsRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listVaultsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2941,11 +2947,6 @@ As a provisioning operation, this call is subject to a Key Management limit that
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listVaultsRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -3026,6 +3027,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": restoreVaultFromFileRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      restoreVaultFromFileRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3034,13 +3040,9 @@ As a provisioning operation, this call is subject to a Key Management limit that
       bodyContent: restoreVaultFromFileRequest.restoreVaultFromFileDetails,
       pathParams: pathParams,
       headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      restoreVaultFromFileRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -3106,6 +3108,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": restoreVaultFromObjectStoreRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      restoreVaultFromObjectStoreRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3120,11 +3127,6 @@ As a provisioning operation, this call is subject to a Key Management limit that
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      restoreVaultFromObjectStoreRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -3191,6 +3193,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": scheduleVaultDeletionRequest.opcRetryToken
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      scheduleVaultDeletionRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3205,11 +3212,6 @@ As a provisioning operation, this call is subject to a Key Management limit that
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      scheduleVaultDeletionRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
@@ -3268,6 +3270,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-request-id": updateVaultRequest.opcRequestId
     };
 
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateVaultRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3282,11 +3289,6 @@ As a provisioning operation, this call is subject to a Key Management limit that
       headerParams: headerParams,
       queryParams: queryParams
     });
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateVaultRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
     try {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({

@@ -39,6 +39,18 @@ export interface AutonomousDatabaseSummary {
    */
   "lifecycleDetails"?: string;
   /**
+   * The OCID of the key container that is used as the master encryption key in database transparent data encryption (TDE) operations.
+   */
+  "kmsKeyId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Oracle Cloud Infrastructure [vault](https://docs.cloud.oracle.com/Content/KeyManagement/Concepts/keyoverview.htm#concepts).
+   */
+  "vaultId"?: string;
+  /**
+   * KMS key lifecycle details.
+   */
+  "kmsKeyLifecycleDetails"?: string;
+  /**
    * The database name.
    */
   "dbName": string;
@@ -64,6 +76,10 @@ export interface AutonomousDatabaseSummary {
    */
   "timeDeletionOfFreeAutonomousDatabase"?: Date;
   "backupConfig"?: model.AutonomousDatabaseBackupConfig;
+  /**
+   * Key History Entry.
+   */
+  "keyHistoryEntry"?: Array<model.AutonomousDatabaseKeyHistoryEntry>;
   /**
    * The number of OCPU cores to be made available to the database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -351,6 +367,7 @@ export namespace AutonomousDatabaseSummary {
     Recreating = "RECREATING",
     RoleChangeInProgress = "ROLE_CHANGE_IN_PROGRESS",
     Upgrading = "UPGRADING",
+    Inaccessible = "INACCESSIBLE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -474,6 +491,11 @@ export namespace AutonomousDatabaseSummary {
       ...{
         "backupConfig": obj.backupConfig
           ? model.AutonomousDatabaseBackupConfig.getJsonObj(obj.backupConfig)
+          : undefined,
+        "keyHistoryEntry": obj.keyHistoryEntry
+          ? obj.keyHistoryEntry.map(item => {
+              return model.AutonomousDatabaseKeyHistoryEntry.getJsonObj(item);
+            })
           : undefined,
 
         "connectionStrings": obj.connectionStrings

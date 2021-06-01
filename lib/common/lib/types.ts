@@ -5,6 +5,12 @@
 
 import { HttpClient } from "./http";
 import { AuthenticationDetailsProvider } from "./auth/auth";
+import { Readable } from "stream";
+export interface RawData {
+  size: number;
+  data: BinaryBody;
+  md5Hash: string;
+}
 
 export type RequireOnlyOne<T, Keys extends keyof T = keyof T> = Pick<T, Exclude<keyof T, Keys>> &
   {
@@ -15,6 +21,8 @@ interface ClientParams {
   httpClient?: HttpClient;
   authenticationDetailsProvider?: AuthenticationDetailsProvider;
 }
+
+export type BinaryBody = Uint8Array | Buffer | Readable | ReadableStream | string | Blob;
 
 /*
  * Type to intialize service clients

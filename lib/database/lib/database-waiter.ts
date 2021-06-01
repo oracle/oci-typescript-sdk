@@ -515,6 +515,32 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forConfigureAutonomousDatabaseVaultKey
+   *
+   * @param request the request to send
+   * @return response returns ConfigureAutonomousDatabaseVaultKeyResponse, GetWorkRequestResponse tuple
+   */
+  public async forConfigureAutonomousDatabaseVaultKey(
+    request: serviceRequests.ConfigureAutonomousDatabaseVaultKeyRequest
+  ): Promise<{
+    response: serviceResponses.ConfigureAutonomousDatabaseVaultKeyResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const configureAutonomousDatabaseVaultKeyResponse = await this.client.configureAutonomousDatabaseVaultKey(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      configureAutonomousDatabaseVaultKeyResponse.opcWorkRequestId
+    );
+    return {
+      response: configureAutonomousDatabaseVaultKeyResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forCreateAutonomousContainerDatabase
    *
    * @param request the request to send

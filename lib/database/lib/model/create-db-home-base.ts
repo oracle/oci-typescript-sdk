@@ -53,6 +53,10 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * If true, the customer acknowledges that the specified Oracle Database software is an older release that is not currently supported by OCI.
+   */
+  "isDesupportedVersion"?: boolean;
 
   "source": string;
 }

@@ -51,6 +51,10 @@ export interface ScheduledTaskSummary {
    */
   "taskStatus"?: ScheduledTaskSummary.TaskStatus;
   /**
+   * reason for taskStatus PAUSED.
+   */
+  "pauseReason"?: string;
+  /**
    * most recent Work Request Identifier [OCID] (https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the asynchronous request.
    */
   "workRequestId"?: string;

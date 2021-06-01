@@ -48,6 +48,8 @@ import * as AutonomousDatabaseConsoleTokenDetails from "./autonomous-database-co
 export import AutonomousDatabaseConsoleTokenDetails = AutonomousDatabaseConsoleTokenDetails.AutonomousDatabaseConsoleTokenDetails;
 import * as AutonomousDatabaseDataguardAssociation from "./autonomous-database-dataguard-association";
 export import AutonomousDatabaseDataguardAssociation = AutonomousDatabaseDataguardAssociation.AutonomousDatabaseDataguardAssociation;
+import * as AutonomousDatabaseKeyHistoryEntry from "./autonomous-database-key-history-entry";
+export import AutonomousDatabaseKeyHistoryEntry = AutonomousDatabaseKeyHistoryEntry.AutonomousDatabaseKeyHistoryEntry;
 import * as AutonomousDatabaseManualRefreshDetails from "./autonomous-database-manual-refresh-details";
 export import AutonomousDatabaseManualRefreshDetails = AutonomousDatabaseManualRefreshDetails.AutonomousDatabaseManualRefreshDetails;
 import * as AutonomousDatabaseStandbySummary from "./autonomous-database-standby-summary";
@@ -108,6 +110,8 @@ import * as CloudVmClusterSummary from "./cloud-vm-cluster-summary";
 export import CloudVmClusterSummary = CloudVmClusterSummary.CloudVmClusterSummary;
 import * as CompleteExternalBackupJobDetails from "./complete-external-backup-job-details";
 export import CompleteExternalBackupJobDetails = CompleteExternalBackupJobDetails.CompleteExternalBackupJobDetails;
+import * as ConfigureAutonomousDatabaseVaultKeyDetails from "./configure-autonomous-database-vault-key-details";
+export import ConfigureAutonomousDatabaseVaultKeyDetails = ConfigureAutonomousDatabaseVaultKeyDetails.ConfigureAutonomousDatabaseVaultKeyDetails;
 import * as ConsoleConnection from "./console-connection";
 export import ConsoleConnection = ConsoleConnection.ConsoleConnection;
 import * as ConsoleConnectionSummary from "./console-connection-summary";

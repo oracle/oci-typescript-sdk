@@ -35,6 +35,7 @@ export interface RequestParams {
   readonly headerParams?: Params;
   readonly queryParams?: Params;
   readonly formParam?: Params;
+  readonly backupBinaryBody?: boolean;
 }
 
 /*
@@ -46,7 +47,7 @@ export async function composeRequest(params: RequestParams): Promise<HttpRequest
   const uri = computeUri(params);
   let body = params.bodyContent;
 
-  // If body exists, lets check if we need to calculate content length
+  // If body exists, check if content-length exists and check if user wants to back up binary request body
   if (body) {
     const content = await autoDetectContentLengthAndReadBody(headers, params);
     body = content ? content : body;

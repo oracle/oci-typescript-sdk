@@ -10,6 +10,8 @@ import { addOpcRequestId, addUserAgent } from "./headers";
 import { addRetryToken } from "./retry-token-header";
 import { isEmpty } from "./utils";
 import { RequestParams } from "./request-generator";
+import { RawData, BinaryBody } from "./types";
+import getChunk from "./chunker";
 
 interface ReqBodyAndContentLength {
   body: any;
@@ -107,35 +109,6 @@ export async function readStringFromReadable(readable: Readable): Promise<string
       }
       contentBuffer.push(chunk);
       size += chunk.length;
-    });
-    readable.on("error", err => {
-      // if error happened, it will be catched at http signer global error handling
-      reject(err);
-    });
-  });
-}
-
-// read data from Readable asynchronously, return a Buffer content of it
-export async function readDataFromReadable(readable: Readable): Promise<Buffer> {
-  let contentBuffer: Array<Buffer> = [];
-  let size = 0;
-  const MEMIBYTES = 1024 * 1024;
-  const sizeLimit = 2000 * MEMIBYTES;
-
-  return new Promise<Buffer>((resolve, reject) => {
-    readable.on("end", () => {
-      const result = Buffer.concat(contentBuffer);
-      resolve(result);
-    });
-    readable.on("readable", function() {
-      let data;
-      while ((data = readable.read())) {
-        if (size > sizeLimit) {
-          throw Error("Tried to read stream but content length is greater than 2GB.");
-        }
-        contentBuffer.push(data);
-        size += data.length;
-      }
     });
     readable.on("error", err => {
       // if error happened, it will be catched at http signer global error handling
@@ -245,10 +218,11 @@ export async function autoDetectContentLengthAndReadBody(headers: Headers, param
   // Auto Detect content-length if needed, also read binary content if stream length cannot be determined.
   const reqHeaders = params.headerParams;
   if (reqHeaders) {
-    const shouldCalculateContentLength =
+    const shouldReadBodyAndCalculateContentLength =
       ("content-length" in reqHeaders && reqHeaders["content-length"] === undefined) ||
-      ("Content-Length" in reqHeaders && reqHeaders["Content-Length"] === undefined);
-    if (shouldCalculateContentLength) {
+      ("Content-Length" in reqHeaders && reqHeaders["Content-Length"] === undefined) ||
+      params.backupBinaryBody;
+    if (shouldReadBodyAndCalculateContentLength) {
       const { body, contentLength } = await calculateContentLengthAndBodyContent(
         params.bodyContent!
       );
@@ -259,35 +233,15 @@ export async function autoDetectContentLengthAndReadBody(headers: Headers, param
 }
 
 // Helper method to auto detect content-length if not given.
-async function calculateContentLengthAndBodyContent(body: any): Promise<ReqBodyAndContentLength> {
-  let start = body.start || 0;
-  let end = body.end || 0;
-  const bodyType = typeof body;
-  let contentLength: number;
-  let content = body;
+async function calculateContentLengthAndBodyContent(
+  body: BinaryBody
+): Promise<ReqBodyAndContentLength> {
   try {
-    if (bodyType == "object") {
-      const path = body.path as string;
-      if (path && body.end === Infinity) {
-        // If body.end is not defined, we can check if there is a fileLocation path
-        end = statSync(path).size;
-        body["_readableState"].highWaterMark = end;
-        contentLength = end - start;
-      } else if (!isNaN(body.end) && body.end != Infinity) {
-        end = body.end + 1;
-        // Check if the end is greater than the highWaterMark, if so, set highWaterMark as end.
-        body["_readableState"].highWaterMark =
-          body.readableHighWaterMark < end ? end : body.readableHighWaterMark;
-        contentLength = end - start;
-      } else {
-        // If there is no file path to the stream then we need to read the content of stream
-        content = await readDataFromReadable(body);
-        contentLength = Buffer.byteLength(content, "utf8");
-      }
-      return { body: content, contentLength: contentLength };
-    }
-    // bodyType must be a string.
-    return { body, contentLength: body.length };
+    const dataFeeder = getChunk(body, Number.MAX_SAFE_INTEGER);
+    const dataPart = (await dataFeeder.next()).value as RawData;
+    const content = dataPart.data;
+    const contentLength = dataPart.size;
+    return { body: content, contentLength };
   } catch (e) {
     throw Error(
       "SDK could not calculate contentLength from the request stream, please add contentLength and try again."
@@ -334,4 +288,25 @@ export async function getStringFromRequestBody(body: any): Promise<string> {
     // unknown type, unable to read body content for signing, reject it
     throw new Error("Unable to read body content to sign the request");
   }
+}
+
+export function isReadableStream(body: any): Boolean {
+  // Check if the body object contains all property of a ReadableStream
+  if (body.cancel && body.getReader && body.pipeThrough && body.pipeTo && body.tee) {
+    return true;
+  }
+  return false;
+}
+
+export function byteLength(input: any) {
+  if (input === null || input === undefined) return 0;
+  if (typeof input === "string") input = Buffer.from(input);
+  if (typeof input.byteLength === "number") {
+    return input.byteLength;
+  } else if (typeof input.length === "number") {
+    return input.length;
+  } else if (typeof input.size === "number") {
+    return input.size;
+  }
+  return undefined;
 }

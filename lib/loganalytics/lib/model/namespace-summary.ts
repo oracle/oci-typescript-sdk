@@ -35,6 +35,10 @@ export interface NamespaceSummary {
    * This indicates if the log set feature is enabled for the tenancy
    */
   "isLogSetEnabled"?: boolean;
+  /**
+   * This indicates if data has ever been ingested for the tenancy in Logging Analytics
+   */
+  "isDataEverIngested"?: boolean;
 }
 
 export namespace NamespaceSummary {

@@ -3,6 +3,7 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import { Readable } from "stream";
 import {
   ExponentialBackoffDelayStrategy,
   MaxAttemptsTerminationStrategy,
@@ -12,6 +13,7 @@ import {
 } from "./waiter";
 import { HttpClient } from "./http";
 import { HttpRequest } from "./http-request";
+import { isReadableStream } from "./helper";
 import { handleErrorBody, handleErrorResponse } from "./helper";
 import { OciError } from "..";
 import { Logger } from "./log";
@@ -20,13 +22,20 @@ import { Logger } from "./log";
  * This class implements the retrier
  * NOTE : Retries are not supported for requests that have binary or stream bodies
  * this also affects UploadManager operations
- * For all requests with binary/stream bodies, retry attempts will not be made
+ * For all requests with binary/stream bodies, retry attempts will be made if RetryConfigurationDetails.backupBinaryBody
+ * is set to true, or if the original stream body is able to be retried
+ *
  */
 
 export type RetryConfiguration = Partial<RetryConfigurationDetails>;
 
 export interface RetryConfigurationDetails extends WaiterConfigurationDetails {
   retryCondition: (response: OciError) => boolean;
+  /*
+    By Default, stream bodies will be not be backed up. Stream bodies will only be backed up if backupBinaryBody is set to true
+    or if the content-length is not provided by the user.
+  */
+  backupBinaryBody: boolean;
 }
 
 class DefaultRetryCondition {
@@ -61,7 +70,8 @@ class DefaultRetryCondition {
 const NoRetryConfigurationDetails: RetryConfigurationDetails = {
   terminationStrategy: new MaxAttemptsTerminationStrategy(1),
   delayStrategy: new ExponentialBackoffDelayStrategy(30),
-  retryCondition: DefaultRetryCondition.shouldBeRetried
+  retryCondition: DefaultRetryCondition.shouldBeRetried,
+  backupBinaryBody: false
 };
 
 export class GenericRetrier {
@@ -75,6 +85,10 @@ export class GenericRetrier {
 
   public set logger(logger: Logger) {
     this._logger = logger;
+  }
+
+  public get backUpBinaryBody(): boolean {
+    return this.retryConfiguration.backupBinaryBody;
   }
 
   public static createPreferredRetrier(
@@ -129,20 +143,20 @@ export class GenericRetrier {
 
   private static refreshRequest(request: HttpRequest) {
     request.headers.set("x-date", new Date().toUTCString());
-    // TO-DO : Implement resetting/recreating stream/blobs
   }
 
   private static isRequestRetryable(request: HttpRequest) {
     if (!request.body) return true;
-    if (request.body) {
-      if (GenericRetrier.isReadableStream(request.body)) {
-        return false;
-      }
-      return true;
+    else if (request.body) {
+      return this.isRetryableStream(request.body);
     }
   }
 
-  private static isReadableStream(obj: any) {
-    return typeof obj._read === "function" && typeof obj._readableState === "object";
+  private static isRetryableStream(obj: any) {
+    if (obj instanceof Uint8Array || obj instanceof Buffer || typeof obj === "string") {
+      return true;
+    }
+    //Node.JS's Readable, JavaScript's ReadableStream & Blobs are not retry-able stream, return false
+    return false;
   }
 }

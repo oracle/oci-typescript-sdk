@@ -21,7 +21,11 @@ export interface ListNetworkSecurityGroupsRequest extends common.BaseRequest {
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
    */
-  "compartmentId": string;
+  "compartmentId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN.
+   */
+  "vlanId"?: string;
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VCN.
    */

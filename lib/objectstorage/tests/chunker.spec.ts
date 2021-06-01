@@ -3,7 +3,7 @@ import { Readable } from "stream";
 import { join } from "path";
 import fs from "fs";
 import crypto from "crypto";
-import getChunk from "../lib/upload-manager/chunker";
+import { getChunk } from "oci-common";
 import { RawData } from "../lib/upload-manager/upload-manager";
 const MEMIBYTE = 1024 * 1024;
 const partSize = 20 * MEMIBYTE;

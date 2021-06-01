@@ -49,4 +49,8 @@ export interface ListDbVersionsRequest extends common.BaseRequest {
    * If provided, filters the results to the set of database versions which are supported for Upgrade.
    */
   "isUpgradeSupported"?: boolean;
+  /**
+   * If true, filters the results to the set of Oracle Database versions that are supported for OCI database software images.
+   */
+  "isDatabaseSoftwareImageSupported"?: boolean;
 }
