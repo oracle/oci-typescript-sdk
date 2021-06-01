@@ -5,7 +5,7 @@
 
 import { ObjectStorageClient } from "../client";
 import { models } from "../../index";
-import { OciError, LOG } from "oci-common";
+import { OciError, LOG, getChunk } from "oci-common";
 import { UploadResponse } from "./upload-response";
 import { Semaphore } from "await-semaphore";
 import { UploadableBlob } from "./uploadable-blob";
@@ -21,7 +21,6 @@ import {
   BinaryBody
 } from "./types";
 import { UploadOptions } from "./upload-options";
-import getChunk from "./chunker";
 import { UploadableStream } from "./uploadable-stream";
 
 /**
@@ -77,12 +76,15 @@ export class UploadManager {
     content: UploadableBlob | UploadableStream,
     singleUpload?: boolean
   ): boolean {
-    if (singleUpload) {
+    if (singleUpload || content.size == 0) {
+      // Return false to force the upload to be a single upload,
+      // multi-upload does not support sending a 0 sized part. Need to use single upload to handle 0 sized streams
       return false;
-    } // Return false to force the upload to be a single upload
+    }
     if (!content.size) {
+      // Always use multiupload if content.size is not able to initially calculated.
       return true;
-    } // Always use multiupload if content.size is not able to initially calculated.
+    }
     return content.size > this.options.partSize;
   }
 

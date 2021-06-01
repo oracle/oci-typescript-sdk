@@ -1,6 +1,6 @@
 import { Readable } from "stream";
 import { Buffer } from "buffer";
-import isReadableStream from "./isReadableStream";
+import { isReadableStream } from "./helper";
 import { ChunkBuffer } from "./chunks/ChunkBuffer";
 import { ChunkStream } from "./chunks/ChunkStream";
 import { getReadableStreamData } from "./chunks/getReadableStreamData";

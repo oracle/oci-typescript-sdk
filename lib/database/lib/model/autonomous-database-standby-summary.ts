@@ -55,6 +55,7 @@ export namespace AutonomousDatabaseStandbySummary {
     Recreating = "RECREATING",
     RoleChangeInProgress = "ROLE_CHANGE_IN_PROGRESS",
     Upgrading = "UPGRADING",
+    Inaccessible = "INACCESSIBLE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

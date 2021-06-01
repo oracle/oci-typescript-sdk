@@ -84,6 +84,11 @@ export namespace AbstractCommandDescriptor {
             <model.MultiSearchCommandDescriptor>(<object>jsonObj),
             true
           );
+        case "COMPARE":
+          return model.CompareCommandDescriptor.getJsonObj(
+            <model.CompareCommandDescriptor>(<object>jsonObj),
+            true
+          );
         case "STATS":
           return model.StatsCommandDescriptor.getJsonObj(
             <model.StatsCommandDescriptor>(<object>jsonObj),

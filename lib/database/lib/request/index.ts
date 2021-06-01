@@ -50,6 +50,8 @@ import * as CheckExternalDatabaseConnectorConnectionStatusRequest from "./check-
 export import CheckExternalDatabaseConnectorConnectionStatusRequest = CheckExternalDatabaseConnectorConnectionStatusRequest.CheckExternalDatabaseConnectorConnectionStatusRequest;
 import * as CompleteExternalBackupJobRequest from "./complete-external-backup-job-request";
 export import CompleteExternalBackupJobRequest = CompleteExternalBackupJobRequest.CompleteExternalBackupJobRequest;
+import * as ConfigureAutonomousDatabaseVaultKeyRequest from "./configure-autonomous-database-vault-key-request";
+export import ConfigureAutonomousDatabaseVaultKeyRequest = ConfigureAutonomousDatabaseVaultKeyRequest.ConfigureAutonomousDatabaseVaultKeyRequest;
 import * as CreateAutonomousContainerDatabaseRequest from "./create-autonomous-container-database-request";
 export import CreateAutonomousContainerDatabaseRequest = CreateAutonomousContainerDatabaseRequest.CreateAutonomousContainerDatabaseRequest;
 import * as CreateAutonomousDatabaseRequest from "./create-autonomous-database-request";

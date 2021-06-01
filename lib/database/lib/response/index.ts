@@ -50,6 +50,8 @@ import * as CheckExternalDatabaseConnectorConnectionStatusResponse from "./check
 export import CheckExternalDatabaseConnectorConnectionStatusResponse = CheckExternalDatabaseConnectorConnectionStatusResponse.CheckExternalDatabaseConnectorConnectionStatusResponse;
 import * as CompleteExternalBackupJobResponse from "./complete-external-backup-job-response";
 export import CompleteExternalBackupJobResponse = CompleteExternalBackupJobResponse.CompleteExternalBackupJobResponse;
+import * as ConfigureAutonomousDatabaseVaultKeyResponse from "./configure-autonomous-database-vault-key-response";
+export import ConfigureAutonomousDatabaseVaultKeyResponse = ConfigureAutonomousDatabaseVaultKeyResponse.ConfigureAutonomousDatabaseVaultKeyResponse;
 import * as CreateAutonomousContainerDatabaseResponse from "./create-autonomous-container-database-response";
 export import CreateAutonomousContainerDatabaseResponse = CreateAutonomousContainerDatabaseResponse.CreateAutonomousContainerDatabaseResponse;
 import * as CreateAutonomousDatabaseResponse from "./create-autonomous-database-response";

@@ -45,6 +45,7 @@ import {
 } from "./lib/paginators";
 
 import { ConfigFileAuthenticationDetailsProvider } from "./lib/auth/config-file-auth";
+import getChunk from "./lib/chunker";
 import { ConfigFileReader } from "./lib/config-file-reader";
 import { Method, composeRequest } from "./lib/request-generator";
 import { composeResponse } from "./lib/response-generator";
@@ -67,6 +68,7 @@ export import mapContainer = helper.mapContainer;
 export import handleErrorBody = helper.handleErrorBody;
 export import convertStringToType = helper.convertStringToType;
 export import ObjectSerializer = serializer.ObjectSerializer;
+export import byteLength = helper.byteLength;
 
 export import Range = range.Range;
 export {
@@ -104,5 +106,6 @@ export {
   BaseRequest,
   ClientConfiguration,
   Constants,
-  CircuitBreaker
+  CircuitBreaker,
+  getChunk
 };

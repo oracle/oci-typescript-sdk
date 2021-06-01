@@ -47,6 +47,10 @@ export interface ScheduledTask {
    */
   "taskStatus"?: ScheduledTask.TaskStatus;
   /**
+   * reason for taskStatus PAUSED.
+   */
+  "pauseReason"?: ScheduledTask.PauseReason;
+  /**
    * most recent Work Request Identifier [OCID] (https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the asynchronous request.
    */
   "workRequestId"?: string;
@@ -68,6 +72,12 @@ export interface ScheduledTask {
    *
    */
   "timeUpdated": Date;
+  /**
+   * The date and time the scheduled task will execute next,
+   * in the format defined by RFC3339.
+   *
+   */
+  "timeOfNextExecution"?: Date;
   /**
    * The current state of the scheduled task.
    */
@@ -94,6 +104,20 @@ export namespace ScheduledTask {
     Paused = "PAUSED",
     Completed = "COMPLETED",
     Blocked = "BLOCKED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum PauseReason {
+    MetricExtractionNotValid = "METRIC_EXTRACTION_NOT_VALID",
+    SavedSearchNotValid = "SAVED_SEARCH_NOT_VALID",
+    SavedSearchNotFound = "SAVED_SEARCH_NOT_FOUND",
+    QueryStringNotValid = "QUERY_STRING_NOT_VALID",
+    UserAction = "USER_ACTION",
+    TenancyLifecycle = "TENANCY_LIFECYCLE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

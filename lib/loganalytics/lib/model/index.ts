@@ -547,6 +547,8 @@ import * as Column from "./column";
 export import Column = Column.Column;
 import * as CommandDescriptor from "./command-descriptor";
 export import CommandDescriptor = CommandDescriptor.CommandDescriptor;
+import * as CompareCommandDescriptor from "./compare-command-descriptor";
+export import CompareCommandDescriptor = CompareCommandDescriptor.CompareCommandDescriptor;
 import * as CreateAccelerationTaskDetails from "./create-acceleration-task-details";
 export import CreateAccelerationTaskDetails = CreateAccelerationTaskDetails.CreateAccelerationTaskDetails;
 import * as CreateStandardTaskDetails from "./create-standard-task-details";

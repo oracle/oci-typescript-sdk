@@ -1,7 +1,7 @@
 import { Buffer } from "buffer";
 import { createHash } from "crypto";
-import byteLength from "../bytelength";
-import { RawData } from "../upload-manager";
+import { byteLength } from "../helper";
+import { RawData } from "../types";
 
 interface Buffers {
   chunks: Buffer[];
