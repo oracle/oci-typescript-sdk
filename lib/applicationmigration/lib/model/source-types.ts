@@ -26,6 +26,7 @@ export enum SourceTypes {
   InternalCompute = "INTERNAL_COMPUTE",
   Occ = "OCC",
   OcicIdcs = "OCIC_IDCS",
+  Import = "IMPORT",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

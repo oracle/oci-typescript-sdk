@@ -27,6 +27,8 @@ import * as CreateSourceDetails from "./create-source-details";
 export import CreateSourceDetails = CreateSourceDetails.CreateSourceDetails;
 import * as DiscoveryDetails from "./discovery-details";
 export import DiscoveryDetails = DiscoveryDetails.DiscoveryDetails;
+import * as ImportManifest from "./import-manifest";
+export import ImportManifest = ImportManifest.ImportManifest;
 import * as Migration from "./migration";
 export import Migration = Migration.Migration;
 import * as MigrationLifecycleStates from "./migration-lifecycle-states";
@@ -78,6 +80,8 @@ export import WorkRequestSummary = WorkRequestSummary.WorkRequestSummary;
 
 import * as IcsDiscoveryDetails from "./ics-discovery-details";
 export import IcsDiscoveryDetails = IcsDiscoveryDetails.IcsDiscoveryDetails;
+import * as ImportSourceDetails from "./import-source-details";
+export import ImportSourceDetails = ImportSourceDetails.ImportSourceDetails;
 import * as InternalAuthorizationDetails from "./internal-authorization-details";
 export import InternalAuthorizationDetails = InternalAuthorizationDetails.InternalAuthorizationDetails;
 import * as InternalSourceDetails from "./internal-source-details";

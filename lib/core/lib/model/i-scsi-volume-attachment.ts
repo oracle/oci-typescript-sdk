@@ -60,6 +60,16 @@ Example: `3260`
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "port": number;
+  /**
+   * A list of secondary multipath devices
+   */
+  "multipathDevices"?: Array<model.MultipathDevice>;
+  /**
+   * Refer the top-level definition of encryptionInTransitType.
+   * The default value is NONE.
+   *
+   */
+  "encryptionInTransitType"?: model.EncryptionInTransitType;
 
   "attachmentType": string;
 }
@@ -70,7 +80,13 @@ export namespace IScsiVolumeAttachment {
       ...(isParentJsonObj
         ? obj
         : (model.VolumeAttachment.getJsonObj(obj) as IScsiVolumeAttachment)),
-      ...{}
+      ...{
+        "multipathDevices": obj.multipathDevices
+          ? obj.multipathDevices.map(item => {
+              return model.MultipathDevice.getJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;

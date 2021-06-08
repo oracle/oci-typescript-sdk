@@ -73,6 +73,12 @@ Example: `2016-08-25T21:10:29.600Z`
    * Whether in-transit encryption for the boot volume's paravirtualized attachment is enabled or not.
    */
   "isPvEncryptionInTransitEnabled"?: boolean;
+  /**
+   * Refer the top-level definition of encryptionInTransitType.
+   * The default value is NONE.
+   *
+   */
+  "encryptionInTransitType"?: model.EncryptionInTransitType;
 }
 
 export namespace BootVolumeAttachment {

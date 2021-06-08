@@ -39,6 +39,11 @@ export interface SummarizeSqlInsightsRequest extends common.BaseRequest {
    */
   "id"?: Array<string>;
   /**
+   * Filter by one or more hostname.
+   *
+   */
+  "hostName"?: Array<string>;
+  /**
    * Filter sqls by percentage of db time.
    *
    */

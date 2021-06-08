@@ -288,6 +288,8 @@ import * as UpdateInstanceRequest from "./update-instance-request";
 export import UpdateInstanceRequest = UpdateInstanceRequest.UpdateInstanceRequest;
 import * as UpdateInstanceConsoleConnectionRequest from "./update-instance-console-connection-request";
 export import UpdateInstanceConsoleConnectionRequest = UpdateInstanceConsoleConnectionRequest.UpdateInstanceConsoleConnectionRequest;
+import * as UpdateVolumeAttachmentRequest from "./update-volume-attachment-request";
+export import UpdateVolumeAttachmentRequest = UpdateVolumeAttachmentRequest.UpdateVolumeAttachmentRequest;
 import * as AttachInstancePoolInstanceRequest from "./attach-instance-pool-instance-request";
 export import AttachInstancePoolInstanceRequest = AttachInstancePoolInstanceRequest.AttachInstancePoolInstanceRequest;
 import * as AttachLoadBalancerRequest from "./attach-load-balancer-request";

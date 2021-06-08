@@ -1741,6 +1741,84 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Gets a list of database insight configurations based on the query parameters specified. Either compartmentId or databaseInsightId query parameter must be specified.
+   * @param ListDatabaseConfigurationsRequest
+   * @return ListDatabaseConfigurationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListDatabaseConfigurations.ts.html |here} to see how to use ListDatabaseConfigurations API.
+   */
+  public async listDatabaseConfigurations(
+    listDatabaseConfigurationsRequest: requests.ListDatabaseConfigurationsRequest
+  ): Promise<responses.ListDatabaseConfigurationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listDatabaseConfigurations.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDatabaseConfigurationsRequest.compartmentId,
+      "enterpriseManagerBridgeId": listDatabaseConfigurationsRequest.enterpriseManagerBridgeId,
+      "id": listDatabaseConfigurationsRequest.id,
+      "databaseId": listDatabaseConfigurationsRequest.databaseId,
+      "databaseType": listDatabaseConfigurationsRequest.databaseType,
+      "limit": listDatabaseConfigurationsRequest.limit,
+      "page": listDatabaseConfigurationsRequest.page,
+      "sortOrder": listDatabaseConfigurationsRequest.sortOrder,
+      "sortBy": listDatabaseConfigurationsRequest.sortBy,
+      "hostName": listDatabaseConfigurationsRequest.hostName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDatabaseConfigurationsRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listDatabaseConfigurationsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/databaseConfigurations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDatabaseConfigurationsResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseConfigurationCollection",
+        bodyModel: "model.DatabaseConfigurationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a list of database insights based on the query parameters specified. Either compartmentId or id query parameter must be specified.
    * @param ListDatabaseInsightsRequest
    * @return ListDatabaseInsightsResponse
@@ -2558,7 +2636,9 @@ export class OperationsInsightsClient {
       "sortOrder": summarizeDatabaseInsightResourceCapacityTrendRequest.sortOrder,
       "sortBy": summarizeDatabaseInsightResourceCapacityTrendRequest.sortBy,
       "tablespaceName": summarizeDatabaseInsightResourceCapacityTrendRequest.tablespaceName,
-      "hostName": summarizeDatabaseInsightResourceCapacityTrendRequest.hostName
+      "hostName": summarizeDatabaseInsightResourceCapacityTrendRequest.hostName,
+      "isDatabaseInstanceLevelMetrics":
+        summarizeDatabaseInsightResourceCapacityTrendRequest.isDatabaseInstanceLevelMetrics
     };
 
     let headerParams = {
@@ -2641,7 +2721,9 @@ export class OperationsInsightsClient {
       "confidence": summarizeDatabaseInsightResourceForecastTrendRequest.confidence,
       "page": summarizeDatabaseInsightResourceForecastTrendRequest.page,
       "hostName": summarizeDatabaseInsightResourceForecastTrendRequest.hostName,
-      "tablespaceName": summarizeDatabaseInsightResourceForecastTrendRequest.tablespaceName
+      "tablespaceName": summarizeDatabaseInsightResourceForecastTrendRequest.tablespaceName,
+      "isDatabaseInstanceLevelMetrics":
+        summarizeDatabaseInsightResourceForecastTrendRequest.isDatabaseInstanceLevelMetrics
     };
 
     let headerParams = {
@@ -2723,7 +2805,9 @@ export class OperationsInsightsClient {
       "page": summarizeDatabaseInsightResourceStatisticsRequest.page,
       "sortOrder": summarizeDatabaseInsightResourceStatisticsRequest.sortOrder,
       "sortBy": summarizeDatabaseInsightResourceStatisticsRequest.sortBy,
-      "hostName": summarizeDatabaseInsightResourceStatisticsRequest.hostName
+      "hostName": summarizeDatabaseInsightResourceStatisticsRequest.hostName,
+      "isDatabaseInstanceLevelMetrics":
+        summarizeDatabaseInsightResourceStatisticsRequest.isDatabaseInstanceLevelMetrics
     };
 
     let headerParams = {
@@ -2800,6 +2884,9 @@ export class OperationsInsightsClient {
       "databaseType": summarizeDatabaseInsightResourceUsageRequest.databaseType,
       "databaseId": summarizeDatabaseInsightResourceUsageRequest.databaseId,
       "id": summarizeDatabaseInsightResourceUsageRequest.id,
+      "hostName": summarizeDatabaseInsightResourceUsageRequest.hostName,
+      "isDatabaseInstanceLevelMetrics":
+        summarizeDatabaseInsightResourceUsageRequest.isDatabaseInstanceLevelMetrics,
       "page": summarizeDatabaseInsightResourceUsageRequest.page,
       "percentile": summarizeDatabaseInsightResourceUsageRequest.percentile
     };
@@ -2880,7 +2967,10 @@ export class OperationsInsightsClient {
       "id": summarizeDatabaseInsightResourceUsageTrendRequest.id,
       "page": summarizeDatabaseInsightResourceUsageTrendRequest.page,
       "sortOrder": summarizeDatabaseInsightResourceUsageTrendRequest.sortOrder,
-      "sortBy": summarizeDatabaseInsightResourceUsageTrendRequest.sortBy
+      "sortBy": summarizeDatabaseInsightResourceUsageTrendRequest.sortBy,
+      "hostName": summarizeDatabaseInsightResourceUsageTrendRequest.hostName,
+      "isDatabaseInstanceLevelMetrics":
+        summarizeDatabaseInsightResourceUsageTrendRequest.isDatabaseInstanceLevelMetrics
     };
 
     let headerParams = {
@@ -2957,6 +3047,9 @@ export class OperationsInsightsClient {
       "databaseId": summarizeDatabaseInsightResourceUtilizationInsightRequest.databaseId,
       "id": summarizeDatabaseInsightResourceUtilizationInsightRequest.id,
       "forecastDays": summarizeDatabaseInsightResourceUtilizationInsightRequest.forecastDays,
+      "hostName": summarizeDatabaseInsightResourceUtilizationInsightRequest.hostName,
+      "isDatabaseInstanceLevelMetrics":
+        summarizeDatabaseInsightResourceUtilizationInsightRequest.isDatabaseInstanceLevelMetrics,
       "page": summarizeDatabaseInsightResourceUtilizationInsightRequest.page
     };
 
@@ -3554,6 +3647,7 @@ export class OperationsInsightsClient {
       "databaseType": summarizeSqlInsightsRequest.databaseType,
       "databaseId": summarizeSqlInsightsRequest.databaseId,
       "id": summarizeSqlInsightsRequest.id,
+      "hostName": summarizeSqlInsightsRequest.hostName,
       "databaseTimePctGreaterThan": summarizeSqlInsightsRequest.databaseTimePctGreaterThan,
       "analysisTimeInterval": summarizeSqlInsightsRequest.analysisTimeInterval,
       "timeIntervalStart": summarizeSqlInsightsRequest.timeIntervalStart,
@@ -3774,6 +3868,7 @@ export class OperationsInsightsClient {
       "databaseType": summarizeSqlStatisticsRequest.databaseType,
       "databaseId": summarizeSqlStatisticsRequest.databaseId,
       "id": summarizeSqlStatisticsRequest.id,
+      "hostName": summarizeSqlStatisticsRequest.hostName,
       "databaseTimePctGreaterThan": summarizeSqlStatisticsRequest.databaseTimePctGreaterThan,
       "sqlIdentifier": summarizeSqlStatisticsRequest.sqlIdentifier,
       "analysisTimeInterval": summarizeSqlStatisticsRequest.analysisTimeInterval,
@@ -3853,6 +3948,7 @@ export class OperationsInsightsClient {
       "compartmentId": summarizeSqlStatisticsTimeSeriesRequest.compartmentId,
       "databaseId": summarizeSqlStatisticsTimeSeriesRequest.databaseId,
       "id": summarizeSqlStatisticsTimeSeriesRequest.id,
+      "hostName": summarizeSqlStatisticsTimeSeriesRequest.hostName,
       "sqlIdentifier": summarizeSqlStatisticsTimeSeriesRequest.sqlIdentifier,
       "analysisTimeInterval": summarizeSqlStatisticsTimeSeriesRequest.analysisTimeInterval,
       "timeIntervalStart": summarizeSqlStatisticsTimeSeriesRequest.timeIntervalStart,

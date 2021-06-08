@@ -94,6 +94,16 @@ Example: `2016-08-25T21:10:29.600Z`
    * Whether in-transit encryption for the data volume's paravirtualized attachment is enabled or not.
    */
   "isPvEncryptionInTransitEnabled"?: boolean;
+  /**
+   * Whether the attachment is multipath or not.
+   */
+  "isMultipath"?: boolean;
+  /**
+   * The iscsi login state of the volume attachment. For a multipath volume attachment,
+   * all iscsi sessions need to be all logged-in or logged-out to be in logged-in or logged-out state.
+   *
+   */
+  "iscsiLoginState"?: VolumeAttachment.IscsiLoginState;
 
   "attachmentType": string;
 }
@@ -104,6 +114,21 @@ export namespace VolumeAttachment {
     Attached = "ATTACHED",
     Detaching = "DETACHING",
     Detached = "DETACHED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum IscsiLoginState {
+    Unknown = "UNKNOWN",
+    LoggingIn = "LOGGING_IN",
+    LoginSucceeded = "LOGIN_SUCCEEDED",
+    LoginFailed = "LOGIN_FAILED",
+    LoggingOut = "LOGGING_OUT",
+    LogoutSucceeded = "LOGOUT_SUCCEEDED",
+    LogoutFailed = "LOGOUT_FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

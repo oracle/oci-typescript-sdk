@@ -40,6 +40,11 @@ export namespace SourceDetails {
 
     if ("type" in obj && obj.type) {
       switch (obj.type) {
+        case "IMPORT":
+          return model.ImportSourceDetails.getJsonObj(
+            <model.ImportSourceDetails>(<object>jsonObj),
+            true
+          );
         case "OCC":
           return model.OccSourceDetails.getJsonObj(<model.OccSourceDetails>(<object>jsonObj), true);
         case "INTERNAL_COMPUTE":

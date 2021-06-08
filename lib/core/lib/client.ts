@@ -1139,7 +1139,7 @@ For more information about Oracle defined backup policies and user defined backu
   /**
      * Creates a new volume group in the specified compartment.
 * A volume group is a collection of volumes and may be created from a list of volumes, cloning an existing
-* volume group, or by restoring a volume group backup. A volume group can contain up to 64 volumes.
+* volume group, or by restoring a volume group backup.
 * You may optionally specify a *display name* for the volume group, which is simply a friendly name or
 * description. It does not have to be unique, and you can change it. Avoid entering confidential information.
 * <p>
@@ -10305,6 +10305,75 @@ The OCID of the instance remains the same.
         body: await response.json(),
         bodyKey: "instanceConsoleConnection",
         bodyModel: "model.InstanceConsoleConnection",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates information about the specified volume attachment.
+   * @param UpdateVolumeAttachmentRequest
+   * @return UpdateVolumeAttachmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVolumeAttachment.ts.html |here} to see how to use UpdateVolumeAttachment API.
+   */
+  public async updateVolumeAttachment(
+    updateVolumeAttachmentRequest: requests.UpdateVolumeAttachmentRequest
+  ): Promise<responses.UpdateVolumeAttachmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#updateVolumeAttachment.");
+    const pathParams = {
+      "{volumeAttachmentId}": updateVolumeAttachmentRequest.volumeAttachmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateVolumeAttachmentRequest.opcRequestId,
+      "if-match": updateVolumeAttachmentRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateVolumeAttachmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/volumeAttachments/{volumeAttachmentId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateVolumeAttachmentRequest.updateVolumeAttachmentDetails,
+        "UpdateVolumeAttachmentDetails",
+        models.UpdateVolumeAttachmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateVolumeAttachmentResponse>{},
+        body: await response.json(),
+        bodyKey: "volumeAttachment",
+        bodyModel: "model.VolumeAttachment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

@@ -24,12 +24,12 @@ import common = require("oci-common");
  */
 export interface InstanceAgentFeatures {
   /**
-   * Whether Oracle Cloud Agent can gather performance metrics and monitor the instance.
+   * This attribute is not used.
    *
    */
   "isMonitoringSupported"?: boolean;
   /**
-   * Whether Oracle Cloud Agent can run all the available management plugins.
+   * This attribute is not used.
    *
    */
   "isManagementSupported"?: boolean;

@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface TablespaceUsageTrendAggregation {
   /**
-   * Name of tablespace
+   * The name of tablespace.
    */
   "tablespaceName": string;
   /**
