@@ -25,6 +25,12 @@ export interface AttachIScsiVolumeDetails extends model.AttachVolumeDetails {
    *
    */
   "useChap"?: boolean;
+  /**
+   * Refer the top-level definition of encryptionInTransitType.
+   * The default value is NONE.
+   *
+   */
+  "encryptionInTransitType"?: model.EncryptionInTransitType;
 
   "type": string;
 }

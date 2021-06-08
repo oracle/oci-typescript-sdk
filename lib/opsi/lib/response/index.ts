@@ -60,6 +60,8 @@ import * as IngestSqlPlanLinesResponse from "./ingest-sql-plan-lines-response";
 export import IngestSqlPlanLinesResponse = IngestSqlPlanLinesResponse.IngestSqlPlanLinesResponse;
 import * as IngestSqlTextResponse from "./ingest-sql-text-response";
 export import IngestSqlTextResponse = IngestSqlTextResponse.IngestSqlTextResponse;
+import * as ListDatabaseConfigurationsResponse from "./list-database-configurations-response";
+export import ListDatabaseConfigurationsResponse = ListDatabaseConfigurationsResponse.ListDatabaseConfigurationsResponse;
 import * as ListDatabaseInsightsResponse from "./list-database-insights-response";
 export import ListDatabaseInsightsResponse = ListDatabaseInsightsResponse.ListDatabaseInsightsResponse;
 import * as ListEnterpriseManagerBridgesResponse from "./list-enterprise-manager-bridges-response";

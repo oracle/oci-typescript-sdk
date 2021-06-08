@@ -33,6 +33,12 @@ export interface AttachBootVolumeDetails {
    * The OCID of the instance.
    */
   "instanceId": string;
+  /**
+   * Refer the top-level definition of encryptionInTransitType.
+   * The default value is NONE.
+   *
+   */
+  "encryptionInTransitType"?: model.EncryptionInTransitType;
 }
 
 export namespace AttachBootVolumeDetails {

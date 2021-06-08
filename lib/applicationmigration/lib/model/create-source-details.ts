@@ -42,7 +42,11 @@ export interface CreateSourceDetails {
    * Description of the source. This helps you to identify the appropriate source environment when you have multiple sources defined.
    */
   "description"?: string;
-  "sourceDetails": model.OccSourceDetails | model.InternalSourceDetails | model.OcicSourceDetails;
+  "sourceDetails":
+    | model.ImportSourceDetails
+    | model.OccSourceDetails
+    | model.InternalSourceDetails
+    | model.OcicSourceDetails;
   "authorizationDetails"?:
     | model.OccAuthorizationDetails
     | model.InternalAuthorizationDetails

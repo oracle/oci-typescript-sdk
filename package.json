@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "1.20.1",
+  "version": "1.20.2",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -98,7 +98,8 @@
     "oci-operatoraccesscontrol": "file:lib/operatoraccesscontrol",
     "oci-servicecatalog": "file:lib/servicecatalog",
     "oci-bastion": "file:lib/bastion",
-    "oci-genericartifactscontent": "file:lib/genericartifactscontent"
+    "oci-genericartifactscontent": "file:lib/genericartifactscontent",
+    "oci-jms": "file:lib/jms"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

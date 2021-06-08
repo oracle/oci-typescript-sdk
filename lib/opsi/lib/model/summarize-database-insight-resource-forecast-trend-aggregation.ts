@@ -44,6 +44,10 @@ export interface SummarizeDatabaseInsightResourceForecastTrendAggregation {
    */
   "pattern": SummarizeDatabaseInsightResourceForecastTrendAggregation.Pattern;
   /**
+   * The name of tablespace.
+   */
+  "tablespaceName": string;
+  /**
    * Time series data used for the forecast analysis.
    */
   "historicalData": Array<model.HistoricalDataItem>;
