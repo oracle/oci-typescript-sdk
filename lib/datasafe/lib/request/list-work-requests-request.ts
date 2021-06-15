@@ -23,6 +23,10 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
+   * A filter to return only work requests that match the specific operation type.
+   */
+  "operationType"?: string;
+  /**
    * A filter to return only work requests that match the specified resource OCID.
    */
   "resourceId"?: string;

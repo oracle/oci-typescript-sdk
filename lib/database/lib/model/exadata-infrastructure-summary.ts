@@ -80,6 +80,22 @@ export interface ExadataInfrastructureSummary {
    */
   "maxDataStorageInTBs"?: number;
   /**
+   * The number of Exadata storage servers for the Exadata infrastructure. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "storageCount"?: number;
+  /**
+   * The requested number of additional storage servers for the Exadata infrastructure. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "additionalStorageCount"?: number;
+  /**
+   * The requested number of additional storage servers activated for the Exadata infrastructure. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "activatedStorageCount"?: number;
+  /**
+   * The number of compute servers for the Exadata infrastructure. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "computeCount"?: number;
+  /**
    * The IP address for the first control plane server.
    */
   "cloudControlPlaneServer1"?: string;

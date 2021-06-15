@@ -81,6 +81,25 @@ export class DataSafeWaiter {
   }
 
   /**
+   * Waits forTargetDatabase till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetTargetDatabaseResponse | null (null in case of 404 response)
+   */
+  public async forTargetDatabase(
+    request: serviceRequests.GetTargetDatabaseRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetTargetDatabaseResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getTargetDatabase(request),
+      response => targetStates.includes(response.targetDatabase.lifecycleState!),
+      targetStates.includes(models.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forWorkRequest
    *
    * @param request the request to send

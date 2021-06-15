@@ -48,7 +48,9 @@ export interface ListDataSafePrivateEndpointsRequest extends common.BaseRequest 
    */
   "sortOrder"?: ListDataSafePrivateEndpointsRequest.SortOrder;
   /**
-   * The field to sort by. You can specify only one sort order (sortOrder). The default order for TIMECREATED is descending. The default order for DISPLAYNAME is ascending. The DISPLAYNAME sort order is case sensitive.
+   * The field used for sorting. Only one sorting order (sortOrder) can be specified.
+   * The default order for TIMECREATED is descending. The default order for DISPLAYNAME is ascending.
+   * The DISPLAYNAME sort order is case sensitive.
    *
    */
   "sortBy"?: ListDataSafePrivateEndpointsRequest.SortBy;
@@ -56,6 +58,20 @@ export interface ListDataSafePrivateEndpointsRequest extends common.BaseRequest 
    * Unique identifier for the request.
    */
   "opcRequestId"?: string;
+  /**
+   * Default is false.
+   * When set to true, the hierarchy of compartments is traversed and all compartments and subcompartments in the tenancy are returned. Depends on the 'accessLevel' setting.
+   *
+   */
+  "compartmentIdInSubtree"?: boolean;
+  /**
+   * Valid values are RESTRICTED and ACCESSIBLE. Default is RESTRICTED.
+   * Setting this to ACCESSIBLE returns only those compartments for which the
+   * user has INSPECT permissions directly or indirectly (permissions can be on a
+   * resource in a subcompartment). When set to RESTRICTED permissions are checked and no partial results are displayed.
+   *
+   */
+  "accessLevel"?: ListDataSafePrivateEndpointsRequest.AccessLevel;
 }
 
 export namespace ListDataSafePrivateEndpointsRequest {
@@ -67,5 +83,10 @@ export namespace ListDataSafePrivateEndpointsRequest {
   export enum SortBy {
     Timecreated = "TIMECREATED",
     Displayname = "DISPLAYNAME"
+  }
+
+  export enum AccessLevel {
+    Restricted = "RESTRICTED",
+    Accessible = "ACCESSIBLE"
   }
 }

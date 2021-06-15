@@ -17,8 +17,10 @@ import * as requests from "./lib/request";
 import * as models from "./lib/model";
 import * as responses from "./lib/response";
 import * as client from "./lib/client";
+import * as dashxapis_waiter from "./lib/dashxapis-waiter";
 
 export { models };
 export { requests };
 export { responses };
 export import DashxApisClient = client.DashxApisClient;
+export import DashxApisWaiter = dashxapis_waiter.DashxApisWaiter;

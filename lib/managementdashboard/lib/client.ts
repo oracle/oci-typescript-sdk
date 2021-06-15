@@ -17,6 +17,7 @@ import common = require("oci-common");
 import * as requests from "./request";
 import * as models from "./model";
 import * as responses from "./response";
+import { DashxApisWaiter } from "./dashxapis-waiter";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 
 // ===============================================
@@ -30,6 +31,7 @@ export class DashxApisClient {
     "https://managementdashboard.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
+  protected "_waiters": DashxApisWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
 
@@ -105,6 +107,29 @@ export class DashxApisClient {
       DashxApisClient.serviceEndpointTemplate,
       regionId
     );
+  }
+
+  /**
+   * Creates a new DashxApisWaiter for resources for this service.
+   *
+   * @param config The waiter configuration for termination and delay strategy
+   * @return The service waiters.
+   */
+  public createWaiters(config?: common.WaiterConfiguration): DashxApisWaiter {
+    this._waiters = new DashxApisWaiter(this, config);
+    return this._waiters;
+  }
+
+  /**
+   * Gets the waiters available for resources for this service.
+   *
+   * @return The service waiters.
+   */
+  public getWaiters(): DashxApisWaiter {
+    if (this._waiters) {
+      return this._waiters;
+    }
+    throw Error("Waiters do not exist. Please create waiters.");
   }
 
   /**
@@ -249,13 +274,17 @@ export class DashxApisClient {
   }
 
   /**
-   * Creates a new dashboard.  Limit for number of saved searches in a dashboard is 20.
-   *
-   * @param CreateManagementDashboardRequest
-   * @return CreateManagementDashboardResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/CreateManagementDashboard.ts.html |here} to see how to use CreateManagementDashboard API.
-   */
+     * Creates a new dashboard.  Limit for number of saved searches in a dashboard is 20. To get an example of what needs to be passed to CREATE, one can use GET API.
+* oci management-dashboard dashboard get --management-dashboard-id  \"ocid1.managementdashboard.oc1..dashboardId1\" --query data > Create.json
+* <p>
+Modify the Create.json by removing \"id\" attribute and other desired changes, then do
+* oci management-dashboard dashboard create  --from-json file://Create.json
+* 
+     * @param CreateManagementDashboardRequest
+     * @return CreateManagementDashboardResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/CreateManagementDashboard.ts.html |here} to see how to use CreateManagementDashboard API.
+     */
   public async createManagementDashboard(
     createManagementDashboardRequest: requests.CreateManagementDashboardRequest
   ): Promise<responses.CreateManagementDashboardResponse> {
@@ -323,13 +352,17 @@ export class DashxApisClient {
   }
 
   /**
-   * Creates a new saved search.
-   *
-   * @param CreateManagementSavedSearchRequest
-   * @return CreateManagementSavedSearchResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/CreateManagementSavedSearch.ts.html |here} to see how to use CreateManagementSavedSearch API.
-   */
+     * Creates a new saved search. To get an example of what needs to be passed to CREATE, one can use GET API.
+* oci management-dashboard saved-search get --management-saved-search-id ocid1.managementsavedsearch.oc1..savedsearchId1 --query data > Create.json
+* <p>
+Modify the Create.json by removing \"id\" attribute and other desired changes, then do
+* oci management-dashboard saved-search create  --from-json file://Create.json
+* 
+     * @param CreateManagementSavedSearchRequest
+     * @return CreateManagementSavedSearchResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/CreateManagementSavedSearch.ts.html |here} to see how to use CreateManagementSavedSearch API.
+     */
   public async createManagementSavedSearch(
     createManagementSavedSearchRequest: requests.CreateManagementSavedSearchRequest
   ): Promise<responses.CreateManagementSavedSearchResponse> {
@@ -521,7 +554,7 @@ export class DashxApisClient {
   }
 
   /**
-   * Exports an array of dashboards and their saved searches.
+   * Exports an array of dashboards and their saved searches. Export is designed to work with importDashboard. An example using OCI CLI is $oci management-dashboard dashboard export --query data --export-dashboard-id \"{\\\"dashboardIds\\\":[\\\"ocid1.managementdashboard.oc1..dashboardId1\\\"]}\"  > dashboards.json $oci management-dashboard dashboard import --from-json file://dashboards.json
    * @param ExportDashboardRequest
    * @return ExportDashboardResponse
    * @throws OciError when an error occurs
@@ -724,7 +757,9 @@ export class DashxApisClient {
   }
 
   /**
-   * Imports an array of dashboards and their saved searches.
+   * Imports an array of dashboards and their saved searches. Import is designed to work with exportDashboard. An example using OCI CLI is
+   *     $oci management-dashboard dashboard export --query data --export-dashboard-id \"{\\\"dashboardIds\\\":[\\\"ocid1.managementdashboard.oc1..dashboardId1\\\"]}\"  > dashboards.json
+   *     $oci management-dashboard dashboard import --from-json file://dashboards.json
    *
    * @param ImportDashboardRequest
    * @return ImportDashboardResponse
@@ -790,7 +825,7 @@ export class DashxApisClient {
   }
 
   /**
-   * Gets the list of dashboards and their saved searches in a compartment with pagination.  Returned properties are the summary.
+   * Gets the list of dashboards in a compartment with pagination.  Returned properties are the summary.
    * @param ListManagementDashboardsRequest
    * @return ListManagementDashboardsResponse
    * @throws OciError when an error occurs

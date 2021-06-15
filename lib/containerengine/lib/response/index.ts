@@ -14,6 +14,8 @@ and manage cloud-native applications. For more information, see
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ClusterMigrateToNativeVcnResponse from "./cluster-migrate-to-native-vcn-response";
+export import ClusterMigrateToNativeVcnResponse = ClusterMigrateToNativeVcnResponse.ClusterMigrateToNativeVcnResponse;
 import * as CreateClusterResponse from "./create-cluster-response";
 export import CreateClusterResponse = CreateClusterResponse.CreateClusterResponse;
 import * as CreateKubeconfigResponse from "./create-kubeconfig-response";
@@ -28,6 +30,8 @@ import * as DeleteWorkRequestResponse from "./delete-work-request-response";
 export import DeleteWorkRequestResponse = DeleteWorkRequestResponse.DeleteWorkRequestResponse;
 import * as GetClusterResponse from "./get-cluster-response";
 export import GetClusterResponse = GetClusterResponse.GetClusterResponse;
+import * as GetClusterMigrateToNativeVcnStatusResponse from "./get-cluster-migrate-to-native-vcn-status-response";
+export import GetClusterMigrateToNativeVcnStatusResponse = GetClusterMigrateToNativeVcnStatusResponse.GetClusterMigrateToNativeVcnStatusResponse;
 import * as GetClusterOptionsResponse from "./get-cluster-options-response";
 export import GetClusterOptionsResponse = GetClusterOptionsResponse.GetClusterOptionsResponse;
 import * as GetNodePoolResponse from "./get-node-pool-response";

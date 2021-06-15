@@ -24,18 +24,6 @@ export interface ManagementDashboardExportDetails {
    * Array of dashboards.
    */
   "dashboards": Array<model.ManagementDashboardForImportExportDetails>;
-  /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
-   *
-   */
-  "freeformTags"?: { [key: string]: string };
-  /**
-   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
-   *
-   */
-  "definedTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace ManagementDashboardExportDetails {

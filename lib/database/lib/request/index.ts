@@ -14,6 +14,8 @@
 
 import * as ActivateExadataInfrastructureRequest from "./activate-exadata-infrastructure-request";
 export import ActivateExadataInfrastructureRequest = ActivateExadataInfrastructureRequest.ActivateExadataInfrastructureRequest;
+import * as AddStorageCapacityExadataInfrastructureRequest from "./add-storage-capacity-exadata-infrastructure-request";
+export import AddStorageCapacityExadataInfrastructureRequest = AddStorageCapacityExadataInfrastructureRequest.AddStorageCapacityExadataInfrastructureRequest;
 import * as AutonomousDatabaseManualRefreshRequest from "./autonomous-database-manual-refresh-request";
 export import AutonomousDatabaseManualRefreshRequest = AutonomousDatabaseManualRefreshRequest.AutonomousDatabaseManualRefreshRequest;
 import * as ChangeAutonomousContainerDatabaseCompartmentRequest from "./change-autonomous-container-database-compartment-request";

@@ -131,6 +131,74 @@ export class DataSafeClient {
   }
 
   /**
+   * Reactivates a previously deactivated Data Safe target database.
+   *
+   * @param ActivateTargetDatabaseRequest
+   * @return ActivateTargetDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ActivateTargetDatabase.ts.html |here} to see how to use ActivateTargetDatabase API.
+   */
+  public async activateTargetDatabase(
+    activateTargetDatabaseRequest: requests.ActivateTargetDatabaseRequest
+  ): Promise<responses.ActivateTargetDatabaseResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#activateTargetDatabase.");
+    const pathParams = {
+      "{targetDatabaseId}": activateTargetDatabaseRequest.targetDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": activateTargetDatabaseRequest.opcRetryToken,
+      "if-match": activateTargetDatabaseRequest.ifMatch,
+      "opc-request-id": activateTargetDatabaseRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      activateTargetDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/targetDatabases/{targetDatabaseId}/actions/activate",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        activateTargetDatabaseRequest.activateTargetDatabaseDetails,
+        "ActivateTargetDatabaseDetails",
+        models.ActivateTargetDatabaseDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ActivateTargetDatabaseResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves the Data Safe private endpoint and its dependent resources to the specified compartment.
    * @param ChangeDataSafePrivateEndpointCompartmentRequest
    * @return ChangeDataSafePrivateEndpointCompartmentResponse
@@ -248,6 +316,69 @@ export class DataSafeClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeOnPremConnectorCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the Data Safe target database to the specified compartment.
+   * @param ChangeTargetDatabaseCompartmentRequest
+   * @return ChangeTargetDatabaseCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeTargetDatabaseCompartment.ts.html |here} to see how to use ChangeTargetDatabaseCompartment API.
+   */
+  public async changeTargetDatabaseCompartment(
+    changeTargetDatabaseCompartmentRequest: requests.ChangeTargetDatabaseCompartmentRequest
+  ): Promise<responses.ChangeTargetDatabaseCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeTargetDatabaseCompartment.");
+    const pathParams = {
+      "{targetDatabaseId}": changeTargetDatabaseCompartmentRequest.targetDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeTargetDatabaseCompartmentRequest.ifMatch,
+      "opc-request-id": changeTargetDatabaseCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeTargetDatabaseCompartmentRequest.opcRetryToken
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeTargetDatabaseCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/targetDatabases/{targetDatabaseId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeTargetDatabaseCompartmentRequest.changeTargetDatabaseCompartmentDetails,
+        "ChangeTargetDatabaseCompartmentDetails",
+        models.ChangeTargetDatabaseCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeTargetDatabaseCompartmentResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -421,6 +552,148 @@ export class DataSafeClient {
   }
 
   /**
+   * Registers the specified database with Data Safe and creates a Data Safe target database in the Data Safe Console.
+   *
+   * @param CreateTargetDatabaseRequest
+   * @return CreateTargetDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateTargetDatabase.ts.html |here} to see how to use CreateTargetDatabase API.
+   */
+  public async createTargetDatabase(
+    createTargetDatabaseRequest: requests.CreateTargetDatabaseRequest
+  ): Promise<responses.CreateTargetDatabaseResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createTargetDatabase.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createTargetDatabaseRequest.opcRetryToken,
+      "opc-request-id": createTargetDatabaseRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createTargetDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/targetDatabases",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createTargetDatabaseRequest.createTargetDatabaseDetails,
+        "CreateTargetDatabaseDetails",
+        models.CreateTargetDatabaseDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateTargetDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "targetDatabase",
+        bodyModel: "model.TargetDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deactivates a target database in Data Safe.
+   *
+   * @param DeactivateTargetDatabaseRequest
+   * @return DeactivateTargetDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeactivateTargetDatabase.ts.html |here} to see how to use DeactivateTargetDatabase API.
+   */
+  public async deactivateTargetDatabase(
+    deactivateTargetDatabaseRequest: requests.DeactivateTargetDatabaseRequest
+  ): Promise<responses.DeactivateTargetDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deactivateTargetDatabase.");
+    const pathParams = {
+      "{targetDatabaseId}": deactivateTargetDatabaseRequest.targetDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": deactivateTargetDatabaseRequest.opcRetryToken,
+      "if-match": deactivateTargetDatabaseRequest.ifMatch,
+      "opc-request-id": deactivateTargetDatabaseRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deactivateTargetDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/targetDatabases/{targetDatabaseId}/actions/deactivate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeactivateTargetDatabaseResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified Data Safe private endpoint.
    * @param DeleteDataSafePrivateEndpointRequest
    * @return DeleteDataSafePrivateEndpointResponse
@@ -533,6 +806,137 @@ export class DataSafeClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deregisters the specified database from Data Safe and removes the target database from the Data Safe Console.
+   * @param DeleteTargetDatabaseRequest
+   * @return DeleteTargetDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteTargetDatabase.ts.html |here} to see how to use DeleteTargetDatabase API.
+   */
+  public async deleteTargetDatabase(
+    deleteTargetDatabaseRequest: requests.DeleteTargetDatabaseRequest
+  ): Promise<responses.DeleteTargetDatabaseResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteTargetDatabase.");
+    const pathParams = {
+      "{targetDatabaseId}": deleteTargetDatabaseRequest.targetDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteTargetDatabaseRequest.ifMatch,
+      "opc-request-id": deleteTargetDatabaseRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteTargetDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/targetDatabases/{targetDatabaseId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteTargetDatabaseResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Downloads the privilege script to grant/revoke required roles from the Data Safe account on the target database.
+   *
+   * @param DownloadPrivilegeScriptRequest
+   * @return DownloadPrivilegeScriptResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadPrivilegeScript.ts.html |here} to see how to use DownloadPrivilegeScript API.
+   */
+  public async downloadPrivilegeScript(
+    downloadPrivilegeScriptRequest: requests.DownloadPrivilegeScriptRequest
+  ): Promise<responses.DownloadPrivilegeScriptResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#downloadPrivilegeScript.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": downloadPrivilegeScriptRequest.opcRetryToken,
+      "opc-request-id": downloadPrivilegeScriptRequest.opcRequestId,
+      "if-match": downloadPrivilegeScriptRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      downloadPrivilegeScriptRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/downloadPrivilegeScript",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DownloadPrivilegeScriptResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
           }
         ]
       });
@@ -881,6 +1285,70 @@ export class DataSafeClient {
   }
 
   /**
+   * Returns the details of the specified Data Safe target database.
+   *
+   * @param GetTargetDatabaseRequest
+   * @return GetTargetDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetTargetDatabase.ts.html |here} to see how to use GetTargetDatabase API.
+   */
+  public async getTargetDatabase(
+    getTargetDatabaseRequest: requests.GetTargetDatabaseRequest
+  ): Promise<responses.GetTargetDatabaseResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getTargetDatabase.");
+    const pathParams = {
+      "{targetDatabaseId}": getTargetDatabaseRequest.targetDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getTargetDatabaseRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getTargetDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/targetDatabases/{targetDatabaseId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetTargetDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "targetDatabase",
+        bodyModel: "model.TargetDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the details of the specified work request.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
@@ -971,7 +1439,9 @@ export class DataSafeClient {
       "limit": listDataSafePrivateEndpointsRequest.limit,
       "page": listDataSafePrivateEndpointsRequest.page,
       "sortOrder": listDataSafePrivateEndpointsRequest.sortOrder,
-      "sortBy": listDataSafePrivateEndpointsRequest.sortBy
+      "sortBy": listDataSafePrivateEndpointsRequest.sortBy,
+      "compartmentIdInSubtree": listDataSafePrivateEndpointsRequest.compartmentIdInSubtree,
+      "accessLevel": listDataSafePrivateEndpointsRequest.accessLevel
     };
 
     let headerParams = {
@@ -1067,7 +1537,9 @@ export class DataSafeClient {
       "limit": listOnPremConnectorsRequest.limit,
       "page": listOnPremConnectorsRequest.page,
       "sortOrder": listOnPremConnectorsRequest.sortOrder,
-      "sortBy": listOnPremConnectorsRequest.sortBy
+      "sortBy": listOnPremConnectorsRequest.sortBy,
+      "compartmentIdInSubtree": listOnPremConnectorsRequest.compartmentIdInSubtree,
+      "accessLevel": listOnPremConnectorsRequest.accessLevel
     };
 
     let headerParams = {
@@ -1139,6 +1611,111 @@ export class DataSafeClient {
     request: requests.ListOnPremConnectorsRequest
   ): AsyncIterableIterator<responses.ListOnPremConnectorsResponse> {
     return paginateResponses(request, req => this.listOnPremConnectors(req));
+  }
+
+  /**
+   * Returns the list of registered target databases in Data Safe.
+   *
+   * @param ListTargetDatabasesRequest
+   * @return ListTargetDatabasesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListTargetDatabases.ts.html |here} to see how to use ListTargetDatabases API.
+   */
+  public async listTargetDatabases(
+    listTargetDatabasesRequest: requests.ListTargetDatabasesRequest
+  ): Promise<responses.ListTargetDatabasesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listTargetDatabases.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listTargetDatabasesRequest.compartmentId,
+      "targetDatabaseId": listTargetDatabasesRequest.targetDatabaseId,
+      "displayName": listTargetDatabasesRequest.displayName,
+      "lifecycleState": listTargetDatabasesRequest.lifecycleState,
+      "databaseType": listTargetDatabasesRequest.databaseType,
+      "infrastructureType": listTargetDatabasesRequest.infrastructureType,
+      "limit": listTargetDatabasesRequest.limit,
+      "page": listTargetDatabasesRequest.page,
+      "compartmentIdInSubtree": listTargetDatabasesRequest.compartmentIdInSubtree,
+      "accessLevel": listTargetDatabasesRequest.accessLevel,
+      "sortOrder": listTargetDatabasesRequest.sortOrder,
+      "sortBy": listTargetDatabasesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listTargetDatabasesRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listTargetDatabasesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/targetDatabases",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListTargetDatabasesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "TargetDatabaseSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.TargetDatabaseSummary objects
+   * contained in responses from the listTargetDatabases operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllTargetDatabases(
+    request: requests.ListTargetDatabasesRequest
+  ): AsyncIterableIterator<models.TargetDatabaseSummary> {
+    return paginateRecords(request, req => this.listTargetDatabases(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listTargetDatabases operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllTargetDatabasesResponses(
+    request: requests.ListTargetDatabasesRequest
+  ): AsyncIterableIterator<responses.ListTargetDatabasesResponse> {
+    return paginateResponses(request, req => this.listTargetDatabases(req));
   }
 
   /**
@@ -1341,6 +1918,7 @@ export class DataSafeClient {
 
     const queryParams = {
       "compartmentId": listWorkRequestsRequest.compartmentId,
+      "operationType": listWorkRequestsRequest.operationType,
       "resourceId": listWorkRequestsRequest.resourceId,
       "page": listWorkRequestsRequest.page,
       "limit": listWorkRequestsRequest.limit
@@ -1599,6 +2177,73 @@ export class DataSafeClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateOnPremConnectorWalletResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more attributes of the specified Data Safe target database.
+   * @param UpdateTargetDatabaseRequest
+   * @return UpdateTargetDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateTargetDatabase.ts.html |here} to see how to use UpdateTargetDatabase API.
+   */
+  public async updateTargetDatabase(
+    updateTargetDatabaseRequest: requests.UpdateTargetDatabaseRequest
+  ): Promise<responses.UpdateTargetDatabaseResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateTargetDatabase.");
+    const pathParams = {
+      "{targetDatabaseId}": updateTargetDatabaseRequest.targetDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateTargetDatabaseRequest.opcRequestId,
+      "if-match": updateTargetDatabaseRequest.ifMatch,
+      "opc-retry-token": updateTargetDatabaseRequest.opcRetryToken
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateTargetDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/targetDatabases/{targetDatabaseId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateTargetDatabaseRequest.updateTargetDatabaseDetails,
+        "UpdateTargetDatabaseDetails",
+        models.UpdateTargetDatabaseDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateTargetDatabaseResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
