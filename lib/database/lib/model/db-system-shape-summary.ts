@@ -49,6 +49,26 @@ export interface DbSystemShapeSummary {
    */
   "coreCountIncrement"?: number;
   /**
+   * The minimum number of Exadata storage servers available for the Exadata infrastructure. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "minStorageCount"?: number;
+  /**
+   * The maximum number of Exadata storage servers available for the Exadata infrastructure. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxStorageCount"?: number;
+  /**
+   * The maximum data storage available per storage server for this shape. Only applicable to ExaCC Elastic shapes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "availableDataStoragePerServerInTBs"?: number;
+  /**
+   * The maximum memory available per database node for this shape. Only applicable to ExaCC Elastic shapes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "availableMemoryPerNodeInGBs"?: number;
+  /**
+   * The maximum Db Node storage available per database node for this shape. Only applicable to ExaCC Elastic shapes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "availableDbNodePerNodeInGBs"?: number;
+  /**
    * The minimum number of CPU cores that can be enabled per node for this shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minCoreCountPerNode"?: number;
@@ -85,7 +105,7 @@ export interface DbSystemShapeSummary {
    */
   "maximumNodeCount"?: number;
   /**
-   * The maximum number of CPU cores per database node that can be enabled for this shape. Only applicable to the flex Exadata shape. Does not apply to X6, X7, and X8 fixed-shape systems. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum number of CPU cores per database node that can be enabled for this shape. Only applicable to the flex Exadata shape and ExaCC Elastic shapes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableCoreCountPerNode"?: number;
 }

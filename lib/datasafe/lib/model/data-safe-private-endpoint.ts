@@ -82,6 +82,12 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * System tags for this resource. Each key is predefined and scoped to a namespace. For more information, see Resource Tags.
+   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace DataSafePrivateEndpoint {

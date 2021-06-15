@@ -55,6 +55,10 @@ export interface UpdateExadataInfrastructureDetails {
   "contacts"?: Array<model.ExadataInfrastructureContact>;
   "maintenanceWindow"?: model.MaintenanceWindow;
   /**
+   * The requested number of additional storage servers for the Exadata infrastructure. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "additionalStorageCount"?: number;
+  /**
    * The list of DNS server IP addresses. Maximum of 3 allowed.
    */
   "dnsServer"?: Array<string>;

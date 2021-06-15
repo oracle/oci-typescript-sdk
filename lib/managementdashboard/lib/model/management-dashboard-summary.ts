@@ -21,9 +21,13 @@ import common = require("oci-common");
  */
 export interface ManagementDashboardSummary {
   /**
-   * ID of the dashboard.
+   * ID of the dashboard.  Same as id.
    */
   "dashboardId": string;
+  /**
+   * ID of the dashboard.  Same as dashboardId.
+   */
+  "id": string;
   /**
    * Display name of the dashboard.
    */

@@ -11,18 +11,30 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ActivateTargetDatabaseRequest from "./activate-target-database-request";
+export import ActivateTargetDatabaseRequest = ActivateTargetDatabaseRequest.ActivateTargetDatabaseRequest;
 import * as ChangeDataSafePrivateEndpointCompartmentRequest from "./change-data-safe-private-endpoint-compartment-request";
 export import ChangeDataSafePrivateEndpointCompartmentRequest = ChangeDataSafePrivateEndpointCompartmentRequest.ChangeDataSafePrivateEndpointCompartmentRequest;
 import * as ChangeOnPremConnectorCompartmentRequest from "./change-on-prem-connector-compartment-request";
 export import ChangeOnPremConnectorCompartmentRequest = ChangeOnPremConnectorCompartmentRequest.ChangeOnPremConnectorCompartmentRequest;
+import * as ChangeTargetDatabaseCompartmentRequest from "./change-target-database-compartment-request";
+export import ChangeTargetDatabaseCompartmentRequest = ChangeTargetDatabaseCompartmentRequest.ChangeTargetDatabaseCompartmentRequest;
 import * as CreateDataSafePrivateEndpointRequest from "./create-data-safe-private-endpoint-request";
 export import CreateDataSafePrivateEndpointRequest = CreateDataSafePrivateEndpointRequest.CreateDataSafePrivateEndpointRequest;
 import * as CreateOnPremConnectorRequest from "./create-on-prem-connector-request";
 export import CreateOnPremConnectorRequest = CreateOnPremConnectorRequest.CreateOnPremConnectorRequest;
+import * as CreateTargetDatabaseRequest from "./create-target-database-request";
+export import CreateTargetDatabaseRequest = CreateTargetDatabaseRequest.CreateTargetDatabaseRequest;
+import * as DeactivateTargetDatabaseRequest from "./deactivate-target-database-request";
+export import DeactivateTargetDatabaseRequest = DeactivateTargetDatabaseRequest.DeactivateTargetDatabaseRequest;
 import * as DeleteDataSafePrivateEndpointRequest from "./delete-data-safe-private-endpoint-request";
 export import DeleteDataSafePrivateEndpointRequest = DeleteDataSafePrivateEndpointRequest.DeleteDataSafePrivateEndpointRequest;
 import * as DeleteOnPremConnectorRequest from "./delete-on-prem-connector-request";
 export import DeleteOnPremConnectorRequest = DeleteOnPremConnectorRequest.DeleteOnPremConnectorRequest;
+import * as DeleteTargetDatabaseRequest from "./delete-target-database-request";
+export import DeleteTargetDatabaseRequest = DeleteTargetDatabaseRequest.DeleteTargetDatabaseRequest;
+import * as DownloadPrivilegeScriptRequest from "./download-privilege-script-request";
+export import DownloadPrivilegeScriptRequest = DownloadPrivilegeScriptRequest.DownloadPrivilegeScriptRequest;
 import * as EnableDataSafeConfigurationRequest from "./enable-data-safe-configuration-request";
 export import EnableDataSafeConfigurationRequest = EnableDataSafeConfigurationRequest.EnableDataSafeConfigurationRequest;
 import * as GenerateOnPremConnectorConfigurationRequest from "./generate-on-prem-connector-configuration-request";
@@ -33,12 +45,16 @@ import * as GetDataSafePrivateEndpointRequest from "./get-data-safe-private-endp
 export import GetDataSafePrivateEndpointRequest = GetDataSafePrivateEndpointRequest.GetDataSafePrivateEndpointRequest;
 import * as GetOnPremConnectorRequest from "./get-on-prem-connector-request";
 export import GetOnPremConnectorRequest = GetOnPremConnectorRequest.GetOnPremConnectorRequest;
+import * as GetTargetDatabaseRequest from "./get-target-database-request";
+export import GetTargetDatabaseRequest = GetTargetDatabaseRequest.GetTargetDatabaseRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";
 export import GetWorkRequestRequest = GetWorkRequestRequest.GetWorkRequestRequest;
 import * as ListDataSafePrivateEndpointsRequest from "./list-data-safe-private-endpoints-request";
 export import ListDataSafePrivateEndpointsRequest = ListDataSafePrivateEndpointsRequest.ListDataSafePrivateEndpointsRequest;
 import * as ListOnPremConnectorsRequest from "./list-on-prem-connectors-request";
 export import ListOnPremConnectorsRequest = ListOnPremConnectorsRequest.ListOnPremConnectorsRequest;
+import * as ListTargetDatabasesRequest from "./list-target-databases-request";
+export import ListTargetDatabasesRequest = ListTargetDatabasesRequest.ListTargetDatabasesRequest;
 import * as ListWorkRequestErrorsRequest from "./list-work-request-errors-request";
 export import ListWorkRequestErrorsRequest = ListWorkRequestErrorsRequest.ListWorkRequestErrorsRequest;
 import * as ListWorkRequestLogsRequest from "./list-work-request-logs-request";
@@ -51,3 +67,5 @@ import * as UpdateOnPremConnectorRequest from "./update-on-prem-connector-reques
 export import UpdateOnPremConnectorRequest = UpdateOnPremConnectorRequest.UpdateOnPremConnectorRequest;
 import * as UpdateOnPremConnectorWalletRequest from "./update-on-prem-connector-wallet-request";
 export import UpdateOnPremConnectorWalletRequest = UpdateOnPremConnectorWalletRequest.UpdateOnPremConnectorWalletRequest;
+import * as UpdateTargetDatabaseRequest from "./update-target-database-request";
+export import UpdateTargetDatabaseRequest = UpdateTargetDatabaseRequest.UpdateTargetDatabaseRequest;

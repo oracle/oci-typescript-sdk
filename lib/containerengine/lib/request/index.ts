@@ -14,6 +14,8 @@ and manage cloud-native applications. For more information, see
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ClusterMigrateToNativeVcnRequest from "./cluster-migrate-to-native-vcn-request";
+export import ClusterMigrateToNativeVcnRequest = ClusterMigrateToNativeVcnRequest.ClusterMigrateToNativeVcnRequest;
 import * as CreateClusterRequest from "./create-cluster-request";
 export import CreateClusterRequest = CreateClusterRequest.CreateClusterRequest;
 import * as CreateKubeconfigRequest from "./create-kubeconfig-request";
@@ -28,6 +30,8 @@ import * as DeleteWorkRequestRequest from "./delete-work-request-request";
 export import DeleteWorkRequestRequest = DeleteWorkRequestRequest.DeleteWorkRequestRequest;
 import * as GetClusterRequest from "./get-cluster-request";
 export import GetClusterRequest = GetClusterRequest.GetClusterRequest;
+import * as GetClusterMigrateToNativeVcnStatusRequest from "./get-cluster-migrate-to-native-vcn-status-request";
+export import GetClusterMigrateToNativeVcnStatusRequest = GetClusterMigrateToNativeVcnStatusRequest.GetClusterMigrateToNativeVcnStatusRequest;
 import * as GetClusterOptionsRequest from "./get-cluster-options-request";
 export import GetClusterOptionsRequest = GetClusterOptionsRequest.GetClusterOptionsRequest;
 import * as GetNodePoolRequest from "./get-node-pool-request";

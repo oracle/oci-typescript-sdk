@@ -135,6 +135,73 @@ export class ContainerEngineClient {
   }
 
   /**
+   * Initiates cluster migration to use native VCN.
+   * @param ClusterMigrateToNativeVcnRequest
+   * @return ClusterMigrateToNativeVcnResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ClusterMigrateToNativeVcn.ts.html |here} to see how to use ClusterMigrateToNativeVcn API.
+   */
+  public async clusterMigrateToNativeVcn(
+    clusterMigrateToNativeVcnRequest: requests.ClusterMigrateToNativeVcnRequest
+  ): Promise<responses.ClusterMigrateToNativeVcnResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#clusterMigrateToNativeVcn.");
+    const pathParams = {
+      "{clusterId}": clusterMigrateToNativeVcnRequest.clusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": clusterMigrateToNativeVcnRequest.ifMatch,
+      "opc-request-id": clusterMigrateToNativeVcnRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      clusterMigrateToNativeVcnRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/actions/migrateToNativeVcn",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        clusterMigrateToNativeVcnRequest.clusterMigrateToNativeVcnDetails,
+        "ClusterMigrateToNativeVcnDetails",
+        models.ClusterMigrateToNativeVcnDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ClusterMigrateToNativeVcnResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Create a new cluster.
    * @param CreateClusterRequest
    * @return CreateClusterResponse
@@ -548,6 +615,72 @@ export class ContainerEngineClient {
         body: await response.json(),
         bodyKey: "cluster",
         bodyModel: "model.Cluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get details on a cluster's migration to native VCN.
+   * @param GetClusterMigrateToNativeVcnStatusRequest
+   * @return GetClusterMigrateToNativeVcnStatusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetClusterMigrateToNativeVcnStatus.ts.html |here} to see how to use GetClusterMigrateToNativeVcnStatus API.
+   */
+  public async getClusterMigrateToNativeVcnStatus(
+    getClusterMigrateToNativeVcnStatusRequest: requests.GetClusterMigrateToNativeVcnStatusRequest
+  ): Promise<responses.GetClusterMigrateToNativeVcnStatusResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ContainerEngineClient#getClusterMigrateToNativeVcnStatus."
+      );
+    const pathParams = {
+      "{clusterId}": getClusterMigrateToNativeVcnStatusRequest.clusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getClusterMigrateToNativeVcnStatusRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getClusterMigrateToNativeVcnStatusRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/migrateToNativeVcnStatus",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetClusterMigrateToNativeVcnStatusResponse>{},
+        body: await response.json(),
+        bodyKey: "clusterMigrateToNativeVcnStatus",
+        bodyModel: "model.ClusterMigrateToNativeVcnStatus",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

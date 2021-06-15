@@ -53,6 +53,32 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forAddStorageCapacityExadataInfrastructure
+   *
+   * @param request the request to send
+   * @return response returns AddStorageCapacityExadataInfrastructureResponse, GetWorkRequestResponse tuple
+   */
+  public async forAddStorageCapacityExadataInfrastructure(
+    request: serviceRequests.AddStorageCapacityExadataInfrastructureRequest
+  ): Promise<{
+    response: serviceResponses.AddStorageCapacityExadataInfrastructureResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const addStorageCapacityExadataInfrastructureResponse = await this.client.addStorageCapacityExadataInfrastructure(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      addStorageCapacityExadataInfrastructureResponse.opcWorkRequestId
+    );
+    return {
+      response: addStorageCapacityExadataInfrastructureResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forAutonomousDatabaseManualRefresh
    *
    * @param request the request to send

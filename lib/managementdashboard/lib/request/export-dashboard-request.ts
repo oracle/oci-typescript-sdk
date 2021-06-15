@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ExportDashboardRequest extends common.BaseRequest {
   /**
-   * {\"dashboardIds\":[\"dashboardId1\", \"dashboardId2\", ...]}
+   * List of dashboardIds in plain text. The syntaxt is '{\"dashboardIds\":[\"dashboardId1\", \"dashboardId2\", ...]}'. Escaping is needed when using in OCI CLI. For example, \"{\\\"dashboardIds\\\":[\\\"ocid1.managementdashboard.oc1..dashboardId1\\\"]}\" .
    */
   "exportDashboardId": string;
   /**

@@ -213,6 +213,81 @@ export class DatabaseClient {
   }
 
   /**
+   * Makes the storage capacity from additional storage servers available for VM Cluster consumption. Applies to Exadata Cloud@Customer instances only.
+   *
+   * @param AddStorageCapacityExadataInfrastructureRequest
+   * @return AddStorageCapacityExadataInfrastructureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/AddStorageCapacityExadataInfrastructure.ts.html |here} to see how to use AddStorageCapacityExadataInfrastructure API.
+   */
+  public async addStorageCapacityExadataInfrastructure(
+    addStorageCapacityExadataInfrastructureRequest: requests.AddStorageCapacityExadataInfrastructureRequest
+  ): Promise<responses.AddStorageCapacityExadataInfrastructureResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#addStorageCapacityExadataInfrastructure."
+      );
+    const pathParams = {
+      "{exadataInfrastructureId}":
+        addStorageCapacityExadataInfrastructureRequest.exadataInfrastructureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addStorageCapacityExadataInfrastructureRequest.ifMatch,
+      "opc-request-id": addStorageCapacityExadataInfrastructureRequest.opcRequestId,
+      "opc-retry-token": addStorageCapacityExadataInfrastructureRequest.opcRetryToken
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      addStorageCapacityExadataInfrastructureRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInfrastructures/{exadataInfrastructureId}/actions/addStorageCapacity",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddStorageCapacityExadataInfrastructureResponse>{},
+        body: await response.json(),
+        bodyKey: "exadataInfrastructure",
+        bodyModel: "model.ExadataInfrastructure",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Initiates a data refresh for an Autonomous Database refreshable clone. Data is refreshed from the source database to the point of a specified timestamp.
    *
    * @param AutonomousDatabaseManualRefreshRequest

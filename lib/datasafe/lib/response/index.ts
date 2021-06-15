@@ -11,18 +11,30 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ActivateTargetDatabaseResponse from "./activate-target-database-response";
+export import ActivateTargetDatabaseResponse = ActivateTargetDatabaseResponse.ActivateTargetDatabaseResponse;
 import * as ChangeDataSafePrivateEndpointCompartmentResponse from "./change-data-safe-private-endpoint-compartment-response";
 export import ChangeDataSafePrivateEndpointCompartmentResponse = ChangeDataSafePrivateEndpointCompartmentResponse.ChangeDataSafePrivateEndpointCompartmentResponse;
 import * as ChangeOnPremConnectorCompartmentResponse from "./change-on-prem-connector-compartment-response";
 export import ChangeOnPremConnectorCompartmentResponse = ChangeOnPremConnectorCompartmentResponse.ChangeOnPremConnectorCompartmentResponse;
+import * as ChangeTargetDatabaseCompartmentResponse from "./change-target-database-compartment-response";
+export import ChangeTargetDatabaseCompartmentResponse = ChangeTargetDatabaseCompartmentResponse.ChangeTargetDatabaseCompartmentResponse;
 import * as CreateDataSafePrivateEndpointResponse from "./create-data-safe-private-endpoint-response";
 export import CreateDataSafePrivateEndpointResponse = CreateDataSafePrivateEndpointResponse.CreateDataSafePrivateEndpointResponse;
 import * as CreateOnPremConnectorResponse from "./create-on-prem-connector-response";
 export import CreateOnPremConnectorResponse = CreateOnPremConnectorResponse.CreateOnPremConnectorResponse;
+import * as CreateTargetDatabaseResponse from "./create-target-database-response";
+export import CreateTargetDatabaseResponse = CreateTargetDatabaseResponse.CreateTargetDatabaseResponse;
+import * as DeactivateTargetDatabaseResponse from "./deactivate-target-database-response";
+export import DeactivateTargetDatabaseResponse = DeactivateTargetDatabaseResponse.DeactivateTargetDatabaseResponse;
 import * as DeleteDataSafePrivateEndpointResponse from "./delete-data-safe-private-endpoint-response";
 export import DeleteDataSafePrivateEndpointResponse = DeleteDataSafePrivateEndpointResponse.DeleteDataSafePrivateEndpointResponse;
 import * as DeleteOnPremConnectorResponse from "./delete-on-prem-connector-response";
 export import DeleteOnPremConnectorResponse = DeleteOnPremConnectorResponse.DeleteOnPremConnectorResponse;
+import * as DeleteTargetDatabaseResponse from "./delete-target-database-response";
+export import DeleteTargetDatabaseResponse = DeleteTargetDatabaseResponse.DeleteTargetDatabaseResponse;
+import * as DownloadPrivilegeScriptResponse from "./download-privilege-script-response";
+export import DownloadPrivilegeScriptResponse = DownloadPrivilegeScriptResponse.DownloadPrivilegeScriptResponse;
 import * as EnableDataSafeConfigurationResponse from "./enable-data-safe-configuration-response";
 export import EnableDataSafeConfigurationResponse = EnableDataSafeConfigurationResponse.EnableDataSafeConfigurationResponse;
 import * as GenerateOnPremConnectorConfigurationResponse from "./generate-on-prem-connector-configuration-response";
@@ -33,12 +45,16 @@ import * as GetDataSafePrivateEndpointResponse from "./get-data-safe-private-end
 export import GetDataSafePrivateEndpointResponse = GetDataSafePrivateEndpointResponse.GetDataSafePrivateEndpointResponse;
 import * as GetOnPremConnectorResponse from "./get-on-prem-connector-response";
 export import GetOnPremConnectorResponse = GetOnPremConnectorResponse.GetOnPremConnectorResponse;
+import * as GetTargetDatabaseResponse from "./get-target-database-response";
+export import GetTargetDatabaseResponse = GetTargetDatabaseResponse.GetTargetDatabaseResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";
 export import GetWorkRequestResponse = GetWorkRequestResponse.GetWorkRequestResponse;
 import * as ListDataSafePrivateEndpointsResponse from "./list-data-safe-private-endpoints-response";
 export import ListDataSafePrivateEndpointsResponse = ListDataSafePrivateEndpointsResponse.ListDataSafePrivateEndpointsResponse;
 import * as ListOnPremConnectorsResponse from "./list-on-prem-connectors-response";
 export import ListOnPremConnectorsResponse = ListOnPremConnectorsResponse.ListOnPremConnectorsResponse;
+import * as ListTargetDatabasesResponse from "./list-target-databases-response";
+export import ListTargetDatabasesResponse = ListTargetDatabasesResponse.ListTargetDatabasesResponse;
 import * as ListWorkRequestErrorsResponse from "./list-work-request-errors-response";
 export import ListWorkRequestErrorsResponse = ListWorkRequestErrorsResponse.ListWorkRequestErrorsResponse;
 import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response";
@@ -51,3 +67,5 @@ import * as UpdateOnPremConnectorResponse from "./update-on-prem-connector-respo
 export import UpdateOnPremConnectorResponse = UpdateOnPremConnectorResponse.UpdateOnPremConnectorResponse;
 import * as UpdateOnPremConnectorWalletResponse from "./update-on-prem-connector-wallet-response";
 export import UpdateOnPremConnectorWalletResponse = UpdateOnPremConnectorWalletResponse.UpdateOnPremConnectorWalletResponse;
+import * as UpdateTargetDatabaseResponse from "./update-target-database-response";
+export import UpdateTargetDatabaseResponse = UpdateTargetDatabaseResponse.UpdateTargetDatabaseResponse;

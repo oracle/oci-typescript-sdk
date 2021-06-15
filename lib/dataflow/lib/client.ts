@@ -1081,7 +1081,8 @@ export class DataFlowClient {
       "sortOrder": listApplicationsRequest.sortOrder,
       "displayName": listApplicationsRequest.displayName,
       "ownerPrincipalId": listApplicationsRequest.ownerPrincipalId,
-      "displayNameStartsWith": listApplicationsRequest.displayNameStartsWith
+      "displayNameStartsWith": listApplicationsRequest.displayNameStartsWith,
+      "sparkVersion": listApplicationsRequest.sparkVersion
     };
 
     let headerParams = {

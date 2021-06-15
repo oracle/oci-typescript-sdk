@@ -65,6 +65,11 @@ export interface ListApplicationsRequest extends common.BaseRequest {
    *
    */
   "displayNameStartsWith"?: string;
+  /**
+   * The Spark version utilized to run the application.
+   *
+   */
+  "sparkVersion"?: string;
 }
 
 export namespace ListApplicationsRequest {

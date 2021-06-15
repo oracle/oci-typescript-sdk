@@ -93,6 +93,10 @@ export interface CreateManagementDashboardDetails {
    */
   "isFavorite": boolean;
   /**
+   * Defines parameters for the dashboard.
+   */
+  "parametersConfig"?: Array<any>;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
    *

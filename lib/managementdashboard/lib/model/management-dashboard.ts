@@ -21,9 +21,13 @@ import common = require("oci-common");
  */
 export interface ManagementDashboard {
   /**
-   * ID of the dashboard.
+   * ID of the dashboard.  Same as id.
    */
   "dashboardId": string;
+  /**
+   * ID of the dashboard.  Same as dashboardId.
+   */
+  "id": string;
   /**
    * ID of the service (for example, log-analytics) that owns the dashboard. Each service has a unique ID.
    */
@@ -112,6 +116,14 @@ export interface ManagementDashboard {
    * Array of saved searches in the dashboard.
    */
   "savedSearches": Array<model.ManagementSavedSearch>;
+  /**
+   * State of dashboard.
+   */
+  "lifecycleState": model.LifecycleStates;
+  /**
+   * Defines parameters for the dashboard.
+   */
+  "parametersConfig"?: Array<any>;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`

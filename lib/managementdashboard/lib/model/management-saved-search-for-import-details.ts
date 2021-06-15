@@ -96,6 +96,10 @@ export interface ManagementSavedSearchForImportDetails {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Defines parameters for the saved search.
+   */
+  "parametersConfig"?: Array<any>;
 }
 
 export namespace ManagementSavedSearchForImportDetails {

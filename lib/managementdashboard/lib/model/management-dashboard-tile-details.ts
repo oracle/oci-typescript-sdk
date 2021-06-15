@@ -66,6 +66,10 @@ export interface ManagementDashboardTileDetails {
    * Drill-down configuration to define the destination of a drill-down action.
    */
   "drilldownConfig": any;
+  /**
+   * Specifies the saved search parameters values
+   */
+  "parametersMap"?: any;
 }
 
 export namespace ManagementDashboardTileDetails {
