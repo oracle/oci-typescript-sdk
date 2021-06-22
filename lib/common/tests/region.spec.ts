@@ -79,4 +79,11 @@ describe("Test Region", () => {
       );
     });
   });
+
+  it("should return all the regions registered in SDK", function() {
+    const regionsList = Region.values();
+    expect(regionsList).to.be.an("array");
+    expect(regionsList.map(e => e.regionId)).to.include("us-phoenix-1");
+    expect(regionsList.map(e => e.realm)).to.include(Realm.OC1);
+  });
 });

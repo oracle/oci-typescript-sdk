@@ -12,7 +12,16 @@ import {
 } from "./helper";
 
 interface Params {
-  [key: string]: string | Date | Range | string[] | number | number[] | boolean | undefined;
+  [key: string]:
+    | string
+    | Date
+    | Range
+    | string[]
+    | number
+    | number[]
+    | boolean
+    | boolean[]
+    | undefined;
 }
 export type Method =
   | "GET"

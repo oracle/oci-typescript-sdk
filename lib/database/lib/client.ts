@@ -3180,6 +3180,80 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
+   * Create and start a pluggable database in the specified container database.
+   * If needed call actions/stop to stop the PDB.
+   *
+   * @param CreatePluggableDatabaseRequest
+   * @return CreatePluggableDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreatePluggableDatabase.ts.html |here} to see how to use CreatePluggableDatabase API.
+   */
+  public async createPluggableDatabase(
+    createPluggableDatabaseRequest: requests.CreatePluggableDatabaseRequest
+  ): Promise<responses.CreatePluggableDatabaseResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createPluggableDatabase.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createPluggableDatabaseRequest.opcRetryToken,
+      "opc-request-id": createPluggableDatabaseRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createPluggableDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggableDatabases",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createPluggableDatabaseRequest.createPluggableDatabaseDetails,
+        "CreatePluggableDatabaseDetails",
+        models.CreatePluggableDatabaseDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreatePluggableDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "pluggableDatabase",
+        bodyModel: "model.PluggableDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates an Exadata Cloud@Customer VM cluster.
    *
    * @param CreateVmClusterRequest
@@ -4398,6 +4472,67 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteKeyStoreResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete a pluggable database
+   * @param DeletePluggableDatabaseRequest
+   * @return DeletePluggableDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeletePluggableDatabase.ts.html |here} to see how to use DeletePluggableDatabase API.
+   */
+  public async deletePluggableDatabase(
+    deletePluggableDatabaseRequest: requests.DeletePluggableDatabaseRequest
+  ): Promise<responses.DeletePluggableDatabaseResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deletePluggableDatabase.");
+    const pathParams = {
+      "{pluggableDatabaseId}": deletePluggableDatabaseRequest.pluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deletePluggableDatabaseRequest.ifMatch,
+      "opc-request-id": deletePluggableDatabaseRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deletePluggableDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggableDatabases/{pluggableDatabaseId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeletePluggableDatabaseResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -8516,6 +8651,68 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
         body: await response.json(),
         bodyKey: "maintenanceRun",
         bodyModel: "model.MaintenanceRun",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about a specific pluggable database
+   * @param GetPluggableDatabaseRequest
+   * @return GetPluggableDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetPluggableDatabase.ts.html |here} to see how to use GetPluggableDatabase API.
+   */
+  public async getPluggableDatabase(
+    getPluggableDatabaseRequest: requests.GetPluggableDatabaseRequest
+  ): Promise<responses.GetPluggableDatabaseResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getPluggableDatabase.");
+    const pathParams = {
+      "{pluggableDatabaseId}": getPluggableDatabaseRequest.pluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getPluggableDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggableDatabases/{pluggableDatabaseId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPluggableDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "pluggableDatabase",
+        bodyModel: "model.PluggableDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -12798,6 +12995,102 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Gets a list of the pluggable databases based on databaseId or compartmentId specified.
+   * Either one of the query parameters must be provided.
+   *
+   * @param ListPluggableDatabasesRequest
+   * @return ListPluggableDatabasesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListPluggableDatabases.ts.html |here} to see how to use ListPluggableDatabases API.
+   */
+  public async listPluggableDatabases(
+    listPluggableDatabasesRequest: requests.ListPluggableDatabasesRequest
+  ): Promise<responses.ListPluggableDatabasesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listPluggableDatabases.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listPluggableDatabasesRequest.compartmentId,
+      "databaseId": listPluggableDatabasesRequest.databaseId,
+      "limit": listPluggableDatabasesRequest.limit,
+      "page": listPluggableDatabasesRequest.page,
+      "sortBy": listPluggableDatabasesRequest.sortBy,
+      "sortOrder": listPluggableDatabasesRequest.sortOrder,
+      "lifecycleState": listPluggableDatabasesRequest.lifecycleState,
+      "pdbName": listPluggableDatabasesRequest.pdbName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listPluggableDatabasesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggableDatabases",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPluggableDatabasesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "PluggableDatabaseSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PluggableDatabaseSummary objects
+   * contained in responses from the listPluggableDatabases operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllPluggableDatabases(
+    request: requests.ListPluggableDatabasesRequest
+  ): AsyncIterableIterator<models.PluggableDatabaseSummary> {
+    return paginateRecords(request, req => this.listPluggableDatabases(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listPluggableDatabases operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllPluggableDatabasesResponses(
+    request: requests.ListPluggableDatabasesRequest
+  ): AsyncIterableIterator<responses.ListPluggableDatabasesResponse> {
+    return paginateResponses(request, req => this.listPluggableDatabases(req));
+  }
+
+  /**
    * Gets a list of the VM cluster networks in the specified compartment. Applies to Exadata Cloud@Customer instances only.
    *
    * @param ListVmClusterNetworksRequest
@@ -13175,6 +13468,82 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Clone and start a pluggable database on the same CDB. Only a started pluggable database can be cloned.
+   * @param LocalClonePluggableDatabaseRequest
+   * @return LocalClonePluggableDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/LocalClonePluggableDatabase.ts.html |here} to see how to use LocalClonePluggableDatabase API.
+   */
+  public async localClonePluggableDatabase(
+    localClonePluggableDatabaseRequest: requests.LocalClonePluggableDatabaseRequest
+  ): Promise<responses.LocalClonePluggableDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#localClonePluggableDatabase.");
+    const pathParams = {
+      "{pluggableDatabaseId}": localClonePluggableDatabaseRequest.pluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": localClonePluggableDatabaseRequest.ifMatch,
+      "opc-request-id": localClonePluggableDatabaseRequest.opcRequestId,
+      "opc-retry-token": localClonePluggableDatabaseRequest.opcRetryToken
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      localClonePluggableDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggableDatabases/{pluggableDatabaseId}/actions/localClone",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        localClonePluggableDatabaseRequest.localClonePluggableDatabaseDetails,
+        "LocalClonePluggableDatabaseDetails",
+        models.LocalClonePluggableDatabaseDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.LocalClonePluggableDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "pluggableDatabase",
+        bodyModel: "model.PluggableDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Migrates the Exadata DB system to the new [Exadata resource model](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model).
    * All related resources will be migrated.
    *
@@ -13519,6 +13888,82 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         body: await response.json(),
         bodyKey: "dataGuardAssociation",
         bodyModel: "model.DataGuardAssociation",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Clone and start a pluggable database on a different CDB. Only a started pluggable database can be cloned.
+   * @param RemoteClonePluggableDatabaseRequest
+   * @return RemoteClonePluggableDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RemoteClonePluggableDatabase.ts.html |here} to see how to use RemoteClonePluggableDatabase API.
+   */
+  public async remoteClonePluggableDatabase(
+    remoteClonePluggableDatabaseRequest: requests.RemoteClonePluggableDatabaseRequest
+  ): Promise<responses.RemoteClonePluggableDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#remoteClonePluggableDatabase.");
+    const pathParams = {
+      "{pluggableDatabaseId}": remoteClonePluggableDatabaseRequest.pluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": remoteClonePluggableDatabaseRequest.ifMatch,
+      "opc-request-id": remoteClonePluggableDatabaseRequest.opcRequestId,
+      "opc-retry-token": remoteClonePluggableDatabaseRequest.opcRetryToken
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      remoteClonePluggableDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggableDatabases/{pluggableDatabaseId}/actions/remoteClone",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        remoteClonePluggableDatabaseRequest.remoteClonePluggableDatabaseDetails,
+        "RemoteClonePluggableDatabaseDetails",
+        models.RemoteClonePluggableDatabaseDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoteClonePluggableDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "pluggableDatabase",
+        bodyModel: "model.PluggableDatabase",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -14320,6 +14765,76 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * start a stopped pluggable database. The openMode of the pluggable database will be READ_WRITE upon completion.
+   * @param StartPluggableDatabaseRequest
+   * @return StartPluggableDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/StartPluggableDatabase.ts.html |here} to see how to use StartPluggableDatabase API.
+   */
+  public async startPluggableDatabase(
+    startPluggableDatabaseRequest: requests.StartPluggableDatabaseRequest
+  ): Promise<responses.StartPluggableDatabaseResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#startPluggableDatabase.");
+    const pathParams = {
+      "{pluggableDatabaseId}": startPluggableDatabaseRequest.pluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": startPluggableDatabaseRequest.ifMatch,
+      "opc-request-id": startPluggableDatabaseRequest.opcRequestId,
+      "opc-retry-token": startPluggableDatabaseRequest.opcRetryToken
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      startPluggableDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggableDatabases/{pluggableDatabaseId}/actions/start",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StartPluggableDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "pluggableDatabase",
+        bodyModel: "model.PluggableDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Stops the specified Autonomous Database.
    *
    * @param StopAutonomousDatabaseRequest
@@ -14378,6 +14893,76 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * stop a started pluggable database. The openMode of the pluggable database will be MOUNTED upon completion.
+   * @param StopPluggableDatabaseRequest
+   * @return StopPluggableDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/StopPluggableDatabase.ts.html |here} to see how to use StopPluggableDatabase API.
+   */
+  public async stopPluggableDatabase(
+    stopPluggableDatabaseRequest: requests.StopPluggableDatabaseRequest
+  ): Promise<responses.StopPluggableDatabaseResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#stopPluggableDatabase.");
+    const pathParams = {
+      "{pluggableDatabaseId}": stopPluggableDatabaseRequest.pluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": stopPluggableDatabaseRequest.ifMatch,
+      "opc-request-id": stopPluggableDatabaseRequest.opcRequestId,
+      "opc-retry-token": stopPluggableDatabaseRequest.opcRetryToken
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      stopPluggableDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggableDatabases/{pluggableDatabaseId}/actions/stop",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StopPluggableDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "pluggableDatabase",
+        bodyModel: "model.PluggableDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -16428,6 +17013,79 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
         bodyKey: "maintenanceRun",
         bodyModel: "model.MaintenanceRun",
         responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update a pluggable database
+   * @param UpdatePluggableDatabaseRequest
+   * @return UpdatePluggableDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdatePluggableDatabase.ts.html |here} to see how to use UpdatePluggableDatabase API.
+   */
+  public async updatePluggableDatabase(
+    updatePluggableDatabaseRequest: requests.UpdatePluggableDatabaseRequest
+  ): Promise<responses.UpdatePluggableDatabaseResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updatePluggableDatabase.");
+    const pathParams = {
+      "{pluggableDatabaseId}": updatePluggableDatabaseRequest.pluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updatePluggableDatabaseRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updatePluggableDatabaseRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggableDatabases/{pluggableDatabaseId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updatePluggableDatabaseRequest.updatePluggableDatabaseDetails,
+        "UpdatePluggableDatabaseDetails",
+        models.UpdatePluggableDatabaseDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdatePluggableDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "pluggableDatabase",
+        bodyModel: "model.PluggableDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("etag"),
             key: "etag",

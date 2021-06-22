@@ -44,23 +44,18 @@ class DefaultRetryCondition {
    * NOTE : Retries are not supported for requests that have binary or stream bodies
    */
   private static RETRYABLE_SERVICE_ERRORS: Map<number, string> = new Map([
-    [401, "NotAuthenticated"],
-    [404, "NotAuthorizedOrNotFound"],
     [409, "IncorrectState"],
-    [409, "NotAuthorizedOrResourceAlreadyExists"],
-    [429, "TooManyRequests"],
-    [500, "InternalServerError"],
-    [401, "NotAuthenticated"],
-    [404, "NotAuthorizedOrNotFound"],
-    [409, "IncorrectState"],
-    [409, "NotAuthorizedOrResourceAlreadyExists"],
-    [429, "TooManyRequests"],
-    [500, "InternalServerError"]
+    [429, "TooManyRequests"]
   ]);
 
   static shouldBeRetried(error: OciError): boolean {
     return (
-      error.statusCode >= 500 ||
+      error.statusCode === 500 ||
+      error.statusCode === 502 ||
+      error.statusCode === 503 ||
+      error.statusCode === 504 ||
+      error.statusCode == -1 ||
+      isNaN(error.statusCode) ||
       (DefaultRetryCondition.RETRYABLE_SERVICE_ERRORS.has(error.statusCode) &&
         DefaultRetryCondition.RETRYABLE_SERVICE_ERRORS.get(error.statusCode) === error.serviceCode)
     );

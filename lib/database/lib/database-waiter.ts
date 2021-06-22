@@ -983,6 +983,30 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forCreatePluggableDatabase
+   *
+   * @param request the request to send
+   * @return response returns CreatePluggableDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreatePluggableDatabase(
+    request: serviceRequests.CreatePluggableDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.CreatePluggableDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createPluggableDatabaseResponse = await this.client.createPluggableDatabase(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createPluggableDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: createPluggableDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forCreateVmCluster
    *
    * @param request the request to send
@@ -1358,6 +1382,30 @@ export class DatabaseWaiter {
     );
     return {
       response: deleteExternalPluggableDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDeletePluggableDatabase
+   *
+   * @param request the request to send
+   * @return response returns DeletePluggableDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeletePluggableDatabase(
+    request: serviceRequests.DeletePluggableDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.DeletePluggableDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deletePluggableDatabaseResponse = await this.client.deletePluggableDatabase(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deletePluggableDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: deletePluggableDatabaseResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -2377,6 +2425,25 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forPluggableDatabase till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetPluggableDatabaseResponse | null (null in case of 404 response)
+   */
+  public async forPluggableDatabase(
+    request: serviceRequests.GetPluggableDatabaseRequest,
+    ...targetStates: models.PluggableDatabase.LifecycleState[]
+  ): Promise<serviceResponses.GetPluggableDatabaseResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getPluggableDatabase(request),
+      response => targetStates.includes(response.pluggableDatabase.lifecycleState!),
+      targetStates.includes(models.PluggableDatabase.LifecycleState.Terminated)
+    );
+  }
+
+  /**
    * Waits forVmCluster till it reaches any of the provided states
    *
    * @param request the request to send
@@ -2459,6 +2526,32 @@ export class DatabaseWaiter {
       launchDbSystemResponse.opcWorkRequestId
     );
     return { response: launchDbSystemResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forLocalClonePluggableDatabase
+   *
+   * @param request the request to send
+   * @return response returns LocalClonePluggableDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forLocalClonePluggableDatabase(
+    request: serviceRequests.LocalClonePluggableDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.LocalClonePluggableDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const localClonePluggableDatabaseResponse = await this.client.localClonePluggableDatabase(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      localClonePluggableDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: localClonePluggableDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
   }
 
   /**
@@ -2582,6 +2675,32 @@ export class DatabaseWaiter {
     );
     return {
       response: reinstateDataGuardAssociationResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forRemoteClonePluggableDatabase
+   *
+   * @param request the request to send
+   * @return response returns RemoteClonePluggableDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forRemoteClonePluggableDatabase(
+    request: serviceRequests.RemoteClonePluggableDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.RemoteClonePluggableDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const remoteClonePluggableDatabaseResponse = await this.client.remoteClonePluggableDatabase(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      remoteClonePluggableDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: remoteClonePluggableDatabaseResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -2847,6 +2966,30 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forStartPluggableDatabase
+   *
+   * @param request the request to send
+   * @return response returns StartPluggableDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forStartPluggableDatabase(
+    request: serviceRequests.StartPluggableDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.StartPluggableDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const startPluggableDatabaseResponse = await this.client.startPluggableDatabase(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      startPluggableDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: startPluggableDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forStopAutonomousDatabase
    *
    * @param request the request to send
@@ -2868,6 +3011,27 @@ export class DatabaseWaiter {
       response: stopAutonomousDatabaseResponse,
       workRequestResponse: getWorkRequestResponse
     };
+  }
+
+  /**
+   * Waits forStopPluggableDatabase
+   *
+   * @param request the request to send
+   * @return response returns StopPluggableDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forStopPluggableDatabase(
+    request: serviceRequests.StopPluggableDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.StopPluggableDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const stopPluggableDatabaseResponse = await this.client.stopPluggableDatabase(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      stopPluggableDatabaseResponse.opcWorkRequestId
+    );
+    return { response: stopPluggableDatabaseResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**
@@ -3459,6 +3623,30 @@ export class DatabaseWaiter {
     );
     return {
       response: updateExternalPluggableDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdatePluggableDatabase
+   *
+   * @param request the request to send
+   * @return response returns UpdatePluggableDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdatePluggableDatabase(
+    request: serviceRequests.UpdatePluggableDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.UpdatePluggableDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updatePluggableDatabaseResponse = await this.client.updatePluggableDatabase(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updatePluggableDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: updatePluggableDatabaseResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }

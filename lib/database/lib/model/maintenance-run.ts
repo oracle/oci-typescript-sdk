@@ -82,7 +82,10 @@ export interface MaintenanceRun {
    */
   "peerMaintenanceRunId"?: string;
   /**
-   * Maintenance method, it will be either \"ROLLING\" or \"NONROLLING\". Default value is ROLLING.
+   * Cloud Exadata infrastructure node patching method, either \"ROLLING\" or \"NONROLLING\". Default value is ROLLING.
+   * <p>
+   *IMPORTANT*: Non-rolling infrastructure patching involves system down time. See [Oracle-Managed Infrastructure Maintenance Updates](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/examaintenance.htm#Oracle) for more information.
+   *
    */
   "patchingMode"?: MaintenanceRun.PatchingMode;
   /**
