@@ -16,7 +16,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details for updating an external [Management Agent cloud service (MACS)](https://docs.cloud.oracle.com/iaas/management-agents/index.html) database connection.
+ * Details for updating an external [Management Agent cloud service (MACS)](https://docs.cloud.oracle.com/iaas/management-agents/index.html)
+ * database connection.
  *
  */
 export interface UpdateExternalMacsConnectorDetails

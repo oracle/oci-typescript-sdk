@@ -141,10 +141,14 @@ export class UploadManager {
       };
     } catch (e) {
       if (this.numberOfSingleUploadRetry < 3) {
+        console.log(`putObject failed, will retry. Last known error: ${e}`);
         this.numberOfSingleUploadRetry += 1;
         return await this.singleUpload(requestDetails, content);
       } else {
-        throw "Failed to upload object 3 times. Aborting";
+        console.log(
+          `putObject failed to retry ${this.numberOfSingleUploadRetry} times. Error: ${e}`
+        );
+        throw e;
       }
     }
   }
@@ -194,7 +198,8 @@ export class UploadManager {
       this.numberOfRetries[uploadId] = this.numberOfRetries[uploadId]
         ? (this.numberOfRetries[uploadId] += 1)
         : 1;
-      if (this.numberOfRetries[uploadId] < 3) {
+      if (this.numberOfRetries[uploadId] < 4) {
+        console.log(`Upload part failed, will retry. Last known error: ${ex}`);
         return await this.triggerUploadPart(
           content,
           requestDetails,
@@ -205,7 +210,9 @@ export class UploadManager {
           callback
         );
       } else {
-        if (this.logger) this.logger.error(`Upload of part: ${uploadPartNum} failed due to ${ex}`);
+        console.log(
+          `Upload part retried ${this.numberOfRetries[uploadId]} times and failed. Upload of part: ${uploadPartNum} failed due to ${ex}`
+        );
         throw ex;
       }
     }

@@ -67,6 +67,7 @@ export class Region {
   private static hasUsedConfigFile: boolean = false;
   private static hasUsedEnvVar: boolean = false;
   private static imdsRegionMetadata: RegionMetadataSchema | undefined;
+  private static hasWarnedAboutValuesWithoutInstanceMetadataService: boolean = false;
 
   private static REGIONS_CONFIG_FILE_PATH: string = "~/.oci/regions-config.json";
   private static OCI_REGION_METADATA_ENV_VAR: string = "OCI_REGION_METADATA";
@@ -123,6 +124,39 @@ export class Region {
 
   // OC8
   public static AP_CHIYODA_1: Region = Region.register("ap-chiyoda-1", Realm.OC8);
+
+  /**
+   * Return all known Regions in this version of the SDK, except possibly the region returned by IMDS (Instance Metadata
+   * Service, only available on OCI instances), since IMDS is not automatically contacted by this method.
+   *
+   * To ensure that this method also returns the region provided by IMDS, call {@link Region#enableInstanceMetadata()}
+   * explicitly before calling {@link Region#values()}.
+   *
+   */
+  public static values(): Region[] {
+    if (!Region.hasCalledForImds && !Region.hasWarnedAboutValuesWithoutInstanceMetadataService) {
+      console.log(
+        "Call to Regions.values() without having contacted IMDS (Instance Metadata Service, only available on OCI instances); if you do need the region from IMDS, call Region.enableInstanceMetadata() before calling Region.values()"
+      );
+      Region.hasWarnedAboutValuesWithoutInstanceMetadataService = true;
+    }
+    Region.registerAllRegions();
+
+    return Array.from(this.KNOWN_REGIONS.values());
+  }
+
+  /**
+   *  Register all regions and sets status
+   */
+  private static registerAllRegions(): void {
+    if (!Region.hasUsedConfigFile) {
+      Region.addRegionsFromConfigFile();
+    }
+
+    if (!Region.hasUsedEnvVar) {
+      Region.addRegionFromEnvVar();
+    }
+  }
 
   public static fromRegionId(regionId: string): Region {
     /*
