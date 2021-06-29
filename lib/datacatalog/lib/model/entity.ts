@@ -79,6 +79,15 @@ export interface Entity {
    */
   "timeExternal"?: Date;
   /**
+   * The date and time the entity was harvested, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   *
+   */
+  "timeHarvested"?: Date;
+  /**
+   * List of objects and their relationships to this entity.
+   */
+  "objectRelationships"?: Array<model.ObjectRelationship>;
+  /**
    * Time that the data entities status was last updated. An [RFC3339](https://tools.ietf.org/html/rfc3339) formatted datetime string.
    */
   "timeStatusUpdated"?: Date;
@@ -144,6 +153,12 @@ export namespace Entity {
     const jsonObj = {
       ...obj,
       ...{
+        "objectRelationships": obj.objectRelationships
+          ? obj.objectRelationships.map(item => {
+              return model.ObjectRelationship.getJsonObj(item);
+            })
+          : undefined,
+
         "customPropertyMembers": obj.customPropertyMembers
           ? obj.customPropertyMembers.map(item => {
               return model.CustomPropertyGetUsage.getJsonObj(item);

@@ -133,6 +133,18 @@ export interface Attribute {
    */
   "timeExternal"?: Date;
   /**
+   * The date and time the attribute was harvested, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   */
+  "timeHarvested"?: Date;
+  /**
+   * List of objects and their relationships to this attribute.
+   */
+  "objectRelationships"?: Array<model.ObjectRelationship>;
+  /**
+   * Whether a column is derived or not.
+   */
+  "isDerivedAttribute"?: boolean;
+  /**
    * URI to the attribute instance in the API.
    */
   "uri"?: string;
@@ -175,6 +187,12 @@ export namespace Attribute {
     const jsonObj = {
       ...obj,
       ...{
+        "objectRelationships": obj.objectRelationships
+          ? obj.objectRelationships.map(item => {
+              return model.ObjectRelationship.getJsonObj(item);
+            })
+          : undefined,
+
         "customPropertyMembers": obj.customPropertyMembers
           ? obj.customPropertyMembers.map(item => {
               return model.CustomPropertyGetUsage.getJsonObj(item);

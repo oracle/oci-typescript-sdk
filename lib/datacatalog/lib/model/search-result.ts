@@ -138,6 +138,10 @@ export interface SearchResult {
    */
   "lifecycleState"?: model.LifecycleState;
   /**
+   * Type name of the attribute. For example - complex, primitive, or array.
+   */
+  "attributeType"?: string;
+  /**
    * Expression for logical entities against which names of dataObjects will be matched.
    */
   "expression"?: string;

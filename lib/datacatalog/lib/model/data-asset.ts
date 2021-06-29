@@ -64,6 +64,11 @@ export interface DataAsset {
    */
   "timeUpdated"?: Date;
   /**
+   * The last time that a harvest was performed on the data asset. An [RFC3339](https://tools.ietf.org/html/rfc3339) formatted datetime string.
+   *
+   */
+  "timeHarvested"?: Date;
+  /**
    * OCID of the user who created the data asset.
    */
   "createdById"?: string;

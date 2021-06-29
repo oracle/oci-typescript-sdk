@@ -31,6 +31,10 @@ export interface GetEntityRequest extends common.BaseRequest {
    */
   "entityKey": string;
   /**
+   * Indicates whether the list of objects and their relationships to this object will be provided in the response.
+   */
+  "isIncludeObjectRelationships"?: boolean;
+  /**
    * Specifies the fields to return in an entity response.
    *
    */

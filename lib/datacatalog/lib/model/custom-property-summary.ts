@@ -94,6 +94,23 @@ export interface CustomPropertySummary {
    * Allowed values for the custom property if any
    */
   "allowedValues"?: Array<string>;
+  /**
+   * The last time that any change was made to the custom property. An [RFC3339](https://tools.ietf.org/html/rfc3339) formatted datetime string.
+   *
+   */
+  "timeUpdated"?: Date;
+  /**
+   * OCID of the user who created the custom property.
+   */
+  "createdById"?: string;
+  /**
+   * OCID of the user who last modified the custom property.
+   */
+  "updatedById"?: string;
+  /**
+   * If an OCI Event will be emitted when the custom property is modified.
+   */
+  "isEventEnabled"?: boolean;
 }
 
 export namespace CustomPropertySummary {

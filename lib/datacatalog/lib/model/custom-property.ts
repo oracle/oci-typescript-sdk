@@ -103,6 +103,10 @@ export interface CustomProperty {
    */
   "usageCount"?: number;
   /**
+   * If an OCI Event will be emitted when the custom property is modified.
+   */
+  "isEventEnabled"?: boolean;
+  /**
    * Type or scope of the custom property belongs to. This will be an array of type id it will be belongs to
    *
    */

@@ -85,6 +85,10 @@ export interface AutonomousDatabaseSummary {
    */
   "cpuCoreCount": number;
   /**
+   * The number of Fractional OCPU cores to be made available to the database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "ocpuCount"?: number;
+  /**
    * The quantity of data in the database, in terabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInTBs": number;

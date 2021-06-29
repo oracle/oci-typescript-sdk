@@ -50,6 +50,10 @@ export interface FolderSummary {
    */
   "parentFolderKey"?: string;
   /**
+   * The type of folder object. Type keys can be found via the '/types' endpoint.
+   */
+  "typeKey"?: string;
+  /**
    * Full path of the folder.
    */
   "path"?: string;

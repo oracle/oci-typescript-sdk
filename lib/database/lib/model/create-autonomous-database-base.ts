@@ -17,6 +17,8 @@ import common = require("oci-common");
 
 /**
  * Details to create an Oracle Autonomous Database.
+ * Choose either Fractional ocpuCount or cpuCoreCount.
+ * Choose either dataStorageSizeInGBs or dataStorageSizeInTBs
  * <p>
  **Warning:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.
  *
@@ -33,7 +35,11 @@ export interface CreateAutonomousDatabaseBase {
   /**
    * The number of OCPU cores to be made available to the database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "cpuCoreCount": number;
+  "cpuCoreCount"?: number;
+  /**
+   * The number of Fractional OCPU cores to be made available to the database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "ocpuCount"?: number;
   /**
     * The Autonomous Database workload type. The following values are valid:
 * <p>
@@ -49,6 +55,11 @@ export interface CreateAutonomousDatabaseBase {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInTBs"?: number;
+  /**
+   * The size, in gigabytes, of the data volume that will be created and attached to the database. This storage can later be scaled up if needed.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "dataStorageSizeInGBs"?: number;
   /**
    * Indicates if this is an Always Free resource. The default value is false. Note that Always Free Autonomous Databases have 1 CPU and 20GB of memory. For Always Free databases, memory and CPU cannot be scaled.
    *

@@ -30,6 +30,10 @@ export interface CustomPropertyTypeUsage {
    * Number of objects associated with this type Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "count"?: number;
+  /**
+   * If an OCI Event will be emitted when the custom property is modified.
+   */
+  "isEventEnabled"?: boolean;
 }
 
 export namespace CustomPropertyTypeUsage {

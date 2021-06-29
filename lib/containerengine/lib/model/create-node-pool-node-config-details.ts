@@ -27,6 +27,11 @@ export interface CreateNodePoolNodeConfigDetails {
    */
   "size": number;
   /**
+   * The OCIDs of the Network Security Group(s) to associate nodes for this node pool with. For more information about NSGs, see {@link NetworkSecurityGroup}.
+   *
+   */
+  "nsgIds"?: Array<string>;
+  /**
     * The placement configurations for the node pool. Provide one placement
 * configuration for each availability domain in which you intend to launch a node.
 * <p>
