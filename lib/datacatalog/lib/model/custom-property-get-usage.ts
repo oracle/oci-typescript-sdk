@@ -63,6 +63,10 @@ export interface CustomPropertyGetUsage {
    */
   "isShownInList"?: boolean;
   /**
+   * If an OCI Event will be emitted when the custom property is modified.
+   */
+  "isEventEnabled"?: boolean;
+  /**
    * Is this property allowed to have list of values
    */
   "isListType"?: boolean;

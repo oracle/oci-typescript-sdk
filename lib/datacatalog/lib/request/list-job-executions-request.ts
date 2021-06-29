@@ -102,7 +102,7 @@ export interface ListJobExecutionsRequest extends common.BaseRequest {
    */
   "fields"?: Array<ListJobExecutionsRequest.Fields>;
   /**
-   * The field to sort by. Only one sort order may be provided. Default order for TIMECREATED is descending. Default order for DISPLAYNAME is ascending. If no value is specified TIMECREATED is default.
+   * The field to sort by. Only one sort order may be provided; the default is descending. Use sortOrder query param to specify order.
    *
    */
   "sortBy"?: ListJobExecutionsRequest.SortBy;
@@ -139,8 +139,7 @@ export namespace ListJobExecutionsRequest {
   }
 
   export enum SortBy {
-    Timecreated = "TIMECREATED",
-    Displayname = "DISPLAYNAME"
+    Timecreated = "TIMECREATED"
   }
 
   export enum SortOrder {

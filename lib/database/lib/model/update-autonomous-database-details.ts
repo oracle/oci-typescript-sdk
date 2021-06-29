@@ -27,10 +27,19 @@ export interface UpdateAutonomousDatabaseDetails {
    */
   "cpuCoreCount"?: number;
   /**
+   * The number of Fractional OCPU cores to be made available to the database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "ocpuCount"?: number;
+  /**
    * The size, in terabytes, of the data volume that will be attached to the database.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInTBs"?: number;
+  /**
+   * The size, in gigabytes, of the data volume that will be attached to the database.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "dataStorageSizeInGBs"?: number;
   /**
    * The user-friendly name for the Autonomous Database. The name does not have to be unique. Can only be updated for Autonomous Databases
    * using dedicated Exadata infrastructure.

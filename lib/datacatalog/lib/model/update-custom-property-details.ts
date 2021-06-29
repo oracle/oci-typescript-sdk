@@ -57,6 +57,10 @@ export interface UpdateCustomPropertyDetails {
    */
   "isHiddenInSearch"?: boolean;
   /**
+   * If an OCI Event will be emitted when the custom property is modified.
+   */
+  "isEventEnabled"?: boolean;
+  /**
    * Allowed values for the custom property if any
    */
   "allowedValues"?: Array<string>;

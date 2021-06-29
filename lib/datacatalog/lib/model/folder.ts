@@ -45,6 +45,19 @@ export interface Folder {
    */
   "parentFolderKey"?: string;
   /**
+   * The type of folder object. Type keys can be found via the '/types' endpoint.
+   */
+  "typeKey"?: string;
+  /**
+   * The date and time the folder was harvested, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   *
+   */
+  "timeHarvested"?: Date;
+  /**
+   * List of objects and their relationships to this folder.
+   */
+  "objectRelationships"?: Array<model.ObjectRelationship>;
+  /**
    * Full path of the folder.
    */
   "path"?: string;
@@ -115,6 +128,12 @@ export namespace Folder {
     const jsonObj = {
       ...obj,
       ...{
+        "objectRelationships": obj.objectRelationships
+          ? obj.objectRelationships.map(item => {
+              return model.ObjectRelationship.getJsonObj(item);
+            })
+          : undefined,
+
         "customPropertyMembers": obj.customPropertyMembers
           ? obj.customPropertyMembers.map(item => {
               return model.CustomPropertyGetUsage.getJsonObj(item);

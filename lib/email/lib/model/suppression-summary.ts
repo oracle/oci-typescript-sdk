@@ -4,7 +4,8 @@
 emails. For more information, see [Overview of the Email Delivery Service](/iaas/Content/Email/Concepts/overview.htm).
 
 
-**Note:** Write actions (POST, UPDATE, DELETE) may take several minutes to propagate and be reflected by the API. If a subsequent read request fails to reflect your changes, wait a few minutes and try again.
+**Note:** Write actions (POST, UPDATE, DELETE) may take several minutes to propagate and be reflected by the API.
+If a subsequent read request fails to reflect your changes, wait a few minutes and try again.
 
  * OpenAPI spec version: 20170907
  * Contact: email-dev_us_grp@oracle.com
@@ -26,15 +27,15 @@ export interface SuppressionSummary {
   /**
    * The OCID for the compartment.
    */
-  "compartmentId"?: string;
+  "compartmentId": string;
   /**
    * The email address of the suppression.
    */
-  "emailAddress"?: string;
+  "emailAddress": string;
   /**
    * The unique OCID of the suppression.
    */
-  "id"?: string;
+  "id": string;
   /**
    * The reason that the email address was suppressed.
    */

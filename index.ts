@@ -164,3 +164,4 @@ export import servicecatalog = require("oci-servicecatalog");
 export import bastion = require("oci-bastion");
 export import genericartifactscontent = require("oci-genericartifactscontent");
 export import jms = require("oci-jms");
+export import devops = require("oci-devops");

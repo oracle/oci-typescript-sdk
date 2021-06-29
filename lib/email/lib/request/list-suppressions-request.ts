@@ -80,17 +80,12 @@ export interface ListSuppressionsRequest extends common.BaseRequest {
    * The sort order to use, either ascending or descending order.
    *
    */
-  "sortOrder"?: ListSuppressionsRequest.SortOrder;
+  "sortOrder"?: model.SortOrder;
 }
 
 export namespace ListSuppressionsRequest {
   export enum SortBy {
     Timecreated = "TIMECREATED",
     Emailaddress = "EMAILADDRESS"
-  }
-
-  export enum SortOrder {
-    Asc = "ASC",
-    Desc = "DESC"
   }
 }

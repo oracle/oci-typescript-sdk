@@ -4,7 +4,8 @@
 emails. For more information, see [Overview of the Email Delivery Service](/iaas/Content/Email/Concepts/overview.htm).
 
 
-**Note:** Write actions (POST, UPDATE, DELETE) may take several minutes to propagate and be reflected by the API. If a subsequent read request fails to reflect your changes, wait a few minutes and try again.
+**Note:** Write actions (POST, UPDATE, DELETE) may take several minutes to propagate and be reflected by the API.
+If a subsequent read request fails to reflect your changes, wait a few minutes and try again.
 
  * OpenAPI spec version: 20170907
  * Contact: email-dev_us_grp@oracle.com
@@ -29,15 +30,15 @@ export interface Suppression {
    * OCID.
    *
    */
-  "compartmentId"?: string;
+  "compartmentId": string;
   /**
    * Email address of the suppression.
    */
-  "emailAddress"?: string;
+  "emailAddress": string;
   /**
    * The unique ID of the suppression.
    */
-  "id"?: string;
+  "id": string;
   /**
    * The reason that the email address was suppressed. For more information on the types of bounces, see [Suppression List](https://docs.us-phoenix-1.oraclecloud.com/Content/Email/Concepts/overview.htm#components).
    */
@@ -48,6 +49,36 @@ export interface Suppression {
    *
    */
   "timeCreated"?: Date;
+  /**
+   * The last date and time the suppression prevented submission
+   * in \"YYYY-MM-ddThh:mmZ\"
+   * format with a Z offset, as defined by RFC 3339.
+   *
+   */
+  "timeLastSuppressed"?: Date;
+  /**
+   * The value of the Message-ID header from the email that triggered a suppression.
+   * This value is as defined in RFC 5322 section 3.6.4, excluding angle-brackets.
+   * Not provided for all types of suppressions.
+   *
+   */
+  "messageId"?: string;
+  /**
+   * The specific error message returned by a system that resulted in the suppression.
+   * This message is usually an SMTP error code with additional descriptive text.
+   * Not provided for all types of suppressions.
+   *
+   */
+  "errorDetail"?: string;
+  /**
+    * DNS name of the source of the error that caused the suppression.
+* Will be set to either the remote-mta or reporting-mta field from a delivery status notification (RFC 3464) when available.
+* Not provided for all types of suppressions, and not always known.
+* <p>
+Note: Most SMTP errors that cause suppressions come from software run by email receiving systems rather than from OCI email delivery itself.
+* 
+    */
+  "errorSource"?: string;
 }
 
 export namespace Suppression {

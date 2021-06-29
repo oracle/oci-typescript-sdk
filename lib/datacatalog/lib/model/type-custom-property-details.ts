@@ -22,6 +22,10 @@ export interface TypeCustomPropertyDetails {
    * array of custom property Ids
    */
   "customPropertyIds"?: Array<string>;
+  /**
+   * If an OCI Event will be emitted when the custom property is modified.
+   */
+  "isEventEnabled"?: boolean;
 }
 
 export namespace TypeCustomPropertyDetails {

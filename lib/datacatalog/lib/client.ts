@@ -480,6 +480,73 @@ export class DataCatalogClient {
   }
 
   /**
+   * Moves a resource into a different compartment. When provided, 'If-Match' is checked against 'ETag' values of the resource.
+   * @param ChangeMetastoreCompartmentRequest
+   * @return ChangeMetastoreCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ChangeMetastoreCompartment.ts.html |here} to see how to use ChangeMetastoreCompartment API.
+   */
+  public async changeMetastoreCompartment(
+    changeMetastoreCompartmentRequest: requests.ChangeMetastoreCompartmentRequest
+  ): Promise<responses.ChangeMetastoreCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#changeMetastoreCompartment.");
+    const pathParams = {
+      "{metastoreId}": changeMetastoreCompartmentRequest.metastoreId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeMetastoreCompartmentRequest.ifMatch,
+      "opc-request-id": changeMetastoreCompartmentRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeMetastoreCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/metastores/{metastoreId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeMetastoreCompartmentRequest.changeMetastoreCompartmentDetails,
+        "ChangeMetastoreCompartmentDetails",
+        models.ChangeMetastoreCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeMetastoreCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new entity attribute.
    * @param CreateAttributeRequest
    * @return CreateAttributeResponse
@@ -1576,6 +1643,71 @@ export class DataCatalogClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new metastore.
+   *
+   * @param CreateMetastoreRequest
+   * @return CreateMetastoreResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateMetastore.ts.html |here} to see how to use CreateMetastore API.
+   */
+  public async createMetastore(
+    createMetastoreRequest: requests.CreateMetastoreRequest
+  ): Promise<responses.CreateMetastoreResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createMetastore.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createMetastoreRequest.opcRetryToken,
+      "opc-request-id": createMetastoreRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createMetastoreRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/metastores",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createMetastoreRequest.createMetastoreDetails,
+        "CreateMetastoreDetails",
+        models.CreateMetastoreDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateMetastoreResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {
@@ -2753,6 +2885,67 @@ export class DataCatalogClient {
   }
 
   /**
+   * Deletes a metastore resource by identifier.
+   * @param DeleteMetastoreRequest
+   * @return DeleteMetastoreResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteMetastore.ts.html |here} to see how to use DeleteMetastore API.
+   */
+  public async deleteMetastore(
+    deleteMetastoreRequest: requests.DeleteMetastoreRequest
+  ): Promise<responses.DeleteMetastoreResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteMetastore.");
+    const pathParams = {
+      "{metastoreId}": deleteMetastoreRequest.metastoreId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteMetastoreRequest.ifMatch,
+      "opc-request-id": deleteMetastoreRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteMetastoreRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/metastores/{metastoreId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteMetastoreResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a specific Namespace identified by it's key.
    * @param DeleteNamespaceRequest
    * @return DeleteNamespaceResponse
@@ -3276,6 +3469,7 @@ export class DataCatalogClient {
     };
 
     const queryParams = {
+      "isIncludeObjectRelationships": getAttributeRequest.isIncludeObjectRelationships,
       "fields": getAttributeRequest.fields
     };
 
@@ -3808,6 +4002,7 @@ export class DataCatalogClient {
     };
 
     const queryParams = {
+      "isIncludeObjectRelationships": getEntityRequest.isIncludeObjectRelationships,
       "fields": getEntityRequest.fields
     };
 
@@ -3943,6 +4138,7 @@ export class DataCatalogClient {
     };
 
     const queryParams = {
+      "isIncludeObjectRelationships": getFolderRequest.isIncludeObjectRelationships,
       "fields": getFolderRequest.fields
     };
 
@@ -4461,6 +4657,69 @@ export class DataCatalogClient {
   }
 
   /**
+   * Gets a metastore by identifier.
+   * @param GetMetastoreRequest
+   * @return GetMetastoreResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetMetastore.ts.html |here} to see how to use GetMetastore API.
+   */
+  public async getMetastore(
+    getMetastoreRequest: requests.GetMetastoreRequest
+  ): Promise<responses.GetMetastoreResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getMetastore.");
+    const pathParams = {
+      "{metastoreId}": getMetastoreRequest.metastoreId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMetastoreRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getMetastoreRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/metastores/{metastoreId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMetastoreResponse>{},
+        body: await response.json(),
+        bodyKey: "metastore",
+        bodyModel: "model.Metastore",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a specific namespace for the given key within a data catalog.
    * @param GetNamespaceRequest
    * @return GetNamespaceResponse
@@ -4919,6 +5178,74 @@ export class DataCatalogClient {
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Import technical objects to a Data Asset
+   * @param ImportDataAssetRequest
+   * @return ImportDataAssetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ImportDataAsset.ts.html |here} to see how to use ImportDataAsset API.
+   */
+  public async importDataAsset(
+    importDataAssetRequest: requests.ImportDataAssetRequest
+  ): Promise<responses.ImportDataAssetResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#importDataAsset.");
+    const pathParams = {
+      "{catalogId}": importDataAssetRequest.catalogId,
+      "{dataAssetKey}": importDataAssetRequest.dataAssetKey
+    };
+
+    const queryParams = {
+      "importType": importDataAssetRequest.importType,
+      "isMissingValueIgnored": importDataAssetRequest.isMissingValueIgnored
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": importDataAssetRequest.opcRequestId,
+      "opc-retry-token": importDataAssetRequest.opcRetryToken
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      importDataAssetRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/dataAssets/{dataAssetKey}/actions/import",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        importDataAssetRequest.importDataAssetDetails,
+        "ImportDataAssetDetails",
+        models.ImportDataAssetDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ImportDataAssetResponse>{},
+        body: await response.json(),
+        bodyKey: "importDataAssetJobResult",
+        bodyModel: "model.ImportDataAssetJobResult",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -6630,6 +6957,101 @@ export class DataCatalogClient {
   }
 
   /**
+   * Returns a list of all metastores in the specified compartment.
+   *
+   * @param ListMetastoresRequest
+   * @return ListMetastoresResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListMetastores.ts.html |here} to see how to use ListMetastores API.
+   */
+  public async listMetastores(
+    listMetastoresRequest: requests.ListMetastoresRequest
+  ): Promise<responses.ListMetastoresResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listMetastores.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listMetastoresRequest.compartmentId,
+      "displayName": listMetastoresRequest.displayName,
+      "limit": listMetastoresRequest.limit,
+      "page": listMetastoresRequest.page,
+      "lifecycleState": listMetastoresRequest.lifecycleState,
+      "sortOrder": listMetastoresRequest.sortOrder,
+      "sortBy": listMetastoresRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMetastoresRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listMetastoresRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/metastores",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMetastoresResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: "MetastoreSummary[]",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.MetastoreSummary objects
+   * contained in responses from the listMetastores operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllMetastores(
+    request: requests.ListMetastoresRequest
+  ): AsyncIterableIterator<models.MetastoreSummary> {
+    return paginateRecords(request, req => this.listMetastores(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listMetastores operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllMetastoresResponses(
+    request: requests.ListMetastoresRequest
+  ): AsyncIterableIterator<responses.ListMetastoresResponse> {
+    return paginateResponses(request, req => this.listMetastores(req));
+  }
+
+  /**
    * Returns a list of namespaces within a data catalog.
    * @param ListNamespacesRequest
    * @return ListNamespacesResponse
@@ -7932,6 +8354,75 @@ export class DataCatalogClient {
   }
 
   /**
+   * Export technical objects from a Data Asset
+   * @param SynchronousExportDataAssetRequest
+   * @return SynchronousExportDataAssetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/SynchronousExportDataAsset.ts.html |here} to see how to use SynchronousExportDataAsset API.
+   */
+  public async synchronousExportDataAsset(
+    synchronousExportDataAssetRequest: requests.SynchronousExportDataAssetRequest
+  ): Promise<responses.SynchronousExportDataAssetResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#synchronousExportDataAsset.");
+    const pathParams = {
+      "{catalogId}": synchronousExportDataAssetRequest.catalogId,
+      "{dataAssetKey}": synchronousExportDataAssetRequest.dataAssetKey
+    };
+
+    const queryParams = {
+      "exportType": synchronousExportDataAssetRequest.exportType
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": synchronousExportDataAssetRequest.opcRequestId,
+      "opc-retry-token": synchronousExportDataAssetRequest.opcRetryToken
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      synchronousExportDataAssetRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/dataAssets/{dataAssetKey}/actions/synchronousExport",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        synchronousExportDataAssetRequest.synchronousExportDataAssetDetails,
+        "ExportDataAssetDetails",
+        models.ExportDataAssetDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SynchronousExportDataAssetResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Test the connection by connecting to the data asset using credentials in the metadata.
    * @param TestConnectionRequest
    * @return TestConnectionResponse
@@ -8751,6 +9242,75 @@ export class DataCatalogClient {
         body: await response.json(),
         bodyKey: "jobDefinition",
         bodyModel: "model.JobDefinition",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates a metastore resource by identifier.
+   * @param UpdateMetastoreRequest
+   * @return UpdateMetastoreResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateMetastore.ts.html |here} to see how to use UpdateMetastore API.
+   */
+  public async updateMetastore(
+    updateMetastoreRequest: requests.UpdateMetastoreRequest
+  ): Promise<responses.UpdateMetastoreResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateMetastore.");
+    const pathParams = {
+      "{metastoreId}": updateMetastoreRequest.metastoreId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateMetastoreRequest.ifMatch,
+      "opc-request-id": updateMetastoreRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateMetastoreRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/metastores/{metastoreId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateMetastoreRequest.updateMetastoreDetails,
+        "UpdateMetastoreDetails",
+        models.UpdateMetastoreDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateMetastoreResponse>{},
+        body: await response.json(),
+        bodyKey: "metastore",
+        bodyModel: "model.Metastore",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

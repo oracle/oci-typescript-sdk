@@ -4,7 +4,8 @@
 emails. For more information, see [Overview of the Email Delivery Service](/iaas/Content/Email/Concepts/overview.htm).
 
 
-**Note:** Write actions (POST, UPDATE, DELETE) may take several minutes to propagate and be reflected by the API. If a subsequent read request fails to reflect your changes, wait a few minutes and try again.
+**Note:** Write actions (POST, UPDATE, DELETE) may take several minutes to propagate and be reflected by the API.
+If a subsequent read request fails to reflect your changes, wait a few minutes and try again.
 
  * OpenAPI spec version: 20170907
  * Contact: email-dev_us_grp@oracle.com
@@ -26,15 +27,15 @@ export interface Sender {
   /**
    * The OCID for the compartment.
    */
-  "compartmentId"?: string;
+  "compartmentId": string;
   /**
    * Email address of the sender.
    */
-  "emailAddress"?: string;
+  "emailAddress": string;
   /**
    * The unique OCID of the sender.
    */
-  "id"?: string;
+  "id": string;
   /**
    * Value of the SPF field. For more information about SPF, please see
    * [SPF Authentication](https://docs.us-phoenix-1.oraclecloud.com/Content/Email/Concepts/overview.htm#components).
@@ -52,18 +53,25 @@ export interface Sender {
    */
   "timeCreated"?: Date;
   /**
-   * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Department\": \"Finance\"}`
+   * The email domain used to assert responsibility for emails sent from this sender.
    *
    */
+  "emailDomainId"?: string;
+  /**
+    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
+* For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* <p>
+Example: `{\"Department\": \"Finance\"}`
+* 
+    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
-   *
-   */
+    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
+* For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* <p>
+Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+* 
+    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
 }
 

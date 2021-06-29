@@ -4,7 +4,8 @@
 emails. For more information, see [Overview of the Email Delivery Service](/iaas/Content/Email/Concepts/overview.htm).
 
 
-**Note:** Write actions (POST, UPDATE, DELETE) may take several minutes to propagate and be reflected by the API. If a subsequent read request fails to reflect your changes, wait a few minutes and try again.
+**Note:** Write actions (POST, UPDATE, DELETE) may take several minutes to propagate and be reflected by the API.
+If a subsequent read request fails to reflect your changes, wait a few minutes and try again.
 
  * OpenAPI spec version: 20170907
  * Contact: email-dev_us_grp@oracle.com
@@ -31,7 +32,7 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 export enum EmailApiKeys {}
 
 export class EmailClient {
-  protected static serviceEndpointTemplate = "https://email.{region}.{secondLevelDomain}";
+  protected static serviceEndpointTemplate = "https://ctrl.email.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": EmailWaiter;
@@ -136,6 +137,80 @@ export class EmailClient {
   }
 
   /**
+   * Moves a email domain into a different compartment.
+   * When provided, If-Match is checked against ETag value of the resource.
+   * For information about moving resources between compartments, see
+   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * <p>
+   **Note:** All Dkim objects associated with this email domain will also be moved into the provided compartment.
+   *
+   * @param ChangeEmailDomainCompartmentRequest
+   * @return ChangeEmailDomainCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ChangeEmailDomainCompartment.ts.html |here} to see how to use ChangeEmailDomainCompartment API.
+   */
+  public async changeEmailDomainCompartment(
+    changeEmailDomainCompartmentRequest: requests.ChangeEmailDomainCompartmentRequest
+  ): Promise<responses.ChangeEmailDomainCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation EmailClient#changeEmailDomainCompartment.");
+    const pathParams = {
+      "{emailDomainId}": changeEmailDomainCompartmentRequest.emailDomainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeEmailDomainCompartmentRequest.ifMatch,
+      "opc-request-id": changeEmailDomainCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeEmailDomainCompartmentRequest.opcRetryToken
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeEmailDomainCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailDomains/{emailDomainId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeEmailDomainCompartmentRequest.changeEmailDomainCompartmentDetails,
+        "ChangeEmailDomainCompartmentDetails",
+        models.ChangeEmailDomainCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeEmailDomainCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a sender into a different compartment. When provided, If-Match is checked against ETag values of the resource.
    * @param ChangeSenderCompartmentRequest
    * @return ChangeSenderCompartmentResponse
@@ -185,6 +260,175 @@ export class EmailClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new DKIM for a email domain.
+   * This DKIM will sign all approved senders in the tenancy that are in this email domain.
+   * Best security practices indicate to periodically rotate the DKIM that is doing the signing.
+   * When a second DKIM is applied, all senders will seamlessly pick up the new key
+   * without interruption in signing.
+   *
+   * @param CreateDkimRequest
+   * @return CreateDkimResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/CreateDkim.ts.html |here} to see how to use CreateDkim API.
+   */
+  public async createDkim(
+    createDkimRequest: requests.CreateDkimRequest
+  ): Promise<responses.CreateDkimResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#createDkim.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createDkimRequest.opcRetryToken,
+      "opc-request-id": createDkimRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createDkimRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dkims",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDkimRequest.createDkimDetails,
+        "CreateDkimDetails",
+        models.CreateDkimDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDkimResponse>{},
+        body: await response.json(),
+        bodyKey: "dkim",
+        bodyModel: "model.Dkim",
+        responseHeaders: [
+          {
+            value: response.headers.get("Content-Location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("Location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new email domain. Avoid entering confidential information.
+   * @param CreateEmailDomainRequest
+   * @return CreateEmailDomainResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/CreateEmailDomain.ts.html |here} to see how to use CreateEmailDomain API.
+   */
+  public async createEmailDomain(
+    createEmailDomainRequest: requests.CreateEmailDomainRequest
+  ): Promise<responses.CreateEmailDomainResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#createEmailDomain.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createEmailDomainRequest.opcRequestId,
+      "opc-retry-token": createEmailDomainRequest.opcRetryToken
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createEmailDomainRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailDomains",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createEmailDomainRequest.createEmailDomainDetails,
+        "CreateEmailDomainDetails",
+        models.CreateEmailDomainDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateEmailDomainResponse>{},
+        body: await response.json(),
+        bodyKey: "emailDomain",
+        bodyModel: "model.EmailDomain",
+        responseHeaders: [
+          {
+            value: response.headers.get("Content-Location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("Location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -328,6 +572,134 @@ export class EmailClient {
   }
 
   /**
+   * Deletes a DKIM.
+   * If this key is currently the active key for the email domain, deleting the key
+   * will stop signing the domain's outgoing mail.
+   * DKIM keys are left in DELETING state for about a day to allow DKIM signatures on
+   * in-transit mail to be validated.
+   * Consider instead of deletion creating a new DKIM for this domain so the signing can be rotated to it.
+   *
+   * @param DeleteDkimRequest
+   * @return DeleteDkimResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/DeleteDkim.ts.html |here} to see how to use DeleteDkim API.
+   */
+  public async deleteDkim(
+    deleteDkimRequest: requests.DeleteDkimRequest
+  ): Promise<responses.DeleteDkimResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#deleteDkim.");
+    const pathParams = {
+      "{dkimId}": deleteDkimRequest.dkimId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDkimRequest.ifMatch,
+      "opc-request-id": deleteDkimRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteDkimRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dkims/{dkimId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDkimResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a email domain.
+   * @param DeleteEmailDomainRequest
+   * @return DeleteEmailDomainResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/DeleteEmailDomain.ts.html |here} to see how to use DeleteEmailDomain API.
+   */
+  public async deleteEmailDomain(
+    deleteEmailDomainRequest: requests.DeleteEmailDomainRequest
+  ): Promise<responses.DeleteEmailDomainResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#deleteEmailDomain.");
+    const pathParams = {
+      "{emailDomainId}": deleteEmailDomainRequest.emailDomainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteEmailDomainRequest.ifMatch,
+      "opc-request-id": deleteEmailDomainRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteEmailDomainRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailDomains/{emailDomainId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteEmailDomainResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes an approved sender for a tenancy in a given compartment for a
    * provided `senderId`.
    *
@@ -428,6 +800,132 @@ export class EmailClient {
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSuppressionResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves the specified DKIM.
+   * @param GetDkimRequest
+   * @return GetDkimResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/GetDkim.ts.html |here} to see how to use GetDkim API.
+   */
+  public async getDkim(
+    getDkimRequest: requests.GetDkimRequest
+  ): Promise<responses.GetDkimResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#getDkim.");
+    const pathParams = {
+      "{dkimId}": getDkimRequest.dkimId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDkimRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getDkimRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dkims/{dkimId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDkimResponse>{},
+        body: await response.json(),
+        bodyKey: "dkim",
+        bodyModel: "model.Dkim",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves the specified email domain.
+   * @param GetEmailDomainRequest
+   * @return GetEmailDomainResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/GetEmailDomain.ts.html |here} to see how to use GetEmailDomain API.
+   */
+  public async getEmailDomain(
+    getEmailDomainRequest: requests.GetEmailDomainRequest
+  ): Promise<responses.GetEmailDomainResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#getEmailDomain.");
+    const pathParams = {
+      "{emailDomainId}": getEmailDomainRequest.emailDomainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getEmailDomainRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getEmailDomainRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailDomains/{emailDomainId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetEmailDomainResponse>{},
+        body: await response.json(),
+        bodyKey: "emailDomain",
+        bodyModel: "model.EmailDomain",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -566,6 +1064,209 @@ export class EmailClient {
   }
 
   /**
+   * Gets the status of the work request with the given ID.
+   * @param GetWorkRequestRequest
+   * @return GetWorkRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   */
+  public async getWorkRequest(
+    getWorkRequestRequest: requests.GetWorkRequestRequest
+  ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#getWorkRequest.");
+    const pathParams = {
+      "{workRequestId}": getWorkRequestRequest.workRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getWorkRequestRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getWorkRequestRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetWorkRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequest",
+        bodyModel: "model.WorkRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists DKIMs for a email domain.
+   * @param ListDkimsRequest
+   * @return ListDkimsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListDkims.ts.html |here} to see how to use ListDkims API.
+   */
+  public async listDkims(
+    listDkimsRequest: requests.ListDkimsRequest
+  ): Promise<responses.ListDkimsResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#listDkims.");
+    const pathParams = {};
+
+    const queryParams = {
+      "emailDomainId": listDkimsRequest.emailDomainId,
+      "id": listDkimsRequest.id,
+      "name": listDkimsRequest.name,
+      "limit": listDkimsRequest.limit,
+      "page": listDkimsRequest.page,
+      "sortOrder": listDkimsRequest.sortOrder,
+      "lifecycleState": listDkimsRequest.lifecycleState,
+      "sortBy": listDkimsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDkimsRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listDkimsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dkims",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDkimsResponse>{},
+        body: await response.json(),
+        bodyKey: "dkimCollection",
+        bodyModel: "model.DkimCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists email domains in the specified compartment.
+   * @param ListEmailDomainsRequest
+   * @return ListEmailDomainsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListEmailDomains.ts.html |here} to see how to use ListEmailDomains API.
+   */
+  public async listEmailDomains(
+    listEmailDomainsRequest: requests.ListEmailDomainsRequest
+  ): Promise<responses.ListEmailDomainsResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#listEmailDomains.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listEmailDomainsRequest.compartmentId,
+      "id": listEmailDomainsRequest.id,
+      "name": listEmailDomainsRequest.name,
+      "limit": listEmailDomainsRequest.limit,
+      "page": listEmailDomainsRequest.page,
+      "sortOrder": listEmailDomainsRequest.sortOrder,
+      "lifecycleState": listEmailDomainsRequest.lifecycleState,
+      "sortBy": listEmailDomainsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listEmailDomainsRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listEmailDomainsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailDomains",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListEmailDomainsResponse>{},
+        body: await response.json(),
+        bodyKey: "emailDomainCollection",
+        bodyModel: "model.EmailDomainCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a collection of approved sender email addresses and sender IDs.
    *
    * @param ListSendersRequest
@@ -582,6 +1283,7 @@ export class EmailClient {
     const queryParams = {
       "compartmentId": listSendersRequest.compartmentId,
       "lifecycleState": listSendersRequest.lifecycleState,
+      "domain": listSendersRequest.domain,
       "emailAddress": listSendersRequest.emailAddress,
       "page": listSendersRequest.page,
       "limit": listSendersRequest.limit,
@@ -771,6 +1473,339 @@ export class EmailClient {
     request: requests.ListSuppressionsRequest
   ): AsyncIterableIterator<responses.ListSuppressionsResponse> {
     return paginateResponses(request, req => this.listSuppressions(req));
+  }
+
+  /**
+   * Return a (paginated) list of errors for a given work request.
+   *
+   * @param ListWorkRequestErrorsRequest
+   * @return ListWorkRequestErrorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   */
+  public async listWorkRequestErrors(
+    listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
+  ): Promise<responses.ListWorkRequestErrorsResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#listWorkRequestErrors.");
+    const pathParams = {
+      "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
+    };
+
+    const queryParams = {
+      "page": listWorkRequestErrorsRequest.page,
+      "limit": listWorkRequestErrorsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listWorkRequestErrorsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}/errors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWorkRequestErrorsResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequestErrorCollection",
+        bodyModel: "model.WorkRequestErrorCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Return a (paginated) list of logs for a given work request.
+   *
+   * @param ListWorkRequestLogsRequest
+   * @return ListWorkRequestLogsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   */
+  public async listWorkRequestLogs(
+    listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
+  ): Promise<responses.ListWorkRequestLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#listWorkRequestLogs.");
+    const pathParams = {
+      "{workRequestId}": listWorkRequestLogsRequest.workRequestId
+    };
+
+    const queryParams = {
+      "page": listWorkRequestLogsRequest.page,
+      "limit": listWorkRequestLogsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWorkRequestLogsRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listWorkRequestLogsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}/logs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWorkRequestLogsResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequestLogEntryCollection",
+        bodyModel: "model.WorkRequestLogEntryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the work requests in a compartment.
+   *
+   * @param ListWorkRequestsRequest
+   * @return ListWorkRequestsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   */
+  public async listWorkRequests(
+    listWorkRequestsRequest: requests.ListWorkRequestsRequest
+  ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#listWorkRequests.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listWorkRequestsRequest.compartmentId,
+      "workRequestId": listWorkRequestsRequest.workRequestId,
+      "page": listWorkRequestsRequest.page,
+      "limit": listWorkRequestsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWorkRequestsRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listWorkRequestsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWorkRequestsResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequestSummaryCollection",
+        bodyModel: "model.WorkRequestSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Modifies a DKIM.
+   * @param UpdateDkimRequest
+   * @return UpdateDkimResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/UpdateDkim.ts.html |here} to see how to use UpdateDkim API.
+   */
+  public async updateDkim(
+    updateDkimRequest: requests.UpdateDkimRequest
+  ): Promise<responses.UpdateDkimResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#updateDkim.");
+    const pathParams = {
+      "{dkimId}": updateDkimRequest.dkimId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDkimRequest.ifMatch,
+      "opc-request-id": updateDkimRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateDkimRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dkims/{dkimId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDkimRequest.updateDkimDetails,
+        "UpdateDkimDetails",
+        models.UpdateDkimDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDkimResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Modifies a email domain.
+   * @param UpdateEmailDomainRequest
+   * @return UpdateEmailDomainResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/UpdateEmailDomain.ts.html |here} to see how to use UpdateEmailDomain API.
+   */
+  public async updateEmailDomain(
+    updateEmailDomainRequest: requests.UpdateEmailDomainRequest
+  ): Promise<responses.UpdateEmailDomainResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#updateEmailDomain.");
+    const pathParams = {
+      "{emailDomainId}": updateEmailDomainRequest.emailDomainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateEmailDomainRequest.ifMatch,
+      "opc-request-id": updateEmailDomainRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateEmailDomainRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailDomains/{emailDomainId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateEmailDomainRequest.updateEmailDomainDetails,
+        "UpdateEmailDomainDetails",
+        models.UpdateEmailDomainDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateEmailDomainResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**

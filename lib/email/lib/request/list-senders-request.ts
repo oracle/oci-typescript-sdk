@@ -31,6 +31,10 @@ export interface ListSendersRequest extends common.BaseRequest {
    */
   "lifecycleState"?: string;
   /**
+   * A filter to only return resources that match the given domain exactly.
+   */
+  "domain"?: string;
+  /**
    * The email address of the approved sender.
    */
   "emailAddress"?: string;
@@ -60,17 +64,12 @@ export interface ListSendersRequest extends common.BaseRequest {
    * The sort order to use, either ascending or descending order.
    *
    */
-  "sortOrder"?: ListSendersRequest.SortOrder;
+  "sortOrder"?: model.SortOrder;
 }
 
 export namespace ListSendersRequest {
   export enum SortBy {
     Timecreated = "TIMECREATED",
     Emailaddress = "EMAILADDRESS"
-  }
-
-  export enum SortOrder {
-    Asc = "ASC",
-    Desc = "DESC"
   }
 }
