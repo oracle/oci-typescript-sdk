@@ -44,4 +44,19 @@ export namespace ComputeInstanceGroupFailurePolicyByCount {
     return jsonObj;
   }
   export const policyType = "COMPUTE_INSTANCE_GROUP_FAILURE_POLICY_BY_COUNT";
+  export function getDeserializedJsonObj(
+    obj: ComputeInstanceGroupFailurePolicyByCount,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ComputeInstanceGroupFailurePolicy.getDeserializedJsonObj(
+            obj
+          ) as ComputeInstanceGroupFailurePolicyByCount)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

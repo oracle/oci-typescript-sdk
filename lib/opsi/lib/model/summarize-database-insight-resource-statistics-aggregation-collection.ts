@@ -76,4 +76,20 @@ export namespace SummarizeDatabaseInsightResourceStatisticsAggregationCollection
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: SummarizeDatabaseInsightResourceStatisticsAggregationCollection
+  ): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ResourceStatisticsAggregation.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

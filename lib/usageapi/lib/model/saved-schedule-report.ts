@@ -42,4 +42,9 @@ export namespace SavedScheduleReport {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SavedScheduleReport): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

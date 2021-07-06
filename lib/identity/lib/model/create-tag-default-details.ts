@@ -50,4 +50,9 @@ export namespace CreateTagDefaultDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateTagDefaultDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

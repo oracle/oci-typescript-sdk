@@ -142,4 +142,9 @@ export namespace BgpSessionInfo {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BgpSessionInfo): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -61,4 +61,30 @@ export namespace CompositeFieldMap {
     return jsonObj;
   }
   export const modelType = "COMPOSITE_FIELD_MAP";
+  export function getDeserializedJsonObj(
+    obj: CompositeFieldMap,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.FieldMap.getDeserializedJsonObj(obj) as CompositeFieldMap)),
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+        "configValues": obj.configValues
+          ? model.ConfigValues.getDeserializedJsonObj(obj.configValues)
+          : undefined,
+
+        "fieldMaps": obj.fieldMaps
+          ? obj.fieldMaps.map(item => {
+              return model.FieldMap.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -42,4 +42,17 @@ export namespace OcirDeployArtifactSource {
     return jsonObj;
   }
   export const deployArtifactSourceType = "OCIR";
+  export function getDeserializedJsonObj(
+    obj: OcirDeployArtifactSource,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DeployArtifactSource.getDeserializedJsonObj(obj) as OcirDeployArtifactSource)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

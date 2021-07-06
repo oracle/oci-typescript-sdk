@@ -50,4 +50,14 @@ export namespace GitConfigSource {
     return jsonObj;
   }
   export const configSourceType = "GIT_CONFIG_SOURCE";
+  export function getDeserializedJsonObj(obj: GitConfigSource, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ConfigSource.getDeserializedJsonObj(obj) as GitConfigSource)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

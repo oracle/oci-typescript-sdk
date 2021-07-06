@@ -31,4 +31,9 @@ export namespace ExtractLogFieldResults {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExtractLogFieldResults): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

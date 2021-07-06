@@ -68,4 +68,22 @@ export namespace CreateStreamPoolDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateStreamPoolDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "kafkaSettings": obj.kafkaSettings
+          ? model.KafkaSettings.getDeserializedJsonObj(obj.kafkaSettings)
+          : undefined,
+        "customEncryptionKeyDetails": obj.customEncryptionKeyDetails
+          ? model.CustomEncryptionKeyDetails.getDeserializedJsonObj(obj.customEncryptionKeyDetails)
+          : undefined,
+        "privateEndpointDetails": obj.privateEndpointDetails
+          ? model.PrivateEndpointDetails.getDeserializedJsonObj(obj.privateEndpointDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

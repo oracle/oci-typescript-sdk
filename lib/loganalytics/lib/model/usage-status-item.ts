@@ -44,4 +44,9 @@ export namespace UsageStatusItem {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UsageStatusItem): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -53,4 +53,9 @@ export namespace UpdateLogAnalyticsLogGroupDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateLogAnalyticsLogGroupDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

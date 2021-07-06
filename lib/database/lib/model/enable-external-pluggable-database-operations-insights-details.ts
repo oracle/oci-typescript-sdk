@@ -35,4 +35,11 @@ export namespace EnableExternalPluggableDatabaseOperationsInsightsDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: EnableExternalPluggableDatabaseOperationsInsightsDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

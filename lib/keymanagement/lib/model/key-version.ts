@@ -114,4 +114,16 @@ export namespace KeyVersion {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: KeyVersion): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "replicaDetails": obj.replicaDetails
+          ? model.KeyVersionReplicaDetails.getDeserializedJsonObj(obj.replicaDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

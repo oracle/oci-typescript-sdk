@@ -43,4 +43,9 @@ export namespace SteeringPolicyLimitRuleCase {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SteeringPolicyLimitRuleCase): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

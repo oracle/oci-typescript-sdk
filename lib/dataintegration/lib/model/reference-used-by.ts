@@ -38,4 +38,9 @@ export namespace ReferenceUsedBy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ReferenceUsedBy): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

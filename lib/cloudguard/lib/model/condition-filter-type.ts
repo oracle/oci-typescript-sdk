@@ -29,7 +29,10 @@ export enum ConditionFilterType {
 }
 
 export namespace ConditionFilterType {
-  export function getJsonObj(obj: ConditionFilterType): object {
-    return { obj };
+  export function getJsonObj(obj: ConditionFilterType): ConditionFilterType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ConditionFilterType): ConditionFilterType {
+    return obj;
   }
 }

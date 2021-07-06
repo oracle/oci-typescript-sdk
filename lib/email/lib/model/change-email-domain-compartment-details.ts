@@ -38,4 +38,9 @@ export namespace ChangeEmailDomainCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ChangeEmailDomainCompartmentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

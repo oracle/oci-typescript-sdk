@@ -62,4 +62,17 @@ export namespace AddHttpResponseHeaderRule {
     return jsonObj;
   }
   export const action = "ADD_HTTP_RESPONSE_HEADER";
+  export function getDeserializedJsonObj(
+    obj: AddHttpResponseHeaderRule,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.Rule.getDeserializedJsonObj(obj) as AddHttpResponseHeaderRule)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

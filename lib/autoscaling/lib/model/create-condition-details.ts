@@ -47,4 +47,16 @@ export namespace CreateConditionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateConditionDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "action": obj.action ? model.Action.getDeserializedJsonObj(obj.action) : undefined,
+
+        "metric": obj.metric ? model.Metric.getDeserializedJsonObj(obj.metric) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

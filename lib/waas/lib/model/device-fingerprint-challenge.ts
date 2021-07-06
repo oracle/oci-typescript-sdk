@@ -72,4 +72,16 @@ export namespace DeviceFingerprintChallenge {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeviceFingerprintChallenge): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "challengeSettings": obj.challengeSettings
+          ? model.BlockChallengeSettings.getDeserializedJsonObj(obj.challengeSettings)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

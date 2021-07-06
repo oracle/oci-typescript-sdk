@@ -54,4 +54,23 @@ export namespace UpdateDataAssetFromObjectStorage {
     return jsonObj;
   }
   export const modelType = "ORACLE_OBJECT_STORAGE_DATA_ASSET";
+  export function getDeserializedJsonObj(
+    obj: UpdateDataAssetFromObjectStorage,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UpdateDataAssetDetails.getDeserializedJsonObj(
+            obj
+          ) as UpdateDataAssetFromObjectStorage)),
+      ...{
+        "defaultConnection": obj.defaultConnection
+          ? model.UpdateConnectionFromObjectStorage.getDeserializedJsonObj(obj.defaultConnection)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

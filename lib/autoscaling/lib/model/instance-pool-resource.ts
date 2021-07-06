@@ -37,4 +37,17 @@ export namespace InstancePoolResource {
     return jsonObj;
   }
   export const type = "instancePool";
+  export function getDeserializedJsonObj(
+    obj: InstancePoolResource,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.Resource.getDeserializedJsonObj(obj) as InstancePoolResource)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

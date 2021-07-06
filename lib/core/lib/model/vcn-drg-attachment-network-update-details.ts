@@ -55,4 +55,19 @@ export namespace VcnDrgAttachmentNetworkUpdateDetails {
     return jsonObj;
   }
   export const type = "VCN";
+  export function getDeserializedJsonObj(
+    obj: VcnDrgAttachmentNetworkUpdateDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DrgAttachmentNetworkUpdateDetails.getDeserializedJsonObj(
+            obj
+          ) as VcnDrgAttachmentNetworkUpdateDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

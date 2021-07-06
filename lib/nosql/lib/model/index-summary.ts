@@ -56,4 +56,18 @@ export namespace IndexSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IndexSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "keys": obj.keys
+          ? obj.keys.map(item => {
+              return model.IndexKey.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

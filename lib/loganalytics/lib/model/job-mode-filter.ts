@@ -25,7 +25,10 @@ export enum JobModeFilter {
 }
 
 export namespace JobModeFilter {
-  export function getJsonObj(obj: JobModeFilter): object {
-    return { obj };
+  export function getJsonObj(obj: JobModeFilter): JobModeFilter {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: JobModeFilter): JobModeFilter {
+    return obj;
   }
 }

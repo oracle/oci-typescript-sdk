@@ -79,4 +79,18 @@ export namespace CachingRuleSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CachingRuleSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "criteria": obj.criteria
+          ? obj.criteria.map(item => {
+              return model.CachingRuleCriteria.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

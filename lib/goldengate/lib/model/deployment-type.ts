@@ -30,7 +30,10 @@ export enum DeploymentType {
 }
 
 export namespace DeploymentType {
-  export function getJsonObj(obj: DeploymentType): object {
-    return { obj };
+  export function getJsonObj(obj: DeploymentType): DeploymentType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: DeploymentType): DeploymentType {
+    return obj;
   }
 }

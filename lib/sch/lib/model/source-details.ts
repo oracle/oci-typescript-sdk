@@ -50,4 +50,25 @@ export namespace SourceDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SourceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("kind" in obj && obj.kind) {
+      switch (obj.kind) {
+        case "logging":
+          return model.LoggingSourceDetails.getDeserializedJsonObj(
+            <model.LoggingSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "streaming":
+          return model.StreamingSourceDetails.getDeserializedJsonObj(
+            <model.StreamingSourceDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.kind);
+      }
+    }
+    return jsonObj;
+  }
 }

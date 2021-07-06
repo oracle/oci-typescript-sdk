@@ -37,4 +37,9 @@ export namespace ChangeSecurityListCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ChangeSecurityListCompartmentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

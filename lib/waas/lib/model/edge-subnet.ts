@@ -38,4 +38,9 @@ export namespace EdgeSubnet {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EdgeSubnet): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

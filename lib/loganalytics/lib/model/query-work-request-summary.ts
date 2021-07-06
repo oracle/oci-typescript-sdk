@@ -73,4 +73,9 @@ export namespace QueryWorkRequestSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: QueryWorkRequestSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

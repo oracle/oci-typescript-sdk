@@ -116,4 +116,18 @@ export namespace UpdateAttributeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateAttributeDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customPropertyMembers": obj.customPropertyMembers
+          ? obj.customPropertyMembers.map(item => {
+              return model.CustomPropertySetUsage.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

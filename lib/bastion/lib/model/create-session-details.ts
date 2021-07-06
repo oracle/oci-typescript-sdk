@@ -59,4 +59,22 @@ export namespace CreateSessionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateSessionDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "targetResourceDetails": obj.targetResourceDetails
+          ? model.CreateSessionTargetResourceDetails.getDeserializedJsonObj(
+              obj.targetResourceDetails
+            )
+          : undefined,
+
+        "keyDetails": obj.keyDetails
+          ? model.PublicKeyDetails.getDeserializedJsonObj(obj.keyDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

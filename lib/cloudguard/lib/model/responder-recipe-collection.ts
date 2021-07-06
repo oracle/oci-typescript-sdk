@@ -39,4 +39,18 @@ export namespace ResponderRecipeCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResponderRecipeCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ResponderRecipeSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

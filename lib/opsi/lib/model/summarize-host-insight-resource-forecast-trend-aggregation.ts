@@ -101,4 +101,25 @@ export namespace SummarizeHostInsightResourceForecastTrendAggregation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: SummarizeHostInsightResourceForecastTrendAggregation
+  ): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "historicalData": obj.historicalData
+          ? obj.historicalData.map(item => {
+              return model.HistoricalDataItem.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "projectedData": obj.projectedData
+          ? obj.projectedData.map(item => {
+              return model.ProjectedDataItem.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

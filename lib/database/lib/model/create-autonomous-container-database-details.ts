@@ -158,4 +158,26 @@ export namespace CreateAutonomousContainerDatabaseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateAutonomousContainerDatabaseDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "peerAutonomousContainerDatabaseBackupConfig": obj.peerAutonomousContainerDatabaseBackupConfig
+          ? model.PeerAutonomousContainerDatabaseBackupConfig.getDeserializedJsonObj(
+              obj.peerAutonomousContainerDatabaseBackupConfig
+            )
+          : undefined,
+
+        "maintenanceWindowDetails": obj.maintenanceWindowDetails
+          ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindowDetails)
+          : undefined,
+
+        "backupConfig": obj.backupConfig
+          ? model.AutonomousContainerDatabaseBackupConfig.getDeserializedJsonObj(obj.backupConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

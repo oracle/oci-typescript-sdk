@@ -42,4 +42,9 @@ export namespace ClusterEndpointConfig {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ClusterEndpointConfig): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

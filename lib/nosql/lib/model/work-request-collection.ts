@@ -43,4 +43,18 @@ export namespace WorkRequestCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WorkRequestCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.WorkRequestSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

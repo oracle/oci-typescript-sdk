@@ -38,4 +38,9 @@ export namespace LoadBalancerTrafficShiftRolloutPolicy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LoadBalancerTrafficShiftRolloutPolicy): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

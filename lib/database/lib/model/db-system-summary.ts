@@ -329,4 +329,20 @@ export namespace DbSystemSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DbSystemSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dbSystemOptions": obj.dbSystemOptions
+          ? model.DbSystemOptions.getDeserializedJsonObj(obj.dbSystemOptions)
+          : undefined,
+
+        "maintenanceWindow": obj.maintenanceWindow
+          ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

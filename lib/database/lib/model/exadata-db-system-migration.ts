@@ -53,4 +53,18 @@ export namespace ExadataDbSystemMigration {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExadataDbSystemMigration): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "additionalMigrations": obj.additionalMigrations
+          ? obj.additionalMigrations.map(item => {
+              return model.ExadataDbSystemMigrationSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

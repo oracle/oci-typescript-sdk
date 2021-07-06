@@ -71,4 +71,20 @@ export namespace CreateResolverEndpointDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateResolverEndpointDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("endpointType" in obj && obj.endpointType) {
+      switch (obj.endpointType) {
+        case "VNIC":
+          return model.CreateResolverVnicEndpointDetails.getDeserializedJsonObj(
+            <model.CreateResolverVnicEndpointDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.endpointType);
+      }
+    }
+    return jsonObj;
+  }
 }

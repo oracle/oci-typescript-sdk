@@ -48,4 +48,30 @@ export namespace TargetSelected {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TargetSelected): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("kind" in obj && obj.kind) {
+      switch (obj.kind) {
+        case "ALL":
+          return model.AllTargetsSelected.getDeserializedJsonObj(
+            <model.AllTargetsSelected>(<object>jsonObj),
+            true
+          );
+        case "TARGETTYPES":
+          return model.TargetResourceTypesSelected.getDeserializedJsonObj(
+            <model.TargetResourceTypesSelected>(<object>jsonObj),
+            true
+          );
+        case "TARGETIDS":
+          return model.TargetIdsSelected.getDeserializedJsonObj(
+            <model.TargetIdsSelected>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.kind);
+      }
+    }
+    return jsonObj;
+  }
 }

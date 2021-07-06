@@ -31,4 +31,9 @@ export namespace ChangeRoverEntitlementCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ChangeRoverEntitlementCompartmentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

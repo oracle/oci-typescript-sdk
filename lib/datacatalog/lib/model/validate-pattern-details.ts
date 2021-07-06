@@ -47,4 +47,9 @@ export namespace ValidatePatternDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ValidatePatternDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

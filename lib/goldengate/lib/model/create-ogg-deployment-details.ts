@@ -53,4 +53,9 @@ export namespace CreateOggDeploymentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateOggDeploymentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

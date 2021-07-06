@@ -38,4 +38,9 @@ export namespace FacetedSearchCustomProperty {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FacetedSearchCustomProperty): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

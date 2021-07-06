@@ -35,4 +35,9 @@ export namespace Header {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Header): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

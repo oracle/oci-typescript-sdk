@@ -195,4 +195,9 @@ export namespace Vnic {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Vnic): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

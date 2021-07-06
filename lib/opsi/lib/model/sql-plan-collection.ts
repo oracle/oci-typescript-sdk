@@ -56,4 +56,18 @@ export namespace SqlPlanCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SqlPlanCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.SqlPlanSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

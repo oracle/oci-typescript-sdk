@@ -39,4 +39,20 @@ export namespace ResponderExecutionTrendAggregationCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: ResponderExecutionTrendAggregationCollection
+  ): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ResponderExecutionTrendAggregation.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

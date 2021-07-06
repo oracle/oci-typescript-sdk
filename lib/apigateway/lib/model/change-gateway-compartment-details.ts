@@ -35,4 +35,9 @@ export namespace ChangeGatewayCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ChangeGatewayCompartmentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

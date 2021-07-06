@@ -90,4 +90,29 @@ export namespace WorkRequest {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WorkRequest): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "resources": obj.resources
+          ? obj.resources.map(item => {
+              return model.WorkRequestResource.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "logs": obj.logs
+          ? obj.logs.map(item => {
+              return model.WorkRequestLogEntry.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "errors": obj.errors
+          ? obj.errors.map(item => {
+              return model.WorkRequestError.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

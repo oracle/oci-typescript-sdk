@@ -49,4 +49,16 @@ export namespace UpdateKeyStoreDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateKeyStoreDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "typeDetails": obj.typeDetails
+          ? model.KeyStoreTypeDetails.getDeserializedJsonObj(obj.typeDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

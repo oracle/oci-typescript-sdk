@@ -32,7 +32,14 @@ export enum UnifiedAgentServiceConfigurationStates {
 }
 
 export namespace UnifiedAgentServiceConfigurationStates {
-  export function getJsonObj(obj: UnifiedAgentServiceConfigurationStates): object {
-    return { obj };
+  export function getJsonObj(
+    obj: UnifiedAgentServiceConfigurationStates
+  ): UnifiedAgentServiceConfigurationStates {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: UnifiedAgentServiceConfigurationStates
+  ): UnifiedAgentServiceConfigurationStates {
+    return obj;
   }
 }

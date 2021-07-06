@@ -176,4 +176,9 @@ export namespace BootVolumeBackup {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BootVolumeBackup): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

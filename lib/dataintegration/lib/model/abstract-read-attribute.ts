@@ -38,4 +38,20 @@ export namespace AbstractReadAttribute {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AbstractReadAttribute): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "ORACLEREADATTRIBUTE":
+          return model.OracleReadAttribute.getDeserializedJsonObj(
+            <model.OracleReadAttribute>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

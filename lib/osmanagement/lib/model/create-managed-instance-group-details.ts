@@ -58,4 +58,9 @@ export namespace CreateManagedInstanceGroupDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateManagedInstanceGroupDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -98,4 +98,23 @@ export namespace ScheduledJobSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ScheduledJobSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "managedInstances": obj.managedInstances
+          ? obj.managedInstances.map(item => {
+              return model.Id.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "managedInstanceGroups": obj.managedInstanceGroups
+          ? obj.managedInstanceGroups.map(item => {
+              return model.Id.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

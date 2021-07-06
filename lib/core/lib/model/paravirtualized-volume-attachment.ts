@@ -41,4 +41,17 @@ export namespace ParavirtualizedVolumeAttachment {
     return jsonObj;
   }
   export const attachmentType = "paravirtualized";
+  export function getDeserializedJsonObj(
+    obj: ParavirtualizedVolumeAttachment,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.VolumeAttachment.getDeserializedJsonObj(obj) as ParavirtualizedVolumeAttachment)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

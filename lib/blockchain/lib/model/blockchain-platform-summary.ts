@@ -82,4 +82,9 @@ export namespace BlockchainPlatformSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BlockchainPlatformSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

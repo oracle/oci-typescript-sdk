@@ -41,4 +41,18 @@ export namespace JobOutputSummaryCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: JobOutputSummaryCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.JobOutputSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

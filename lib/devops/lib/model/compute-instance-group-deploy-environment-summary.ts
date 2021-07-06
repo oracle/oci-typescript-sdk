@@ -47,4 +47,25 @@ export namespace ComputeInstanceGroupDeployEnvironmentSummary {
     return jsonObj;
   }
   export const deployEnvironmentType = "COMPUTE_INSTANCE_GROUP";
+  export function getDeserializedJsonObj(
+    obj: ComputeInstanceGroupDeployEnvironmentSummary,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DeployEnvironmentSummary.getDeserializedJsonObj(
+            obj
+          ) as ComputeInstanceGroupDeployEnvironmentSummary)),
+      ...{
+        "computeInstanceGroupSelectors": obj.computeInstanceGroupSelectors
+          ? model.ComputeInstanceGroupSelectorCollection.getDeserializedJsonObj(
+              obj.computeInstanceGroupSelectors
+            )
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

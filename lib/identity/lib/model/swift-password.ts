@@ -91,4 +91,9 @@ export namespace SwiftPassword {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SwiftPassword): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

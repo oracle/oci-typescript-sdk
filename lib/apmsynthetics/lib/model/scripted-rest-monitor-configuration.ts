@@ -36,4 +36,19 @@ export namespace ScriptedRestMonitorConfiguration {
     return jsonObj;
   }
   export const configType = "SCRIPTED_REST_CONFIG";
+  export function getDeserializedJsonObj(
+    obj: ScriptedRestMonitorConfiguration,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.MonitorConfiguration.getDeserializedJsonObj(
+            obj
+          ) as ScriptedRestMonitorConfiguration)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

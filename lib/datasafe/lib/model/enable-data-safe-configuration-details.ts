@@ -30,4 +30,9 @@ export namespace EnableDataSafeConfigurationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EnableDataSafeConfigurationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

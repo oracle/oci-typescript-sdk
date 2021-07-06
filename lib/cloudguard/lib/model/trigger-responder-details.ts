@@ -43,4 +43,18 @@ export namespace TriggerResponderDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TriggerResponderDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "configurations": obj.configurations
+          ? obj.configurations.map(item => {
+              return model.ResponderConfiguration.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

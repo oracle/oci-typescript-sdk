@@ -32,4 +32,9 @@ export namespace ChangeBlockchainPlatformCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ChangeBlockchainPlatformCompartmentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

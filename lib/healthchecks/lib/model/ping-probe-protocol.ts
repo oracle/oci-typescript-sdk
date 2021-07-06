@@ -32,7 +32,10 @@ export enum PingProbeProtocol {
 }
 
 export namespace PingProbeProtocol {
-  export function getJsonObj(obj: PingProbeProtocol): object {
-    return { obj };
+  export function getJsonObj(obj: PingProbeProtocol): PingProbeProtocol {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: PingProbeProtocol): PingProbeProtocol {
+    return obj;
   }
 }

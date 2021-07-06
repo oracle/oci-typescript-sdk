@@ -54,4 +54,23 @@ export namespace IncidentSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IncidentSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "contactList": obj.contactList
+          ? model.ContactList.getDeserializedJsonObj(obj.contactList)
+          : undefined,
+        "tenancyInformation": obj.tenancyInformation
+          ? model.TenancyInformation.getDeserializedJsonObj(obj.tenancyInformation)
+          : undefined,
+        "ticket": obj.ticket ? model.Ticket.getDeserializedJsonObj(obj.ticket) : undefined,
+        "incidentType": obj.incidentType
+          ? model.IncidentResourceType.getDeserializedJsonObj(obj.incidentType)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

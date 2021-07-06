@@ -123,4 +123,18 @@ export namespace AutonomousDataWarehouse {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutonomousDataWarehouse): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "connectionStrings": obj.connectionStrings
+          ? model.AutonomousDataWarehouseConnectionStrings.getDeserializedJsonObj(
+              obj.connectionStrings
+            )
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -37,4 +37,9 @@ export namespace RemoveDrgRouteRulesDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RemoveDrgRouteRulesDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

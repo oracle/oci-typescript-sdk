@@ -59,4 +59,27 @@ export namespace CreateDataAssetFromAdwc {
     return jsonObj;
   }
   export const modelType = "ORACLE_ADWC_DATA_ASSET";
+  export function getDeserializedJsonObj(
+    obj: CreateDataAssetFromAdwc,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateDataAssetDetails.getDeserializedJsonObj(obj) as CreateDataAssetFromAdwc)),
+      ...{
+        "walletSecret": obj.walletSecret
+          ? model.SensitiveAttribute.getDeserializedJsonObj(obj.walletSecret)
+          : undefined,
+        "walletPasswordSecret": obj.walletPasswordSecret
+          ? model.SensitiveAttribute.getDeserializedJsonObj(obj.walletPasswordSecret)
+          : undefined,
+        "defaultConnection": obj.defaultConnection
+          ? model.CreateConnectionFromAdwc.getDeserializedJsonObj(obj.defaultConnection)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

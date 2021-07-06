@@ -44,4 +44,22 @@ export namespace HeaderTransformationPolicy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HeaderTransformationPolicy): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "setHeaders": obj.setHeaders
+          ? model.SetHeaderPolicy.getDeserializedJsonObj(obj.setHeaders)
+          : undefined,
+        "renameHeaders": obj.renameHeaders
+          ? model.RenameHeaderPolicy.getDeserializedJsonObj(obj.renameHeaders)
+          : undefined,
+        "filterHeaders": obj.filterHeaders
+          ? model.FilterHeaderPolicy.getDeserializedJsonObj(obj.filterHeaders)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

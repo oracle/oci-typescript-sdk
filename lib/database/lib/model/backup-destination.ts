@@ -140,4 +140,18 @@ export namespace BackupDestination {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BackupDestination): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "associatedDatabases": obj.associatedDatabases
+          ? obj.associatedDatabases.map(item => {
+              return model.AssociatedDatabaseDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

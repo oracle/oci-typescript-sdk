@@ -36,4 +36,9 @@ export namespace SuggestListItem {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SuggestListItem): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

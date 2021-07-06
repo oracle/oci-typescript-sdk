@@ -72,4 +72,9 @@ export namespace ContainerImageSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ContainerImageSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

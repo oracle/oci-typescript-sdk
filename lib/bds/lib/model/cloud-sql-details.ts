@@ -62,4 +62,18 @@ export namespace CloudSqlDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CloudSqlDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "kerberosDetails": obj.kerberosDetails
+          ? obj.kerberosDetails.map(item => {
+              return model.KerberosDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

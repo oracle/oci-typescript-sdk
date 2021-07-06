@@ -63,4 +63,9 @@ export namespace CreateExternalPluggableDatabaseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateExternalPluggableDatabaseDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

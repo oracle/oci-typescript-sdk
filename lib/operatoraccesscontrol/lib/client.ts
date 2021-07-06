@@ -17,7 +17,7 @@ Use the table of contents and search tool to explore the OperatorAccessControl A
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { AccessRequestsWaiter } from "./accessrequests-waiter";
 import { OperatorControlWaiter } from "./operatorcontrol-waiter";
@@ -175,7 +175,7 @@ export class AccessRequestsClient {
       bodyContent: common.ObjectSerializer.serialize(
         approveAccessRequestRequest.approveAccessRequestDetails,
         "ApproveAccessRequestDetails",
-        models.ApproveAccessRequestDetails.getJsonObj
+        model.ApproveAccessRequestDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -247,7 +247,8 @@ export class AccessRequestsClient {
         responseObject: <responses.GetAccessRequestResponse>{},
         body: await response.json(),
         bodyKey: "accessRequest",
-        bodyModel: "model.AccessRequest",
+        bodyModel: model.AccessRequest,
+        type: "model.AccessRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -310,7 +311,8 @@ export class AccessRequestsClient {
         responseObject: <responses.ListAccessRequestHistoriesResponse>{},
         body: await response.json(),
         bodyKey: "accessRequestHistoryCollection",
-        bodyModel: "model.AccessRequestHistoryCollection",
+        bodyModel: model.AccessRequestHistoryCollection,
+        type: "model.AccessRequestHistoryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -381,7 +383,8 @@ export class AccessRequestsClient {
         responseObject: <responses.ListAccessRequestsResponse>{},
         body: await response.json(),
         bodyKey: "accessRequestCollection",
-        bodyModel: "model.AccessRequestCollection",
+        bodyModel: model.AccessRequestCollection,
+        type: "model.AccessRequestCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -441,7 +444,7 @@ export class AccessRequestsClient {
       bodyContent: common.ObjectSerializer.serialize(
         rejectAccessRequestRequest.rejectAccessRequestDetails,
         "RejectAccessRequestDetails",
-        models.RejectAccessRequestDetails.getJsonObj
+        model.RejectAccessRequestDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -510,7 +513,7 @@ export class AccessRequestsClient {
       bodyContent: common.ObjectSerializer.serialize(
         revokeAccessRequestRequest.revokeAccessRequestDetails,
         "RevokeAccessRequestDetails",
-        models.RevokeAccessRequestDetails.getJsonObj
+        model.RevokeAccessRequestDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -667,7 +670,8 @@ export class OperatorActionsClient {
         responseObject: <responses.GetOperatorActionResponse>{},
         body: await response.json(),
         bodyKey: "operatorAction",
-        bodyModel: "model.OperatorAction",
+        bodyModel: model.OperatorAction,
+        type: "model.OperatorAction",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -733,7 +737,8 @@ export class OperatorActionsClient {
         responseObject: <responses.ListOperatorActionsResponse>{},
         body: await response.json(),
         bodyKey: "operatorActionCollection",
-        bodyModel: "model.OperatorActionCollection",
+        bodyModel: model.OperatorActionCollection,
+        type: "model.OperatorActionCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -903,7 +908,7 @@ export class OperatorControlClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeOperatorControlCompartmentRequest.changeOperatorControlCompartmentDetails,
         "ChangeOperatorControlCompartmentDetails",
-        models.ChangeOperatorControlCompartmentDetails.getJsonObj
+        model.ChangeOperatorControlCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -964,7 +969,7 @@ export class OperatorControlClient {
       bodyContent: common.ObjectSerializer.serialize(
         createOperatorControlRequest.createOperatorControlDetails,
         "CreateOperatorControlDetails",
-        models.CreateOperatorControlDetails.getJsonObj
+        model.CreateOperatorControlDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -976,7 +981,8 @@ export class OperatorControlClient {
         responseObject: <responses.CreateOperatorControlResponse>{},
         body: await response.json(),
         bodyKey: "operatorControl",
-        bodyModel: "model.OperatorControl",
+        bodyModel: model.OperatorControl,
+        type: "model.OperatorControl",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1104,7 +1110,8 @@ export class OperatorControlClient {
         responseObject: <responses.GetOperatorControlResponse>{},
         body: await response.json(),
         bodyKey: "operatorControl",
-        bodyModel: "model.OperatorControl",
+        bodyModel: model.OperatorControl,
+        type: "model.OperatorControl",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1175,7 +1182,8 @@ export class OperatorControlClient {
         responseObject: <responses.ListOperatorControlsResponse>{},
         body: await response.json(),
         bodyKey: "operatorControlCollection",
-        bodyModel: "model.OperatorControlCollection",
+        bodyModel: model.OperatorControlCollection,
+        type: "model.OperatorControlCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1234,7 +1242,7 @@ export class OperatorControlClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateOperatorControlRequest.updateOperatorControlDetails,
         "UpdateOperatorControlDetails",
-        models.UpdateOperatorControlDetails.getJsonObj
+        model.UpdateOperatorControlDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1246,7 +1254,8 @@ export class OperatorControlClient {
         responseObject: <responses.UpdateOperatorControlResponse>{},
         body: await response.json(),
         bodyKey: "operatorControl",
-        bodyModel: "model.OperatorControl",
+        bodyModel: model.OperatorControl,
+        type: "model.OperatorControl",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1418,7 +1427,7 @@ export class OperatorControlAssignmentClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeOperatorControlAssignmentCompartmentRequest.changeOperatorControlAssignmentCompartmentDetails,
         "ChangeOperatorControlAssignmentCompartmentDetails",
-        models.ChangeOperatorControlAssignmentCompartmentDetails.getJsonObj
+        model.ChangeOperatorControlAssignmentCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1480,7 +1489,7 @@ export class OperatorControlAssignmentClient {
       bodyContent: common.ObjectSerializer.serialize(
         createOperatorControlAssignmentRequest.createOperatorControlAssignmentDetails,
         "CreateOperatorControlAssignmentDetails",
-        models.CreateOperatorControlAssignmentDetails.getJsonObj
+        model.CreateOperatorControlAssignmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1618,7 +1627,8 @@ export class OperatorControlAssignmentClient {
         responseObject: <responses.GetOperatorControlAssignmentResponse>{},
         body: await response.json(),
         bodyKey: "operatorControlAssignment",
-        bodyModel: "model.OperatorControlAssignment",
+        bodyModel: model.OperatorControlAssignment,
+        type: "model.OperatorControlAssignment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1691,7 +1701,8 @@ export class OperatorControlAssignmentClient {
         responseObject: <responses.ListOperatorControlAssignmentsResponse>{},
         body: await response.json(),
         bodyKey: "operatorControlAssignmentCollection",
-        bodyModel: "model.OperatorControlAssignmentCollection",
+        bodyModel: model.OperatorControlAssignmentCollection,
+        type: "model.OperatorControlAssignmentCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1753,7 +1764,7 @@ export class OperatorControlAssignmentClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateOperatorControlAssignmentRequest.updateOperatorControlAssignmentDetails,
         "UpdateOperatorControlAssignmentDetails",
-        models.UpdateOperatorControlAssignmentDetails.getJsonObj
+        model.UpdateOperatorControlAssignmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1765,7 +1776,8 @@ export class OperatorControlAssignmentClient {
         responseObject: <responses.UpdateOperatorControlAssignmentResponse>{},
         body: await response.json(),
         bodyKey: "operatorControlAssignment",
-        bodyModel: "model.OperatorControlAssignment",
+        bodyModel: model.OperatorControlAssignment,
+        type: "model.OperatorControlAssignment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

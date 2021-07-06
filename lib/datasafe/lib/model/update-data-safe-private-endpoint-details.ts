@@ -53,4 +53,9 @@ export namespace UpdateDataSafePrivateEndpointDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDataSafePrivateEndpointDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

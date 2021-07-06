@@ -37,4 +37,9 @@ export namespace KubernetesNetworkConfig {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: KubernetesNetworkConfig): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

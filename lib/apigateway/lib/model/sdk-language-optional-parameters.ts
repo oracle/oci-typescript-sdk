@@ -90,4 +90,18 @@ export namespace SdkLanguageOptionalParameters {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SdkLanguageOptionalParameters): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "allowedValues": obj.allowedValues
+          ? obj.allowedValues.map(item => {
+              return model.SdkLanguageOptionalParametersAllowedValue.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

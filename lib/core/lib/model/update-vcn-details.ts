@@ -50,4 +50,9 @@ export namespace UpdateVcnDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateVcnDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

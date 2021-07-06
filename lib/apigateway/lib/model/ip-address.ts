@@ -33,4 +33,9 @@ export namespace IpAddress {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IpAddress): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

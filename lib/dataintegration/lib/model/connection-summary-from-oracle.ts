@@ -47,4 +47,21 @@ export namespace ConnectionSummaryFromOracle {
     return jsonObj;
   }
   export const modelType = "ORACLEDB_CONNECTION";
+  export function getDeserializedJsonObj(
+    obj: ConnectionSummaryFromOracle,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ConnectionSummary.getDeserializedJsonObj(obj) as ConnectionSummaryFromOracle)),
+      ...{
+        "passwordSecret": obj.passwordSecret
+          ? model.SensitiveAttribute.getDeserializedJsonObj(obj.passwordSecret)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -47,4 +47,21 @@ export namespace CreateConnectionFromAdwc {
     return jsonObj;
   }
   export const modelType = "ORACLE_ADWC_CONNECTION";
+  export function getDeserializedJsonObj(
+    obj: CreateConnectionFromAdwc,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateConnectionDetails.getDeserializedJsonObj(obj) as CreateConnectionFromAdwc)),
+      ...{
+        "passwordSecret": obj.passwordSecret
+          ? model.SensitiveAttribute.getDeserializedJsonObj(obj.passwordSecret)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

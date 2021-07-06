@@ -41,4 +41,18 @@ export namespace UpdateRuleSetDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateRuleSetDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.Rule.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

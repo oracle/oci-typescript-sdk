@@ -40,4 +40,9 @@ export namespace HcxLicenseSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HcxLicenseSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

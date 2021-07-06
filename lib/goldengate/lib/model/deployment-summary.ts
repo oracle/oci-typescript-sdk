@@ -141,4 +141,9 @@ export namespace DeploymentSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeploymentSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

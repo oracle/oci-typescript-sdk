@@ -34,4 +34,11 @@ export namespace ChangeManagedInstanceGroupCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: ChangeManagedInstanceGroupCompartmentDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

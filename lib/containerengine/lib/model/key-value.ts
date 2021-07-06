@@ -37,4 +37,9 @@ export namespace KeyValue {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: KeyValue): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

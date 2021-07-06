@@ -34,7 +34,10 @@ export enum OperationTypes {
 }
 
 export namespace OperationTypes {
-  export function getJsonObj(obj: OperationTypes): object {
-    return { obj };
+  export function getJsonObj(obj: OperationTypes): OperationTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: OperationTypes): OperationTypes {
+    return obj;
   }
 }

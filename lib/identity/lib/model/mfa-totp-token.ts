@@ -32,4 +32,9 @@ export namespace MfaTotpToken {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MfaTotpToken): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

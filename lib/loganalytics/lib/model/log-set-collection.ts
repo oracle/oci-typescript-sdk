@@ -31,4 +31,9 @@ export namespace LogSetCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogSetCollection): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

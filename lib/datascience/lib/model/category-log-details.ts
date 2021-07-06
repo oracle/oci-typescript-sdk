@@ -35,4 +35,15 @@ export namespace CategoryLogDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CategoryLogDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "access": obj.access ? model.LogDetails.getDeserializedJsonObj(obj.access) : undefined,
+        "predict": obj.predict ? model.LogDetails.getDeserializedJsonObj(obj.predict) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

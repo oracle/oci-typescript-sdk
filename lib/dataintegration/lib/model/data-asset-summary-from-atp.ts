@@ -51,4 +51,21 @@ export namespace DataAssetSummaryFromAtp {
     return jsonObj;
   }
   export const modelType = "ORACLE_ATP_DATA_ASSET";
+  export function getDeserializedJsonObj(
+    obj: DataAssetSummaryFromAtp,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DataAssetSummary.getDeserializedJsonObj(obj) as DataAssetSummaryFromAtp)),
+      ...{
+        "defaultConnection": obj.defaultConnection
+          ? model.ConnectionSummaryFromAtp.getDeserializedJsonObj(obj.defaultConnection)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

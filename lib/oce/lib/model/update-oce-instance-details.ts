@@ -59,4 +59,9 @@ export namespace UpdateOceInstanceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateOceInstanceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

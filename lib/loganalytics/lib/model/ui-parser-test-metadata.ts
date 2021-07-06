@@ -39,4 +39,9 @@ export namespace UiParserTestMetadata {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UiParserTestMetadata): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

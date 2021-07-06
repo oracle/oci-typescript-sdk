@@ -58,4 +58,30 @@ export namespace UpdateConfigSourceDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateConfigSourceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("configSourceType" in obj && obj.configSourceType) {
+      switch (obj.configSourceType) {
+        case "GIT_CONFIG_SOURCE":
+          return model.UpdateGitConfigSourceDetails.getDeserializedJsonObj(
+            <model.UpdateGitConfigSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "OBJECT_STORAGE_CONFIG_SOURCE":
+          return model.UpdateObjectStorageConfigSourceDetails.getDeserializedJsonObj(
+            <model.UpdateObjectStorageConfigSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "ZIP_UPLOAD":
+          return model.UpdateZipUploadConfigSourceDetails.getDeserializedJsonObj(
+            <model.UpdateZipUploadConfigSourceDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.configSourceType);
+      }
+    }
+    return jsonObj;
+  }
 }

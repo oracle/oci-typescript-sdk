@@ -171,4 +171,9 @@ export namespace AutonomousDatabaseDataguardAssociation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutonomousDatabaseDataguardAssociation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

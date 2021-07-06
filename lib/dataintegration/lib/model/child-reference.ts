@@ -85,4 +85,18 @@ export namespace ChildReference {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ChildReference): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "usedBy": obj.usedBy
+          ? obj.usedBy.map(item => {
+              return model.ReferenceUsedBy.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

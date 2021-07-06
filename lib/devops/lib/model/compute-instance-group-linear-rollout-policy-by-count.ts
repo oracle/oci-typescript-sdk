@@ -44,4 +44,19 @@ export namespace ComputeInstanceGroupLinearRolloutPolicyByCount {
     return jsonObj;
   }
   export const policyType = "COMPUTE_INSTANCE_GROUP_LINEAR_ROLLOUT_POLICY_BY_COUNT";
+  export function getDeserializedJsonObj(
+    obj: ComputeInstanceGroupLinearRolloutPolicyByCount,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ComputeInstanceGroupRolloutPolicy.getDeserializedJsonObj(
+            obj
+          ) as ComputeInstanceGroupLinearRolloutPolicyByCount)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

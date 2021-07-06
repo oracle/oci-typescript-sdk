@@ -315,4 +315,18 @@ export namespace Tablespace {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Tablespace): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "datafiles": obj.datafiles
+          ? obj.datafiles.map(item => {
+              return model.Datafile.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

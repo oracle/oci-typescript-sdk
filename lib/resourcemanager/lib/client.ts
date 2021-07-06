@@ -17,7 +17,7 @@ For more information, see
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { ResourceManagerWaiter } from "./resourcemanager-waiter";
@@ -238,7 +238,7 @@ export class ResourceManagerClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeConfigurationSourceProviderCompartmentRequest.changeConfigurationSourceProviderCompartmentDetails,
         "ChangeConfigurationSourceProviderCompartmentDetails",
-        models.ChangeConfigurationSourceProviderCompartmentDetails.getJsonObj
+        model.ChangeConfigurationSourceProviderCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -301,7 +301,7 @@ export class ResourceManagerClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeStackCompartmentRequest.changeStackCompartmentDetails,
         "ChangeStackCompartmentDetails",
-        models.ChangeStackCompartmentDetails.getJsonObj
+        model.ChangeStackCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -372,7 +372,7 @@ export class ResourceManagerClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeTemplateCompartmentRequest.changeTemplateCompartmentDetails,
         "ChangeTemplateCompartmentDetails",
-        models.ChangeTemplateCompartmentDetails.getJsonObj
+        model.ChangeTemplateCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -437,7 +437,7 @@ export class ResourceManagerClient {
       bodyContent: common.ObjectSerializer.serialize(
         createConfigurationSourceProviderRequest.createConfigurationSourceProviderDetails,
         "CreateConfigurationSourceProviderDetails",
-        models.CreateConfigurationSourceProviderDetails.getJsonObj
+        model.CreateConfigurationSourceProviderDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -449,7 +449,8 @@ export class ResourceManagerClient {
         responseObject: <responses.CreateConfigurationSourceProviderResponse>{},
         body: await response.json(),
         bodyKey: "configurationSourceProvider",
-        bodyModel: "model.ConfigurationSourceProvider",
+        bodyModel: model.ConfigurationSourceProvider,
+        type: "model.ConfigurationSourceProvider",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -504,7 +505,7 @@ export class ResourceManagerClient {
       bodyContent: common.ObjectSerializer.serialize(
         createJobRequest.createJobDetails,
         "CreateJobDetails",
-        models.CreateJobDetails.getJsonObj
+        model.CreateJobDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -516,7 +517,8 @@ export class ResourceManagerClient {
         responseObject: <responses.CreateJobResponse>{},
         body: await response.json(),
         bodyKey: "job",
-        bodyModel: "model.Job",
+        bodyModel: model.Job,
+        type: "model.Job",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -578,7 +580,7 @@ export class ResourceManagerClient {
       bodyContent: common.ObjectSerializer.serialize(
         createStackRequest.createStackDetails,
         "CreateStackDetails",
-        models.CreateStackDetails.getJsonObj
+        model.CreateStackDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -590,7 +592,8 @@ export class ResourceManagerClient {
         responseObject: <responses.CreateStackResponse>{},
         body: await response.json(),
         bodyKey: "stack",
-        bodyModel: "model.Stack",
+        bodyModel: model.Stack,
+        type: "model.Stack",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -652,7 +655,7 @@ export class ResourceManagerClient {
       bodyContent: common.ObjectSerializer.serialize(
         createTemplateRequest.createTemplateDetails,
         "CreateTemplateDetails",
-        models.CreateTemplateDetails.getJsonObj
+        model.CreateTemplateDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -664,7 +667,8 @@ export class ResourceManagerClient {
         responseObject: <responses.CreateTemplateResponse>{},
         body: await response.json(),
         bodyKey: "template",
-        bodyModel: "model.Template",
+        bodyModel: model.Template,
+        type: "model.Template",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -894,7 +898,7 @@ export class ResourceManagerClient {
       bodyContent: common.ObjectSerializer.serialize(
         detectStackDriftRequest.detectStackDriftDetails,
         "DetectStackDriftDetails",
-        models.DetectStackDriftDetails.getJsonObj
+        model.DetectStackDriftDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -968,7 +972,8 @@ export class ResourceManagerClient {
         responseObject: <responses.GetConfigurationSourceProviderResponse>{},
         body: await response.json(),
         bodyKey: "configurationSourceProvider",
-        bodyModel: "model.ConfigurationSourceProvider",
+        bodyModel: model.ConfigurationSourceProvider,
+        type: "model.ConfigurationSourceProvider",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1029,7 +1034,8 @@ export class ResourceManagerClient {
         responseObject: <responses.GetJobResponse>{},
         body: await response.json(),
         bodyKey: "job",
-        bodyModel: "model.Job",
+        bodyModel: model.Job,
+        type: "model.Job",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1101,7 +1107,8 @@ export class ResourceManagerClient {
         responseObject: <responses.GetJobLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "LogEntry[]",
+        bodyModel: model.LogEntry,
+        type: "Array<model.LogEntry>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1129,9 +1136,7 @@ export class ResourceManagerClient {
    *
    * @param request a request which can be sent to the service operation
    */
-  public getAllJobLogs(
-    request: requests.GetJobLogsRequest
-  ): AsyncIterableIterator<models.LogEntry> {
+  public getAllJobLogs(request: requests.GetJobLogsRequest): AsyncIterableIterator<model.LogEntry> {
     return paginateRecords(request, req => this.getJobLogs(req));
   }
 
@@ -1371,7 +1376,8 @@ export class ResourceManagerClient {
         responseObject: <responses.GetStackResponse>{},
         body: await response.json(),
         bodyKey: "stack",
-        bodyModel: "model.Stack",
+        bodyModel: model.Stack,
+        type: "model.Stack",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1554,7 +1560,8 @@ export class ResourceManagerClient {
         responseObject: <responses.GetTemplateResponse>{},
         body: await response.json(),
         bodyKey: "template",
-        bodyModel: "model.Template",
+        bodyModel: model.Template,
+        type: "model.Template",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1740,7 +1747,8 @@ export class ResourceManagerClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1812,7 +1820,8 @@ export class ResourceManagerClient {
         responseObject: <responses.ListConfigurationSourceProvidersResponse>{},
         body: await response.json(),
         bodyKey: "configurationSourceProviderCollection",
-        bodyModel: "model.ConfigurationSourceProviderCollection",
+        bodyModel: model.ConfigurationSourceProviderCollection,
+        type: "model.ConfigurationSourceProviderCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1888,7 +1897,8 @@ export class ResourceManagerClient {
         responseObject: <responses.ListJobsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "JobSummary[]",
+        bodyModel: model.JobSummary,
+        type: "Array<model.JobSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1916,7 +1926,7 @@ export class ResourceManagerClient {
    *
    * @param request a request which can be sent to the service operation
    */
-  public listAllJobs(request: requests.ListJobsRequest): AsyncIterableIterator<models.JobSummary> {
+  public listAllJobs(request: requests.ListJobsRequest): AsyncIterableIterator<model.JobSummary> {
     return paginateRecords(request, req => this.listJobs(req));
   }
 
@@ -1976,7 +1986,8 @@ export class ResourceManagerClient {
         responseObject: <responses.ListResourceDiscoveryServicesResponse>{},
         body: await response.json(),
         bodyKey: "resourceDiscoveryServiceCollection",
-        bodyModel: "model.ResourceDiscoveryServiceCollection",
+        bodyModel: model.ResourceDiscoveryServiceCollection,
+        type: "model.ResourceDiscoveryServiceCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2045,7 +2056,8 @@ export class ResourceManagerClient {
         responseObject: <responses.ListStackResourceDriftDetailsResponse>{},
         body: await response.json(),
         bodyKey: "stackResourceDriftCollection",
-        bodyModel: "model.StackResourceDriftCollection",
+        bodyModel: model.StackResourceDriftCollection,
+        type: "model.StackResourceDriftCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2118,7 +2130,8 @@ export class ResourceManagerClient {
         responseObject: <responses.ListStacksResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "StackSummary[]",
+        bodyModel: model.StackSummary,
+        type: "Array<model.StackSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2148,7 +2161,7 @@ export class ResourceManagerClient {
    */
   public listAllStacks(
     request: requests.ListStacksRequest
-  ): AsyncIterableIterator<models.StackSummary> {
+  ): AsyncIterableIterator<model.StackSummary> {
     return paginateRecords(request, req => this.listStacks(req));
   }
 
@@ -2206,7 +2219,8 @@ export class ResourceManagerClient {
         responseObject: <responses.ListTemplateCategoriesResponse>{},
         body: await response.json(),
         bodyKey: "templateCategorySummaryCollection",
-        bodyModel: "model.TemplateCategorySummaryCollection",
+        bodyModel: model.TemplateCategorySummaryCollection,
+        type: "model.TemplateCategorySummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2272,7 +2286,8 @@ export class ResourceManagerClient {
         responseObject: <responses.ListTemplatesResponse>{},
         body: await response.json(),
         bodyKey: "templateSummaryCollection",
-        bodyModel: "model.TemplateSummaryCollection",
+        bodyModel: model.TemplateSummaryCollection,
+        type: "model.TemplateSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2337,7 +2352,8 @@ export class ResourceManagerClient {
         responseObject: <responses.ListTerraformVersionsResponse>{},
         body: await response.json(),
         bodyKey: "terraformVersionCollection",
-        bodyModel: "model.TerraformVersionCollection",
+        bodyModel: model.TerraformVersionCollection,
+        type: "model.TerraformVersionCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2402,7 +2418,8 @@ export class ResourceManagerClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestError[]",
+        bodyModel: model.WorkRequestError,
+        type: "Array<model.WorkRequestError>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2432,7 +2449,7 @@ export class ResourceManagerClient {
    */
   public listAllWorkRequestErrors(
     request: requests.ListWorkRequestErrorsRequest
-  ): AsyncIterableIterator<models.WorkRequestError> {
+  ): AsyncIterableIterator<model.WorkRequestError> {
     return paginateRecords(request, req => this.listWorkRequestErrors(req));
   }
 
@@ -2497,7 +2514,8 @@ export class ResourceManagerClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestLogEntry[]",
+        bodyModel: model.WorkRequestLogEntry,
+        type: "Array<model.WorkRequestLogEntry>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2527,7 +2545,7 @@ export class ResourceManagerClient {
    */
   public listAllWorkRequestLogs(
     request: requests.ListWorkRequestLogsRequest
-  ): AsyncIterableIterator<models.WorkRequestLogEntry> {
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
     return paginateRecords(request, req => this.listWorkRequestLogs(req));
   }
 
@@ -2589,7 +2607,8 @@ export class ResourceManagerClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestSummary[]",
+        bodyModel: model.WorkRequestSummary,
+        type: "Array<model.WorkRequestSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2619,7 +2638,7 @@ export class ResourceManagerClient {
    */
   public listAllWorkRequests(
     request: requests.ListWorkRequestsRequest
-  ): AsyncIterableIterator<models.WorkRequestSummary> {
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
     return paginateRecords(request, req => this.listWorkRequests(req));
   }
 
@@ -2678,7 +2697,7 @@ export class ResourceManagerClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateConfigurationSourceProviderRequest.updateConfigurationSourceProviderDetails,
         "UpdateConfigurationSourceProviderDetails",
-        models.UpdateConfigurationSourceProviderDetails.getJsonObj
+        model.UpdateConfigurationSourceProviderDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2690,7 +2709,8 @@ export class ResourceManagerClient {
         responseObject: <responses.UpdateConfigurationSourceProviderResponse>{},
         body: await response.json(),
         bodyKey: "configurationSourceProvider",
-        bodyModel: "model.ConfigurationSourceProvider",
+        bodyModel: model.ConfigurationSourceProvider,
+        type: "model.ConfigurationSourceProvider",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2747,7 +2767,7 @@ export class ResourceManagerClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateJobRequest.updateJobDetails,
         "UpdateJobDetails",
-        models.UpdateJobDetails.getJsonObj
+        model.UpdateJobDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2759,7 +2779,8 @@ export class ResourceManagerClient {
         responseObject: <responses.UpdateJobResponse>{},
         body: await response.json(),
         bodyKey: "job",
-        bodyModel: "model.Job",
+        bodyModel: model.Job,
+        type: "model.Job",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2822,7 +2843,7 @@ export class ResourceManagerClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateStackRequest.updateStackDetails,
         "UpdateStackDetails",
-        models.UpdateStackDetails.getJsonObj
+        model.UpdateStackDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2834,7 +2855,8 @@ export class ResourceManagerClient {
         responseObject: <responses.UpdateStackResponse>{},
         body: await response.json(),
         bodyKey: "stack",
-        bodyModel: "model.Stack",
+        bodyModel: model.Stack,
+        type: "model.Stack",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2892,7 +2914,7 @@ export class ResourceManagerClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateTemplateRequest.updateTemplateDetails,
         "UpdateTemplateDetails",
-        models.UpdateTemplateDetails.getJsonObj
+        model.UpdateTemplateDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2904,7 +2926,8 @@ export class ResourceManagerClient {
         responseObject: <responses.UpdateTemplateResponse>{},
         body: await response.json(),
         bodyKey: "template",
-        bodyModel: "model.Template",
+        bodyModel: model.Template,
+        type: "model.Template",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

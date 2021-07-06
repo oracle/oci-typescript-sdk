@@ -38,4 +38,16 @@ export namespace SensitiveAttribute {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SensitiveAttribute): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "secretConfig": obj.secretConfig
+          ? model.SecretConfig.getDeserializedJsonObj(obj.secretConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

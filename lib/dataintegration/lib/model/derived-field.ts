@@ -43,4 +43,14 @@ export namespace DerivedField {
     return jsonObj;
   }
   export const modelType = "DERIVED_FIELD";
+  export function getDeserializedJsonObj(obj: DerivedField, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.TypedObject.getDeserializedJsonObj(obj) as DerivedField)),
+      ...{
+        "expr": obj.expr ? model.Expression.getDeserializedJsonObj(obj.expr) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

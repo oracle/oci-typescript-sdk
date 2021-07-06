@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { OptimizerWaiter } from "./optimizer-waiter";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
@@ -167,7 +167,7 @@ export class OptimizerClient {
       bodyContent: common.ObjectSerializer.serialize(
         bulkApplyRecommendationsRequest.bulkApplyRecommendationsDetails,
         "BulkApplyRecommendationsDetails",
-        models.BulkApplyRecommendationsDetails.getJsonObj
+        model.BulkApplyRecommendationsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -232,7 +232,7 @@ export class OptimizerClient {
       bodyContent: common.ObjectSerializer.serialize(
         createProfileRequest.createProfileDetails,
         "CreateProfileDetails",
-        models.CreateProfileDetails.getJsonObj
+        model.CreateProfileDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -244,7 +244,8 @@ export class OptimizerClient {
         responseObject: <responses.CreateProfileResponse>{},
         body: await response.json(),
         bodyKey: "profile",
-        bodyModel: "model.Profile",
+        bodyModel: model.Profile,
+        type: "model.Profile",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -365,7 +366,8 @@ export class OptimizerClient {
         responseObject: <responses.GetCategoryResponse>{},
         body: await response.json(),
         bodyKey: "category",
-        bodyModel: "model.Category",
+        bodyModel: model.Category,
+        type: "model.Category",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -424,7 +426,8 @@ export class OptimizerClient {
         responseObject: <responses.GetEnrollmentStatusResponse>{},
         body: await response.json(),
         bodyKey: "enrollmentStatus",
-        bodyModel: "model.EnrollmentStatus",
+        bodyModel: model.EnrollmentStatus,
+        type: "model.EnrollmentStatus",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -488,7 +491,8 @@ export class OptimizerClient {
         responseObject: <responses.GetProfileResponse>{},
         body: await response.json(),
         bodyKey: "profile",
-        bodyModel: "model.Profile",
+        bodyModel: model.Profile,
+        type: "model.Profile",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -552,7 +556,8 @@ export class OptimizerClient {
         responseObject: <responses.GetRecommendationResponse>{},
         body: await response.json(),
         bodyKey: "recommendation",
-        bodyModel: "model.Recommendation",
+        bodyModel: model.Recommendation,
+        type: "model.Recommendation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -616,7 +621,8 @@ export class OptimizerClient {
         responseObject: <responses.GetResourceActionResponse>{},
         body: await response.json(),
         bodyKey: "resourceAction",
-        bodyModel: "model.ResourceAction",
+        bodyModel: model.ResourceAction,
+        type: "model.ResourceAction",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -679,7 +685,8 @@ export class OptimizerClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -750,7 +757,8 @@ export class OptimizerClient {
         responseObject: <responses.ListCategoriesResponse>{},
         body: await response.json(),
         bodyKey: "categoryCollection",
-        bodyModel: "model.CategoryCollection",
+        bodyModel: model.CategoryCollection,
+        type: "model.CategoryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -825,7 +833,8 @@ export class OptimizerClient {
         responseObject: <responses.ListEnrollmentStatusesResponse>{},
         body: await response.json(),
         bodyKey: "enrollmentStatusCollection",
-        bodyModel: "model.EnrollmentStatusCollection",
+        bodyModel: model.EnrollmentStatusCollection,
+        type: "model.EnrollmentStatusCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -906,7 +915,8 @@ export class OptimizerClient {
         responseObject: <responses.ListHistoriesResponse>{},
         body: await response.json(),
         bodyKey: "historyCollection",
-        bodyModel: "model.HistoryCollection",
+        bodyModel: model.HistoryCollection,
+        type: "model.HistoryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -981,7 +991,8 @@ export class OptimizerClient {
         responseObject: <responses.ListProfilesResponse>{},
         body: await response.json(),
         bodyKey: "profileCollection",
-        bodyModel: "model.ProfileCollection",
+        bodyModel: model.ProfileCollection,
+        type: "model.ProfileCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1058,7 +1069,8 @@ export class OptimizerClient {
         responseObject: <responses.ListRecommendationStrategiesResponse>{},
         body: await response.json(),
         bodyKey: "recommendationStrategyCollection",
-        bodyModel: "model.RecommendationStrategyCollection",
+        bodyModel: model.RecommendationStrategyCollection,
+        type: "model.RecommendationStrategyCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1136,7 +1148,8 @@ export class OptimizerClient {
         responseObject: <responses.ListRecommendationsResponse>{},
         body: await response.json(),
         bodyKey: "recommendationCollection",
-        bodyModel: "model.RecommendationCollection",
+        bodyModel: model.RecommendationCollection,
+        type: "model.RecommendationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1215,7 +1228,8 @@ export class OptimizerClient {
         responseObject: <responses.ListResourceActionsResponse>{},
         body: await response.json(),
         bodyKey: "resourceActionCollection",
-        bodyModel: "model.ResourceActionCollection",
+        bodyModel: model.ResourceActionCollection,
+        type: "model.ResourceActionCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1287,7 +1301,8 @@ export class OptimizerClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestErrorCollection",
-        bodyModel: "model.WorkRequestErrorCollection",
+        bodyModel: model.WorkRequestErrorCollection,
+        type: "model.WorkRequestErrorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1354,7 +1369,8 @@ export class OptimizerClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestLogEntryCollection",
-        bodyModel: "model.WorkRequestLogEntryCollection",
+        bodyModel: model.WorkRequestLogEntryCollection,
+        type: "model.WorkRequestLogEntryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1420,7 +1436,8 @@ export class OptimizerClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestCollection",
-        bodyModel: "model.WorkRequestCollection",
+        bodyModel: model.WorkRequestCollection,
+        type: "model.WorkRequestCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1478,7 +1495,7 @@ export class OptimizerClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateEnrollmentStatusRequest.updateEnrollmentStatusDetails,
         "UpdateEnrollmentStatusDetails",
-        models.UpdateEnrollmentStatusDetails.getJsonObj
+        model.UpdateEnrollmentStatusDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1490,7 +1507,8 @@ export class OptimizerClient {
         responseObject: <responses.UpdateEnrollmentStatusResponse>{},
         body: await response.json(),
         bodyKey: "enrollmentStatus",
-        bodyModel: "model.EnrollmentStatus",
+        bodyModel: model.EnrollmentStatus,
+        type: "model.EnrollmentStatus",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1548,7 +1566,7 @@ export class OptimizerClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateProfileRequest.updateProfileDetails,
         "UpdateProfileDetails",
-        models.UpdateProfileDetails.getJsonObj
+        model.UpdateProfileDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1560,7 +1578,8 @@ export class OptimizerClient {
         responseObject: <responses.UpdateProfileResponse>{},
         body: await response.json(),
         bodyKey: "profile",
-        bodyModel: "model.Profile",
+        bodyModel: model.Profile,
+        type: "model.Profile",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1623,7 +1642,7 @@ export class OptimizerClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateRecommendationRequest.updateRecommendationDetails,
         "UpdateRecommendationDetails",
-        models.UpdateRecommendationDetails.getJsonObj
+        model.UpdateRecommendationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1635,7 +1654,8 @@ export class OptimizerClient {
         responseObject: <responses.UpdateRecommendationResponse>{},
         body: await response.json(),
         bodyKey: "recommendation",
-        bodyModel: "model.Recommendation",
+        bodyModel: model.Recommendation,
+        type: "model.Recommendation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1698,7 +1718,7 @@ export class OptimizerClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateResourceActionRequest.updateResourceActionDetails,
         "UpdateResourceActionDetails",
-        models.UpdateResourceActionDetails.getJsonObj
+        model.UpdateResourceActionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1710,7 +1730,8 @@ export class OptimizerClient {
         responseObject: <responses.UpdateResourceActionResponse>{},
         body: await response.json(),
         bodyKey: "resourceAction",
-        bodyModel: "model.ResourceAction",
+        bodyModel: model.ResourceAction,
+        type: "model.ResourceAction",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

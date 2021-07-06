@@ -135,4 +135,9 @@ export namespace UpdateSddcDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateSddcDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

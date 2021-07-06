@@ -70,4 +70,32 @@ export namespace ComputeInstanceGroupDeployStageSummary {
     return jsonObj;
   }
   export const deployStageType = "COMPUTE_INSTANCE_GROUP_ROLLING_DEPLOYMENT";
+  export function getDeserializedJsonObj(
+    obj: ComputeInstanceGroupDeployStageSummary,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DeployStageSummary.getDeserializedJsonObj(
+            obj
+          ) as ComputeInstanceGroupDeployStageSummary)),
+      ...{
+        "rolloutPolicy": obj.rolloutPolicy
+          ? model.ComputeInstanceGroupRolloutPolicy.getDeserializedJsonObj(obj.rolloutPolicy)
+          : undefined,
+        "rollbackPolicy": obj.rollbackPolicy
+          ? model.DeployStageRollbackPolicy.getDeserializedJsonObj(obj.rollbackPolicy)
+          : undefined,
+        "failurePolicy": obj.failurePolicy
+          ? model.ComputeInstanceGroupFailurePolicy.getDeserializedJsonObj(obj.failurePolicy)
+          : undefined,
+        "loadBalancerConfig": obj.loadBalancerConfig
+          ? model.LoadBalancerConfig.getDeserializedJsonObj(obj.loadBalancerConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

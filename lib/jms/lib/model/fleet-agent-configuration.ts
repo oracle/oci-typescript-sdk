@@ -54,4 +54,19 @@ export namespace FleetAgentConfiguration {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FleetAgentConfiguration): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "linuxConfiguration": obj.linuxConfiguration
+          ? model.FleetAgentOsConfiguration.getDeserializedJsonObj(obj.linuxConfiguration)
+          : undefined,
+        "windowsConfiguration": obj.windowsConfiguration
+          ? model.FleetAgentOsConfiguration.getDeserializedJsonObj(obj.windowsConfiguration)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

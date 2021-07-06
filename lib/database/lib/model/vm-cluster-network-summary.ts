@@ -123,4 +123,24 @@ export namespace VmClusterNetworkSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VmClusterNetworkSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "scans": obj.scans
+          ? obj.scans.map(item => {
+              return model.ScanDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "vmNetworks": obj.vmNetworks
+          ? obj.vmNetworks.map(item => {
+              return model.VmNetworkDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

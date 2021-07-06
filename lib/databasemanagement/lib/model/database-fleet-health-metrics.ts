@@ -63,4 +63,21 @@ export namespace DatabaseFleetHealthMetrics {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseFleetHealthMetrics): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "fleetSummary": obj.fleetSummary
+          ? model.FleetSummary.getDeserializedJsonObj(obj.fleetSummary)
+          : undefined,
+        "fleetDatabases": obj.fleetDatabases
+          ? obj.fleetDatabases.map(item => {
+              return model.DatabaseUsageMetrics.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

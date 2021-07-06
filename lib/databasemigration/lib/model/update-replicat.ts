@@ -43,4 +43,9 @@ export namespace UpdateReplicat {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateReplicat): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

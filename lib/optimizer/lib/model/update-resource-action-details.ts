@@ -38,4 +38,9 @@ export namespace UpdateResourceActionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateResourceActionDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -36,4 +36,17 @@ export namespace TargetIdsSelected {
     return jsonObj;
   }
   export const kind = "TARGETIDS";
+  export function getDeserializedJsonObj(
+    obj: TargetIdsSelected,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.TargetSelected.getDeserializedJsonObj(obj) as TargetIdsSelected)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

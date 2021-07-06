@@ -40,4 +40,18 @@ export namespace BulkActionResourceTypeCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BulkActionResourceTypeCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.BulkActionResourceType.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

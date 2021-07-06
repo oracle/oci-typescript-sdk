@@ -42,4 +42,9 @@ export namespace ProblemTrendAggregation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ProblemTrendAggregation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

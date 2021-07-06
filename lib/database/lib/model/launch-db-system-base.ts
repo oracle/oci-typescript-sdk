@@ -240,4 +240,42 @@ export namespace LaunchDbSystemBase {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LaunchDbSystemBase): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dbSystemOptions": obj.dbSystemOptions
+          ? model.DbSystemOptions.getDeserializedJsonObj(obj.dbSystemOptions)
+          : undefined
+      }
+    };
+
+    if ("source" in obj && obj.source) {
+      switch (obj.source) {
+        case "NONE":
+          return model.LaunchDbSystemDetails.getDeserializedJsonObj(
+            <model.LaunchDbSystemDetails>(<object>jsonObj),
+            true
+          );
+        case "DB_SYSTEM":
+          return model.LaunchDbSystemFromDbSystemDetails.getDeserializedJsonObj(
+            <model.LaunchDbSystemFromDbSystemDetails>(<object>jsonObj),
+            true
+          );
+        case "DATABASE":
+          return model.LaunchDbSystemFromDatabaseDetails.getDeserializedJsonObj(
+            <model.LaunchDbSystemFromDatabaseDetails>(<object>jsonObj),
+            true
+          );
+        case "DB_BACKUP":
+          return model.LaunchDbSystemFromBackupDetails.getDeserializedJsonObj(
+            <model.LaunchDbSystemFromBackupDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.source);
+      }
+    }
+    return jsonObj;
+  }
 }

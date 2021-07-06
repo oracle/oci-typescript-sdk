@@ -30,4 +30,9 @@ export namespace DeployStagePredecessor {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeployStagePredecessor): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -52,4 +52,18 @@ export namespace NotebookSessionConfigurationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NotebookSessionConfigurationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "notebookSessionShapeConfigDetails": obj.notebookSessionShapeConfigDetails
+          ? model.NotebookSessionShapeConfigDetails.getDeserializedJsonObj(
+              obj.notebookSessionShapeConfigDetails
+            )
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

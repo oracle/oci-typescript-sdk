@@ -47,4 +47,18 @@ export namespace HeatWaveClusterSchemaMemoryEstimate {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HeatWaveClusterSchemaMemoryEstimate): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "perTableEstimates": obj.perTableEstimates
+          ? obj.perTableEstimates.map(item => {
+              return model.HeatWaveClusterTableMemoryEstimate.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

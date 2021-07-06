@@ -75,4 +75,21 @@ export namespace CreateIPSecConnectionTunnelDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateIPSecConnectionTunnelDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "bgpSessionConfig": obj.bgpSessionConfig
+          ? model.CreateIPSecTunnelBgpSessionDetails.getDeserializedJsonObj(obj.bgpSessionConfig)
+          : undefined,
+        "encryptionDomainConfig": obj.encryptionDomainConfig
+          ? model.CreateIPSecTunnelEncryptionDomainDetails.getDeserializedJsonObj(
+              obj.encryptionDomainConfig
+            )
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

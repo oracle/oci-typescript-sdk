@@ -44,4 +44,12 @@ export namespace TimeColumn {
     return jsonObj;
   }
   export const type = "TIME_COLUMN";
+  export function getDeserializedJsonObj(obj: TimeColumn, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.AbstractColumn.getDeserializedJsonObj(obj) as TimeColumn)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

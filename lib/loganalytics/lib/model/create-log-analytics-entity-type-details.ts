@@ -50,4 +50,18 @@ export namespace CreateLogAnalyticsEntityTypeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateLogAnalyticsEntityTypeDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "properties": obj.properties
+          ? obj.properties.map(item => {
+              return model.EntityTypeProperty.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

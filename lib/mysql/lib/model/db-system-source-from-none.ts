@@ -32,4 +32,17 @@ export namespace DbSystemSourceFromNone {
     return jsonObj;
   }
   export const sourceType = "NONE";
+  export function getDeserializedJsonObj(
+    obj: DbSystemSourceFromNone,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DbSystemSource.getDeserializedJsonObj(obj) as DbSystemSourceFromNone)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

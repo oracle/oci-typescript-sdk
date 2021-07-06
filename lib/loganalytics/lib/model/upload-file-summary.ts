@@ -98,4 +98,9 @@ export namespace UploadFileSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UploadFileSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -49,4 +49,9 @@ export namespace AwrDbMetricSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AwrDbMetricSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

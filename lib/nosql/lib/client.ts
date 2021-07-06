@@ -17,7 +17,7 @@ in tables; and access of table usage metrics.
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { NosqlWaiter } from "./nosql-waiter";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
@@ -170,7 +170,7 @@ export class NosqlClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeTableCompartmentRequest.changeTableCompartmentDetails,
         "ChangeTableCompartmentDetails",
-        models.ChangeTableCompartmentDetails.getJsonObj
+        model.ChangeTableCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -236,7 +236,7 @@ export class NosqlClient {
       bodyContent: common.ObjectSerializer.serialize(
         createIndexRequest.createIndexDetails,
         "CreateIndexDetails",
-        models.CreateIndexDetails.getJsonObj
+        model.CreateIndexDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -300,7 +300,7 @@ export class NosqlClient {
       bodyContent: common.ObjectSerializer.serialize(
         createTableRequest.createTableDetails,
         "CreateTableDetails",
-        models.CreateTableDetails.getJsonObj
+        model.CreateTableDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -443,7 +443,8 @@ export class NosqlClient {
         responseObject: <responses.DeleteRowResponse>{},
         body: await response.json(),
         bodyKey: "deleteRowResult",
-        bodyModel: "model.DeleteRowResult",
+        bodyModel: model.DeleteRowResult,
+        type: "model.DeleteRowResult",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -629,7 +630,8 @@ export class NosqlClient {
         responseObject: <responses.GetIndexResponse>{},
         body: await response.json(),
         bodyKey: "index",
-        bodyModel: "model.Index",
+        bodyModel: model.Index,
+        type: "model.Index",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -695,7 +697,8 @@ export class NosqlClient {
         responseObject: <responses.GetRowResponse>{},
         body: await response.json(),
         bodyKey: "row",
-        bodyModel: "model.Row",
+        bodyModel: model.Row,
+        type: "model.Row",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -760,7 +763,8 @@ export class NosqlClient {
         responseObject: <responses.GetTableResponse>{},
         body: await response.json(),
         bodyKey: "table",
-        bodyModel: "model.Table",
+        bodyModel: model.Table,
+        type: "model.Table",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -823,7 +827,8 @@ export class NosqlClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -899,7 +904,8 @@ export class NosqlClient {
         responseObject: <responses.ListIndexesResponse>{},
         body: await response.json(),
         bodyKey: "indexCollection",
-        bodyModel: "model.IndexCollection",
+        bodyModel: model.IndexCollection,
+        type: "model.IndexCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -968,7 +974,8 @@ export class NosqlClient {
         responseObject: <responses.ListTableUsageResponse>{},
         body: await response.json(),
         bodyKey: "tableUsageCollection",
-        bodyModel: "model.TableUsageCollection",
+        bodyModel: model.TableUsageCollection,
+        type: "model.TableUsageCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1037,7 +1044,8 @@ export class NosqlClient {
         responseObject: <responses.ListTablesResponse>{},
         body: await response.json(),
         bodyKey: "tableCollection",
-        bodyModel: "model.TableCollection",
+        bodyModel: model.TableCollection,
+        type: "model.TableCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1104,7 +1112,8 @@ export class NosqlClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestErrorCollection",
-        bodyModel: "model.WorkRequestErrorCollection",
+        bodyModel: model.WorkRequestErrorCollection,
+        type: "model.WorkRequestErrorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1171,7 +1180,8 @@ export class NosqlClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestLogEntryCollection",
-        bodyModel: "model.WorkRequestLogEntryCollection",
+        bodyModel: model.WorkRequestLogEntryCollection,
+        type: "model.WorkRequestLogEntryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1236,7 +1246,8 @@ export class NosqlClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestCollection",
-        bodyModel: "model.WorkRequestCollection",
+        bodyModel: model.WorkRequestCollection,
+        type: "model.WorkRequestCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1301,7 +1312,8 @@ export class NosqlClient {
         responseObject: <responses.PrepareStatementResponse>{},
         body: await response.json(),
         bodyKey: "preparedStatement",
-        bodyModel: "model.PreparedStatement",
+        bodyModel: model.PreparedStatement,
+        type: "model.PreparedStatement",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1351,7 +1363,7 @@ export class NosqlClient {
       bodyContent: common.ObjectSerializer.serialize(
         queryRequest.queryDetails,
         "QueryDetails",
-        models.QueryDetails.getJsonObj
+        model.QueryDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1363,7 +1375,8 @@ export class NosqlClient {
         responseObject: <responses.QueryResponse>{},
         body: await response.json(),
         bodyKey: "queryResultCollection",
-        bodyModel: "model.QueryResultCollection",
+        bodyModel: model.QueryResultCollection,
+        type: "model.QueryResultCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1428,7 +1441,8 @@ export class NosqlClient {
         responseObject: <responses.SummarizeStatementResponse>{},
         body: await response.json(),
         bodyKey: "statementSummary",
-        bodyModel: "model.StatementSummary",
+        bodyModel: model.StatementSummary,
+        type: "model.StatementSummary",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1480,7 +1494,7 @@ export class NosqlClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateRowRequest.updateRowDetails,
         "UpdateRowDetails",
-        models.UpdateRowDetails.getJsonObj
+        model.UpdateRowDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1492,7 +1506,8 @@ export class NosqlClient {
         responseObject: <responses.UpdateRowResponse>{},
         body: await response.json(),
         bodyKey: "updateRowResult",
-        bodyModel: "model.UpdateRowResult",
+        bodyModel: model.UpdateRowResult,
+        type: "model.UpdateRowResult",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1551,7 +1566,7 @@ export class NosqlClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateTableRequest.updateTableDetails,
         "UpdateTableDetails",
-        models.UpdateTableDetails.getJsonObj
+        model.UpdateTableDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,

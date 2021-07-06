@@ -40,4 +40,20 @@ export namespace DrgAttachmentNetworkUpdateDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DrgAttachmentNetworkUpdateDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "VCN":
+          return model.VcnDrgAttachmentNetworkUpdateDetails.getDeserializedJsonObj(
+            <model.VcnDrgAttachmentNetworkUpdateDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

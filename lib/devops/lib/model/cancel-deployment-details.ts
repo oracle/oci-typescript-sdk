@@ -30,4 +30,9 @@ export namespace CancelDeploymentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CancelDeploymentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

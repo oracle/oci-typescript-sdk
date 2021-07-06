@@ -50,4 +50,9 @@ export namespace LogAnalyticsSourceMetadataField {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsSourceMetadataField): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -74,4 +74,9 @@ export namespace TagNamespaceSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TagNamespaceSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

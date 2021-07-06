@@ -50,4 +50,9 @@ export namespace OrchestrationVariable {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: OrchestrationVariable): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

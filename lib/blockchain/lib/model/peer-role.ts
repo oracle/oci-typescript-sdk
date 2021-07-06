@@ -35,4 +35,9 @@ export namespace PeerRole {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PeerRole): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -41,4 +41,18 @@ export namespace GenericArtifactCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: GenericArtifactCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.GenericArtifactSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

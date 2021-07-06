@@ -49,4 +49,30 @@ export namespace CreateDbSystemSourceDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateDbSystemSourceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("sourceType" in obj && obj.sourceType) {
+      switch (obj.sourceType) {
+        case "BACKUP":
+          return model.CreateDbSystemSourceFromBackupDetails.getDeserializedJsonObj(
+            <model.CreateDbSystemSourceFromBackupDetails>(<object>jsonObj),
+            true
+          );
+        case "NONE":
+          return model.CreateDbSystemSourceFromNoneDetails.getDeserializedJsonObj(
+            <model.CreateDbSystemSourceFromNoneDetails>(<object>jsonObj),
+            true
+          );
+        case "IMPORTURL":
+          return model.CreateDbSystemSourceImportFromUrlDetails.getDeserializedJsonObj(
+            <model.CreateDbSystemSourceImportFromUrlDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.sourceType);
+      }
+    }
+    return jsonObj;
+  }
 }

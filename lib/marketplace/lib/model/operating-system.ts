@@ -30,4 +30,9 @@ export namespace OperatingSystem {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: OperatingSystem): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

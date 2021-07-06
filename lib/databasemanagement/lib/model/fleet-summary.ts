@@ -53,4 +53,23 @@ export namespace FleetSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FleetSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "aggregatedMetrics": obj.aggregatedMetrics
+          ? obj.aggregatedMetrics.map(item => {
+              return model.FleetMetricSummaryDefinition.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "inventory": obj.inventory
+          ? obj.inventory.map(item => {
+              return model.FleetStatusByCategory.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

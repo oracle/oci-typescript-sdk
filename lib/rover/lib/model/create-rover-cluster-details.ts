@@ -125,4 +125,21 @@ export namespace CreateRoverClusterDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateRoverClusterDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customerShippingAddress": obj.customerShippingAddress
+          ? model.ShippingAddress.getDeserializedJsonObj(obj.customerShippingAddress)
+          : undefined,
+        "clusterWorkloads": obj.clusterWorkloads
+          ? obj.clusterWorkloads.map(item => {
+              return model.RoverWorkload.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

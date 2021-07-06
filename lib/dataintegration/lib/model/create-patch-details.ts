@@ -72,4 +72,16 @@ export namespace CreatePatchDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreatePatchDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "registryMetadata": obj.registryMetadata
+          ? model.RegistryMetadata.getDeserializedJsonObj(obj.registryMetadata)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

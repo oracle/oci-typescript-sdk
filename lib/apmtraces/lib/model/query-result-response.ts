@@ -50,4 +50,21 @@ export namespace QueryResultResponse {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: QueryResultResponse): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "queryResultMetadataSummary": obj.queryResultMetadataSummary
+          ? model.QueryResultMetadataSummary.getDeserializedJsonObj(obj.queryResultMetadataSummary)
+          : undefined,
+        "queryResultRows": obj.queryResultRows
+          ? obj.queryResultRows.map(item => {
+              return model.QueryResultRow.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

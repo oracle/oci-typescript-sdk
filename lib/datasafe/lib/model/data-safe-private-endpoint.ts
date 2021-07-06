@@ -96,4 +96,9 @@ export namespace DataSafePrivateEndpoint {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DataSafePrivateEndpoint): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

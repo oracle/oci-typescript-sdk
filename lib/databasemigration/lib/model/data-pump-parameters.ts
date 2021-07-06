@@ -67,4 +67,18 @@ export namespace DataPumpParameters {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DataPumpParameters): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "excludeParameters": obj.excludeParameters
+          ? obj.excludeParameters.map(item => {
+              return model.DataPumpExcludeParameters.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

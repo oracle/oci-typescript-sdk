@@ -60,4 +60,9 @@ export namespace DataSafeConfiguration {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DataSafeConfiguration): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

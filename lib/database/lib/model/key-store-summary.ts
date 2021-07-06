@@ -93,4 +93,21 @@ export namespace KeyStoreSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: KeyStoreSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "typeDetails": obj.typeDetails
+          ? model.KeyStoreTypeDetails.getDeserializedJsonObj(obj.typeDetails)
+          : undefined,
+        "associatedDatabases": obj.associatedDatabases
+          ? obj.associatedDatabases.map(item => {
+              return model.KeyStoreAssociatedDatabaseDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

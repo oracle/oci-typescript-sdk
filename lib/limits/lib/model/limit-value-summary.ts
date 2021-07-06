@@ -55,4 +55,9 @@ export namespace LimitValueSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LimitValueSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

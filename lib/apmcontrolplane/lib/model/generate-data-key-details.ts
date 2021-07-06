@@ -37,4 +37,9 @@ export namespace GenerateDataKeyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: GenerateDataKeyDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

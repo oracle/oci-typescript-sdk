@@ -79,4 +79,14 @@ export namespace UpdateVmClusterDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateVmClusterDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "version": obj.version ? model.PatchDetails.getDeserializedJsonObj(obj.version) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

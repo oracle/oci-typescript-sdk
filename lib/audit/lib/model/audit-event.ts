@@ -93,4 +93,14 @@ export namespace AuditEvent {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AuditEvent): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "data": obj.data ? model.Data.getDeserializedJsonObj(obj.data) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

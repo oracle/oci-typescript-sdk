@@ -43,4 +43,18 @@ export namespace BulkMoveResourcesDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BulkMoveResourcesDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "resources": obj.resources
+          ? obj.resources.map(item => {
+              return model.BulkActionResource.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

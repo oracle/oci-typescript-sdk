@@ -68,4 +68,18 @@ export namespace LogAnalyticsParserField {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsParserField): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "field": obj.field ? model.LogAnalyticsField.getDeserializedJsonObj(obj.field) : undefined,
+
+        "parser": obj.parser
+          ? model.LogAnalyticsParser.getDeserializedJsonObj(obj.parser)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

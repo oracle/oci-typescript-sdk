@@ -37,4 +37,9 @@ export namespace AwrDbCpuUsageSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AwrDbCpuUsageSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

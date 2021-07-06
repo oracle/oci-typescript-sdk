@@ -30,4 +30,9 @@ export namespace PolicySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PolicySummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -197,4 +197,16 @@ export namespace CreateAlarmDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateAlarmDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "suppression": obj.suppression
+          ? model.Suppression.getDeserializedJsonObj(obj.suppression)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

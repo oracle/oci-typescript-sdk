@@ -63,4 +63,16 @@ export namespace CapacityReservationInstanceSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CapacityReservationInstanceSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "shapeConfig": obj.shapeConfig
+          ? model.InstanceReservationShapeConfigDetails.getDeserializedJsonObj(obj.shapeConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

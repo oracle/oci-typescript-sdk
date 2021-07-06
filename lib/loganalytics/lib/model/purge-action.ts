@@ -59,4 +59,12 @@ export namespace PurgeAction {
     return jsonObj;
   }
   export const type = "PURGE";
+  export function getDeserializedJsonObj(obj: PurgeAction, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Action.getDeserializedJsonObj(obj) as PurgeAction)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

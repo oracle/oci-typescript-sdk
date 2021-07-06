@@ -46,4 +46,9 @@ export namespace UpdateDomainGovernanceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDomainGovernanceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -33,4 +33,9 @@ export namespace SearchContext {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SearchContext): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

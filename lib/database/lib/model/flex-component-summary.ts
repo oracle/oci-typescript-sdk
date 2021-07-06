@@ -48,4 +48,9 @@ export namespace FlexComponentSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FlexComponentSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

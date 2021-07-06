@@ -60,4 +60,9 @@ export namespace CreatePluggableDatabaseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreatePluggableDatabaseDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

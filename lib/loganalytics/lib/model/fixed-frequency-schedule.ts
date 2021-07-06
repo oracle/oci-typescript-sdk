@@ -48,4 +48,17 @@ export namespace FixedFrequencySchedule {
     return jsonObj;
   }
   export const type = "FIXED_FREQUENCY";
+  export function getDeserializedJsonObj(
+    obj: FixedFrequencySchedule,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.Schedule.getDeserializedJsonObj(obj) as FixedFrequencySchedule)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

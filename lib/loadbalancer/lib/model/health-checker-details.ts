@@ -87,4 +87,9 @@ export namespace HealthCheckerDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HealthCheckerDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

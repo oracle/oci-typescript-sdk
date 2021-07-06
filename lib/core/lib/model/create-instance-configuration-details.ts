@@ -50,4 +50,23 @@ export namespace CreateInstanceConfigurationDetails {
     return jsonObj;
   }
   export const source = "NONE";
+  export function getDeserializedJsonObj(
+    obj: CreateInstanceConfigurationDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateInstanceConfigurationBase.getDeserializedJsonObj(
+            obj
+          ) as CreateInstanceConfigurationDetails)),
+      ...{
+        "instanceDetails": obj.instanceDetails
+          ? model.InstanceConfigurationInstanceDetails.getDeserializedJsonObj(obj.instanceDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

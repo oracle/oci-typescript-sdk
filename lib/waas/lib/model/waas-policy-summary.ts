@@ -68,4 +68,9 @@ export namespace WaasPolicySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WaasPolicySummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

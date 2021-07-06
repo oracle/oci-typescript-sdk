@@ -30,7 +30,10 @@ export enum RecommendationType {
 }
 
 export namespace RecommendationType {
-  export function getJsonObj(obj: RecommendationType): object {
-    return { obj };
+  export function getJsonObj(obj: RecommendationType): RecommendationType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: RecommendationType): RecommendationType {
+    return obj;
   }
 }

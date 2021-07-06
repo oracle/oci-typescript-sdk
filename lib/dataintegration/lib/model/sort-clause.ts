@@ -46,4 +46,14 @@ export namespace SortClause {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SortClause): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "field": obj.field ? model.ShapeField.getDeserializedJsonObj(obj.field) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

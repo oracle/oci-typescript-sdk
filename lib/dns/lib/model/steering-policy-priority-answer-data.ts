@@ -37,4 +37,9 @@ export namespace SteeringPolicyPriorityAnswerData {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SteeringPolicyPriorityAnswerData): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

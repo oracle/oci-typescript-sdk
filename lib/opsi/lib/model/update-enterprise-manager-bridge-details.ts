@@ -49,4 +49,9 @@ export namespace UpdateEnterpriseManagerBridgeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateEnterpriseManagerBridgeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

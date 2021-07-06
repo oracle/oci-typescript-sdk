@@ -14,7 +14,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { EsxiHostWaiter } from "./esxihost-waiter";
 import { SddcWaiter } from "./sddc-waiter";
@@ -172,7 +172,7 @@ Use the {@link WorkRequest} operations to track the
       bodyContent: common.ObjectSerializer.serialize(
         createEsxiHostRequest.createEsxiHostDetails,
         "CreateEsxiHostDetails",
-        models.CreateEsxiHostDetails.getJsonObj
+        model.CreateEsxiHostDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -319,7 +319,8 @@ Use the {@link WorkRequest} operations to track the
         responseObject: <responses.GetEsxiHostResponse>{},
         body: await response.json(),
         bodyKey: "esxiHost",
-        bodyModel: "model.EsxiHost",
+        bodyModel: model.EsxiHost,
+        type: "model.EsxiHost",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -398,7 +399,8 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
         responseObject: <responses.ListEsxiHostsResponse>{},
         body: await response.json(),
         bodyKey: "esxiHostCollection",
-        bodyModel: "model.EsxiHostCollection",
+        bodyModel: model.EsxiHostCollection,
+        type: "model.EsxiHostCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -455,7 +457,7 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
       bodyContent: common.ObjectSerializer.serialize(
         updateEsxiHostRequest.updateEsxiHostDetails,
         "UpdateEsxiHostDetails",
-        models.UpdateEsxiHostDetails.getJsonObj
+        model.UpdateEsxiHostDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -467,7 +469,8 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
         responseObject: <responses.UpdateEsxiHostResponse>{},
         body: await response.json(),
         bodyKey: "esxiHost",
-        bodyModel: "model.EsxiHost",
+        bodyModel: model.EsxiHost,
+        type: "model.EsxiHost",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -698,7 +701,7 @@ export class SddcClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeSddcCompartmentRequest.changeSddcCompartmentDetails,
         "ChangeSddcCompartmentDetails",
-        models.ChangeSddcCompartmentDetails.getJsonObj
+        model.ChangeSddcCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -763,7 +766,7 @@ Use the {@link WorkRequest} operations to track the
       bodyContent: common.ObjectSerializer.serialize(
         createSddcRequest.createSddcDetails,
         "CreateSddcDetails",
-        models.CreateSddcDetails.getJsonObj
+        model.CreateSddcDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -898,7 +901,7 @@ Use the {@link WorkRequest} operations to track the
       bodyContent: common.ObjectSerializer.serialize(
         downgradeHcxRequest.downgradeHcxDetails,
         "DowngradeHcxDetails",
-        models.DowngradeHcxDetails.getJsonObj
+        model.DowngradeHcxDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -970,7 +973,8 @@ Use the {@link WorkRequest} operations to track the
         responseObject: <responses.GetSddcResponse>{},
         body: await response.json(),
         bodyKey: "sddc",
-        bodyModel: "model.Sddc",
+        bodyModel: model.Sddc,
+        type: "model.Sddc",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1042,7 +1046,8 @@ Use the {@link WorkRequest} operations to track the
         responseObject: <responses.ListSddcsResponse>{},
         body: await response.json(),
         bodyKey: "sddcCollection",
-        bodyModel: "model.SddcCollection",
+        bodyModel: model.SddcCollection,
+        type: "model.SddcCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1109,7 +1114,8 @@ Use the {@link WorkRequest} operations to track the
         responseObject: <responses.ListSupportedSkusResponse>{},
         body: await response.json(),
         bodyKey: "supportedSkuSummaryCollection",
-        bodyModel: "model.SupportedSkuSummaryCollection",
+        bodyModel: model.SupportedSkuSummaryCollection,
+        type: "model.SupportedSkuSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1177,7 +1183,8 @@ Use the {@link WorkRequest} operations to track the
         responseObject: <responses.ListSupportedVmwareSoftwareVersionsResponse>{},
         body: await response.json(),
         bodyKey: "supportedVmwareSoftwareVersionCollection",
-        bodyModel: "model.SupportedVmwareSoftwareVersionCollection",
+        bodyModel: model.SupportedVmwareSoftwareVersionCollection,
+        type: "model.SupportedVmwareSoftwareVersionCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1302,7 +1309,7 @@ Use the {@link WorkRequest} operations to track the
       bodyContent: common.ObjectSerializer.serialize(
         updateSddcRequest.updateSddcDetails,
         "UpdateSddcDetails",
-        models.UpdateSddcDetails.getJsonObj
+        model.UpdateSddcDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1314,7 +1321,8 @@ Use the {@link WorkRequest} operations to track the
         responseObject: <responses.UpdateSddcResponse>{},
         body: await response.json(),
         bodyKey: "sddc",
-        bodyModel: "model.Sddc",
+        bodyModel: model.Sddc,
+        type: "model.Sddc",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1547,7 +1555,8 @@ export class WorkRequestClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1615,7 +1624,8 @@ export class WorkRequestClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestErrorCollection",
-        bodyModel: "model.WorkRequestErrorCollection",
+        bodyModel: model.WorkRequestErrorCollection,
+        type: "model.WorkRequestErrorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1682,7 +1692,8 @@ export class WorkRequestClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestLogEntryCollection",
-        bodyModel: "model.WorkRequestLogEntryCollection",
+        bodyModel: model.WorkRequestLogEntryCollection,
+        type: "model.WorkRequestLogEntryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1749,7 +1760,8 @@ export class WorkRequestClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestCollection",
-        bodyModel: "model.WorkRequestCollection",
+        bodyModel: model.WorkRequestCollection,
+        type: "model.WorkRequestCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

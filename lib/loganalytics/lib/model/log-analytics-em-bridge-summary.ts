@@ -109,4 +109,9 @@ export namespace LogAnalyticsEmBridgeSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsEmBridgeSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

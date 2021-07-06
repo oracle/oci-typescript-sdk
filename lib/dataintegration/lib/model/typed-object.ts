@@ -98,4 +98,68 @@ export namespace TypedObject {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TypedObject): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+        "configValues": obj.configValues
+          ? model.ConfigValues.getDeserializedJsonObj(obj.configValues)
+          : undefined
+      }
+    };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "OUTPUT_PORT":
+          return model.OutputPort.getDeserializedJsonObj(<model.OutputPort>(<object>jsonObj), true);
+        case "DYNAMIC_INPUT_FIELD":
+          return model.DynamicInputField.getDeserializedJsonObj(
+            <model.DynamicInputField>(<object>jsonObj),
+            true
+          );
+        case "FIELD":
+          return model.AbstractField.getDeserializedJsonObj(
+            <model.AbstractField>(<object>jsonObj),
+            true
+          );
+        case "INPUT_FIELD":
+          return model.InputField.getDeserializedJsonObj(<model.InputField>(<object>jsonObj), true);
+        case "SHAPE":
+          return model.Shape.getDeserializedJsonObj(<model.Shape>(<object>jsonObj), true);
+        case "INPUT_PORT":
+          return model.InputPort.getDeserializedJsonObj(<model.InputPort>(<object>jsonObj), true);
+        case "PROXY_FIELD":
+          return model.ProxyField.getDeserializedJsonObj(<model.ProxyField>(<object>jsonObj), true);
+        case "DYNAMIC_PROXY_FIELD":
+          return model.DynamicProxyField.getDeserializedJsonObj(
+            <model.DynamicProxyField>(<object>jsonObj),
+            true
+          );
+        case "SHAPE_FIELD":
+          return model.ShapeField.getDeserializedJsonObj(<model.ShapeField>(<object>jsonObj), true);
+        case "PARAMETER":
+          return model.Parameter.getDeserializedJsonObj(<model.Parameter>(<object>jsonObj), true);
+        case "OUTPUT_FIELD":
+          return model.OutputField.getDeserializedJsonObj(
+            <model.OutputField>(<object>jsonObj),
+            true
+          );
+        case "MACRO_FIELD":
+          return model.MacroField.getDeserializedJsonObj(<model.MacroField>(<object>jsonObj), true);
+        case "DERIVED_FIELD":
+          return model.DerivedField.getDeserializedJsonObj(
+            <model.DerivedField>(<object>jsonObj),
+            true
+          );
+        case "FLOW_PORT":
+          return model.FlowPort.getDeserializedJsonObj(<model.FlowPort>(<object>jsonObj), true);
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

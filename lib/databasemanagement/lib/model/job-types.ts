@@ -31,7 +31,10 @@ export enum JobTypes {
 }
 
 export namespace JobTypes {
-  export function getJsonObj(obj: JobTypes): object {
-    return { obj };
+  export function getJsonObj(obj: JobTypes): JobTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: JobTypes): JobTypes {
+    return obj;
   }
 }

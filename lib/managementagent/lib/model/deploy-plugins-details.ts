@@ -38,4 +38,9 @@ export namespace DeployPluginsDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeployPluginsDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

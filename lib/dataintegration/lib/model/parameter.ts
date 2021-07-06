@@ -77,4 +77,14 @@ export namespace Parameter {
     return jsonObj;
   }
   export const modelType = "PARAMETER";
+  export function getDeserializedJsonObj(obj: Parameter, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.TypedObject.getDeserializedJsonObj(obj) as Parameter)),
+      ...{
+        "type": obj.type ? model.BaseType.getDeserializedJsonObj(obj.type) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

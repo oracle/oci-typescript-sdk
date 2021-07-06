@@ -31,4 +31,9 @@ export namespace CharEncodingCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CharEncodingCollection): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -54,4 +54,9 @@ export namespace Link {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Link): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

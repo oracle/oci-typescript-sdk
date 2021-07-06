@@ -115,4 +115,9 @@ export namespace EmailDomain {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EmailDomain): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

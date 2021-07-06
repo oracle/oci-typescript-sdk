@@ -48,4 +48,30 @@ export namespace AbstractWriteAttribute {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AbstractWriteAttribute): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "ORACLEADWCWRITEATTRIBUTE":
+          return model.OracleAdwcWriteAttribute.getDeserializedJsonObj(
+            <model.OracleAdwcWriteAttribute>(<object>jsonObj),
+            true
+          );
+        case "ORACLEWRITEATTRIBUTE":
+          return model.OracleWriteAttribute.getDeserializedJsonObj(
+            <model.OracleWriteAttribute>(<object>jsonObj),
+            true
+          );
+        case "ORACLEATPWRITEATTRIBUTE":
+          return model.OracleAtpWriteAttribute.getDeserializedJsonObj(
+            <model.OracleAtpWriteAttribute>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

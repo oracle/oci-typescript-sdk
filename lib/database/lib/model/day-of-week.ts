@@ -46,4 +46,9 @@ export namespace DayOfWeek {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DayOfWeek): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

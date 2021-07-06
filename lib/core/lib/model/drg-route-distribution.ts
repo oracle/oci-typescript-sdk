@@ -122,4 +122,9 @@ export namespace DrgRouteDistribution {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DrgRouteDistribution): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

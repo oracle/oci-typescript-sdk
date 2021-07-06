@@ -48,4 +48,19 @@ export namespace UpdateFleetAgentConfigurationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateFleetAgentConfigurationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "linuxConfiguration": obj.linuxConfiguration
+          ? model.FleetAgentOsConfiguration.getDeserializedJsonObj(obj.linuxConfiguration)
+          : undefined,
+        "windowsConfiguration": obj.windowsConfiguration
+          ? model.FleetAgentOsConfiguration.getDeserializedJsonObj(obj.windowsConfiguration)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

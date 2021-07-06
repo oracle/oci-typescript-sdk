@@ -58,4 +58,9 @@ export namespace UpdateMountTargetDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateMountTargetDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

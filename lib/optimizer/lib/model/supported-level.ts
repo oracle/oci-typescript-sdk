@@ -31,4 +31,9 @@ export namespace SupportedLevel {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SupportedLevel): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

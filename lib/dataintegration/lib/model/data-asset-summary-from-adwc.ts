@@ -51,4 +51,21 @@ export namespace DataAssetSummaryFromAdwc {
     return jsonObj;
   }
   export const modelType = "ORACLE_ADWC_DATA_ASSET";
+  export function getDeserializedJsonObj(
+    obj: DataAssetSummaryFromAdwc,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DataAssetSummary.getDeserializedJsonObj(obj) as DataAssetSummaryFromAdwc)),
+      ...{
+        "defaultConnection": obj.defaultConnection
+          ? model.ConnectionSummaryFromAdwc.getDeserializedJsonObj(obj.defaultConnection)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

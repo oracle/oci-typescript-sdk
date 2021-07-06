@@ -118,4 +118,25 @@ export namespace Publication {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Publication): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "supportContacts": obj.supportContacts
+          ? obj.supportContacts.map(item => {
+              return model.SupportContact.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "icon": obj.icon ? model.UploadData.getDeserializedJsonObj(obj.icon) : undefined,
+
+        "supportedOperatingSystems": obj.supportedOperatingSystems
+          ? obj.supportedOperatingSystems.map(item => {
+              return model.OperatingSystem.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

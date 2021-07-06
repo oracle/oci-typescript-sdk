@@ -129,4 +129,59 @@ export namespace DeployStageSummary {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeployStageSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "deployStagePredecessorCollection": obj.deployStagePredecessorCollection
+          ? model.DeployStagePredecessorCollection.getDeserializedJsonObj(
+              obj.deployStagePredecessorCollection
+            )
+          : undefined
+      }
+    };
+
+    if ("deployStageType" in obj && obj.deployStageType) {
+      switch (obj.deployStageType) {
+        case "WAIT":
+          return model.WaitDeployStageSummary.getDeserializedJsonObj(
+            <model.WaitDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_GROUP_ROLLING_DEPLOYMENT":
+          return model.ComputeInstanceGroupDeployStageSummary.getDeserializedJsonObj(
+            <model.ComputeInstanceGroupDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "OKE_DEPLOYMENT":
+          return model.OkeDeployStageSummary.getDeserializedJsonObj(
+            <model.OkeDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "INVOKE_FUNCTION":
+          return model.InvokeFunctionDeployStageSummary.getDeserializedJsonObj(
+            <model.InvokeFunctionDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "LOAD_BALANCER_TRAFFIC_SHIFT":
+          return model.LoadBalancerTrafficShiftDeployStageSummary.getDeserializedJsonObj(
+            <model.LoadBalancerTrafficShiftDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "MANUAL_APPROVAL":
+          return model.ManualApprovalDeployStageSummary.getDeserializedJsonObj(
+            <model.ManualApprovalDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "DEPLOY_FUNCTION":
+          return model.FunctionDeployStageSummary.getDeserializedJsonObj(
+            <model.FunctionDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.deployStageType);
+      }
+    }
+    return jsonObj;
+  }
 }

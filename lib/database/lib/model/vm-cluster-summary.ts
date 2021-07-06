@@ -152,4 +152,9 @@ export namespace VmClusterSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VmClusterSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

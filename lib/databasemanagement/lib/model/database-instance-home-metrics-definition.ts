@@ -72,4 +72,27 @@ export namespace DatabaseInstanceHomeMetricsDefinition {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseInstanceHomeMetricsDefinition): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "activityTimeSeriesMetrics": obj.activityTimeSeriesMetrics
+          ? obj.activityTimeSeriesMetrics.map(item => {
+              return model.ActivityTimeSeriesMetrics.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "dbTimeAggregateMetrics": obj.dbTimeAggregateMetrics
+          ? model.DatabaseTimeAggregateMetrics.getDeserializedJsonObj(obj.dbTimeAggregateMetrics)
+          : undefined,
+        "ioAggregateMetrics": obj.ioAggregateMetrics
+          ? model.DatabaseIOAggregateMetrics.getDeserializedJsonObj(obj.ioAggregateMetrics)
+          : undefined,
+        "memoryAggregateMetrics": obj.memoryAggregateMetrics
+          ? model.MemoryAggregateMetrics.getDeserializedJsonObj(obj.memoryAggregateMetrics)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

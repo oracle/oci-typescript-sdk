@@ -41,4 +41,18 @@ export namespace BulkAddVirtualCircuitPublicPrefixesDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BulkAddVirtualCircuitPublicPrefixesDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "publicPrefixes": obj.publicPrefixes
+          ? obj.publicPrefixes.map(item => {
+              return model.CreateVirtualCircuitPublicPrefixDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

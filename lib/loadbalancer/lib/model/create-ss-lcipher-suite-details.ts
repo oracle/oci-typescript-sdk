@@ -321,4 +321,9 @@ export namespace CreateSSLCipherSuiteDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateSSLCipherSuiteDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

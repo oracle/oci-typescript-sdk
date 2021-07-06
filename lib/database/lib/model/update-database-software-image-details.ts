@@ -46,4 +46,9 @@ export namespace UpdateDatabaseSoftwareImageDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDatabaseSoftwareImageDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

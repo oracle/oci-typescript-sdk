@@ -38,4 +38,20 @@ export namespace SecretBundleContentDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SecretBundleContentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("contentType" in obj && obj.contentType) {
+      switch (obj.contentType) {
+        case "BASE64":
+          return model.Base64SecretBundleContentDetails.getDeserializedJsonObj(
+            <model.Base64SecretBundleContentDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.contentType);
+      }
+    }
+    return jsonObj;
+  }
 }

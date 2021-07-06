@@ -55,4 +55,9 @@ export namespace AlarmHistoryEntry {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AlarmHistoryEntry): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

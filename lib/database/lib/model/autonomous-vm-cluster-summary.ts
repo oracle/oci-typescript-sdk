@@ -137,4 +137,9 @@ export namespace AutonomousVmClusterSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutonomousVmClusterSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

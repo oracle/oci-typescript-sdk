@@ -198,4 +198,9 @@ export namespace Bucket {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Bucket): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

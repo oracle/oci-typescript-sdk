@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { NetworkLoadBalancerWaiter } from "./networkloadbalancer-waiter";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
@@ -173,7 +173,7 @@ export class NetworkLoadBalancerClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeNetworkLoadBalancerCompartmentRequest.changeNetworkLoadBalancerCompartmentDetails,
         "ChangeNetworkLoadBalancerCompartmentDetails",
-        models.ChangeNetworkLoadBalancerCompartmentDetails.getJsonObj
+        model.ChangeNetworkLoadBalancerCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -242,7 +242,7 @@ export class NetworkLoadBalancerClient {
       bodyContent: common.ObjectSerializer.serialize(
         createBackendRequest.createBackendDetails,
         "CreateBackendDetails",
-        models.CreateBackendDetails.getJsonObj
+        model.CreateBackendDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -310,7 +310,7 @@ export class NetworkLoadBalancerClient {
       bodyContent: common.ObjectSerializer.serialize(
         createBackendSetRequest.createBackendSetDetails,
         "CreateBackendSetDetails",
-        models.CreateBackendSetDetails.getJsonObj
+        model.CreateBackendSetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -378,7 +378,7 @@ export class NetworkLoadBalancerClient {
       bodyContent: common.ObjectSerializer.serialize(
         createListenerRequest.createListenerDetails,
         "CreateListenerDetails",
-        models.CreateListenerDetails.getJsonObj
+        model.CreateListenerDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -449,7 +449,7 @@ export class NetworkLoadBalancerClient {
       bodyContent: common.ObjectSerializer.serialize(
         createNetworkLoadBalancerRequest.createNetworkLoadBalancerDetails,
         "CreateNetworkLoadBalancerDetails",
-        models.CreateNetworkLoadBalancerDetails.getJsonObj
+        model.CreateNetworkLoadBalancerDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -461,7 +461,8 @@ export class NetworkLoadBalancerClient {
         responseObject: <responses.CreateNetworkLoadBalancerResponse>{},
         body: await response.json(),
         bodyKey: "networkLoadBalancer",
-        bodyModel: "model.NetworkLoadBalancer",
+        bodyModel: model.NetworkLoadBalancer,
+        type: "model.NetworkLoadBalancer",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -794,7 +795,8 @@ Before you can delete a backend set, you must remove it from any active listener
         responseObject: <responses.GetBackendResponse>{},
         body: await response.json(),
         bodyKey: "backend",
-        bodyModel: "model.Backend",
+        bodyModel: model.Backend,
+        type: "model.Backend",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -861,7 +863,8 @@ Before you can delete a backend set, you must remove it from any active listener
         responseObject: <responses.GetBackendHealthResponse>{},
         body: await response.json(),
         bodyKey: "backendHealth",
-        bodyModel: "model.BackendHealth",
+        bodyModel: model.BackendHealth,
+        type: "model.BackendHealth",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -922,7 +925,8 @@ Before you can delete a backend set, you must remove it from any active listener
         responseObject: <responses.GetBackendSetResponse>{},
         body: await response.json(),
         bodyKey: "backendSet",
-        bodyModel: "model.BackendSet",
+        bodyModel: model.BackendSet,
+        type: "model.BackendSet",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -987,7 +991,8 @@ Before you can delete a backend set, you must remove it from any active listener
         responseObject: <responses.GetBackendSetHealthResponse>{},
         body: await response.json(),
         bodyKey: "backendSetHealth",
-        bodyModel: "model.BackendSetHealth",
+        bodyModel: model.BackendSetHealth,
+        type: "model.BackendSetHealth",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1055,7 +1060,8 @@ Before you can delete a backend set, you must remove it from any active listener
         responseObject: <responses.GetHealthCheckerResponse>{},
         body: await response.json(),
         bodyKey: "healthChecker",
-        bodyModel: "model.HealthChecker",
+        bodyModel: model.HealthChecker,
+        type: "model.HealthChecker",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1120,7 +1126,8 @@ Before you can delete a backend set, you must remove it from any active listener
         responseObject: <responses.GetListenerResponse>{},
         body: await response.json(),
         bodyKey: "listener",
-        bodyModel: "model.Listener",
+        bodyModel: model.Listener,
+        type: "model.Listener",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1185,7 +1192,8 @@ Before you can delete a backend set, you must remove it from any active listener
         responseObject: <responses.GetNetworkLoadBalancerResponse>{},
         body: await response.json(),
         bodyKey: "networkLoadBalancer",
-        bodyModel: "model.NetworkLoadBalancer",
+        bodyModel: model.NetworkLoadBalancer,
+        type: "model.NetworkLoadBalancer",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1251,7 +1259,8 @@ Before you can delete a backend set, you must remove it from any active listener
         responseObject: <responses.GetNetworkLoadBalancerHealthResponse>{},
         body: await response.json(),
         bodyKey: "networkLoadBalancerHealth",
-        bodyModel: "model.NetworkLoadBalancerHealth",
+        bodyModel: model.NetworkLoadBalancerHealth,
+        type: "model.NetworkLoadBalancerHealth",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1310,7 +1319,8 @@ Before you can delete a backend set, you must remove it from any active listener
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1379,7 +1389,8 @@ Before you can delete a backend set, you must remove it from any active listener
         responseObject: <responses.ListBackendSetsResponse>{},
         body: await response.json(),
         bodyKey: "backendSetCollection",
-        bodyModel: "model.BackendSetCollection",
+        bodyModel: model.BackendSetCollection,
+        type: "model.BackendSetCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1448,7 +1459,8 @@ Before you can delete a backend set, you must remove it from any active listener
         responseObject: <responses.ListBackendsResponse>{},
         body: await response.json(),
         bodyKey: "backendCollection",
-        bodyModel: "model.BackendCollection",
+        bodyModel: model.BackendCollection,
+        type: "model.BackendCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1517,7 +1529,8 @@ Before you can delete a backend set, you must remove it from any active listener
         responseObject: <responses.ListListenersResponse>{},
         body: await response.json(),
         bodyKey: "listenerCollection",
-        bodyModel: "model.ListenerCollection",
+        bodyModel: model.ListenerCollection,
+        type: "model.ListenerCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1587,7 +1600,8 @@ Before you can delete a backend set, you must remove it from any active listener
         responseObject: <responses.ListNetworkLoadBalancerHealthsResponse>{},
         body: await response.json(),
         bodyKey: "networkLoadBalancerHealthCollection",
-        bodyModel: "model.NetworkLoadBalancerHealthCollection",
+        bodyModel: model.NetworkLoadBalancerHealthCollection,
+        type: "model.NetworkLoadBalancerHealthCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1658,7 +1672,8 @@ Before you can delete a backend set, you must remove it from any active listener
         responseObject: <responses.ListNetworkLoadBalancersResponse>{},
         body: await response.json(),
         bodyKey: "networkLoadBalancerCollection",
-        bodyModel: "model.NetworkLoadBalancerCollection",
+        bodyModel: model.NetworkLoadBalancerCollection,
+        type: "model.NetworkLoadBalancerCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1726,7 +1741,8 @@ Before you can delete a backend set, you must remove it from any active listener
         responseObject: <responses.ListNetworkLoadBalancersPoliciesResponse>{},
         body: await response.json(),
         bodyKey: "networkLoadBalancersPolicyCollection",
-        bodyModel: "model.NetworkLoadBalancersPolicyCollection",
+        bodyModel: model.NetworkLoadBalancersPolicyCollection,
+        type: "model.NetworkLoadBalancersPolicyCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1794,7 +1810,8 @@ Before you can delete a backend set, you must remove it from any active listener
         responseObject: <responses.ListNetworkLoadBalancersProtocolsResponse>{},
         body: await response.json(),
         bodyKey: "networkLoadBalancersProtocolCollection",
-        bodyModel: "model.NetworkLoadBalancersProtocolCollection",
+        bodyModel: model.NetworkLoadBalancersProtocolCollection,
+        type: "model.NetworkLoadBalancersProtocolCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1863,7 +1880,8 @@ Before you can delete a backend set, you must remove it from any active listener
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestErrorCollection",
-        bodyModel: "model.WorkRequestErrorCollection",
+        bodyModel: model.WorkRequestErrorCollection,
+        type: "model.WorkRequestErrorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1932,7 +1950,8 @@ Before you can delete a backend set, you must remove it from any active listener
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestLogEntryCollection",
-        bodyModel: "model.WorkRequestLogEntryCollection",
+        bodyModel: model.WorkRequestLogEntryCollection,
+        type: "model.WorkRequestLogEntryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1998,7 +2017,8 @@ Before you can delete a backend set, you must remove it from any active listener
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestCollection",
-        bodyModel: "model.WorkRequestCollection",
+        bodyModel: model.WorkRequestCollection,
+        type: "model.WorkRequestCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2060,7 +2080,7 @@ Before you can delete a backend set, you must remove it from any active listener
       bodyContent: common.ObjectSerializer.serialize(
         updateBackendRequest.updateBackendDetails,
         "UpdateBackendDetails",
-        models.UpdateBackendDetails.getJsonObj
+        model.UpdateBackendDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2129,7 +2149,7 @@ Before you can delete a backend set, you must remove it from any active listener
       bodyContent: common.ObjectSerializer.serialize(
         updateBackendSetRequest.updateBackendSetDetails,
         "UpdateBackendSetDetails",
-        models.UpdateBackendSetDetails.getJsonObj
+        model.UpdateBackendSetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2199,7 +2219,7 @@ Before you can delete a backend set, you must remove it from any active listener
       bodyContent: common.ObjectSerializer.serialize(
         updateHealthCheckerRequest.updateHealthCheckerDetails,
         "UpdateHealthCheckerDetails",
-        models.UpdateHealthCheckerDetails.getJsonObj
+        model.UpdateHealthCheckerDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2268,7 +2288,7 @@ Before you can delete a backend set, you must remove it from any active listener
       bodyContent: common.ObjectSerializer.serialize(
         updateListenerRequest.updateListenerDetails,
         "UpdateListenerDetails",
-        models.UpdateListenerDetails.getJsonObj
+        model.UpdateListenerDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2335,7 +2355,7 @@ Before you can delete a backend set, you must remove it from any active listener
       bodyContent: common.ObjectSerializer.serialize(
         updateNetworkLoadBalancerRequest.updateNetworkLoadBalancerDetails,
         "UpdateNetworkLoadBalancerDetails",
-        models.UpdateNetworkLoadBalancerDetails.getJsonObj
+        model.UpdateNetworkLoadBalancerDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2403,7 +2423,7 @@ Before you can delete a backend set, you must remove it from any active listener
       bodyContent: common.ObjectSerializer.serialize(
         updateNetworkSecurityGroupsRequest.updateNetworkSecurityGroupsDetails,
         "UpdateNetworkSecurityGroupsDetails",
-        models.UpdateNetworkSecurityGroupsDetails.getJsonObj
+        model.UpdateNetworkSecurityGroupsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,

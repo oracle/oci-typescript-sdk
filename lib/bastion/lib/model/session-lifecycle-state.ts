@@ -32,7 +32,10 @@ export enum SessionLifecycleState {
 }
 
 export namespace SessionLifecycleState {
-  export function getJsonObj(obj: SessionLifecycleState): object {
-    return { obj };
+  export function getJsonObj(obj: SessionLifecycleState): SessionLifecycleState {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: SessionLifecycleState): SessionLifecycleState {
+    return obj;
   }
 }

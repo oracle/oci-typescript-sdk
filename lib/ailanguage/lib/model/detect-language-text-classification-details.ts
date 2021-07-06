@@ -33,4 +33,9 @@ export namespace DetectLanguageTextClassificationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DetectLanguageTextClassificationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

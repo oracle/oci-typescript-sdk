@@ -124,4 +124,24 @@ export namespace InstancePool {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstancePool): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "placementConfigurations": obj.placementConfigurations
+          ? obj.placementConfigurations.map(item => {
+              return model.InstancePoolPlacementConfiguration.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "loadBalancers": obj.loadBalancers
+          ? obj.loadBalancers.map(item => {
+              return model.InstancePoolLoadBalancerAttachment.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

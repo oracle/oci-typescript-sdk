@@ -98,4 +98,9 @@ export namespace CreateVcnDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateVcnDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

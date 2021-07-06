@@ -35,4 +35,9 @@ export namespace IngestHostConfigurationResponseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IngestHostConfigurationResponseDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

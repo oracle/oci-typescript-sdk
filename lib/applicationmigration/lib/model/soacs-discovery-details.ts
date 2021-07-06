@@ -49,4 +49,17 @@ export namespace SoacsDiscoveryDetails {
     return jsonObj;
   }
   export const type = "SOACS";
+  export function getDeserializedJsonObj(
+    obj: SoacsDiscoveryDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DiscoveryDetails.getDeserializedJsonObj(obj) as SoacsDiscoveryDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

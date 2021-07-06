@@ -60,4 +60,9 @@ export namespace PatternSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PatternSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

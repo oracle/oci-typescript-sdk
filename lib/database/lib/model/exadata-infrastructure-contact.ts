@@ -47,4 +47,9 @@ export namespace ExadataInfrastructureContact {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExadataInfrastructureContact): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

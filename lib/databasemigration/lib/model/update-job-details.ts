@@ -44,4 +44,9 @@ export namespace UpdateJobDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateJobDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

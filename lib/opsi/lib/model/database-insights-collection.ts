@@ -42,4 +42,18 @@ export namespace DatabaseInsightsCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseInsightsCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.DatabaseInsightSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

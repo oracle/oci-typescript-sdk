@@ -38,4 +38,17 @@ export namespace InlineDeployArtifactSource {
     return jsonObj;
   }
   export const deployArtifactSourceType = "INLINE";
+  export function getDeserializedJsonObj(
+    obj: InlineDeployArtifactSource,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DeployArtifactSource.getDeserializedJsonObj(obj) as InlineDeployArtifactSource)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

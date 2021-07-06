@@ -38,4 +38,9 @@ export namespace Extract {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Extract): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

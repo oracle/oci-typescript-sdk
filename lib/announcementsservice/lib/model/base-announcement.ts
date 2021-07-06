@@ -159,4 +159,25 @@ export namespace BaseAnnouncement {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BaseAnnouncement): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "AnnouncementSummary":
+          return model.AnnouncementSummary.getDeserializedJsonObj(
+            <model.AnnouncementSummary>(<object>jsonObj),
+            true
+          );
+        case "Announcement":
+          return model.Announcement.getDeserializedJsonObj(
+            <model.Announcement>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

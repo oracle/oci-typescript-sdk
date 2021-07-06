@@ -109,4 +109,18 @@ export namespace ClusterNetworkSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ClusterNetworkSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "instancePools": obj.instancePools
+          ? obj.instancePools.map(item => {
+              return model.InstancePoolSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

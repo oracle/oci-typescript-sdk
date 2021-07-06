@@ -56,4 +56,9 @@ export namespace ResourceStatistics {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResourceStatistics): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

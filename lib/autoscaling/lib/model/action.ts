@@ -52,4 +52,9 @@ export namespace Action {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Action): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

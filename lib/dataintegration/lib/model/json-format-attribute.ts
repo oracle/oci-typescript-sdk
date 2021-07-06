@@ -38,4 +38,17 @@ export namespace JsonFormatAttribute {
     return jsonObj;
   }
   export const modelType = "JSON_FORMAT";
+  export function getDeserializedJsonObj(
+    obj: JsonFormatAttribute,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractFormatAttribute.getDeserializedJsonObj(obj) as JsonFormatAttribute)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

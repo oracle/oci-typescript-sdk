@@ -104,4 +104,25 @@ export namespace ConfigurationSourceProvider {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConfigurationSourceProvider): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("configSourceProviderType" in obj && obj.configSourceProviderType) {
+      switch (obj.configSourceProviderType) {
+        case "GITHUB_ACCESS_TOKEN":
+          return model.GithubAccessTokenConfigurationSourceProvider.getDeserializedJsonObj(
+            <model.GithubAccessTokenConfigurationSourceProvider>(<object>jsonObj),
+            true
+          );
+        case "GITLAB_ACCESS_TOKEN":
+          return model.GitlabAccessTokenConfigurationSourceProvider.getDeserializedJsonObj(
+            <model.GitlabAccessTokenConfigurationSourceProvider>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.configSourceProviderType);
+      }
+    }
+    return jsonObj;
+  }
 }

@@ -58,4 +58,9 @@ export namespace UpdateLocalPeeringGatewayDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateLocalPeeringGatewayDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -87,4 +87,31 @@ export namespace RuleBasedFieldMap {
     return jsonObj;
   }
   export const modelType = "RULE_BASED_FIELD_MAP";
+  export function getDeserializedJsonObj(
+    obj: RuleBasedFieldMap,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.FieldMap.getDeserializedJsonObj(obj) as RuleBasedFieldMap)),
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+        "configValues": obj.configValues
+          ? model.ConfigValues.getDeserializedJsonObj(obj.configValues)
+          : undefined,
+
+        "fromRuleConfig": obj.fromRuleConfig
+          ? model.RuleTypeConfig.getDeserializedJsonObj(obj.fromRuleConfig)
+          : undefined,
+        "toRuleConfig": obj.toRuleConfig
+          ? model.RuleTypeConfig.getDeserializedJsonObj(obj.toRuleConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

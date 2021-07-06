@@ -57,4 +57,9 @@ export namespace CreateSenderDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateSenderDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

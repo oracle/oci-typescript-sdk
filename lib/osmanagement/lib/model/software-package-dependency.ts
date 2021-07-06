@@ -40,4 +40,9 @@ export namespace SoftwarePackageDependency {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SoftwarePackageDependency): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

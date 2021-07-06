@@ -42,4 +42,18 @@ export namespace ApiCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApiCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ApiSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

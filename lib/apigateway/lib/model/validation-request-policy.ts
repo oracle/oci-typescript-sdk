@@ -48,4 +48,9 @@ export namespace ValidationRequestPolicy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ValidationRequestPolicy): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -77,4 +77,18 @@ export namespace CreateScriptDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateScriptDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parameters": obj.parameters
+          ? obj.parameters.map(item => {
+              return model.ScriptParameter.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -76,4 +76,25 @@ export namespace CreateZoneBaseDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateZoneBaseDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("migrationSource" in obj && obj.migrationSource) {
+      switch (obj.migrationSource) {
+        case "NONE":
+          return model.CreateZoneDetails.getDeserializedJsonObj(
+            <model.CreateZoneDetails>(<object>jsonObj),
+            true
+          );
+        case "DYNECT":
+          return model.CreateMigratedDynectZoneDetails.getDeserializedJsonObj(
+            <model.CreateMigratedDynectZoneDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.migrationSource);
+      }
+    }
+    return jsonObj;
+  }
 }

@@ -38,4 +38,9 @@ export namespace UpdateMaintenanceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateMaintenanceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

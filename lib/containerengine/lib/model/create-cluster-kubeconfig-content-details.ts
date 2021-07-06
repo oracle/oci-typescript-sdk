@@ -49,4 +49,9 @@ export namespace CreateClusterKubeconfigContentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateClusterKubeconfigContentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

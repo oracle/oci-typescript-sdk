@@ -55,4 +55,9 @@ export namespace FacetedSearchAggregation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FacetedSearchAggregation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

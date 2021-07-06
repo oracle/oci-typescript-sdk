@@ -34,4 +34,9 @@ export namespace ServiceSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ServiceSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

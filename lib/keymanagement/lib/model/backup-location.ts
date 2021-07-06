@@ -45,4 +45,25 @@ export namespace BackupLocation {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BackupLocation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("destination" in obj && obj.destination) {
+      switch (obj.destination) {
+        case "BUCKET":
+          return model.BackupLocationBucket.getDeserializedJsonObj(
+            <model.BackupLocationBucket>(<object>jsonObj),
+            true
+          );
+        case "PRE_AUTHENTICATED_REQUEST_URI":
+          return model.BackupLocationURI.getDeserializedJsonObj(
+            <model.BackupLocationURI>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.destination);
+      }
+    }
+    return jsonObj;
+  }
 }

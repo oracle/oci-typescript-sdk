@@ -29,7 +29,10 @@ export enum PackageTypeEnum {
 }
 
 export namespace PackageTypeEnum {
-  export function getJsonObj(obj: PackageTypeEnum): object {
-    return { obj };
+  export function getJsonObj(obj: PackageTypeEnum): PackageTypeEnum {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: PackageTypeEnum): PackageTypeEnum {
+    return obj;
   }
 }

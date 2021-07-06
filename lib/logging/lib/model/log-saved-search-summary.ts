@@ -78,4 +78,9 @@ export namespace LogSavedSearchSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogSavedSearchSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

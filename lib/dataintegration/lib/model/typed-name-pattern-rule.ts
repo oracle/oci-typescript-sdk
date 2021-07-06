@@ -89,4 +89,17 @@ export namespace TypedNamePatternRule {
     return jsonObj;
   }
   export const modelType = "TYPED_NAME_PATTERN_RULE";
+  export function getDeserializedJsonObj(
+    obj: TypedNamePatternRule,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ProjectionRule.getDeserializedJsonObj(obj) as TypedNamePatternRule)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

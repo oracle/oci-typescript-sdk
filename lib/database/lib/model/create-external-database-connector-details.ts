@@ -66,4 +66,20 @@ export namespace CreateExternalDatabaseConnectorDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateExternalDatabaseConnectorDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("connectorType" in obj && obj.connectorType) {
+      switch (obj.connectorType) {
+        case "MACS":
+          return model.CreateExternalMacsConnectorDetails.getDeserializedJsonObj(
+            <model.CreateExternalMacsConnectorDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.connectorType);
+      }
+    }
+    return jsonObj;
+  }
 }

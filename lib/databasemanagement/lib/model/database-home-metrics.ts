@@ -46,4 +46,21 @@ export namespace DatabaseHomeMetrics {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseHomeMetrics): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "databaseHomeMetrics": obj.databaseHomeMetrics
+          ? model.DatabaseHomeMetricDefinition.getDeserializedJsonObj(obj.databaseHomeMetrics)
+          : undefined,
+        "databaseInstanceHomeMetrics": obj.databaseInstanceHomeMetrics
+          ? obj.databaseInstanceHomeMetrics.map(item => {
+              return model.DatabaseInstanceHomeMetricsDefinition.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

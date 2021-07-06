@@ -38,4 +38,9 @@ export namespace Whitelist {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Whitelist): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -30,7 +30,10 @@ export enum ListenerProtocols {
 }
 
 export namespace ListenerProtocols {
-  export function getJsonObj(obj: ListenerProtocols): object {
-    return { obj };
+  export function getJsonObj(obj: ListenerProtocols): ListenerProtocols {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ListenerProtocols): ListenerProtocols {
+    return obj;
   }
 }

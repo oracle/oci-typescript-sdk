@@ -76,4 +76,16 @@ export namespace SessionSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SessionSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "targetResourceDetails": obj.targetResourceDetails
+          ? model.TargetResourceDetails.getDeserializedJsonObj(obj.targetResourceDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

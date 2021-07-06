@@ -33,7 +33,12 @@ export enum NotebookSessionShapeSeries {
 }
 
 export namespace NotebookSessionShapeSeries {
-  export function getJsonObj(obj: NotebookSessionShapeSeries): object {
-    return { obj };
+  export function getJsonObj(obj: NotebookSessionShapeSeries): NotebookSessionShapeSeries {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: NotebookSessionShapeSeries
+  ): NotebookSessionShapeSeries {
+    return obj;
   }
 }

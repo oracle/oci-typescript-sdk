@@ -14,7 +14,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { AnalyticsWaiter } from "./analytics-waiter";
@@ -171,7 +171,7 @@ export class AnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeAnalyticsInstanceCompartmentRequest.changeCompartmentDetails,
         "ChangeCompartmentDetails",
-        models.ChangeCompartmentDetails.getJsonObj
+        model.ChangeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -243,7 +243,7 @@ export class AnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeAnalyticsInstanceNetworkEndpointRequest.changeAnalyticsInstanceNetworkEndpointDetails,
         "ChangeAnalyticsInstanceNetworkEndpointDetails",
-        models.ChangeAnalyticsInstanceNetworkEndpointDetails.getJsonObj
+        model.ChangeAnalyticsInstanceNetworkEndpointDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -310,7 +310,7 @@ export class AnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createAnalyticsInstanceRequest.createAnalyticsInstanceDetails,
         "CreateAnalyticsInstanceDetails",
-        models.CreateAnalyticsInstanceDetails.getJsonObj
+        model.CreateAnalyticsInstanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -322,7 +322,8 @@ export class AnalyticsClient {
         responseObject: <responses.CreateAnalyticsInstanceResponse>{},
         body: await response.json(),
         bodyKey: "analyticsInstance",
-        bodyModel: "model.AnalyticsInstance",
+        bodyModel: model.AnalyticsInstance,
+        type: "model.AnalyticsInstance",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -392,7 +393,7 @@ export class AnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createPrivateAccessChannelRequest.createPrivateAccessChannelDetails,
         "CreatePrivateAccessChannelDetails",
-        models.CreatePrivateAccessChannelDetails.getJsonObj
+        model.CreatePrivateAccessChannelDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -460,7 +461,7 @@ export class AnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createVanityUrlRequest.createVanityUrlDetails,
         "CreateVanityUrlDetails",
-        models.CreateVanityUrlDetails.getJsonObj
+        model.CreateVanityUrlDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -785,7 +786,8 @@ export class AnalyticsClient {
         responseObject: <responses.GetAnalyticsInstanceResponse>{},
         body: await response.json(),
         bodyKey: "analyticsInstance",
-        bodyModel: "model.AnalyticsInstance",
+        bodyModel: model.AnalyticsInstance,
+        type: "model.AnalyticsInstance",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -852,7 +854,8 @@ export class AnalyticsClient {
         responseObject: <responses.GetPrivateAccessChannelResponse>{},
         body: await response.json(),
         bodyKey: "privateAccessChannel",
-        bodyModel: "model.PrivateAccessChannel",
+        bodyModel: model.PrivateAccessChannel,
+        type: "model.PrivateAccessChannel",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -916,7 +919,8 @@ export class AnalyticsClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -993,7 +997,8 @@ export class AnalyticsClient {
         responseObject: <responses.ListAnalyticsInstancesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AnalyticsInstanceSummary[]",
+        bodyModel: model.AnalyticsInstanceSummary,
+        type: "Array<model.AnalyticsInstanceSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1023,7 +1028,7 @@ export class AnalyticsClient {
    */
   public listAllAnalyticsInstances(
     request: requests.ListAnalyticsInstancesRequest
-  ): AsyncIterableIterator<models.AnalyticsInstanceSummary> {
+  ): AsyncIterableIterator<model.AnalyticsInstanceSummary> {
     return paginateRecords(request, req => this.listAnalyticsInstances(req));
   }
 
@@ -1085,7 +1090,8 @@ export class AnalyticsClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestError[]",
+        bodyModel: model.WorkRequestError,
+        type: "Array<model.WorkRequestError>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1115,7 +1121,7 @@ export class AnalyticsClient {
    */
   public listAllWorkRequestErrors(
     request: requests.ListWorkRequestErrorsRequest
-  ): AsyncIterableIterator<models.WorkRequestError> {
+  ): AsyncIterableIterator<model.WorkRequestError> {
     return paginateRecords(request, req => this.listWorkRequestErrors(req));
   }
 
@@ -1177,7 +1183,8 @@ export class AnalyticsClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestLog[]",
+        bodyModel: model.WorkRequestLog,
+        type: "Array<model.WorkRequestLog>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1207,7 +1214,7 @@ export class AnalyticsClient {
    */
   public listAllWorkRequestLogs(
     request: requests.ListWorkRequestLogsRequest
-  ): AsyncIterableIterator<models.WorkRequestLog> {
+  ): AsyncIterableIterator<model.WorkRequestLog> {
     return paginateRecords(request, req => this.listWorkRequestLogs(req));
   }
 
@@ -1273,7 +1280,8 @@ export class AnalyticsClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestSummary[]",
+        bodyModel: model.WorkRequestSummary,
+        type: "Array<model.WorkRequestSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1303,7 +1311,7 @@ export class AnalyticsClient {
    */
   public listAllWorkRequests(
     request: requests.ListWorkRequestsRequest
-  ): AsyncIterableIterator<models.WorkRequestSummary> {
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
     return paginateRecords(request, req => this.listWorkRequests(req));
   }
 
@@ -1358,7 +1366,7 @@ export class AnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         scaleAnalyticsInstanceRequest.scaleAnalyticsInstanceDetails,
         "ScaleAnalyticsInstanceDetails",
-        models.ScaleAnalyticsInstanceDetails.getJsonObj
+        model.ScaleAnalyticsInstanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1555,7 +1563,7 @@ export class AnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateAnalyticsInstanceRequest.updateAnalyticsInstanceDetails,
         "UpdateAnalyticsInstanceDetails",
-        models.UpdateAnalyticsInstanceDetails.getJsonObj
+        model.UpdateAnalyticsInstanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1567,7 +1575,8 @@ export class AnalyticsClient {
         responseObject: <responses.UpdateAnalyticsInstanceResponse>{},
         body: await response.json(),
         bodyKey: "analyticsInstance",
-        bodyModel: "model.AnalyticsInstance",
+        bodyModel: model.AnalyticsInstance,
+        type: "model.AnalyticsInstance",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1629,7 +1638,7 @@ export class AnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updatePrivateAccessChannelRequest.updatePrivateAccessChannelDetails,
         "UpdatePrivateAccessChannelDetails",
-        models.UpdatePrivateAccessChannelDetails.getJsonObj
+        model.UpdatePrivateAccessChannelDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1698,7 +1707,7 @@ export class AnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateVanityUrlRequest.updateVanityUrlDetails,
         "UpdateVanityUrlDetails",
-        models.UpdateVanityUrlDetails.getJsonObj
+        model.UpdateVanityUrlDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,

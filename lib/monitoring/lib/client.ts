@@ -16,7 +16,7 @@ For information about monitoring, see [Monitoring Overview](/iaas/Content/Monito
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { MonitoringWaiter } from "./monitoring-waiter";
@@ -174,7 +174,7 @@ For information about moving resources between compartments, see [Moving Resourc
       bodyContent: common.ObjectSerializer.serialize(
         changeAlarmCompartmentRequest.changeAlarmCompartmentDetails,
         "ChangeAlarmCompartmentDetails",
-        models.ChangeAlarmCompartmentDetails.getJsonObj
+        model.ChangeAlarmCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -239,7 +239,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
       bodyContent: common.ObjectSerializer.serialize(
         createAlarmRequest.createAlarmDetails,
         "CreateAlarmDetails",
-        models.CreateAlarmDetails.getJsonObj
+        model.CreateAlarmDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -251,7 +251,8 @@ This call is subject to a Monitoring limit that applies to the total number of r
         responseObject: <responses.CreateAlarmResponse>{},
         body: await response.json(),
         bodyKey: "alarm",
-        bodyModel: "model.Alarm",
+        bodyModel: model.Alarm,
+        type: "model.Alarm",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -382,7 +383,8 @@ This call is subject to a Monitoring limit that applies to the total number of r
         responseObject: <responses.GetAlarmResponse>{},
         body: await response.json(),
         bodyKey: "alarm",
-        bodyModel: "model.Alarm",
+        bodyModel: model.Alarm,
+        type: "model.Alarm",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -457,7 +459,8 @@ This call is subject to a Monitoring limit that applies to the total number of r
         responseObject: <responses.GetAlarmHistoryResponse>{},
         body: await response.json(),
         bodyKey: "alarmHistoryCollection",
-        bodyModel: "model.AlarmHistoryCollection",
+        bodyModel: model.AlarmHistoryCollection,
+        type: "model.AlarmHistoryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -533,7 +536,8 @@ This call is subject to a Monitoring limit that applies to the total number of r
         responseObject: <responses.ListAlarmsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AlarmSummary[]",
+        bodyModel: model.AlarmSummary,
+        type: "Array<model.AlarmSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -563,7 +567,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
    */
   public listAllAlarms(
     request: requests.ListAlarmsRequest
-  ): AsyncIterableIterator<models.AlarmSummary> {
+  ): AsyncIterableIterator<model.AlarmSummary> {
     return paginateRecords(request, req => this.listAlarms(req));
   }
 
@@ -633,7 +637,8 @@ This call is subject to a Monitoring limit that applies to the total number of r
         responseObject: <responses.ListAlarmsStatusResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AlarmStatusSummary[]",
+        bodyModel: model.AlarmStatusSummary,
+        type: "Array<model.AlarmStatusSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -663,7 +668,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
    */
   public listAllAlarmsStatus(
     request: requests.ListAlarmsStatusRequest
-  ): AsyncIterableIterator<models.AlarmStatusSummary> {
+  ): AsyncIterableIterator<model.AlarmStatusSummary> {
     return paginateRecords(request, req => this.listAlarmsStatus(req));
   }
 
@@ -722,7 +727,7 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
       bodyContent: common.ObjectSerializer.serialize(
         listMetricsRequest.listMetricsDetails,
         "ListMetricsDetails",
-        models.ListMetricsDetails.getJsonObj
+        model.ListMetricsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -734,7 +739,8 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
         responseObject: <responses.ListMetricsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Metric[]",
+        bodyModel: model.Metric,
+        type: "Array<model.Metric>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -762,9 +768,7 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
    *
    * @param request a request which can be sent to the service operation
    */
-  public listAllMetrics(
-    request: requests.ListMetricsRequest
-  ): AsyncIterableIterator<models.Metric> {
+  public listAllMetrics(request: requests.ListMetricsRequest): AsyncIterableIterator<model.Metric> {
     return paginateRecords(request, req => this.listMetrics(req));
   }
 
@@ -831,7 +835,7 @@ https://telemetry-ingestion.eu-frankfurt-1.oraclecloud.com
       bodyContent: common.ObjectSerializer.serialize(
         postMetricDataRequest.postMetricDataDetails,
         "PostMetricDataDetails",
-        models.PostMetricDataDetails.getJsonObj
+        model.PostMetricDataDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -843,7 +847,8 @@ https://telemetry-ingestion.eu-frankfurt-1.oraclecloud.com
         responseObject: <responses.PostMetricDataResponse>{},
         body: await response.json(),
         bodyKey: "postMetricDataResponseDetails",
-        bodyModel: "model.PostMetricDataResponseDetails",
+        bodyModel: model.PostMetricDataResponseDetails,
+        type: "model.PostMetricDataResponseDetails",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -963,7 +968,7 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
       bodyContent: common.ObjectSerializer.serialize(
         summarizeMetricsDataRequest.summarizeMetricsDataDetails,
         "SummarizeMetricsDataDetails",
-        models.SummarizeMetricsDataDetails.getJsonObj
+        model.SummarizeMetricsDataDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -975,7 +980,8 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
         responseObject: <responses.SummarizeMetricsDataResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "MetricData[]",
+        bodyModel: model.MetricData,
+        type: "Array<model.MetricData>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1033,7 +1039,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
       bodyContent: common.ObjectSerializer.serialize(
         updateAlarmRequest.updateAlarmDetails,
         "UpdateAlarmDetails",
-        models.UpdateAlarmDetails.getJsonObj
+        model.UpdateAlarmDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1045,7 +1051,8 @@ This call is subject to a Monitoring limit that applies to the total number of r
         responseObject: <responses.UpdateAlarmResponse>{},
         body: await response.json(),
         bodyKey: "alarm",
-        bodyModel: "model.Alarm",
+        bodyModel: model.Alarm,
+        type: "model.Alarm",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

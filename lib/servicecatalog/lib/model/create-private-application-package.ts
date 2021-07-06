@@ -43,4 +43,20 @@ export namespace CreatePrivateApplicationPackage {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreatePrivateApplicationPackage): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("packageType" in obj && obj.packageType) {
+      switch (obj.packageType) {
+        case "STACK":
+          return model.CreatePrivateApplicationStackPackage.getDeserializedJsonObj(
+            <model.CreatePrivateApplicationStackPackage>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.packageType);
+      }
+    }
+    return jsonObj;
+  }
 }

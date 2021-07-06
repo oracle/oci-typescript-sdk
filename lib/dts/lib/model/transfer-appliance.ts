@@ -76,4 +76,16 @@ export namespace TransferAppliance {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TransferAppliance): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customerShippingAddress": obj.customerShippingAddress
+          ? model.ShippingAddress.getDeserializedJsonObj(obj.customerShippingAddress)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

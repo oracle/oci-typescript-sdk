@@ -66,4 +66,30 @@ export namespace ImageCapabilitySchemaDescriptor {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ImageCapabilitySchemaDescriptor): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("descriptorType" in obj && obj.descriptorType) {
+      switch (obj.descriptorType) {
+        case "enumstring":
+          return model.EnumStringImageCapabilitySchemaDescriptor.getDeserializedJsonObj(
+            <model.EnumStringImageCapabilitySchemaDescriptor>(<object>jsonObj),
+            true
+          );
+        case "enuminteger":
+          return model.EnumIntegerImageCapabilityDescriptor.getDeserializedJsonObj(
+            <model.EnumIntegerImageCapabilityDescriptor>(<object>jsonObj),
+            true
+          );
+        case "boolean":
+          return model.BooleanImageCapabilitySchemaDescriptor.getDeserializedJsonObj(
+            <model.BooleanImageCapabilitySchemaDescriptor>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.descriptorType);
+      }
+    }
+    return jsonObj;
+  }
 }

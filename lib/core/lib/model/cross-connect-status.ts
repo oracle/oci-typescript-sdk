@@ -84,4 +84,9 @@ export namespace CrossConnectStatus {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CrossConnectStatus): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

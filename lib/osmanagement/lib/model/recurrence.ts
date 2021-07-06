@@ -43,4 +43,9 @@ export namespace Recurrence {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Recurrence): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

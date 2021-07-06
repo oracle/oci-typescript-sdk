@@ -43,4 +43,9 @@ export namespace TablespaceUsageTrend {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TablespaceUsageTrend): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

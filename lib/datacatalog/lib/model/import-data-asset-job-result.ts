@@ -46,4 +46,9 @@ export namespace ImportDataAssetJobResult {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ImportDataAssetJobResult): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

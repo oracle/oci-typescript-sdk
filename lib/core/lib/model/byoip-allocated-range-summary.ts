@@ -40,4 +40,9 @@ export namespace ByoipAllocatedRangeSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ByoipAllocatedRangeSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

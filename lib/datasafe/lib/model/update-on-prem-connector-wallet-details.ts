@@ -30,4 +30,9 @@ export namespace UpdateOnPremConnectorWalletDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateOnPremConnectorWalletDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

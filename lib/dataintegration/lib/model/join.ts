@@ -52,4 +52,12 @@ export namespace Join {
     return jsonObj;
   }
   export const modelType = "JOIN";
+  export function getDeserializedJsonObj(obj: Join, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.PushDownOperation.getDeserializedJsonObj(obj) as Join)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

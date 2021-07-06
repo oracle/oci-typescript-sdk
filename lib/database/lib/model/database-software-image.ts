@@ -139,4 +139,9 @@ export namespace DatabaseSoftwareImage {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseSoftwareImage): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

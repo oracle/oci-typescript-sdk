@@ -44,4 +44,18 @@ export namespace ConfigurationSourceProviderCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConfigurationSourceProviderCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ConfigurationSourceProviderSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -135,4 +135,9 @@ export namespace ProtectionSettings {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ProtectionSettings): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

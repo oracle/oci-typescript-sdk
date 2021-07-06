@@ -39,4 +39,19 @@ export namespace RunPipelineDeployStageExecutionProgress {
     return jsonObj;
   }
   export const deployStageType = "RUN_DEPLOYMENT_PIPELINE";
+  export function getDeserializedJsonObj(
+    obj: RunPipelineDeployStageExecutionProgress,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DeployStageExecutionProgress.getDeserializedJsonObj(
+            obj
+          ) as RunPipelineDeployStageExecutionProgress)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

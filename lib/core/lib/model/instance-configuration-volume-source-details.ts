@@ -45,4 +45,25 @@ export namespace InstanceConfigurationVolumeSourceDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceConfigurationVolumeSourceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "volumeBackup":
+          return model.InstanceConfigurationVolumeSourceFromVolumeBackupDetails.getDeserializedJsonObj(
+            <model.InstanceConfigurationVolumeSourceFromVolumeBackupDetails>(<object>jsonObj),
+            true
+          );
+        case "volume":
+          return model.InstanceConfigurationVolumeSourceFromVolumeDetails.getDeserializedJsonObj(
+            <model.InstanceConfigurationVolumeSourceFromVolumeDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

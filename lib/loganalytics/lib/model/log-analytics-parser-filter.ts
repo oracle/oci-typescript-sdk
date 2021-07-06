@@ -58,4 +58,16 @@ export namespace LogAnalyticsParserFilter {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsParserFilter): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parser": obj.parser
+          ? model.LogAnalyticsParser.getDeserializedJsonObj(obj.parser)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

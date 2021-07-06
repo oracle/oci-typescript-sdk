@@ -69,4 +69,31 @@ export namespace FlowPortLink {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FlowPortLink): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined
+      }
+    };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "INPUT_LINK":
+          return model.InputLink.getDeserializedJsonObj(<model.InputLink>(<object>jsonObj), true);
+        case "OUTPUT_LINK":
+          return model.OutputLink.getDeserializedJsonObj(<model.OutputLink>(<object>jsonObj), true);
+        case "CONDITIONAL_INPUT_LINK":
+          return model.ConditionalInputLink.getDeserializedJsonObj(
+            <model.ConditionalInputLink>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

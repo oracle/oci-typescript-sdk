@@ -29,7 +29,10 @@ export enum EnclosureType {
 }
 
 export namespace EnclosureType {
-  export function getJsonObj(obj: EnclosureType): object {
-    return { obj };
+  export function getJsonObj(obj: EnclosureType): EnclosureType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: EnclosureType): EnclosureType {
+    return obj;
   }
 }

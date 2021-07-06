@@ -69,4 +69,9 @@ export namespace ModelSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ModelSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

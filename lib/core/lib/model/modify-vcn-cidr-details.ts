@@ -42,4 +42,9 @@ export namespace ModifyVcnCidrDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ModifyVcnCidrDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

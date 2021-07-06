@@ -38,4 +38,14 @@ export namespace SelfMountDetails {
     return jsonObj;
   }
   export const mountType = "SELF_MOUNT";
+  export function getDeserializedJsonObj(obj: SelfMountDetails, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.MountTypeDetails.getDeserializedJsonObj(obj) as SelfMountDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

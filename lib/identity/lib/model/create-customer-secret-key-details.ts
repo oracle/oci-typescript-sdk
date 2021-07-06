@@ -28,4 +28,9 @@ export namespace CreateCustomerSecretKeyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateCustomerSecretKeyDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

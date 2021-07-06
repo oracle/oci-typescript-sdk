@@ -91,4 +91,18 @@ export namespace HeatWaveCluster {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HeatWaveCluster): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "clusterNodes": obj.clusterNodes
+          ? obj.clusterNodes.map(item => {
+              return model.HeatWaveNode.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

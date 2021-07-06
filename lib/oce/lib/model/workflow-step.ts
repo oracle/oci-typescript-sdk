@@ -34,4 +34,9 @@ export namespace WorkflowStep {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WorkflowStep): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -18,7 +18,7 @@ block storage volumes.
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { WorkRequestClient } from "oci-workrequests";
@@ -182,7 +182,7 @@ export class BlockstorageClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeBootVolumeBackupCompartmentRequest.changeBootVolumeBackupCompartmentDetails,
         "ChangeBootVolumeBackupCompartmentDetails",
-        models.ChangeBootVolumeBackupCompartmentDetails.getJsonObj
+        model.ChangeBootVolumeBackupCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -251,7 +251,7 @@ export class BlockstorageClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeBootVolumeCompartmentRequest.changeBootVolumeCompartmentDetails,
         "ChangeBootVolumeCompartmentDetails",
-        models.ChangeBootVolumeCompartmentDetails.getJsonObj
+        model.ChangeBootVolumeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -320,7 +320,7 @@ export class BlockstorageClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeVolumeBackupCompartmentRequest.changeVolumeBackupCompartmentDetails,
         "ChangeVolumeBackupCompartmentDetails",
-        models.ChangeVolumeBackupCompartmentDetails.getJsonObj
+        model.ChangeVolumeBackupCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -389,7 +389,7 @@ export class BlockstorageClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeVolumeCompartmentRequest.changeVolumeCompartmentDetails,
         "ChangeVolumeCompartmentDetails",
-        models.ChangeVolumeCompartmentDetails.getJsonObj
+        model.ChangeVolumeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -458,7 +458,7 @@ export class BlockstorageClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeVolumeGroupBackupCompartmentRequest.changeVolumeGroupBackupCompartmentDetails,
         "ChangeVolumeGroupBackupCompartmentDetails",
-        models.ChangeVolumeGroupBackupCompartmentDetails.getJsonObj
+        model.ChangeVolumeGroupBackupCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -527,7 +527,7 @@ export class BlockstorageClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeVolumeGroupCompartmentRequest.changeVolumeGroupCompartmentDetails,
         "ChangeVolumeGroupCompartmentDetails",
-        models.ChangeVolumeGroupCompartmentDetails.getJsonObj
+        model.ChangeVolumeGroupCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -596,7 +596,7 @@ export class BlockstorageClient {
       bodyContent: common.ObjectSerializer.serialize(
         copyBootVolumeBackupRequest.copyBootVolumeBackupDetails,
         "CopyBootVolumeBackupDetails",
-        models.CopyBootVolumeBackupDetails.getJsonObj
+        model.CopyBootVolumeBackupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -608,7 +608,8 @@ export class BlockstorageClient {
         responseObject: <responses.CopyBootVolumeBackupResponse>{},
         body: await response.json(),
         bodyKey: "bootVolumeBackup",
-        bodyModel: "model.BootVolumeBackup",
+        bodyModel: model.BootVolumeBackup,
+        type: "model.BootVolumeBackup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -667,7 +668,7 @@ export class BlockstorageClient {
       bodyContent: common.ObjectSerializer.serialize(
         copyVolumeBackupRequest.copyVolumeBackupDetails,
         "CopyVolumeBackupDetails",
-        models.CopyVolumeBackupDetails.getJsonObj
+        model.CopyVolumeBackupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -679,7 +680,8 @@ export class BlockstorageClient {
         responseObject: <responses.CopyVolumeBackupResponse>{},
         body: await response.json(),
         bodyKey: "volumeBackup",
-        bodyModel: "model.VolumeBackup",
+        bodyModel: model.VolumeBackup,
+        type: "model.VolumeBackup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -737,7 +739,7 @@ export class BlockstorageClient {
       bodyContent: common.ObjectSerializer.serialize(
         createBootVolumeRequest.createBootVolumeDetails,
         "CreateBootVolumeDetails",
-        models.CreateBootVolumeDetails.getJsonObj
+        model.CreateBootVolumeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -749,7 +751,8 @@ export class BlockstorageClient {
         responseObject: <responses.CreateBootVolumeResponse>{},
         body: await response.json(),
         bodyKey: "bootVolume",
-        bodyModel: "model.BootVolume",
+        bodyModel: model.BootVolume,
+        type: "model.BootVolume",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -810,7 +813,7 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
       bodyContent: common.ObjectSerializer.serialize(
         createBootVolumeBackupRequest.createBootVolumeBackupDetails,
         "CreateBootVolumeBackupDetails",
-        models.CreateBootVolumeBackupDetails.getJsonObj
+        model.CreateBootVolumeBackupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -822,7 +825,8 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
         responseObject: <responses.CreateBootVolumeBackupResponse>{},
         body: await response.json(),
         bodyKey: "bootVolumeBackup",
-        bodyModel: "model.BootVolumeBackup",
+        bodyModel: model.BootVolumeBackup,
+        type: "model.BootVolumeBackup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -890,7 +894,7 @@ You may optionally specify a *display name* for the volume, which is simply a fr
       bodyContent: common.ObjectSerializer.serialize(
         createVolumeRequest.createVolumeDetails,
         "CreateVolumeDetails",
-        models.CreateVolumeDetails.getJsonObj
+        model.CreateVolumeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -902,7 +906,8 @@ You may optionally specify a *display name* for the volume, which is simply a fr
         responseObject: <responses.CreateVolumeResponse>{},
         body: await response.json(),
         bodyKey: "volume",
-        bodyModel: "model.Volume",
+        bodyModel: model.Volume,
+        type: "model.Volume",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -962,7 +967,7 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
       bodyContent: common.ObjectSerializer.serialize(
         createVolumeBackupRequest.createVolumeBackupDetails,
         "CreateVolumeBackupDetails",
-        models.CreateVolumeBackupDetails.getJsonObj
+        model.CreateVolumeBackupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -974,7 +979,8 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
         responseObject: <responses.CreateVolumeBackupResponse>{},
         body: await response.json(),
         bodyKey: "volumeBackup",
-        bodyModel: "model.VolumeBackup",
+        bodyModel: model.VolumeBackup,
+        type: "model.VolumeBackup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1034,7 +1040,7 @@ For more information about Oracle defined backup policies and user defined backu
       bodyContent: common.ObjectSerializer.serialize(
         createVolumeBackupPolicyRequest.createVolumeBackupPolicyDetails,
         "CreateVolumeBackupPolicyDetails",
-        models.CreateVolumeBackupPolicyDetails.getJsonObj
+        model.CreateVolumeBackupPolicyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1046,7 +1052,8 @@ For more information about Oracle defined backup policies and user defined backu
         responseObject: <responses.CreateVolumeBackupPolicyResponse>{},
         body: await response.json(),
         bodyKey: "volumeBackupPolicy",
-        bodyModel: "model.VolumeBackupPolicy",
+        bodyModel: model.VolumeBackupPolicy,
+        type: "model.VolumeBackupPolicy",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1103,7 +1110,7 @@ For more information about Oracle defined backup policies and user defined backu
       bodyContent: common.ObjectSerializer.serialize(
         createVolumeBackupPolicyAssignmentRequest.createVolumeBackupPolicyAssignmentDetails,
         "CreateVolumeBackupPolicyAssignmentDetails",
-        models.CreateVolumeBackupPolicyAssignmentDetails.getJsonObj
+        model.CreateVolumeBackupPolicyAssignmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1115,7 +1122,8 @@ For more information about Oracle defined backup policies and user defined backu
         responseObject: <responses.CreateVolumeBackupPolicyAssignmentResponse>{},
         body: await response.json(),
         bodyKey: "volumeBackupPolicyAssignment",
-        bodyModel: "model.VolumeBackupPolicyAssignment",
+        bodyModel: model.VolumeBackupPolicyAssignment,
+        type: "model.VolumeBackupPolicyAssignment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1176,7 +1184,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       bodyContent: common.ObjectSerializer.serialize(
         createVolumeGroupRequest.createVolumeGroupDetails,
         "CreateVolumeGroupDetails",
-        models.CreateVolumeGroupDetails.getJsonObj
+        model.CreateVolumeGroupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1188,7 +1196,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
         responseObject: <responses.CreateVolumeGroupResponse>{},
         body: await response.json(),
         bodyKey: "volumeGroup",
-        bodyModel: "model.VolumeGroup",
+        bodyModel: model.VolumeGroup,
+        type: "model.VolumeGroup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1245,7 +1254,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       bodyContent: common.ObjectSerializer.serialize(
         createVolumeGroupBackupRequest.createVolumeGroupBackupDetails,
         "CreateVolumeGroupBackupDetails",
-        models.CreateVolumeGroupBackupDetails.getJsonObj
+        model.CreateVolumeGroupBackupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1257,7 +1266,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
         responseObject: <responses.CreateVolumeGroupBackupResponse>{},
         body: await response.json(),
         bodyKey: "volumeGroupBackup",
-        bodyModel: "model.VolumeGroupBackup",
+        bodyModel: model.VolumeGroupBackup,
+        type: "model.VolumeGroupBackup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1895,7 +1905,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
         responseObject: <responses.GetBlockVolumeReplicaResponse>{},
         body: await response.json(),
         bodyKey: "blockVolumeReplica",
-        bodyModel: "model.BlockVolumeReplica",
+        bodyModel: model.BlockVolumeReplica,
+        type: "model.BlockVolumeReplica",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1957,7 +1968,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
         responseObject: <responses.GetBootVolumeResponse>{},
         body: await response.json(),
         bodyKey: "bootVolume",
-        bodyModel: "model.BootVolume",
+        bodyModel: model.BootVolume,
+        type: "model.BootVolume",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2019,7 +2031,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
         responseObject: <responses.GetBootVolumeBackupResponse>{},
         body: await response.json(),
         bodyKey: "bootVolumeBackup",
-        bodyModel: "model.BootVolumeBackup",
+        bodyModel: model.BootVolumeBackup,
+        type: "model.BootVolumeBackup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2083,7 +2096,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
         responseObject: <responses.GetBootVolumeKmsKeyResponse>{},
         body: await response.json(),
         bodyKey: "bootVolumeKmsKey",
-        bodyModel: "model.BootVolumeKmsKey",
+        bodyModel: model.BootVolumeKmsKey,
+        type: "model.BootVolumeKmsKey",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2146,7 +2160,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
         responseObject: <responses.GetBootVolumeReplicaResponse>{},
         body: await response.json(),
         bodyKey: "bootVolumeReplica",
-        bodyModel: "model.BootVolumeReplica",
+        bodyModel: model.BootVolumeReplica,
+        type: "model.BootVolumeReplica",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2208,7 +2223,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
         responseObject: <responses.GetVolumeResponse>{},
         body: await response.json(),
         bodyKey: "volume",
-        bodyModel: "model.Volume",
+        bodyModel: model.Volume,
+        type: "model.Volume",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2270,7 +2286,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
         responseObject: <responses.GetVolumeBackupResponse>{},
         body: await response.json(),
         bodyKey: "volumeBackup",
-        bodyModel: "model.VolumeBackup",
+        bodyModel: model.VolumeBackup,
+        type: "model.VolumeBackup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2333,7 +2350,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
         responseObject: <responses.GetVolumeBackupPolicyResponse>{},
         body: await response.json(),
         bodyKey: "volumeBackupPolicy",
-        bodyModel: "model.VolumeBackupPolicy",
+        bodyModel: model.VolumeBackupPolicy,
+        type: "model.VolumeBackupPolicy",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2403,7 +2421,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
         responseObject: <responses.GetVolumeBackupPolicyAssetAssignmentResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "VolumeBackupPolicyAssignment[]",
+        bodyModel: model.VolumeBackupPolicyAssignment,
+        type: "Array<model.VolumeBackupPolicyAssignment>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2433,7 +2452,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    */
   public getAllVolumeBackupPolicyAssetAssignment(
     request: requests.GetVolumeBackupPolicyAssetAssignmentRequest
-  ): AsyncIterableIterator<models.VolumeBackupPolicyAssignment> {
+  ): AsyncIterableIterator<model.VolumeBackupPolicyAssignment> {
     return paginateRecords(request, req => this.getVolumeBackupPolicyAssetAssignment(req));
   }
 
@@ -2491,7 +2510,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
         responseObject: <responses.GetVolumeBackupPolicyAssignmentResponse>{},
         body: await response.json(),
         bodyKey: "volumeBackupPolicyAssignment",
-        bodyModel: "model.VolumeBackupPolicyAssignment",
+        bodyModel: model.VolumeBackupPolicyAssignment,
+        type: "model.VolumeBackupPolicyAssignment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2553,7 +2573,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
         responseObject: <responses.GetVolumeGroupResponse>{},
         body: await response.json(),
         bodyKey: "volumeGroup",
-        bodyModel: "model.VolumeGroup",
+        bodyModel: model.VolumeGroup,
+        type: "model.VolumeGroup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2616,7 +2637,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
         responseObject: <responses.GetVolumeGroupBackupResponse>{},
         body: await response.json(),
         bodyKey: "volumeGroupBackup",
-        bodyModel: "model.VolumeGroupBackup",
+        bodyModel: model.VolumeGroupBackup,
+        type: "model.VolumeGroupBackup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2680,7 +2702,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
         responseObject: <responses.GetVolumeKmsKeyResponse>{},
         body: await response.json(),
         bodyKey: "volumeKmsKey",
-        bodyModel: "model.VolumeKmsKey",
+        bodyModel: model.VolumeKmsKey,
+        type: "model.VolumeKmsKey",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2751,7 +2774,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
         responseObject: <responses.ListBlockVolumeReplicasResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "BlockVolumeReplica[]",
+        bodyModel: model.BlockVolumeReplica,
+        type: "Array<model.BlockVolumeReplica>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2781,7 +2805,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    */
   public listAllBlockVolumeReplicas(
     request: requests.ListBlockVolumeReplicasRequest
-  ): AsyncIterableIterator<models.BlockVolumeReplica> {
+  ): AsyncIterableIterator<model.BlockVolumeReplica> {
     return paginateRecords(request, req => this.listBlockVolumeReplicas(req));
   }
 
@@ -2848,7 +2872,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
         responseObject: <responses.ListBootVolumeBackupsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "BootVolumeBackup[]",
+        bodyModel: model.BootVolumeBackup,
+        type: "Array<model.BootVolumeBackup>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2878,7 +2903,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    */
   public listAllBootVolumeBackups(
     request: requests.ListBootVolumeBackupsRequest
-  ): AsyncIterableIterator<models.BootVolumeBackup> {
+  ): AsyncIterableIterator<model.BootVolumeBackup> {
     return paginateRecords(request, req => this.listBootVolumeBackups(req));
   }
 
@@ -2944,7 +2969,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
         responseObject: <responses.ListBootVolumeReplicasResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "BootVolumeReplica[]",
+        bodyModel: model.BootVolumeReplica,
+        type: "Array<model.BootVolumeReplica>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2974,7 +3000,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    */
   public listAllBootVolumeReplicas(
     request: requests.ListBootVolumeReplicasRequest
-  ): AsyncIterableIterator<models.BootVolumeReplica> {
+  ): AsyncIterableIterator<model.BootVolumeReplica> {
     return paginateRecords(request, req => this.listBootVolumeReplicas(req));
   }
 
@@ -3036,7 +3062,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
         responseObject: <responses.ListBootVolumesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "BootVolume[]",
+        bodyModel: model.BootVolume,
+        type: "Array<model.BootVolume>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -3066,7 +3093,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    */
   public listAllBootVolumes(
     request: requests.ListBootVolumesRequest
-  ): AsyncIterableIterator<models.BootVolume> {
+  ): AsyncIterableIterator<model.BootVolume> {
     return paginateRecords(request, req => this.listBootVolumes(req));
   }
 
@@ -3130,7 +3157,8 @@ For more information about Oracle defined backup policies and user defined backu
         responseObject: <responses.ListVolumeBackupPoliciesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "VolumeBackupPolicy[]",
+        bodyModel: model.VolumeBackupPolicy,
+        type: "Array<model.VolumeBackupPolicy>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -3160,7 +3188,7 @@ For more information about Oracle defined backup policies and user defined backu
    */
   public listAllVolumeBackupPolicies(
     request: requests.ListVolumeBackupPoliciesRequest
-  ): AsyncIterableIterator<models.VolumeBackupPolicy> {
+  ): AsyncIterableIterator<model.VolumeBackupPolicy> {
     return paginateRecords(request, req => this.listVolumeBackupPolicies(req));
   }
 
@@ -3226,7 +3254,8 @@ For more information about Oracle defined backup policies and user defined backu
         responseObject: <responses.ListVolumeBackupsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "VolumeBackup[]",
+        bodyModel: model.VolumeBackup,
+        type: "Array<model.VolumeBackup>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -3256,7 +3285,7 @@ For more information about Oracle defined backup policies and user defined backu
    */
   public listAllVolumeBackups(
     request: requests.ListVolumeBackupsRequest
-  ): AsyncIterableIterator<models.VolumeBackup> {
+  ): AsyncIterableIterator<model.VolumeBackup> {
     return paginateRecords(request, req => this.listVolumeBackups(req));
   }
 
@@ -3322,7 +3351,8 @@ For more information about Oracle defined backup policies and user defined backu
         responseObject: <responses.ListVolumeGroupBackupsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "VolumeGroupBackup[]",
+        bodyModel: model.VolumeGroupBackup,
+        type: "Array<model.VolumeGroupBackup>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -3352,7 +3382,7 @@ For more information about Oracle defined backup policies and user defined backu
    */
   public listAllVolumeGroupBackups(
     request: requests.ListVolumeGroupBackupsRequest
-  ): AsyncIterableIterator<models.VolumeGroupBackup> {
+  ): AsyncIterableIterator<model.VolumeGroupBackup> {
     return paginateRecords(request, req => this.listVolumeGroupBackups(req));
   }
 
@@ -3418,7 +3448,8 @@ For more information about Oracle defined backup policies and user defined backu
         responseObject: <responses.ListVolumeGroupsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "VolumeGroup[]",
+        bodyModel: model.VolumeGroup,
+        type: "Array<model.VolumeGroup>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -3448,7 +3479,7 @@ For more information about Oracle defined backup policies and user defined backu
    */
   public listAllVolumeGroups(
     request: requests.ListVolumeGroupsRequest
-  ): AsyncIterableIterator<models.VolumeGroup> {
+  ): AsyncIterableIterator<model.VolumeGroup> {
     return paginateRecords(request, req => this.listVolumeGroups(req));
   }
 
@@ -3514,7 +3545,8 @@ For more information about Oracle defined backup policies and user defined backu
         responseObject: <responses.ListVolumesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Volume[]",
+        bodyModel: model.Volume,
+        type: "Array<model.Volume>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -3542,9 +3574,7 @@ For more information about Oracle defined backup policies and user defined backu
    *
    * @param request a request which can be sent to the service operation
    */
-  public listAllVolumes(
-    request: requests.ListVolumesRequest
-  ): AsyncIterableIterator<models.Volume> {
+  public listAllVolumes(request: requests.ListVolumesRequest): AsyncIterableIterator<model.Volume> {
     return paginateRecords(request, req => this.listVolumes(req));
   }
 
@@ -3595,7 +3625,7 @@ For more information about Oracle defined backup policies and user defined backu
       bodyContent: common.ObjectSerializer.serialize(
         updateBootVolumeRequest.updateBootVolumeDetails,
         "UpdateBootVolumeDetails",
-        models.UpdateBootVolumeDetails.getJsonObj
+        model.UpdateBootVolumeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3607,7 +3637,8 @@ For more information about Oracle defined backup policies and user defined backu
         responseObject: <responses.UpdateBootVolumeResponse>{},
         body: await response.json(),
         bodyKey: "bootVolume",
-        bodyModel: "model.BootVolume",
+        bodyModel: model.BootVolume,
+        type: "model.BootVolume",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3666,7 +3697,7 @@ For more information about Oracle defined backup policies and user defined backu
       bodyContent: common.ObjectSerializer.serialize(
         updateBootVolumeBackupRequest.updateBootVolumeBackupDetails,
         "UpdateBootVolumeBackupDetails",
-        models.UpdateBootVolumeBackupDetails.getJsonObj
+        model.UpdateBootVolumeBackupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3678,7 +3709,8 @@ For more information about Oracle defined backup policies and user defined backu
         responseObject: <responses.UpdateBootVolumeBackupResponse>{},
         body: await response.json(),
         bodyKey: "bootVolumeBackup",
-        bodyModel: "model.BootVolumeBackup",
+        bodyModel: model.BootVolumeBackup,
+        type: "model.BootVolumeBackup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3731,7 +3763,7 @@ For more information about Oracle defined backup policies and user defined backu
       bodyContent: common.ObjectSerializer.serialize(
         updateBootVolumeKmsKeyRequest.updateBootVolumeKmsKeyDetails,
         "UpdateBootVolumeKmsKeyDetails",
-        models.UpdateBootVolumeKmsKeyDetails.getJsonObj
+        model.UpdateBootVolumeKmsKeyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3743,7 +3775,8 @@ For more information about Oracle defined backup policies and user defined backu
         responseObject: <responses.UpdateBootVolumeKmsKeyResponse>{},
         body: await response.json(),
         bodyKey: "bootVolumeKmsKey",
-        bodyModel: "model.BootVolumeKmsKey",
+        bodyModel: model.BootVolumeKmsKey,
+        type: "model.BootVolumeKmsKey",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3801,7 +3834,7 @@ For more information about Oracle defined backup policies and user defined backu
       bodyContent: common.ObjectSerializer.serialize(
         updateVolumeRequest.updateVolumeDetails,
         "UpdateVolumeDetails",
-        models.UpdateVolumeDetails.getJsonObj
+        model.UpdateVolumeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3813,7 +3846,8 @@ For more information about Oracle defined backup policies and user defined backu
         responseObject: <responses.UpdateVolumeResponse>{},
         body: await response.json(),
         bodyKey: "volume",
-        bodyModel: "model.Volume",
+        bodyModel: model.Volume,
+        type: "model.Volume",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3871,7 +3905,7 @@ For more information about Oracle defined backup policies and user defined backu
       bodyContent: common.ObjectSerializer.serialize(
         updateVolumeBackupRequest.updateVolumeBackupDetails,
         "UpdateVolumeBackupDetails",
-        models.UpdateVolumeBackupDetails.getJsonObj
+        model.UpdateVolumeBackupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3883,7 +3917,8 @@ For more information about Oracle defined backup policies and user defined backu
         responseObject: <responses.UpdateVolumeBackupResponse>{},
         body: await response.json(),
         bodyKey: "volumeBackup",
-        bodyModel: "model.VolumeBackup",
+        bodyModel: model.VolumeBackup,
+        type: "model.VolumeBackup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3942,7 +3977,7 @@ For more information about Oracle defined backup policies and user defined backu
       bodyContent: common.ObjectSerializer.serialize(
         updateVolumeBackupPolicyRequest.updateVolumeBackupPolicyDetails,
         "UpdateVolumeBackupPolicyDetails",
-        models.UpdateVolumeBackupPolicyDetails.getJsonObj
+        model.UpdateVolumeBackupPolicyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3954,7 +3989,8 @@ For more information about Oracle defined backup policies and user defined backu
         responseObject: <responses.UpdateVolumeBackupPolicyResponse>{},
         body: await response.json(),
         bodyKey: "volumeBackupPolicy",
-        bodyModel: "model.VolumeBackupPolicy",
+        bodyModel: model.VolumeBackupPolicy,
+        type: "model.VolumeBackupPolicy",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4016,7 +4052,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       bodyContent: common.ObjectSerializer.serialize(
         updateVolumeGroupRequest.updateVolumeGroupDetails,
         "UpdateVolumeGroupDetails",
-        models.UpdateVolumeGroupDetails.getJsonObj
+        model.UpdateVolumeGroupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4028,7 +4064,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
         responseObject: <responses.UpdateVolumeGroupResponse>{},
         body: await response.json(),
         bodyKey: "volumeGroup",
-        bodyModel: "model.VolumeGroup",
+        bodyModel: model.VolumeGroup,
+        type: "model.VolumeGroup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4085,7 +4122,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       bodyContent: common.ObjectSerializer.serialize(
         updateVolumeGroupBackupRequest.updateVolumeGroupBackupDetails,
         "UpdateVolumeGroupBackupDetails",
-        models.UpdateVolumeGroupBackupDetails.getJsonObj
+        model.UpdateVolumeGroupBackupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4097,7 +4134,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
         responseObject: <responses.UpdateVolumeGroupBackupResponse>{},
         body: await response.json(),
         bodyKey: "volumeGroupBackup",
-        bodyModel: "model.VolumeGroupBackup",
+        bodyModel: model.VolumeGroupBackup,
+        type: "model.VolumeGroupBackup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4149,7 +4187,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       bodyContent: common.ObjectSerializer.serialize(
         updateVolumeKmsKeyRequest.updateVolumeKmsKeyDetails,
         "UpdateVolumeKmsKeyDetails",
-        models.UpdateVolumeKmsKeyDetails.getJsonObj
+        model.UpdateVolumeKmsKeyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4161,7 +4199,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
         responseObject: <responses.UpdateVolumeKmsKeyResponse>{},
         body: await response.json(),
         bodyKey: "volumeKmsKey",
-        bodyModel: "model.VolumeKmsKey",
+        bodyModel: model.VolumeKmsKey,
+        type: "model.VolumeKmsKey",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4329,7 +4368,7 @@ export class ComputeClient {
       bodyContent: common.ObjectSerializer.serialize(
         addImageShapeCompatibilityEntryRequest.addImageShapeCompatibilityEntryDetails,
         "AddImageShapeCompatibilityEntryDetails",
-        models.AddImageShapeCompatibilityEntryDetails.getJsonObj
+        model.AddImageShapeCompatibilityEntryDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4341,7 +4380,8 @@ export class ComputeClient {
         responseObject: <responses.AddImageShapeCompatibilityEntryResponse>{},
         body: await response.json(),
         bodyKey: "imageShapeCompatibilityEntry",
-        bodyModel: "model.ImageShapeCompatibilityEntry",
+        bodyModel: model.ImageShapeCompatibilityEntry,
+        type: "model.ImageShapeCompatibilityEntry",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4391,7 +4431,7 @@ export class ComputeClient {
       bodyContent: common.ObjectSerializer.serialize(
         attachBootVolumeRequest.attachBootVolumeDetails,
         "AttachBootVolumeDetails",
-        models.AttachBootVolumeDetails.getJsonObj
+        model.AttachBootVolumeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4403,7 +4443,8 @@ export class ComputeClient {
         responseObject: <responses.AttachBootVolumeResponse>{},
         body: await response.json(),
         bodyKey: "bootVolumeAttachment",
-        bodyModel: "model.BootVolumeAttachment",
+        bodyModel: model.BootVolumeAttachment,
+        type: "model.BootVolumeAttachment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4460,7 +4501,7 @@ export class ComputeClient {
       bodyContent: common.ObjectSerializer.serialize(
         attachVnicRequest.attachVnicDetails,
         "AttachVnicDetails",
-        models.AttachVnicDetails.getJsonObj
+        model.AttachVnicDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4472,7 +4513,8 @@ export class ComputeClient {
         responseObject: <responses.AttachVnicResponse>{},
         body: await response.json(),
         bodyKey: "vnicAttachment",
-        bodyModel: "model.VnicAttachment",
+        bodyModel: model.VnicAttachment,
+        type: "model.VnicAttachment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4527,7 +4569,7 @@ export class ComputeClient {
       bodyContent: common.ObjectSerializer.serialize(
         attachVolumeRequest.attachVolumeDetails,
         "AttachVolumeDetails",
-        models.AttachVolumeDetails.getJsonObj
+        model.AttachVolumeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4539,7 +4581,8 @@ export class ComputeClient {
         responseObject: <responses.AttachVolumeResponse>{},
         body: await response.json(),
         bodyKey: "volumeAttachment",
-        bodyModel: "model.VolumeAttachment",
+        bodyModel: model.VolumeAttachment,
+        type: "model.VolumeAttachment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4610,7 +4653,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
       bodyContent: common.ObjectSerializer.serialize(
         captureConsoleHistoryRequest.captureConsoleHistoryDetails,
         "CaptureConsoleHistoryDetails",
-        models.CaptureConsoleHistoryDetails.getJsonObj
+        model.CaptureConsoleHistoryDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4622,7 +4665,8 @@ The `CaptureConsoleHistory` operation works with the other console history opera
         responseObject: <responses.CaptureConsoleHistoryResponse>{},
         body: await response.json(),
         bodyKey: "consoleHistory",
-        bodyModel: "model.ConsoleHistory",
+        bodyModel: model.ConsoleHistory,
+        type: "model.ConsoleHistory",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4687,7 +4731,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
       bodyContent: common.ObjectSerializer.serialize(
         changeComputeCapacityReservationCompartmentRequest.changeComputeCapacityReservationCompartmentDetails,
         "ChangeComputeCapacityReservationCompartmentDetails",
-        models.ChangeComputeCapacityReservationCompartmentDetails.getJsonObj
+        model.ChangeComputeCapacityReservationCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4762,7 +4806,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
       bodyContent: common.ObjectSerializer.serialize(
         changeComputeImageCapabilitySchemaCompartmentRequest.changeComputeImageCapabilitySchemaCompartmentDetails,
         "ChangeComputeImageCapabilitySchemaCompartmentDetails",
-        models.ChangeComputeImageCapabilitySchemaCompartmentDetails.getJsonObj
+        model.ChangeComputeImageCapabilitySchemaCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4825,7 +4869,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
       bodyContent: common.ObjectSerializer.serialize(
         changeDedicatedVmHostCompartmentRequest.changeDedicatedVmHostCompartmentDetails,
         "ChangeDedicatedVmHostCompartmentDetails",
-        models.ChangeDedicatedVmHostCompartmentDetails.getJsonObj
+        model.ChangeDedicatedVmHostCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4900,7 +4944,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
       bodyContent: common.ObjectSerializer.serialize(
         changeImageCompartmentRequest.changeImageCompartmentDetails,
         "ChangeImageCompartmentDetails",
-        models.ChangeImageCompartmentDetails.getJsonObj
+        model.ChangeImageCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4974,7 +5018,7 @@ When you move an instance to a different compartment, associated resources such 
       bodyContent: common.ObjectSerializer.serialize(
         changeInstanceCompartmentRequest.changeInstanceCompartmentDetails,
         "ChangeInstanceCompartmentDetails",
-        models.ChangeInstanceCompartmentDetails.getJsonObj
+        model.ChangeInstanceCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5044,7 +5088,7 @@ When you move an instance to a different compartment, associated resources such 
       bodyContent: common.ObjectSerializer.serialize(
         createAppCatalogSubscriptionRequest.createAppCatalogSubscriptionDetails,
         "CreateAppCatalogSubscriptionDetails",
-        models.CreateAppCatalogSubscriptionDetails.getJsonObj
+        model.CreateAppCatalogSubscriptionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5056,7 +5100,8 @@ When you move an instance to a different compartment, associated resources such 
         responseObject: <responses.CreateAppCatalogSubscriptionResponse>{},
         body: await response.json(),
         bodyKey: "appCatalogSubscription",
-        bodyModel: "model.AppCatalogSubscription",
+        bodyModel: model.AppCatalogSubscription,
+        type: "model.AppCatalogSubscription",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5117,7 +5162,7 @@ When you move an instance to a different compartment, associated resources such 
       bodyContent: common.ObjectSerializer.serialize(
         createComputeCapacityReservationRequest.createComputeCapacityReservationDetails,
         "CreateComputeCapacityReservationDetails",
-        models.CreateComputeCapacityReservationDetails.getJsonObj
+        model.CreateComputeCapacityReservationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5129,7 +5174,8 @@ When you move an instance to a different compartment, associated resources such 
         responseObject: <responses.CreateComputeCapacityReservationResponse>{},
         body: await response.json(),
         bodyKey: "computeCapacityReservation",
-        bodyModel: "model.ComputeCapacityReservation",
+        bodyModel: model.ComputeCapacityReservation,
+        type: "model.ComputeCapacityReservation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5195,7 +5241,7 @@ When you move an instance to a different compartment, associated resources such 
       bodyContent: common.ObjectSerializer.serialize(
         createComputeImageCapabilitySchemaRequest.createComputeImageCapabilitySchemaDetails,
         "CreateComputeImageCapabilitySchemaDetails",
-        models.CreateComputeImageCapabilitySchemaDetails.getJsonObj
+        model.CreateComputeImageCapabilitySchemaDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5207,7 +5253,8 @@ When you move an instance to a different compartment, associated resources such 
         responseObject: <responses.CreateComputeImageCapabilitySchemaResponse>{},
         body: await response.json(),
         bodyKey: "computeImageCapabilitySchema",
-        bodyModel: "model.ComputeImageCapabilitySchema",
+        bodyModel: model.ComputeImageCapabilitySchema,
+        type: "model.ComputeImageCapabilitySchema",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5266,7 +5313,7 @@ When you move an instance to a different compartment, associated resources such 
       bodyContent: common.ObjectSerializer.serialize(
         createDedicatedVmHostRequest.createDedicatedVmHostDetails,
         "CreateDedicatedVmHostDetails",
-        models.CreateDedicatedVmHostDetails.getJsonObj
+        model.CreateDedicatedVmHostDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5278,7 +5325,8 @@ When you move an instance to a different compartment, associated resources such 
         responseObject: <responses.CreateDedicatedVmHostResponse>{},
         body: await response.json(),
         bodyKey: "dedicatedVmHost",
-        bodyModel: "model.DedicatedVmHost",
+        bodyModel: model.DedicatedVmHost,
+        type: "model.DedicatedVmHost",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5360,7 +5408,7 @@ You may optionally specify a *display name* for the image, which is simply a fri
       bodyContent: common.ObjectSerializer.serialize(
         createImageRequest.createImageDetails,
         "CreateImageDetails",
-        models.CreateImageDetails.getJsonObj
+        model.CreateImageDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5372,7 +5420,8 @@ You may optionally specify a *display name* for the image, which is simply a fri
         responseObject: <responses.CreateImageResponse>{},
         body: await response.json(),
         bodyKey: "image",
-        bodyModel: "model.Image",
+        bodyModel: model.Image,
+        type: "model.Image",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5437,7 +5486,7 @@ For more information about instance console connections, see [Troubleshooting In
       bodyContent: common.ObjectSerializer.serialize(
         createInstanceConsoleConnectionRequest.createInstanceConsoleConnectionDetails,
         "CreateInstanceConsoleConnectionDetails",
-        models.CreateInstanceConsoleConnectionDetails.getJsonObj
+        model.CreateInstanceConsoleConnectionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5449,7 +5498,8 @@ For more information about instance console connections, see [Troubleshooting In
         responseObject: <responses.CreateInstanceConsoleConnectionResponse>{},
         body: await response.json(),
         bodyKey: "instanceConsoleConnection",
-        bodyModel: "model.InstanceConsoleConnection",
+        bodyModel: model.InstanceConsoleConnection,
+        type: "model.InstanceConsoleConnection",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6108,7 +6158,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       bodyContent: common.ObjectSerializer.serialize(
         exportImageRequest.exportImageDetails,
         "ExportImageDetails",
-        models.ExportImageDetails.getJsonObj
+        model.ExportImageDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -6120,7 +6170,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
         responseObject: <responses.ExportImageResponse>{},
         body: await response.json(),
         bodyKey: "image",
-        bodyModel: "model.Image",
+        bodyModel: model.Image,
+        type: "model.Image",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6187,7 +6238,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
         responseObject: <responses.GetAppCatalogListingResponse>{},
         body: await response.json(),
         bodyKey: "appCatalogListing",
-        bodyModel: "model.AppCatalogListing",
+        bodyModel: model.AppCatalogListing,
+        type: "model.AppCatalogListing",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6251,7 +6303,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
         responseObject: <responses.GetAppCatalogListingAgreementsResponse>{},
         body: await response.json(),
         bodyKey: "appCatalogListingResourceVersionAgreements",
-        bodyModel: "model.AppCatalogListingResourceVersionAgreements",
+        bodyModel: model.AppCatalogListingResourceVersionAgreements,
+        type: "model.AppCatalogListingResourceVersionAgreements",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6315,7 +6368,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
         responseObject: <responses.GetAppCatalogListingResourceVersionResponse>{},
         body: await response.json(),
         bodyKey: "appCatalogListingResourceVersion",
-        bodyModel: "model.AppCatalogListingResourceVersion",
+        bodyModel: model.AppCatalogListingResourceVersion,
+        type: "model.AppCatalogListingResourceVersion",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6377,7 +6431,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
         responseObject: <responses.GetBootVolumeAttachmentResponse>{},
         body: await response.json(),
         bodyKey: "bootVolumeAttachment",
-        bodyModel: "model.BootVolumeAttachment",
+        bodyModel: model.BootVolumeAttachment,
+        type: "model.BootVolumeAttachment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6441,7 +6496,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
         responseObject: <responses.GetComputeCapacityReservationResponse>{},
         body: await response.json(),
         bodyKey: "computeCapacityReservation",
-        bodyModel: "model.ComputeCapacityReservation",
+        bodyModel: model.ComputeCapacityReservation,
+        type: "model.ComputeCapacityReservation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6505,7 +6561,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
         responseObject: <responses.GetComputeGlobalImageCapabilitySchemaResponse>{},
         body: await response.json(),
         bodyKey: "computeGlobalImageCapabilitySchema",
-        bodyModel: "model.ComputeGlobalImageCapabilitySchema",
+        bodyModel: model.ComputeGlobalImageCapabilitySchema,
+        type: "model.ComputeGlobalImageCapabilitySchema",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6574,7 +6631,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
         responseObject: <responses.GetComputeGlobalImageCapabilitySchemaVersionResponse>{},
         body: await response.json(),
         bodyKey: "computeGlobalImageCapabilitySchemaVersion",
-        bodyModel: "model.ComputeGlobalImageCapabilitySchemaVersion",
+        bodyModel: model.ComputeGlobalImageCapabilitySchemaVersion,
+        type: "model.ComputeGlobalImageCapabilitySchemaVersion",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6641,7 +6699,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
         responseObject: <responses.GetComputeImageCapabilitySchemaResponse>{},
         body: await response.json(),
         bodyKey: "computeImageCapabilitySchema",
-        bodyModel: "model.ComputeImageCapabilitySchema",
+        bodyModel: model.ComputeImageCapabilitySchema,
+        type: "model.ComputeImageCapabilitySchema",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6706,7 +6765,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
         responseObject: <responses.GetConsoleHistoryResponse>{},
         body: await response.json(),
         bodyKey: "consoleHistory",
-        bodyModel: "model.ConsoleHistory",
+        bodyModel: model.ConsoleHistory,
+        type: "model.ConsoleHistory",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6775,6 +6835,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
         body: await response.json(),
         bodyKey: "value",
         bodyModel: "string",
+        type: "string",
         responseHeaders: [
           {
             value: response.headers.get("opc-bytes-remaining"),
@@ -6837,7 +6898,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
         responseObject: <responses.GetDedicatedVmHostResponse>{},
         body: await response.json(),
         bodyKey: "dedicatedVmHost",
-        bodyModel: "model.DedicatedVmHost",
+        bodyModel: model.DedicatedVmHost,
+        type: "model.DedicatedVmHost",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6899,7 +6961,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
         responseObject: <responses.GetImageResponse>{},
         body: await response.json(),
         bodyKey: "image",
-        bodyModel: "model.Image",
+        bodyModel: model.Image,
+        type: "model.Image",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6964,7 +7027,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
         responseObject: <responses.GetImageShapeCompatibilityEntryResponse>{},
         body: await response.json(),
         bodyKey: "imageShapeCompatibilityEntry",
-        bodyModel: "model.ImageShapeCompatibilityEntry",
+        bodyModel: model.ImageShapeCompatibilityEntry,
+        type: "model.ImageShapeCompatibilityEntry",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7021,7 +7085,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
         responseObject: <responses.GetInstanceResponse>{},
         body: await response.json(),
         bodyKey: "instance",
-        bodyModel: "model.Instance",
+        bodyModel: model.Instance,
+        type: "model.Instance",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -7085,7 +7150,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
         responseObject: <responses.GetInstanceConsoleConnectionResponse>{},
         body: await response.json(),
         bodyKey: "instanceConsoleConnection",
-        bodyModel: "model.InstanceConsoleConnection",
+        bodyModel: model.InstanceConsoleConnection,
+        type: "model.InstanceConsoleConnection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7143,7 +7209,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
         responseObject: <responses.GetVnicAttachmentResponse>{},
         body: await response.json(),
         bodyKey: "vnicAttachment",
-        bodyModel: "model.VnicAttachment",
+        bodyModel: model.VnicAttachment,
+        type: "model.VnicAttachment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -7205,7 +7272,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
         responseObject: <responses.GetVolumeAttachmentResponse>{},
         body: await response.json(),
         bodyKey: "volumeAttachment",
-        bodyModel: "model.VolumeAttachment",
+        bodyModel: model.VolumeAttachment,
+        type: "model.VolumeAttachment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -7270,7 +7338,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
         responseObject: <responses.GetWindowsInstanceInitialCredentialsResponse>{},
         body: await response.json(),
         bodyKey: "instanceCredentials",
-        bodyModel: "model.InstanceCredentials",
+        bodyModel: model.InstanceCredentials,
+        type: "model.InstanceCredentials",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7359,7 +7428,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
         responseObject: <responses.InstanceActionResponse>{},
         body: await response.json(),
         bodyKey: "instance",
-        bodyModel: "model.Instance",
+        bodyModel: model.Instance,
+        type: "model.Instance",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -7452,7 +7522,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       bodyContent: common.ObjectSerializer.serialize(
         launchInstanceRequest.launchInstanceDetails,
         "LaunchInstanceDetails",
-        models.LaunchInstanceDetails.getJsonObj
+        model.LaunchInstanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -7464,7 +7534,8 @@ To launch an instance from a Marketplace image listing, you must provide the ima
         responseObject: <responses.LaunchInstanceResponse>{},
         body: await response.json(),
         bodyKey: "instance",
-        bodyModel: "model.Instance",
+        bodyModel: model.Instance,
+        type: "model.Instance",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -7536,7 +7607,8 @@ To launch an instance from a Marketplace image listing, you must provide the ima
         responseObject: <responses.ListAppCatalogListingResourceVersionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AppCatalogListingResourceVersionSummary[]",
+        bodyModel: model.AppCatalogListingResourceVersionSummary,
+        type: "Array<model.AppCatalogListingResourceVersionSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -7566,7 +7638,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
    */
   public listAllAppCatalogListingResourceVersions(
     request: requests.ListAppCatalogListingResourceVersionsRequest
-  ): AsyncIterableIterator<models.AppCatalogListingResourceVersionSummary> {
+  ): AsyncIterableIterator<model.AppCatalogListingResourceVersionSummary> {
     return paginateRecords(request, req => this.listAppCatalogListingResourceVersions(req));
   }
 
@@ -7628,7 +7700,8 @@ To launch an instance from a Marketplace image listing, you must provide the ima
         responseObject: <responses.ListAppCatalogListingsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AppCatalogListingSummary[]",
+        bodyModel: model.AppCatalogListingSummary,
+        type: "Array<model.AppCatalogListingSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -7658,7 +7731,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
    */
   public listAllAppCatalogListings(
     request: requests.ListAppCatalogListingsRequest
-  ): AsyncIterableIterator<models.AppCatalogListingSummary> {
+  ): AsyncIterableIterator<model.AppCatalogListingSummary> {
     return paginateRecords(request, req => this.listAppCatalogListings(req));
   }
 
@@ -7721,7 +7794,8 @@ To launch an instance from a Marketplace image listing, you must provide the ima
         responseObject: <responses.ListAppCatalogSubscriptionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AppCatalogSubscriptionSummary[]",
+        bodyModel: model.AppCatalogSubscriptionSummary,
+        type: "Array<model.AppCatalogSubscriptionSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -7751,7 +7825,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
    */
   public listAllAppCatalogSubscriptions(
     request: requests.ListAppCatalogSubscriptionsRequest
-  ): AsyncIterableIterator<models.AppCatalogSubscriptionSummary> {
+  ): AsyncIterableIterator<model.AppCatalogSubscriptionSummary> {
     return paginateRecords(request, req => this.listAppCatalogSubscriptions(req));
   }
 
@@ -7816,7 +7890,8 @@ To launch an instance from a Marketplace image listing, you must provide the ima
         responseObject: <responses.ListBootVolumeAttachmentsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "BootVolumeAttachment[]",
+        bodyModel: model.BootVolumeAttachment,
+        type: "Array<model.BootVolumeAttachment>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -7846,7 +7921,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
    */
   public listAllBootVolumeAttachments(
     request: requests.ListBootVolumeAttachmentsRequest
-  ): AsyncIterableIterator<models.BootVolumeAttachment> {
+  ): AsyncIterableIterator<model.BootVolumeAttachment> {
     return paginateRecords(request, req => this.listBootVolumeAttachments(req));
   }
 
@@ -7914,7 +7989,8 @@ To launch an instance from a Marketplace image listing, you must provide the ima
         responseObject: <responses.ListComputeCapacityReservationInstanceShapesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ComputeCapacityReservationInstanceShapeSummary[]",
+        bodyModel: model.ComputeCapacityReservationInstanceShapeSummary,
+        type: "Array<model.ComputeCapacityReservationInstanceShapeSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -7944,7 +8020,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
    */
   public listAllComputeCapacityReservationInstanceShapes(
     request: requests.ListComputeCapacityReservationInstanceShapesRequest
-  ): AsyncIterableIterator<models.ComputeCapacityReservationInstanceShapeSummary> {
+  ): AsyncIterableIterator<model.ComputeCapacityReservationInstanceShapeSummary> {
     return paginateRecords(request, req => this.listComputeCapacityReservationInstanceShapes(req));
   }
 
@@ -8014,7 +8090,8 @@ To launch an instance from a Marketplace image listing, you must provide the ima
         responseObject: <responses.ListComputeCapacityReservationInstancesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "CapacityReservationInstanceSummary[]",
+        bodyModel: model.CapacityReservationInstanceSummary,
+        type: "Array<model.CapacityReservationInstanceSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -8044,7 +8121,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
    */
   public listAllComputeCapacityReservationInstances(
     request: requests.ListComputeCapacityReservationInstancesRequest
-  ): AsyncIterableIterator<models.CapacityReservationInstanceSummary> {
+  ): AsyncIterableIterator<model.CapacityReservationInstanceSummary> {
     return paginateRecords(request, req => this.listComputeCapacityReservationInstances(req));
   }
 
@@ -8114,7 +8191,8 @@ You can limit the list by specifying a compute capacity reservation display name
         responseObject: <responses.ListComputeCapacityReservationsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ComputeCapacityReservationSummary[]",
+        bodyModel: model.ComputeCapacityReservationSummary,
+        type: "Array<model.ComputeCapacityReservationSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -8144,7 +8222,7 @@ You can limit the list by specifying a compute capacity reservation display name
    */
   public listAllComputeCapacityReservations(
     request: requests.ListComputeCapacityReservationsRequest
-  ): AsyncIterableIterator<models.ComputeCapacityReservationSummary> {
+  ): AsyncIterableIterator<model.ComputeCapacityReservationSummary> {
     return paginateRecords(request, req => this.listComputeCapacityReservations(req));
   }
 
@@ -8212,7 +8290,8 @@ You can limit the list by specifying a compute capacity reservation display name
         responseObject: <responses.ListComputeGlobalImageCapabilitySchemaVersionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ComputeGlobalImageCapabilitySchemaVersionSummary[]",
+        bodyModel: model.ComputeGlobalImageCapabilitySchemaVersionSummary,
+        type: "Array<model.ComputeGlobalImageCapabilitySchemaVersionSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -8242,7 +8321,7 @@ You can limit the list by specifying a compute capacity reservation display name
    */
   public listAllComputeGlobalImageCapabilitySchemaVersions(
     request: requests.ListComputeGlobalImageCapabilitySchemaVersionsRequest
-  ): AsyncIterableIterator<models.ComputeGlobalImageCapabilitySchemaVersionSummary> {
+  ): AsyncIterableIterator<model.ComputeGlobalImageCapabilitySchemaVersionSummary> {
     return paginateRecords(request, req =>
       this.listComputeGlobalImageCapabilitySchemaVersions(req)
     );
@@ -8310,7 +8389,8 @@ You can limit the list by specifying a compute capacity reservation display name
         responseObject: <responses.ListComputeGlobalImageCapabilitySchemasResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ComputeGlobalImageCapabilitySchemaSummary[]",
+        bodyModel: model.ComputeGlobalImageCapabilitySchemaSummary,
+        type: "Array<model.ComputeGlobalImageCapabilitySchemaSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -8340,7 +8420,7 @@ You can limit the list by specifying a compute capacity reservation display name
    */
   public listAllComputeGlobalImageCapabilitySchemas(
     request: requests.ListComputeGlobalImageCapabilitySchemasRequest
-  ): AsyncIterableIterator<models.ComputeGlobalImageCapabilitySchemaSummary> {
+  ): AsyncIterableIterator<model.ComputeGlobalImageCapabilitySchemaSummary> {
     return paginateRecords(request, req => this.listComputeGlobalImageCapabilitySchemas(req));
   }
 
@@ -8405,7 +8485,8 @@ You can limit the list by specifying a compute capacity reservation display name
         responseObject: <responses.ListComputeImageCapabilitySchemasResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ComputeImageCapabilitySchemaSummary[]",
+        bodyModel: model.ComputeImageCapabilitySchemaSummary,
+        type: "Array<model.ComputeImageCapabilitySchemaSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -8435,7 +8516,7 @@ You can limit the list by specifying a compute capacity reservation display name
    */
   public listAllComputeImageCapabilitySchemas(
     request: requests.ListComputeImageCapabilitySchemasRequest
-  ): AsyncIterableIterator<models.ComputeImageCapabilitySchemaSummary> {
+  ): AsyncIterableIterator<model.ComputeImageCapabilitySchemaSummary> {
     return paginateRecords(request, req => this.listComputeImageCapabilitySchemas(req));
   }
 
@@ -8500,7 +8581,8 @@ You can limit the list by specifying a compute capacity reservation display name
         responseObject: <responses.ListConsoleHistoriesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ConsoleHistory[]",
+        bodyModel: model.ConsoleHistory,
+        type: "Array<model.ConsoleHistory>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -8530,7 +8612,7 @@ You can limit the list by specifying a compute capacity reservation display name
    */
   public listAllConsoleHistories(
     request: requests.ListConsoleHistoriesRequest
-  ): AsyncIterableIterator<models.ConsoleHistory> {
+  ): AsyncIterableIterator<model.ConsoleHistory> {
     return paginateRecords(request, req => this.listConsoleHistories(req));
   }
 
@@ -8595,7 +8677,8 @@ You can limit the list by specifying a compute capacity reservation display name
         responseObject: <responses.ListDedicatedVmHostInstanceShapesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DedicatedVmHostInstanceShapeSummary[]",
+        bodyModel: model.DedicatedVmHostInstanceShapeSummary,
+        type: "Array<model.DedicatedVmHostInstanceShapeSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -8625,7 +8708,7 @@ You can limit the list by specifying a compute capacity reservation display name
    */
   public listAllDedicatedVmHostInstanceShapes(
     request: requests.ListDedicatedVmHostInstanceShapesRequest
-  ): AsyncIterableIterator<models.DedicatedVmHostInstanceShapeSummary> {
+  ): AsyncIterableIterator<model.DedicatedVmHostInstanceShapeSummary> {
     return paginateRecords(request, req => this.listDedicatedVmHostInstanceShapes(req));
   }
 
@@ -8692,7 +8775,8 @@ You can limit the list by specifying a compute capacity reservation display name
         responseObject: <responses.ListDedicatedVmHostInstancesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DedicatedVmHostInstanceSummary[]",
+        bodyModel: model.DedicatedVmHostInstanceSummary,
+        type: "Array<model.DedicatedVmHostInstanceSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -8722,7 +8806,7 @@ You can limit the list by specifying a compute capacity reservation display name
    */
   public listAllDedicatedVmHostInstances(
     request: requests.ListDedicatedVmHostInstancesRequest
-  ): AsyncIterableIterator<models.DedicatedVmHostInstanceSummary> {
+  ): AsyncIterableIterator<model.DedicatedVmHostInstanceSummary> {
     return paginateRecords(request, req => this.listDedicatedVmHostInstances(req));
   }
 
@@ -8786,7 +8870,8 @@ You can limit the list by specifying a compute capacity reservation display name
         responseObject: <responses.ListDedicatedVmHostShapesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DedicatedVmHostShapeSummary[]",
+        bodyModel: model.DedicatedVmHostShapeSummary,
+        type: "Array<model.DedicatedVmHostShapeSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -8816,7 +8901,7 @@ You can limit the list by specifying a compute capacity reservation display name
    */
   public listAllDedicatedVmHostShapes(
     request: requests.ListDedicatedVmHostShapesRequest
-  ): AsyncIterableIterator<models.DedicatedVmHostShapeSummary> {
+  ): AsyncIterableIterator<model.DedicatedVmHostShapeSummary> {
     return paginateRecords(request, req => this.listDedicatedVmHostShapes(req));
   }
 
@@ -8890,7 +8975,8 @@ You can limit the list by specifying a dedicated virtual machine host display na
         responseObject: <responses.ListDedicatedVmHostsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DedicatedVmHostSummary[]",
+        bodyModel: model.DedicatedVmHostSummary,
+        type: "Array<model.DedicatedVmHostSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -8920,7 +9006,7 @@ You can limit the list by specifying a dedicated virtual machine host display na
    */
   public listAllDedicatedVmHosts(
     request: requests.ListDedicatedVmHostsRequest
-  ): AsyncIterableIterator<models.DedicatedVmHostSummary> {
+  ): AsyncIterableIterator<model.DedicatedVmHostSummary> {
     return paginateRecords(request, req => this.listDedicatedVmHosts(req));
   }
 
@@ -8982,7 +9068,8 @@ You can limit the list by specifying a dedicated virtual machine host display na
         responseObject: <responses.ListImageShapeCompatibilityEntriesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ImageShapeCompatibilitySummary[]",
+        bodyModel: model.ImageShapeCompatibilitySummary,
+        type: "Array<model.ImageShapeCompatibilitySummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -9012,7 +9099,7 @@ You can limit the list by specifying a dedicated virtual machine host display na
    */
   public listAllImageShapeCompatibilityEntries(
     request: requests.ListImageShapeCompatibilityEntriesRequest
-  ): AsyncIterableIterator<models.ImageShapeCompatibilitySummary> {
+  ): AsyncIterableIterator<model.ImageShapeCompatibilitySummary> {
     return paginateRecords(request, req => this.listImageShapeCompatibilityEntries(req));
   }
 
@@ -9086,7 +9173,8 @@ The list of images that's returned is ordered to first show all
         responseObject: <responses.ListImagesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Image[]",
+        bodyModel: model.Image,
+        type: "Array<model.Image>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -9114,7 +9202,7 @@ The list of images that's returned is ordered to first show all
    *
    * @param request a request which can be sent to the service operation
    */
-  public listAllImages(request: requests.ListImagesRequest): AsyncIterableIterator<models.Image> {
+  public listAllImages(request: requests.ListImagesRequest): AsyncIterableIterator<model.Image> {
     return paginateRecords(request, req => this.listImages(req));
   }
 
@@ -9178,7 +9266,8 @@ For more information about instance console connections, see [Troubleshooting In
         responseObject: <responses.ListInstanceConsoleConnectionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "InstanceConsoleConnection[]",
+        bodyModel: model.InstanceConsoleConnection,
+        type: "Array<model.InstanceConsoleConnection>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -9208,7 +9297,7 @@ For more information about instance console connections, see [Troubleshooting In
    */
   public listAllInstanceConsoleConnections(
     request: requests.ListInstanceConsoleConnectionsRequest
-  ): AsyncIterableIterator<models.InstanceConsoleConnection> {
+  ): AsyncIterableIterator<model.InstanceConsoleConnection> {
     return paginateRecords(request, req => this.listInstanceConsoleConnections(req));
   }
 
@@ -9273,7 +9362,8 @@ For more information about instance console connections, see [Troubleshooting In
         responseObject: <responses.ListInstanceDevicesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Device[]",
+        bodyModel: model.Device,
+        type: "Array<model.Device>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -9303,7 +9393,7 @@ For more information about instance console connections, see [Troubleshooting In
    */
   public listAllInstanceDevices(
     request: requests.ListInstanceDevicesRequest
-  ): AsyncIterableIterator<models.Device> {
+  ): AsyncIterableIterator<model.Device> {
     return paginateRecords(request, req => this.listInstanceDevices(req));
   }
 
@@ -9371,7 +9461,8 @@ For more information about instance console connections, see [Troubleshooting In
         responseObject: <responses.ListInstancesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Instance[]",
+        bodyModel: model.Instance,
+        type: "Array<model.Instance>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -9401,7 +9492,7 @@ For more information about instance console connections, see [Troubleshooting In
    */
   public listAllInstances(
     request: requests.ListInstancesRequest
-  ): AsyncIterableIterator<models.Instance> {
+  ): AsyncIterableIterator<model.Instance> {
     return paginateRecords(request, req => this.listInstances(req));
   }
 
@@ -9464,7 +9555,8 @@ For more information about instance console connections, see [Troubleshooting In
         responseObject: <responses.ListShapesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Shape[]",
+        bodyModel: model.Shape,
+        type: "Array<model.Shape>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -9492,7 +9584,7 @@ For more information about instance console connections, see [Troubleshooting In
    *
    * @param request a request which can be sent to the service operation
    */
-  public listAllShapes(request: requests.ListShapesRequest): AsyncIterableIterator<models.Shape> {
+  public listAllShapes(request: requests.ListShapesRequest): AsyncIterableIterator<model.Shape> {
     return paginateRecords(request, req => this.listShapes(req));
   }
 
@@ -9557,7 +9649,8 @@ For more information about instance console connections, see [Troubleshooting In
         responseObject: <responses.ListVnicAttachmentsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "VnicAttachment[]",
+        bodyModel: model.VnicAttachment,
+        type: "Array<model.VnicAttachment>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -9587,7 +9680,7 @@ For more information about instance console connections, see [Troubleshooting In
    */
   public listAllVnicAttachments(
     request: requests.ListVnicAttachmentsRequest
-  ): AsyncIterableIterator<models.VnicAttachment> {
+  ): AsyncIterableIterator<model.VnicAttachment> {
     return paginateRecords(request, req => this.listVnicAttachments(req));
   }
 
@@ -9654,7 +9747,8 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
         responseObject: <responses.ListVolumeAttachmentsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "VolumeAttachment[]",
+        bodyModel: model.VolumeAttachment,
+        type: "Array<model.VolumeAttachment>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -9684,7 +9778,7 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
    */
   public listAllVolumeAttachments(
     request: requests.ListVolumeAttachmentsRequest
-  ): AsyncIterableIterator<models.VolumeAttachment> {
+  ): AsyncIterableIterator<model.VolumeAttachment> {
     return paginateRecords(request, req => this.listVolumeAttachments(req));
   }
 
@@ -9862,7 +9956,7 @@ The update also modifies the reservation configurations of the specified compute
       bodyContent: common.ObjectSerializer.serialize(
         updateComputeCapacityReservationRequest.updateComputeCapacityReservationDetails,
         "UpdateComputeCapacityReservationDetails",
-        models.UpdateComputeCapacityReservationDetails.getJsonObj
+        model.UpdateComputeCapacityReservationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9930,7 +10024,7 @@ The update also modifies the reservation configurations of the specified compute
       bodyContent: common.ObjectSerializer.serialize(
         updateComputeImageCapabilitySchemaRequest.updateComputeImageCapabilitySchemaDetails,
         "UpdateComputeImageCapabilitySchemaDetails",
-        models.UpdateComputeImageCapabilitySchemaDetails.getJsonObj
+        model.UpdateComputeImageCapabilitySchemaDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9942,7 +10036,8 @@ The update also modifies the reservation configurations of the specified compute
         responseObject: <responses.UpdateComputeImageCapabilitySchemaResponse>{},
         body: await response.json(),
         bodyKey: "computeImageCapabilitySchema",
-        bodyModel: "model.ComputeImageCapabilitySchema",
+        bodyModel: model.ComputeImageCapabilitySchema,
+        type: "model.ComputeImageCapabilitySchema",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -9998,7 +10093,7 @@ The update also modifies the reservation configurations of the specified compute
       bodyContent: common.ObjectSerializer.serialize(
         updateConsoleHistoryRequest.updateConsoleHistoryDetails,
         "UpdateConsoleHistoryDetails",
-        models.UpdateConsoleHistoryDetails.getJsonObj
+        model.UpdateConsoleHistoryDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -10010,7 +10105,8 @@ The update also modifies the reservation configurations of the specified compute
         responseObject: <responses.UpdateConsoleHistoryResponse>{},
         body: await response.json(),
         bodyKey: "consoleHistory",
-        bodyModel: "model.ConsoleHistory",
+        bodyModel: model.ConsoleHistory,
+        type: "model.ConsoleHistory",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -10070,7 +10166,7 @@ The update also modifies the reservation configurations of the specified compute
       bodyContent: common.ObjectSerializer.serialize(
         updateDedicatedVmHostRequest.updateDedicatedVmHostDetails,
         "UpdateDedicatedVmHostDetails",
-        models.UpdateDedicatedVmHostDetails.getJsonObj
+        model.UpdateDedicatedVmHostDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -10082,7 +10178,8 @@ The update also modifies the reservation configurations of the specified compute
         responseObject: <responses.UpdateDedicatedVmHostResponse>{},
         body: await response.json(),
         bodyKey: "dedicatedVmHost",
-        bodyModel: "model.DedicatedVmHost",
+        bodyModel: model.DedicatedVmHost,
+        type: "model.DedicatedVmHost",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -10140,7 +10237,7 @@ The update also modifies the reservation configurations of the specified compute
       bodyContent: common.ObjectSerializer.serialize(
         updateImageRequest.updateImageDetails,
         "UpdateImageDetails",
-        models.UpdateImageDetails.getJsonObj
+        model.UpdateImageDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -10152,7 +10249,8 @@ The update also modifies the reservation configurations of the specified compute
         responseObject: <responses.UpdateImageResponse>{},
         body: await response.json(),
         bodyKey: "image",
-        bodyModel: "model.Image",
+        bodyModel: model.Image,
+        type: "model.Image",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -10216,7 +10314,7 @@ The OCID of the instance remains the same.
       bodyContent: common.ObjectSerializer.serialize(
         updateInstanceRequest.updateInstanceDetails,
         "UpdateInstanceDetails",
-        models.UpdateInstanceDetails.getJsonObj
+        model.UpdateInstanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -10228,7 +10326,8 @@ The OCID of the instance remains the same.
         responseObject: <responses.UpdateInstanceResponse>{},
         body: await response.json(),
         bodyKey: "instance",
-        bodyModel: "model.Instance",
+        bodyModel: model.Instance,
+        type: "model.Instance",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -10292,7 +10391,7 @@ The OCID of the instance remains the same.
       bodyContent: common.ObjectSerializer.serialize(
         updateInstanceConsoleConnectionRequest.updateInstanceConsoleConnectionDetails,
         "UpdateInstanceConsoleConnectionDetails",
-        models.UpdateInstanceConsoleConnectionDetails.getJsonObj
+        model.UpdateInstanceConsoleConnectionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -10304,7 +10403,8 @@ The OCID of the instance remains the same.
         responseObject: <responses.UpdateInstanceConsoleConnectionResponse>{},
         body: await response.json(),
         bodyKey: "instanceConsoleConnection",
-        bodyModel: "model.InstanceConsoleConnection",
+        bodyModel: model.InstanceConsoleConnection,
+        type: "model.InstanceConsoleConnection",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -10361,7 +10461,7 @@ The OCID of the instance remains the same.
       bodyContent: common.ObjectSerializer.serialize(
         updateVolumeAttachmentRequest.updateVolumeAttachmentDetails,
         "UpdateVolumeAttachmentDetails",
-        models.UpdateVolumeAttachmentDetails.getJsonObj
+        model.UpdateVolumeAttachmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -10373,7 +10473,8 @@ The OCID of the instance remains the same.
         responseObject: <responses.UpdateVolumeAttachmentResponse>{},
         body: await response.json(),
         bodyKey: "volumeAttachment",
-        bodyModel: "model.VolumeAttachment",
+        bodyModel: model.VolumeAttachment,
+        type: "model.VolumeAttachment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -10544,7 +10645,7 @@ export class ComputeManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         attachInstancePoolInstanceRequest.attachInstancePoolInstanceDetails,
         "AttachInstancePoolInstanceDetails",
-        models.AttachInstancePoolInstanceDetails.getJsonObj
+        model.AttachInstancePoolInstanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -10556,7 +10657,8 @@ export class ComputeManagementClient {
         responseObject: <responses.AttachInstancePoolInstanceResponse>{},
         body: await response.json(),
         bodyKey: "instancePoolInstance",
-        bodyModel: "model.InstancePoolInstance",
+        bodyModel: model.InstancePoolInstance,
+        type: "model.InstancePoolInstance",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -10625,7 +10727,7 @@ export class ComputeManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         attachLoadBalancerRequest.attachLoadBalancerDetails,
         "AttachLoadBalancerDetails",
-        models.AttachLoadBalancerDetails.getJsonObj
+        model.AttachLoadBalancerDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -10637,7 +10739,8 @@ export class ComputeManagementClient {
         responseObject: <responses.AttachLoadBalancerResponse>{},
         body: await response.json(),
         bodyKey: "instancePool",
-        bodyModel: "model.InstancePool",
+        bodyModel: model.InstancePool,
+        type: "model.InstancePool",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -10704,7 +10807,7 @@ When you move a cluster network to a different compartment, associated resources
       bodyContent: common.ObjectSerializer.serialize(
         changeClusterNetworkCompartmentRequest.changeClusterNetworkCompartmentDetails,
         "ChangeClusterNetworkCompartmentDetails",
-        models.ChangeClusterNetworkCompartmentDetails.getJsonObj
+        model.ChangeClusterNetworkCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -10788,7 +10891,7 @@ When you move an instance configuration to a different compartment, associated r
       bodyContent: common.ObjectSerializer.serialize(
         changeInstanceConfigurationCompartmentRequest.changeInstanceConfigurationCompartmentDetails,
         "ChangeInstanceConfigurationCompartmentDetails",
-        models.ChangeInstanceConfigurationCompartmentDetails.getJsonObj
+        model.ChangeInstanceConfigurationCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -10862,7 +10965,7 @@ When you move an instance pool to a different compartment, associated resources 
       bodyContent: common.ObjectSerializer.serialize(
         changeInstancePoolCompartmentRequest.changeInstancePoolCompartmentDetails,
         "ChangeInstancePoolCompartmentDetails",
-        models.ChangeInstancePoolCompartmentDetails.getJsonObj
+        model.ChangeInstancePoolCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -10928,7 +11031,7 @@ When you move an instance pool to a different compartment, associated resources 
       bodyContent: common.ObjectSerializer.serialize(
         createClusterNetworkRequest.createClusterNetworkDetails,
         "CreateClusterNetworkDetails",
-        models.CreateClusterNetworkDetails.getJsonObj
+        model.CreateClusterNetworkDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -10940,7 +11043,8 @@ When you move an instance pool to a different compartment, associated resources 
         responseObject: <responses.CreateClusterNetworkResponse>{},
         body: await response.json(),
         bodyKey: "clusterNetwork",
-        bodyModel: "model.ClusterNetwork",
+        bodyModel: model.ClusterNetwork,
+        type: "model.ClusterNetwork",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -11002,7 +11106,7 @@ When you move an instance pool to a different compartment, associated resources 
       bodyContent: common.ObjectSerializer.serialize(
         createInstanceConfigurationRequest.createInstanceConfiguration,
         "CreateInstanceConfigurationBase",
-        models.CreateInstanceConfigurationBase.getJsonObj
+        model.CreateInstanceConfigurationBase.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -11014,7 +11118,8 @@ When you move an instance pool to a different compartment, associated resources 
         responseObject: <responses.CreateInstanceConfigurationResponse>{},
         body: await response.json(),
         bodyKey: "instanceConfiguration",
-        bodyModel: "model.InstanceConfiguration",
+        bodyModel: model.InstanceConfiguration,
+        type: "model.InstanceConfiguration",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -11069,7 +11174,7 @@ When you move an instance pool to a different compartment, associated resources 
       bodyContent: common.ObjectSerializer.serialize(
         createInstancePoolRequest.createInstancePoolDetails,
         "CreateInstancePoolDetails",
-        models.CreateInstancePoolDetails.getJsonObj
+        model.CreateInstancePoolDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -11081,7 +11186,8 @@ When you move an instance pool to a different compartment, associated resources 
         responseObject: <responses.CreateInstancePoolResponse>{},
         body: await response.json(),
         bodyKey: "instancePool",
-        bodyModel: "model.InstancePool",
+        bodyModel: model.InstancePool,
+        type: "model.InstancePool",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -11195,7 +11301,7 @@ When you move an instance pool to a different compartment, associated resources 
       bodyContent: common.ObjectSerializer.serialize(
         detachInstancePoolInstanceRequest.detachInstancePoolInstanceDetails,
         "DetachInstancePoolInstanceDetails",
-        models.DetachInstancePoolInstanceDetails.getJsonObj
+        model.DetachInstancePoolInstanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -11263,7 +11369,7 @@ When you move an instance pool to a different compartment, associated resources 
       bodyContent: common.ObjectSerializer.serialize(
         detachLoadBalancerRequest.detachLoadBalancerDetails,
         "DetachLoadBalancerDetails",
-        models.DetachLoadBalancerDetails.getJsonObj
+        model.DetachLoadBalancerDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -11275,7 +11381,8 @@ When you move an instance pool to a different compartment, associated resources 
         responseObject: <responses.DetachLoadBalancerResponse>{},
         body: await response.json(),
         bodyKey: "instancePool",
-        bodyModel: "model.InstancePool",
+        bodyModel: model.InstancePool,
+        type: "model.InstancePool",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -11338,7 +11445,8 @@ When you move an instance pool to a different compartment, associated resources 
         responseObject: <responses.GetClusterNetworkResponse>{},
         body: await response.json(),
         bodyKey: "clusterNetwork",
-        bodyModel: "model.ClusterNetwork",
+        bodyModel: model.ClusterNetwork,
+        type: "model.ClusterNetwork",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -11401,7 +11509,8 @@ When you move an instance pool to a different compartment, associated resources 
         responseObject: <responses.GetInstanceConfigurationResponse>{},
         body: await response.json(),
         bodyKey: "instanceConfiguration",
-        bodyModel: "model.InstanceConfiguration",
+        bodyModel: model.InstanceConfiguration,
+        type: "model.InstanceConfiguration",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -11464,7 +11573,8 @@ When you move an instance pool to a different compartment, associated resources 
         responseObject: <responses.GetInstancePoolResponse>{},
         body: await response.json(),
         bodyKey: "instancePool",
-        bodyModel: "model.InstancePool",
+        bodyModel: model.InstancePool,
+        type: "model.InstancePool",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -11528,7 +11638,8 @@ When you move an instance pool to a different compartment, associated resources 
         responseObject: <responses.GetInstancePoolInstanceResponse>{},
         body: await response.json(),
         bodyKey: "instancePoolInstance",
-        bodyModel: "model.InstancePoolInstance",
+        bodyModel: model.InstancePoolInstance,
+        type: "model.InstancePoolInstance",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -11597,7 +11708,8 @@ When you move an instance pool to a different compartment, associated resources 
         responseObject: <responses.GetInstancePoolLoadBalancerAttachmentResponse>{},
         body: await response.json(),
         bodyKey: "instancePoolLoadBalancerAttachment",
-        bodyModel: "model.InstancePoolLoadBalancerAttachment",
+        bodyModel: model.InstancePoolLoadBalancerAttachment,
+        type: "model.InstancePoolLoadBalancerAttachment",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -11656,7 +11768,7 @@ If the instance configuration does not include all of the parameters that are
       bodyContent: common.ObjectSerializer.serialize(
         launchInstanceConfigurationRequest.instanceConfiguration,
         "InstanceConfigurationInstanceDetails",
-        models.InstanceConfigurationInstanceDetails.getJsonObj
+        model.InstanceConfigurationInstanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -11668,7 +11780,8 @@ If the instance configuration does not include all of the parameters that are
         responseObject: <responses.LaunchInstanceConfigurationResponse>{},
         body: await response.json(),
         bodyKey: "instance",
-        bodyModel: "model.Instance",
+        bodyModel: model.Instance,
+        type: "model.Instance",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -11743,7 +11856,8 @@ If the instance configuration does not include all of the parameters that are
         responseObject: <responses.ListClusterNetworkInstancesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "InstanceSummary[]",
+        bodyModel: model.InstanceSummary,
+        type: "Array<model.InstanceSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -11773,7 +11887,7 @@ If the instance configuration does not include all of the parameters that are
    */
   public listAllClusterNetworkInstances(
     request: requests.ListClusterNetworkInstancesRequest
-  ): AsyncIterableIterator<models.InstanceSummary> {
+  ): AsyncIterableIterator<model.InstanceSummary> {
     return paginateRecords(request, req => this.listClusterNetworkInstances(req));
   }
 
@@ -11837,7 +11951,8 @@ If the instance configuration does not include all of the parameters that are
         responseObject: <responses.ListClusterNetworksResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ClusterNetworkSummary[]",
+        bodyModel: model.ClusterNetworkSummary,
+        type: "Array<model.ClusterNetworkSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -11867,7 +11982,7 @@ If the instance configuration does not include all of the parameters that are
    */
   public listAllClusterNetworks(
     request: requests.ListClusterNetworksRequest
-  ): AsyncIterableIterator<models.ClusterNetworkSummary> {
+  ): AsyncIterableIterator<model.ClusterNetworkSummary> {
     return paginateRecords(request, req => this.listClusterNetworks(req));
   }
 
@@ -11930,7 +12045,8 @@ If the instance configuration does not include all of the parameters that are
         responseObject: <responses.ListInstanceConfigurationsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "InstanceConfigurationSummary[]",
+        bodyModel: model.InstanceConfigurationSummary,
+        type: "Array<model.InstanceConfigurationSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -11960,7 +12076,7 @@ If the instance configuration does not include all of the parameters that are
    */
   public listAllInstanceConfigurations(
     request: requests.ListInstanceConfigurationsRequest
-  ): AsyncIterableIterator<models.InstanceConfigurationSummary> {
+  ): AsyncIterableIterator<model.InstanceConfigurationSummary> {
     return paginateRecords(request, req => this.listInstanceConfigurations(req));
   }
 
@@ -12025,7 +12141,8 @@ If the instance configuration does not include all of the parameters that are
         responseObject: <responses.ListInstancePoolInstancesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "InstanceSummary[]",
+        bodyModel: model.InstanceSummary,
+        type: "Array<model.InstanceSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -12055,7 +12172,7 @@ If the instance configuration does not include all of the parameters that are
    */
   public listAllInstancePoolInstances(
     request: requests.ListInstancePoolInstancesRequest
-  ): AsyncIterableIterator<models.InstanceSummary> {
+  ): AsyncIterableIterator<model.InstanceSummary> {
     return paginateRecords(request, req => this.listInstancePoolInstances(req));
   }
 
@@ -12119,7 +12236,8 @@ If the instance configuration does not include all of the parameters that are
         responseObject: <responses.ListInstancePoolsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "InstancePoolSummary[]",
+        bodyModel: model.InstancePoolSummary,
+        type: "Array<model.InstancePoolSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -12149,7 +12267,7 @@ If the instance configuration does not include all of the parameters that are
    */
   public listAllInstancePools(
     request: requests.ListInstancePoolsRequest
-  ): AsyncIterableIterator<models.InstancePoolSummary> {
+  ): AsyncIterableIterator<model.InstancePoolSummary> {
     return paginateRecords(request, req => this.listInstancePools(req));
   }
 
@@ -12211,7 +12329,8 @@ If the instance configuration does not include all of the parameters that are
         responseObject: <responses.ResetInstancePoolResponse>{},
         body: await response.json(),
         bodyKey: "instancePool",
-        bodyModel: "model.InstancePool",
+        bodyModel: model.InstancePool,
+        type: "model.InstancePool",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -12281,7 +12400,8 @@ Softreset gracefully reboots the instances by sending a shutdown command to the 
         responseObject: <responses.SoftresetInstancePoolResponse>{},
         body: await response.json(),
         bodyKey: "instancePool",
-        bodyModel: "model.InstancePool",
+        bodyModel: model.InstancePool,
+        type: "model.InstancePool",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -12348,7 +12468,8 @@ Softreset gracefully reboots the instances by sending a shutdown command to the 
         responseObject: <responses.StartInstancePoolResponse>{},
         body: await response.json(),
         bodyKey: "instancePool",
-        bodyModel: "model.InstancePool",
+        bodyModel: model.InstancePool,
+        type: "model.InstancePool",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -12415,7 +12536,8 @@ Softreset gracefully reboots the instances by sending a shutdown command to the 
         responseObject: <responses.StopInstancePoolResponse>{},
         body: await response.json(),
         bodyKey: "instancePool",
-        bodyModel: "model.InstancePool",
+        bodyModel: model.InstancePool,
+        type: "model.InstancePool",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -12603,7 +12725,7 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
       bodyContent: common.ObjectSerializer.serialize(
         updateClusterNetworkRequest.updateClusterNetworkDetails,
         "UpdateClusterNetworkDetails",
-        models.UpdateClusterNetworkDetails.getJsonObj
+        model.UpdateClusterNetworkDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -12615,7 +12737,8 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
         responseObject: <responses.UpdateClusterNetworkResponse>{},
         body: await response.json(),
         bodyKey: "clusterNetwork",
-        bodyModel: "model.ClusterNetwork",
+        bodyModel: model.ClusterNetwork,
+        type: "model.ClusterNetwork",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -12673,7 +12796,7 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
       bodyContent: common.ObjectSerializer.serialize(
         updateInstanceConfigurationRequest.updateInstanceConfigurationDetails,
         "UpdateInstanceConfigurationDetails",
-        models.UpdateInstanceConfigurationDetails.getJsonObj
+        model.UpdateInstanceConfigurationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -12685,7 +12808,8 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
         responseObject: <responses.UpdateInstanceConfigurationResponse>{},
         body: await response.json(),
         bodyKey: "instanceConfiguration",
-        bodyModel: "model.InstanceConfiguration",
+        bodyModel: model.InstanceConfiguration,
+        type: "model.InstanceConfiguration",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -12746,7 +12870,7 @@ The OCID of the instance pool remains the same.
       bodyContent: common.ObjectSerializer.serialize(
         updateInstancePoolRequest.updateInstancePoolDetails,
         "UpdateInstancePoolDetails",
-        models.UpdateInstancePoolDetails.getJsonObj
+        model.UpdateInstancePoolDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -12758,7 +12882,8 @@ The OCID of the instance pool remains the same.
         responseObject: <responses.UpdateInstancePoolResponse>{},
         body: await response.json(),
         bodyKey: "instancePool",
-        bodyModel: "model.InstancePool",
+        bodyModel: model.InstancePool,
+        type: "model.InstancePool",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -12929,7 +13054,7 @@ export class VirtualNetworkClient {
       bodyContent: common.ObjectSerializer.serialize(
         addDrgRouteDistributionStatementsRequest.addDrgRouteDistributionStatementsDetails,
         "AddDrgRouteDistributionStatementsDetails",
-        models.AddDrgRouteDistributionStatementsDetails.getJsonObj
+        model.AddDrgRouteDistributionStatementsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -12941,7 +13066,8 @@ export class VirtualNetworkClient {
         responseObject: <responses.AddDrgRouteDistributionStatementsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DrgRouteDistributionStatement[]",
+        bodyModel: model.DrgRouteDistributionStatement,
+        type: "Array<model.DrgRouteDistributionStatement>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -12993,7 +13119,7 @@ export class VirtualNetworkClient {
       bodyContent: common.ObjectSerializer.serialize(
         addDrgRouteRulesRequest.addDrgRouteRulesDetails,
         "AddDrgRouteRulesDetails",
-        models.AddDrgRouteRulesDetails.getJsonObj
+        model.AddDrgRouteRulesDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -13005,7 +13131,8 @@ export class VirtualNetworkClient {
         responseObject: <responses.AddDrgRouteRulesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DrgRouteRule[]",
+        bodyModel: model.DrgRouteRule,
+        type: "Array<model.DrgRouteRule>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -13123,7 +13250,7 @@ export class VirtualNetworkClient {
       bodyContent: common.ObjectSerializer.serialize(
         addNetworkSecurityGroupSecurityRulesRequest.addNetworkSecurityGroupSecurityRulesDetails,
         "AddNetworkSecurityGroupSecurityRulesDetails",
-        models.AddNetworkSecurityGroupSecurityRulesDetails.getJsonObj
+        model.AddNetworkSecurityGroupSecurityRulesDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -13135,7 +13262,8 @@ export class VirtualNetworkClient {
         responseObject: <responses.AddNetworkSecurityGroupSecurityRulesResponse>{},
         body: await response.json(),
         bodyKey: "addedNetworkSecurityGroupSecurityRules",
-        bodyModel: "model.AddedNetworkSecurityGroupSecurityRules",
+        bodyModel: model.AddedNetworkSecurityGroupSecurityRules,
+        type: "model.AddedNetworkSecurityGroupSecurityRules",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -13191,7 +13319,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       bodyContent: common.ObjectSerializer.serialize(
         addPublicIpPoolCapacityRequest.addPublicIpPoolCapacityDetails,
         "AddPublicIpPoolCapacityDetails",
-        models.AddPublicIpPoolCapacityDetails.getJsonObj
+        model.AddPublicIpPoolCapacityDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -13203,7 +13331,8 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
         responseObject: <responses.AddPublicIpPoolCapacityResponse>{},
         body: await response.json(),
         bodyKey: "publicIpPool",
-        bodyModel: "model.PublicIpPool",
+        bodyModel: model.PublicIpPool,
+        type: "model.PublicIpPool",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -13268,7 +13397,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       bodyContent: common.ObjectSerializer.serialize(
         addVcnCidrRequest.addVcnCidrDetails,
         "AddVcnCidrDetails",
-        models.AddVcnCidrDetails.getJsonObj
+        model.AddVcnCidrDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -13401,7 +13530,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       bodyContent: common.ObjectSerializer.serialize(
         attachServiceIdRequest.attachServiceDetails,
         "ServiceIdRequestDetails",
-        models.ServiceIdRequestDetails.getJsonObj
+        model.ServiceIdRequestDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -13413,7 +13542,8 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
         responseObject: <responses.AttachServiceIdResponse>{},
         body: await response.json(),
         bodyKey: "serviceGateway",
-        bodyModel: "model.ServiceGateway",
+        bodyModel: model.ServiceGateway,
+        type: "model.ServiceGateway",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -13470,7 +13600,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       bodyContent: common.ObjectSerializer.serialize(
         bulkAddVirtualCircuitPublicPrefixesRequest.bulkAddVirtualCircuitPublicPrefixesDetails,
         "BulkAddVirtualCircuitPublicPrefixesDetails",
-        models.BulkAddVirtualCircuitPublicPrefixesDetails.getJsonObj
+        model.BulkAddVirtualCircuitPublicPrefixesDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -13530,7 +13660,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       bodyContent: common.ObjectSerializer.serialize(
         bulkDeleteVirtualCircuitPublicPrefixesRequest.bulkDeleteVirtualCircuitPublicPrefixesDetails,
         "BulkDeleteVirtualCircuitPublicPrefixesDetails",
-        models.BulkDeleteVirtualCircuitPublicPrefixesDetails.getJsonObj
+        model.BulkDeleteVirtualCircuitPublicPrefixesDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -13589,7 +13719,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       bodyContent: common.ObjectSerializer.serialize(
         changeByoipRangeCompartmentRequest.changeByoipRangeCompartmentDetails,
         "ChangeByoipRangeCompartmentDetails",
-        models.ChangeByoipRangeCompartmentDetails.getJsonObj
+        model.ChangeByoipRangeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -13654,7 +13784,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       bodyContent: common.ObjectSerializer.serialize(
         changeCpeCompartmentRequest.changeCpeCompartmentDetails,
         "ChangeCpeCompartmentDetails",
-        models.ChangeCpeCompartmentDetails.getJsonObj
+        model.ChangeCpeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -13724,7 +13854,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       bodyContent: common.ObjectSerializer.serialize(
         changeCrossConnectCompartmentRequest.changeCrossConnectCompartmentDetails,
         "ChangeCrossConnectCompartmentDetails",
-        models.ChangeCrossConnectCompartmentDetails.getJsonObj
+        model.ChangeCrossConnectCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -13796,7 +13926,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       bodyContent: common.ObjectSerializer.serialize(
         changeCrossConnectGroupCompartmentRequest.changeCrossConnectGroupCompartmentDetails,
         "ChangeCrossConnectGroupCompartmentDetails",
-        models.ChangeCrossConnectGroupCompartmentDetails.getJsonObj
+        model.ChangeCrossConnectGroupCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -13866,7 +13996,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       bodyContent: common.ObjectSerializer.serialize(
         changeDhcpOptionsCompartmentRequest.changeDhcpOptionsCompartmentDetails,
         "ChangeDhcpOptionsCompartmentDetails",
-        models.ChangeDhcpOptionsCompartmentDetails.getJsonObj
+        model.ChangeDhcpOptionsCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -13936,7 +14066,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       bodyContent: common.ObjectSerializer.serialize(
         changeDrgCompartmentRequest.changeDrgCompartmentDetails,
         "ChangeDrgCompartmentDetails",
-        models.ChangeDrgCompartmentDetails.getJsonObj
+        model.ChangeDrgCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -14011,7 +14141,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       bodyContent: common.ObjectSerializer.serialize(
         changeIPSecConnectionCompartmentRequest.changeIPSecConnectionCompartmentDetails,
         "ChangeIPSecConnectionCompartmentDetails",
-        models.ChangeIPSecConnectionCompartmentDetails.getJsonObj
+        model.ChangeIPSecConnectionCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -14081,7 +14211,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       bodyContent: common.ObjectSerializer.serialize(
         changeInternetGatewayCompartmentRequest.changeInternetGatewayCompartmentDetails,
         "ChangeInternetGatewayCompartmentDetails",
-        models.ChangeInternetGatewayCompartmentDetails.getJsonObj
+        model.ChangeInternetGatewayCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -14153,7 +14283,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       bodyContent: common.ObjectSerializer.serialize(
         changeLocalPeeringGatewayCompartmentRequest.changeLocalPeeringGatewayCompartmentDetails,
         "ChangeLocalPeeringGatewayCompartmentDetails",
-        models.ChangeLocalPeeringGatewayCompartmentDetails.getJsonObj
+        model.ChangeLocalPeeringGatewayCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -14223,7 +14353,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       bodyContent: common.ObjectSerializer.serialize(
         changeNatGatewayCompartmentRequest.changeNatGatewayCompartmentDetails,
         "ChangeNatGatewayCompartmentDetails",
-        models.ChangeNatGatewayCompartmentDetails.getJsonObj
+        model.ChangeNatGatewayCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -14295,7 +14425,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       bodyContent: common.ObjectSerializer.serialize(
         changeNetworkSecurityGroupCompartmentRequest.changeNetworkSecurityGroupCompartmentDetails,
         "ChangeNetworkSecurityGroupCompartmentDetails",
-        models.ChangeNetworkSecurityGroupCompartmentDetails.getJsonObj
+        model.ChangeNetworkSecurityGroupCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -14368,7 +14498,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       bodyContent: common.ObjectSerializer.serialize(
         changePublicIpCompartmentRequest.changePublicIpCompartmentDetails,
         "ChangePublicIpCompartmentDetails",
-        models.ChangePublicIpCompartmentDetails.getJsonObj
+        model.ChangePublicIpCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -14438,7 +14568,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       bodyContent: common.ObjectSerializer.serialize(
         changePublicIpPoolCompartmentRequest.changePublicIpPoolCompartmentDetails,
         "ChangePublicIpPoolCompartmentDetails",
-        models.ChangePublicIpPoolCompartmentDetails.getJsonObj
+        model.ChangePublicIpPoolCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -14506,7 +14636,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       bodyContent: common.ObjectSerializer.serialize(
         changeRemotePeeringConnectionCompartmentRequest.changeRemotePeeringConnectionCompartmentDetails,
         "ChangeRemotePeeringConnectionCompartmentDetails",
-        models.ChangeRemotePeeringConnectionCompartmentDetails.getJsonObj
+        model.ChangeRemotePeeringConnectionCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -14576,7 +14706,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       bodyContent: common.ObjectSerializer.serialize(
         changeRouteTableCompartmentRequest.changeRouteTableCompartmentDetails,
         "ChangeRouteTableCompartmentDetails",
-        models.ChangeRouteTableCompartmentDetails.getJsonObj
+        model.ChangeRouteTableCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -14646,7 +14776,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       bodyContent: common.ObjectSerializer.serialize(
         changeSecurityListCompartmentRequest.changeSecurityListCompartmentDetails,
         "ChangeSecurityListCompartmentDetails",
-        models.ChangeSecurityListCompartmentDetails.getJsonObj
+        model.ChangeSecurityListCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -14716,7 +14846,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       bodyContent: common.ObjectSerializer.serialize(
         changeServiceGatewayCompartmentRequest.changeServiceGatewayCompartmentDetails,
         "ChangeServiceGatewayCompartmentDetails",
-        models.ChangeServiceGatewayCompartmentDetails.getJsonObj
+        model.ChangeServiceGatewayCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -14786,7 +14916,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       bodyContent: common.ObjectSerializer.serialize(
         changeSubnetCompartmentRequest.changeSubnetCompartmentDetails,
         "ChangeSubnetCompartmentDetails",
-        models.ChangeSubnetCompartmentDetails.getJsonObj
+        model.ChangeSubnetCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -14861,7 +14991,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       bodyContent: common.ObjectSerializer.serialize(
         changeVcnCompartmentRequest.changeVcnCompartmentDetails,
         "ChangeVcnCompartmentDetails",
-        models.ChangeVcnCompartmentDetails.getJsonObj
+        model.ChangeVcnCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -14936,7 +15066,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       bodyContent: common.ObjectSerializer.serialize(
         changeVirtualCircuitCompartmentRequest.changeVirtualCircuitCompartmentDetails,
         "ChangeVirtualCircuitCompartmentDetails",
-        models.ChangeVirtualCircuitCompartmentDetails.getJsonObj
+        model.ChangeVirtualCircuitCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -15007,7 +15137,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       bodyContent: common.ObjectSerializer.serialize(
         changeVlanCompartmentRequest.changeVlanCompartmentDetails,
         "ChangeVlanCompartmentDetails",
-        models.ChangeVlanCompartmentDetails.getJsonObj
+        model.ChangeVlanCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -15080,7 +15210,7 @@ This operation must be called by the VCN administrator who is designated as
       bodyContent: common.ObjectSerializer.serialize(
         connectLocalPeeringGatewaysRequest.connectLocalPeeringGatewaysDetails,
         "ConnectLocalPeeringGatewaysDetails",
-        models.ConnectLocalPeeringGatewaysDetails.getJsonObj
+        model.ConnectLocalPeeringGatewaysDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -15149,7 +15279,7 @@ This operation must be called by the VCN administrator who is designated as
       bodyContent: common.ObjectSerializer.serialize(
         connectRemotePeeringConnectionsRequest.connectRemotePeeringConnectionsDetails,
         "ConnectRemotePeeringConnectionsDetails",
-        models.ConnectRemotePeeringConnectionsDetails.getJsonObj
+        model.ConnectRemotePeeringConnectionsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -15209,7 +15339,7 @@ This operation must be called by the VCN administrator who is designated as
       bodyContent: common.ObjectSerializer.serialize(
         createByoipRangeRequest.createByoipRangeDetails,
         "CreateByoipRangeDetails",
-        models.CreateByoipRangeDetails.getJsonObj
+        model.CreateByoipRangeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -15221,7 +15351,8 @@ This operation must be called by the VCN administrator who is designated as
         responseObject: <responses.CreateByoipRangeResponse>{},
         body: await response.json(),
         bodyKey: "byoipRange",
-        bodyModel: "model.ByoipRange",
+        bodyModel: model.ByoipRange,
+        type: "model.ByoipRange",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -15290,7 +15421,7 @@ You may optionally specify a *display name* for the CPE, otherwise a default is 
       bodyContent: common.ObjectSerializer.serialize(
         createCpeRequest.createCpeDetails,
         "CreateCpeDetails",
-        models.CreateCpeDetails.getJsonObj
+        model.CreateCpeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -15302,7 +15433,8 @@ You may optionally specify a *display name* for the CPE, otherwise a default is 
         responseObject: <responses.CreateCpeResponse>{},
         body: await response.json(),
         bodyKey: "cpe",
-        bodyModel: "model.Cpe",
+        bodyModel: model.Cpe,
+        type: "model.Cpe",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -15376,7 +15508,7 @@ You may optionally specify a *display name* for the cross-connect.
       bodyContent: common.ObjectSerializer.serialize(
         createCrossConnectRequest.createCrossConnectDetails,
         "CreateCrossConnectDetails",
-        models.CreateCrossConnectDetails.getJsonObj
+        model.CreateCrossConnectDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -15388,7 +15520,8 @@ You may optionally specify a *display name* for the cross-connect.
         responseObject: <responses.CreateCrossConnectResponse>{},
         body: await response.json(),
         bodyKey: "crossConnect",
-        bodyModel: "model.CrossConnect",
+        bodyModel: model.CrossConnect,
+        type: "model.CrossConnect",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -15458,7 +15591,7 @@ You may optionally specify a *display name* for the cross-connect group.
       bodyContent: common.ObjectSerializer.serialize(
         createCrossConnectGroupRequest.createCrossConnectGroupDetails,
         "CreateCrossConnectGroupDetails",
-        models.CreateCrossConnectGroupDetails.getJsonObj
+        model.CreateCrossConnectGroupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -15470,7 +15603,8 @@ You may optionally specify a *display name* for the cross-connect group.
         responseObject: <responses.CreateCrossConnectGroupResponse>{},
         body: await response.json(),
         bodyKey: "crossConnectGroup",
-        bodyModel: "model.CrossConnectGroup",
+        bodyModel: model.CrossConnectGroup,
+        type: "model.CrossConnectGroup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -15536,7 +15670,7 @@ You may optionally specify a *display name* for the set of DHCP options, otherwi
       bodyContent: common.ObjectSerializer.serialize(
         createDhcpOptionsRequest.createDhcpDetails,
         "CreateDhcpDetails",
-        models.CreateDhcpDetails.getJsonObj
+        model.CreateDhcpDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -15548,7 +15682,8 @@ You may optionally specify a *display name* for the set of DHCP options, otherwi
         responseObject: <responses.CreateDhcpOptionsResponse>{},
         body: await response.json(),
         bodyKey: "dhcpOptions",
-        bodyModel: "model.DhcpOptions",
+        bodyModel: model.DhcpOptions,
+        type: "model.DhcpOptions",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -15614,7 +15749,7 @@ You may optionally specify a *display name* for the DRG, otherwise a default is 
       bodyContent: common.ObjectSerializer.serialize(
         createDrgRequest.createDrgDetails,
         "CreateDrgDetails",
-        models.CreateDrgDetails.getJsonObj
+        model.CreateDrgDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -15626,7 +15761,8 @@ You may optionally specify a *display name* for the DRG, otherwise a default is 
         responseObject: <responses.CreateDrgResponse>{},
         body: await response.json(),
         bodyKey: "drg",
-        bodyModel: "model.Drg",
+        bodyModel: model.Drg,
+        type: "model.Drg",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -15692,7 +15828,7 @@ For the purposes of access control, the DRG attachment is automatically placed i
       bodyContent: common.ObjectSerializer.serialize(
         createDrgAttachmentRequest.createDrgAttachmentDetails,
         "CreateDrgAttachmentDetails",
-        models.CreateDrgAttachmentDetails.getJsonObj
+        model.CreateDrgAttachmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -15704,7 +15840,8 @@ For the purposes of access control, the DRG attachment is automatically placed i
         responseObject: <responses.CreateDrgAttachmentResponse>{},
         body: await response.json(),
         bodyKey: "drgAttachment",
-        bodyModel: "model.DrgAttachment",
+        bodyModel: model.DrgAttachment,
+        type: "model.DrgAttachment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -15763,7 +15900,7 @@ For the purposes of access control, the DRG attachment is automatically placed i
       bodyContent: common.ObjectSerializer.serialize(
         createDrgRouteDistributionRequest.createDrgRouteDistributionDetails,
         "CreateDrgRouteDistributionDetails",
-        models.CreateDrgRouteDistributionDetails.getJsonObj
+        model.CreateDrgRouteDistributionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -15775,7 +15912,8 @@ For the purposes of access control, the DRG attachment is automatically placed i
         responseObject: <responses.CreateDrgRouteDistributionResponse>{},
         body: await response.json(),
         bodyKey: "drgRouteDistribution",
-        bodyModel: "model.DrgRouteDistribution",
+        bodyModel: model.DrgRouteDistribution,
+        type: "model.DrgRouteDistribution",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -15832,7 +15970,7 @@ For the purposes of access control, the DRG attachment is automatically placed i
       bodyContent: common.ObjectSerializer.serialize(
         createDrgRouteTableRequest.createDrgRouteTableDetails,
         "CreateDrgRouteTableDetails",
-        models.CreateDrgRouteTableDetails.getJsonObj
+        model.CreateDrgRouteTableDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -15844,7 +15982,8 @@ For the purposes of access control, the DRG attachment is automatically placed i
         responseObject: <responses.CreateDrgRouteTableResponse>{},
         body: await response.json(),
         bodyKey: "drgRouteTable",
-        bodyModel: "model.DrgRouteTable",
+        bodyModel: model.DrgRouteTable,
+        type: "model.DrgRouteTable",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -15927,7 +16066,7 @@ For each tunnel, you need the IP address of Oracle's VPN headend and the shared 
       bodyContent: common.ObjectSerializer.serialize(
         createIPSecConnectionRequest.createIPSecConnectionDetails,
         "CreateIPSecConnectionDetails",
-        models.CreateIPSecConnectionDetails.getJsonObj
+        model.CreateIPSecConnectionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -15939,7 +16078,8 @@ For each tunnel, you need the IP address of Oracle's VPN headend and the shared 
         responseObject: <responses.CreateIPSecConnectionResponse>{},
         body: await response.json(),
         bodyKey: "iPSecConnection",
-        bodyModel: "model.IPSecConnection",
+        bodyModel: model.IPSecConnection,
+        type: "model.IPSecConnection",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -16014,7 +16154,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
       bodyContent: common.ObjectSerializer.serialize(
         createInternetGatewayRequest.createInternetGatewayDetails,
         "CreateInternetGatewayDetails",
-        models.CreateInternetGatewayDetails.getJsonObj
+        model.CreateInternetGatewayDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16026,7 +16166,8 @@ You must specify whether the internet gateway is enabled when you create it. If 
         responseObject: <responses.CreateInternetGatewayResponse>{},
         body: await response.json(),
         bodyKey: "internetGateway",
-        bodyModel: "model.InternetGateway",
+        bodyModel: model.InternetGateway,
+        type: "model.InternetGateway",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -16082,7 +16223,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
       bodyContent: common.ObjectSerializer.serialize(
         createIpv6Request.createIpv6Details,
         "CreateIpv6Details",
-        models.CreateIpv6Details.getJsonObj
+        model.CreateIpv6Details.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16094,7 +16235,8 @@ You must specify whether the internet gateway is enabled when you create it. If 
         responseObject: <responses.CreateIpv6Response>{},
         body: await response.json(),
         bodyKey: "ipv6",
-        bodyModel: "model.Ipv6",
+        bodyModel: model.Ipv6,
+        type: "model.Ipv6",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -16150,7 +16292,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
       bodyContent: common.ObjectSerializer.serialize(
         createLocalPeeringGatewayRequest.createLocalPeeringGatewayDetails,
         "CreateLocalPeeringGatewayDetails",
-        models.CreateLocalPeeringGatewayDetails.getJsonObj
+        model.CreateLocalPeeringGatewayDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16162,7 +16304,8 @@ You must specify whether the internet gateway is enabled when you create it. If 
         responseObject: <responses.CreateLocalPeeringGatewayResponse>{},
         body: await response.json(),
         bodyKey: "localPeeringGateway",
-        bodyModel: "model.LocalPeeringGateway",
+        bodyModel: model.LocalPeeringGateway,
+        type: "model.LocalPeeringGateway",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -16218,7 +16361,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
       bodyContent: common.ObjectSerializer.serialize(
         createNatGatewayRequest.createNatGatewayDetails,
         "CreateNatGatewayDetails",
-        models.CreateNatGatewayDetails.getJsonObj
+        model.CreateNatGatewayDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16230,7 +16373,8 @@ You must specify whether the internet gateway is enabled when you create it. If 
         responseObject: <responses.CreateNatGatewayResponse>{},
         body: await response.json(),
         bodyKey: "natGateway",
-        bodyModel: "model.NatGateway",
+        bodyModel: model.NatGateway,
+        type: "model.NatGateway",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -16286,7 +16430,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
       bodyContent: common.ObjectSerializer.serialize(
         createNetworkSecurityGroupRequest.createNetworkSecurityGroupDetails,
         "CreateNetworkSecurityGroupDetails",
-        models.CreateNetworkSecurityGroupDetails.getJsonObj
+        model.CreateNetworkSecurityGroupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16298,7 +16442,8 @@ You must specify whether the internet gateway is enabled when you create it. If 
         responseObject: <responses.CreateNetworkSecurityGroupResponse>{},
         body: await response.json(),
         bodyKey: "networkSecurityGroup",
-        bodyModel: "model.NetworkSecurityGroup",
+        bodyModel: model.NetworkSecurityGroup,
+        type: "model.NetworkSecurityGroup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -16355,7 +16500,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
       bodyContent: common.ObjectSerializer.serialize(
         createPrivateIpRequest.createPrivateIpDetails,
         "CreatePrivateIpDetails",
-        models.CreatePrivateIpDetails.getJsonObj
+        model.CreatePrivateIpDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16367,7 +16512,8 @@ You must specify whether the internet gateway is enabled when you create it. If 
         responseObject: <responses.CreatePrivateIpResponse>{},
         body: await response.json(),
         bodyKey: "privateIp",
-        bodyModel: "model.PrivateIp",
+        bodyModel: model.PrivateIp,
+        type: "model.PrivateIp",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -16442,7 +16588,7 @@ Also, for reserved public IPs, the optional assignment part of this operation is
       bodyContent: common.ObjectSerializer.serialize(
         createPublicIpRequest.createPublicIpDetails,
         "CreatePublicIpDetails",
-        models.CreatePublicIpDetails.getJsonObj
+        model.CreatePublicIpDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16454,7 +16600,8 @@ Also, for reserved public IPs, the optional assignment part of this operation is
         responseObject: <responses.CreatePublicIpResponse>{},
         body: await response.json(),
         bodyKey: "publicIp",
-        bodyModel: "model.PublicIp",
+        bodyModel: model.PublicIp,
+        type: "model.PublicIp",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -16511,7 +16658,7 @@ Also, for reserved public IPs, the optional assignment part of this operation is
       bodyContent: common.ObjectSerializer.serialize(
         createPublicIpPoolRequest.createPublicIpPoolDetails,
         "CreatePublicIpPoolDetails",
-        models.CreatePublicIpPoolDetails.getJsonObj
+        model.CreatePublicIpPoolDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16523,7 +16670,8 @@ Also, for reserved public IPs, the optional assignment part of this operation is
         responseObject: <responses.CreatePublicIpPoolResponse>{},
         body: await response.json(),
         bodyKey: "publicIpPool",
-        bodyModel: "model.PublicIpPool",
+        bodyModel: model.PublicIpPool,
+        type: "model.PublicIpPool",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -16579,7 +16727,7 @@ Also, for reserved public IPs, the optional assignment part of this operation is
       bodyContent: common.ObjectSerializer.serialize(
         createRemotePeeringConnectionRequest.createRemotePeeringConnectionDetails,
         "CreateRemotePeeringConnectionDetails",
-        models.CreateRemotePeeringConnectionDetails.getJsonObj
+        model.CreateRemotePeeringConnectionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16591,7 +16739,8 @@ Also, for reserved public IPs, the optional assignment part of this operation is
         responseObject: <responses.CreateRemotePeeringConnectionResponse>{},
         body: await response.json(),
         bodyKey: "remotePeeringConnection",
-        bodyModel: "model.RemotePeeringConnection",
+        bodyModel: model.RemotePeeringConnection,
+        type: "model.RemotePeeringConnection",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -16660,7 +16809,7 @@ You may optionally specify a *display name* for the route table, otherwise a def
       bodyContent: common.ObjectSerializer.serialize(
         createRouteTableRequest.createRouteTableDetails,
         "CreateRouteTableDetails",
-        models.CreateRouteTableDetails.getJsonObj
+        model.CreateRouteTableDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16672,7 +16821,8 @@ You may optionally specify a *display name* for the route table, otherwise a def
         responseObject: <responses.CreateRouteTableResponse>{},
         body: await response.json(),
         bodyKey: "routeTable",
-        bodyModel: "model.RouteTable",
+        bodyModel: model.RouteTable,
+        type: "model.RouteTable",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -16741,7 +16891,7 @@ You may optionally specify a *display name* for the security list, otherwise a d
       bodyContent: common.ObjectSerializer.serialize(
         createSecurityListRequest.createSecurityListDetails,
         "CreateSecurityListDetails",
-        models.CreateSecurityListDetails.getJsonObj
+        model.CreateSecurityListDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16753,7 +16903,8 @@ You may optionally specify a *display name* for the security list, otherwise a d
         responseObject: <responses.CreateSecurityListResponse>{},
         body: await response.json(),
         bodyKey: "securityList",
-        bodyModel: "model.SecurityList",
+        bodyModel: model.SecurityList,
+        type: "model.SecurityList",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -16817,7 +16968,7 @@ You may optionally specify a *display name* for the service gateway, otherwise a
       bodyContent: common.ObjectSerializer.serialize(
         createServiceGatewayRequest.createServiceGatewayDetails,
         "CreateServiceGatewayDetails",
-        models.CreateServiceGatewayDetails.getJsonObj
+        model.CreateServiceGatewayDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16829,7 +16980,8 @@ You may optionally specify a *display name* for the service gateway, otherwise a
         responseObject: <responses.CreateServiceGatewayResponse>{},
         body: await response.json(),
         bodyKey: "serviceGateway",
-        bodyModel: "model.ServiceGateway",
+        bodyModel: model.ServiceGateway,
+        type: "model.ServiceGateway",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -16909,7 +17061,7 @@ You can also add a DNS label for the subnet, which is required if you want the I
       bodyContent: common.ObjectSerializer.serialize(
         createSubnetRequest.createSubnetDetails,
         "CreateSubnetDetails",
-        models.CreateSubnetDetails.getJsonObj
+        model.CreateSubnetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16921,7 +17073,8 @@ You can also add a DNS label for the subnet, which is required if you want the I
         responseObject: <responses.CreateSubnetResponse>{},
         body: await response.json(),
         bodyKey: "subnet",
-        bodyModel: "model.Subnet",
+        bodyModel: model.Subnet,
+        type: "model.Subnet",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -17008,7 +17161,7 @@ The VCN and subnets you create are not accessible until you attach an internet g
       bodyContent: common.ObjectSerializer.serialize(
         createVcnRequest.createVcnDetails,
         "CreateVcnDetails",
-        models.CreateVcnDetails.getJsonObj
+        model.CreateVcnDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -17020,7 +17173,8 @@ The VCN and subnets you create are not accessible until you attach an internet g
         responseObject: <responses.CreateVcnResponse>{},
         body: await response.json(),
         bodyKey: "vcn",
-        bodyModel: "model.Vcn",
+        bodyModel: model.Vcn,
+        type: "model.Vcn",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -17096,7 +17250,7 @@ You may optionally specify a *display name* for the virtual circuit.
       bodyContent: common.ObjectSerializer.serialize(
         createVirtualCircuitRequest.createVirtualCircuitDetails,
         "CreateVirtualCircuitDetails",
-        models.CreateVirtualCircuitDetails.getJsonObj
+        model.CreateVirtualCircuitDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -17108,7 +17262,8 @@ You may optionally specify a *display name* for the virtual circuit.
         responseObject: <responses.CreateVirtualCircuitResponse>{},
         body: await response.json(),
         bodyKey: "virtualCircuit",
-        bodyModel: "model.VirtualCircuit",
+        bodyModel: model.VirtualCircuit,
+        type: "model.VirtualCircuit",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -17164,7 +17319,7 @@ You may optionally specify a *display name* for the virtual circuit.
       bodyContent: common.ObjectSerializer.serialize(
         createVlanRequest.createVlanDetails,
         "CreateVlanDetails",
-        models.CreateVlanDetails.getJsonObj
+        model.CreateVlanDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -17176,7 +17331,8 @@ You may optionally specify a *display name* for the virtual circuit.
         responseObject: <responses.CreateVlanResponse>{},
         body: await response.json(),
         bodyKey: "vlan",
-        bodyModel: "model.Vlan",
+        bodyModel: model.Vlan,
+        type: "model.Vlan",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -18814,7 +18970,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       bodyContent: common.ObjectSerializer.serialize(
         detachServiceIdRequest.detachServiceDetails,
         "ServiceIdRequestDetails",
-        models.ServiceIdRequestDetails.getJsonObj
+        model.ServiceIdRequestDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -18826,7 +18982,8 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
         responseObject: <responses.DetachServiceIdResponse>{},
         body: await response.json(),
         bodyKey: "serviceGateway",
-        bodyModel: "model.ServiceGateway",
+        bodyModel: model.ServiceGateway,
+        type: "model.ServiceGateway",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -18891,7 +19048,8 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
         responseObject: <responses.GetAllDrgAttachmentsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DrgAttachmentInfo[]",
+        bodyModel: model.DrgAttachmentInfo,
+        type: "Array<model.DrgAttachmentInfo>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -18921,7 +19079,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
    */
   public getAllAllDrgAttachments(
     request: requests.GetAllDrgAttachmentsRequest
-  ): AsyncIterableIterator<models.DrgAttachmentInfo> {
+  ): AsyncIterableIterator<model.DrgAttachmentInfo> {
     return paginateRecords(request, req => this.getAllDrgAttachments(req));
   }
 
@@ -18980,7 +19138,8 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
         responseObject: <responses.GetByoipRangeResponse>{},
         body: await response.json(),
         bodyKey: "byoipRange",
-        bodyModel: "model.ByoipRange",
+        bodyModel: model.ByoipRange,
+        type: "model.ByoipRange",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -19040,7 +19199,8 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
         responseObject: <responses.GetCpeResponse>{},
         body: await response.json(),
         bodyKey: "cpe",
-        bodyModel: "model.Cpe",
+        bodyModel: model.Cpe,
+        type: "model.Cpe",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -19190,7 +19350,8 @@ The operation returns configuration information for *all* of the
         responseObject: <responses.GetCpeDeviceShapeResponse>{},
         body: await response.json(),
         bodyKey: "cpeDeviceShapeDetail",
-        bodyModel: "model.CpeDeviceShapeDetail",
+        bodyModel: model.CpeDeviceShapeDetail,
+        type: "model.CpeDeviceShapeDetail",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -19247,7 +19408,8 @@ The operation returns configuration information for *all* of the
         responseObject: <responses.GetCrossConnectResponse>{},
         body: await response.json(),
         bodyKey: "crossConnect",
-        bodyModel: "model.CrossConnect",
+        bodyModel: model.CrossConnect,
+        type: "model.CrossConnect",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -19310,7 +19472,8 @@ The operation returns configuration information for *all* of the
         responseObject: <responses.GetCrossConnectGroupResponse>{},
         body: await response.json(),
         bodyKey: "crossConnectGroup",
-        bodyModel: "model.CrossConnectGroup",
+        bodyModel: model.CrossConnectGroup,
+        type: "model.CrossConnectGroup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -19373,7 +19536,8 @@ The operation returns configuration information for *all* of the
         responseObject: <responses.GetCrossConnectLetterOfAuthorityResponse>{},
         body: await response.json(),
         bodyKey: "letterOfAuthority",
-        bodyModel: "model.LetterOfAuthority",
+        bodyModel: model.LetterOfAuthority,
+        type: "model.LetterOfAuthority",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -19432,7 +19596,8 @@ The operation returns configuration information for *all* of the
         responseObject: <responses.GetCrossConnectStatusResponse>{},
         body: await response.json(),
         bodyKey: "crossConnectStatus",
-        bodyModel: "model.CrossConnectStatus",
+        bodyModel: model.CrossConnectStatus,
+        type: "model.CrossConnectStatus",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -19489,7 +19654,8 @@ The operation returns configuration information for *all* of the
         responseObject: <responses.GetDhcpOptionsResponse>{},
         body: await response.json(),
         bodyKey: "dhcpOptions",
-        bodyModel: "model.DhcpOptions",
+        bodyModel: model.DhcpOptions,
+        type: "model.DhcpOptions",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -19549,7 +19715,8 @@ The operation returns configuration information for *all* of the
         responseObject: <responses.GetDrgResponse>{},
         body: await response.json(),
         bodyKey: "drg",
-        bodyModel: "model.Drg",
+        bodyModel: model.Drg,
+        type: "model.Drg",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -19611,7 +19778,8 @@ The operation returns configuration information for *all* of the
         responseObject: <responses.GetDrgAttachmentResponse>{},
         body: await response.json(),
         bodyKey: "drgAttachment",
-        bodyModel: "model.DrgAttachment",
+        bodyModel: model.DrgAttachment,
+        type: "model.DrgAttachment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -19677,7 +19845,8 @@ The operation returns configuration information for *all* of the
         responseObject: <responses.GetDrgRedundancyStatusResponse>{},
         body: await response.json(),
         bodyKey: "drgRedundancyStatus",
-        bodyModel: "model.DrgRedundancyStatus",
+        bodyModel: model.DrgRedundancyStatus,
+        type: "model.DrgRedundancyStatus",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -19735,7 +19904,8 @@ The operation returns configuration information for *all* of the
         responseObject: <responses.GetDrgRouteDistributionResponse>{},
         body: await response.json(),
         bodyKey: "drgRouteDistribution",
-        bodyModel: "model.DrgRouteDistribution",
+        bodyModel: model.DrgRouteDistribution,
+        type: "model.DrgRouteDistribution",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -19797,7 +19967,8 @@ The operation returns configuration information for *all* of the
         responseObject: <responses.GetDrgRouteTableResponse>{},
         body: await response.json(),
         bodyKey: "drgRouteTable",
-        bodyModel: "model.DrgRouteTable",
+        bodyModel: model.DrgRouteTable,
+        type: "model.DrgRouteTable",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -19862,7 +20033,8 @@ The operation returns configuration information for *all* of the
         responseObject: <responses.GetFastConnectProviderServiceResponse>{},
         body: await response.json(),
         bodyKey: "fastConnectProviderService",
-        bodyModel: "model.FastConnectProviderService",
+        bodyModel: model.FastConnectProviderService,
+        type: "model.FastConnectProviderService",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -19924,7 +20096,8 @@ The operation returns configuration information for *all* of the
         responseObject: <responses.GetFastConnectProviderServiceKeyResponse>{},
         body: await response.json(),
         bodyKey: "fastConnectProviderServiceKey",
-        bodyModel: "model.FastConnectProviderServiceKey",
+        bodyModel: model.FastConnectProviderServiceKey,
+        type: "model.FastConnectProviderServiceKey",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -19985,7 +20158,8 @@ The operation returns configuration information for *all* of the
         responseObject: <responses.GetIPSecConnectionResponse>{},
         body: await response.json(),
         bodyKey: "iPSecConnection",
-        bodyModel: "model.IPSecConnection",
+        bodyModel: model.IPSecConnection,
+        type: "model.IPSecConnection",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -20052,7 +20226,8 @@ The operation returns configuration information for *all* of the
         responseObject: <responses.GetIPSecConnectionDeviceConfigResponse>{},
         body: await response.json(),
         bodyKey: "iPSecConnectionDeviceConfig",
-        bodyModel: "model.IPSecConnectionDeviceConfig",
+        bodyModel: model.IPSecConnectionDeviceConfig,
+        type: "model.IPSecConnectionDeviceConfig",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -20117,7 +20292,8 @@ The operation returns configuration information for *all* of the
         responseObject: <responses.GetIPSecConnectionDeviceStatusResponse>{},
         body: await response.json(),
         bodyKey: "iPSecConnectionDeviceStatus",
-        bodyModel: "model.IPSecConnectionDeviceStatus",
+        bodyModel: model.IPSecConnectionDeviceStatus,
+        type: "model.IPSecConnectionDeviceStatus",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -20184,7 +20360,8 @@ The operation returns configuration information for *all* of the
         responseObject: <responses.GetIPSecConnectionTunnelResponse>{},
         body: await response.json(),
         bodyKey: "iPSecConnectionTunnel",
-        bodyModel: "model.IPSecConnectionTunnel",
+        bodyModel: model.IPSecConnectionTunnel,
+        type: "model.IPSecConnectionTunnel",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -20252,7 +20429,8 @@ The operation returns configuration information for *all* of the
         responseObject: <responses.GetIPSecConnectionTunnelSharedSecretResponse>{},
         body: await response.json(),
         bodyKey: "iPSecConnectionTunnelSharedSecret",
-        bodyModel: "model.IPSecConnectionTunnelSharedSecret",
+        bodyModel: model.IPSecConnectionTunnelSharedSecret,
+        type: "model.IPSecConnectionTunnelSharedSecret",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -20315,7 +20493,8 @@ The operation returns configuration information for *all* of the
         responseObject: <responses.GetInternetGatewayResponse>{},
         body: await response.json(),
         bodyKey: "internetGateway",
-        bodyModel: "model.InternetGateway",
+        bodyModel: model.InternetGateway,
+        type: "model.InternetGateway",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -20461,7 +20640,8 @@ The operation returns configuration information for all tunnels in the single sp
         responseObject: <responses.GetIpv6Response>{},
         body: await response.json(),
         bodyKey: "ipv6",
-        bodyModel: "model.Ipv6",
+        bodyModel: model.Ipv6,
+        type: "model.Ipv6",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -20524,7 +20704,8 @@ The operation returns configuration information for all tunnels in the single sp
         responseObject: <responses.GetLocalPeeringGatewayResponse>{},
         body: await response.json(),
         bodyKey: "localPeeringGateway",
-        bodyModel: "model.LocalPeeringGateway",
+        bodyModel: model.LocalPeeringGateway,
+        type: "model.LocalPeeringGateway",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -20586,7 +20767,8 @@ The operation returns configuration information for all tunnels in the single sp
         responseObject: <responses.GetNatGatewayResponse>{},
         body: await response.json(),
         bodyKey: "natGateway",
-        bodyModel: "model.NatGateway",
+        bodyModel: model.NatGateway,
+        type: "model.NatGateway",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -20656,7 +20838,8 @@ To list the security rules in an NSG, see
         responseObject: <responses.GetNetworkSecurityGroupResponse>{},
         body: await response.json(),
         bodyKey: "networkSecurityGroup",
-        bodyModel: "model.NetworkSecurityGroup",
+        bodyModel: model.NetworkSecurityGroup,
+        type: "model.NetworkSecurityGroup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -20724,7 +20907,8 @@ To list the security rules in an NSG, see
         responseObject: <responses.GetNetworkingTopologyResponse>{},
         body: await response.json(),
         bodyKey: "networkingTopology",
-        bodyModel: "model.NetworkingTopology",
+        bodyModel: model.NetworkingTopology,
+        type: "model.NetworkingTopology",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -20790,7 +20974,8 @@ To list the security rules in an NSG, see
         responseObject: <responses.GetPrivateIpResponse>{},
         body: await response.json(),
         bodyKey: "privateIp",
-        bodyModel: "model.PrivateIp",
+        bodyModel: model.PrivateIp,
+        type: "model.PrivateIp",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -20863,7 +21048,8 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
         responseObject: <responses.GetPublicIpResponse>{},
         body: await response.json(),
         bodyKey: "publicIp",
-        bodyModel: "model.PublicIp",
+        bodyModel: model.PublicIp,
+        type: "model.PublicIp",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -20922,7 +21108,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       bodyContent: common.ObjectSerializer.serialize(
         getPublicIpByIpAddressRequest.getPublicIpByIpAddressDetails,
         "GetPublicIpByIpAddressDetails",
-        models.GetPublicIpByIpAddressDetails.getJsonObj
+        model.GetPublicIpByIpAddressDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -20934,7 +21120,8 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
         responseObject: <responses.GetPublicIpByIpAddressResponse>{},
         body: await response.json(),
         bodyKey: "publicIp",
-        bodyModel: "model.PublicIp",
+        bodyModel: model.PublicIp,
+        type: "model.PublicIp",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -20999,7 +21186,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       bodyContent: common.ObjectSerializer.serialize(
         getPublicIpByPrivateIpIdRequest.getPublicIpByPrivateIpIdDetails,
         "GetPublicIpByPrivateIpIdDetails",
-        models.GetPublicIpByPrivateIpIdDetails.getJsonObj
+        model.GetPublicIpByPrivateIpIdDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -21011,7 +21198,8 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
         responseObject: <responses.GetPublicIpByPrivateIpIdResponse>{},
         body: await response.json(),
         bodyKey: "publicIp",
-        bodyModel: "model.PublicIp",
+        bodyModel: model.PublicIp,
+        type: "model.PublicIp",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -21075,7 +21263,8 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
         responseObject: <responses.GetPublicIpPoolResponse>{},
         body: await response.json(),
         bodyKey: "publicIpPool",
-        bodyModel: "model.PublicIpPool",
+        bodyModel: model.PublicIpPool,
+        type: "model.PublicIpPool",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -21139,7 +21328,8 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
         responseObject: <responses.GetRemotePeeringConnectionResponse>{},
         body: await response.json(),
         bodyKey: "remotePeeringConnection",
-        bodyModel: "model.RemotePeeringConnection",
+        bodyModel: model.RemotePeeringConnection,
+        type: "model.RemotePeeringConnection",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -21201,7 +21391,8 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
         responseObject: <responses.GetRouteTableResponse>{},
         body: await response.json(),
         bodyKey: "routeTable",
-        bodyModel: "model.RouteTable",
+        bodyModel: model.RouteTable,
+        type: "model.RouteTable",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -21263,7 +21454,8 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
         responseObject: <responses.GetSecurityListResponse>{},
         body: await response.json(),
         bodyKey: "securityList",
-        bodyModel: "model.SecurityList",
+        bodyModel: model.SecurityList,
+        type: "model.SecurityList",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -21326,7 +21518,8 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
         responseObject: <responses.GetServiceResponse>{},
         body: await response.json(),
         bodyKey: "service",
-        bodyModel: "model.Service",
+        bodyModel: model.Service,
+        type: "model.Service",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -21388,7 +21581,8 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
         responseObject: <responses.GetServiceGatewayResponse>{},
         body: await response.json(),
         bodyKey: "serviceGateway",
-        bodyModel: "model.ServiceGateway",
+        bodyModel: model.ServiceGateway,
+        type: "model.ServiceGateway",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -21450,7 +21644,8 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
         responseObject: <responses.GetSubnetResponse>{},
         body: await response.json(),
         bodyKey: "subnet",
-        bodyModel: "model.Subnet",
+        bodyModel: model.Subnet,
+        type: "model.Subnet",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -21520,7 +21715,8 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
         responseObject: <responses.GetTunnelCpeDeviceConfigResponse>{},
         body: await response.json(),
         bodyKey: "tunnelCpeDeviceConfig",
-        bodyModel: "model.TunnelCpeDeviceConfig",
+        bodyModel: model.TunnelCpeDeviceConfig,
+        type: "model.TunnelCpeDeviceConfig",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -21663,7 +21859,8 @@ The operation returns configuration information for only the specified IPSec tun
         responseObject: <responses.GetUpgradeStatusResponse>{},
         body: await response.json(),
         bodyKey: "upgradeStatus",
-        bodyModel: "model.UpgradeStatus",
+        bodyModel: model.UpgradeStatus,
+        type: "model.UpgradeStatus",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -21718,7 +21915,8 @@ The operation returns configuration information for only the specified IPSec tun
         responseObject: <responses.GetVcnResponse>{},
         body: await response.json(),
         bodyKey: "vcn",
-        bodyModel: "model.Vcn",
+        bodyModel: model.Vcn,
+        type: "model.Vcn",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -21782,7 +21980,8 @@ The operation returns configuration information for only the specified IPSec tun
         responseObject: <responses.GetVcnDnsResolverAssociationResponse>{},
         body: await response.json(),
         bodyKey: "vcnDnsResolverAssociation",
-        bodyModel: "model.VcnDnsResolverAssociation",
+        bodyModel: model.VcnDnsResolverAssociation,
+        type: "model.VcnDnsResolverAssociation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -21850,7 +22049,8 @@ The operation returns configuration information for only the specified IPSec tun
         responseObject: <responses.GetVcnTopologyResponse>{},
         body: await response.json(),
         bodyKey: "vcnTopology",
-        bodyModel: "model.VcnTopology",
+        bodyModel: model.VcnTopology,
+        type: "model.VcnTopology",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -21912,7 +22112,8 @@ The operation returns configuration information for only the specified IPSec tun
         responseObject: <responses.GetVirtualCircuitResponse>{},
         body: await response.json(),
         bodyKey: "virtualCircuit",
-        bodyModel: "model.VirtualCircuit",
+        bodyModel: model.VirtualCircuit,
+        type: "model.VirtualCircuit",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -21975,7 +22176,8 @@ The operation returns configuration information for only the specified IPSec tun
         responseObject: <responses.GetVlanResponse>{},
         body: await response.json(),
         bodyKey: "vlan",
-        bodyModel: "model.Vlan",
+        bodyModel: model.Vlan,
+        type: "model.Vlan",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -22041,7 +22243,8 @@ The operation returns configuration information for only the specified IPSec tun
         responseObject: <responses.GetVnicResponse>{},
         body: await response.json(),
         bodyKey: "vnic",
-        bodyModel: "model.Vnic",
+        bodyModel: model.Vnic,
+        type: "model.Vnic",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -22106,7 +22309,8 @@ The operation returns configuration information for only the specified IPSec tun
         responseObject: <responses.ListAllowedPeerRegionsForRemotePeeringResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "PeerRegionForRemotePeering[]",
+        bodyModel: model.PeerRegionForRemotePeering,
+        type: "Array<model.PeerRegionForRemotePeering>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -22170,7 +22374,8 @@ The operation returns configuration information for only the specified IPSec tun
         responseObject: <responses.ListByoipAllocatedRangesResponse>{},
         body: await response.json(),
         bodyKey: "byoipAllocatedRangeCollection",
-        bodyModel: "model.ByoipAllocatedRangeCollection",
+        bodyModel: model.ByoipAllocatedRangeCollection,
+        type: "model.ByoipAllocatedRangeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -22241,7 +22446,8 @@ The operation returns configuration information for only the specified IPSec tun
         responseObject: <responses.ListByoipRangesResponse>{},
         body: await response.json(),
         bodyKey: "byoipRangeCollection",
-        bodyModel: "model.ByoipRangeCollection",
+        bodyModel: model.ByoipRangeCollection,
+        type: "model.ByoipRangeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -22319,7 +22525,8 @@ For information about generating CPE configuration content, see these operations
         responseObject: <responses.ListCpeDeviceShapesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "CpeDeviceShapeSummary[]",
+        bodyModel: model.CpeDeviceShapeSummary,
+        type: "Array<model.CpeDeviceShapeSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -22349,7 +22556,7 @@ For information about generating CPE configuration content, see these operations
    */
   public listAllCpeDeviceShapes(
     request: requests.ListCpeDeviceShapesRequest
-  ): AsyncIterableIterator<models.CpeDeviceShapeSummary> {
+  ): AsyncIterableIterator<model.CpeDeviceShapeSummary> {
     return paginateRecords(request, req => this.listCpeDeviceShapes(req));
   }
 
@@ -22409,7 +22616,8 @@ For information about generating CPE configuration content, see these operations
         responseObject: <responses.ListCpesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Cpe[]",
+        bodyModel: model.Cpe,
+        type: "Array<model.Cpe>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -22437,7 +22645,7 @@ For information about generating CPE configuration content, see these operations
    *
    * @param request a request which can be sent to the service operation
    */
-  public listAllCpes(request: requests.ListCpesRequest): AsyncIterableIterator<models.Cpe> {
+  public listAllCpes(request: requests.ListCpesRequest): AsyncIterableIterator<model.Cpe> {
     return paginateRecords(request, req => this.listCpes(req));
   }
 
@@ -22502,7 +22710,8 @@ For information about generating CPE configuration content, see these operations
         responseObject: <responses.ListCrossConnectGroupsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "CrossConnectGroup[]",
+        bodyModel: model.CrossConnectGroup,
+        type: "Array<model.CrossConnectGroup>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -22532,7 +22741,7 @@ For information about generating CPE configuration content, see these operations
    */
   public listAllCrossConnectGroups(
     request: requests.ListCrossConnectGroupsRequest
-  ): AsyncIterableIterator<models.CrossConnectGroup> {
+  ): AsyncIterableIterator<model.CrossConnectGroup> {
     return paginateRecords(request, req => this.listCrossConnectGroups(req));
   }
 
@@ -22594,7 +22803,8 @@ For information about generating CPE configuration content, see these operations
         responseObject: <responses.ListCrossConnectLocationsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "CrossConnectLocation[]",
+        bodyModel: model.CrossConnectLocation,
+        type: "Array<model.CrossConnectLocation>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -22624,7 +22834,7 @@ For information about generating CPE configuration content, see these operations
    */
   public listAllCrossConnectLocations(
     request: requests.ListCrossConnectLocationsRequest
-  ): AsyncIterableIterator<models.CrossConnectLocation> {
+  ): AsyncIterableIterator<model.CrossConnectLocation> {
     return paginateRecords(request, req => this.listCrossConnectLocations(req));
   }
 
@@ -22685,7 +22895,8 @@ For information about generating CPE configuration content, see these operations
         responseObject: <responses.ListCrossConnectMappingsResponse>{},
         body: await response.json(),
         bodyKey: "crossConnectMappingDetailsCollection",
-        bodyModel: "model.CrossConnectMappingDetailsCollection",
+        bodyModel: model.CrossConnectMappingDetailsCollection,
+        type: "model.CrossConnectMappingDetailsCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -22751,7 +22962,8 @@ For information about generating CPE configuration content, see these operations
         responseObject: <responses.ListCrossConnectsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "CrossConnect[]",
+        bodyModel: model.CrossConnect,
+        type: "Array<model.CrossConnect>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -22781,7 +22993,7 @@ For information about generating CPE configuration content, see these operations
    */
   public listAllCrossConnects(
     request: requests.ListCrossConnectsRequest
-  ): AsyncIterableIterator<models.CrossConnect> {
+  ): AsyncIterableIterator<model.CrossConnect> {
     return paginateRecords(request, req => this.listCrossConnects(req));
   }
 
@@ -22844,7 +23056,8 @@ For information about generating CPE configuration content, see these operations
         responseObject: <responses.ListCrossconnectPortSpeedShapesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "CrossConnectPortSpeedShape[]",
+        bodyModel: model.CrossConnectPortSpeedShape,
+        type: "Array<model.CrossConnectPortSpeedShape>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -22874,7 +23087,7 @@ For information about generating CPE configuration content, see these operations
    */
   public listAllCrossconnectPortSpeedShapes(
     request: requests.ListCrossconnectPortSpeedShapesRequest
-  ): AsyncIterableIterator<models.CrossConnectPortSpeedShape> {
+  ): AsyncIterableIterator<model.CrossConnectPortSpeedShape> {
     return paginateRecords(request, req => this.listCrossconnectPortSpeedShapes(req));
   }
 
@@ -22942,7 +23155,8 @@ For information about generating CPE configuration content, see these operations
         responseObject: <responses.ListDhcpOptionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DhcpOptions[]",
+        bodyModel: model.DhcpOptions,
+        type: "Array<model.DhcpOptions>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -22972,7 +23186,7 @@ For information about generating CPE configuration content, see these operations
    */
   public listAllDhcpOptions(
     request: requests.ListDhcpOptionsRequest
-  ): AsyncIterableIterator<models.DhcpOptions> {
+  ): AsyncIterableIterator<model.DhcpOptions> {
     return paginateRecords(request, req => this.listDhcpOptions(req));
   }
 
@@ -23047,7 +23261,8 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
         responseObject: <responses.ListDrgAttachmentsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DrgAttachment[]",
+        bodyModel: model.DrgAttachment,
+        type: "Array<model.DrgAttachment>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -23077,7 +23292,7 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
    */
   public listAllDrgAttachments(
     request: requests.ListDrgAttachmentsRequest
-  ): AsyncIterableIterator<models.DrgAttachment> {
+  ): AsyncIterableIterator<model.DrgAttachment> {
     return paginateRecords(request, req => this.listDrgAttachments(req));
   }
 
@@ -23142,7 +23357,8 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
         responseObject: <responses.ListDrgRouteDistributionStatementsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DrgRouteDistributionStatement[]",
+        bodyModel: model.DrgRouteDistributionStatement,
+        type: "Array<model.DrgRouteDistributionStatement>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -23172,7 +23388,7 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
    */
   public listAllDrgRouteDistributionStatements(
     request: requests.ListDrgRouteDistributionStatementsRequest
-  ): AsyncIterableIterator<models.DrgRouteDistributionStatement> {
+  ): AsyncIterableIterator<model.DrgRouteDistributionStatement> {
     return paginateRecords(request, req => this.listDrgRouteDistributionStatements(req));
   }
 
@@ -23240,7 +23456,8 @@ To retrieve the statements in a distribution, use the
         responseObject: <responses.ListDrgRouteDistributionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DrgRouteDistribution[]",
+        bodyModel: model.DrgRouteDistribution,
+        type: "Array<model.DrgRouteDistribution>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -23270,7 +23487,7 @@ To retrieve the statements in a distribution, use the
    */
   public listAllDrgRouteDistributions(
     request: requests.ListDrgRouteDistributionsRequest
-  ): AsyncIterableIterator<models.DrgRouteDistribution> {
+  ): AsyncIterableIterator<model.DrgRouteDistribution> {
     return paginateRecords(request, req => this.listDrgRouteDistributions(req));
   }
 
@@ -23331,7 +23548,8 @@ To retrieve the statements in a distribution, use the
         responseObject: <responses.ListDrgRouteRulesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DrgRouteRule[]",
+        bodyModel: model.DrgRouteRule,
+        type: "Array<model.DrgRouteRule>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -23361,7 +23579,7 @@ To retrieve the statements in a distribution, use the
    */
   public listAllDrgRouteRules(
     request: requests.ListDrgRouteRulesRequest
-  ): AsyncIterableIterator<models.DrgRouteRule> {
+  ): AsyncIterableIterator<model.DrgRouteRule> {
     return paginateRecords(request, req => this.listDrgRouteRules(req));
   }
 
@@ -23429,7 +23647,8 @@ Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
         responseObject: <responses.ListDrgRouteTablesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DrgRouteTable[]",
+        bodyModel: model.DrgRouteTable,
+        type: "Array<model.DrgRouteTable>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -23459,7 +23678,7 @@ Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
    */
   public listAllDrgRouteTables(
     request: requests.ListDrgRouteTablesRequest
-  ): AsyncIterableIterator<models.DrgRouteTable> {
+  ): AsyncIterableIterator<model.DrgRouteTable> {
     return paginateRecords(request, req => this.listDrgRouteTables(req));
   }
 
@@ -23519,7 +23738,8 @@ Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
         responseObject: <responses.ListDrgsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Drg[]",
+        bodyModel: model.Drg,
+        type: "Array<model.Drg>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -23547,7 +23767,7 @@ Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
    *
    * @param request a request which can be sent to the service operation
    */
-  public listAllDrgs(request: requests.ListDrgsRequest): AsyncIterableIterator<models.Drg> {
+  public listAllDrgs(request: requests.ListDrgsRequest): AsyncIterableIterator<model.Drg> {
     return paginateRecords(request, req => this.listDrgs(req));
   }
 
@@ -23614,7 +23834,8 @@ For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/i
         responseObject: <responses.ListFastConnectProviderServicesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "FastConnectProviderService[]",
+        bodyModel: model.FastConnectProviderService,
+        type: "Array<model.FastConnectProviderService>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -23644,7 +23865,7 @@ For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/i
    */
   public listAllFastConnectProviderServices(
     request: requests.ListFastConnectProviderServicesRequest
-  ): AsyncIterableIterator<models.FastConnectProviderService> {
+  ): AsyncIterableIterator<model.FastConnectProviderService> {
     return paginateRecords(request, req => this.listFastConnectProviderServices(req));
   }
 
@@ -23712,7 +23933,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
         responseObject: <responses.ListFastConnectProviderVirtualCircuitBandwidthShapesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "VirtualCircuitBandwidthShape[]",
+        bodyModel: model.VirtualCircuitBandwidthShape,
+        type: "Array<model.VirtualCircuitBandwidthShape>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -23742,7 +23964,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    */
   public listAllFastConnectProviderVirtualCircuitBandwidthShapes(
     request: requests.ListFastConnectProviderVirtualCircuitBandwidthShapesRequest
-  ): AsyncIterableIterator<models.VirtualCircuitBandwidthShape> {
+  ): AsyncIterableIterator<model.VirtualCircuitBandwidthShape> {
     return paginateRecords(request, req =>
       this.listFastConnectProviderVirtualCircuitBandwidthShapes(req)
     );
@@ -23808,7 +24030,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
         responseObject: <responses.ListIPSecConnectionTunnelsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "IPSecConnectionTunnel[]",
+        bodyModel: model.IPSecConnectionTunnel,
+        type: "Array<model.IPSecConnectionTunnel>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -23838,7 +24061,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    */
   public listAllIPSecConnectionTunnels(
     request: requests.ListIPSecConnectionTunnelsRequest
-  ): AsyncIterableIterator<models.IPSecConnectionTunnel> {
+  ): AsyncIterableIterator<model.IPSecConnectionTunnel> {
     return paginateRecords(request, req => this.listIPSecConnectionTunnels(req));
   }
 
@@ -23902,7 +24125,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
         responseObject: <responses.ListIPSecConnectionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "IPSecConnection[]",
+        bodyModel: model.IPSecConnection,
+        type: "Array<model.IPSecConnection>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -23932,7 +24156,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    */
   public listAllIPSecConnections(
     request: requests.ListIPSecConnectionsRequest
-  ): AsyncIterableIterator<models.IPSecConnection> {
+  ): AsyncIterableIterator<model.IPSecConnection> {
     return paginateRecords(request, req => this.listIPSecConnections(req));
   }
 
@@ -23999,7 +24223,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
         responseObject: <responses.ListInternetGatewaysResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "InternetGateway[]",
+        bodyModel: model.InternetGateway,
+        type: "Array<model.InternetGateway>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -24029,7 +24254,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    */
   public listAllInternetGateways(
     request: requests.ListInternetGatewaysRequest
-  ): AsyncIterableIterator<models.InternetGateway> {
+  ): AsyncIterableIterator<model.InternetGateway> {
     return paginateRecords(request, req => this.listInternetGateways(req));
   }
 
@@ -24099,7 +24324,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
         responseObject: <responses.ListIpv6sResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Ipv6[]",
+        bodyModel: model.Ipv6,
+        type: "Array<model.Ipv6>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -24127,7 +24353,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    *
    * @param request a request which can be sent to the service operation
    */
-  public listAllIpv6s(request: requests.ListIpv6sRequest): AsyncIterableIterator<models.Ipv6> {
+  public listAllIpv6s(request: requests.ListIpv6sRequest): AsyncIterableIterator<model.Ipv6> {
     return paginateRecords(request, req => this.listIpv6s(req));
   }
 
@@ -24190,7 +24416,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
         responseObject: <responses.ListLocalPeeringGatewaysResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "LocalPeeringGateway[]",
+        bodyModel: model.LocalPeeringGateway,
+        type: "Array<model.LocalPeeringGateway>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -24220,7 +24447,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    */
   public listAllLocalPeeringGateways(
     request: requests.ListLocalPeeringGatewaysRequest
-  ): AsyncIterableIterator<models.LocalPeeringGateway> {
+  ): AsyncIterableIterator<model.LocalPeeringGateway> {
     return paginateRecords(request, req => this.listLocalPeeringGateways(req));
   }
 
@@ -24286,7 +24513,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
         responseObject: <responses.ListNatGatewaysResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "NatGateway[]",
+        bodyModel: model.NatGateway,
+        type: "Array<model.NatGateway>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -24316,7 +24544,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    */
   public listAllNatGateways(
     request: requests.ListNatGatewaysRequest
-  ): AsyncIterableIterator<models.NatGateway> {
+  ): AsyncIterableIterator<model.NatGateway> {
     return paginateRecords(request, req => this.listNatGateways(req));
   }
 
@@ -24384,7 +24612,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
         responseObject: <responses.ListNetworkSecurityGroupSecurityRulesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "SecurityRule[]",
+        bodyModel: model.SecurityRule,
+        type: "Array<model.SecurityRule>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -24414,7 +24643,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    */
   public listAllNetworkSecurityGroupSecurityRules(
     request: requests.ListNetworkSecurityGroupSecurityRulesRequest
-  ): AsyncIterableIterator<models.SecurityRule> {
+  ): AsyncIterableIterator<model.SecurityRule> {
     return paginateRecords(request, req => this.listNetworkSecurityGroupSecurityRules(req));
   }
 
@@ -24478,7 +24707,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
         responseObject: <responses.ListNetworkSecurityGroupVnicsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "NetworkSecurityGroupVnic[]",
+        bodyModel: model.NetworkSecurityGroupVnic,
+        type: "Array<model.NetworkSecurityGroupVnic>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -24508,7 +24738,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    */
   public listAllNetworkSecurityGroupVnics(
     request: requests.ListNetworkSecurityGroupVnicsRequest
-  ): AsyncIterableIterator<models.NetworkSecurityGroupVnic> {
+  ): AsyncIterableIterator<model.NetworkSecurityGroupVnic> {
     return paginateRecords(request, req => this.listNetworkSecurityGroupVnics(req));
   }
 
@@ -24576,7 +24806,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
         responseObject: <responses.ListNetworkSecurityGroupsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "NetworkSecurityGroup[]",
+        bodyModel: model.NetworkSecurityGroup,
+        type: "Array<model.NetworkSecurityGroup>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -24606,7 +24837,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    */
   public listAllNetworkSecurityGroups(
     request: requests.ListNetworkSecurityGroupsRequest
-  ): AsyncIterableIterator<models.NetworkSecurityGroup> {
+  ): AsyncIterableIterator<model.NetworkSecurityGroup> {
     return paginateRecords(request, req => this.listNetworkSecurityGroups(req));
   }
 
@@ -24684,7 +24915,8 @@ If you are an Oracle Cloud VMware Solution customer and have VLANs
         responseObject: <responses.ListPrivateIpsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "PrivateIp[]",
+        bodyModel: model.PrivateIp,
+        type: "Array<model.PrivateIp>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -24714,7 +24946,7 @@ If you are an Oracle Cloud VMware Solution customer and have VLANs
    */
   public listAllPrivateIps(
     request: requests.ListPrivateIpsRequest
-  ): AsyncIterableIterator<models.PrivateIp> {
+  ): AsyncIterableIterator<model.PrivateIp> {
     return paginateRecords(request, req => this.listPrivateIps(req));
   }
 
@@ -24780,7 +25012,8 @@ If you are an Oracle Cloud VMware Solution customer and have VLANs
         responseObject: <responses.ListPublicIpPoolsResponse>{},
         body: await response.json(),
         bodyKey: "publicIpPoolCollection",
-        bodyModel: "model.PublicIpPoolCollection",
+        bodyModel: model.PublicIpPoolCollection,
+        type: "model.PublicIpPoolCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -24868,7 +25101,8 @@ To list the ephemeral public IPs assigned to private IPs:
         responseObject: <responses.ListPublicIpsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "PublicIp[]",
+        bodyModel: model.PublicIp,
+        type: "Array<model.PublicIp>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -24898,7 +25132,7 @@ To list the ephemeral public IPs assigned to private IPs:
    */
   public listAllPublicIps(
     request: requests.ListPublicIpsRequest
-  ): AsyncIterableIterator<models.PublicIp> {
+  ): AsyncIterableIterator<model.PublicIp> {
     return paginateRecords(request, req => this.listPublicIps(req));
   }
 
@@ -24961,7 +25195,8 @@ To list the ephemeral public IPs assigned to private IPs:
         responseObject: <responses.ListRemotePeeringConnectionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "RemotePeeringConnection[]",
+        bodyModel: model.RemotePeeringConnection,
+        type: "Array<model.RemotePeeringConnection>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -24991,7 +25226,7 @@ To list the ephemeral public IPs assigned to private IPs:
    */
   public listAllRemotePeeringConnections(
     request: requests.ListRemotePeeringConnectionsRequest
-  ): AsyncIterableIterator<models.RemotePeeringConnection> {
+  ): AsyncIterableIterator<model.RemotePeeringConnection> {
     return paginateRecords(request, req => this.listRemotePeeringConnections(req));
   }
 
@@ -25059,7 +25294,8 @@ To list the ephemeral public IPs assigned to private IPs:
         responseObject: <responses.ListRouteTablesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "RouteTable[]",
+        bodyModel: model.RouteTable,
+        type: "Array<model.RouteTable>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -25089,7 +25325,7 @@ To list the ephemeral public IPs assigned to private IPs:
    */
   public listAllRouteTables(
     request: requests.ListRouteTablesRequest
-  ): AsyncIterableIterator<models.RouteTable> {
+  ): AsyncIterableIterator<model.RouteTable> {
     return paginateRecords(request, req => this.listRouteTables(req));
   }
 
@@ -25155,7 +25391,8 @@ To list the ephemeral public IPs assigned to private IPs:
         responseObject: <responses.ListSecurityListsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "SecurityList[]",
+        bodyModel: model.SecurityList,
+        type: "Array<model.SecurityList>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -25185,7 +25422,7 @@ To list the ephemeral public IPs assigned to private IPs:
    */
   public listAllSecurityLists(
     request: requests.ListSecurityListsRequest
-  ): AsyncIterableIterator<models.SecurityList> {
+  ): AsyncIterableIterator<model.SecurityList> {
     return paginateRecords(request, req => this.listSecurityLists(req));
   }
 
@@ -25251,7 +25488,8 @@ To list the ephemeral public IPs assigned to private IPs:
         responseObject: <responses.ListServiceGatewaysResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ServiceGateway[]",
+        bodyModel: model.ServiceGateway,
+        type: "Array<model.ServiceGateway>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -25281,7 +25519,7 @@ To list the ephemeral public IPs assigned to private IPs:
    */
   public listAllServiceGateways(
     request: requests.ListServiceGatewaysRequest
-  ): AsyncIterableIterator<models.ServiceGateway> {
+  ): AsyncIterableIterator<model.ServiceGateway> {
     return paginateRecords(request, req => this.listServiceGateways(req));
   }
 
@@ -25341,7 +25579,8 @@ To list the ephemeral public IPs assigned to private IPs:
         responseObject: <responses.ListServicesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Service[]",
+        bodyModel: model.Service,
+        type: "Array<model.Service>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -25371,7 +25610,7 @@ To list the ephemeral public IPs assigned to private IPs:
    */
   public listAllServices(
     request: requests.ListServicesRequest
-  ): AsyncIterableIterator<models.Service> {
+  ): AsyncIterableIterator<model.Service> {
     return paginateRecords(request, req => this.listServices(req));
   }
 
@@ -25437,7 +25676,8 @@ To list the ephemeral public IPs assigned to private IPs:
         responseObject: <responses.ListSubnetsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Subnet[]",
+        bodyModel: model.Subnet,
+        type: "Array<model.Subnet>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -25465,9 +25705,7 @@ To list the ephemeral public IPs assigned to private IPs:
    *
    * @param request a request which can be sent to the service operation
    */
-  public listAllSubnets(
-    request: requests.ListSubnetsRequest
-  ): AsyncIterableIterator<models.Subnet> {
+  public listAllSubnets(request: requests.ListSubnetsRequest): AsyncIterableIterator<model.Subnet> {
     return paginateRecords(request, req => this.listSubnets(req));
   }
 
@@ -25531,7 +25769,8 @@ To list the ephemeral public IPs assigned to private IPs:
         responseObject: <responses.ListVcnsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Vcn[]",
+        bodyModel: model.Vcn,
+        type: "Array<model.Vcn>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -25559,7 +25798,7 @@ To list the ephemeral public IPs assigned to private IPs:
    *
    * @param request a request which can be sent to the service operation
    */
-  public listAllVcns(request: requests.ListVcnsRequest): AsyncIterableIterator<models.Vcn> {
+  public listAllVcns(request: requests.ListVcnsRequest): AsyncIterableIterator<model.Vcn> {
     return paginateRecords(request, req => this.listVcns(req));
   }
 
@@ -25622,7 +25861,8 @@ To list the ephemeral public IPs assigned to private IPs:
         responseObject: <responses.ListVirtualCircuitBandwidthShapesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "VirtualCircuitBandwidthShape[]",
+        bodyModel: model.VirtualCircuitBandwidthShape,
+        type: "Array<model.VirtualCircuitBandwidthShape>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -25652,7 +25892,7 @@ To list the ephemeral public IPs assigned to private IPs:
    */
   public listAllVirtualCircuitBandwidthShapes(
     request: requests.ListVirtualCircuitBandwidthShapesRequest
-  ): AsyncIterableIterator<models.VirtualCircuitBandwidthShape> {
+  ): AsyncIterableIterator<model.VirtualCircuitBandwidthShape> {
     return paginateRecords(request, req => this.listVirtualCircuitBandwidthShapes(req));
   }
 
@@ -25714,7 +25954,8 @@ To list the ephemeral public IPs assigned to private IPs:
         responseObject: <responses.ListVirtualCircuitPublicPrefixesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "VirtualCircuitPublicPrefix[]",
+        bodyModel: model.VirtualCircuitPublicPrefix,
+        type: "Array<model.VirtualCircuitPublicPrefix>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -25779,7 +26020,8 @@ To list the ephemeral public IPs assigned to private IPs:
         responseObject: <responses.ListVirtualCircuitsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "VirtualCircuit[]",
+        bodyModel: model.VirtualCircuit,
+        type: "Array<model.VirtualCircuit>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -25809,7 +26051,7 @@ To list the ephemeral public IPs assigned to private IPs:
    */
   public listAllVirtualCircuits(
     request: requests.ListVirtualCircuitsRequest
-  ): AsyncIterableIterator<models.VirtualCircuit> {
+  ): AsyncIterableIterator<model.VirtualCircuit> {
     return paginateRecords(request, req => this.listVirtualCircuits(req));
   }
 
@@ -25875,7 +26117,8 @@ To list the ephemeral public IPs assigned to private IPs:
         responseObject: <responses.ListVlansResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Vlan[]",
+        bodyModel: model.Vlan,
+        type: "Array<model.Vlan>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -25903,7 +26146,7 @@ To list the ephemeral public IPs assigned to private IPs:
    *
    * @param request a request which can be sent to the service operation
    */
-  public listAllVlans(request: requests.ListVlansRequest): AsyncIterableIterator<models.Vlan> {
+  public listAllVlans(request: requests.ListVlansRequest): AsyncIterableIterator<model.Vlan> {
     return paginateRecords(request, req => this.listVlans(req));
   }
 
@@ -25965,7 +26208,7 @@ To list the ephemeral public IPs assigned to private IPs:
       bodyContent: common.ObjectSerializer.serialize(
         modifyVcnCidrRequest.modifyVcnCidrDetails,
         "ModifyVcnCidrDetails",
-        models.ModifyVcnCidrDetails.getJsonObj
+        model.ModifyVcnCidrDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -26034,7 +26277,7 @@ To list the ephemeral public IPs assigned to private IPs:
       bodyContent: common.ObjectSerializer.serialize(
         removeDrgRouteDistributionStatementsRequest.removeDrgRouteDistributionStatementsDetails,
         "RemoveDrgRouteDistributionStatementsDetails",
-        models.RemoveDrgRouteDistributionStatementsDetails.getJsonObj
+        model.RemoveDrgRouteDistributionStatementsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -26095,7 +26338,7 @@ To list the ephemeral public IPs assigned to private IPs:
       bodyContent: common.ObjectSerializer.serialize(
         removeDrgRouteRulesRequest.removeDrgRouteRulesDetails,
         "RemoveDrgRouteRulesDetails",
-        models.RemoveDrgRouteRulesDetails.getJsonObj
+        model.RemoveDrgRouteRulesDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -26165,7 +26408,8 @@ To list the ephemeral public IPs assigned to private IPs:
         responseObject: <responses.RemoveExportDrgRouteDistributionResponse>{},
         body: await response.json(),
         bodyKey: "drgAttachment",
-        bodyModel: "model.DrgAttachment",
+        bodyModel: model.DrgAttachment,
+        type: "model.DrgAttachment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -26232,7 +26476,8 @@ To list the ephemeral public IPs assigned to private IPs:
         responseObject: <responses.RemoveImportDrgRouteDistributionResponse>{},
         body: await response.json(),
         bodyKey: "drgRouteTable",
-        bodyModel: "model.DrgRouteTable",
+        bodyModel: model.DrgRouteTable,
+        type: "model.DrgRouteTable",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -26292,7 +26537,7 @@ To list the ephemeral public IPs assigned to private IPs:
       bodyContent: common.ObjectSerializer.serialize(
         removeNetworkSecurityGroupSecurityRulesRequest.removeNetworkSecurityGroupSecurityRulesDetails,
         "RemoveNetworkSecurityGroupSecurityRulesDetails",
-        models.RemoveNetworkSecurityGroupSecurityRulesDetails.getJsonObj
+        model.RemoveNetworkSecurityGroupSecurityRulesDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -26355,7 +26600,7 @@ To list the ephemeral public IPs assigned to private IPs:
       bodyContent: common.ObjectSerializer.serialize(
         removePublicIpPoolCapacityRequest.removePublicIpPoolCapacityDetails,
         "RemovePublicIpPoolCapacityDetails",
-        models.RemovePublicIpPoolCapacityDetails.getJsonObj
+        model.RemovePublicIpPoolCapacityDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -26367,7 +26612,8 @@ To list the ephemeral public IPs assigned to private IPs:
         responseObject: <responses.RemovePublicIpPoolCapacityResponse>{},
         body: await response.json(),
         bodyKey: "publicIpPool",
-        bodyModel: "model.PublicIpPool",
+        bodyModel: model.PublicIpPool,
+        type: "model.PublicIpPool",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -26430,7 +26676,7 @@ To list the ephemeral public IPs assigned to private IPs:
       bodyContent: common.ObjectSerializer.serialize(
         removeVcnCidrRequest.removeVcnCidrDetails,
         "RemoveVcnCidrDetails",
-        models.RemoveVcnCidrDetails.getJsonObj
+        model.RemoveVcnCidrDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -26497,7 +26743,7 @@ To list the ephemeral public IPs assigned to private IPs:
       bodyContent: common.ObjectSerializer.serialize(
         updateByoipRangeRequest.updateByoipRangeDetails,
         "UpdateByoipRangeDetails",
-        models.UpdateByoipRangeDetails.getJsonObj
+        model.UpdateByoipRangeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -26509,7 +26755,8 @@ To list the ephemeral public IPs assigned to private IPs:
         responseObject: <responses.UpdateByoipRangeResponse>{},
         body: await response.json(),
         bodyKey: "byoipRange",
-        bodyModel: "model.ByoipRange",
+        bodyModel: model.ByoipRange,
+        type: "model.ByoipRange",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -26567,7 +26814,7 @@ To list the ephemeral public IPs assigned to private IPs:
       bodyContent: common.ObjectSerializer.serialize(
         updateCpeRequest.updateCpeDetails,
         "UpdateCpeDetails",
-        models.UpdateCpeDetails.getJsonObj
+        model.UpdateCpeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -26579,7 +26826,8 @@ To list the ephemeral public IPs assigned to private IPs:
         responseObject: <responses.UpdateCpeResponse>{},
         body: await response.json(),
         bodyKey: "cpe",
-        bodyModel: "model.Cpe",
+        bodyModel: model.Cpe,
+        type: "model.Cpe",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -26636,7 +26884,7 @@ To list the ephemeral public IPs assigned to private IPs:
       bodyContent: common.ObjectSerializer.serialize(
         updateCrossConnectRequest.updateCrossConnectDetails,
         "UpdateCrossConnectDetails",
-        models.UpdateCrossConnectDetails.getJsonObj
+        model.UpdateCrossConnectDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -26648,7 +26896,8 @@ To list the ephemeral public IPs assigned to private IPs:
         responseObject: <responses.UpdateCrossConnectResponse>{},
         body: await response.json(),
         bodyKey: "crossConnect",
-        bodyModel: "model.CrossConnect",
+        bodyModel: model.CrossConnect,
+        type: "model.CrossConnect",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -26707,7 +26956,7 @@ To list the ephemeral public IPs assigned to private IPs:
       bodyContent: common.ObjectSerializer.serialize(
         updateCrossConnectGroupRequest.updateCrossConnectGroupDetails,
         "UpdateCrossConnectGroupDetails",
-        models.UpdateCrossConnectGroupDetails.getJsonObj
+        model.UpdateCrossConnectGroupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -26719,7 +26968,8 @@ To list the ephemeral public IPs assigned to private IPs:
         responseObject: <responses.UpdateCrossConnectGroupResponse>{},
         body: await response.json(),
         bodyKey: "crossConnectGroup",
-        bodyModel: "model.CrossConnectGroup",
+        bodyModel: model.CrossConnectGroup,
+        type: "model.CrossConnectGroup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -26779,7 +27029,7 @@ Note that the `options` object you provide replaces the entire existing set of o
       bodyContent: common.ObjectSerializer.serialize(
         updateDhcpOptionsRequest.updateDhcpDetails,
         "UpdateDhcpDetails",
-        models.UpdateDhcpDetails.getJsonObj
+        model.UpdateDhcpDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -26791,7 +27041,8 @@ Note that the `options` object you provide replaces the entire existing set of o
         responseObject: <responses.UpdateDhcpOptionsResponse>{},
         body: await response.json(),
         bodyKey: "dhcpOptions",
-        bodyModel: "model.DhcpOptions",
+        bodyModel: model.DhcpOptions,
+        type: "model.DhcpOptions",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -26848,7 +27099,7 @@ Note that the `options` object you provide replaces the entire existing set of o
       bodyContent: common.ObjectSerializer.serialize(
         updateDrgRequest.updateDrgDetails,
         "UpdateDrgDetails",
-        models.UpdateDrgDetails.getJsonObj
+        model.UpdateDrgDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -26860,7 +27111,8 @@ Note that the `options` object you provide replaces the entire existing set of o
         responseObject: <responses.UpdateDrgResponse>{},
         body: await response.json(),
         bodyKey: "drg",
-        bodyModel: "model.Drg",
+        bodyModel: model.Drg,
+        type: "model.Drg",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -26919,7 +27171,7 @@ Note that the `options` object you provide replaces the entire existing set of o
       bodyContent: common.ObjectSerializer.serialize(
         updateDrgAttachmentRequest.updateDrgAttachmentDetails,
         "UpdateDrgAttachmentDetails",
-        models.UpdateDrgAttachmentDetails.getJsonObj
+        model.UpdateDrgAttachmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -26931,7 +27183,8 @@ Note that the `options` object you provide replaces the entire existing set of o
         responseObject: <responses.UpdateDrgAttachmentResponse>{},
         body: await response.json(),
         bodyKey: "drgAttachment",
-        bodyModel: "model.DrgAttachment",
+        bodyModel: model.DrgAttachment,
+        type: "model.DrgAttachment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -26989,7 +27242,7 @@ Note that the `options` object you provide replaces the entire existing set of o
       bodyContent: common.ObjectSerializer.serialize(
         updateDrgRouteDistributionRequest.updateDrgRouteDistributionDetails,
         "UpdateDrgRouteDistributionDetails",
-        models.UpdateDrgRouteDistributionDetails.getJsonObj
+        model.UpdateDrgRouteDistributionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -27001,7 +27254,8 @@ Note that the `options` object you provide replaces the entire existing set of o
         responseObject: <responses.UpdateDrgRouteDistributionResponse>{},
         body: await response.json(),
         bodyKey: "drgRouteDistribution",
-        bodyModel: "model.DrgRouteDistribution",
+        bodyModel: model.DrgRouteDistribution,
+        type: "model.DrgRouteDistribution",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -27061,7 +27315,7 @@ Note that the `options` object you provide replaces the entire existing set of o
       bodyContent: common.ObjectSerializer.serialize(
         updateDrgRouteDistributionStatementsRequest.updateDrgRouteDistributionStatementsDetails,
         "UpdateDrgRouteDistributionStatementsDetails",
-        models.UpdateDrgRouteDistributionStatementsDetails.getJsonObj
+        model.UpdateDrgRouteDistributionStatementsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -27073,7 +27327,8 @@ Note that the `options` object you provide replaces the entire existing set of o
         responseObject: <responses.UpdateDrgRouteDistributionStatementsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DrgRouteDistributionStatement[]",
+        bodyModel: model.DrgRouteDistributionStatement,
+        type: "Array<model.DrgRouteDistributionStatement>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -27125,7 +27380,7 @@ Note that the `options` object you provide replaces the entire existing set of o
       bodyContent: common.ObjectSerializer.serialize(
         updateDrgRouteRulesRequest.updateDrgRouteRulesDetails,
         "UpdateDrgRouteRulesDetails",
-        models.UpdateDrgRouteRulesDetails.getJsonObj
+        model.UpdateDrgRouteRulesDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -27137,7 +27392,8 @@ Note that the `options` object you provide replaces the entire existing set of o
         responseObject: <responses.UpdateDrgRouteRulesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DrgRouteRule[]",
+        bodyModel: model.DrgRouteRule,
+        type: "Array<model.DrgRouteRule>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -27190,7 +27446,7 @@ Note that the `options` object you provide replaces the entire existing set of o
       bodyContent: common.ObjectSerializer.serialize(
         updateDrgRouteTableRequest.updateDrgRouteTableDetails,
         "UpdateDrgRouteTableDetails",
-        models.UpdateDrgRouteTableDetails.getJsonObj
+        model.UpdateDrgRouteTableDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -27202,7 +27458,8 @@ Note that the `options` object you provide replaces the entire existing set of o
         responseObject: <responses.UpdateDrgRouteTableResponse>{},
         body: await response.json(),
         bodyKey: "drgRouteTable",
-        bodyModel: "model.DrgRouteTable",
+        bodyModel: model.DrgRouteTable,
+        type: "model.DrgRouteTable",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -27263,7 +27520,7 @@ To update an individual IPSec tunnel's attributes, use
       bodyContent: common.ObjectSerializer.serialize(
         updateIPSecConnectionRequest.updateIPSecConnectionDetails,
         "UpdateIPSecConnectionDetails",
-        models.UpdateIPSecConnectionDetails.getJsonObj
+        model.UpdateIPSecConnectionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -27275,7 +27532,8 @@ To update an individual IPSec tunnel's attributes, use
         responseObject: <responses.UpdateIPSecConnectionResponse>{},
         body: await response.json(),
         bodyKey: "iPSecConnection",
-        bodyModel: "model.IPSecConnection",
+        bodyModel: model.IPSecConnection,
+        type: "model.IPSecConnection",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -27346,7 +27604,7 @@ To update an individual IPSec tunnel's attributes, use
       bodyContent: common.ObjectSerializer.serialize(
         updateIPSecConnectionTunnelRequest.updateIPSecConnectionTunnelDetails,
         "UpdateIPSecConnectionTunnelDetails",
-        models.UpdateIPSecConnectionTunnelDetails.getJsonObj
+        model.UpdateIPSecConnectionTunnelDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -27358,7 +27616,8 @@ To update an individual IPSec tunnel's attributes, use
         responseObject: <responses.UpdateIPSecConnectionTunnelResponse>{},
         body: await response.json(),
         bodyKey: "iPSecConnectionTunnel",
-        bodyModel: "model.IPSecConnectionTunnel",
+        bodyModel: model.IPSecConnectionTunnel,
+        type: "model.IPSecConnectionTunnel",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -27421,7 +27680,7 @@ To update an individual IPSec tunnel's attributes, use
       bodyContent: common.ObjectSerializer.serialize(
         updateIPSecConnectionTunnelSharedSecretRequest.updateIPSecConnectionTunnelSharedSecretDetails,
         "UpdateIPSecConnectionTunnelSharedSecretDetails",
-        models.UpdateIPSecConnectionTunnelSharedSecretDetails.getJsonObj
+        model.UpdateIPSecConnectionTunnelSharedSecretDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -27433,7 +27692,8 @@ To update an individual IPSec tunnel's attributes, use
         responseObject: <responses.UpdateIPSecConnectionTunnelSharedSecretResponse>{},
         body: await response.json(),
         bodyKey: "iPSecConnectionTunnelSharedSecret",
-        bodyModel: "model.IPSecConnectionTunnelSharedSecret",
+        bodyModel: model.IPSecConnectionTunnelSharedSecret,
+        type: "model.IPSecConnectionTunnelSharedSecret",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -27495,7 +27755,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
       bodyContent: common.ObjectSerializer.serialize(
         updateInternetGatewayRequest.updateInternetGatewayDetails,
         "UpdateInternetGatewayDetails",
-        models.UpdateInternetGatewayDetails.getJsonObj
+        model.UpdateInternetGatewayDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -27507,7 +27767,8 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
         responseObject: <responses.UpdateInternetGatewayResponse>{},
         body: await response.json(),
         bodyKey: "internetGateway",
-        bodyModel: "model.InternetGateway",
+        bodyModel: model.InternetGateway,
+        type: "model.InternetGateway",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -27571,7 +27832,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
       bodyContent: common.ObjectSerializer.serialize(
         updateIpv6Request.updateIpv6Details,
         "UpdateIpv6Details",
-        models.UpdateIpv6Details.getJsonObj
+        model.UpdateIpv6Details.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -27583,7 +27844,8 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
         responseObject: <responses.UpdateIpv6Response>{},
         body: await response.json(),
         bodyKey: "ipv6",
-        bodyModel: "model.Ipv6",
+        bodyModel: model.Ipv6,
+        type: "model.Ipv6",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -27641,7 +27903,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
       bodyContent: common.ObjectSerializer.serialize(
         updateLocalPeeringGatewayRequest.updateLocalPeeringGatewayDetails,
         "UpdateLocalPeeringGatewayDetails",
-        models.UpdateLocalPeeringGatewayDetails.getJsonObj
+        model.UpdateLocalPeeringGatewayDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -27653,7 +27915,8 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
         responseObject: <responses.UpdateLocalPeeringGatewayResponse>{},
         body: await response.json(),
         bodyKey: "localPeeringGateway",
-        bodyModel: "model.LocalPeeringGateway",
+        bodyModel: model.LocalPeeringGateway,
+        type: "model.LocalPeeringGateway",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -27710,7 +27973,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
       bodyContent: common.ObjectSerializer.serialize(
         updateNatGatewayRequest.updateNatGatewayDetails,
         "UpdateNatGatewayDetails",
-        models.UpdateNatGatewayDetails.getJsonObj
+        model.UpdateNatGatewayDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -27722,7 +27985,8 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
         responseObject: <responses.UpdateNatGatewayResponse>{},
         body: await response.json(),
         bodyKey: "natGateway",
-        bodyModel: "model.NatGateway",
+        bodyModel: model.NatGateway,
+        type: "model.NatGateway",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -27794,7 +28058,7 @@ To edit the contents of existing security rules in the group, use
       bodyContent: common.ObjectSerializer.serialize(
         updateNetworkSecurityGroupRequest.updateNetworkSecurityGroupDetails,
         "UpdateNetworkSecurityGroupDetails",
-        models.UpdateNetworkSecurityGroupDetails.getJsonObj
+        model.UpdateNetworkSecurityGroupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -27806,7 +28070,8 @@ To edit the contents of existing security rules in the group, use
         responseObject: <responses.UpdateNetworkSecurityGroupResponse>{},
         body: await response.json(),
         bodyKey: "networkSecurityGroup",
-        bodyModel: "model.NetworkSecurityGroup",
+        bodyModel: model.NetworkSecurityGroup,
+        type: "model.NetworkSecurityGroup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -27866,7 +28131,7 @@ To edit the contents of existing security rules in the group, use
       bodyContent: common.ObjectSerializer.serialize(
         updateNetworkSecurityGroupSecurityRulesRequest.updateNetworkSecurityGroupSecurityRulesDetails,
         "UpdateNetworkSecurityGroupSecurityRulesDetails",
-        models.UpdateNetworkSecurityGroupSecurityRulesDetails.getJsonObj
+        model.UpdateNetworkSecurityGroupSecurityRulesDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -27878,7 +28143,8 @@ To edit the contents of existing security rules in the group, use
         responseObject: <responses.UpdateNetworkSecurityGroupSecurityRulesResponse>{},
         body: await response.json(),
         bodyKey: "updatedNetworkSecurityGroupSecurityRules",
-        bodyModel: "model.UpdatedNetworkSecurityGroupSecurityRules",
+        bodyModel: model.UpdatedNetworkSecurityGroupSecurityRules,
+        type: "model.UpdatedNetworkSecurityGroupSecurityRules",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -27939,7 +28205,7 @@ This operation cannot be used with primary private IPs.
       bodyContent: common.ObjectSerializer.serialize(
         updatePrivateIpRequest.updatePrivateIpDetails,
         "UpdatePrivateIpDetails",
-        models.UpdatePrivateIpDetails.getJsonObj
+        model.UpdatePrivateIpDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -27951,7 +28217,8 @@ This operation cannot be used with primary private IPs.
         responseObject: <responses.UpdatePrivateIpResponse>{},
         body: await response.json(),
         bodyKey: "privateIp",
-        bodyModel: "model.PrivateIp",
+        bodyModel: model.PrivateIp,
+        type: "model.PrivateIp",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -28046,7 +28313,7 @@ Regarding ephemeral public IPs:
       bodyContent: common.ObjectSerializer.serialize(
         updatePublicIpRequest.updatePublicIpDetails,
         "UpdatePublicIpDetails",
-        models.UpdatePublicIpDetails.getJsonObj
+        model.UpdatePublicIpDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -28058,7 +28325,8 @@ Regarding ephemeral public IPs:
         responseObject: <responses.UpdatePublicIpResponse>{},
         body: await response.json(),
         bodyKey: "publicIp",
-        bodyModel: "model.PublicIp",
+        bodyModel: model.PublicIp,
+        type: "model.PublicIp",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -28117,7 +28385,7 @@ Regarding ephemeral public IPs:
       bodyContent: common.ObjectSerializer.serialize(
         updatePublicIpPoolRequest.updatePublicIpPoolDetails,
         "UpdatePublicIpPoolDetails",
-        models.UpdatePublicIpPoolDetails.getJsonObj
+        model.UpdatePublicIpPoolDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -28129,7 +28397,8 @@ Regarding ephemeral public IPs:
         responseObject: <responses.UpdatePublicIpPoolResponse>{},
         body: await response.json(),
         bodyKey: "publicIpPool",
-        bodyModel: "model.PublicIpPool",
+        bodyModel: model.PublicIpPool,
+        type: "model.PublicIpPool",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -28187,7 +28456,7 @@ Regarding ephemeral public IPs:
       bodyContent: common.ObjectSerializer.serialize(
         updateRemotePeeringConnectionRequest.updateRemotePeeringConnectionDetails,
         "UpdateRemotePeeringConnectionDetails",
-        models.UpdateRemotePeeringConnectionDetails.getJsonObj
+        model.UpdateRemotePeeringConnectionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -28199,7 +28468,8 @@ Regarding ephemeral public IPs:
         responseObject: <responses.UpdateRemotePeeringConnectionResponse>{},
         body: await response.json(),
         bodyKey: "remotePeeringConnection",
-        bodyModel: "model.RemotePeeringConnection",
+        bodyModel: model.RemotePeeringConnection,
+        type: "model.RemotePeeringConnection",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -28259,7 +28529,7 @@ Note that the `routeRules` object you provide replaces the entire existing set o
       bodyContent: common.ObjectSerializer.serialize(
         updateRouteTableRequest.updateRouteTableDetails,
         "UpdateRouteTableDetails",
-        models.UpdateRouteTableDetails.getJsonObj
+        model.UpdateRouteTableDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -28271,7 +28541,8 @@ Note that the `routeRules` object you provide replaces the entire existing set o
         responseObject: <responses.UpdateRouteTableResponse>{},
         body: await response.json(),
         bodyKey: "routeTable",
-        bodyModel: "model.RouteTable",
+        bodyModel: model.RouteTable,
+        type: "model.RouteTable",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -28333,7 +28604,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
       bodyContent: common.ObjectSerializer.serialize(
         updateSecurityListRequest.updateSecurityListDetails,
         "UpdateSecurityListDetails",
-        models.UpdateSecurityListDetails.getJsonObj
+        model.UpdateSecurityListDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -28345,7 +28616,8 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
         responseObject: <responses.UpdateSecurityListResponse>{},
         body: await response.json(),
         bodyKey: "securityList",
-        bodyModel: "model.SecurityList",
+        bodyModel: model.SecurityList,
+        type: "model.SecurityList",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -28404,7 +28676,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
       bodyContent: common.ObjectSerializer.serialize(
         updateServiceGatewayRequest.updateServiceGatewayDetails,
         "UpdateServiceGatewayDetails",
-        models.UpdateServiceGatewayDetails.getJsonObj
+        model.UpdateServiceGatewayDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -28416,7 +28688,8 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
         responseObject: <responses.UpdateServiceGatewayResponse>{},
         body: await response.json(),
         bodyKey: "serviceGateway",
-        bodyModel: "model.ServiceGateway",
+        bodyModel: model.ServiceGateway,
+        type: "model.ServiceGateway",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -28473,7 +28746,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
       bodyContent: common.ObjectSerializer.serialize(
         updateSubnetRequest.updateSubnetDetails,
         "UpdateSubnetDetails",
-        models.UpdateSubnetDetails.getJsonObj
+        model.UpdateSubnetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -28485,7 +28758,8 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
         responseObject: <responses.UpdateSubnetResponse>{},
         body: await response.json(),
         bodyKey: "subnet",
-        bodyModel: "model.Subnet",
+        bodyModel: model.Subnet,
+        type: "model.Subnet",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -28548,7 +28822,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
       bodyContent: common.ObjectSerializer.serialize(
         updateTunnelCpeDeviceConfigRequest.updateTunnelCpeDeviceConfigDetails,
         "UpdateTunnelCpeDeviceConfigDetails",
-        models.UpdateTunnelCpeDeviceConfigDetails.getJsonObj
+        model.UpdateTunnelCpeDeviceConfigDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -28560,7 +28834,8 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
         responseObject: <responses.UpdateTunnelCpeDeviceConfigResponse>{},
         body: await response.json(),
         bodyKey: "tunnelCpeDeviceConfig",
-        bodyModel: "model.TunnelCpeDeviceConfig",
+        bodyModel: model.TunnelCpeDeviceConfig,
+        type: "model.TunnelCpeDeviceConfig",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -28617,7 +28892,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
       bodyContent: common.ObjectSerializer.serialize(
         updateVcnRequest.updateVcnDetails,
         "UpdateVcnDetails",
-        models.UpdateVcnDetails.getJsonObj
+        model.UpdateVcnDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -28629,7 +28904,8 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
         responseObject: <responses.UpdateVcnResponse>{},
         body: await response.json(),
         bodyKey: "vcn",
-        bodyModel: "model.Vcn",
+        bodyModel: model.Vcn,
+        type: "model.Vcn",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -28710,7 +28986,7 @@ To change the list of public IP prefixes for a public virtual circuit,
       bodyContent: common.ObjectSerializer.serialize(
         updateVirtualCircuitRequest.updateVirtualCircuitDetails,
         "UpdateVirtualCircuitDetails",
-        models.UpdateVirtualCircuitDetails.getJsonObj
+        model.UpdateVirtualCircuitDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -28722,7 +28998,8 @@ To change the list of public IP prefixes for a public virtual circuit,
         responseObject: <responses.UpdateVirtualCircuitResponse>{},
         body: await response.json(),
         bodyKey: "virtualCircuit",
-        bodyModel: "model.VirtualCircuit",
+        bodyModel: model.VirtualCircuit,
+        type: "model.VirtualCircuit",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -28781,7 +29058,7 @@ To change the list of public IP prefixes for a public virtual circuit,
       bodyContent: common.ObjectSerializer.serialize(
         updateVlanRequest.updateVlanDetails,
         "UpdateVlanDetails",
-        models.UpdateVlanDetails.getJsonObj
+        model.UpdateVlanDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -28793,7 +29070,8 @@ To change the list of public IP prefixes for a public virtual circuit,
         responseObject: <responses.UpdateVlanResponse>{},
         body: await response.json(),
         bodyKey: "vlan",
-        bodyModel: "model.Vlan",
+        bodyModel: model.Vlan,
+        type: "model.Vlan",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -28850,7 +29128,7 @@ To change the list of public IP prefixes for a public virtual circuit,
       bodyContent: common.ObjectSerializer.serialize(
         updateVnicRequest.updateVnicDetails,
         "UpdateVnicDetails",
-        models.UpdateVnicDetails.getJsonObj
+        model.UpdateVnicDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -28862,7 +29140,8 @@ To change the list of public IP prefixes for a public virtual circuit,
         responseObject: <responses.UpdateVnicResponse>{},
         body: await response.json(),
         bodyKey: "vnic",
-        bodyModel: "model.Vnic",
+        bodyModel: model.Vnic,
+        type: "model.Vnic",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

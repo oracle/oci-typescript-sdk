@@ -48,4 +48,9 @@ export namespace PropertyOverride {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PropertyOverride): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

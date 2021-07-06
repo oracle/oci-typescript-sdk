@@ -24,7 +24,10 @@ export enum ConditionTypeEnum {
 }
 
 export namespace ConditionTypeEnum {
-  export function getJsonObj(obj: ConditionTypeEnum): object {
-    return { obj };
+  export function getJsonObj(obj: ConditionTypeEnum): ConditionTypeEnum {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ConditionTypeEnum): ConditionTypeEnum {
+    return obj;
   }
 }

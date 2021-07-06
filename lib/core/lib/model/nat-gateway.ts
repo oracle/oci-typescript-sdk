@@ -121,4 +121,9 @@ export namespace NatGateway {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NatGateway): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

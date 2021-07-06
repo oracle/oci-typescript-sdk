@@ -26,7 +26,10 @@ export enum PayloadType {
 }
 
 export namespace PayloadType {
-  export function getJsonObj(obj: PayloadType): object {
-    return { obj };
+  export function getJsonObj(obj: PayloadType): PayloadType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: PayloadType): PayloadType {
+    return obj;
   }
 }

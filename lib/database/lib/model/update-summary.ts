@@ -116,4 +116,9 @@ export namespace UpdateSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

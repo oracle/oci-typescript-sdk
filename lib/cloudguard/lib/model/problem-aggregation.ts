@@ -34,4 +34,9 @@ export namespace ProblemAggregation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ProblemAggregation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

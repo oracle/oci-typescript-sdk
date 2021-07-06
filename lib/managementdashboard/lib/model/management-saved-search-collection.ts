@@ -41,4 +41,18 @@ export namespace ManagementSavedSearchCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ManagementSavedSearchCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ManagementSavedSearchSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

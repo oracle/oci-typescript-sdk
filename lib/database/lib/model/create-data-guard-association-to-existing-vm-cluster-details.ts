@@ -54,4 +54,19 @@ export namespace CreateDataGuardAssociationToExistingVmClusterDetails {
     return jsonObj;
   }
   export const creationType = "ExistingVmCluster";
+  export function getDeserializedJsonObj(
+    obj: CreateDataGuardAssociationToExistingVmClusterDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateDataGuardAssociationDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateDataGuardAssociationToExistingVmClusterDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

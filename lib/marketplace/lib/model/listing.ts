@@ -188,4 +188,65 @@ export namespace Listing {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Listing): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "publisher": obj.publisher
+          ? model.Publisher.getDeserializedJsonObj(obj.publisher)
+          : undefined,
+        "languages": obj.languages
+          ? obj.languages.map(item => {
+              return model.Item.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "screenshots": obj.screenshots
+          ? obj.screenshots.map(item => {
+              return model.Screenshot.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "videos": obj.videos
+          ? obj.videos.map(item => {
+              return model.NamedLink.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "supportContacts": obj.supportContacts
+          ? obj.supportContacts.map(item => {
+              return model.SupportContact.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "supportLinks": obj.supportLinks
+          ? obj.supportLinks.map(item => {
+              return model.NamedLink.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "documentationLinks": obj.documentationLinks
+          ? obj.documentationLinks.map(item => {
+              return model.DocumentationLink.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "icon": obj.icon ? model.UploadData.getDeserializedJsonObj(obj.icon) : undefined,
+        "banner": obj.banner ? model.UploadData.getDeserializedJsonObj(obj.banner) : undefined,
+        "regions": obj.regions
+          ? obj.regions.map(item => {
+              return model.Region.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "links": obj.links
+          ? obj.links.map(item => {
+              return model.Link.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "supportedOperatingSystems": obj.supportedOperatingSystems
+          ? obj.supportedOperatingSystems.map(item => {
+              return model.OperatingSystem.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

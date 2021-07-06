@@ -30,7 +30,10 @@ export enum MigrationTypes {
 }
 
 export namespace MigrationTypes {
-  export function getJsonObj(obj: MigrationTypes): object {
-    return { obj };
+  export function getJsonObj(obj: MigrationTypes): MigrationTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: MigrationTypes): MigrationTypes {
+    return obj;
   }
 }

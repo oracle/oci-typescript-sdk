@@ -50,4 +50,25 @@ export namespace DrgRouteDistributionMatchCriteria {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DrgRouteDistributionMatchCriteria): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("matchType" in obj && obj.matchType) {
+      switch (obj.matchType) {
+        case "DRG_ATTACHMENT_ID":
+          return model.DrgAttachmentIdDrgRouteDistributionMatchCriteria.getDeserializedJsonObj(
+            <model.DrgAttachmentIdDrgRouteDistributionMatchCriteria>(<object>jsonObj),
+            true
+          );
+        case "DRG_ATTACHMENT_TYPE":
+          return model.DrgAttachmentTypeDrgRouteDistributionMatchCriteria.getDeserializedJsonObj(
+            <model.DrgAttachmentTypeDrgRouteDistributionMatchCriteria>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.matchType);
+      }
+    }
+    return jsonObj;
+  }
 }

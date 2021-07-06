@@ -38,4 +38,9 @@ export namespace ConditionMetadataTypeSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConditionMetadataTypeSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

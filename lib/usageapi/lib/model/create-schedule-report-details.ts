@@ -42,4 +42,16 @@ export namespace CreateScheduleReportDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateScheduleReportDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "savedScheduleReport": obj.savedScheduleReport
+          ? model.SavedScheduleReport.getDeserializedJsonObj(obj.savedScheduleReport)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

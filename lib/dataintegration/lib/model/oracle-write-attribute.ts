@@ -46,4 +46,17 @@ export namespace OracleWriteAttribute {
     return jsonObj;
   }
   export const modelType = "ORACLEWRITEATTRIBUTE";
+  export function getDeserializedJsonObj(
+    obj: OracleWriteAttribute,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractWriteAttribute.getDeserializedJsonObj(obj) as OracleWriteAttribute)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

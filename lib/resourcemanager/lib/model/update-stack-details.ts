@@ -77,4 +77,16 @@ export namespace UpdateStackDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateStackDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "configSource": obj.configSource
+          ? model.UpdateConfigSourceDetails.getDeserializedJsonObj(obj.configSource)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

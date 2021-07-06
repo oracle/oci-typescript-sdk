@@ -43,4 +43,9 @@ export namespace UploadWarningSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UploadWarningSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

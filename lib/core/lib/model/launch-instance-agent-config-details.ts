@@ -91,4 +91,18 @@ export namespace LaunchInstanceAgentConfigDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LaunchInstanceAgentConfigDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "pluginsConfig": obj.pluginsConfig
+          ? obj.pluginsConfig.map(item => {
+              return model.InstanceAgentPluginConfigDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -56,4 +56,9 @@ export namespace Upload {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Upload): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

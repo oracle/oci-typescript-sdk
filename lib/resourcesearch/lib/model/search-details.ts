@@ -54,4 +54,25 @@ export namespace SearchDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SearchDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "Structured":
+          return model.StructuredSearchDetails.getDeserializedJsonObj(
+            <model.StructuredSearchDetails>(<object>jsonObj),
+            true
+          );
+        case "FreeText":
+          return model.FreeTextSearchDetails.getDeserializedJsonObj(
+            <model.FreeTextSearchDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

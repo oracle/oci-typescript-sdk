@@ -50,4 +50,24 @@ export namespace DatabaseStorageAggregateMetrics {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseStorageAggregateMetrics): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "storageAllocated": obj.storageAllocated
+          ? model.MetricDataPoint.getDeserializedJsonObj(obj.storageAllocated)
+          : undefined,
+        "storageUsed": obj.storageUsed
+          ? model.MetricDataPoint.getDeserializedJsonObj(obj.storageUsed)
+          : undefined,
+        "storageUsedByTableSpace": obj.storageUsedByTableSpace
+          ? obj.storageUsedByTableSpace.map(item => {
+              return model.MetricDataPoint.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

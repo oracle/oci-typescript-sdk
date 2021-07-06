@@ -42,4 +42,18 @@ export namespace NamespaceCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NamespaceCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.NamespaceSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

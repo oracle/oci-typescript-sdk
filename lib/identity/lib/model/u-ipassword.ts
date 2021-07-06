@@ -68,4 +68,9 @@ export namespace UIPassword {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UIPassword): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

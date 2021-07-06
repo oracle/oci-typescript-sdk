@@ -39,4 +39,18 @@ export namespace DetectorRuleCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DetectorRuleCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.DetectorRuleSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -93,4 +93,9 @@ export namespace UpdateHealthCheckerDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateHealthCheckerDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

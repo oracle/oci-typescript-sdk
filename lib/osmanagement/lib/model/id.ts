@@ -36,4 +36,9 @@ export namespace Id {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Id): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

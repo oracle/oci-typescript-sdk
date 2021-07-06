@@ -45,4 +45,27 @@ export namespace EntityShape {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EntityShape): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "metadata": obj.metadata
+          ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined
+      }
+    };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "FILE_ENTITY":
+          return model.EntityShapeFromFile.getDeserializedJsonObj(
+            <model.EntityShapeFromFile>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

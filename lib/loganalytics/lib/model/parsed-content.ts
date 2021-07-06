@@ -60,4 +60,18 @@ export namespace ParsedContent {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ParsedContent): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parsedFieldValues": obj.parsedFieldValues
+          ? obj.parsedFieldValues.map(item => {
+              return model.ParsedField.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

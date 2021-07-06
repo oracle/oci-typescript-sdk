@@ -62,4 +62,18 @@ export namespace AnalyticsClusterMemoryEstimate {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AnalyticsClusterMemoryEstimate): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "tableSchemas": obj.tableSchemas
+          ? obj.tableSchemas.map(item => {
+              return model.AnalyticsClusterSchemaMemoryEstimate.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

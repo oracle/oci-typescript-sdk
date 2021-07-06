@@ -79,4 +79,18 @@ export namespace CreateExportDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateExportDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "exportOptions": obj.exportOptions
+          ? obj.exportOptions.map(item => {
+              return model.ClientOptions.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

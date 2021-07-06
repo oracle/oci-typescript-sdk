@@ -94,4 +94,9 @@ export namespace CreateBudgetDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateBudgetDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

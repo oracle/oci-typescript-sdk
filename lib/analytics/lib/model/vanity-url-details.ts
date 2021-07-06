@@ -53,4 +53,9 @@ export namespace VanityUrlDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VanityUrlDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

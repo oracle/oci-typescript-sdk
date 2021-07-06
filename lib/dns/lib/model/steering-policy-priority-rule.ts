@@ -64,4 +64,28 @@ export namespace SteeringPolicyPriorityRule {
     return jsonObj;
   }
   export const ruleType = "PRIORITY";
+  export function getDeserializedJsonObj(
+    obj: SteeringPolicyPriorityRule,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.SteeringPolicyRule.getDeserializedJsonObj(obj) as SteeringPolicyPriorityRule)),
+      ...{
+        "cases": obj.cases
+          ? obj.cases.map(item => {
+              return model.SteeringPolicyPriorityRuleCase.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "defaultAnswerData": obj.defaultAnswerData
+          ? obj.defaultAnswerData.map(item => {
+              return model.SteeringPolicyPriorityAnswerData.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

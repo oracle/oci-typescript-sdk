@@ -46,4 +46,9 @@ export namespace UpdateManagementAgentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateManagementAgentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -86,4 +86,9 @@ export namespace CreateDedicatedVmHostDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateDedicatedVmHostDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

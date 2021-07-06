@@ -24,4 +24,9 @@ export namespace TransferApplianceEncryptionPassphrase {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TransferApplianceEncryptionPassphrase): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

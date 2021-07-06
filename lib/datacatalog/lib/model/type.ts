@@ -108,4 +108,18 @@ export namespace Type {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Type): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customProperties": obj.customProperties
+          ? obj.customProperties.map(item => {
+              return model.CustomPropertySummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

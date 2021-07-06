@@ -200,4 +200,40 @@ export namespace LogAnalyticsParserSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsParserSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "fieldMaps": obj.fieldMaps
+          ? obj.fieldMaps.map(item => {
+              return model.LogAnalyticsParserField.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "mappedParsers": obj.mappedParsers
+          ? obj.mappedParsers.map(item => {
+              return model.LogAnalyticsParser.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "parserFilter": obj.parserFilter
+          ? model.LogAnalyticsParserFilter.getDeserializedJsonObj(obj.parserFilter)
+          : undefined,
+
+        "parserFunctions": obj.parserFunctions
+          ? obj.parserFunctions.map(item => {
+              return model.LogAnalyticsParserFunction.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "sources": obj.sources
+          ? obj.sources.map(item => {
+              return model.LogAnalyticsSource.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

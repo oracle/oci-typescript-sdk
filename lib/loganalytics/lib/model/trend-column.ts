@@ -52,4 +52,14 @@ export namespace TrendColumn {
     return jsonObj;
   }
   export const type = "TREND_COLUMN";
+  export function getDeserializedJsonObj(obj: TrendColumn, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractColumn.getDeserializedJsonObj(obj) as TrendColumn)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

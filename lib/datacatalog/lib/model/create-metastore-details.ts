@@ -58,4 +58,9 @@ export namespace CreateMetastoreDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateMetastoreDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

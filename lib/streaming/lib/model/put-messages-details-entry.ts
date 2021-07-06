@@ -35,4 +35,9 @@ export namespace PutMessagesDetailsEntry {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PutMessagesDetailsEntry): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

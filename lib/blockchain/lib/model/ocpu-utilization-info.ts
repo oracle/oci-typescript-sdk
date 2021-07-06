@@ -38,4 +38,9 @@ export namespace OcpuUtilizationInfo {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: OcpuUtilizationInfo): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

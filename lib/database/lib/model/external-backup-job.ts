@@ -58,4 +58,9 @@ export namespace ExternalBackupJob {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExternalBackupJob): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

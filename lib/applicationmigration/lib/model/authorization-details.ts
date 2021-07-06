@@ -59,4 +59,35 @@ export namespace AuthorizationDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AuthorizationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "OCC":
+          return model.OccAuthorizationDetails.getDeserializedJsonObj(
+            <model.OccAuthorizationDetails>(<object>jsonObj),
+            true
+          );
+        case "INTERNAL_COMPUTE":
+          return model.InternalAuthorizationDetails.getDeserializedJsonObj(
+            <model.InternalAuthorizationDetails>(<object>jsonObj),
+            true
+          );
+        case "OCIC_IDCS":
+          return model.OcicAuthorizationTokenDetails.getDeserializedJsonObj(
+            <model.OcicAuthorizationTokenDetails>(<object>jsonObj),
+            true
+          );
+        case "OCIC":
+          return model.OcicAuthorizationDetails.getDeserializedJsonObj(
+            <model.OcicAuthorizationDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

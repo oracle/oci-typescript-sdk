@@ -50,4 +50,12 @@ export namespace Minus {
     return jsonObj;
   }
   export const modelType = "MINUS_OPERATOR";
+  export function getDeserializedJsonObj(obj: Minus, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Operator.getDeserializedJsonObj(obj) as Minus)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

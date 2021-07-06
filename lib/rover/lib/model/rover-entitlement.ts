@@ -103,4 +103,9 @@ export namespace RoverEntitlement {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RoverEntitlement): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

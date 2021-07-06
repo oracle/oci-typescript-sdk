@@ -48,4 +48,30 @@ export namespace DeployArtifactSource {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeployArtifactSource): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("deployArtifactSourceType" in obj && obj.deployArtifactSourceType) {
+      switch (obj.deployArtifactSourceType) {
+        case "GENERIC_ARTIFACT":
+          return model.GenericDeployArtifactSource.getDeserializedJsonObj(
+            <model.GenericDeployArtifactSource>(<object>jsonObj),
+            true
+          );
+        case "OCIR":
+          return model.OcirDeployArtifactSource.getDeserializedJsonObj(
+            <model.OcirDeployArtifactSource>(<object>jsonObj),
+            true
+          );
+        case "INLINE":
+          return model.InlineDeployArtifactSource.getDeserializedJsonObj(
+            <model.InlineDeployArtifactSource>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.deployArtifactSourceType);
+      }
+    }
+    return jsonObj;
+  }
 }

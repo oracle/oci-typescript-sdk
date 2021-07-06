@@ -47,4 +47,17 @@ export namespace JcsDiscoveryDetails {
     return jsonObj;
   }
   export const type = "JCS";
+  export function getDeserializedJsonObj(
+    obj: JcsDiscoveryDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DiscoveryDetails.getDeserializedJsonObj(obj) as JcsDiscoveryDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

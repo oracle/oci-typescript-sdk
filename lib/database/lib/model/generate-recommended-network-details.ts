@@ -71,4 +71,18 @@ export namespace GenerateRecommendedNetworkDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: GenerateRecommendedNetworkDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "networks": obj.networks
+          ? obj.networks.map(item => {
+              return model.InfoForNetworkGenDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

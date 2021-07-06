@@ -46,4 +46,25 @@ export namespace UpdateSingleModelDeploymentConfigurationDetails {
     return jsonObj;
   }
   export const deploymentType = "SINGLE_MODEL";
+  export function getDeserializedJsonObj(
+    obj: UpdateSingleModelDeploymentConfigurationDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UpdateModelDeploymentConfigurationDetails.getDeserializedJsonObj(
+            obj
+          ) as UpdateSingleModelDeploymentConfigurationDetails)),
+      ...{
+        "modelConfigurationDetails": obj.modelConfigurationDetails
+          ? model.UpdateModelConfigurationDetails.getDeserializedJsonObj(
+              obj.modelConfigurationDetails
+            )
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -52,4 +52,9 @@ export namespace Duration {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Duration): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

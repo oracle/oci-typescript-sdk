@@ -34,4 +34,9 @@ export namespace EnableExternalDatabaseManagementDetailsBase {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EnableExternalDatabaseManagementDetailsBase): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

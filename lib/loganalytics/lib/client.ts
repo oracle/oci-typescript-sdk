@@ -14,7 +14,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { LogAnalyticsWaiter } from "./loganalytics-waiter";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
@@ -171,7 +171,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         addEntityAssociationRequest.addEntityAssociationDetails,
         "AddEntityAssociationDetails",
-        models.AddEntityAssociationDetails.getJsonObj
+        model.AddEntityAssociationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -234,7 +234,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         addSourceEventTypesRequest.addEventTypeDetails,
         "EventTypeDetails",
-        models.EventTypeDetails.getJsonObj
+        model.EventTypeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -369,7 +369,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         batchGetBasicInfoRequest.basicDetails,
         "LabelNames",
-        models.LabelNames.getJsonObj
+        model.LabelNames.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -381,7 +381,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.BatchGetBasicInfoResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsLabelCollection",
-        bodyModel: "model.LogAnalyticsLabelCollection",
+        bodyModel: model.LogAnalyticsLabelCollection,
+        type: "model.LogAnalyticsLabelCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -508,7 +509,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeLogAnalyticsEmBridgeCompartmentRequest.changeLogAnalyticsEmBridgeCompartmentDetails,
         "ChangeLogAnalyticsEmBridgeCompartmentDetails",
-        models.ChangeLogAnalyticsEmBridgeCompartmentDetails.getJsonObj
+        model.ChangeLogAnalyticsEmBridgeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -575,7 +576,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeLogAnalyticsEntityCompartmentRequest.changeLogAnalyticsEntityCompartmentDetails,
         "ChangeLogAnalyticsEntityCompartmentDetails",
-        models.ChangeLogAnalyticsEntityCompartmentDetails.getJsonObj
+        model.ChangeLogAnalyticsEntityCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -644,7 +645,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeLogAnalyticsLogGroupCompartmentRequest.changeLogAnalyticsLogGroupCompartmentDetails,
         "ChangeLogAnalyticsLogGroupCompartmentDetails",
-        models.ChangeLogAnalyticsLogGroupCompartmentDetails.getJsonObj
+        model.ChangeLogAnalyticsLogGroupCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -711,7 +712,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeLogAnalyticsObjectCollectionRuleCompartmentRequest.changeLogAnalyticsObjectCollectionRuleCompartmentDetails,
         "ChangeLogAnalyticsObjectCollectionRuleCompartmentDetails",
-        models.ChangeLogAnalyticsObjectCollectionRuleCompartmentDetails.getJsonObj
+        model.ChangeLogAnalyticsObjectCollectionRuleCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -777,7 +778,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeScheduledTaskCompartmentRequest.changeScheduledTaskCompartmentDetails,
         "ChangeScheduledTaskCompartmentDetails",
-        models.ChangeScheduledTaskCompartmentDetails.getJsonObj
+        model.ChangeScheduledTaskCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -899,7 +900,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createLogAnalyticsEmBridgeRequest.createLogAnalyticsEmBridgeDetails,
         "CreateLogAnalyticsEmBridgeDetails",
-        models.CreateLogAnalyticsEmBridgeDetails.getJsonObj
+        model.CreateLogAnalyticsEmBridgeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -911,7 +912,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.CreateLogAnalyticsEmBridgeResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsEmBridge",
-        bodyModel: "model.LogAnalyticsEmBridge",
+        bodyModel: model.LogAnalyticsEmBridge,
+        type: "model.LogAnalyticsEmBridge",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -969,7 +971,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createLogAnalyticsEntityRequest.createLogAnalyticsEntityDetails,
         "CreateLogAnalyticsEntityDetails",
-        models.CreateLogAnalyticsEntityDetails.getJsonObj
+        model.CreateLogAnalyticsEntityDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -981,7 +983,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.CreateLogAnalyticsEntityResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsEntity",
-        bodyModel: "model.LogAnalyticsEntity",
+        bodyModel: model.LogAnalyticsEntity,
+        type: "model.LogAnalyticsEntity",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1039,7 +1042,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createLogAnalyticsEntityTypeRequest.createLogAnalyticsEntityTypeDetails,
         "CreateLogAnalyticsEntityTypeDetails",
-        models.CreateLogAnalyticsEntityTypeDetails.getJsonObj
+        model.CreateLogAnalyticsEntityTypeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1102,7 +1105,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createLogAnalyticsLogGroupRequest.createLogAnalyticsLogGroupDetails,
         "CreateLogAnalyticsLogGroupDetails",
-        models.CreateLogAnalyticsLogGroupDetails.getJsonObj
+        model.CreateLogAnalyticsLogGroupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1114,7 +1117,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.CreateLogAnalyticsLogGroupResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsLogGroup",
-        bodyModel: "model.LogAnalyticsLogGroup",
+        bodyModel: model.LogAnalyticsLogGroup,
+        type: "model.LogAnalyticsLogGroup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1173,7 +1177,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createLogAnalyticsObjectCollectionRuleRequest.createLogAnalyticsObjectCollectionRuleDetails,
         "CreateLogAnalyticsObjectCollectionRuleDetails",
-        models.CreateLogAnalyticsObjectCollectionRuleDetails.getJsonObj
+        model.CreateLogAnalyticsObjectCollectionRuleDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1185,7 +1189,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.CreateLogAnalyticsObjectCollectionRuleResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsObjectCollectionRule",
-        bodyModel: "model.LogAnalyticsObjectCollectionRule",
+        bodyModel: model.LogAnalyticsObjectCollectionRule,
+        type: "model.LogAnalyticsObjectCollectionRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1242,7 +1247,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createScheduledTaskRequest.createScheduledTaskDetails,
         "CreateScheduledTaskDetails",
-        models.CreateScheduledTaskDetails.getJsonObj
+        model.CreateScheduledTaskDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1254,7 +1259,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.CreateScheduledTaskResponse>{},
         body: await response.json(),
         bodyKey: "scheduledTask",
-        bodyModel: "model.ScheduledTask",
+        bodyModel: model.ScheduledTask,
+        type: "model.ScheduledTask",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1312,7 +1318,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         deleteAssociationsRequest.deleteLogAnalyticsAssociationDetails,
         "DeleteLogAnalyticsAssociationDetails",
-        models.DeleteLogAnalyticsAssociationDetails.getJsonObj
+        model.DeleteLogAnalyticsAssociationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2238,7 +2244,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.DisableArchivingResponse>{},
         body: await response.json(),
         bodyKey: "success",
-        bodyModel: "model.Success",
+        bodyModel: model.Success,
+        type: "model.Success",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2300,7 +2307,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         disableAutoAssociationRequest.disableAutoAssociationDetails,
         "DisableAutoAssociationDetails",
-        models.DisableAutoAssociationDetails.getJsonObj
+        model.DisableAutoAssociationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2369,7 +2376,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         disableSourceEventTypesRequest.disableEventTypeDetails,
         "EventTypeDetails",
-        models.EventTypeDetails.getJsonObj
+        model.EventTypeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2438,7 +2445,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.EnableArchivingResponse>{},
         body: await response.json(),
         bodyKey: "success",
-        bodyModel: "model.Success",
+        bodyModel: model.Success,
+        type: "model.Success",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2500,7 +2508,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         enableAutoAssociationRequest.enableAutoAssociationDetails,
         "EnableAutoAssociationDetails",
-        models.EnableAutoAssociationDetails.getJsonObj
+        model.EnableAutoAssociationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2569,7 +2577,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         enableSourceEventTypesRequest.enableEventTypeDetails,
         "EventTypeDetails",
-        models.EventTypeDetails.getJsonObj
+        model.EventTypeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2633,7 +2641,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         estimatePurgeDataSizeRequest.estimatePurgeDataSizeDetails,
         "EstimatePurgeDataSizeDetails",
-        models.EstimatePurgeDataSizeDetails.getJsonObj
+        model.EstimatePurgeDataSizeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2645,7 +2653,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.EstimatePurgeDataSizeResponse>{},
         body: await response.json(),
         bodyKey: "estimatePurgeDataSizeResult",
-        bodyModel: "model.EstimatePurgeDataSizeResult",
+        bodyModel: model.EstimatePurgeDataSizeResult,
+        type: "model.EstimatePurgeDataSizeResult",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2703,7 +2712,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         estimateRecallDataSizeRequest.estimateRecallDataSizeDetails,
         "EstimateRecallDataSizeDetails",
-        models.EstimateRecallDataSizeDetails.getJsonObj
+        model.EstimateRecallDataSizeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2715,7 +2724,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.EstimateRecallDataSizeResponse>{},
         body: await response.json(),
         bodyKey: "estimateRecallDataSizeResult",
-        bodyModel: "model.EstimateRecallDataSizeResult",
+        bodyModel: model.EstimateRecallDataSizeResult,
+        type: "model.EstimateRecallDataSizeResult",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2768,7 +2778,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         estimateReleaseDataSizeRequest.estimateReleaseDataSizeDetails,
         "EstimateReleaseDataSizeDetails",
-        models.EstimateReleaseDataSizeDetails.getJsonObj
+        model.EstimateReleaseDataSizeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2780,7 +2790,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.EstimateReleaseDataSizeResponse>{},
         body: await response.json(),
         bodyKey: "estimateReleaseDataSizeResult",
-        bodyModel: "model.EstimateReleaseDataSizeResult",
+        bodyModel: model.EstimateReleaseDataSizeResult,
+        type: "model.EstimateReleaseDataSizeResult",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2833,7 +2844,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         exportCustomContentRequest.exportCustomContentDetails,
         "ExportContent",
-        models.ExportContent.getJsonObj
+        model.ExportContent.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2897,7 +2908,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         exportQueryResultRequest.exportDetails,
         "ExportDetails",
-        models.ExportDetails.getJsonObj
+        model.ExportDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2966,7 +2977,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         extractStructuredLogFieldPathsRequest.loganParserDetails,
         "LogAnalyticsParser",
-        models.LogAnalyticsParser.getJsonObj
+        model.LogAnalyticsParser.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2978,7 +2989,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ExtractStructuredLogFieldPathsResponse>{},
         body: await response.json(),
         bodyKey: "extractLogFieldResults",
-        bodyModel: "model.ExtractLogFieldResults",
+        bodyModel: model.ExtractLogFieldResults,
+        type: "model.ExtractLogFieldResults",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3034,7 +3046,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         extractStructuredLogHeaderPathsRequest.loganParserDetails,
         "LogAnalyticsParser",
-        models.LogAnalyticsParser.getJsonObj
+        model.LogAnalyticsParser.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3046,7 +3058,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ExtractStructuredLogHeaderPathsResponse>{},
         body: await response.json(),
         bodyKey: "extractLogHeaderResults",
-        bodyModel: "model.ExtractLogHeaderResults",
+        bodyModel: model.ExtractLogHeaderResults,
+        type: "model.ExtractLogHeaderResults",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3095,7 +3108,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         filterRequest.filterDetails,
         "FilterDetails",
-        models.FilterDetails.getJsonObj
+        model.FilterDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3107,7 +3120,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.FilterResponse>{},
         body: await response.json(),
         bodyKey: "filterOutput",
-        bodyModel: "model.FilterOutput",
+        bodyModel: model.FilterOutput,
+        type: "model.FilterOutput",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3169,7 +3183,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetAssociationSummaryResponse>{},
         body: await response.json(),
         bodyKey: "associationSummaryReport",
-        bodyModel: "model.AssociationSummaryReport",
+        bodyModel: model.AssociationSummaryReport,
+        type: "model.AssociationSummaryReport",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3231,7 +3246,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetColumnNamesResponse>{},
         body: await response.json(),
         bodyKey: "columnNameCollection",
-        bodyModel: "model.ColumnNameCollection",
+        bodyModel: model.ColumnNameCollection,
+        type: "model.ColumnNameCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3292,7 +3308,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetConfigWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsConfigWorkRequest",
-        bodyModel: "model.LogAnalyticsConfigWorkRequest",
+        bodyModel: model.LogAnalyticsConfigWorkRequest,
+        type: "model.LogAnalyticsConfigWorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3352,7 +3369,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetFieldResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsField",
-        bodyModel: "model.LogAnalyticsField",
+        bodyModel: model.LogAnalyticsField,
+        type: "model.LogAnalyticsField",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3418,7 +3436,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetFieldsSummaryResponse>{},
         body: await response.json(),
         bodyKey: "fieldSummaryReport",
-        bodyModel: "model.FieldSummaryReport",
+        bodyModel: model.FieldSummaryReport,
+        type: "model.FieldSummaryReport",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3478,7 +3497,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetLabelResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsLabel",
-        bodyModel: "model.LogAnalyticsLabel",
+        bodyModel: model.LogAnalyticsLabel,
+        type: "model.LogAnalyticsLabel",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3542,7 +3562,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetLabelSummaryResponse>{},
         body: await response.json(),
         bodyKey: "labelSummaryReport",
-        bodyModel: "model.LabelSummaryReport",
+        bodyModel: model.LabelSummaryReport,
+        type: "model.LabelSummaryReport",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3602,7 +3623,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetLogAnalyticsEmBridgeResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsEmBridge",
-        bodyModel: "model.LogAnalyticsEmBridge",
+        bodyModel: model.LogAnalyticsEmBridge,
+        type: "model.LogAnalyticsEmBridge",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3668,7 +3690,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetLogAnalyticsEmBridgeSummaryResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsEmBridgeSummaryReport",
-        bodyModel: "model.LogAnalyticsEmBridgeSummaryReport",
+        bodyModel: model.LogAnalyticsEmBridgeSummaryReport,
+        type: "model.LogAnalyticsEmBridgeSummaryReport",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3729,7 +3752,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetLogAnalyticsEntitiesSummaryResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsEntitySummaryReport",
-        bodyModel: "model.LogAnalyticsEntitySummaryReport",
+        bodyModel: model.LogAnalyticsEntitySummaryReport,
+        type: "model.LogAnalyticsEntitySummaryReport",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3789,7 +3813,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetLogAnalyticsEntityResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsEntity",
-        bodyModel: "model.LogAnalyticsEntity",
+        bodyModel: model.LogAnalyticsEntity,
+        type: "model.LogAnalyticsEntity",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3854,7 +3879,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetLogAnalyticsEntityTypeResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsEntityType",
-        bodyModel: "model.LogAnalyticsEntityType",
+        bodyModel: model.LogAnalyticsEntityType,
+        type: "model.LogAnalyticsEntityType",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3920,7 +3946,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetLogAnalyticsLogGroupResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsLogGroup",
-        bodyModel: "model.LogAnalyticsLogGroup",
+        bodyModel: model.LogAnalyticsLogGroup,
+        type: "model.LogAnalyticsLogGroup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3987,7 +4014,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetLogAnalyticsLogGroupsSummaryResponse>{},
         body: await response.json(),
         bodyKey: "logGroupSummaryReport",
-        bodyModel: "model.LogGroupSummaryReport",
+        bodyModel: model.LogGroupSummaryReport,
+        type: "model.LogGroupSummaryReport",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4051,7 +4079,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetLogAnalyticsObjectCollectionRuleResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsObjectCollectionRule",
-        bodyModel: "model.LogAnalyticsObjectCollectionRule",
+        bodyModel: model.LogAnalyticsObjectCollectionRule,
+        type: "model.LogAnalyticsObjectCollectionRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4116,7 +4145,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetLookupResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsLookup",
-        bodyModel: "model.LogAnalyticsLookup",
+        bodyModel: model.LogAnalyticsLookup,
+        type: "model.LogAnalyticsLookup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4179,7 +4209,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetLookupSummaryResponse>{},
         body: await response.json(),
         bodyKey: "lookupSummaryReport",
-        bodyModel: "model.LookupSummaryReport",
+        bodyModel: model.LookupSummaryReport,
+        type: "model.LookupSummaryReport",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4238,7 +4269,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetNamespaceResponse>{},
         body: await response.json(),
         bodyKey: "namespace",
-        bodyModel: "model.Namespace",
+        bodyModel: model.Namespace,
+        type: "model.Namespace",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4303,7 +4335,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetParserResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsParser",
-        bodyModel: "model.LogAnalyticsParser",
+        bodyModel: model.LogAnalyticsParser,
+        type: "model.LogAnalyticsParser",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4367,7 +4400,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetParserSummaryResponse>{},
         body: await response.json(),
         bodyKey: "parserSummaryReport",
-        bodyModel: "model.ParserSummaryReport",
+        bodyModel: model.ParserSummaryReport,
+        type: "model.ParserSummaryReport",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4434,7 +4468,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetQueryResultResponse>{},
         body: await response.json(),
         bodyKey: "queryAggregation",
-        bodyModel: "model.QueryAggregation",
+        bodyModel: model.QueryAggregation,
+        type: "model.QueryAggregation",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4508,7 +4543,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetQueryWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "queryWorkRequest",
-        bodyModel: "model.QueryWorkRequest",
+        bodyModel: model.QueryWorkRequest,
+        type: "model.QueryWorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4577,7 +4613,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetScheduledTaskResponse>{},
         body: await response.json(),
         bodyKey: "scheduledTask",
-        bodyModel: "model.ScheduledTask",
+        bodyModel: model.ScheduledTask,
+        type: "model.ScheduledTask",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4644,7 +4681,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetSourceResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsSource",
-        bodyModel: "model.LogAnalyticsSource",
+        bodyModel: model.LogAnalyticsSource,
+        type: "model.LogAnalyticsSource",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4708,7 +4746,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetSourceSummaryResponse>{},
         body: await response.json(),
         bodyKey: "sourceSummaryReport",
-        bodyModel: "model.SourceSummaryReport",
+        bodyModel: model.SourceSummaryReport,
+        type: "model.SourceSummaryReport",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4767,7 +4806,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetStorageResponse>{},
         body: await response.json(),
         bodyKey: "storage",
-        bodyModel: "model.Storage",
+        bodyModel: model.Storage,
+        type: "model.Storage",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4832,7 +4872,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetStorageUsageResponse>{},
         body: await response.json(),
         bodyKey: "storageUsage",
-        bodyModel: "model.StorageUsage",
+        bodyModel: model.StorageUsage,
+        type: "model.StorageUsage",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4894,7 +4935,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetStorageWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "storageWorkRequest",
-        bodyModel: "model.StorageWorkRequest",
+        bodyModel: model.StorageWorkRequest,
+        type: "model.StorageWorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4963,7 +5005,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetUploadResponse>{},
         body: await response.json(),
         bodyKey: "upload",
-        bodyModel: "model.Upload",
+        bodyModel: model.Upload,
+        type: "model.Upload",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5027,7 +5070,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5095,7 +5139,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ImportCustomContentResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsImportCustomContent",
-        bodyModel: "model.LogAnalyticsImportCustomContent",
+        bodyModel: model.LogAnalyticsImportCustomContent,
+        type: "model.LogAnalyticsImportCustomContent",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5164,7 +5209,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListAssociableEntitiesResponse>{},
         body: await response.json(),
         bodyKey: "associableEntityCollection",
-        bodyModel: "model.AssociableEntityCollection",
+        bodyModel: model.AssociableEntityCollection,
+        type: "model.AssociableEntityCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -5243,7 +5289,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListAssociatedEntitiesResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsAssociatedEntityCollection",
-        bodyModel: "model.LogAnalyticsAssociatedEntityCollection",
+        bodyModel: model.LogAnalyticsAssociatedEntityCollection,
+        type: "model.LogAnalyticsAssociatedEntityCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -5319,7 +5366,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListAutoAssociationsResponse>{},
         body: await response.json(),
         bodyKey: "autoAssociationCollection",
-        bodyModel: "model.AutoAssociationCollection",
+        bodyModel: model.AutoAssociationCollection,
+        type: "model.AutoAssociationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -5394,7 +5442,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListConfigWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsConfigWorkRequestCollection",
-        bodyModel: "model.LogAnalyticsConfigWorkRequestCollection",
+        bodyModel: model.LogAnalyticsConfigWorkRequestCollection,
+        type: "model.LogAnalyticsConfigWorkRequestCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -5471,7 +5520,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListEntityAssociationsResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsEntityCollection",
-        bodyModel: "model.LogAnalyticsEntityCollection",
+        bodyModel: model.LogAnalyticsEntityCollection,
+        type: "model.LogAnalyticsEntityCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5547,7 +5597,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListEntitySourceAssociationsResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsAssociationCollection",
-        bodyModel: "model.LogAnalyticsAssociationCollection",
+        bodyModel: model.LogAnalyticsAssociationCollection,
+        type: "model.LogAnalyticsAssociationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -5629,7 +5680,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListFieldsResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsFieldCollection",
-        bodyModel: "model.LogAnalyticsFieldCollection",
+        bodyModel: model.LogAnalyticsFieldCollection,
+        type: "model.LogAnalyticsFieldCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -5701,7 +5753,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListLabelPrioritiesResponse>{},
         body: await response.json(),
         bodyKey: "labelPriorityCollection",
-        bodyModel: "model.LabelPriorityCollection",
+        bodyModel: model.LabelPriorityCollection,
+        type: "model.LabelPriorityCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -5777,7 +5830,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListLabelSourceDetailsResponse>{},
         body: await response.json(),
         bodyKey: "labelSourceCollection",
-        bodyModel: "model.LabelSourceCollection",
+        bodyModel: model.LabelSourceCollection,
+        type: "model.LabelSourceCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -5857,7 +5911,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListLabelsResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsLabelCollection",
-        bodyModel: "model.LogAnalyticsLabelCollection",
+        bodyModel: model.LogAnalyticsLabelCollection,
+        type: "model.LogAnalyticsLabelCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -5936,7 +5991,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListLogAnalyticsEmBridgesResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsEmBridgeCollection",
-        bodyModel: "model.LogAnalyticsEmBridgeCollection",
+        bodyModel: model.LogAnalyticsEmBridgeCollection,
+        type: "model.LogAnalyticsEmBridgeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6018,7 +6074,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListLogAnalyticsEntitiesResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsEntityCollection",
-        bodyModel: "model.LogAnalyticsEntityCollection",
+        bodyModel: model.LogAnalyticsEntityCollection,
+        type: "model.LogAnalyticsEntityCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6091,7 +6148,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListLogAnalyticsEntityTypesResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsEntityTypeCollection",
-        bodyModel: "model.LogAnalyticsEntityTypeCollection",
+        bodyModel: model.LogAnalyticsEntityTypeCollection,
+        type: "model.LogAnalyticsEntityTypeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6163,7 +6221,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListLogAnalyticsLogGroupsResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsLogGroupSummaryCollection",
-        bodyModel: "model.LogAnalyticsLogGroupSummaryCollection",
+        bodyModel: model.LogAnalyticsLogGroupSummaryCollection,
+        type: "model.LogAnalyticsLogGroupSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -6242,7 +6301,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListLogAnalyticsObjectCollectionRulesResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsObjectCollectionRuleCollection",
-        bodyModel: "model.LogAnalyticsObjectCollectionRuleCollection",
+        bodyModel: model.LogAnalyticsObjectCollectionRuleCollection,
+        type: "model.LogAnalyticsObjectCollectionRuleCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6310,7 +6370,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListLogSetsResponse>{},
         body: await response.json(),
         bodyKey: "logSetCollection",
-        bodyModel: "model.LogSetCollection",
+        bodyModel: model.LogSetCollection,
+        type: "model.LogSetCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6384,7 +6445,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListLookupsResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsLookupCollection",
-        bodyModel: "model.LogAnalyticsLookupCollection",
+        bodyModel: model.LogAnalyticsLookupCollection,
+        type: "model.LogAnalyticsLookupCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -6458,7 +6520,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListMetaSourceTypesResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsMetaSourceTypeCollection",
-        bodyModel: "model.LogAnalyticsMetaSourceTypeCollection",
+        bodyModel: model.LogAnalyticsMetaSourceTypeCollection,
+        type: "model.LogAnalyticsMetaSourceTypeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -6528,7 +6591,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListNamespacesResponse>{},
         body: await response.json(),
         bodyKey: "namespaceCollection",
-        bodyModel: "model.NamespaceCollection",
+        bodyModel: model.NamespaceCollection,
+        type: "model.NamespaceCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6593,7 +6657,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListParserFunctionsResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsParserFunctionCollection",
-        bodyModel: "model.LogAnalyticsParserFunctionCollection",
+        bodyModel: model.LogAnalyticsParserFunctionCollection,
+        type: "model.LogAnalyticsParserFunctionCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -6668,7 +6733,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListParserMetaPluginsResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsParserMetaPluginCollection",
-        bodyModel: "model.LogAnalyticsParserMetaPluginCollection",
+        bodyModel: model.LogAnalyticsParserMetaPluginCollection,
+        type: "model.LogAnalyticsParserMetaPluginCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -6748,7 +6814,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListParsersResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsParserCollection",
-        bodyModel: "model.LogAnalyticsParserCollection",
+        bodyModel: model.LogAnalyticsParserCollection,
+        type: "model.LogAnalyticsParserCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -6824,7 +6891,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListQueryWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "queryWorkRequestCollection",
-        bodyModel: "model.QueryWorkRequestCollection",
+        bodyModel: model.QueryWorkRequestCollection,
+        type: "model.QueryWorkRequestCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6901,7 +6969,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListRecalledDataResponse>{},
         body: await response.json(),
         bodyKey: "recalledDataCollection",
-        bodyModel: "model.RecalledDataCollection",
+        bodyModel: model.RecalledDataCollection,
+        type: "model.RecalledDataCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6979,7 +7048,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListScheduledTasksResponse>{},
         body: await response.json(),
         bodyKey: "scheduledTaskCollection",
-        bodyModel: "model.ScheduledTaskCollection",
+        bodyModel: model.ScheduledTaskCollection,
+        type: "model.ScheduledTaskCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7059,7 +7129,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListSourceAssociationsResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsAssociationCollection",
-        bodyModel: "model.LogAnalyticsAssociationCollection",
+        bodyModel: model.LogAnalyticsAssociationCollection,
+        type: "model.LogAnalyticsAssociationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -7138,7 +7209,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListSourceEventTypesResponse>{},
         body: await response.json(),
         bodyKey: "eventTypeCollection",
-        bodyModel: "model.EventTypeCollection",
+        bodyModel: model.EventTypeCollection,
+        type: "model.EventTypeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -7214,7 +7286,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListSourceExtendedFieldDefinitionsResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsSourceExtendedFieldDefinitionCollection",
-        bodyModel: "model.LogAnalyticsSourceExtendedFieldDefinitionCollection",
+        bodyModel: model.LogAnalyticsSourceExtendedFieldDefinitionCollection,
+        type: "model.LogAnalyticsSourceExtendedFieldDefinitionCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -7289,7 +7362,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListSourceLabelOperatorsResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsLabelOperatorCollection",
-        bodyModel: "model.LogAnalyticsLabelOperatorCollection",
+        bodyModel: model.LogAnalyticsLabelOperatorCollection,
+        type: "model.LogAnalyticsLabelOperatorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -7364,7 +7438,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListSourceMetaFunctionsResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsMetaFunctionCollection",
-        bodyModel: "model.LogAnalyticsMetaFunctionCollection",
+        bodyModel: model.LogAnalyticsMetaFunctionCollection,
+        type: "model.LogAnalyticsMetaFunctionCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -7440,7 +7515,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListSourcePatternsResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsSourcePatternCollection",
-        bodyModel: "model.LogAnalyticsSourcePatternCollection",
+        bodyModel: model.LogAnalyticsSourcePatternCollection,
+        type: "model.LogAnalyticsSourcePatternCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -7521,7 +7597,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListSourcesResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsSourceCollection",
-        bodyModel: "model.LogAnalyticsSourceCollection",
+        bodyModel: model.LogAnalyticsSourceCollection,
+        type: "model.LogAnalyticsSourceCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -7597,7 +7674,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListStorageWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestErrorCollection",
-        bodyModel: "model.WorkRequestErrorCollection",
+        bodyModel: model.WorkRequestErrorCollection,
+        type: "model.WorkRequestErrorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7679,7 +7757,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListStorageWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "storageWorkRequestCollection",
-        bodyModel: "model.StorageWorkRequestCollection",
+        bodyModel: model.StorageWorkRequestCollection,
+        type: "model.StorageWorkRequestCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7751,7 +7830,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListSupportedCharEncodingsResponse>{},
         body: await response.json(),
         bodyKey: "charEncodingCollection",
-        bodyModel: "model.CharEncodingCollection",
+        bodyModel: model.CharEncodingCollection,
+        type: "model.CharEncodingCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7823,7 +7903,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListSupportedTimezonesResponse>{},
         body: await response.json(),
         bodyKey: "timezoneCollection",
-        bodyModel: "model.TimezoneCollection",
+        bodyModel: model.TimezoneCollection,
+        type: "model.TimezoneCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7899,7 +7980,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListUploadFilesResponse>{},
         body: await response.json(),
         bodyKey: "uploadFileCollection",
-        bodyModel: "model.UploadFileCollection",
+        bodyModel: model.UploadFileCollection,
+        type: "model.UploadFileCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7966,7 +8048,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListUploadWarningsResponse>{},
         body: await response.json(),
         bodyKey: "uploadWarningCollection",
-        bodyModel: "model.UploadWarningCollection",
+        bodyModel: model.UploadWarningCollection,
+        type: "model.UploadWarningCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8039,7 +8122,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListUploadsResponse>{},
         body: await response.json(),
         bodyKey: "uploadCollection",
-        bodyModel: "model.UploadCollection",
+        bodyModel: model.UploadCollection,
+        type: "model.UploadCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8124,7 +8208,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListWarningsResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsWarningCollection",
-        bodyModel: "model.LogAnalyticsWarningCollection",
+        bodyModel: model.LogAnalyticsWarningCollection,
+        type: "model.LogAnalyticsWarningCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -8198,7 +8283,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestErrorCollection",
-        bodyModel: "model.WorkRequestErrorCollection",
+        bodyModel: model.WorkRequestErrorCollection,
+        type: "model.WorkRequestErrorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -8266,7 +8352,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestLogCollection",
-        bodyModel: "model.WorkRequestLogCollection",
+        bodyModel: model.WorkRequestLogCollection,
+        type: "model.WorkRequestLogCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -8334,7 +8421,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestCollection",
-        bodyModel: "model.WorkRequestCollection",
+        bodyModel: model.WorkRequestCollection,
+        type: "model.WorkRequestCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8513,7 +8601,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         parseQueryRequest.parseQueryDetails,
         "ParseQueryDetails",
-        models.ParseQueryDetails.getJsonObj
+        model.ParseQueryDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8525,7 +8613,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ParseQueryResponse>{},
         body: await response.json(),
         bodyKey: "parseQueryOutput",
-        bodyModel: "model.ParseQueryOutput",
+        bodyModel: model.ParseQueryOutput,
+        type: "model.ParseQueryOutput",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8586,7 +8675,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.PauseScheduledTaskResponse>{},
         body: await response.json(),
         bodyKey: "scheduledTask",
-        bodyModel: "model.ScheduledTask",
+        bodyModel: model.ScheduledTask,
+        type: "model.ScheduledTask",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8646,7 +8736,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         purgeStorageDataRequest.purgeStorageDataDetails,
         "PurgeStorageDataDetails",
-        models.PurgeStorageDataDetails.getJsonObj
+        model.PurgeStorageDataDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8726,7 +8816,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.PutQueryWorkRequestBackgroundResponse>{},
         body: await response.json(),
         bodyKey: "queryWorkRequest",
-        bodyModel: "model.QueryWorkRequest",
+        bodyModel: model.QueryWorkRequest,
+        type: "model.QueryWorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8784,7 +8875,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         queryRequest.queryDetails,
         "QueryDetails",
-        models.QueryDetails.getJsonObj
+        model.QueryDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8796,7 +8887,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.QueryResponse>{},
         body: await response.json(),
         bodyKey: "queryAggregation",
-        bodyModel: "model.QueryAggregation",
+        bodyModel: model.QueryAggregation,
+        type: "model.QueryAggregation",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8870,7 +8962,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         recallArchivedDataRequest.recallArchivedDataDetails,
         "RecallArchivedDataDetails",
-        models.RecallArchivedDataDetails.getJsonObj
+        model.RecallArchivedDataDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8956,7 +9048,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.RegisterLookupResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsLookup",
-        bodyModel: "model.LogAnalyticsLookup",
+        bodyModel: model.LogAnalyticsLookup,
+        type: "model.LogAnalyticsLookup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -9015,7 +9108,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         releaseRecalledDataRequest.releaseRecalledDataDetails,
         "ReleaseRecalledDataDetails",
-        models.ReleaseRecalledDataDetails.getJsonObj
+        model.ReleaseRecalledDataDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9090,7 +9183,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         removeEntityAssociationsRequest.removeEntityAssociationsDetails,
         "RemoveEntityAssociationsDetails",
-        models.RemoveEntityAssociationsDetails.getJsonObj
+        model.RemoveEntityAssociationsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9154,7 +9247,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         removeSourceEventTypesRequest.removeEventTypeDetails,
         "EventTypeDetails",
-        models.EventTypeDetails.getJsonObj
+        model.EventTypeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9224,7 +9317,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ResumeScheduledTaskResponse>{},
         body: await response.json(),
         bodyKey: "scheduledTask",
-        bodyModel: "model.ScheduledTask",
+        bodyModel: model.ScheduledTask,
+        type: "model.ScheduledTask",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -9341,7 +9435,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         suggestRequest.suggestDetails,
         "SuggestDetails",
-        models.SuggestDetails.getJsonObj
+        model.SuggestDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9353,7 +9447,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.SuggestResponse>{},
         body: await response.json(),
         bodyKey: "suggestOutput",
-        bodyModel: "model.SuggestOutput",
+        bodyModel: model.SuggestOutput,
+        type: "model.SuggestOutput",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -9408,7 +9503,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         suppressWarningRequest.warningReferenceDetails,
         "WarningReferenceDetails",
-        models.WarningReferenceDetails.getJsonObj
+        model.WarningReferenceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9473,7 +9568,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         testParserRequest.testParserPayloadDetails,
         "TestParserPayloadDetails",
-        models.TestParserPayloadDetails.getJsonObj
+        model.TestParserPayloadDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9485,7 +9580,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.TestParserResponse>{},
         body: await response.json(),
         bodyKey: "parserTestResult",
-        bodyModel: "model.ParserTestResult",
+        bodyModel: model.ParserTestResult,
+        type: "model.ParserTestResult",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -9540,7 +9636,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         unsuppressWarningRequest.warningReferenceDetails,
         "WarningReferenceDetails",
-        models.WarningReferenceDetails.getJsonObj
+        model.WarningReferenceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9603,7 +9699,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateLogAnalyticsEmBridgeRequest.updateLogAnalyticsEmBridgeDetails,
         "UpdateLogAnalyticsEmBridgeDetails",
-        models.UpdateLogAnalyticsEmBridgeDetails.getJsonObj
+        model.UpdateLogAnalyticsEmBridgeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9615,7 +9711,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.UpdateLogAnalyticsEmBridgeResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsEmBridge",
-        bodyModel: "model.LogAnalyticsEmBridge",
+        bodyModel: model.LogAnalyticsEmBridge,
+        type: "model.LogAnalyticsEmBridge",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -9674,7 +9771,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateLogAnalyticsEntityRequest.updateLogAnalyticsEntityDetails,
         "UpdateLogAnalyticsEntityDetails",
-        models.UpdateLogAnalyticsEntityDetails.getJsonObj
+        model.UpdateLogAnalyticsEntityDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9686,7 +9783,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.UpdateLogAnalyticsEntityResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsEntity",
-        bodyModel: "model.LogAnalyticsEntity",
+        bodyModel: model.LogAnalyticsEntity,
+        type: "model.LogAnalyticsEntity",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -9745,7 +9843,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateLogAnalyticsEntityTypeRequest.updateLogAnalyticsEntityTypeDetails,
         "UpdateLogAnalyticsEntityTypeDetails",
-        models.UpdateLogAnalyticsEntityTypeDetails.getJsonObj
+        model.UpdateLogAnalyticsEntityTypeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9809,7 +9907,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateLogAnalyticsLogGroupRequest.updateLogAnalyticsLogGroupDetails,
         "UpdateLogAnalyticsLogGroupDetails",
-        models.UpdateLogAnalyticsLogGroupDetails.getJsonObj
+        model.UpdateLogAnalyticsLogGroupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9821,7 +9919,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.UpdateLogAnalyticsLogGroupResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsLogGroup",
-        bodyModel: "model.LogAnalyticsLogGroup",
+        bodyModel: model.LogAnalyticsLogGroup,
+        type: "model.LogAnalyticsLogGroup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -9884,7 +9983,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateLogAnalyticsObjectCollectionRuleRequest.updateLogAnalyticsObjectCollectionRuleDetails,
         "UpdateLogAnalyticsObjectCollectionRuleDetails",
-        models.UpdateLogAnalyticsObjectCollectionRuleDetails.getJsonObj
+        model.UpdateLogAnalyticsObjectCollectionRuleDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9896,7 +9995,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.UpdateLogAnalyticsObjectCollectionRuleResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsObjectCollectionRule",
-        bodyModel: "model.LogAnalyticsObjectCollectionRule",
+        bodyModel: model.LogAnalyticsObjectCollectionRule,
+        type: "model.LogAnalyticsObjectCollectionRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -9956,7 +10056,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateLookupRequest.updateLookupMetadataDetails,
         "UpdateLookupMetadataDetails",
-        models.UpdateLookupMetadataDetails.getJsonObj
+        model.UpdateLookupMetadataDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9968,7 +10068,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.UpdateLookupResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsLookup",
-        bodyModel: "model.LogAnalyticsLookup",
+        bodyModel: model.LogAnalyticsLookup,
+        type: "model.LogAnalyticsLookup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -10094,7 +10195,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateScheduledTaskRequest.updateScheduledTaskDetails,
         "UpdateScheduledTaskDetails",
-        models.UpdateScheduledTaskDetails.getJsonObj
+        model.UpdateScheduledTaskDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -10106,7 +10207,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.UpdateScheduledTaskResponse>{},
         body: await response.json(),
         bodyKey: "scheduledTask",
-        bodyModel: "model.ScheduledTask",
+        bodyModel: model.ScheduledTask,
+        type: "model.ScheduledTask",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -10164,7 +10266,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateStorageRequest.updateStorageDetails,
         "UpdateStorageDetails",
-        models.UpdateStorageDetails.getJsonObj
+        model.UpdateStorageDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -10176,7 +10278,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.UpdateStorageResponse>{},
         body: await response.json(),
         bodyKey: "storage",
-        bodyModel: "model.Storage",
+        bodyModel: model.Storage,
+        type: "model.Storage",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -10329,7 +10432,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.UploadLogFileResponse>{},
         body: await response.json(),
         bodyKey: "upload",
-        bodyModel: "model.Upload",
+        bodyModel: model.Upload,
+        type: "model.Upload",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -10394,7 +10498,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         upsertAssociationsRequest.upsertLogAnalyticsAssociationDetails,
         "UpsertLogAnalyticsAssociationDetails",
-        models.UpsertLogAnalyticsAssociationDetails.getJsonObj
+        model.UpsertLogAnalyticsAssociationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -10462,7 +10566,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         upsertFieldRequest.upsertLogAnalyticsFieldDetails,
         "UpsertLogAnalyticsFieldDetails",
-        models.UpsertLogAnalyticsFieldDetails.getJsonObj
+        model.UpsertLogAnalyticsFieldDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -10474,7 +10578,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.UpsertFieldResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsField",
-        bodyModel: "model.LogAnalyticsField",
+        bodyModel: model.LogAnalyticsField,
+        type: "model.LogAnalyticsField",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -10533,7 +10638,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         upsertLabelRequest.upsertLogAnalyticsLabelDetails,
         "UpsertLogAnalyticsLabelDetails",
-        models.UpsertLogAnalyticsLabelDetails.getJsonObj
+        model.UpsertLogAnalyticsLabelDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -10545,7 +10650,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.UpsertLabelResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsLabel",
-        bodyModel: "model.LogAnalyticsLabel",
+        bodyModel: model.LogAnalyticsLabel,
+        type: "model.LogAnalyticsLabel",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -10604,7 +10710,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         upsertParserRequest.upsertLogAnalyticsParserDetails,
         "UpsertLogAnalyticsParserDetails",
-        models.UpsertLogAnalyticsParserDetails.getJsonObj
+        model.UpsertLogAnalyticsParserDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -10616,7 +10722,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.UpsertParserResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsParser",
-        bodyModel: "model.LogAnalyticsParser",
+        bodyModel: model.LogAnalyticsParser,
+        type: "model.LogAnalyticsParser",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -10679,7 +10786,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         upsertSourceRequest.upsertLogAnalyticsSourceDetails,
         "UpsertLogAnalyticsSourceDetails",
-        models.UpsertLogAnalyticsSourceDetails.getJsonObj
+        model.UpsertLogAnalyticsSourceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -10691,7 +10798,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.UpsertSourceResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsSource",
-        bodyModel: "model.LogAnalyticsSource",
+        bodyModel: model.LogAnalyticsSource,
+        type: "model.LogAnalyticsSource",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -10755,7 +10863,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         validateAssociationParametersRequest.upsertLogAnalyticsAssociationDetails,
         "UpsertLogAnalyticsAssociationDetails",
-        models.UpsertLogAnalyticsAssociationDetails.getJsonObj
+        model.UpsertLogAnalyticsAssociationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -10767,7 +10875,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ValidateAssociationParametersResponse>{},
         body: await response.json(),
         bodyKey: "logAnalyticsAssociationParameterCollection",
-        bodyModel: "model.LogAnalyticsAssociationParameterCollection",
+        bodyModel: model.LogAnalyticsAssociationParameterCollection,
+        type: "model.LogAnalyticsAssociationParameterCollection",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -10833,7 +10942,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ValidateFileResponse>{},
         body: await response.json(),
         bodyKey: "fileValidationResponse",
-        bodyModel: "model.FileValidationResponse",
+        bodyModel: model.FileValidationResponse,
+        type: "model.FileValidationResponse",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -10890,7 +11000,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         validateSourceRequest.upsertLogAnalyticsSourceDetails,
         "UpsertLogAnalyticsSourceDetails",
-        models.UpsertLogAnalyticsSourceDetails.getJsonObj
+        model.UpsertLogAnalyticsSourceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -10902,7 +11012,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ValidateSourceResponse>{},
         body: await response.json(),
         bodyKey: "sourceValidateResults",
-        bodyModel: "model.SourceValidateResults",
+        bodyModel: model.SourceValidateResults,
+        type: "model.SourceValidateResults",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -10956,7 +11067,7 @@ export class LogAnalyticsClient {
       bodyContent: common.ObjectSerializer.serialize(
         validateSourceExtendedFieldDetailsRequest.logAnalyticsSource,
         "LogAnalyticsSource",
-        models.LogAnalyticsSource.getJsonObj
+        model.LogAnalyticsSource.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -10968,7 +11079,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ValidateSourceExtendedFieldDetailsResponse>{},
         body: await response.json(),
         bodyKey: "extendedFieldsValidationResult",
-        bodyModel: "model.ExtendedFieldsValidationResult",
+        bodyModel: model.ExtendedFieldsValidationResult,
+        type: "model.ExtendedFieldsValidationResult",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -11031,7 +11143,8 @@ export class LogAnalyticsClient {
         responseObject: <responses.ValidateSourceMappingResponse>{},
         body: await response.json(),
         bodyKey: "sourceMappingResponse",
-        bodyModel: "model.SourceMappingResponse",
+        bodyModel: model.SourceMappingResponse,
+        type: "model.SourceMappingResponse",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

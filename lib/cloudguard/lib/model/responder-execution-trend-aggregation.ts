@@ -42,4 +42,9 @@ export namespace ResponderExecutionTrendAggregation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResponderExecutionTrendAggregation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

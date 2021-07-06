@@ -48,4 +48,30 @@ export namespace AbstractFormatAttribute {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AbstractFormatAttribute): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "AVRO_FORMAT":
+          return model.AvroFormatAttribute.getDeserializedJsonObj(
+            <model.AvroFormatAttribute>(<object>jsonObj),
+            true
+          );
+        case "JSON_FORMAT":
+          return model.JsonFormatAttribute.getDeserializedJsonObj(
+            <model.JsonFormatAttribute>(<object>jsonObj),
+            true
+          );
+        case "CSV_FORMAT":
+          return model.CsvFormatAttribute.getDeserializedJsonObj(
+            <model.CsvFormatAttribute>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

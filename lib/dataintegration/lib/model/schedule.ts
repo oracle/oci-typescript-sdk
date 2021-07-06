@@ -83,4 +83,24 @@ export namespace Schedule {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Schedule): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "frequencyDetails": obj.frequencyDetails
+          ? model.AbstractFrequencyDetails.getDeserializedJsonObj(obj.frequencyDetails)
+          : undefined,
+
+        "metadata": obj.metadata
+          ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -48,4 +48,9 @@ export namespace ShapeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ShapeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -48,4 +48,9 @@ export namespace LogAnalyticsParameter {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsParameter): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

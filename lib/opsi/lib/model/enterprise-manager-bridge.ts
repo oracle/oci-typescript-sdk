@@ -46,6 +46,10 @@ export interface EnterpriseManagerBridge {
    */
   "objectStorageBucketName": string;
   /**
+   * A message describing status of the object storage bucket of this resource. For example, it can be used to provide actionable information about the permission and content validity of the bucket.
+   */
+  "objectStorageBucketStatusDetails"?: string;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
    *
@@ -83,6 +87,11 @@ export interface EnterpriseManagerBridge {
 
 export namespace EnterpriseManagerBridge {
   export function getJsonObj(obj: EnterpriseManagerBridge): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
+  export function getDeserializedJsonObj(obj: EnterpriseManagerBridge): object {
     const jsonObj = { ...obj, ...{} };
 
     return jsonObj;

@@ -51,4 +51,17 @@ export namespace InstalledDatabaseDetails {
     return jsonObj;
   }
   export const databaseType = "INSTALLED_DATABASE";
+  export function getDeserializedJsonObj(
+    obj: InstalledDatabaseDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DatabaseDetails.getDeserializedJsonObj(obj) as InstalledDatabaseDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

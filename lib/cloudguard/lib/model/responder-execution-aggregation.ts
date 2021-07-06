@@ -34,4 +34,9 @@ export namespace ResponderExecutionAggregation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResponderExecutionAggregation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

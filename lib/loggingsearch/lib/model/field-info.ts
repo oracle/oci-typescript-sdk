@@ -51,4 +51,9 @@ export namespace FieldInfo {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FieldInfo): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

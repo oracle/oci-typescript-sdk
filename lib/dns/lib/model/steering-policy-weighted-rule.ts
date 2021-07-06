@@ -64,4 +64,28 @@ export namespace SteeringPolicyWeightedRule {
     return jsonObj;
   }
   export const ruleType = "WEIGHTED";
+  export function getDeserializedJsonObj(
+    obj: SteeringPolicyWeightedRule,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.SteeringPolicyRule.getDeserializedJsonObj(obj) as SteeringPolicyWeightedRule)),
+      ...{
+        "cases": obj.cases
+          ? obj.cases.map(item => {
+              return model.SteeringPolicyWeightedRuleCase.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "defaultAnswerData": obj.defaultAnswerData
+          ? obj.defaultAnswerData.map(item => {
+              return model.SteeringPolicyWeightedAnswerData.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

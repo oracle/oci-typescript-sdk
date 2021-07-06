@@ -16,7 +16,7 @@ For more information, see [Overview of Object Storage](/Content/Object/Concepts/
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import {
   paginateRecords,
@@ -307,7 +307,7 @@ export class ObjectStorageClient {
       bodyContent: common.ObjectSerializer.serialize(
         commitMultipartUploadRequest.commitMultipartUploadDetails,
         "CommitMultipartUploadDetails",
-        models.CommitMultipartUploadDetails.getJsonObj
+        model.CommitMultipartUploadDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -400,7 +400,7 @@ export class ObjectStorageClient {
       bodyContent: common.ObjectSerializer.serialize(
         copyObjectRequest.copyObjectDetails,
         "CopyObjectDetails",
-        models.CopyObjectDetails.getJsonObj
+        model.CopyObjectDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -472,7 +472,7 @@ export class ObjectStorageClient {
       bodyContent: common.ObjectSerializer.serialize(
         createBucketRequest.createBucketDetails,
         "CreateBucketDetails",
-        models.CreateBucketDetails.getJsonObj
+        model.CreateBucketDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -484,7 +484,8 @@ export class ObjectStorageClient {
         responseObject: <responses.CreateBucketResponse>{},
         body: await response.json(),
         bodyKey: "bucket",
-        bodyModel: "model.Bucket",
+        bodyModel: model.Bucket,
+        type: "model.Bucket",
         responseHeaders: [
           {
             value: response.headers.get("opc-client-request-id"),
@@ -558,7 +559,7 @@ export class ObjectStorageClient {
       bodyContent: common.ObjectSerializer.serialize(
         createMultipartUploadRequest.createMultipartUploadDetails,
         "CreateMultipartUploadDetails",
-        models.CreateMultipartUploadDetails.getJsonObj
+        model.CreateMultipartUploadDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -570,7 +571,8 @@ export class ObjectStorageClient {
         responseObject: <responses.CreateMultipartUploadResponse>{},
         body: await response.json(),
         bodyKey: "multipartUpload",
-        bodyModel: "model.MultipartUpload",
+        bodyModel: model.MultipartUpload,
+        type: "model.MultipartUpload",
         responseHeaders: [
           {
             value: response.headers.get("opc-client-request-id"),
@@ -634,7 +636,7 @@ export class ObjectStorageClient {
       bodyContent: common.ObjectSerializer.serialize(
         createPreauthenticatedRequestRequest.createPreauthenticatedRequestDetails,
         "CreatePreauthenticatedRequestDetails",
-        models.CreatePreauthenticatedRequestDetails.getJsonObj
+        model.CreatePreauthenticatedRequestDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -646,7 +648,8 @@ export class ObjectStorageClient {
         responseObject: <responses.CreatePreauthenticatedRequestResponse>{},
         body: await response.json(),
         bodyKey: "preauthenticatedRequest",
-        bodyModel: "model.PreauthenticatedRequest",
+        bodyModel: model.PreauthenticatedRequest,
+        type: "model.PreauthenticatedRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-client-request-id"),
@@ -705,7 +708,7 @@ export class ObjectStorageClient {
       bodyContent: common.ObjectSerializer.serialize(
         createReplicationPolicyRequest.createReplicationPolicyDetails,
         "CreateReplicationPolicyDetails",
-        models.CreateReplicationPolicyDetails.getJsonObj
+        model.CreateReplicationPolicyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -717,7 +720,8 @@ export class ObjectStorageClient {
         responseObject: <responses.CreateReplicationPolicyResponse>{},
         body: await response.json(),
         bodyKey: "replicationPolicy",
-        bodyModel: "model.ReplicationPolicy",
+        bodyModel: model.ReplicationPolicy,
+        type: "model.ReplicationPolicy",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -777,7 +781,7 @@ export class ObjectStorageClient {
       bodyContent: common.ObjectSerializer.serialize(
         createRetentionRuleRequest.createRetentionRuleDetails,
         "CreateRetentionRuleDetails",
-        models.CreateRetentionRuleDetails.getJsonObj
+        model.CreateRetentionRuleDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -789,7 +793,8 @@ export class ObjectStorageClient {
         responseObject: <responses.CreateRetentionRuleResponse>{},
         body: await response.json(),
         bodyKey: "retentionRule",
-        bodyModel: "model.RetentionRule",
+        bodyModel: model.RetentionRule,
+        type: "model.RetentionRule",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1265,7 +1270,8 @@ export class ObjectStorageClient {
         responseObject: <responses.GetBucketResponse>{},
         body: await response.json(),
         bodyKey: "bucket",
-        bodyModel: "model.Bucket",
+        bodyModel: model.Bucket,
+        type: "model.Bucket",
         responseHeaders: [
           {
             value: response.headers.get("opc-client-request-id"),
@@ -1341,6 +1347,7 @@ GetNamespace returns the name of the Object Storage namespace for the user makin
         body: await response.json(),
         bodyKey: "value",
         bodyModel: "string",
+        type: "string",
         responseHeaders: []
       });
 
@@ -1400,7 +1407,8 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
         responseObject: <responses.GetNamespaceMetadataResponse>{},
         body: await response.json(),
         bodyKey: "namespaceMetadata",
-        bodyModel: "model.NamespaceMetadata",
+        bodyModel: model.NamespaceMetadata,
+        type: "model.NamespaceMetadata",
         responseHeaders: [
           {
             value: response.headers.get("opc-client-request-id"),
@@ -1635,7 +1643,8 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
         responseObject: <responses.GetObjectLifecyclePolicyResponse>{},
         body: await response.json(),
         bodyKey: "objectLifecyclePolicy",
-        bodyModel: "model.ObjectLifecyclePolicy",
+        bodyModel: model.ObjectLifecyclePolicy,
+        type: "model.ObjectLifecyclePolicy",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1706,7 +1715,8 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
         responseObject: <responses.GetPreauthenticatedRequestResponse>{},
         body: await response.json(),
         bodyKey: "preauthenticatedRequestSummary",
-        bodyModel: "model.PreauthenticatedRequestSummary",
+        bodyModel: model.PreauthenticatedRequestSummary,
+        type: "model.PreauthenticatedRequestSummary",
         responseHeaders: [
           {
             value: response.headers.get("opc-client-request-id"),
@@ -1773,7 +1783,8 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
         responseObject: <responses.GetReplicationPolicyResponse>{},
         body: await response.json(),
         bodyKey: "replicationPolicy",
-        bodyModel: "model.ReplicationPolicy",
+        bodyModel: model.ReplicationPolicy,
+        type: "model.ReplicationPolicy",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1838,7 +1849,8 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
         responseObject: <responses.GetRetentionRuleResponse>{},
         body: await response.json(),
         bodyKey: "retentionRule",
-        bodyModel: "model.RetentionRule",
+        bodyModel: model.RetentionRule,
+        type: "model.RetentionRule",
         responseHeaders: [
           {
             value: response.headers.get("opc-client-request-id"),
@@ -1911,7 +1923,8 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2210,7 +2223,8 @@ To use this and other API operations, you must be authorized in an IAM policy. I
         responseObject: <responses.ListBucketsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "BucketSummary[]",
+        bodyModel: model.BucketSummary,
+        type: "Array<model.BucketSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-client-request-id"),
@@ -2245,7 +2259,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
    */
   public listAllBuckets(
     request: requests.ListBucketsRequest
-  ): AsyncIterableIterator<models.BucketSummary> {
+  ): AsyncIterableIterator<model.BucketSummary> {
     return paginateRecords(request, req => this.listBuckets(req));
   }
 
@@ -2311,7 +2325,8 @@ To use this and other API operations, you must be authorized in an IAM policy. I
         responseObject: <responses.ListMultipartUploadPartsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "MultipartUploadPartSummary[]",
+        bodyModel: model.MultipartUploadPartSummary,
+        type: "Array<model.MultipartUploadPartSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-client-request-id"),
@@ -2346,7 +2361,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
    */
   public listAllMultipartUploadParts(
     request: requests.ListMultipartUploadPartsRequest
-  ): AsyncIterableIterator<models.MultipartUploadPartSummary> {
+  ): AsyncIterableIterator<model.MultipartUploadPartSummary> {
     return paginateRecords(request, req => this.listMultipartUploadParts(req));
   }
 
@@ -2410,7 +2425,8 @@ To use this and other API operations, you must be authorized in an IAM policy. I
         responseObject: <responses.ListMultipartUploadsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "MultipartUpload[]",
+        bodyModel: model.MultipartUpload,
+        type: "Array<model.MultipartUpload>",
         responseHeaders: [
           {
             value: response.headers.get("opc-client-request-id"),
@@ -2445,7 +2461,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
    */
   public listAllMultipartUploads(
     request: requests.ListMultipartUploadsRequest
-  ): AsyncIterableIterator<models.MultipartUpload> {
+  ): AsyncIterableIterator<model.MultipartUpload> {
     return paginateRecords(request, req => this.listMultipartUploads(req));
   }
 
@@ -2521,7 +2537,8 @@ To use this and other API operations, you must be authorized in an IAM policy. I
         responseObject: <responses.ListObjectVersionsResponse>{},
         body: await response.json(),
         bodyKey: "objectVersionCollection",
-        bodyModel: "model.ObjectVersionCollection",
+        bodyModel: model.ObjectVersionCollection,
+        type: "model.ObjectVersionCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-client-request-id"),
@@ -2608,7 +2625,8 @@ To use this and other API operations, you must be authorized in an IAM policy. I
         responseObject: <responses.ListObjectsResponse>{},
         body: await response.json(),
         bodyKey: "listObjects",
-        bodyModel: "model.ListObjects",
+        bodyModel: model.ListObjects,
+        type: "model.ListObjects",
         responseHeaders: [
           {
             value: response.headers.get("opc-client-request-id"),
@@ -2638,7 +2656,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
    */
   public listAllObjects(
     request: requests.ListObjectsRequest
-  ): AsyncIterableIterator<models.ObjectSummary> {
+  ): AsyncIterableIterator<model.ObjectSummary> {
     return genericPaginateRecords(
       request,
       req => this.listObjects(req),
@@ -2714,7 +2732,8 @@ To use this and other API operations, you must be authorized in an IAM policy. I
         responseObject: <responses.ListPreauthenticatedRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "PreauthenticatedRequestSummary[]",
+        bodyModel: model.PreauthenticatedRequestSummary,
+        type: "Array<model.PreauthenticatedRequestSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-client-request-id"),
@@ -2749,7 +2768,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
    */
   public listAllPreauthenticatedRequests(
     request: requests.ListPreauthenticatedRequestsRequest
-  ): AsyncIterableIterator<models.PreauthenticatedRequestSummary> {
+  ): AsyncIterableIterator<model.PreauthenticatedRequestSummary> {
     return paginateRecords(request, req => this.listPreauthenticatedRequests(req));
   }
 
@@ -2813,7 +2832,8 @@ To use this and other API operations, you must be authorized in an IAM policy. I
         responseObject: <responses.ListReplicationPoliciesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ReplicationPolicySummary[]",
+        bodyModel: model.ReplicationPolicySummary,
+        type: "Array<model.ReplicationPolicySummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2848,7 +2868,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
    */
   public listAllReplicationPolicies(
     request: requests.ListReplicationPoliciesRequest
-  ): AsyncIterableIterator<models.ReplicationPolicySummary> {
+  ): AsyncIterableIterator<model.ReplicationPolicySummary> {
     return paginateRecords(request, req => this.listReplicationPolicies(req));
   }
 
@@ -2912,7 +2932,8 @@ To use this and other API operations, you must be authorized in an IAM policy. I
         responseObject: <responses.ListReplicationSourcesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ReplicationSource[]",
+        bodyModel: model.ReplicationSource,
+        type: "Array<model.ReplicationSource>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2947,7 +2968,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
    */
   public listAllReplicationSources(
     request: requests.ListReplicationSourcesRequest
-  ): AsyncIterableIterator<models.ReplicationSource> {
+  ): AsyncIterableIterator<model.ReplicationSource> {
     return paginateRecords(request, req => this.listReplicationSources(req));
   }
 
@@ -3009,7 +3030,8 @@ To use this and other API operations, you must be authorized in an IAM policy. I
         responseObject: <responses.ListRetentionRulesResponse>{},
         body: await response.json(),
         bodyKey: "retentionRuleCollection",
-        bodyModel: "model.RetentionRuleCollection",
+        bodyModel: model.RetentionRuleCollection,
+        type: "model.RetentionRuleCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3081,7 +3103,8 @@ To use this and other API operations, you must be authorized in an IAM policy. I
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestError[]",
+        bodyModel: model.WorkRequestError,
+        type: "Array<model.WorkRequestError>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3116,7 +3139,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
    */
   public listAllWorkRequestErrors(
     request: requests.ListWorkRequestErrorsRequest
-  ): AsyncIterableIterator<models.WorkRequestError> {
+  ): AsyncIterableIterator<model.WorkRequestError> {
     return paginateRecords(request, req => this.listWorkRequestErrors(req));
   }
 
@@ -3178,7 +3201,8 @@ To use this and other API operations, you must be authorized in an IAM policy. I
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestLogEntry[]",
+        bodyModel: model.WorkRequestLogEntry,
+        type: "Array<model.WorkRequestLogEntry>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3213,7 +3237,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
    */
   public listAllWorkRequestLogs(
     request: requests.ListWorkRequestLogsRequest
-  ): AsyncIterableIterator<models.WorkRequestLogEntry> {
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
     return paginateRecords(request, req => this.listWorkRequestLogs(req));
   }
 
@@ -3274,7 +3298,8 @@ To use this and other API operations, you must be authorized in an IAM policy. I
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestSummary[]",
+        bodyModel: model.WorkRequestSummary,
+        type: "Array<model.WorkRequestSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3309,7 +3334,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
    */
   public listAllWorkRequests(
     request: requests.ListWorkRequestsRequest
-  ): AsyncIterableIterator<models.WorkRequestSummary> {
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
     return paginateRecords(request, req => this.listWorkRequests(req));
   }
 
@@ -3540,7 +3565,7 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
       bodyContent: common.ObjectSerializer.serialize(
         putObjectLifecyclePolicyRequest.putObjectLifecyclePolicyDetails,
         "PutObjectLifecyclePolicyDetails",
-        models.PutObjectLifecyclePolicyDetails.getJsonObj
+        model.PutObjectLifecyclePolicyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3552,7 +3577,8 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
         responseObject: <responses.PutObjectLifecyclePolicyResponse>{},
         body: await response.json(),
         bodyKey: "objectLifecyclePolicy",
-        bodyModel: "model.ObjectLifecyclePolicy",
+        bodyModel: model.ObjectLifecyclePolicy,
+        type: "model.ObjectLifecyclePolicy",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3707,7 +3733,7 @@ You can alternatively employ one of these encryption strategies for an object:
       bodyContent: common.ObjectSerializer.serialize(
         reencryptObjectRequest.reencryptObjectDetails,
         "ReencryptObjectDetails",
-        models.ReencryptObjectDetails.getJsonObj
+        model.ReencryptObjectDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3777,7 +3803,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       bodyContent: common.ObjectSerializer.serialize(
         renameObjectRequest.renameObjectDetails,
         "RenameObjectDetails",
-        models.RenameObjectDetails.getJsonObj
+        model.RenameObjectDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3860,7 +3886,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       bodyContent: common.ObjectSerializer.serialize(
         restoreObjectsRequest.restoreObjectsDetails,
         "RestoreObjectsDetails",
-        models.RestoreObjectsDetails.getJsonObj
+        model.RestoreObjectsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3932,7 +3958,7 @@ Use UpdateBucket to move a bucket from one compartment to another within the sam
       bodyContent: common.ObjectSerializer.serialize(
         updateBucketRequest.updateBucketDetails,
         "UpdateBucketDetails",
-        models.UpdateBucketDetails.getJsonObj
+        model.UpdateBucketDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3944,7 +3970,8 @@ Use UpdateBucket to move a bucket from one compartment to another within the sam
         responseObject: <responses.UpdateBucketResponse>{},
         body: await response.json(),
         bodyKey: "bucket",
-        bodyModel: "model.Bucket",
+        bodyModel: model.Bucket,
+        type: "model.Bucket",
         responseHeaders: [
           {
             value: response.headers.get("opc-client-request-id"),
@@ -4013,7 +4040,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
       bodyContent: common.ObjectSerializer.serialize(
         updateNamespaceMetadataRequest.updateNamespaceMetadataDetails,
         "UpdateNamespaceMetadataDetails",
-        models.UpdateNamespaceMetadataDetails.getJsonObj
+        model.UpdateNamespaceMetadataDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4025,7 +4052,8 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
         responseObject: <responses.UpdateNamespaceMetadataResponse>{},
         body: await response.json(),
         bodyKey: "namespaceMetadata",
-        bodyModel: "model.NamespaceMetadata",
+        bodyModel: model.NamespaceMetadata,
+        type: "model.NamespaceMetadata",
         responseHeaders: [
           {
             value: response.headers.get("opc-client-request-id"),
@@ -4084,7 +4112,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
       bodyContent: common.ObjectSerializer.serialize(
         updateObjectStorageTierRequest.updateObjectStorageTierDetails,
         "UpdateObjectStorageTierDetails",
-        models.UpdateObjectStorageTierDetails.getJsonObj
+        model.UpdateObjectStorageTierDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4154,7 +4182,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
       bodyContent: common.ObjectSerializer.serialize(
         updateRetentionRuleRequest.updateRetentionRuleDetails,
         "UpdateRetentionRuleDetails",
-        models.UpdateRetentionRuleDetails.getJsonObj
+        model.UpdateRetentionRuleDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4166,7 +4194,8 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
         responseObject: <responses.UpdateRetentionRuleResponse>{},
         body: await response.json(),
         bodyKey: "retentionRule",
-        bodyModel: "model.RetentionRule",
+        bodyModel: model.RetentionRule,
+        type: "model.RetentionRule",
         responseHeaders: [
           {
             value: response.headers.get("opc-client-request-id"),

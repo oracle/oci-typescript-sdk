@@ -62,4 +62,9 @@ export namespace HeatWaveClusterTableMemoryEstimate {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HeatWaveClusterTableMemoryEstimate): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

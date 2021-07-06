@@ -35,4 +35,16 @@ export namespace UpdateStorageDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateStorageDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "archivingConfiguration": obj.archivingConfiguration
+          ? model.ArchivingConfiguration.getDeserializedJsonObj(obj.archivingConfiguration)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

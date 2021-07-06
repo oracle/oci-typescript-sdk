@@ -38,4 +38,16 @@ export namespace CreateOsnDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateOsnDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "ocpuAllocationParam": obj.ocpuAllocationParam
+          ? model.OcpuAllocationNumberParam.getDeserializedJsonObj(obj.ocpuAllocationParam)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

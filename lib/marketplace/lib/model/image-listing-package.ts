@@ -56,4 +56,23 @@ export namespace ImageListingPackage {
     return jsonObj;
   }
   export const packageType = "IMAGE";
+  export function getDeserializedJsonObj(
+    obj: ImageListingPackage,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ListingPackage.getDeserializedJsonObj(obj) as ImageListingPackage)),
+      ...{
+        "regions": obj.regions
+          ? obj.regions.map(item => {
+              return model.Region.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -159,4 +159,20 @@ export namespace ExternalNonContainerDatabaseSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExternalNonContainerDatabaseSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "operationsInsightsConfig": obj.operationsInsightsConfig
+          ? model.OperationsInsightsConfig.getDeserializedJsonObj(obj.operationsInsightsConfig)
+          : undefined,
+
+        "databaseManagementConfig": obj.databaseManagementConfig
+          ? model.DatabaseManagementConfig.getDeserializedJsonObj(obj.databaseManagementConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

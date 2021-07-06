@@ -73,4 +73,9 @@ export namespace CreateCertificateDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateCertificateDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

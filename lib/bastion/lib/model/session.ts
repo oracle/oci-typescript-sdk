@@ -104,4 +104,20 @@ export namespace Session {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Session): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "targetResourceDetails": obj.targetResourceDetails
+          ? model.TargetResourceDetails.getDeserializedJsonObj(obj.targetResourceDetails)
+          : undefined,
+
+        "keyDetails": obj.keyDetails
+          ? model.PublicKeyDetails.getDeserializedJsonObj(obj.keyDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

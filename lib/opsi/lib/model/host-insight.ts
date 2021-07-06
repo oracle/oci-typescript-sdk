@@ -104,4 +104,20 @@ export namespace HostInsight {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HostInsight): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("entitySource" in obj && obj.entitySource) {
+      switch (obj.entitySource) {
+        case "MACS_MANAGED_EXTERNAL_HOST":
+          return model.MacsManagedExternalHostInsight.getDeserializedJsonObj(
+            <model.MacsManagedExternalHostInsight>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.entitySource);
+      }
+    }
+    return jsonObj;
+  }
 }

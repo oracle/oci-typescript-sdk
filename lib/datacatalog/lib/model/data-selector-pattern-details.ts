@@ -31,4 +31,9 @@ export namespace DataSelectorPatternDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DataSelectorPatternDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

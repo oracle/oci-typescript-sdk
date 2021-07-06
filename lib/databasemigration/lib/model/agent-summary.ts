@@ -90,4 +90,9 @@ export namespace AgentSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AgentSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

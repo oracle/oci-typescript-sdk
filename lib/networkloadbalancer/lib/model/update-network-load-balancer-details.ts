@@ -59,4 +59,9 @@ export namespace UpdateNetworkLoadBalancerDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateNetworkLoadBalancerDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

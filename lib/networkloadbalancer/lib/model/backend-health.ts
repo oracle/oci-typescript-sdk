@@ -67,4 +67,18 @@ export namespace BackendHealth {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BackendHealth): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "healthCheckResults": obj.healthCheckResults
+          ? obj.healthCheckResults.map(item => {
+              return model.HealthCheckResult.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

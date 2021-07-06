@@ -41,4 +41,17 @@ export namespace DeltaCommandDescriptor {
     return jsonObj;
   }
   export const name = "DELTA";
+  export function getDeserializedJsonObj(
+    obj: DeltaCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(obj) as DeltaCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

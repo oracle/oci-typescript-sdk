@@ -27,4 +27,9 @@ export namespace UpdateSwiftPasswordDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateSwiftPasswordDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

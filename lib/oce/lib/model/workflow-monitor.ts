@@ -47,4 +47,18 @@ export namespace WorkflowMonitor {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WorkflowMonitor): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "workflowSteps": obj.workflowSteps
+          ? obj.workflowSteps.map(item => {
+              return model.WorkflowStep.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

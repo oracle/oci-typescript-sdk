@@ -120,4 +120,24 @@ export namespace RuleSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RuleSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "attributes": obj.attributes
+          ? obj.attributes.map(item => {
+              return model.RuleAttribute.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "referencedAttributes": obj.referencedAttributes
+          ? obj.referencedAttributes.map(item => {
+              return model.RuleAttribute.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

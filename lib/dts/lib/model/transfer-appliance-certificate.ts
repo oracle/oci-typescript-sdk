@@ -24,4 +24,9 @@ export namespace TransferApplianceCertificate {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TransferApplianceCertificate): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -40,4 +40,20 @@ export namespace LogAnalyticsSourceExtendedFieldDefinitionCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: LogAnalyticsSourceExtendedFieldDefinitionCollection
+  ): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.LogAnalyticsSourceExtendedFieldDefinition.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

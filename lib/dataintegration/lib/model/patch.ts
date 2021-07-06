@@ -131,4 +131,29 @@ export namespace Patch {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Patch): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dependentObjectMetadata": obj.dependentObjectMetadata
+          ? obj.dependentObjectMetadata.map(item => {
+              return model.PatchObjectMetadata.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "patchObjectMetadata": obj.patchObjectMetadata
+          ? obj.patchObjectMetadata.map(item => {
+              return model.PatchObjectMetadata.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+        "metadata": obj.metadata
+          ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

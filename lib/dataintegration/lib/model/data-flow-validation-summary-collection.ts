@@ -39,4 +39,18 @@ export namespace DataFlowValidationSummaryCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DataFlowValidationSummaryCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.DataFlowValidationSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

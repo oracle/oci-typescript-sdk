@@ -151,4 +151,21 @@ export namespace Gateway {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Gateway): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "ipAddresses": obj.ipAddresses
+          ? obj.ipAddresses.map(item => {
+              return model.IpAddress.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "responseCacheDetails": obj.responseCacheDetails
+          ? model.ResponseCacheDetails.getDeserializedJsonObj(obj.responseCacheDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

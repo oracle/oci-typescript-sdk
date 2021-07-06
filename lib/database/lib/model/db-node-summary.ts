@@ -111,4 +111,9 @@ export namespace DbNodeSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DbNodeSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

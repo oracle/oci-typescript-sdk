@@ -59,4 +59,12 @@ export namespace LimitItem {
     return jsonObj;
   }
   export const type = "limit";
+  export function getDeserializedJsonObj(obj: LimitItem, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Item.getDeserializedJsonObj(obj) as LimitItem)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

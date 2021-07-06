@@ -80,4 +80,27 @@ export namespace JwtAuthenticationPolicy {
     return jsonObj;
   }
   export const type = "JWT_AUTHENTICATION";
+  export function getDeserializedJsonObj(
+    obj: JwtAuthenticationPolicy,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AuthenticationPolicy.getDeserializedJsonObj(obj) as JwtAuthenticationPolicy)),
+      ...{
+        "verifyClaims": obj.verifyClaims
+          ? obj.verifyClaims.map(item => {
+              return model.JsonWebTokenClaim.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "publicKeys": obj.publicKeys
+          ? model.PublicKeySet.getDeserializedJsonObj(obj.publicKeys)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

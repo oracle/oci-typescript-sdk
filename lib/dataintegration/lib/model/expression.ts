@@ -57,4 +57,20 @@ export namespace Expression {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Expression): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "configValues": obj.configValues
+          ? model.ConfigValues.getDeserializedJsonObj(obj.configValues)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

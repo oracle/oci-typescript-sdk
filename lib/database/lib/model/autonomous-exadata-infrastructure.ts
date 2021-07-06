@@ -153,4 +153,16 @@ export namespace AutonomousExadataInfrastructure {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutonomousExadataInfrastructure): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "maintenanceWindow": obj.maintenanceWindow
+          ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

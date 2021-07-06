@@ -38,4 +38,17 @@ export namespace AbsoluteWaitCriteriaSummary {
     return jsonObj;
   }
   export const waitType = "ABSOLUTE_WAIT";
+  export function getDeserializedJsonObj(
+    obj: AbsoluteWaitCriteriaSummary,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.WaitCriteriaSummary.getDeserializedJsonObj(obj) as AbsoluteWaitCriteriaSummary)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

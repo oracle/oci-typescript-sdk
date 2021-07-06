@@ -33,4 +33,9 @@ export namespace AttachedViewDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AttachedViewDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

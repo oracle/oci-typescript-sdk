@@ -44,4 +44,17 @@ export namespace CreateStreamingServiceActionDetails {
     return jsonObj;
   }
   export const actionType = "OSS";
+  export function getDeserializedJsonObj(
+    obj: CreateStreamingServiceActionDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ActionDetails.getDeserializedJsonObj(obj) as CreateStreamingServiceActionDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

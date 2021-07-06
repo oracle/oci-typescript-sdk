@@ -100,4 +100,9 @@ export namespace TagDefault {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TagDefault): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

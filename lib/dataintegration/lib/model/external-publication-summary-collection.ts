@@ -39,4 +39,18 @@ export namespace ExternalPublicationSummaryCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExternalPublicationSummaryCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ExternalPublicationSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

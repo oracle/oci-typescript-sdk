@@ -62,4 +62,32 @@ export namespace InstanceAgentCommandExecutionOutputContent {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceAgentCommandExecutionOutputContent): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("outputType" in obj && obj.outputType) {
+      switch (obj.outputType) {
+        case "TEXT":
+          return model.InstanceAgentCommandExecutionOutputViaTextDetails.getDeserializedJsonObj(
+            <model.InstanceAgentCommandExecutionOutputViaTextDetails>(<object>jsonObj),
+            true
+          );
+        case "OBJECT_STORAGE_URI":
+          return model.InstanceAgentCommandExecutionOutputViaObjectStorageUriDetails.getDeserializedJsonObj(
+            <model.InstanceAgentCommandExecutionOutputViaObjectStorageUriDetails>(<object>jsonObj),
+            true
+          );
+        case "OBJECT_STORAGE_TUPLE":
+          return model.InstanceAgentCommandExecutionOutputViaObjectStorageTupleDetails.getDeserializedJsonObj(
+            <model.InstanceAgentCommandExecutionOutputViaObjectStorageTupleDetails>(
+              (<object>jsonObj)
+            ),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.outputType);
+      }
+    }
+    return jsonObj;
+  }
 }

@@ -141,4 +141,9 @@ export namespace UpdateSSLCipherSuiteDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateSSLCipherSuiteDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

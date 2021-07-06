@@ -33,7 +33,10 @@ export enum PackageUpdateTypes {
 }
 
 export namespace PackageUpdateTypes {
-  export function getJsonObj(obj: PackageUpdateTypes): object {
-    return { obj };
+  export function getJsonObj(obj: PackageUpdateTypes): PackageUpdateTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: PackageUpdateTypes): PackageUpdateTypes {
+    return obj;
   }
 }

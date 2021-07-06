@@ -39,4 +39,9 @@ export namespace InstanceCredentials {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceCredentials): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

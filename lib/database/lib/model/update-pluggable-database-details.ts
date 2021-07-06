@@ -44,4 +44,9 @@ export namespace UpdatePluggableDatabaseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdatePluggableDatabaseDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

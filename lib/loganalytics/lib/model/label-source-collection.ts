@@ -41,4 +41,18 @@ export namespace LabelSourceCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LabelSourceCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.LabelSourceSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

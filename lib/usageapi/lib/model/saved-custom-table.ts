@@ -72,4 +72,18 @@ export namespace SavedCustomTable {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SavedCustomTable): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "groupByTag": obj.groupByTag
+          ? obj.groupByTag.map(item => {
+              return model.Tag.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

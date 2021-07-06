@@ -142,4 +142,16 @@ export namespace FileSystem {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FileSystem): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sourceDetails": obj.sourceDetails
+          ? model.SourceDetails.getDeserializedJsonObj(obj.sourceDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

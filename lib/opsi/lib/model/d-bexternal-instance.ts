@@ -85,4 +85,19 @@ export namespace DBExternalInstance {
     return jsonObj;
   }
   export const metricName = "DB_EXTERNAL_INSTANCE";
+  export function getDeserializedJsonObj(
+    obj: DBExternalInstance,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DatabaseConfigurationMetricGroup.getDeserializedJsonObj(
+            obj
+          ) as DBExternalInstance)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

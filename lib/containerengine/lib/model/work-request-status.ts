@@ -36,7 +36,10 @@ export enum WorkRequestStatus {
 }
 
 export namespace WorkRequestStatus {
-  export function getJsonObj(obj: WorkRequestStatus): object {
-    return { obj };
+  export function getJsonObj(obj: WorkRequestStatus): WorkRequestStatus {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: WorkRequestStatus): WorkRequestStatus {
+    return obj;
   }
 }

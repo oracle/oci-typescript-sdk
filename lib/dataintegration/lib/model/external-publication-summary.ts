@@ -110,4 +110,26 @@ export namespace ExternalPublicationSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExternalPublicationSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "resourceConfiguration": obj.resourceConfiguration
+          ? model.ResourceConfiguration.getDeserializedJsonObj(obj.resourceConfiguration)
+          : undefined,
+        "configurationDetails": obj.configurationDetails
+          ? model.ConfigurationDetails.getDeserializedJsonObj(obj.configurationDetails)
+          : undefined,
+
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+        "metadata": obj.metadata
+          ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

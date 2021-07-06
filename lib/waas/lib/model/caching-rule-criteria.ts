@@ -55,4 +55,9 @@ export namespace CachingRuleCriteria {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CachingRuleCriteria): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

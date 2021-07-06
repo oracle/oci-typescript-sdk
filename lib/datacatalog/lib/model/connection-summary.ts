@@ -70,4 +70,9 @@ export namespace ConnectionSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConnectionSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

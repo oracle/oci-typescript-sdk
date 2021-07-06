@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { StreamAdminWaiter } from "./streamadmin-waiter";
@@ -115,7 +115,8 @@ export class StreamClient {
         responseObject: <responses.ConsumerCommitResponse>{},
         body: await response.json(),
         bodyKey: "cursor",
-        bodyModel: "model.Cursor",
+        bodyModel: model.Cursor,
+        type: "model.Cursor",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -176,7 +177,8 @@ export class StreamClient {
         responseObject: <responses.ConsumerHeartbeatResponse>{},
         body: await response.json(),
         bodyKey: "cursor",
-        bodyModel: "model.Cursor",
+        bodyModel: model.Cursor,
+        type: "model.Cursor",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -232,7 +234,7 @@ export class StreamClient {
       bodyContent: common.ObjectSerializer.serialize(
         createCursorRequest.createCursorDetails,
         "CreateCursorDetails",
-        models.CreateCursorDetails.getJsonObj
+        model.CreateCursorDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -244,7 +246,8 @@ export class StreamClient {
         responseObject: <responses.CreateCursorResponse>{},
         body: await response.json(),
         bodyKey: "cursor",
-        bodyModel: "model.Cursor",
+        bodyModel: model.Cursor,
+        type: "model.Cursor",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -296,7 +299,7 @@ export class StreamClient {
       bodyContent: common.ObjectSerializer.serialize(
         createGroupCursorRequest.createGroupCursorDetails,
         "CreateGroupCursorDetails",
-        models.CreateGroupCursorDetails.getJsonObj
+        model.CreateGroupCursorDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -308,7 +311,8 @@ export class StreamClient {
         responseObject: <responses.CreateGroupCursorResponse>{},
         body: await response.json(),
         bodyKey: "cursor",
-        bodyModel: "model.Cursor",
+        bodyModel: model.Cursor,
+        type: "model.Cursor",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -368,7 +372,8 @@ export class StreamClient {
         responseObject: <responses.GetGroupResponse>{},
         body: await response.json(),
         bodyKey: "group",
-        bodyModel: "model.Group",
+        bodyModel: model.Group,
+        type: "model.Group",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -432,7 +437,8 @@ export class StreamClient {
         responseObject: <responses.GetMessagesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Message[]",
+        bodyModel: model.Message,
+        type: "Array<model.Message>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-cursor"),
@@ -492,7 +498,7 @@ export class StreamClient {
       bodyContent: common.ObjectSerializer.serialize(
         putMessagesRequest.putMessagesDetails,
         "PutMessagesDetails",
-        models.PutMessagesDetails.getJsonObj
+        model.PutMessagesDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -504,7 +510,8 @@ export class StreamClient {
         responseObject: <responses.PutMessagesResponse>{},
         body: await response.json(),
         bodyKey: "putMessagesResult",
-        bodyModel: "model.PutMessagesResult",
+        bodyModel: model.PutMessagesResult,
+        type: "model.PutMessagesResult",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -557,7 +564,7 @@ export class StreamClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateGroupRequest.updateGroupDetails,
         "UpdateGroupDetails",
-        models.UpdateGroupDetails.getJsonObj
+        model.UpdateGroupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -726,7 +733,7 @@ export class StreamAdminClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeConnectHarnessCompartmentRequest.changeConnectHarnessCompartmentDetails,
         "ChangeConnectHarnessCompartmentDetails",
-        models.ChangeConnectHarnessCompartmentDetails.getJsonObj
+        model.ChangeConnectHarnessCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -791,7 +798,7 @@ export class StreamAdminClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeStreamCompartmentRequest.changeStreamCompartmentDetails,
         "ChangeStreamCompartmentDetails",
-        models.ChangeStreamCompartmentDetails.getJsonObj
+        model.ChangeStreamCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -853,7 +860,7 @@ export class StreamAdminClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeStreamPoolCompartmentRequest.changeStreamPoolCompartmentDetails,
         "ChangeStreamPoolCompartmentDetails",
-        models.ChangeStreamPoolCompartmentDetails.getJsonObj
+        model.ChangeStreamPoolCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -914,7 +921,7 @@ export class StreamAdminClient {
       bodyContent: common.ObjectSerializer.serialize(
         createConnectHarnessRequest.createConnectHarnessDetails,
         "CreateConnectHarnessDetails",
-        models.CreateConnectHarnessDetails.getJsonObj
+        model.CreateConnectHarnessDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -926,7 +933,8 @@ export class StreamAdminClient {
         responseObject: <responses.CreateConnectHarnessResponse>{},
         body: await response.json(),
         bodyKey: "connectHarness",
-        bodyModel: "model.ConnectHarness",
+        bodyModel: model.ConnectHarness,
+        type: "model.ConnectHarness",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -985,7 +993,7 @@ export class StreamAdminClient {
       bodyContent: common.ObjectSerializer.serialize(
         createStreamRequest.createStreamDetails,
         "CreateStreamDetails",
-        models.CreateStreamDetails.getJsonObj
+        model.CreateStreamDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -997,7 +1005,8 @@ export class StreamAdminClient {
         responseObject: <responses.CreateStreamResponse>{},
         body: await response.json(),
         bodyKey: "stream",
-        bodyModel: "model.Stream",
+        bodyModel: model.Stream,
+        type: "model.Stream",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1055,7 +1064,7 @@ export class StreamAdminClient {
       bodyContent: common.ObjectSerializer.serialize(
         createStreamPoolRequest.createStreamPoolDetails,
         "CreateStreamPoolDetails",
-        models.CreateStreamPoolDetails.getJsonObj
+        model.CreateStreamPoolDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1067,7 +1076,8 @@ export class StreamAdminClient {
         responseObject: <responses.CreateStreamPoolResponse>{},
         body: await response.json(),
         bodyKey: "streamPool",
-        bodyModel: "model.StreamPool",
+        bodyModel: model.StreamPool,
+        type: "model.StreamPool",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1310,7 +1320,8 @@ export class StreamAdminClient {
         responseObject: <responses.GetConnectHarnessResponse>{},
         body: await response.json(),
         bodyKey: "connectHarness",
-        bodyModel: "model.ConnectHarness",
+        bodyModel: model.ConnectHarness,
+        type: "model.ConnectHarness",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1373,7 +1384,8 @@ export class StreamAdminClient {
         responseObject: <responses.GetStreamResponse>{},
         body: await response.json(),
         bodyKey: "stream",
-        bodyModel: "model.Stream",
+        bodyModel: model.Stream,
+        type: "model.Stream",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1436,7 +1448,8 @@ export class StreamAdminClient {
         responseObject: <responses.GetStreamPoolResponse>{},
         body: await response.json(),
         bodyKey: "streamPool",
-        bodyModel: "model.StreamPool",
+        bodyModel: model.StreamPool,
+        type: "model.StreamPool",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1506,7 +1519,8 @@ export class StreamAdminClient {
         responseObject: <responses.ListConnectHarnessesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ConnectHarnessSummary[]",
+        bodyModel: model.ConnectHarnessSummary,
+        type: "Array<model.ConnectHarnessSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1541,7 +1555,7 @@ export class StreamAdminClient {
    */
   public listAllConnectHarnesses(
     request: requests.ListConnectHarnessesRequest
-  ): AsyncIterableIterator<models.ConnectHarnessSummary> {
+  ): AsyncIterableIterator<model.ConnectHarnessSummary> {
     return paginateRecords(request, req => this.listConnectHarnesses(req));
   }
 
@@ -1606,7 +1620,8 @@ export class StreamAdminClient {
         responseObject: <responses.ListStreamPoolsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "StreamPoolSummary[]",
+        bodyModel: model.StreamPoolSummary,
+        type: "Array<model.StreamPoolSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1641,7 +1656,7 @@ export class StreamAdminClient {
    */
   public listAllStreamPools(
     request: requests.ListStreamPoolsRequest
-  ): AsyncIterableIterator<models.StreamPoolSummary> {
+  ): AsyncIterableIterator<model.StreamPoolSummary> {
     return paginateRecords(request, req => this.listStreamPools(req));
   }
 
@@ -1711,7 +1726,8 @@ export class StreamAdminClient {
         responseObject: <responses.ListStreamsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "StreamSummary[]",
+        bodyModel: model.StreamSummary,
+        type: "Array<model.StreamSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1746,7 +1762,7 @@ export class StreamAdminClient {
    */
   public listAllStreams(
     request: requests.ListStreamsRequest
-  ): AsyncIterableIterator<models.StreamSummary> {
+  ): AsyncIterableIterator<model.StreamSummary> {
     return paginateRecords(request, req => this.listStreams(req));
   }
 
@@ -1799,7 +1815,7 @@ export class StreamAdminClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateConnectHarnessRequest.updateConnectHarnessDetails,
         "UpdateConnectHarnessDetails",
-        models.UpdateConnectHarnessDetails.getJsonObj
+        model.UpdateConnectHarnessDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1811,7 +1827,8 @@ export class StreamAdminClient {
         responseObject: <responses.UpdateConnectHarnessResponse>{},
         body: await response.json(),
         bodyKey: "connectHarness",
-        bodyModel: "model.ConnectHarness",
+        bodyModel: model.ConnectHarness,
+        type: "model.ConnectHarness",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1869,7 +1886,7 @@ export class StreamAdminClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateStreamRequest.updateStreamDetails,
         "UpdateStreamDetails",
-        models.UpdateStreamDetails.getJsonObj
+        model.UpdateStreamDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1881,7 +1898,8 @@ export class StreamAdminClient {
         responseObject: <responses.UpdateStreamResponse>{},
         body: await response.json(),
         bodyKey: "stream",
-        bodyModel: "model.Stream",
+        bodyModel: model.Stream,
+        type: "model.Stream",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1939,7 +1957,7 @@ export class StreamAdminClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateStreamPoolRequest.updateStreamPoolDetails,
         "UpdateStreamPoolDetails",
-        models.UpdateStreamPoolDetails.getJsonObj
+        model.UpdateStreamPoolDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1951,7 +1969,8 @@ export class StreamAdminClient {
         responseObject: <responses.UpdateStreamPoolResponse>{},
         body: await response.json(),
         bodyKey: "streamPool",
-        bodyModel: "model.StreamPool",
+        bodyModel: model.StreamPool,
+        type: "model.StreamPool",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

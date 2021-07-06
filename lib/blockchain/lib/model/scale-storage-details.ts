@@ -30,4 +30,9 @@ export namespace ScaleStorageDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ScaleStorageDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

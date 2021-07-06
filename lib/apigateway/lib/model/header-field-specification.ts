@@ -37,4 +37,9 @@ export namespace HeaderFieldSpecification {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HeaderFieldSpecification): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

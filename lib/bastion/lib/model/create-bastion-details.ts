@@ -73,4 +73,9 @@ export namespace CreateBastionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateBastionDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

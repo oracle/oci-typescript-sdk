@@ -53,4 +53,9 @@ export namespace HealthCheckResult {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HealthCheckResult): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

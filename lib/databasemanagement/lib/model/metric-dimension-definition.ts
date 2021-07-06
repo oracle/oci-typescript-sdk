@@ -37,4 +37,9 @@ export namespace MetricDimensionDefinition {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MetricDimensionDefinition): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

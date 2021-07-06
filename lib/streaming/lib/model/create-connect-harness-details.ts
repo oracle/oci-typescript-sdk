@@ -52,4 +52,9 @@ export namespace CreateConnectHarnessDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateConnectHarnessDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

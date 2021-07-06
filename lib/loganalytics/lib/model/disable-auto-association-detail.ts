@@ -32,4 +32,9 @@ export namespace DisableAutoAssociationDetail {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DisableAutoAssociationDetail): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

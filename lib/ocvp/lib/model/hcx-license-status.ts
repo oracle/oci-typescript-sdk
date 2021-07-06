@@ -32,7 +32,10 @@ export enum HcxLicenseStatus {
 }
 
 export namespace HcxLicenseStatus {
-  export function getJsonObj(obj: HcxLicenseStatus): object {
-    return { obj };
+  export function getJsonObj(obj: HcxLicenseStatus): HcxLicenseStatus {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: HcxLicenseStatus): HcxLicenseStatus {
+    return obj;
   }
 }

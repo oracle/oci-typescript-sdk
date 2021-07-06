@@ -133,4 +133,9 @@ export namespace Vlan {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Vlan): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

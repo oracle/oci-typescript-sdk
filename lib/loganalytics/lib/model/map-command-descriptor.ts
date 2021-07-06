@@ -35,4 +35,17 @@ export namespace MapCommandDescriptor {
     return jsonObj;
   }
   export const name = "MAP";
+  export function getDeserializedJsonObj(
+    obj: MapCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(obj) as MapCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

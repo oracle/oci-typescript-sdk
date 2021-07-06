@@ -33,4 +33,9 @@ export namespace SupportedSkuSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SupportedSkuSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

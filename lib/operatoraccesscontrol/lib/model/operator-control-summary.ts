@@ -75,4 +75,9 @@ export namespace OperatorControlSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: OperatorControlSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

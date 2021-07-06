@@ -125,4 +125,18 @@ export namespace CreateManagementDashboardDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateManagementDashboardDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "tiles": obj.tiles
+          ? obj.tiles.map(item => {
+              return model.ManagementDashboardTileDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

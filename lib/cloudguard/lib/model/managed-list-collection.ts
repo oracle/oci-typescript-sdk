@@ -39,4 +39,18 @@ export namespace ManagedListCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ManagedListCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ManagedListSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

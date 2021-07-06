@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { ManagementAgentWaiter } from "./managementagent-waiter";
@@ -167,7 +167,7 @@ export class ManagementAgentClient {
       bodyContent: common.ObjectSerializer.serialize(
         createManagementAgentInstallKeyRequest.createManagementAgentInstallKeyDetails,
         "CreateManagementAgentInstallKeyDetails",
-        models.CreateManagementAgentInstallKeyDetails.getJsonObj
+        model.CreateManagementAgentInstallKeyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -179,7 +179,8 @@ export class ManagementAgentClient {
         responseObject: <responses.CreateManagementAgentInstallKeyResponse>{},
         body: await response.json(),
         bodyKey: "managementAgentInstallKey",
-        bodyModel: "model.ManagementAgentInstallKey",
+        bodyModel: model.ManagementAgentInstallKey,
+        type: "model.ManagementAgentInstallKey",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -407,7 +408,7 @@ export class ManagementAgentClient {
       bodyContent: common.ObjectSerializer.serialize(
         deployPluginsRequest.deployPluginsDetails,
         "DeployPluginsDetails",
-        models.DeployPluginsDetails.getJsonObj
+        model.DeployPluginsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -480,7 +481,8 @@ export class ManagementAgentClient {
         responseObject: <responses.GetManagementAgentResponse>{},
         body: await response.json(),
         bodyKey: "managementAgent",
-        bodyModel: "model.ManagementAgent",
+        bodyModel: model.ManagementAgent,
+        type: "model.ManagementAgent",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -545,7 +547,8 @@ export class ManagementAgentClient {
         responseObject: <responses.GetManagementAgentInstallKeyResponse>{},
         body: await response.json(),
         bodyKey: "managementAgentInstallKey",
-        bodyModel: "model.ManagementAgentInstallKey",
+        bodyModel: model.ManagementAgentInstallKey,
+        type: "model.ManagementAgentInstallKey",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -684,7 +687,8 @@ export class ManagementAgentClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -762,7 +766,8 @@ export class ManagementAgentClient {
         responseObject: <responses.ListAvailabilityHistoriesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AvailabilityHistorySummary[]",
+        bodyModel: model.AvailabilityHistorySummary,
+        type: "Array<model.AvailabilityHistorySummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -792,7 +797,7 @@ export class ManagementAgentClient {
    */
   public listAllAvailabilityHistories(
     request: requests.ListAvailabilityHistoriesRequest
-  ): AsyncIterableIterator<models.AvailabilityHistorySummary> {
+  ): AsyncIterableIterator<model.AvailabilityHistorySummary> {
     return paginateRecords(request, req => this.listAvailabilityHistories(req));
   }
 
@@ -859,7 +864,8 @@ export class ManagementAgentClient {
         responseObject: <responses.ListManagementAgentImagesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ManagementAgentImageSummary[]",
+        bodyModel: model.ManagementAgentImageSummary,
+        type: "Array<model.ManagementAgentImageSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -889,7 +895,7 @@ export class ManagementAgentClient {
    */
   public listAllManagementAgentImages(
     request: requests.ListManagementAgentImagesRequest
-  ): AsyncIterableIterator<models.ManagementAgentImageSummary> {
+  ): AsyncIterableIterator<model.ManagementAgentImageSummary> {
     return paginateRecords(request, req => this.listManagementAgentImages(req));
   }
 
@@ -956,7 +962,8 @@ export class ManagementAgentClient {
         responseObject: <responses.ListManagementAgentInstallKeysResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ManagementAgentInstallKeySummary[]",
+        bodyModel: model.ManagementAgentInstallKeySummary,
+        type: "Array<model.ManagementAgentInstallKeySummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -986,7 +993,7 @@ export class ManagementAgentClient {
    */
   public listAllManagementAgentInstallKeys(
     request: requests.ListManagementAgentInstallKeysRequest
-  ): AsyncIterableIterator<models.ManagementAgentInstallKeySummary> {
+  ): AsyncIterableIterator<model.ManagementAgentInstallKeySummary> {
     return paginateRecords(request, req => this.listManagementAgentInstallKeys(req));
   }
 
@@ -1052,7 +1059,8 @@ export class ManagementAgentClient {
         responseObject: <responses.ListManagementAgentPluginsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ManagementAgentPluginSummary[]",
+        bodyModel: model.ManagementAgentPluginSummary,
+        type: "Array<model.ManagementAgentPluginSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1082,7 +1090,7 @@ export class ManagementAgentClient {
    */
   public listAllManagementAgentPlugins(
     request: requests.ListManagementAgentPluginsRequest
-  ): AsyncIterableIterator<models.ManagementAgentPluginSummary> {
+  ): AsyncIterableIterator<model.ManagementAgentPluginSummary> {
     return paginateRecords(request, req => this.listManagementAgentPlugins(req));
   }
 
@@ -1151,7 +1159,8 @@ export class ManagementAgentClient {
         responseObject: <responses.ListManagementAgentsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ManagementAgentSummary[]",
+        bodyModel: model.ManagementAgentSummary,
+        type: "Array<model.ManagementAgentSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1181,7 +1190,7 @@ export class ManagementAgentClient {
    */
   public listAllManagementAgents(
     request: requests.ListManagementAgentsRequest
-  ): AsyncIterableIterator<models.ManagementAgentSummary> {
+  ): AsyncIterableIterator<model.ManagementAgentSummary> {
     return paginateRecords(request, req => this.listManagementAgents(req));
   }
 
@@ -1246,7 +1255,8 @@ export class ManagementAgentClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestError[]",
+        bodyModel: model.WorkRequestError,
+        type: "Array<model.WorkRequestError>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1276,7 +1286,7 @@ export class ManagementAgentClient {
    */
   public listAllWorkRequestErrors(
     request: requests.ListWorkRequestErrorsRequest
-  ): AsyncIterableIterator<models.WorkRequestError> {
+  ): AsyncIterableIterator<model.WorkRequestError> {
     return paginateRecords(request, req => this.listWorkRequestErrors(req));
   }
 
@@ -1341,7 +1351,8 @@ export class ManagementAgentClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestLogEntry[]",
+        bodyModel: model.WorkRequestLogEntry,
+        type: "Array<model.WorkRequestLogEntry>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1371,7 +1382,7 @@ export class ManagementAgentClient {
    */
   public listAllWorkRequestLogs(
     request: requests.ListWorkRequestLogsRequest
-  ): AsyncIterableIterator<models.WorkRequestLogEntry> {
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
     return paginateRecords(request, req => this.listWorkRequestLogs(req));
   }
 
@@ -1437,7 +1448,8 @@ export class ManagementAgentClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestSummary[]",
+        bodyModel: model.WorkRequestSummary,
+        type: "Array<model.WorkRequestSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1467,7 +1479,7 @@ export class ManagementAgentClient {
    */
   public listAllWorkRequests(
     request: requests.ListWorkRequestsRequest
-  ): AsyncIterableIterator<models.WorkRequestSummary> {
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
     return paginateRecords(request, req => this.listWorkRequests(req));
   }
 
@@ -1522,7 +1534,7 @@ export class ManagementAgentClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateManagementAgentRequest.updateManagementAgentDetails,
         "UpdateManagementAgentDetails",
-        models.UpdateManagementAgentDetails.getJsonObj
+        model.UpdateManagementAgentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1534,7 +1546,8 @@ export class ManagementAgentClient {
         responseObject: <responses.UpdateManagementAgentResponse>{},
         body: await response.json(),
         bodyKey: "managementAgent",
-        bodyModel: "model.ManagementAgent",
+        bodyModel: model.ManagementAgent,
+        type: "model.ManagementAgent",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1595,7 +1608,7 @@ export class ManagementAgentClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateManagementAgentInstallKeyRequest.updateManagementAgentInstallKeyDetails,
         "UpdateManagementAgentInstallKeyDetails",
-        models.UpdateManagementAgentInstallKeyDetails.getJsonObj
+        model.UpdateManagementAgentInstallKeyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1607,7 +1620,8 @@ export class ManagementAgentClient {
         responseObject: <responses.UpdateManagementAgentInstallKeyResponse>{},
         body: await response.json(),
         bodyKey: "managementAgentInstallKey",
-        bodyModel: "model.ManagementAgentInstallKey",
+        bodyModel: model.ManagementAgentInstallKey,
+        type: "model.ManagementAgentInstallKey",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

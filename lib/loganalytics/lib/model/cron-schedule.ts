@@ -41,4 +41,12 @@ export namespace CronSchedule {
     return jsonObj;
   }
   export const type = "CRON";
+  export function getDeserializedJsonObj(obj: CronSchedule, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Schedule.getDeserializedJsonObj(obj) as CronSchedule)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

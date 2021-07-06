@@ -41,4 +41,19 @@ export namespace UpdateDataTransferMediumDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDataTransferMediumDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "databaseLinkDetails": obj.databaseLinkDetails
+          ? model.UpdateDatabaseLinkDetails.getDeserializedJsonObj(obj.databaseLinkDetails)
+          : undefined,
+        "objectStorageDetails": obj.objectStorageDetails
+          ? model.UpdateObjectStoreBucket.getDeserializedJsonObj(obj.objectStorageDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

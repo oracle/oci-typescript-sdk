@@ -52,4 +52,16 @@ export namespace UpdateDbHomeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDbHomeDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dbVersion": obj.dbVersion
+          ? model.PatchDetails.getDeserializedJsonObj(obj.dbVersion)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

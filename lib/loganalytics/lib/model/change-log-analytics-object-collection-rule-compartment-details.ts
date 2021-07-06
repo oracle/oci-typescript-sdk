@@ -35,4 +35,11 @@ export namespace ChangeLogAnalyticsObjectCollectionRuleCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: ChangeLogAnalyticsObjectCollectionRuleCompartmentDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

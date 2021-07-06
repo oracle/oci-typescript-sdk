@@ -31,7 +31,10 @@ export enum DatabaseConnectionTypes {
 }
 
 export namespace DatabaseConnectionTypes {
-  export function getJsonObj(obj: DatabaseConnectionTypes): object {
-    return { obj };
+  export function getJsonObj(obj: DatabaseConnectionTypes): DatabaseConnectionTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: DatabaseConnectionTypes): DatabaseConnectionTypes {
+    return obj;
   }
 }

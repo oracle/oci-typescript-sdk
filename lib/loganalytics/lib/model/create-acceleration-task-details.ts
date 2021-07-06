@@ -45,4 +45,19 @@ export namespace CreateAccelerationTaskDetails {
     return jsonObj;
   }
   export const kind = "ACCELERATION";
+  export function getDeserializedJsonObj(
+    obj: CreateAccelerationTaskDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateScheduledTaskDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateAccelerationTaskDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

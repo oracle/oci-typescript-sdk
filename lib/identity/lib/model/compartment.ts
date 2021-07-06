@@ -114,4 +114,9 @@ export namespace Compartment {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Compartment): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

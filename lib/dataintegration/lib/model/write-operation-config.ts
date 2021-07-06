@@ -90,4 +90,37 @@ export namespace WriteOperationConfig {
     return jsonObj;
   }
   export const modelType = "WRITE_OPERATION_CONFIG";
+  export function getDeserializedJsonObj(
+    obj: WriteOperationConfig,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractDataOperationConfig.getDeserializedJsonObj(obj) as WriteOperationConfig)),
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+        "operations": obj.operations
+          ? obj.operations.map(item => {
+              return model.PushDownOperation.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "dataFormat": obj.dataFormat
+          ? model.DataFormat.getDeserializedJsonObj(obj.dataFormat)
+          : undefined,
+        "partitionConfig": obj.partitionConfig
+          ? model.PartitionConfig.getDeserializedJsonObj(obj.partitionConfig)
+          : undefined,
+        "writeAttribute": obj.writeAttribute
+          ? model.AbstractWriteAttribute.getDeserializedJsonObj(obj.writeAttribute)
+          : undefined,
+
+        "mergeKey": obj.mergeKey ? model.UniqueKey.getDeserializedJsonObj(obj.mergeKey) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

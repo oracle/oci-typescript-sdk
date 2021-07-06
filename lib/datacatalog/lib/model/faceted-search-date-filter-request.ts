@@ -42,4 +42,9 @@ export namespace FacetedSearchDateFilterRequest {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FacetedSearchDateFilterRequest): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -71,4 +71,9 @@ export namespace ContainerRepositorySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ContainerRepositorySummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

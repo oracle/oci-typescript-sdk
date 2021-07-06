@@ -55,4 +55,19 @@ export namespace StickyCookieLoadBalancingMethod {
     return jsonObj;
   }
   export const method = "STICKY_COOKIE";
+  export function getDeserializedJsonObj(
+    obj: StickyCookieLoadBalancingMethod,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.LoadBalancingMethod.getDeserializedJsonObj(
+            obj
+          ) as StickyCookieLoadBalancingMethod)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

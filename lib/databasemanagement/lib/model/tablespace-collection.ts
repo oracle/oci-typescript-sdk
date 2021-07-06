@@ -42,4 +42,18 @@ export namespace TablespaceCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TablespaceCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.TablespaceSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

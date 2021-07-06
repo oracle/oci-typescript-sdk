@@ -38,4 +38,20 @@ export namespace CreateChannelSourceDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateChannelSourceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("sourceType" in obj && obj.sourceType) {
+      switch (obj.sourceType) {
+        case "MYSQL":
+          return model.CreateChannelSourceFromMysqlDetails.getDeserializedJsonObj(
+            <model.CreateChannelSourceFromMysqlDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.sourceType);
+      }
+    }
+    return jsonObj;
+  }
 }

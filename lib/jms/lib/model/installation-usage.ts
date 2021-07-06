@@ -84,4 +84,9 @@ export namespace InstallationUsage {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstallationUsage): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

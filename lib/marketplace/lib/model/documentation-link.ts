@@ -38,4 +38,9 @@ export namespace DocumentationLink {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DocumentationLink): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

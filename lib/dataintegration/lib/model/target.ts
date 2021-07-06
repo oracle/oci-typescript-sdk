@@ -78,4 +78,24 @@ export namespace Target {
     return jsonObj;
   }
   export const modelType = "TARGET_OPERATOR";
+  export function getDeserializedJsonObj(obj: Target, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Operator.getDeserializedJsonObj(obj) as Target)),
+      ...{
+        "entity": obj.entity ? model.DataEntity.getDeserializedJsonObj(obj.entity) : undefined,
+
+        "schemaDriftConfig": obj.schemaDriftConfig
+          ? model.SchemaDriftConfig.getDeserializedJsonObj(obj.schemaDriftConfig)
+          : undefined,
+        "fixedDataShape": obj.fixedDataShape
+          ? model.Shape.getDeserializedJsonObj(obj.fixedDataShape)
+          : undefined,
+        "writeOperationConfig": obj.writeOperationConfig
+          ? model.WriteOperationConfig.getDeserializedJsonObj(obj.writeOperationConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

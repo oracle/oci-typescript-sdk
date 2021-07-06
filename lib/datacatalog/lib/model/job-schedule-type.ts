@@ -32,7 +32,10 @@ export enum JobScheduleType {
 }
 
 export namespace JobScheduleType {
-  export function getJsonObj(obj: JobScheduleType): object {
-    return { obj };
+  export function getJsonObj(obj: JobScheduleType): JobScheduleType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: JobScheduleType): JobScheduleType {
+    return obj;
   }
 }

@@ -51,4 +51,17 @@ export namespace ResourcePowerAction {
     return jsonObj;
   }
   export const actionType = "power";
+  export function getDeserializedJsonObj(
+    obj: ResourcePowerAction,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ResourceAction.getDeserializedJsonObj(obj) as ResourcePowerAction)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

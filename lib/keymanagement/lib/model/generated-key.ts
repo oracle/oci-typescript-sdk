@@ -43,4 +43,9 @@ export namespace GeneratedKey {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: GeneratedKey): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

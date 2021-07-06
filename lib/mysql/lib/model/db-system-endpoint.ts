@@ -78,4 +78,9 @@ export namespace DbSystemEndpoint {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DbSystemEndpoint): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

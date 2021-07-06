@@ -29,4 +29,9 @@ export namespace VerifiedData {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VerifiedData): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -76,4 +76,9 @@ export namespace TargetDatabaseSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TargetDatabaseSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

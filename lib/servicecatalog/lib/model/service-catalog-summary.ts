@@ -50,4 +50,9 @@ export namespace ServiceCatalogSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ServiceCatalogSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

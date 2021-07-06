@@ -46,4 +46,19 @@ export namespace CreateTemplateZipUploadConfigSourceDetails {
     return jsonObj;
   }
   export const templateConfigSourceType = "ZIP_UPLOAD";
+  export function getDeserializedJsonObj(
+    obj: CreateTemplateZipUploadConfigSourceDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateTemplateConfigSourceDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateTemplateZipUploadConfigSourceDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

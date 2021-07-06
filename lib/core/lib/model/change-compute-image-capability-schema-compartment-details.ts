@@ -37,4 +37,11 @@ export namespace ChangeComputeImageCapabilitySchemaCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: ChangeComputeImageCapabilitySchemaCompartmentDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

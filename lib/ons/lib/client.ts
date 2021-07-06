@@ -15,7 +15,7 @@ For information about managing topics, subscriptions, and messages, see [Notific
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { NotificationDataPlaneWaiter } from "./notificationdataplane-waiter";
@@ -152,7 +152,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       bodyContent: common.ObjectSerializer.serialize(
         changeTopicCompartmentRequest.changeTopicCompartmentDetails,
         "ChangeCompartmentDetails",
-        models.ChangeCompartmentDetails.getJsonObj
+        model.ChangeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -226,7 +226,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       bodyContent: common.ObjectSerializer.serialize(
         createTopicRequest.createTopicDetails,
         "CreateTopicDetails",
-        models.CreateTopicDetails.getJsonObj
+        model.CreateTopicDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -238,7 +238,8 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
         responseObject: <responses.CreateTopicResponse>{},
         body: await response.json(),
         bodyKey: "notificationTopic",
-        bodyModel: "model.NotificationTopic",
+        bodyModel: model.NotificationTopic,
+        type: "model.NotificationTopic",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -363,7 +364,8 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
         responseObject: <responses.GetTopicResponse>{},
         body: await response.json(),
         bodyKey: "notificationTopic",
-        bodyModel: "model.NotificationTopic",
+        bodyModel: model.NotificationTopic,
+        type: "model.NotificationTopic",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -437,7 +439,8 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 120.
         responseObject: <responses.ListTopicsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "NotificationTopicSummary[]",
+        bodyModel: model.NotificationTopicSummary,
+        type: "Array<model.NotificationTopicSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -472,7 +475,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 120.
    */
   public listAllTopics(
     request: requests.ListTopicsRequest
-  ): AsyncIterableIterator<models.NotificationTopicSummary> {
+  ): AsyncIterableIterator<model.NotificationTopicSummary> {
     return paginateRecords(request, req => this.listTopics(req));
   }
 
@@ -528,7 +531,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       bodyContent: common.ObjectSerializer.serialize(
         updateTopicRequest.topicAttributesDetails,
         "TopicAttributesDetails",
-        models.TopicAttributesDetails.getJsonObj
+        model.TopicAttributesDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -540,7 +543,8 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
         responseObject: <responses.UpdateTopicResponse>{},
         body: await response.json(),
         bodyKey: "notificationTopic",
-        bodyModel: "model.NotificationTopic",
+        bodyModel: model.NotificationTopic,
+        type: "model.NotificationTopic",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -714,7 +718,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       bodyContent: common.ObjectSerializer.serialize(
         changeSubscriptionCompartmentRequest.changeSubscriptionCompartmentDetails,
         "ChangeCompartmentDetails",
-        models.ChangeCompartmentDetails.getJsonObj
+        model.ChangeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -779,7 +783,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       bodyContent: common.ObjectSerializer.serialize(
         createSubscriptionRequest.createSubscriptionDetails,
         "CreateSubscriptionDetails",
-        models.CreateSubscriptionDetails.getJsonObj
+        model.CreateSubscriptionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -791,7 +795,8 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
         responseObject: <responses.CreateSubscriptionResponse>{},
         body: await response.json(),
         bodyKey: "subscription",
-        bodyModel: "model.Subscription",
+        bodyModel: model.Subscription,
+        type: "model.Subscription",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -921,7 +926,8 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
         responseObject: <responses.GetConfirmSubscriptionResponse>{},
         body: await response.json(),
         bodyKey: "confirmationResult",
-        bodyModel: "model.ConfirmationResult",
+        bodyModel: model.ConfirmationResult,
+        type: "model.ConfirmationResult",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -988,7 +994,8 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
         responseObject: <responses.GetSubscriptionResponse>{},
         body: await response.json(),
         bodyKey: "subscription",
-        bodyModel: "model.Subscription",
+        bodyModel: model.Subscription,
+        type: "model.Subscription",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1059,6 +1066,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
         body: await response.json(),
         bodyKey: "value",
         bodyModel: "string",
+        type: "string",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1123,7 +1131,8 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
         responseObject: <responses.ListSubscriptionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "SubscriptionSummary[]",
+        bodyModel: model.SubscriptionSummary,
+        type: "Array<model.SubscriptionSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1153,7 +1162,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
    */
   public listAllSubscriptions(
     request: requests.ListSubscriptionsRequest
-  ): AsyncIterableIterator<models.SubscriptionSummary> {
+  ): AsyncIterableIterator<model.SubscriptionSummary> {
     return paginateRecords(request, req => this.listSubscriptions(req));
   }
 
@@ -1223,7 +1232,7 @@ For more information about publishing messages, see [Publishing Messages](https:
       bodyContent: common.ObjectSerializer.serialize(
         publishMessageRequest.messageDetails,
         "MessageDetails",
-        models.MessageDetails.getJsonObj
+        model.MessageDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1235,7 +1244,8 @@ For more information about publishing messages, see [Publishing Messages](https:
         responseObject: <responses.PublishMessageResponse>{},
         body: await response.json(),
         bodyKey: "publishResult",
-        bodyModel: "model.PublishResult",
+        bodyModel: model.PublishResult,
+        type: "model.PublishResult",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1299,7 +1309,8 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
         responseObject: <responses.ResendSubscriptionConfirmationResponse>{},
         body: await response.json(),
         bodyKey: "subscription",
-        bodyModel: "model.Subscription",
+        bodyModel: model.Subscription,
+        type: "model.Subscription",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1355,7 +1366,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       bodyContent: common.ObjectSerializer.serialize(
         updateSubscriptionRequest.updateSubscriptionDetails,
         "UpdateSubscriptionDetails",
-        models.UpdateSubscriptionDetails.getJsonObj
+        model.UpdateSubscriptionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1367,7 +1378,8 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
         responseObject: <responses.UpdateSubscriptionResponse>{},
         body: await response.json(),
         bodyKey: "updateSubscriptionDetails",
-        bodyModel: "model.UpdateSubscriptionDetails",
+        bodyModel: model.UpdateSubscriptionDetails,
+        type: "model.UpdateSubscriptionDetails",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

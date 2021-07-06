@@ -70,4 +70,9 @@ export namespace CreateEmailDomainDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateEmailDomainDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

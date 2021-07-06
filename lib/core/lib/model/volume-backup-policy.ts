@@ -91,4 +91,18 @@ export namespace VolumeBackupPolicy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VolumeBackupPolicy): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "schedules": obj.schedules
+          ? obj.schedules.map(item => {
+              return model.VolumeBackupSchedule.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

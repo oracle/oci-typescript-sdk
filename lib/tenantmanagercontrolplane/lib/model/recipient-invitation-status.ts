@@ -33,7 +33,12 @@ export enum RecipientInvitationStatus {
 }
 
 export namespace RecipientInvitationStatus {
-  export function getJsonObj(obj: RecipientInvitationStatus): object {
-    return { obj };
+  export function getJsonObj(obj: RecipientInvitationStatus): RecipientInvitationStatus {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: RecipientInvitationStatus
+  ): RecipientInvitationStatus {
+    return obj;
   }
 }

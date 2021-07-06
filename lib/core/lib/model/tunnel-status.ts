@@ -69,4 +69,9 @@ export namespace TunnelStatus {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TunnelStatus): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -73,4 +73,20 @@ export namespace UpdateFolderDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateFolderDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "registryMetadata": obj.registryMetadata
+          ? model.RegistryMetadata.getDeserializedJsonObj(obj.registryMetadata)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

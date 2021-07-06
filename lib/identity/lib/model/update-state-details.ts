@@ -28,4 +28,9 @@ export namespace UpdateStateDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateStateDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -63,4 +63,24 @@ export namespace OracleAdwcWriteAttribute {
     return jsonObj;
   }
   export const modelType = "ORACLEADWCWRITEATTRIBUTE";
+  export function getDeserializedJsonObj(
+    obj: OracleAdwcWriteAttribute,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractWriteAttribute.getDeserializedJsonObj(obj) as OracleAdwcWriteAttribute)),
+      ...{
+        "stagingDataAsset": obj.stagingDataAsset
+          ? model.DataAsset.getDeserializedJsonObj(obj.stagingDataAsset)
+          : undefined,
+        "stagingConnection": obj.stagingConnection
+          ? model.Connection.getDeserializedJsonObj(obj.stagingConnection)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -101,4 +101,9 @@ export namespace DkimSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DkimSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

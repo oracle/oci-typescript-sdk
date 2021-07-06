@@ -96,4 +96,16 @@ export namespace Project {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Project): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "notificationConfig": obj.notificationConfig
+          ? model.NotificationConfig.getDeserializedJsonObj(obj.notificationConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

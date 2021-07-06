@@ -68,4 +68,30 @@ export namespace UniqueKey {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UniqueKey): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "attributeRefs": obj.attributeRefs
+          ? obj.attributeRefs.map(item => {
+              return model.KeyAttribute.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "PRIMARY_KEY":
+          return model.PrimaryKey.getDeserializedJsonObj(<model.PrimaryKey>(<object>jsonObj), true);
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

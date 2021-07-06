@@ -42,4 +42,9 @@ export namespace TaxSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TaxSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

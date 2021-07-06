@@ -34,4 +34,9 @@ export namespace DataAssetPermissionsSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DataAssetPermissionsSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

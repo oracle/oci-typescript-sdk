@@ -101,4 +101,23 @@ export namespace IngressSecurityRule {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IngressSecurityRule): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "icmpOptions": obj.icmpOptions
+          ? model.IcmpOptions.getDeserializedJsonObj(obj.icmpOptions)
+          : undefined,
+
+        "tcpOptions": obj.tcpOptions
+          ? model.TcpOptions.getDeserializedJsonObj(obj.tcpOptions)
+          : undefined,
+        "udpOptions": obj.udpOptions
+          ? model.UdpOptions.getDeserializedJsonObj(obj.udpOptions)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -59,4 +59,30 @@ export namespace DatabaseConfigurationMetricGroup {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseConfigurationMetricGroup): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("metricName" in obj && obj.metricName) {
+      switch (obj.metricName) {
+        case "DB_OS_CONFIG_INSTANCE":
+          return model.DBOSConfigInstance.getDeserializedJsonObj(
+            <model.DBOSConfigInstance>(<object>jsonObj),
+            true
+          );
+        case "DB_EXTERNAL_INSTANCE":
+          return model.DBExternalInstance.getDeserializedJsonObj(
+            <model.DBExternalInstance>(<object>jsonObj),
+            true
+          );
+        case "DB_EXTERNAL_PROPERTIES":
+          return model.DBExternalProperties.getDeserializedJsonObj(
+            <model.DBExternalProperties>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.metricName);
+      }
+    }
+    return jsonObj;
+  }
 }

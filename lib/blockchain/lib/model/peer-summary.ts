@@ -34,4 +34,9 @@ export namespace PeerSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PeerSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

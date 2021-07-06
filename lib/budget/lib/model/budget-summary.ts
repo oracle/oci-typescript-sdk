@@ -123,4 +123,9 @@ export namespace BudgetSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BudgetSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

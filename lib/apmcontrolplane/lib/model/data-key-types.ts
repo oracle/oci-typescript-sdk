@@ -31,7 +31,10 @@ export enum DataKeyTypes {
 }
 
 export namespace DataKeyTypes {
-  export function getJsonObj(obj: DataKeyTypes): object {
-    return { obj };
+  export function getJsonObj(obj: DataKeyTypes): DataKeyTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: DataKeyTypes): DataKeyTypes {
+    return obj;
   }
 }

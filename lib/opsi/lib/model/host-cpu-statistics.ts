@@ -41,4 +41,19 @@ export namespace HostCpuStatistics {
     return jsonObj;
   }
   export const resourceName = "HOST_CPU_STATISTICS";
+  export function getDeserializedJsonObj(
+    obj: HostCpuStatistics,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.HostResourceStatistics.getDeserializedJsonObj(obj) as HostCpuStatistics)),
+      ...{
+        "load": obj.load ? model.SummaryStatistics.getDeserializedJsonObj(obj.load) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

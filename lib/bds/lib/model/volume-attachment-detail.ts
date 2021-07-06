@@ -37,4 +37,9 @@ export namespace VolumeAttachmentDetail {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VolumeAttachmentDetail): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -82,4 +82,16 @@ export namespace DependentObjectSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DependentObjectSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "aggregator": obj.aggregator
+          ? model.AggregatorSummary.getDeserializedJsonObj(obj.aggregator)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

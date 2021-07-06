@@ -43,4 +43,9 @@ export namespace CreateReplicationPolicyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateReplicationPolicyDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

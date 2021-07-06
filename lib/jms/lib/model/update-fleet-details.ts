@@ -46,4 +46,9 @@ export namespace UpdateFleetDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateFleetDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

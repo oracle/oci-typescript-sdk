@@ -32,7 +32,10 @@ export enum InfrastrcutureLayers {
 }
 
 export namespace InfrastrcutureLayers {
-  export function getJsonObj(obj: InfrastrcutureLayers): object {
-    return { obj };
+  export function getJsonObj(obj: InfrastrcutureLayers): InfrastrcutureLayers {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: InfrastrcutureLayers): InfrastrcutureLayers {
+    return obj;
   }
 }

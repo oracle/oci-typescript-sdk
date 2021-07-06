@@ -43,4 +43,9 @@ export namespace AddCloudSqlDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AddCloudSqlDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

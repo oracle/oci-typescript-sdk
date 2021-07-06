@@ -104,4 +104,21 @@ export namespace Job {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Job): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "progress": obj.progress
+          ? model.MigrationJobProgressResource.getDeserializedJsonObj(obj.progress)
+          : undefined,
+        "unsupportedObjects": obj.unsupportedObjects
+          ? obj.unsupportedObjects.map(item => {
+              return model.UnsupportedDatabaseObject.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

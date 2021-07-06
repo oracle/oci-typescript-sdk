@@ -54,4 +54,9 @@ export namespace UpdateInternetGatewayDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateInternetGatewayDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

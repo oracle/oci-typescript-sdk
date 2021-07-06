@@ -41,4 +41,18 @@ export namespace AgentImageCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AgentImageCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.AgentImageSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

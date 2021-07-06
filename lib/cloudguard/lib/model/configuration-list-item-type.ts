@@ -29,7 +29,12 @@ export enum ConfigurationListItemType {
 }
 
 export namespace ConfigurationListItemType {
-  export function getJsonObj(obj: ConfigurationListItemType): object {
-    return { obj };
+  export function getJsonObj(obj: ConfigurationListItemType): ConfigurationListItemType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: ConfigurationListItemType
+  ): ConfigurationListItemType {
+    return obj;
   }
 }

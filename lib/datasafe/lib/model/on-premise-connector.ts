@@ -36,4 +36,17 @@ export namespace OnPremiseConnector {
     return jsonObj;
   }
   export const connectionType = "ONPREM_CONNECTOR";
+  export function getDeserializedJsonObj(
+    obj: OnPremiseConnector,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ConnectionOption.getDeserializedJsonObj(obj) as OnPremiseConnector)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

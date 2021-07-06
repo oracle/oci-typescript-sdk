@@ -87,4 +87,16 @@ export namespace InstanceConfiguration {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceConfiguration): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "instanceDetails": obj.instanceDetails
+          ? model.InstanceConfigurationInstanceDetails.getDeserializedJsonObj(obj.instanceDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -61,4 +61,19 @@ export namespace DBOSConfigInstance {
     return jsonObj;
   }
   export const metricName = "DB_OS_CONFIG_INSTANCE";
+  export function getDeserializedJsonObj(
+    obj: DBOSConfigInstance,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DatabaseConfigurationMetricGroup.getDeserializedJsonObj(
+            obj
+          ) as DBOSConfigInstance)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

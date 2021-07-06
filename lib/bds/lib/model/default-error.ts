@@ -37,4 +37,9 @@ export namespace DefaultError {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DefaultError): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

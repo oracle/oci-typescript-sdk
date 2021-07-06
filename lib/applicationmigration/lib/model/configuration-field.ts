@@ -77,4 +77,18 @@ export namespace ConfigurationField {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConfigurationField): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "resourceList": obj.resourceList
+          ? obj.resourceList.map(item => {
+              return model.ResourceField.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

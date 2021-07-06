@@ -41,4 +41,19 @@ export namespace UpdateGoldenGateSettings {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateGoldenGateSettings): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "extract": obj.extract
+          ? model.UpdateExtract.getDeserializedJsonObj(obj.extract)
+          : undefined,
+        "replicat": obj.replicat
+          ? model.UpdateReplicat.getDeserializedJsonObj(obj.replicat)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

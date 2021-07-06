@@ -45,4 +45,9 @@ export namespace LogSource {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogSource): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

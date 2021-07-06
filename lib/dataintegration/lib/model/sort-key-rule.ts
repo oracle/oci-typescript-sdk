@@ -43,4 +43,16 @@ export namespace SortKeyRule {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SortKeyRule): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "wrappedRule": obj.wrappedRule
+          ? model.ProjectionRule.getDeserializedJsonObj(obj.wrappedRule)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

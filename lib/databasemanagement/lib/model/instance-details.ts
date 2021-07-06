@@ -56,4 +56,9 @@ export namespace InstanceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

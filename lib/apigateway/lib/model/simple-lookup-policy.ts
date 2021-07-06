@@ -44,4 +44,17 @@ export namespace SimpleLookupPolicy {
     return jsonObj;
   }
   export const type = "SIMPLE_LOOKUP_POLICY";
+  export function getDeserializedJsonObj(
+    obj: SimpleLookupPolicy,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ResponseCacheLookupPolicy.getDeserializedJsonObj(obj) as SimpleLookupPolicy)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

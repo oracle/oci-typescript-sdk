@@ -45,4 +45,23 @@ export namespace AwrDbMetricCollection {
     return jsonObj;
   }
   export const awrResultType = "AWRDB_METRICS_SET";
+  export function getDeserializedJsonObj(
+    obj: AwrDbMetricCollection,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AwrQueryResult.getDeserializedJsonObj(obj) as AwrDbMetricCollection)),
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.AwrDbMetricSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

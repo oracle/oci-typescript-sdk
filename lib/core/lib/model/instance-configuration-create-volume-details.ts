@@ -106,4 +106,16 @@ export namespace InstanceConfigurationCreateVolumeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceConfigurationCreateVolumeDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sourceDetails": obj.sourceDetails
+          ? model.InstanceConfigurationVolumeSourceDetails.getDeserializedJsonObj(obj.sourceDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

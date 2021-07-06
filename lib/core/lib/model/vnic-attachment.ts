@@ -125,4 +125,9 @@ export namespace VnicAttachment {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VnicAttachment): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

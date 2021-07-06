@@ -120,4 +120,9 @@ export namespace ManagementSavedSearchSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ManagementSavedSearchSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

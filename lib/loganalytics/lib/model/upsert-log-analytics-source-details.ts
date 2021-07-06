@@ -229,4 +229,94 @@ export namespace UpsertLogAnalyticsSourceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpsertLogAnalyticsSourceDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "labelConditions": obj.labelConditions
+          ? obj.labelConditions.map(item => {
+              return model.LogAnalyticsSourceLabelCondition.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "dataFilterDefinitions": obj.dataFilterDefinitions
+          ? obj.dataFilterDefinitions.map(item => {
+              return model.LogAnalyticsSourceDataFilter.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "extendedFieldDefinitions": obj.extendedFieldDefinitions
+          ? obj.extendedFieldDefinitions.map(item => {
+              return model.LogAnalyticsSourceExtendedFieldDefinition.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "labels": obj.labels
+          ? obj.labels.map(item => {
+              return model.LogAnalyticsLabelView.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "metricDefinitions": obj.metricDefinitions
+          ? obj.metricDefinitions.map(item => {
+              return model.LogAnalyticsMetric.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "metrics": obj.metrics
+          ? obj.metrics.map(item => {
+              return model.LogAnalyticsSourceMetric.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "oobParsers": obj.oobParsers
+          ? obj.oobParsers.map(item => {
+              return model.LogAnalyticsParser.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "parameters": obj.parameters
+          ? obj.parameters.map(item => {
+              return model.LogAnalyticsParameter.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "patterns": obj.patterns
+          ? obj.patterns.map(item => {
+              return model.LogAnalyticsSourcePattern.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "functions": obj.functions
+          ? obj.functions.map(item => {
+              return model.LogAnalyticsSourceFunction.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "parsers": obj.parsers
+          ? obj.parsers.map(item => {
+              return model.LogAnalyticsParser.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "metadataFields": obj.metadataFields
+          ? obj.metadataFields.map(item => {
+              return model.LogAnalyticsSourceMetadataField.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "labelDefinitions": obj.labelDefinitions
+          ? obj.labelDefinitions.map(item => {
+              return model.LogAnalyticsLabelDefinition.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "entityTypes": obj.entityTypes
+          ? obj.entityTypes.map(item => {
+              return model.LogAnalyticsSourceEntityType.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "userParsers": obj.userParsers
+          ? obj.userParsers.map(item => {
+              return model.LogAnalyticsParser.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

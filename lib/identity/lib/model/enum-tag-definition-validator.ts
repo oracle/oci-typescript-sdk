@@ -43,4 +43,19 @@ export namespace EnumTagDefinitionValidator {
     return jsonObj;
   }
   export const validatorType = "ENUM";
+  export function getDeserializedJsonObj(
+    obj: EnumTagDefinitionValidator,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.BaseTagDefinitionValidator.getDeserializedJsonObj(
+            obj
+          ) as EnumTagDefinitionValidator)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -29,7 +29,10 @@ export enum InstallationSortBy {
 }
 
 export namespace InstallationSortBy {
-  export function getJsonObj(obj: InstallationSortBy): object {
-    return { obj };
+  export function getJsonObj(obj: InstallationSortBy): InstallationSortBy {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: InstallationSortBy): InstallationSortBy {
+    return obj;
   }
 }

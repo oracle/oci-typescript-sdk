@@ -108,4 +108,9 @@ export namespace Update {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Update): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

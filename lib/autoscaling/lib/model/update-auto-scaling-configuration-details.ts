@@ -55,4 +55,9 @@ export namespace UpdateAutoScalingConfigurationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateAutoScalingConfigurationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -54,4 +54,14 @@ export namespace ListenerRuleSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ListenerRuleSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "rule": obj.rule ? model.Rule.getDeserializedJsonObj(obj.rule) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

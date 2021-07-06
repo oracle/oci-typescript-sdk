@@ -40,4 +40,9 @@ export namespace CommitMultipartUploadPartDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CommitMultipartUploadPartDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

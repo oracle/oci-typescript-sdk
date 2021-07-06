@@ -42,4 +42,9 @@ export namespace ResourceConfiguration {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResourceConfiguration): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

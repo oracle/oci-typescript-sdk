@@ -47,4 +47,9 @@ export namespace PatchDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PatchDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

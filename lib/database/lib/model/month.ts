@@ -51,4 +51,9 @@ export namespace Month {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Month): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

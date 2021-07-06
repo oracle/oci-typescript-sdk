@@ -37,4 +37,17 @@ export namespace TrimHorizonStreamingCursor {
     return jsonObj;
   }
   export const kind = "TRIM_HORIZON";
+  export function getDeserializedJsonObj(
+    obj: TrimHorizonStreamingCursor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.StreamingCursorDetails.getDeserializedJsonObj(obj) as TrimHorizonStreamingCursor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

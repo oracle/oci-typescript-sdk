@@ -138,4 +138,58 @@ export namespace Deployment {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Deployment): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "deployPipelineArtifacts": obj.deployPipelineArtifacts
+          ? model.DeployPipelineArtifactCollection.getDeserializedJsonObj(
+              obj.deployPipelineArtifacts
+            )
+          : undefined,
+        "deployPipelineEnvironments": obj.deployPipelineEnvironments
+          ? model.DeployPipelineEnvironmentCollection.getDeserializedJsonObj(
+              obj.deployPipelineEnvironments
+            )
+          : undefined,
+
+        "deploymentArguments": obj.deploymentArguments
+          ? model.DeploymentArgumentCollection.getDeserializedJsonObj(obj.deploymentArguments)
+          : undefined,
+        "deployArtifactOverrideArguments": obj.deployArtifactOverrideArguments
+          ? model.DeployArtifactOverrideArgumentCollection.getDeserializedJsonObj(
+              obj.deployArtifactOverrideArguments
+            )
+          : undefined,
+        "deploymentExecutionProgress": obj.deploymentExecutionProgress
+          ? model.DeploymentExecutionProgress.getDeserializedJsonObj(
+              obj.deploymentExecutionProgress
+            )
+          : undefined
+      }
+    };
+
+    if ("deploymentType" in obj && obj.deploymentType) {
+      switch (obj.deploymentType) {
+        case "PIPELINE_DEPLOYMENT":
+          return model.DeployPipelineDeployment.getDeserializedJsonObj(
+            <model.DeployPipelineDeployment>(<object>jsonObj),
+            true
+          );
+        case "PIPELINE_REDEPLOYMENT":
+          return model.DeployPipelineRedeployment.getDeserializedJsonObj(
+            <model.DeployPipelineRedeployment>(<object>jsonObj),
+            true
+          );
+        case "SINGLE_STAGE_DEPLOYMENT":
+          return model.SingleDeployStageDeployment.getDeserializedJsonObj(
+            <model.SingleDeployStageDeployment>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.deploymentType);
+      }
+    }
+    return jsonObj;
+  }
 }

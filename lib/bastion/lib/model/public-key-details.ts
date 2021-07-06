@@ -30,4 +30,9 @@ export namespace PublicKeyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PublicKeyDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

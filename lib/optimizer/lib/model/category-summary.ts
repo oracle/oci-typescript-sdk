@@ -81,4 +81,23 @@ export namespace CategorySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CategorySummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "recommendationCounts": obj.recommendationCounts
+          ? obj.recommendationCounts.map(item => {
+              return model.RecommendationCount.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "resourceCounts": obj.resourceCounts
+          ? obj.resourceCounts.map(item => {
+              return model.ResourceCount.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -38,4 +38,20 @@ export namespace UnifiedAgentServiceConfigurationDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UnifiedAgentServiceConfigurationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("configurationType" in obj && obj.configurationType) {
+      switch (obj.configurationType) {
+        case "LOGGING":
+          return model.UnifiedAgentLoggingConfiguration.getDeserializedJsonObj(
+            <model.UnifiedAgentLoggingConfiguration>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.configurationType);
+      }
+    }
+    return jsonObj;
+  }
 }

@@ -172,4 +172,24 @@ export namespace CreateVirtualCircuitDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateVirtualCircuitDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "crossConnectMappings": obj.crossConnectMappings
+          ? obj.crossConnectMappings.map(item => {
+              return model.CrossConnectMapping.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "publicPrefixes": obj.publicPrefixes
+          ? obj.publicPrefixes.map(item => {
+              return model.CreateVirtualCircuitPublicPrefixDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

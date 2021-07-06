@@ -50,4 +50,22 @@ export namespace StaticPublicKey {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: StaticPublicKey): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("format" in obj && obj.format) {
+      switch (obj.format) {
+        case "JSON_WEB_KEY":
+          return model.JsonWebKey.getDeserializedJsonObj(<model.JsonWebKey>(<object>jsonObj), true);
+        case "PEM":
+          return model.PemEncodedPublicKey.getDeserializedJsonObj(
+            <model.PemEncodedPublicKey>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.format);
+      }
+    }
+    return jsonObj;
+  }
 }

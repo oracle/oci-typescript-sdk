@@ -29,7 +29,10 @@ export enum FeedProviderType {
 }
 
 export namespace FeedProviderType {
-  export function getJsonObj(obj: FeedProviderType): object {
-    return { obj };
+  export function getJsonObj(obj: FeedProviderType): FeedProviderType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: FeedProviderType): FeedProviderType {
+    return obj;
   }
 }

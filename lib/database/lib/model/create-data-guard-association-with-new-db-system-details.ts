@@ -87,4 +87,19 @@ export namespace CreateDataGuardAssociationWithNewDbSystemDetails {
     return jsonObj;
   }
   export const creationType = "NewDbSystem";
+  export function getDeserializedJsonObj(
+    obj: CreateDataGuardAssociationWithNewDbSystemDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateDataGuardAssociationDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateDataGuardAssociationWithNewDbSystemDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

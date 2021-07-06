@@ -37,4 +37,9 @@ export namespace QueryParameterValidationItem {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: QueryParameterValidationItem): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

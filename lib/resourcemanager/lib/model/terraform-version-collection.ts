@@ -44,4 +44,18 @@ export namespace TerraformVersionCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TerraformVersionCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.TerraformVersionSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

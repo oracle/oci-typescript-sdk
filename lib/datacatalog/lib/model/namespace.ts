@@ -66,4 +66,9 @@ export namespace Namespace {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Namespace): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

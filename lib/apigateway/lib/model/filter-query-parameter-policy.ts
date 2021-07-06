@@ -61,4 +61,18 @@ export namespace FilterQueryParameterPolicy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FilterQueryParameterPolicy): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.FilterQueryParameterPolicyItem.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -43,4 +43,18 @@ export namespace TableUsageCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TableUsageCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.TableUsageSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

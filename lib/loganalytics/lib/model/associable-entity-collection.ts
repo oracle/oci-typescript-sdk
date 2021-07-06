@@ -40,4 +40,18 @@ export namespace AssociableEntityCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AssociableEntityCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.AssociableEntity.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

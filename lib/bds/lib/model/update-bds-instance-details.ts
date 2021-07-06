@@ -45,4 +45,9 @@ export namespace UpdateBdsInstanceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateBdsInstanceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

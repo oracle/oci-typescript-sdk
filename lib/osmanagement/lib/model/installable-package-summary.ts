@@ -61,4 +61,18 @@ export namespace InstallablePackageSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstallablePackageSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "softwareSources": obj.softwareSources
+          ? obj.softwareSources.map(item => {
+              return model.SoftwareSourceId.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -42,4 +42,17 @@ export namespace ForwardToBackendSet {
     return jsonObj;
   }
   export const name = "FORWARD_TO_BACKENDSET";
+  export function getDeserializedJsonObj(
+    obj: ForwardToBackendSet,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.Action.getDeserializedJsonObj(obj) as ForwardToBackendSet)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

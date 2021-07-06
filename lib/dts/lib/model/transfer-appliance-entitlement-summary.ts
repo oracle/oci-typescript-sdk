@@ -49,4 +49,9 @@ export namespace TransferApplianceEntitlementSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TransferApplianceEntitlementSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

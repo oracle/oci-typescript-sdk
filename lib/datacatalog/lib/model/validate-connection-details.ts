@@ -38,4 +38,16 @@ export namespace ValidateConnectionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ValidateConnectionDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "connectionDetail": obj.connectionDetail
+          ? model.CreateConnectionDetails.getDeserializedJsonObj(obj.connectionDetail)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

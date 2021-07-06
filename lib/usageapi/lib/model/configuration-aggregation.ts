@@ -39,4 +39,18 @@ export namespace ConfigurationAggregation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConfigurationAggregation): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.Configuration.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

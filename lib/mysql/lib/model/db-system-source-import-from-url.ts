@@ -34,4 +34,17 @@ export namespace DbSystemSourceImportFromUrl {
     return jsonObj;
   }
   export const sourceType = "IMPORTURL";
+  export function getDeserializedJsonObj(
+    obj: DbSystemSourceImportFromUrl,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DbSystemSource.getDeserializedJsonObj(obj) as DbSystemSourceImportFromUrl)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

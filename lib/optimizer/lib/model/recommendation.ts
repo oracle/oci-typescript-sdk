@@ -104,4 +104,22 @@ export namespace Recommendation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Recommendation): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "resourceCounts": obj.resourceCounts
+          ? obj.resourceCounts.map(item => {
+              return model.ResourceCount.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "supportedLevels": obj.supportedLevels
+          ? model.SupportedLevels.getDeserializedJsonObj(obj.supportedLevels)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

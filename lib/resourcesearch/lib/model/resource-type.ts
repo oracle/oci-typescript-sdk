@@ -45,4 +45,18 @@ export namespace ResourceType {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResourceType): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "fields": obj.fields
+          ? obj.fields.map(item => {
+              return model.QueryableFieldDescription.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

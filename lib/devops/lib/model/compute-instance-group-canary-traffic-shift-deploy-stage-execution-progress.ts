@@ -39,4 +39,19 @@ export namespace ComputeInstanceGroupCanaryTrafficShiftDeployStageExecutionProgr
     return jsonObj;
   }
   export const deployStageType = "COMPUTE_INSTANCE_GROUP_CANARY_TRAFFIC_SHIFT";
+  export function getDeserializedJsonObj(
+    obj: ComputeInstanceGroupCanaryTrafficShiftDeployStageExecutionProgress,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DeployStageExecutionProgress.getDeserializedJsonObj(
+            obj
+          ) as ComputeInstanceGroupCanaryTrafficShiftDeployStageExecutionProgress)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

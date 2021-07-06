@@ -68,4 +68,16 @@ export namespace StreamAction {
     return jsonObj;
   }
   export const type = "STREAM";
+  export function getDeserializedJsonObj(obj: StreamAction, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Action.getDeserializedJsonObj(obj) as StreamAction)),
+      ...{
+        "metricExtraction": obj.metricExtraction
+          ? model.MetricExtraction.getDeserializedJsonObj(obj.metricExtraction)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

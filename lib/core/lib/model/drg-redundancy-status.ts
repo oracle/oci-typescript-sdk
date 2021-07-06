@@ -57,4 +57,9 @@ export namespace DrgRedundancyStatus {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DrgRedundancyStatus): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

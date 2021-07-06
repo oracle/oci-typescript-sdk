@@ -30,4 +30,9 @@ export namespace GroupAssociationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: GroupAssociationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

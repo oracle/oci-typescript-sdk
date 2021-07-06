@@ -48,4 +48,23 @@ export namespace FacetedSearchFilterRequest {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FacetedSearchFilterRequest): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "searchDateFilters": obj.searchDateFilters
+          ? obj.searchDateFilters.map(item => {
+              return model.FacetedSearchDateFilterRequest.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "searchStringFilters": obj.searchStringFilters
+          ? obj.searchStringFilters.map(item => {
+              return model.FacetedSearchStringFilterRequest.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

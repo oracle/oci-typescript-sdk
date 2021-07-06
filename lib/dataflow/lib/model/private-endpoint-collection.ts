@@ -42,4 +42,18 @@ export namespace PrivateEndpointCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PrivateEndpointCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.PrivateEndpointSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

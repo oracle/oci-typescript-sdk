@@ -59,4 +59,27 @@ export namespace CreateDataAssetFromAtp {
     return jsonObj;
   }
   export const modelType = "ORACLE_ATP_DATA_ASSET";
+  export function getDeserializedJsonObj(
+    obj: CreateDataAssetFromAtp,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateDataAssetDetails.getDeserializedJsonObj(obj) as CreateDataAssetFromAtp)),
+      ...{
+        "walletSecret": obj.walletSecret
+          ? model.SensitiveAttribute.getDeserializedJsonObj(obj.walletSecret)
+          : undefined,
+        "walletPasswordSecret": obj.walletPasswordSecret
+          ? model.SensitiveAttribute.getDeserializedJsonObj(obj.walletPasswordSecret)
+          : undefined,
+        "defaultConnection": obj.defaultConnection
+          ? model.CreateConnectionFromAtp.getDeserializedJsonObj(obj.defaultConnection)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

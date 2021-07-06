@@ -45,4 +45,9 @@ export namespace LogAnalyticsLabelDefinition {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsLabelDefinition): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

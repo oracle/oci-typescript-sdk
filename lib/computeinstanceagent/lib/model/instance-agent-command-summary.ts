@@ -56,4 +56,9 @@ export namespace InstanceAgentCommandSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceAgentCommandSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

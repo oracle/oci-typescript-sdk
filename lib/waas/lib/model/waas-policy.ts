@@ -100,4 +100,25 @@ export namespace WaasPolicy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WaasPolicy): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "origins": obj.origins
+          ? common.mapContainer(obj.origins, model.Origin.getDeserializedJsonObj)
+          : undefined,
+        "originGroups": obj.originGroups
+          ? common.mapContainer(obj.originGroups, model.OriginGroup.getDeserializedJsonObj)
+          : undefined,
+        "policyConfig": obj.policyConfig
+          ? model.PolicyConfig.getDeserializedJsonObj(obj.policyConfig)
+          : undefined,
+        "wafConfig": obj.wafConfig
+          ? model.WafConfig.getDeserializedJsonObj(obj.wafConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

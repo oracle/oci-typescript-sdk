@@ -42,4 +42,18 @@ export namespace DetectLanguageKeyPhrasesResult {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DetectLanguageKeyPhrasesResult): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "keyPhrases": obj.keyPhrases
+          ? obj.keyPhrases.map(item => {
+              return model.KeyPhrase.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

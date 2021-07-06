@@ -30,7 +30,10 @@ export enum Unit {
 }
 
 export namespace Unit {
-  export function getJsonObj(obj: Unit): object {
-    return { obj };
+  export function getJsonObj(obj: Unit): Unit {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: Unit): Unit {
+    return obj;
   }
 }

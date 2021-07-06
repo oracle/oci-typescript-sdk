@@ -37,4 +37,9 @@ export namespace RemovePublicIpPoolCapacityDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RemovePublicIpPoolCapacityDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

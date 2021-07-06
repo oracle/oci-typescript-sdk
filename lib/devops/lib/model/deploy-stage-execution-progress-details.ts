@@ -56,4 +56,23 @@ export namespace DeployStageExecutionProgressDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeployStageExecutionProgressDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "steps": obj.steps
+          ? obj.steps.map(item => {
+              return model.DeployStageExecutionStep.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "rollbackSteps": obj.rollbackSteps
+          ? obj.rollbackSteps.map(item => {
+              return model.DeployStageExecutionStep.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

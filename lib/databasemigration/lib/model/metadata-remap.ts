@@ -55,4 +55,9 @@ export namespace MetadataRemap {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MetadataRemap): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

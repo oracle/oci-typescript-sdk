@@ -45,4 +45,9 @@ export namespace ChangeShapeNodes {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ChangeShapeNodes): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

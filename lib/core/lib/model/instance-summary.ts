@@ -91,4 +91,18 @@ export namespace InstanceSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "loadBalancerBackends": obj.loadBalancerBackends
+          ? obj.loadBalancerBackends.map(item => {
+              return model.InstancePoolInstanceLoadBalancerBackend.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

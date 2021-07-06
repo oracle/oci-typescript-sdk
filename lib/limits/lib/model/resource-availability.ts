@@ -56,4 +56,9 @@ export namespace ResourceAvailability {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResourceAvailability): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

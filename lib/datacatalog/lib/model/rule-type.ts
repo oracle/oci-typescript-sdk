@@ -34,7 +34,10 @@ export enum RuleType {
 }
 
 export namespace RuleType {
-  export function getJsonObj(obj: RuleType): object {
-    return { obj };
+  export function getJsonObj(obj: RuleType): RuleType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: RuleType): RuleType {
+    return obj;
   }
 }

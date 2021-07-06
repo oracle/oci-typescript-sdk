@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { QuotasWaiter } from "./quotas-waiter";
@@ -155,7 +155,8 @@ export class LimitsClient {
         responseObject: <responses.GetResourceAvailabilityResponse>{},
         body: await response.json(),
         bodyKey: "resourceAvailability",
-        bodyModel: "model.ResourceAvailability",
+        bodyModel: model.ResourceAvailability,
+        type: "model.ResourceAvailability",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -222,7 +223,8 @@ export class LimitsClient {
         responseObject: <responses.ListLimitDefinitionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "LimitDefinitionSummary[]",
+        bodyModel: model.LimitDefinitionSummary,
+        type: "Array<model.LimitDefinitionSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -252,7 +254,7 @@ export class LimitsClient {
    */
   public listAllLimitDefinitions(
     request: requests.ListLimitDefinitionsRequest
-  ): AsyncIterableIterator<models.LimitDefinitionSummary> {
+  ): AsyncIterableIterator<model.LimitDefinitionSummary> {
     return paginateRecords(request, req => this.listLimitDefinitions(req));
   }
 
@@ -319,7 +321,8 @@ export class LimitsClient {
         responseObject: <responses.ListLimitValuesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "LimitValueSummary[]",
+        bodyModel: model.LimitValueSummary,
+        type: "Array<model.LimitValueSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -349,7 +352,7 @@ export class LimitsClient {
    */
   public listAllLimitValues(
     request: requests.ListLimitValuesRequest
-  ): AsyncIterableIterator<models.LimitValueSummary> {
+  ): AsyncIterableIterator<model.LimitValueSummary> {
     return paginateRecords(request, req => this.listLimitValues(req));
   }
 
@@ -413,7 +416,8 @@ export class LimitsClient {
         responseObject: <responses.ListServicesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ServiceSummary[]",
+        bodyModel: model.ServiceSummary,
+        type: "Array<model.ServiceSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -443,7 +447,7 @@ export class LimitsClient {
    */
   public listAllServices(
     request: requests.ListServicesRequest
-  ): AsyncIterableIterator<models.ServiceSummary> {
+  ): AsyncIterableIterator<model.ServiceSummary> {
     return paginateRecords(request, req => this.listServices(req));
   }
 
@@ -599,7 +603,7 @@ export class QuotasClient {
       bodyContent: common.ObjectSerializer.serialize(
         createQuotaRequest.createQuotaDetails,
         "CreateQuotaDetails",
-        models.CreateQuotaDetails.getJsonObj
+        model.CreateQuotaDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -611,7 +615,8 @@ export class QuotasClient {
         responseObject: <responses.CreateQuotaResponse>{},
         body: await response.json(),
         bodyKey: "quota",
-        bodyModel: "model.Quota",
+        bodyModel: model.Quota,
+        type: "model.Quota",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -730,7 +735,8 @@ export class QuotasClient {
         responseObject: <responses.GetQuotaResponse>{},
         body: await response.json(),
         bodyKey: "quota",
-        bodyModel: "model.Quota",
+        bodyModel: model.Quota,
+        type: "model.Quota",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -799,7 +805,8 @@ export class QuotasClient {
         responseObject: <responses.ListQuotasResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "QuotaSummary[]",
+        bodyModel: model.QuotaSummary,
+        type: "Array<model.QuotaSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -829,7 +836,7 @@ export class QuotasClient {
    */
   public listAllQuotas(
     request: requests.ListQuotasRequest
-  ): AsyncIterableIterator<models.QuotaSummary> {
+  ): AsyncIterableIterator<model.QuotaSummary> {
     return paginateRecords(request, req => this.listQuotas(req));
   }
 
@@ -881,7 +888,7 @@ export class QuotasClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateQuotaRequest.updateQuotaDetails,
         "UpdateQuotaDetails",
-        models.UpdateQuotaDetails.getJsonObj
+        model.UpdateQuotaDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -893,7 +900,8 @@ export class QuotasClient {
         responseObject: <responses.UpdateQuotaResponse>{},
         body: await response.json(),
         bodyKey: "quota",
-        bodyModel: "model.Quota",
+        bodyModel: model.Quota,
+        type: "model.Quota",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

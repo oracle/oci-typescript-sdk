@@ -37,4 +37,14 @@ export namespace FieldArgument {
     return jsonObj;
   }
   export const type = "FIELD";
+  export function getDeserializedJsonObj(obj: FieldArgument, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Argument.getDeserializedJsonObj(obj) as FieldArgument)),
+      ...{
+        "value": obj.value ? model.AbstractField.getDeserializedJsonObj(obj.value) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

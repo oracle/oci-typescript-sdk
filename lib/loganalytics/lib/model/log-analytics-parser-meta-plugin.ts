@@ -52,4 +52,18 @@ export namespace LogAnalyticsParserMetaPlugin {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsParserMetaPlugin): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "metaPluginParameters": obj.metaPluginParameters
+          ? obj.metaPluginParameters.map(item => {
+              return model.LogAnalyticsParserMetaPluginParameter.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

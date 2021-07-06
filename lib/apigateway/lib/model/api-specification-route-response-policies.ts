@@ -42,4 +42,19 @@ export namespace ApiSpecificationRouteResponsePolicies {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApiSpecificationRouteResponsePolicies): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "headerTransformations": obj.headerTransformations
+          ? model.HeaderTransformationPolicy.getDeserializedJsonObj(obj.headerTransformations)
+          : undefined,
+        "responseCacheStore": obj.responseCacheStore
+          ? model.ResponseCacheStorePolicy.getDeserializedJsonObj(obj.responseCacheStore)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

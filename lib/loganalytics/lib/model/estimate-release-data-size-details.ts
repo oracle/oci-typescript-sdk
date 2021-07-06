@@ -36,4 +36,9 @@ export namespace EstimateReleaseDataSizeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EstimateReleaseDataSizeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

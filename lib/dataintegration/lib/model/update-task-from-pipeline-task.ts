@@ -37,4 +37,19 @@ export namespace UpdateTaskFromPipelineTask {
     return jsonObj;
   }
   export const modelType = "PIPELINE_TASK";
+  export function getDeserializedJsonObj(
+    obj: UpdateTaskFromPipelineTask,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UpdateTaskDetails.getDeserializedJsonObj(obj) as UpdateTaskFromPipelineTask)),
+      ...{
+        "pipeline": obj.pipeline ? model.Pipeline.getDeserializedJsonObj(obj.pipeline) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

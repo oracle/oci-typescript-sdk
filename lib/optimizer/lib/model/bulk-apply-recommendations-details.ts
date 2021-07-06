@@ -58,4 +58,18 @@ export namespace BulkApplyRecommendationsDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BulkApplyRecommendationsDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "actions": obj.actions
+          ? obj.actions.map(item => {
+              return model.BulkApplyResourceAction.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

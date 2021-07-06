@@ -34,4 +34,9 @@ export namespace SteeringPolicyFilterAnswerData {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SteeringPolicyFilterAnswerData): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

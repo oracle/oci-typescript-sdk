@@ -56,4 +56,9 @@ export namespace SoftwarePackageSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SoftwarePackageSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

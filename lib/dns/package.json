@@ -1,6 +1,6 @@
 {
   "name": "oci-dns",
-  "version": "1.22.0",
+  "version": "1.22.1",
   "description": "OCI NodeJS client for DNS",
   "repository": {
     "type": "git",

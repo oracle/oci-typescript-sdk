@@ -36,4 +36,9 @@ export namespace IPSecConnectionTunnelSharedSecret {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IPSecConnectionTunnelSharedSecret): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

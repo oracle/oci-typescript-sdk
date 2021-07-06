@@ -50,4 +50,9 @@ export namespace ClusterMigrateToNativeVcnStatus {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ClusterMigrateToNativeVcnStatus): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

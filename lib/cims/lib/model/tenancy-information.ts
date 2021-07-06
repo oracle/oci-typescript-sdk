@@ -34,4 +34,9 @@ export namespace TenancyInformation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TenancyInformation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

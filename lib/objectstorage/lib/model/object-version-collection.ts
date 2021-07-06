@@ -51,4 +51,18 @@ export namespace ObjectVersionCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ObjectVersionCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ObjectVersionSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

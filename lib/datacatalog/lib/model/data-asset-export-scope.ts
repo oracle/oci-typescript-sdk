@@ -38,4 +38,9 @@ export namespace DataAssetExportScope {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DataAssetExportScope): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

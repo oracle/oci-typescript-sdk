@@ -50,4 +50,18 @@ export namespace TablespaceUsageTrendAggregation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TablespaceUsageTrendAggregation): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "usageData": obj.usageData
+          ? obj.usageData.map(item => {
+              return model.TablespaceUsageTrend.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

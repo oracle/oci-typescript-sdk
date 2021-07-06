@@ -108,4 +108,30 @@ export namespace UpdateNodePoolDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateNodePoolDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "initialNodeLabels": obj.initialNodeLabels
+          ? obj.initialNodeLabels.map(item => {
+              return model.KeyValue.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "nodeConfigDetails": obj.nodeConfigDetails
+          ? model.UpdateNodePoolNodeConfigDetails.getDeserializedJsonObj(obj.nodeConfigDetails)
+          : undefined,
+
+        "nodeSourceDetails": obj.nodeSourceDetails
+          ? model.NodeSourceDetails.getDeserializedJsonObj(obj.nodeSourceDetails)
+          : undefined,
+
+        "nodeShapeConfig": obj.nodeShapeConfig
+          ? model.UpdateNodeShapeConfigDetails.getDeserializedJsonObj(obj.nodeShapeConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

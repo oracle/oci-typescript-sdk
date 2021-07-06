@@ -134,4 +134,9 @@ export namespace LogAnalyticsObjectCollectionRule {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsObjectCollectionRule): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -53,4 +53,9 @@ export namespace DatabaseConnectionString {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseConnectionString): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

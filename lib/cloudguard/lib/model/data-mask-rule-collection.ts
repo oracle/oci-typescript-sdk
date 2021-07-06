@@ -39,4 +39,18 @@ export namespace DataMaskRuleCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DataMaskRuleCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.DataMaskRuleSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

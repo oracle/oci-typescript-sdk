@@ -101,4 +101,9 @@ export namespace RecordOperation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RecordOperation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

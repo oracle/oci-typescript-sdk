@@ -84,4 +84,23 @@ export namespace ExternalRespCache {
     return jsonObj;
   }
   export const type = "EXTERNAL_RESP_CACHE";
+  export function getDeserializedJsonObj(
+    obj: ExternalRespCache,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ResponseCacheDetails.getDeserializedJsonObj(obj) as ExternalRespCache)),
+      ...{
+        "servers": obj.servers
+          ? obj.servers.map(item => {
+              return model.ResponseCacheRespServer.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

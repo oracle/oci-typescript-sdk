@@ -40,4 +40,18 @@ export namespace LabelPriorityCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LabelPriorityCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.LabelPriority.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

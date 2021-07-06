@@ -48,4 +48,9 @@ export namespace CreateTransferJobDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateTransferJobDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

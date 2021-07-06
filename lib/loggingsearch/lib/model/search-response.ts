@@ -50,4 +50,26 @@ export namespace SearchResponse {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SearchResponse): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "results": obj.results
+          ? obj.results.map(item => {
+              return model.SearchResult.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "fields": obj.fields
+          ? obj.fields.map(item => {
+              return model.FieldInfo.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "summary": obj.summary
+          ? model.SearchResultSummary.getDeserializedJsonObj(obj.summary)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

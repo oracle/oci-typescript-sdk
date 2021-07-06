@@ -119,4 +119,16 @@ export namespace LogAnalyticsEntitySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsEntitySummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "creationSource": obj.creationSource
+          ? model.CreationSource.getDeserializedJsonObj(obj.creationSource)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

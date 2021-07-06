@@ -47,4 +47,9 @@ export namespace AttachBootVolumeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AttachBootVolumeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

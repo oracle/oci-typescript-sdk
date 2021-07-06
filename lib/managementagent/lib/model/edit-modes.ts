@@ -24,7 +24,10 @@ export enum EditModes {
 }
 
 export namespace EditModes {
-  export function getJsonObj(obj: EditModes): object {
-    return { obj };
+  export function getJsonObj(obj: EditModes): EditModes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: EditModes): EditModes {
+    return obj;
   }
 }

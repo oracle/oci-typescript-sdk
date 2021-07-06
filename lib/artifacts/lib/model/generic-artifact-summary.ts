@@ -96,4 +96,9 @@ export namespace GenericArtifactSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: GenericArtifactSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

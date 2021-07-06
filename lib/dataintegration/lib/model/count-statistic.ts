@@ -39,4 +39,18 @@ export namespace CountStatistic {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CountStatistic): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "objectTypeCountList": obj.objectTypeCountList
+          ? obj.objectTypeCountList.map(item => {
+              return model.CountStatisticSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

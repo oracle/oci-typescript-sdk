@@ -91,4 +91,19 @@ export namespace UpdateListenerDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateListenerDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sslConfiguration": obj.sslConfiguration
+          ? model.SSLConfigurationDetails.getDeserializedJsonObj(obj.sslConfiguration)
+          : undefined,
+        "connectionConfiguration": obj.connectionConfiguration
+          ? model.ConnectionConfiguration.getDeserializedJsonObj(obj.connectionConfiguration)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

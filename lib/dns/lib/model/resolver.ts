@@ -152,4 +152,28 @@ export namespace Resolver {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Resolver): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "endpoints": obj.endpoints
+          ? obj.endpoints.map(item => {
+              return model.ResolverEndpointSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "attachedViews": obj.attachedViews
+          ? obj.attachedViews.map(item => {
+              return model.AttachedView.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "rules": obj.rules
+          ? obj.rules.map(item => {
+              return model.ResolverRule.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

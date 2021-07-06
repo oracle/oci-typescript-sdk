@@ -39,7 +39,10 @@ export enum LogLifecycleState {
 }
 
 export namespace LogLifecycleState {
-  export function getJsonObj(obj: LogLifecycleState): object {
-    return { obj };
+  export function getJsonObj(obj: LogLifecycleState): LogLifecycleState {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: LogLifecycleState): LogLifecycleState {
+    return obj;
   }
 }

@@ -45,4 +45,18 @@ export namespace ContainerImageSignatureCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ContainerImageSignatureCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ContainerImageSignatureSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -36,12 +36,31 @@ export interface NodeError {
   /**
    * Unique Oracle-assigned identifier for the upstream request. If you need to contact Oracle about a particular upstream request, please provide the request ID.
    */
-  "opc-request-id"?: string;
+  "opcRequestId"?: string;
 }
 
 export namespace NodeError {
   export function getJsonObj(obj: NodeError): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "opc-request-id": obj.opcRequestId
+      }
+    };
+
+    delete (jsonObj as Partial<NodeError>).opcRequestId;
+
+    return jsonObj;
+  }
+  export function getDeserializedJsonObj(obj: NodeError): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "opcRequestId": (obj as any)["opc-request-id"]
+      }
+    };
+
+    delete (jsonObj as any)["opc-request-id"];
 
     return jsonObj;
   }

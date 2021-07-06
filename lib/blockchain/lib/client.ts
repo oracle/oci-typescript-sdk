@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { BlockchainPlatformWaiter } from "./blockchainplatform-waiter";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
@@ -169,7 +169,7 @@ export class BlockchainPlatformClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeBlockchainPlatformCompartmentRequest.changeBlockchainPlatformCompartmentDetails,
         "ChangeBlockchainPlatformCompartmentDetails",
-        models.ChangeBlockchainPlatformCompartmentDetails.getJsonObj
+        model.ChangeBlockchainPlatformCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -235,7 +235,7 @@ export class BlockchainPlatformClient {
       bodyContent: common.ObjectSerializer.serialize(
         createBlockchainPlatformRequest.createBlockchainPlatformDetails,
         "CreateBlockchainPlatformDetails",
-        models.CreateBlockchainPlatformDetails.getJsonObj
+        model.CreateBlockchainPlatformDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -302,7 +302,7 @@ export class BlockchainPlatformClient {
       bodyContent: common.ObjectSerializer.serialize(
         createOsnRequest.createOsnDetails,
         "CreateOsnDetails",
-        models.CreateOsnDetails.getJsonObj
+        model.CreateOsnDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -368,7 +368,7 @@ export class BlockchainPlatformClient {
       bodyContent: common.ObjectSerializer.serialize(
         createPeerRequest.createPeerDetails,
         "CreatePeerDetails",
-        models.CreatePeerDetails.getJsonObj
+        model.CreatePeerDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -689,7 +689,8 @@ export class BlockchainPlatformClient {
         responseObject: <responses.GetBlockchainPlatformResponse>{},
         body: await response.json(),
         bodyKey: "blockchainPlatform",
-        bodyModel: "model.BlockchainPlatform",
+        bodyModel: model.BlockchainPlatform,
+        type: "model.BlockchainPlatform",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -751,7 +752,8 @@ export class BlockchainPlatformClient {
         responseObject: <responses.GetOsnResponse>{},
         body: await response.json(),
         bodyKey: "osn",
-        bodyModel: "model.Osn",
+        bodyModel: model.Osn,
+        type: "model.Osn",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -815,7 +817,8 @@ export class BlockchainPlatformClient {
         responseObject: <responses.GetPeerResponse>{},
         body: await response.json(),
         bodyKey: "peer",
-        bodyModel: "model.Peer",
+        bodyModel: model.Peer,
+        type: "model.Peer",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -879,7 +882,8 @@ export class BlockchainPlatformClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -954,7 +958,8 @@ export class BlockchainPlatformClient {
         responseObject: <responses.ListBlockchainPlatformsResponse>{},
         body: await response.json(),
         bodyKey: "blockchainPlatformCollection",
-        bodyModel: "model.BlockchainPlatformCollection",
+        bodyModel: model.BlockchainPlatformCollection,
+        type: "model.BlockchainPlatformCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1024,7 +1029,8 @@ export class BlockchainPlatformClient {
         responseObject: <responses.ListOsnsResponse>{},
         body: await response.json(),
         bodyKey: "osnCollection",
-        bodyModel: "model.OsnCollection",
+        bodyModel: model.OsnCollection,
+        type: "model.OsnCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1094,7 +1100,8 @@ export class BlockchainPlatformClient {
         responseObject: <responses.ListPeersResponse>{},
         body: await response.json(),
         bodyKey: "peerCollection",
-        bodyModel: "model.PeerCollection",
+        bodyModel: model.PeerCollection,
+        type: "model.PeerCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1162,7 +1169,8 @@ export class BlockchainPlatformClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestErrorCollection",
-        bodyModel: "model.WorkRequestErrorCollection",
+        bodyModel: model.WorkRequestErrorCollection,
+        type: "model.WorkRequestErrorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1230,7 +1238,8 @@ export class BlockchainPlatformClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestLogEntryCollection",
-        bodyModel: "model.WorkRequestLogEntryCollection",
+        bodyModel: model.WorkRequestLogEntryCollection,
+        type: "model.WorkRequestLogEntryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1300,7 +1309,8 @@ export class BlockchainPlatformClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestCollection",
-        bodyModel: "model.WorkRequestCollection",
+        bodyModel: model.WorkRequestCollection,
+        type: "model.WorkRequestCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1359,7 +1369,7 @@ export class BlockchainPlatformClient {
       bodyContent: common.ObjectSerializer.serialize(
         previewScaleBlockchainPlatformRequest.scaleBlockchainPlatformDetails,
         "ScaleBlockchainPlatformDetails",
-        models.ScaleBlockchainPlatformDetails.getJsonObj
+        model.ScaleBlockchainPlatformDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1371,7 +1381,8 @@ export class BlockchainPlatformClient {
         responseObject: <responses.PreviewScaleBlockchainPlatformResponse>{},
         body: await response.json(),
         bodyKey: "scaledBlockchainPlatformPreview",
-        bodyModel: "model.ScaledBlockchainPlatformPreview",
+        bodyModel: model.ScaledBlockchainPlatformPreview,
+        type: "model.ScaledBlockchainPlatformPreview",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1430,7 +1441,7 @@ export class BlockchainPlatformClient {
       bodyContent: common.ObjectSerializer.serialize(
         scaleBlockchainPlatformRequest.scaleBlockchainPlatformDetails,
         "ScaleBlockchainPlatformDetails",
-        models.ScaleBlockchainPlatformDetails.getJsonObj
+        model.ScaleBlockchainPlatformDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1624,7 +1635,7 @@ export class BlockchainPlatformClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateBlockchainPlatformRequest.updateBlockchainPlatformDetails,
         "UpdateBlockchainPlatformDetails",
-        models.UpdateBlockchainPlatformDetails.getJsonObj
+        model.UpdateBlockchainPlatformDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1692,7 +1703,7 @@ export class BlockchainPlatformClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateOsnRequest.updateOsnDetails,
         "UpdateOsnDetails",
-        models.UpdateOsnDetails.getJsonObj
+        model.UpdateOsnDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1760,7 +1771,7 @@ export class BlockchainPlatformClient {
       bodyContent: common.ObjectSerializer.serialize(
         updatePeerRequest.updatePeerDetails,
         "UpdatePeerDetails",
-        models.UpdatePeerDetails.getJsonObj
+        model.UpdatePeerDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,

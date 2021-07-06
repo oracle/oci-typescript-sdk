@@ -47,4 +47,18 @@ export namespace SqlStatisticsTimeSeriesByPlanAggregation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SqlStatisticsTimeSeriesByPlanAggregation): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "statistics": obj.statistics
+          ? obj.statistics.map(item => {
+              return model.SqlStatisticsTimeSeries.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

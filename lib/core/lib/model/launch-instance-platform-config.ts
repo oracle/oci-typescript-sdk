@@ -51,4 +51,20 @@ export namespace LaunchInstancePlatformConfig {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LaunchInstancePlatformConfig): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "AMD_MILAN_BM":
+          return model.AmdMilanBmLaunchInstancePlatformConfig.getDeserializedJsonObj(
+            <model.AmdMilanBmLaunchInstancePlatformConfig>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

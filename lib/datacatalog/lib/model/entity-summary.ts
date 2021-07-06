@@ -102,4 +102,9 @@ export namespace EntitySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EntitySummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

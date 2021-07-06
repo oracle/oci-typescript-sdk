@@ -111,4 +111,9 @@ export namespace InstanceShapeConfig {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceShapeConfig): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

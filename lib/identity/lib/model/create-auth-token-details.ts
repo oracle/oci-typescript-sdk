@@ -28,4 +28,9 @@ export namespace CreateAuthTokenDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateAuthTokenDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

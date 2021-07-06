@@ -33,4 +33,9 @@ export namespace RemoveDataKeyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RemoveDataKeyDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

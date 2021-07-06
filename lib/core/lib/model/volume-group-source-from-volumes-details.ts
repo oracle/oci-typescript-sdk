@@ -46,4 +46,19 @@ export namespace VolumeGroupSourceFromVolumesDetails {
     return jsonObj;
   }
   export const type = "volumeIds";
+  export function getDeserializedJsonObj(
+    obj: VolumeGroupSourceFromVolumesDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.VolumeGroupSourceDetails.getDeserializedJsonObj(
+            obj
+          ) as VolumeGroupSourceFromVolumesDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

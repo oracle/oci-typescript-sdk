@@ -26,4 +26,9 @@ export namespace CreateTransferPackageDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateTransferPackageDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

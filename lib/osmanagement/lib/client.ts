@@ -15,7 +15,7 @@ with Managed instances and Managed instance groups.
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { OsManagementWaiter } from "./osmanagement-waiter";
@@ -169,7 +169,7 @@ export class OsManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         addPackagesToSoftwareSourceRequest.addPackagesToSoftwareSourceDetails,
         "AddPackagesToSoftwareSourceDetails",
-        models.AddPackagesToSoftwareSourceDetails.getJsonObj
+        model.AddPackagesToSoftwareSourceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -236,7 +236,7 @@ export class OsManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         attachChildSoftwareSourceToManagedInstanceRequest.attachChildSoftwareSourceToManagedInstanceDetails,
         "AttachChildSoftwareSourceToManagedInstanceDetails",
-        models.AttachChildSoftwareSourceToManagedInstanceDetails.getJsonObj
+        model.AttachChildSoftwareSourceToManagedInstanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -370,7 +370,7 @@ export class OsManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         attachParentSoftwareSourceToManagedInstanceRequest.attachParentSoftwareSourceToManagedInstanceDetails,
         "AttachParentSoftwareSourceToManagedInstanceDetails",
-        models.AttachParentSoftwareSourceToManagedInstanceDetails.getJsonObj
+        model.AttachParentSoftwareSourceToManagedInstanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -438,7 +438,7 @@ export class OsManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeManagedInstanceGroupCompartmentRequest.changeManagedInstanceGroupCompartmentDetails,
         "ChangeManagedInstanceGroupCompartmentDetails",
-        models.ChangeManagedInstanceGroupCompartmentDetails.getJsonObj
+        model.ChangeManagedInstanceGroupCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -503,7 +503,7 @@ export class OsManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeScheduledJobCompartmentRequest.changeScheduledJobCompartmentDetails,
         "ChangeScheduledJobCompartmentDetails",
-        models.ChangeScheduledJobCompartmentDetails.getJsonObj
+        model.ChangeScheduledJobCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -568,7 +568,7 @@ export class OsManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeSoftwareSourceCompartmentRequest.changeSoftwareSourceCompartmentDetails,
         "ChangeSoftwareSourceCompartmentDetails",
-        models.ChangeSoftwareSourceCompartmentDetails.getJsonObj
+        model.ChangeSoftwareSourceCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -631,7 +631,7 @@ export class OsManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         createManagedInstanceGroupRequest.createManagedInstanceGroupDetails,
         "CreateManagedInstanceGroupDetails",
-        models.CreateManagedInstanceGroupDetails.getJsonObj
+        model.CreateManagedInstanceGroupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -643,7 +643,8 @@ export class OsManagementClient {
         responseObject: <responses.CreateManagedInstanceGroupResponse>{},
         body: await response.json(),
         bodyKey: "managedInstanceGroup",
-        bodyModel: "model.ManagedInstanceGroup",
+        bodyModel: model.ManagedInstanceGroup,
+        type: "model.ManagedInstanceGroup",
         responseHeaders: [
           {
             value: response.headers.get("Location"),
@@ -707,7 +708,7 @@ export class OsManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         createScheduledJobRequest.createScheduledJobDetails,
         "CreateScheduledJobDetails",
-        models.CreateScheduledJobDetails.getJsonObj
+        model.CreateScheduledJobDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -719,7 +720,8 @@ export class OsManagementClient {
         responseObject: <responses.CreateScheduledJobResponse>{},
         body: await response.json(),
         bodyKey: "scheduledJob",
-        bodyModel: "model.ScheduledJob",
+        bodyModel: model.ScheduledJob,
+        type: "model.ScheduledJob",
         responseHeaders: [
           {
             value: response.headers.get("Location"),
@@ -783,7 +785,7 @@ export class OsManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         createSoftwareSourceRequest.createSoftwareSourceDetails,
         "CreateSoftwareSourceDetails",
-        models.CreateSoftwareSourceDetails.getJsonObj
+        model.CreateSoftwareSourceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -795,7 +797,8 @@ export class OsManagementClient {
         responseObject: <responses.CreateSoftwareSourceResponse>{},
         body: await response.json(),
         bodyKey: "softwareSource",
-        bodyModel: "model.SoftwareSource",
+        bodyModel: model.SoftwareSource,
+        type: "model.SoftwareSource",
         responseHeaders: [
           {
             value: response.headers.get("Location"),
@@ -1035,7 +1038,7 @@ export class OsManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         detachChildSoftwareSourceFromManagedInstanceRequest.detachChildSoftwareSourceFromManagedInstanceDetails,
         "DetachChildSoftwareSourceFromManagedInstanceDetails",
-        models.DetachChildSoftwareSourceFromManagedInstanceDetails.getJsonObj
+        model.DetachChildSoftwareSourceFromManagedInstanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1164,7 +1167,7 @@ export class OsManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         detachParentSoftwareSourceFromManagedInstanceRequest.detachParentSoftwareSourceFromManagedInstanceDetails,
         "DetachParentSoftwareSourceFromManagedInstanceDetails",
-        models.DetachParentSoftwareSourceFromManagedInstanceDetails.getJsonObj
+        model.DetachParentSoftwareSourceFromManagedInstanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1232,7 +1235,8 @@ export class OsManagementClient {
         responseObject: <responses.GetErratumResponse>{},
         body: await response.json(),
         bodyKey: "erratum",
-        bodyModel: "model.Erratum",
+        bodyModel: model.Erratum,
+        type: "model.Erratum",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1291,7 +1295,8 @@ export class OsManagementClient {
         responseObject: <responses.GetManagedInstanceResponse>{},
         body: await response.json(),
         bodyKey: "managedInstance",
-        bodyModel: "model.ManagedInstance",
+        bodyModel: model.ManagedInstance,
+        type: "model.ManagedInstance",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1351,7 +1356,8 @@ export class OsManagementClient {
         responseObject: <responses.GetManagedInstanceGroupResponse>{},
         body: await response.json(),
         bodyKey: "managedInstanceGroup",
-        bodyModel: "model.ManagedInstanceGroup",
+        bodyModel: model.ManagedInstanceGroup,
+        type: "model.ManagedInstanceGroup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1420,7 +1426,8 @@ export class OsManagementClient {
         responseObject: <responses.GetScheduledJobResponse>{},
         body: await response.json(),
         bodyKey: "scheduledJob",
-        bodyModel: "model.ScheduledJob",
+        bodyModel: model.ScheduledJob,
+        type: "model.ScheduledJob",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1490,7 +1497,8 @@ export class OsManagementClient {
         responseObject: <responses.GetSoftwarePackageResponse>{},
         body: await response.json(),
         bodyKey: "softwarePackage",
-        bodyModel: "model.SoftwarePackage",
+        bodyModel: model.SoftwarePackage,
+        type: "model.SoftwarePackage",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1549,7 +1557,8 @@ export class OsManagementClient {
         responseObject: <responses.GetSoftwareSourceResponse>{},
         body: await response.json(),
         bodyKey: "softwareSource",
-        bodyModel: "model.SoftwareSource",
+        bodyModel: model.SoftwareSource,
+        type: "model.SoftwareSource",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1618,7 +1627,8 @@ export class OsManagementClient {
         responseObject: <responses.GetWindowsUpdateResponse>{},
         body: await response.json(),
         bodyKey: "windowsUpdate",
-        bodyModel: "model.WindowsUpdate",
+        bodyModel: model.WindowsUpdate,
+        type: "model.WindowsUpdate",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1676,7 +1686,8 @@ export class OsManagementClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2084,7 +2095,8 @@ export class OsManagementClient {
         responseObject: <responses.ListAvailablePackagesForManagedInstanceResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "InstallablePackageSummary[]",
+        bodyModel: model.InstallablePackageSummary,
+        type: "Array<model.InstallablePackageSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2114,7 +2126,7 @@ export class OsManagementClient {
    */
   public listAllAvailablePackagesForManagedInstance(
     request: requests.ListAvailablePackagesForManagedInstanceRequest
-  ): AsyncIterableIterator<models.InstallablePackageSummary> {
+  ): AsyncIterableIterator<model.InstallablePackageSummary> {
     return paginateRecords(request, req => this.listAvailablePackagesForManagedInstance(req));
   }
 
@@ -2183,7 +2195,8 @@ export class OsManagementClient {
         responseObject: <responses.ListAvailableSoftwareSourcesForManagedInstanceResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AvailableSoftwareSourceSummary[]",
+        bodyModel: model.AvailableSoftwareSourceSummary,
+        type: "Array<model.AvailableSoftwareSourceSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2213,7 +2226,7 @@ export class OsManagementClient {
    */
   public listAllAvailableSoftwareSourcesForManagedInstance(
     request: requests.ListAvailableSoftwareSourcesForManagedInstanceRequest
-  ): AsyncIterableIterator<models.AvailableSoftwareSourceSummary> {
+  ): AsyncIterableIterator<model.AvailableSoftwareSourceSummary> {
     return paginateRecords(request, req =>
       this.listAvailableSoftwareSourcesForManagedInstance(req)
     );
@@ -2286,7 +2299,8 @@ export class OsManagementClient {
         responseObject: <responses.ListAvailableUpdatesForManagedInstanceResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AvailableUpdateSummary[]",
+        bodyModel: model.AvailableUpdateSummary,
+        type: "Array<model.AvailableUpdateSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2316,7 +2330,7 @@ export class OsManagementClient {
    */
   public listAllAvailableUpdatesForManagedInstance(
     request: requests.ListAvailableUpdatesForManagedInstanceRequest
-  ): AsyncIterableIterator<models.AvailableUpdateSummary> {
+  ): AsyncIterableIterator<model.AvailableUpdateSummary> {
     return paginateRecords(request, req => this.listAvailableUpdatesForManagedInstance(req));
   }
 
@@ -2387,7 +2401,8 @@ export class OsManagementClient {
         responseObject: <responses.ListAvailableWindowsUpdatesForManagedInstanceResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AvailableWindowsUpdateSummary[]",
+        bodyModel: model.AvailableWindowsUpdateSummary,
+        type: "Array<model.AvailableWindowsUpdateSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2417,7 +2432,7 @@ export class OsManagementClient {
    */
   public listAllAvailableWindowsUpdatesForManagedInstance(
     request: requests.ListAvailableWindowsUpdatesForManagedInstanceRequest
-  ): AsyncIterableIterator<models.AvailableWindowsUpdateSummary> {
+  ): AsyncIterableIterator<model.AvailableWindowsUpdateSummary> {
     return paginateRecords(request, req => this.listAvailableWindowsUpdatesForManagedInstance(req));
   }
 
@@ -2486,7 +2501,8 @@ export class OsManagementClient {
         responseObject: <responses.ListErrataResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ErratumSummary[]",
+        bodyModel: model.ErratumSummary,
+        type: "Array<model.ErratumSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2516,7 +2532,7 @@ export class OsManagementClient {
    */
   public listAllErrata(
     request: requests.ListErrataRequest
-  ): AsyncIterableIterator<models.ErratumSummary> {
+  ): AsyncIterableIterator<model.ErratumSummary> {
     return paginateRecords(request, req => this.listErrata(req));
   }
 
@@ -2583,7 +2599,8 @@ export class OsManagementClient {
         responseObject: <responses.ListManagedInstanceErrataResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ErratumSummary[]",
+        bodyModel: model.ErratumSummary,
+        type: "Array<model.ErratumSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2613,7 +2630,7 @@ export class OsManagementClient {
    */
   public listAllManagedInstanceErrata(
     request: requests.ListManagedInstanceErrataRequest
-  ): AsyncIterableIterator<models.ErratumSummary> {
+  ): AsyncIterableIterator<model.ErratumSummary> {
     return paginateRecords(request, req => this.listManagedInstanceErrata(req));
   }
 
@@ -2680,7 +2697,8 @@ export class OsManagementClient {
         responseObject: <responses.ListManagedInstanceGroupsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ManagedInstanceGroupSummary[]",
+        bodyModel: model.ManagedInstanceGroupSummary,
+        type: "Array<model.ManagedInstanceGroupSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2710,7 +2728,7 @@ export class OsManagementClient {
    */
   public listAllManagedInstanceGroups(
     request: requests.ListManagedInstanceGroupsRequest
-  ): AsyncIterableIterator<models.ManagedInstanceGroupSummary> {
+  ): AsyncIterableIterator<model.ManagedInstanceGroupSummary> {
     return paginateRecords(request, req => this.listManagedInstanceGroups(req));
   }
 
@@ -2776,7 +2794,8 @@ export class OsManagementClient {
         responseObject: <responses.ListManagedInstancesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ManagedInstanceSummary[]",
+        bodyModel: model.ManagedInstanceSummary,
+        type: "Array<model.ManagedInstanceSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2806,7 +2825,7 @@ export class OsManagementClient {
    */
   public listAllManagedInstances(
     request: requests.ListManagedInstancesRequest
-  ): AsyncIterableIterator<models.ManagedInstanceSummary> {
+  ): AsyncIterableIterator<model.ManagedInstanceSummary> {
     return paginateRecords(request, req => this.listManagedInstances(req));
   }
 
@@ -2875,7 +2894,8 @@ export class OsManagementClient {
         responseObject: <responses.ListPackagesInstalledOnManagedInstanceResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "InstalledPackageSummary[]",
+        bodyModel: model.InstalledPackageSummary,
+        type: "Array<model.InstalledPackageSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2905,7 +2925,7 @@ export class OsManagementClient {
    */
   public listAllPackagesInstalledOnManagedInstance(
     request: requests.ListPackagesInstalledOnManagedInstanceRequest
-  ): AsyncIterableIterator<models.InstalledPackageSummary> {
+  ): AsyncIterableIterator<model.InstalledPackageSummary> {
     return paginateRecords(request, req => this.listPackagesInstalledOnManagedInstance(req));
   }
 
@@ -2974,7 +2994,8 @@ export class OsManagementClient {
         responseObject: <responses.ListScheduledJobsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ScheduledJobSummary[]",
+        bodyModel: model.ScheduledJobSummary,
+        type: "Array<model.ScheduledJobSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3004,7 +3025,7 @@ export class OsManagementClient {
    */
   public listAllScheduledJobs(
     request: requests.ListScheduledJobsRequest
-  ): AsyncIterableIterator<models.ScheduledJobSummary> {
+  ): AsyncIterableIterator<model.ScheduledJobSummary> {
     return paginateRecords(request, req => this.listScheduledJobs(req));
   }
 
@@ -3071,7 +3092,8 @@ export class OsManagementClient {
         responseObject: <responses.ListSoftwareSourcePackagesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "SoftwarePackageSummary[]",
+        bodyModel: model.SoftwarePackageSummary,
+        type: "Array<model.SoftwarePackageSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3101,7 +3123,7 @@ export class OsManagementClient {
    */
   public listAllSoftwareSourcePackages(
     request: requests.ListSoftwareSourcePackagesRequest
-  ): AsyncIterableIterator<models.SoftwarePackageSummary> {
+  ): AsyncIterableIterator<model.SoftwarePackageSummary> {
     return paginateRecords(request, req => this.listSoftwareSourcePackages(req));
   }
 
@@ -3166,7 +3188,8 @@ export class OsManagementClient {
         responseObject: <responses.ListSoftwareSourcesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "SoftwareSourceSummary[]",
+        bodyModel: model.SoftwareSourceSummary,
+        type: "Array<model.SoftwareSourceSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3196,7 +3219,7 @@ export class OsManagementClient {
    */
   public listAllSoftwareSources(
     request: requests.ListSoftwareSourcesRequest
-  ): AsyncIterableIterator<models.SoftwareSourceSummary> {
+  ): AsyncIterableIterator<model.SoftwareSourceSummary> {
     return paginateRecords(request, req => this.listSoftwareSources(req));
   }
 
@@ -3266,7 +3289,8 @@ export class OsManagementClient {
         responseObject: <responses.ListUpcomingScheduledJobsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ScheduledJobSummary[]",
+        bodyModel: model.ScheduledJobSummary,
+        type: "Array<model.ScheduledJobSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3296,7 +3320,7 @@ export class OsManagementClient {
    */
   public listAllUpcomingScheduledJobs(
     request: requests.ListUpcomingScheduledJobsRequest
-  ): AsyncIterableIterator<models.ScheduledJobSummary> {
+  ): AsyncIterableIterator<model.ScheduledJobSummary> {
     return paginateRecords(request, req => this.listUpcomingScheduledJobs(req));
   }
 
@@ -3360,7 +3384,8 @@ export class OsManagementClient {
         responseObject: <responses.ListWindowsUpdatesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WindowsUpdateSummary[]",
+        bodyModel: model.WindowsUpdateSummary,
+        type: "Array<model.WindowsUpdateSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3390,7 +3415,7 @@ export class OsManagementClient {
    */
   public listAllWindowsUpdates(
     request: requests.ListWindowsUpdatesRequest
-  ): AsyncIterableIterator<models.WindowsUpdateSummary> {
+  ): AsyncIterableIterator<model.WindowsUpdateSummary> {
     return paginateRecords(request, req => this.listWindowsUpdates(req));
   }
 
@@ -3459,7 +3484,8 @@ export class OsManagementClient {
         responseObject: <responses.ListWindowsUpdatesInstalledOnManagedInstanceResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "InstalledWindowsUpdateSummary[]",
+        bodyModel: model.InstalledWindowsUpdateSummary,
+        type: "Array<model.InstalledWindowsUpdateSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3489,7 +3515,7 @@ export class OsManagementClient {
    */
   public listAllWindowsUpdatesInstalledOnManagedInstance(
     request: requests.ListWindowsUpdatesInstalledOnManagedInstanceRequest
-  ): AsyncIterableIterator<models.InstalledWindowsUpdateSummary> {
+  ): AsyncIterableIterator<model.InstalledWindowsUpdateSummary> {
     return paginateRecords(request, req => this.listWindowsUpdatesInstalledOnManagedInstance(req));
   }
 
@@ -3555,7 +3581,8 @@ export class OsManagementClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestError[]",
+        bodyModel: model.WorkRequestError,
+        type: "Array<model.WorkRequestError>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3590,7 +3617,7 @@ export class OsManagementClient {
    */
   public listAllWorkRequestErrors(
     request: requests.ListWorkRequestErrorsRequest
-  ): AsyncIterableIterator<models.WorkRequestError> {
+  ): AsyncIterableIterator<model.WorkRequestError> {
     return paginateRecords(request, req => this.listWorkRequestErrors(req));
   }
 
@@ -3653,7 +3680,8 @@ export class OsManagementClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestLogEntry[]",
+        bodyModel: model.WorkRequestLogEntry,
+        type: "Array<model.WorkRequestLogEntry>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3688,7 +3716,7 @@ export class OsManagementClient {
    */
   public listAllWorkRequestLogs(
     request: requests.ListWorkRequestLogsRequest
-  ): AsyncIterableIterator<models.WorkRequestLogEntry> {
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
     return paginateRecords(request, req => this.listWorkRequestLogs(req));
   }
 
@@ -3754,7 +3782,8 @@ export class OsManagementClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestSummary[]",
+        bodyModel: model.WorkRequestSummary,
+        type: "Array<model.WorkRequestSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3784,7 +3813,7 @@ export class OsManagementClient {
    */
   public listAllWorkRequests(
     request: requests.ListWorkRequestsRequest
-  ): AsyncIterableIterator<models.WorkRequestSummary> {
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
     return paginateRecords(request, req => this.listWorkRequests(req));
   }
 
@@ -3902,7 +3931,7 @@ export class OsManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         removePackagesFromSoftwareSourceRequest.removePackagesFromSoftwareSourceDetails,
         "RemovePackagesFromSoftwareSourceDetails",
-        models.RemovePackagesFromSoftwareSourceDetails.getJsonObj
+        model.RemovePackagesFromSoftwareSourceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4042,7 +4071,8 @@ export class OsManagementClient {
         responseObject: <responses.SearchSoftwarePackagesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "SoftwarePackageSearchSummary[]",
+        bodyModel: model.SoftwarePackageSearchSummary,
+        type: "Array<model.SoftwarePackageSearchSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4072,7 +4102,7 @@ export class OsManagementClient {
    */
   public searchAllSoftwarePackages(
     request: requests.SearchSoftwarePackagesRequest
-  ): AsyncIterableIterator<models.SoftwarePackageSearchSummary> {
+  ): AsyncIterableIterator<model.SoftwarePackageSearchSummary> {
     return paginateRecords(request, req => this.searchSoftwarePackages(req));
   }
 
@@ -4191,7 +4221,7 @@ export class OsManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateManagedInstanceGroupRequest.updateManagedInstanceGroupDetails,
         "UpdateManagedInstanceGroupDetails",
-        models.UpdateManagedInstanceGroupDetails.getJsonObj
+        model.UpdateManagedInstanceGroupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4203,7 +4233,8 @@ export class OsManagementClient {
         responseObject: <responses.UpdateManagedInstanceGroupResponse>{},
         body: await response.json(),
         bodyKey: "managedInstanceGroup",
-        bodyModel: "model.ManagedInstanceGroup",
+        bodyModel: model.ManagedInstanceGroup,
+        type: "model.ManagedInstanceGroup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4261,7 +4292,7 @@ export class OsManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateScheduledJobRequest.updateScheduledJobDetails,
         "UpdateScheduledJobDetails",
-        models.UpdateScheduledJobDetails.getJsonObj
+        model.UpdateScheduledJobDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4273,7 +4304,8 @@ export class OsManagementClient {
         responseObject: <responses.UpdateScheduledJobResponse>{},
         body: await response.json(),
         bodyKey: "scheduledJob",
-        bodyModel: "model.ScheduledJob",
+        bodyModel: model.ScheduledJob,
+        type: "model.ScheduledJob",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4332,7 +4364,7 @@ export class OsManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateSoftwareSourceRequest.updateSoftwareSourceDetails,
         "UpdateSoftwareSourceDetails",
-        models.UpdateSoftwareSourceDetails.getJsonObj
+        model.UpdateSoftwareSourceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4344,7 +4376,8 @@ export class OsManagementClient {
         responseObject: <responses.UpdateSoftwareSourceResponse>{},
         body: await response.json(),
         bodyKey: "softwareSource",
-        bodyModel: "model.SoftwareSource",
+        bodyModel: model.SoftwareSource,
+        type: "model.SoftwareSource",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

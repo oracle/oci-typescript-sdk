@@ -40,4 +40,18 @@ export namespace DisableAutoAssociationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DisableAutoAssociationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.DisableAutoAssociationDetail.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

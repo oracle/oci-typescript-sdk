@@ -64,4 +64,19 @@ export namespace CreateCompartmentConfigSourceDetails {
     return jsonObj;
   }
   export const configSourceType = "COMPARTMENT_CONFIG_SOURCE";
+  export function getDeserializedJsonObj(
+    obj: CreateCompartmentConfigSourceDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateConfigSourceDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateCompartmentConfigSourceDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

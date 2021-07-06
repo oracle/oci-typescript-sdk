@@ -119,4 +119,55 @@ export namespace WafConfigDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WafConfigDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "accessRules": obj.accessRules
+          ? obj.accessRules.map(item => {
+              return model.AccessRule.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "addressRateLimiting": obj.addressRateLimiting
+          ? model.AddressRateLimiting.getDeserializedJsonObj(obj.addressRateLimiting)
+          : undefined,
+        "captchas": obj.captchas
+          ? obj.captchas.map(item => {
+              return model.Captcha.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "deviceFingerprintChallenge": obj.deviceFingerprintChallenge
+          ? model.DeviceFingerprintChallenge.getDeserializedJsonObj(obj.deviceFingerprintChallenge)
+          : undefined,
+        "humanInteractionChallenge": obj.humanInteractionChallenge
+          ? model.HumanInteractionChallenge.getDeserializedJsonObj(obj.humanInteractionChallenge)
+          : undefined,
+        "jsChallenge": obj.jsChallenge
+          ? model.JsChallenge.getDeserializedJsonObj(obj.jsChallenge)
+          : undefined,
+
+        "cachingRules": obj.cachingRules
+          ? obj.cachingRules.map(item => {
+              return model.CachingRule.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "customProtectionRules": obj.customProtectionRules
+          ? obj.customProtectionRules.map(item => {
+              return model.CustomProtectionRuleSetting.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "protectionSettings": obj.protectionSettings
+          ? model.ProtectionSettings.getDeserializedJsonObj(obj.protectionSettings)
+          : undefined,
+        "whitelists": obj.whitelists
+          ? obj.whitelists.map(item => {
+              return model.Whitelist.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

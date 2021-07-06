@@ -63,4 +63,18 @@ export namespace QueryResultRowTypeSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: QueryResultRowTypeSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "queryResultRowTypeSummaries": obj.queryResultRowTypeSummaries
+          ? obj.queryResultRowTypeSummaries.map(item => {
+              return model.QueryResultRowTypeSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

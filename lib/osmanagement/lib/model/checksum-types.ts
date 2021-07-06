@@ -33,7 +33,10 @@ export enum ChecksumTypes {
 }
 
 export namespace ChecksumTypes {
-  export function getJsonObj(obj: ChecksumTypes): object {
-    return { obj };
+  export function getJsonObj(obj: ChecksumTypes): ChecksumTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ChecksumTypes): ChecksumTypes {
+    return obj;
   }
 }

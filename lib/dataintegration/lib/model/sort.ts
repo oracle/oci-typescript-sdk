@@ -42,4 +42,18 @@ export namespace Sort {
     return jsonObj;
   }
   export const modelType = "SORT";
+  export function getDeserializedJsonObj(obj: Sort, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.PushDownOperation.getDeserializedJsonObj(obj) as Sort)),
+      ...{
+        "sortClauses": obj.sortClauses
+          ? obj.sortClauses.map(item => {
+              return model.SortClause.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

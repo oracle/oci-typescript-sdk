@@ -89,4 +89,18 @@ export namespace UpdateVolumeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateVolumeDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "blockVolumeReplicas": obj.blockVolumeReplicas
+          ? obj.blockVolumeReplicas.map(item => {
+              return model.BlockVolumeReplicaDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

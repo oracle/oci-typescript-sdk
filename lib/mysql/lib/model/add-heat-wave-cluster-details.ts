@@ -39,4 +39,9 @@ export namespace AddHeatWaveClusterDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AddHeatWaveClusterDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

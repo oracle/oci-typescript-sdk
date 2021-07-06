@@ -64,4 +64,23 @@ export namespace TargetDetectorDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TargetDetectorDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "configurations": obj.configurations
+          ? obj.configurations.map(item => {
+              return model.DetectorConfiguration.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "conditionGroups": obj.conditionGroups
+          ? obj.conditionGroups.map(item => {
+              return model.ConditionGroup.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

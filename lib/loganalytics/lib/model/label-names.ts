@@ -31,4 +31,9 @@ export namespace LabelNames {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LabelNames): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

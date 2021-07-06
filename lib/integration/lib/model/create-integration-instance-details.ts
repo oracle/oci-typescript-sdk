@@ -111,4 +111,25 @@ export namespace CreateIntegrationInstanceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateIntegrationInstanceDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customEndpoint": obj.customEndpoint
+          ? model.CreateCustomEndpointDetails.getDeserializedJsonObj(obj.customEndpoint)
+          : undefined,
+        "alternateCustomEndpoints": obj.alternateCustomEndpoints
+          ? obj.alternateCustomEndpoints.map(item => {
+              return model.CreateCustomEndpointDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "networkEndpointDetails": obj.networkEndpointDetails
+          ? model.NetworkEndpointDetails.getDeserializedJsonObj(obj.networkEndpointDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

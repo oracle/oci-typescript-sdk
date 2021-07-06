@@ -66,4 +66,18 @@ export namespace Violation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Violation): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "indexes": obj.indexes
+          ? obj.indexes.map(item => {
+              return model.Indexes.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

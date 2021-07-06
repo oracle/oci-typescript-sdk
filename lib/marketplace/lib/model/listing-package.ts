@@ -79,4 +79,34 @@ export namespace ListingPackage {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ListingPackage): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "pricing": obj.pricing ? model.PricingModel.getDeserializedJsonObj(obj.pricing) : undefined,
+
+        "operatingSystem": obj.operatingSystem
+          ? model.OperatingSystem.getDeserializedJsonObj(obj.operatingSystem)
+          : undefined
+      }
+    };
+
+    if ("packageType" in obj && obj.packageType) {
+      switch (obj.packageType) {
+        case "ORCHESTRATION":
+          return model.OrchestrationListingPackage.getDeserializedJsonObj(
+            <model.OrchestrationListingPackage>(<object>jsonObj),
+            true
+          );
+        case "IMAGE":
+          return model.ImageListingPackage.getDeserializedJsonObj(
+            <model.ImageListingPackage>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.packageType);
+      }
+    }
+    return jsonObj;
+  }
 }

@@ -65,4 +65,9 @@ export namespace LogAnalyticsLabelAlias {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsLabelAlias): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

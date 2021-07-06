@@ -16,7 +16,7 @@ For more information, see
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { ApiGatewayWaiter } from "./apigateway-waiter";
 import { DeploymentWaiter } from "./deployment-waiter";
@@ -172,7 +172,7 @@ export class ApiGatewayClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeApiCompartmentRequest.changeApiCompartmentDetails,
         "ChangeApiCompartmentDetails",
-        models.ChangeApiCompartmentDetails.getJsonObj
+        model.ChangeApiCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -240,7 +240,7 @@ export class ApiGatewayClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeCertificateCompartmentRequest.changeCertificateCompartmentDetails,
         "ChangeCertificateCompartmentDetails",
-        models.ChangeCertificateCompartmentDetails.getJsonObj
+        model.ChangeCertificateCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -300,7 +300,7 @@ export class ApiGatewayClient {
       bodyContent: common.ObjectSerializer.serialize(
         createApiRequest.createApiDetails,
         "CreateApiDetails",
-        models.CreateApiDetails.getJsonObj
+        model.CreateApiDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -312,7 +312,8 @@ export class ApiGatewayClient {
         responseObject: <responses.CreateApiResponse>{},
         body: await response.json(),
         bodyKey: "api",
-        bodyModel: "model.Api",
+        bodyModel: model.Api,
+        type: "model.Api",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -378,7 +379,7 @@ export class ApiGatewayClient {
       bodyContent: common.ObjectSerializer.serialize(
         createCertificateRequest.createCertificateDetails,
         "CreateCertificateDetails",
-        models.CreateCertificateDetails.getJsonObj
+        model.CreateCertificateDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -390,7 +391,8 @@ export class ApiGatewayClient {
         responseObject: <responses.CreateCertificateResponse>{},
         body: await response.json(),
         bodyKey: "certificate",
-        bodyModel: "model.Certificate",
+        bodyModel: model.Certificate,
+        type: "model.Certificate",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -455,7 +457,7 @@ export class ApiGatewayClient {
       bodyContent: common.ObjectSerializer.serialize(
         createSdkRequest.createSdkDetails,
         "CreateSdkDetails",
-        models.CreateSdkDetails.getJsonObj
+        model.CreateSdkDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -467,7 +469,8 @@ export class ApiGatewayClient {
         responseObject: <responses.CreateSdkResponse>{},
         body: await response.json(),
         bodyKey: "sdk",
-        bodyModel: "model.Sdk",
+        bodyModel: model.Sdk,
+        type: "model.Sdk",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -721,7 +724,8 @@ export class ApiGatewayClient {
         responseObject: <responses.GetApiResponse>{},
         body: await response.json(),
         bodyKey: "api",
-        bodyModel: "model.Api",
+        bodyModel: model.Api,
+        type: "model.Api",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -856,7 +860,8 @@ export class ApiGatewayClient {
         responseObject: <responses.GetApiDeploymentSpecificationResponse>{},
         body: await response.json(),
         bodyKey: "apiSpecification",
-        bodyModel: "model.ApiSpecification",
+        bodyModel: model.ApiSpecification,
+        type: "model.ApiSpecification",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -920,7 +925,8 @@ export class ApiGatewayClient {
         responseObject: <responses.GetApiValidationsResponse>{},
         body: await response.json(),
         bodyKey: "apiValidations",
-        bodyModel: "model.ApiValidations",
+        bodyModel: model.ApiValidations,
+        type: "model.ApiValidations",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -983,7 +989,8 @@ export class ApiGatewayClient {
         responseObject: <responses.GetCertificateResponse>{},
         body: await response.json(),
         bodyKey: "certificate",
-        bodyModel: "model.Certificate",
+        bodyModel: model.Certificate,
+        type: "model.Certificate",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1044,7 +1051,8 @@ export class ApiGatewayClient {
         responseObject: <responses.GetSdkResponse>{},
         body: await response.json(),
         bodyKey: "sdk",
-        bodyModel: "model.Sdk",
+        bodyModel: model.Sdk,
+        type: "model.Sdk",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1114,7 +1122,8 @@ export class ApiGatewayClient {
         responseObject: <responses.ListApisResponse>{},
         body: await response.json(),
         bodyKey: "apiCollection",
-        bodyModel: "model.ApiCollection",
+        bodyModel: model.ApiCollection,
+        type: "model.ApiCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1189,7 +1198,8 @@ export class ApiGatewayClient {
         responseObject: <responses.ListCertificatesResponse>{},
         body: await response.json(),
         bodyKey: "certificateCollection",
-        bodyModel: "model.CertificateCollection",
+        bodyModel: model.CertificateCollection,
+        type: "model.CertificateCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1262,7 +1272,8 @@ export class ApiGatewayClient {
         responseObject: <responses.ListSdkLanguageTypesResponse>{},
         body: await response.json(),
         bodyKey: "sdkLanguageTypeCollection",
-        bodyModel: "model.SdkLanguageTypeCollection",
+        bodyModel: model.SdkLanguageTypeCollection,
+        type: "model.SdkLanguageTypeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1337,7 +1348,8 @@ export class ApiGatewayClient {
         responseObject: <responses.ListSdksResponse>{},
         body: await response.json(),
         bodyKey: "sdkCollection",
-        bodyModel: "model.SdkCollection",
+        bodyModel: model.SdkCollection,
+        type: "model.SdkCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1399,7 +1411,7 @@ export class ApiGatewayClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateApiRequest.updateApiDetails,
         "UpdateApiDetails",
-        models.UpdateApiDetails.getJsonObj
+        model.UpdateApiDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1465,7 +1477,7 @@ export class ApiGatewayClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateCertificateRequest.updateCertificateDetails,
         "UpdateCertificateDetails",
-        models.UpdateCertificateDetails.getJsonObj
+        model.UpdateCertificateDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1531,7 +1543,7 @@ export class ApiGatewayClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateSdkRequest.updateSdkDetails,
         "UpdateSdkDetails",
-        models.UpdateSdkDetails.getJsonObj
+        model.UpdateSdkDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1701,7 +1713,7 @@ export class DeploymentClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeDeploymentCompartmentRequest.changeDeploymentCompartmentDetails,
         "ChangeDeploymentCompartmentDetails",
-        models.ChangeDeploymentCompartmentDetails.getJsonObj
+        model.ChangeDeploymentCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1766,7 +1778,7 @@ export class DeploymentClient {
       bodyContent: common.ObjectSerializer.serialize(
         createDeploymentRequest.createDeploymentDetails,
         "CreateDeploymentDetails",
-        models.CreateDeploymentDetails.getJsonObj
+        model.CreateDeploymentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1778,7 +1790,8 @@ export class DeploymentClient {
         responseObject: <responses.CreateDeploymentResponse>{},
         body: await response.json(),
         bodyKey: "deployment",
-        bodyModel: "model.Deployment",
+        bodyModel: model.Deployment,
+        type: "model.Deployment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1912,7 +1925,8 @@ export class DeploymentClient {
         responseObject: <responses.GetDeploymentResponse>{},
         body: await response.json(),
         bodyKey: "deployment",
-        bodyModel: "model.Deployment",
+        bodyModel: model.Deployment,
+        type: "model.Deployment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1983,7 +1997,8 @@ export class DeploymentClient {
         responseObject: <responses.ListDeploymentsResponse>{},
         body: await response.json(),
         bodyKey: "deploymentCollection",
-        bodyModel: "model.DeploymentCollection",
+        bodyModel: model.DeploymentCollection,
+        type: "model.DeploymentCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2045,7 +2060,7 @@ export class DeploymentClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateDeploymentRequest.updateDeploymentDetails,
         "UpdateDeploymentDetails",
-        models.UpdateDeploymentDetails.getJsonObj
+        model.UpdateDeploymentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2219,7 +2234,7 @@ export class GatewayClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeGatewayCompartmentRequest.changeGatewayCompartmentDetails,
         "ChangeGatewayCompartmentDetails",
-        models.ChangeGatewayCompartmentDetails.getJsonObj
+        model.ChangeGatewayCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2284,7 +2299,7 @@ export class GatewayClient {
       bodyContent: common.ObjectSerializer.serialize(
         createGatewayRequest.createGatewayDetails,
         "CreateGatewayDetails",
-        models.CreateGatewayDetails.getJsonObj
+        model.CreateGatewayDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2296,7 +2311,8 @@ export class GatewayClient {
         responseObject: <responses.CreateGatewayResponse>{},
         body: await response.json(),
         bodyKey: "gateway",
-        bodyModel: "model.Gateway",
+        bodyModel: model.Gateway,
+        type: "model.Gateway",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2430,7 +2446,8 @@ export class GatewayClient {
         responseObject: <responses.GetGatewayResponse>{},
         body: await response.json(),
         bodyKey: "gateway",
-        bodyModel: "model.Gateway",
+        bodyModel: model.Gateway,
+        type: "model.Gateway",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2501,7 +2518,8 @@ export class GatewayClient {
         responseObject: <responses.ListGatewaysResponse>{},
         body: await response.json(),
         bodyKey: "gatewayCollection",
-        bodyModel: "model.GatewayCollection",
+        bodyModel: model.GatewayCollection,
+        type: "model.GatewayCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2563,7 +2581,7 @@ export class GatewayClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateGatewayRequest.updateGatewayDetails,
         "UpdateGatewayDetails",
-        models.UpdateGatewayDetails.getJsonObj
+        model.UpdateGatewayDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2799,7 +2817,8 @@ export class WorkRequestsClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2874,7 +2893,8 @@ export class WorkRequestsClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestErrorCollection",
-        bodyModel: "model.WorkRequestErrorCollection",
+        bodyModel: model.WorkRequestErrorCollection,
+        type: "model.WorkRequestErrorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2948,7 +2968,8 @@ export class WorkRequestsClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestLogCollection",
-        bodyModel: "model.WorkRequestLogCollection",
+        bodyModel: model.WorkRequestLogCollection,
+        type: "model.WorkRequestLogCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -3022,7 +3043,8 @@ export class WorkRequestsClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestCollection",
-        bodyModel: "model.WorkRequestCollection",
+        bodyModel: model.WorkRequestCollection,
+        type: "model.WorkRequestCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

@@ -45,4 +45,9 @@ export namespace CpeDeviceConfigAnswer {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CpeDeviceConfigAnswer): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

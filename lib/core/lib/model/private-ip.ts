@@ -168,4 +168,9 @@ export namespace PrivateIp {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PrivateIp): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -49,4 +49,9 @@ export namespace Region {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Region): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

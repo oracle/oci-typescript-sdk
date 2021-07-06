@@ -31,7 +31,10 @@ export enum EntityLifecycleStates {
 }
 
 export namespace EntityLifecycleStates {
-  export function getJsonObj(obj: EntityLifecycleStates): object {
-    return { obj };
+  export function getJsonObj(obj: EntityLifecycleStates): EntityLifecycleStates {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: EntityLifecycleStates): EntityLifecycleStates {
+    return obj;
   }
 }

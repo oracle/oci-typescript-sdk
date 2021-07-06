@@ -34,4 +34,9 @@ export namespace Status {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Status): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

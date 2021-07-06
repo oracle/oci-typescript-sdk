@@ -96,4 +96,9 @@ export namespace UpdateSubnetDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateSubnetDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

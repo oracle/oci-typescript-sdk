@@ -55,4 +55,9 @@ export namespace DeployStageExecutionStep {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeployStageExecutionStep): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

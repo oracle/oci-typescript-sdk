@@ -56,4 +56,9 @@ export namespace UpdateDrgRouteDistributionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDrgRouteDistributionDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

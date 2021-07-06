@@ -137,4 +137,22 @@ export namespace ReportQuery {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ReportQuery): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "forecast": obj.forecast ? model.Forecast.getDeserializedJsonObj(obj.forecast) : undefined,
+
+        "groupByTag": obj.groupByTag
+          ? obj.groupByTag.map(item => {
+              return model.Tag.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "filter": obj.filter ? model.Filter.getDeserializedJsonObj(obj.filter) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

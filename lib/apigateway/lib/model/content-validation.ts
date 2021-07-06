@@ -41,4 +41,20 @@ export namespace ContentValidation {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ContentValidation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("validationType" in obj && obj.validationType) {
+      switch (obj.validationType) {
+        case "NONE":
+          return model.NoContentValidation.getDeserializedJsonObj(
+            <model.NoContentValidation>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.validationType);
+      }
+    }
+    return jsonObj;
+  }
 }

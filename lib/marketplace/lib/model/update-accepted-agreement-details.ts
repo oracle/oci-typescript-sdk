@@ -44,4 +44,9 @@ export namespace UpdateAcceptedAgreementDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateAcceptedAgreementDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

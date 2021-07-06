@@ -37,4 +37,9 @@ export namespace FleetAgentOsConfiguration {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FleetAgentOsConfiguration): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -46,4 +46,19 @@ export namespace AutonomousDatabaseConfigurationSummary {
     return jsonObj;
   }
   export const entitySource = "AUTONOMOUS_DATABASE";
+  export function getDeserializedJsonObj(
+    obj: AutonomousDatabaseConfigurationSummary,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DatabaseConfigurationSummary.getDeserializedJsonObj(
+            obj
+          ) as AutonomousDatabaseConfigurationSummary)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

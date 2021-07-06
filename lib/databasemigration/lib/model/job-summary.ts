@@ -94,4 +94,16 @@ export namespace JobSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: JobSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "progress": obj.progress
+          ? model.MigrationJobProgressSummary.getDeserializedJsonObj(obj.progress)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

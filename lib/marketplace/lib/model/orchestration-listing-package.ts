@@ -58,4 +58,28 @@ export namespace OrchestrationListingPackage {
     return jsonObj;
   }
   export const packageType = "ORCHESTRATION";
+  export function getDeserializedJsonObj(
+    obj: OrchestrationListingPackage,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ListingPackage.getDeserializedJsonObj(obj) as OrchestrationListingPackage)),
+      ...{
+        "variables": obj.variables
+          ? obj.variables.map(item => {
+              return model.OrchestrationVariable.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "regions": obj.regions
+          ? obj.regions.map(item => {
+              return model.Region.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

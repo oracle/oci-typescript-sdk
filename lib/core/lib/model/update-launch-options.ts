@@ -94,4 +94,9 @@ export namespace UpdateLaunchOptions {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateLaunchOptions): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

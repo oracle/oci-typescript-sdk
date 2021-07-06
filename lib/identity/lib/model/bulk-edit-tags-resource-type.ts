@@ -38,4 +38,9 @@ export namespace BulkEditTagsResourceType {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BulkEditTagsResourceType): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

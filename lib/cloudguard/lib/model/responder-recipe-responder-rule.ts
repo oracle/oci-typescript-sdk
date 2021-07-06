@@ -86,4 +86,16 @@ export namespace ResponderRecipeResponderRule {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResponderRecipeResponderRule): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "details": obj.details
+          ? model.ResponderRuleDetails.getDeserializedJsonObj(obj.details)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -52,4 +52,9 @@ export namespace UpdateBackupDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateBackupDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

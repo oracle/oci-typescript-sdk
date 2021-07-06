@@ -85,4 +85,35 @@ export namespace AttachVolumeDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AttachVolumeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "service_determined":
+          return model.AttachServiceDeterminedVolumeDetails.getDeserializedJsonObj(
+            <model.AttachServiceDeterminedVolumeDetails>(<object>jsonObj),
+            true
+          );
+        case "emulated":
+          return model.AttachEmulatedVolumeDetails.getDeserializedJsonObj(
+            <model.AttachEmulatedVolumeDetails>(<object>jsonObj),
+            true
+          );
+        case "iscsi":
+          return model.AttachIScsiVolumeDetails.getDeserializedJsonObj(
+            <model.AttachIScsiVolumeDetails>(<object>jsonObj),
+            true
+          );
+        case "paravirtualized":
+          return model.AttachParavirtualizedVolumeDetails.getDeserializedJsonObj(
+            <model.AttachParavirtualizedVolumeDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

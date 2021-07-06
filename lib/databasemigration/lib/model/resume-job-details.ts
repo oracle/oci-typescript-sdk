@@ -33,4 +33,9 @@ export namespace ResumeJobDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResumeJobDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

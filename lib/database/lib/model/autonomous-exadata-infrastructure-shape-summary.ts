@@ -56,4 +56,9 @@ export namespace AutonomousExadataInfrastructureShapeSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutonomousExadataInfrastructureShapeSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

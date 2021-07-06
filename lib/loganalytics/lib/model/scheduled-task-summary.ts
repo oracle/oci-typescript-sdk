@@ -116,4 +116,9 @@ export namespace ScheduledTaskSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ScheduledTaskSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

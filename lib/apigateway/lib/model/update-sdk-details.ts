@@ -55,4 +55,9 @@ export namespace UpdateSdkDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateSdkDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

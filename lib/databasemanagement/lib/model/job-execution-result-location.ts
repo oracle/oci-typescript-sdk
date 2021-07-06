@@ -41,4 +41,20 @@ export namespace JobExecutionResultLocation {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: JobExecutionResultLocation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "OBJECT_STORAGE":
+          return model.ObjectStorageJobExecutionResultLocation.getDeserializedJsonObj(
+            <model.ObjectStorageJobExecutionResultLocation>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

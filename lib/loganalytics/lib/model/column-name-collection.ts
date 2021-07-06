@@ -40,4 +40,18 @@ export namespace ColumnNameCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ColumnNameCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ColumnName.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

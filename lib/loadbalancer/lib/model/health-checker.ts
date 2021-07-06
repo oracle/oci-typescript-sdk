@@ -90,4 +90,9 @@ export namespace HealthChecker {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HealthChecker): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

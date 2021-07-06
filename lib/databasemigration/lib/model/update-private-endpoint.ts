@@ -45,4 +45,9 @@ export namespace UpdatePrivateEndpoint {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdatePrivateEndpoint): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

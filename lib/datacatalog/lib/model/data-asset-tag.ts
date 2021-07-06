@@ -68,4 +68,9 @@ export namespace DataAssetTag {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DataAssetTag): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

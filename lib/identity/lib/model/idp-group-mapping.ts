@@ -87,4 +87,9 @@ export namespace IdpGroupMapping {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IdpGroupMapping): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

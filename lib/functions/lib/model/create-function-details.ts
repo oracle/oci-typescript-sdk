@@ -92,4 +92,16 @@ export namespace CreateFunctionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateFunctionDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "traceConfig": obj.traceConfig
+          ? model.FunctionTraceConfig.getDeserializedJsonObj(obj.traceConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

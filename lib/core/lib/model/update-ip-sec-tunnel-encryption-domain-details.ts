@@ -42,4 +42,9 @@ export namespace UpdateIPSecTunnelEncryptionDomainDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateIPSecTunnelEncryptionDomainDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

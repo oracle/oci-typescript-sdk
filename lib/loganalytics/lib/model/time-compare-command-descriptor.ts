@@ -35,4 +35,19 @@ export namespace TimeCompareCommandDescriptor {
     return jsonObj;
   }
   export const name = "TIME_COMPARE";
+  export function getDeserializedJsonObj(
+    obj: TimeCompareCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(
+            obj
+          ) as TimeCompareCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

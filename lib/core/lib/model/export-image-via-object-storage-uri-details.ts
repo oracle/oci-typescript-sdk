@@ -47,4 +47,19 @@ export namespace ExportImageViaObjectStorageUriDetails {
     return jsonObj;
   }
   export const destinationType = "objectStorageUri";
+  export function getDeserializedJsonObj(
+    obj: ExportImageViaObjectStorageUriDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ExportImageDetails.getDeserializedJsonObj(
+            obj
+          ) as ExportImageViaObjectStorageUriDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

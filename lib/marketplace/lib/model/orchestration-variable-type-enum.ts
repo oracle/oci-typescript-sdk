@@ -29,7 +29,12 @@ export enum OrchestrationVariableTypeEnum {
 }
 
 export namespace OrchestrationVariableTypeEnum {
-  export function getJsonObj(obj: OrchestrationVariableTypeEnum): object {
-    return { obj };
+  export function getJsonObj(obj: OrchestrationVariableTypeEnum): OrchestrationVariableTypeEnum {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: OrchestrationVariableTypeEnum
+  ): OrchestrationVariableTypeEnum {
+    return obj;
   }
 }

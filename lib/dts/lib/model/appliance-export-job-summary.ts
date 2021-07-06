@@ -63,4 +63,9 @@ export namespace ApplianceExportJobSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApplianceExportJobSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

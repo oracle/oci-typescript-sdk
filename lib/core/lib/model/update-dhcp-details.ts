@@ -60,4 +60,18 @@ export namespace UpdateDhcpDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDhcpDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "options": obj.options
+          ? obj.options.map(item => {
+              return model.DhcpOption.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

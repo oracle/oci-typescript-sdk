@@ -37,4 +37,9 @@ export namespace MigrateVaultKeyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MigrateVaultKeyDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

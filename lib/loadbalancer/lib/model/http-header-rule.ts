@@ -54,4 +54,12 @@ export namespace HttpHeaderRule {
     return jsonObj;
   }
   export const action = "HTTP_HEADER";
+  export function getDeserializedJsonObj(obj: HttpHeaderRule, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Rule.getDeserializedJsonObj(obj) as HttpHeaderRule)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

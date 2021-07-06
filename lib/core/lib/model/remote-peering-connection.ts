@@ -141,4 +141,9 @@ export namespace RemotePeeringConnection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RemotePeeringConnection): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

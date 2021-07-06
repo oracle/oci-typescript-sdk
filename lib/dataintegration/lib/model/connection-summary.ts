@@ -121,4 +121,65 @@ export namespace ConnectionSummary {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConnectionSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "primarySchema": obj.primarySchema
+          ? model.Schema.getDeserializedJsonObj(obj.primarySchema)
+          : undefined,
+        "connectionProperties": obj.connectionProperties
+          ? obj.connectionProperties.map(item => {
+              return model.ConnectionProperty.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "metadata": obj.metadata
+          ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined
+      }
+    };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "GENERIC_JDBC_CONNECTION":
+          return model.ConnectionSummaryFromJdbc.getDeserializedJsonObj(
+            <model.ConnectionSummaryFromJdbc>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ATP_CONNECTION":
+          return model.ConnectionSummaryFromAtp.getDeserializedJsonObj(
+            <model.ConnectionSummaryFromAtp>(<object>jsonObj),
+            true
+          );
+        case "ORACLEDB_CONNECTION":
+          return model.ConnectionSummaryFromOracle.getDeserializedJsonObj(
+            <model.ConnectionSummaryFromOracle>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ADWC_CONNECTION":
+          return model.ConnectionSummaryFromAdwc.getDeserializedJsonObj(
+            <model.ConnectionSummaryFromAdwc>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_CONNECTION":
+          return model.ConnectionSummaryFromMySQL.getDeserializedJsonObj(
+            <model.ConnectionSummaryFromMySQL>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_OBJECT_STORAGE_CONNECTION":
+          return model.ConnectionSummaryFromObjectStorage.getDeserializedJsonObj(
+            <model.ConnectionSummaryFromObjectStorage>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

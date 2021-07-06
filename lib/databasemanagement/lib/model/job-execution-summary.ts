@@ -73,4 +73,9 @@ export namespace JobExecutionSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: JobExecutionSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -44,4 +44,12 @@ export namespace LiteralArgument {
     return jsonObj;
   }
   export const type = "LITERAL";
+  export function getDeserializedJsonObj(obj: LiteralArgument, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Argument.getDeserializedJsonObj(obj) as LiteralArgument)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -44,4 +44,18 @@ export namespace AttributeCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AttributeCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.AttributeSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

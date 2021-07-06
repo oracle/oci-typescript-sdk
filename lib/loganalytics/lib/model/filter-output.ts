@@ -43,4 +43,9 @@ export namespace FilterOutput {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FilterOutput): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

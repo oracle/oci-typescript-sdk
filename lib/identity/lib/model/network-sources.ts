@@ -118,4 +118,18 @@ export namespace NetworkSources {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NetworkSources): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "virtualSourceList": obj.virtualSourceList
+          ? obj.virtualSourceList.map(item => {
+              return model.NetworkSourcesVirtualSourceList.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

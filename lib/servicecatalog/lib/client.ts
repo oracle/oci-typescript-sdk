@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { ServiceCatalogWaiter } from "./servicecatalog-waiter";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
@@ -169,7 +169,7 @@ export class ServiceCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         bulkReplaceServiceCatalogAssociationsRequest.bulkReplaceServiceCatalogAssociationsDetails,
         "BulkReplaceServiceCatalogAssociationsDetails",
-        models.BulkReplaceServiceCatalogAssociationsDetails.getJsonObj
+        model.BulkReplaceServiceCatalogAssociationsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -233,7 +233,7 @@ export class ServiceCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         changePrivateApplicationCompartmentRequest.changePrivateApplicationCompartmentDetails,
         "ChangePrivateApplicationCompartmentDetails",
-        models.ChangePrivateApplicationCompartmentDetails.getJsonObj
+        model.ChangePrivateApplicationCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -300,7 +300,7 @@ export class ServiceCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeServiceCatalogCompartmentRequest.changeServiceCatalogCompartmentDetails,
         "ChangeServiceCatalogCompartmentDetails",
-        models.ChangeServiceCatalogCompartmentDetails.getJsonObj
+        model.ChangeServiceCatalogCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -360,7 +360,7 @@ export class ServiceCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createPrivateApplicationRequest.createPrivateApplicationDetails,
         "CreatePrivateApplicationDetails",
-        models.CreatePrivateApplicationDetails.getJsonObj
+        model.CreatePrivateApplicationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -372,7 +372,8 @@ export class ServiceCatalogClient {
         responseObject: <responses.CreatePrivateApplicationResponse>{},
         body: await response.json(),
         bodyKey: "privateApplication",
-        bodyModel: "model.PrivateApplication",
+        bodyModel: model.PrivateApplication,
+        type: "model.PrivateApplication",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -433,7 +434,7 @@ export class ServiceCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createServiceCatalogRequest.createServiceCatalogDetails,
         "CreateServiceCatalogDetails",
-        models.CreateServiceCatalogDetails.getJsonObj
+        model.CreateServiceCatalogDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -445,7 +446,8 @@ export class ServiceCatalogClient {
         responseObject: <responses.CreateServiceCatalogResponse>{},
         body: await response.json(),
         bodyKey: "serviceCatalog",
-        bodyModel: "model.ServiceCatalog",
+        bodyModel: model.ServiceCatalog,
+        type: "model.ServiceCatalog",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -501,7 +503,7 @@ export class ServiceCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createServiceCatalogAssociationRequest.createServiceCatalogAssociationDetails,
         "CreateServiceCatalogAssociationDetails",
-        models.CreateServiceCatalogAssociationDetails.getJsonObj
+        model.CreateServiceCatalogAssociationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -513,7 +515,8 @@ export class ServiceCatalogClient {
         responseObject: <responses.CreateServiceCatalogAssociationResponse>{},
         body: await response.json(),
         bodyKey: "serviceCatalogAssociation",
-        bodyModel: "model.ServiceCatalogAssociation",
+        bodyModel: model.ServiceCatalogAssociation,
+        type: "model.ServiceCatalogAssociation",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -754,7 +757,8 @@ export class ServiceCatalogClient {
         responseObject: <responses.GetPrivateApplicationResponse>{},
         body: await response.json(),
         bodyKey: "privateApplication",
-        bodyModel: "model.PrivateApplication",
+        bodyModel: model.PrivateApplication,
+        type: "model.PrivateApplication",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -881,7 +885,8 @@ export class ServiceCatalogClient {
         responseObject: <responses.GetPrivateApplicationPackageResponse>{},
         body: await response.json(),
         bodyKey: "privateApplicationPackage",
-        bodyModel: "model.PrivateApplicationPackage",
+        bodyModel: model.PrivateApplicationPackage,
+        type: "model.PrivateApplicationPackage",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1007,7 +1012,8 @@ export class ServiceCatalogClient {
         responseObject: <responses.GetServiceCatalogResponse>{},
         body: await response.json(),
         bodyKey: "serviceCatalog",
-        bodyModel: "model.ServiceCatalog",
+        bodyModel: model.ServiceCatalog,
+        type: "model.ServiceCatalog",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1072,7 +1078,8 @@ export class ServiceCatalogClient {
         responseObject: <responses.GetServiceCatalogAssociationResponse>{},
         body: await response.json(),
         bodyKey: "serviceCatalogAssociation",
-        bodyModel: "model.ServiceCatalogAssociation",
+        bodyModel: model.ServiceCatalogAssociation,
+        type: "model.ServiceCatalogAssociation",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1135,7 +1142,8 @@ export class ServiceCatalogClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1217,7 +1225,8 @@ export class ServiceCatalogClient {
         responseObject: <responses.ListApplicationsResponse>{},
         body: await response.json(),
         bodyKey: "applicationCollection",
-        bodyModel: "model.ApplicationCollection",
+        bodyModel: model.ApplicationCollection,
+        type: "model.ApplicationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1289,7 +1298,8 @@ export class ServiceCatalogClient {
         responseObject: <responses.ListPrivateApplicationPackagesResponse>{},
         body: await response.json(),
         bodyKey: "privateApplicationPackageCollection",
-        bodyModel: "model.PrivateApplicationPackageCollection",
+        bodyModel: model.PrivateApplicationPackageCollection,
+        type: "model.PrivateApplicationPackageCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1359,7 +1369,8 @@ export class ServiceCatalogClient {
         responseObject: <responses.ListPrivateApplicationsResponse>{},
         body: await response.json(),
         bodyKey: "privateApplicationCollection",
-        bodyModel: "model.PrivateApplicationCollection",
+        bodyModel: model.PrivateApplicationCollection,
+        type: "model.PrivateApplicationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1431,7 +1442,8 @@ export class ServiceCatalogClient {
         responseObject: <responses.ListServiceCatalogAssociationsResponse>{},
         body: await response.json(),
         bodyKey: "serviceCatalogAssociationCollection",
-        bodyModel: "model.ServiceCatalogAssociationCollection",
+        bodyModel: model.ServiceCatalogAssociationCollection,
+        type: "model.ServiceCatalogAssociationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1501,7 +1513,8 @@ export class ServiceCatalogClient {
         responseObject: <responses.ListServiceCatalogsResponse>{},
         body: await response.json(),
         bodyKey: "serviceCatalogCollection",
-        bodyModel: "model.ServiceCatalogCollection",
+        bodyModel: model.ServiceCatalogCollection,
+        type: "model.ServiceCatalogCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1571,7 +1584,8 @@ export class ServiceCatalogClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestErrorCollection",
-        bodyModel: "model.WorkRequestErrorCollection",
+        bodyModel: model.WorkRequestErrorCollection,
+        type: "model.WorkRequestErrorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1641,7 +1655,8 @@ export class ServiceCatalogClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestLogEntryCollection",
-        bodyModel: "model.WorkRequestLogEntryCollection",
+        bodyModel: model.WorkRequestLogEntryCollection,
+        type: "model.WorkRequestLogEntryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1712,7 +1727,8 @@ export class ServiceCatalogClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestSummaryCollection",
-        bodyModel: "model.WorkRequestSummaryCollection",
+        bodyModel: model.WorkRequestSummaryCollection,
+        type: "model.WorkRequestSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1770,7 +1786,7 @@ export class ServiceCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         updatePrivateApplicationRequest.updatePrivateApplicationDetails,
         "UpdatePrivateApplicationDetails",
-        models.UpdatePrivateApplicationDetails.getJsonObj
+        model.UpdatePrivateApplicationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1782,7 +1798,8 @@ export class ServiceCatalogClient {
         responseObject: <responses.UpdatePrivateApplicationResponse>{},
         body: await response.json(),
         bodyKey: "privateApplication",
-        bodyModel: "model.PrivateApplication",
+        bodyModel: model.PrivateApplication,
+        type: "model.PrivateApplication",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1845,7 +1862,7 @@ export class ServiceCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateServiceCatalogRequest.updateServiceCatalogDetails,
         "UpdateServiceCatalogDetails",
-        models.UpdateServiceCatalogDetails.getJsonObj
+        model.UpdateServiceCatalogDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1857,7 +1874,8 @@ export class ServiceCatalogClient {
         responseObject: <responses.UpdateServiceCatalogResponse>{},
         body: await response.json(),
         bodyKey: "serviceCatalog",
-        bodyModel: "model.ServiceCatalog",
+        bodyModel: model.ServiceCatalog,
+        type: "model.ServiceCatalog",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

@@ -37,4 +37,9 @@ export namespace TaggingWorkRequestLogSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TaggingWorkRequestLogSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

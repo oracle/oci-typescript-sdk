@@ -68,4 +68,9 @@ export namespace AttributeTagSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AttributeTagSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

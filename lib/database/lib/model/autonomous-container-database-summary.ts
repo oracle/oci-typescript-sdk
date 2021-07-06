@@ -212,4 +212,20 @@ export namespace AutonomousContainerDatabaseSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutonomousContainerDatabaseSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "maintenanceWindow": obj.maintenanceWindow
+          ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined,
+
+        "backupConfig": obj.backupConfig
+          ? model.AutonomousContainerDatabaseBackupConfig.getDeserializedJsonObj(obj.backupConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

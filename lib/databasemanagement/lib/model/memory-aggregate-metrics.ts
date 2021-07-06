@@ -42,4 +42,18 @@ export namespace MemoryAggregateMetrics {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MemoryAggregateMetrics): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "memoryUsage": obj.memoryUsage
+          ? obj.memoryUsage.map(item => {
+              return model.MetricDataPoint.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

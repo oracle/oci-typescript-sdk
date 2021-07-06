@@ -104,4 +104,19 @@ export namespace CreateListenerDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateListenerDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sslConfiguration": obj.sslConfiguration
+          ? model.SSLConfigurationDetails.getDeserializedJsonObj(obj.sslConfiguration)
+          : undefined,
+        "connectionConfiguration": obj.connectionConfiguration
+          ? model.ConnectionConfiguration.getDeserializedJsonObj(obj.connectionConfiguration)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

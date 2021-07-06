@@ -42,4 +42,9 @@ export namespace AvailabilityHistorySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AvailabilityHistorySummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

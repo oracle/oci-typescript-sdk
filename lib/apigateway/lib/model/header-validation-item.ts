@@ -37,4 +37,9 @@ export namespace HeaderValidationItem {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HeaderValidationItem): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

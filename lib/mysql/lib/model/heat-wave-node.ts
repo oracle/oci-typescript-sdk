@@ -62,4 +62,9 @@ export namespace HeatWaveNode {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HeatWaveNode): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

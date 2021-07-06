@@ -81,4 +81,9 @@ export namespace ByoipRangeSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ByoipRangeSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

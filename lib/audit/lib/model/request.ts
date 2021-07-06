@@ -100,4 +100,9 @@ export namespace Request {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Request): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

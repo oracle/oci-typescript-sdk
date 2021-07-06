@@ -82,4 +82,9 @@ export namespace BlockchainPlatformByHostname {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BlockchainPlatformByHostname): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

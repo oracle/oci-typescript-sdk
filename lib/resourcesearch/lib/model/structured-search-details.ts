@@ -38,4 +38,17 @@ export namespace StructuredSearchDetails {
     return jsonObj;
   }
   export const type = "Structured";
+  export function getDeserializedJsonObj(
+    obj: StructuredSearchDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.SearchDetails.getDeserializedJsonObj(obj) as StructuredSearchDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

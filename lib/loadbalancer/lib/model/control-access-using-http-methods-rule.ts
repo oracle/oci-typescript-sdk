@@ -75,4 +75,17 @@ export namespace ControlAccessUsingHttpMethodsRule {
     return jsonObj;
   }
   export const action = "CONTROL_ACCESS_USING_HTTP_METHODS";
+  export function getDeserializedJsonObj(
+    obj: ControlAccessUsingHttpMethodsRule,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.Rule.getDeserializedJsonObj(obj) as ControlAccessUsingHttpMethodsRule)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

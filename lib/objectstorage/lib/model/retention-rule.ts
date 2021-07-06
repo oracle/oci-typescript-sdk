@@ -61,4 +61,14 @@ export namespace RetentionRule {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RetentionRule): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "duration": obj.duration ? model.Duration.getDeserializedJsonObj(obj.duration) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

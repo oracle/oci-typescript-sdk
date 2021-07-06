@@ -36,4 +36,17 @@ export namespace UnifiedAgentCsvParser {
     return jsonObj;
   }
   export const parserType = "CSV";
+  export function getDeserializedJsonObj(
+    obj: UnifiedAgentCsvParser,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UnifiedAgentParser.getDeserializedJsonObj(obj) as UnifiedAgentCsvParser)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

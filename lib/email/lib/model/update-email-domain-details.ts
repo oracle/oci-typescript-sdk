@@ -55,4 +55,9 @@ export namespace UpdateEmailDomainDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateEmailDomainDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

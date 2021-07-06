@@ -75,4 +75,16 @@ export namespace CreateVolumeGroupDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateVolumeGroupDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sourceDetails": obj.sourceDetails
+          ? model.VolumeGroupSourceDetails.getDeserializedJsonObj(obj.sourceDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

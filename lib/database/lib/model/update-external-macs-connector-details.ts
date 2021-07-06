@@ -54,4 +54,26 @@ export namespace UpdateExternalMacsConnectorDetails {
     return jsonObj;
   }
   export const connectorType = "MACS";
+  export function getDeserializedJsonObj(
+    obj: UpdateExternalMacsConnectorDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UpdateExternalDatabaseConnectorDetails.getDeserializedJsonObj(
+            obj
+          ) as UpdateExternalMacsConnectorDetails)),
+      ...{
+        "connectionString": obj.connectionString
+          ? model.DatabaseConnectionString.getDeserializedJsonObj(obj.connectionString)
+          : undefined,
+        "connectionCredentials": obj.connectionCredentials
+          ? model.DatabaseConnectionCredentials.getDeserializedJsonObj(obj.connectionCredentials)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

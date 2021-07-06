@@ -59,4 +59,9 @@ export namespace Suppression {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Suppression): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

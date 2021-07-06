@@ -54,4 +54,9 @@ export namespace ImportManifest {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ImportManifest): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

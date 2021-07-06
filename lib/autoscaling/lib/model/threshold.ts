@@ -48,4 +48,9 @@ export namespace Threshold {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Threshold): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

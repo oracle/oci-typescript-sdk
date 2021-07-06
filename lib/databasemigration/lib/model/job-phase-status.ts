@@ -32,7 +32,10 @@ export enum JobPhaseStatus {
 }
 
 export namespace JobPhaseStatus {
-  export function getJsonObj(obj: JobPhaseStatus): object {
-    return { obj };
+  export function getJsonObj(obj: JobPhaseStatus): JobPhaseStatus {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: JobPhaseStatus): JobPhaseStatus {
+    return obj;
   }
 }

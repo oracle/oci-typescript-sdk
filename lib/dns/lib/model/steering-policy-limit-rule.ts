@@ -59,4 +59,23 @@ export namespace SteeringPolicyLimitRule {
     return jsonObj;
   }
   export const ruleType = "LIMIT";
+  export function getDeserializedJsonObj(
+    obj: SteeringPolicyLimitRule,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.SteeringPolicyRule.getDeserializedJsonObj(obj) as SteeringPolicyLimitRule)),
+      ...{
+        "cases": obj.cases
+          ? obj.cases.map(item => {
+              return model.SteeringPolicyLimitRuleCase.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

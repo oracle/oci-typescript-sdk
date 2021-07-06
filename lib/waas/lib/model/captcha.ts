@@ -56,4 +56,9 @@ export namespace Captcha {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Captcha): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

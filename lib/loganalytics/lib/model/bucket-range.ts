@@ -43,4 +43,9 @@ export namespace BucketRange {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BucketRange): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

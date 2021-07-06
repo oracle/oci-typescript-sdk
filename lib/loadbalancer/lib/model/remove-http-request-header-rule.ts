@@ -46,4 +46,17 @@ export namespace RemoveHttpRequestHeaderRule {
     return jsonObj;
   }
   export const action = "REMOVE_HTTP_REQUEST_HEADER";
+  export function getDeserializedJsonObj(
+    obj: RemoveHttpRequestHeaderRule,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.Rule.getDeserializedJsonObj(obj) as RemoveHttpRequestHeaderRule)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

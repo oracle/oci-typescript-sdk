@@ -50,4 +50,23 @@ export namespace BrowserMonitorConfiguration {
     return jsonObj;
   }
   export const configType = "BROWSER_CONFIG";
+  export function getDeserializedJsonObj(
+    obj: BrowserMonitorConfiguration,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.MonitorConfiguration.getDeserializedJsonObj(obj) as BrowserMonitorConfiguration)),
+      ...{
+        "verifyTexts": obj.verifyTexts
+          ? obj.verifyTexts.map(item => {
+              return model.VerifyText.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

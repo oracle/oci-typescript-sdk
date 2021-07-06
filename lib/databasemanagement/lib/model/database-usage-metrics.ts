@@ -66,4 +66,18 @@ export namespace DatabaseUsageMetrics {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseUsageMetrics): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "metrics": obj.metrics
+          ? obj.metrics.map(item => {
+              return model.FleetMetricDefinition.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

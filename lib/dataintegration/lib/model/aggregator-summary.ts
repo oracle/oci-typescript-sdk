@@ -46,4 +46,9 @@ export namespace AggregatorSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AggregatorSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

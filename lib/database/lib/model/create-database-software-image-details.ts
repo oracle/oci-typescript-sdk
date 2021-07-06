@@ -91,4 +91,9 @@ export namespace CreateDatabaseSoftwareImageDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateDatabaseSoftwareImageDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -42,4 +42,9 @@ export namespace VaultDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VaultDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

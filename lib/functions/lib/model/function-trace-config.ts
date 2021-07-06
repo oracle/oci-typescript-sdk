@@ -33,4 +33,9 @@ export namespace FunctionTraceConfig {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FunctionTraceConfig): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

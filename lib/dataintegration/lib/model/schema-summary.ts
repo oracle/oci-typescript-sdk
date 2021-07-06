@@ -83,4 +83,20 @@ export namespace SchemaSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SchemaSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "metadata": obj.metadata
+          ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

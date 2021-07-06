@@ -70,4 +70,19 @@ export namespace Project {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Project): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+        "metadata": obj.metadata
+          ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

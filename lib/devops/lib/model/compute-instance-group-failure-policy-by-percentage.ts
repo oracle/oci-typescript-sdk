@@ -44,4 +44,19 @@ export namespace ComputeInstanceGroupFailurePolicyByPercentage {
     return jsonObj;
   }
   export const policyType = "COMPUTE_INSTANCE_GROUP_FAILURE_POLICY_BY_PERCENTAGE";
+  export function getDeserializedJsonObj(
+    obj: ComputeInstanceGroupFailurePolicyByPercentage,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ComputeInstanceGroupFailurePolicy.getDeserializedJsonObj(
+            obj
+          ) as ComputeInstanceGroupFailurePolicyByPercentage)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -74,4 +74,12 @@ export namespace ActivityItem {
     return jsonObj;
   }
   export const type = "activity";
+  export function getDeserializedJsonObj(obj: ActivityItem, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Item.getDeserializedJsonObj(obj) as ActivityItem)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

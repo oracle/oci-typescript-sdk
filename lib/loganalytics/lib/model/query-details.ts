@@ -103,4 +103,21 @@ export namespace QueryDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: QueryDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "timeFilter": obj.timeFilter
+          ? model.TimeRange.getDeserializedJsonObj(obj.timeFilter)
+          : undefined,
+        "scopeFilters": obj.scopeFilters
+          ? obj.scopeFilters.map(item => {
+              return model.ScopeFilter.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -86,4 +86,9 @@ export namespace Catalog {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Catalog): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -43,4 +43,9 @@ export namespace LogAnalyticsConfigWorkRequestPayload {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsConfigWorkRequestPayload): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

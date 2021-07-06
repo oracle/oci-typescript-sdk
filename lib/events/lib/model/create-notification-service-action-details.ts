@@ -44,4 +44,19 @@ export namespace CreateNotificationServiceActionDetails {
     return jsonObj;
   }
   export const actionType = "ONS";
+  export function getDeserializedJsonObj(
+    obj: CreateNotificationServiceActionDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ActionDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateNotificationServiceActionDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

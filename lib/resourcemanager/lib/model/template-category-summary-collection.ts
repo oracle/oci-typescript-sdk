@@ -44,4 +44,18 @@ export namespace TemplateCategorySummaryCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TemplateCategorySummaryCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.TemplateCategorySummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -61,4 +61,9 @@ export namespace Listener {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Listener): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

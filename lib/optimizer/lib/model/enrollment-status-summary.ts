@@ -55,4 +55,9 @@ export namespace EnrollmentStatusSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EnrollmentStatusSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

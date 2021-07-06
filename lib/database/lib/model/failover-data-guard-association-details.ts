@@ -32,4 +32,9 @@ export namespace FailoverDataGuardAssociationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FailoverDataGuardAssociationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

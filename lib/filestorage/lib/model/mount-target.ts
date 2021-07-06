@@ -123,4 +123,9 @@ export namespace MountTarget {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MountTarget): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

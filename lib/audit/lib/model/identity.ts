@@ -91,4 +91,9 @@ export namespace Identity {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Identity): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

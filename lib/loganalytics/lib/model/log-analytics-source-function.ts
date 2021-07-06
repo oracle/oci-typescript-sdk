@@ -110,4 +110,22 @@ export namespace LogAnalyticsSourceFunction {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsSourceFunction): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "arguments": obj.arguments
+          ? obj.arguments.map(item => {
+              return model.LogAnalyticsMetaFunctionArgument.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "function": obj.function
+          ? model.LogAnalyticsMetaFunction.getDeserializedJsonObj(obj.function)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -84,4 +84,18 @@ export namespace RequestSummarizedJreUsageDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RequestSummarizedJreUsageDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "fields": obj.fields
+          ? obj.fields.map(item => {
+              return model.SummarizeJreUsageFields.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

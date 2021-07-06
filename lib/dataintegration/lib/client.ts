@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { DataIntegrationWaiter } from "./dataintegration-waiter";
@@ -170,7 +170,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeCompartmentRequest.changeCompartmentDetails,
         "ChangeCompartmentDetails",
-        models.ChangeCompartmentDetails.getJsonObj
+        model.ChangeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -238,7 +238,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         createApplicationRequest.createApplicationDetails,
         "CreateApplicationDetails",
-        models.CreateApplicationDetails.getJsonObj
+        model.CreateApplicationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -250,7 +250,8 @@ export class DataIntegrationClient {
         responseObject: <responses.CreateApplicationResponse>{},
         body: await response.json(),
         bodyKey: "application",
-        bodyModel: "model.Application",
+        bodyModel: model.Application,
+        type: "model.Application",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -307,7 +308,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         createConnectionRequest.createConnectionDetails,
         "CreateConnectionDetails",
-        models.CreateConnectionDetails.getJsonObj
+        model.CreateConnectionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -319,7 +320,8 @@ export class DataIntegrationClient {
         responseObject: <responses.CreateConnectionResponse>{},
         body: await response.json(),
         bodyKey: "connection",
-        bodyModel: "model.Connection",
+        bodyModel: model.Connection,
+        type: "model.Connection",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -377,7 +379,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         createConnectionValidationRequest.createConnectionValidationDetails,
         "CreateConnectionValidationDetails",
-        models.CreateConnectionValidationDetails.getJsonObj
+        model.CreateConnectionValidationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -389,7 +391,8 @@ export class DataIntegrationClient {
         responseObject: <responses.CreateConnectionValidationResponse>{},
         body: await response.json(),
         bodyKey: "connectionValidation",
-        bodyModel: "model.ConnectionValidation",
+        bodyModel: model.ConnectionValidation,
+        type: "model.ConnectionValidation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -446,7 +449,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         createDataAssetRequest.createDataAssetDetails,
         "CreateDataAssetDetails",
-        models.CreateDataAssetDetails.getJsonObj
+        model.CreateDataAssetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -458,7 +461,8 @@ export class DataIntegrationClient {
         responseObject: <responses.CreateDataAssetResponse>{},
         body: await response.json(),
         bodyKey: "dataAsset",
-        bodyModel: "model.DataAsset",
+        bodyModel: model.DataAsset,
+        type: "model.DataAsset",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -516,7 +520,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         createDataFlowRequest.createDataFlowDetails,
         "CreateDataFlowDetails",
-        models.CreateDataFlowDetails.getJsonObj
+        model.CreateDataFlowDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -528,7 +532,8 @@ export class DataIntegrationClient {
         responseObject: <responses.CreateDataFlowResponse>{},
         body: await response.json(),
         bodyKey: "dataFlow",
-        bodyModel: "model.DataFlow",
+        bodyModel: model.DataFlow,
+        type: "model.DataFlow",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -587,7 +592,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         createDataFlowValidationRequest.createDataFlowValidationDetails,
         "CreateDataFlowValidationDetails",
-        models.CreateDataFlowValidationDetails.getJsonObj
+        model.CreateDataFlowValidationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -599,7 +604,8 @@ export class DataIntegrationClient {
         responseObject: <responses.CreateDataFlowValidationResponse>{},
         body: await response.json(),
         bodyKey: "dataFlowValidation",
-        bodyModel: "model.DataFlowValidation",
+        bodyModel: model.DataFlowValidation,
+        type: "model.DataFlowValidation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -661,7 +667,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         createEntityShapeRequest.createEntityShapeDetails,
         "CreateEntityShapeDetails",
-        models.CreateEntityShapeDetails.getJsonObj
+        model.CreateEntityShapeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -673,7 +679,8 @@ export class DataIntegrationClient {
         responseObject: <responses.CreateEntityShapeResponse>{},
         body: await response.json(),
         bodyKey: "entityShape",
-        bodyModel: "model.EntityShape",
+        bodyModel: model.EntityShape,
+        type: "model.EntityShape",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -727,7 +734,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         createExternalPublicationRequest.createExternalPublicationDetails,
         "CreateExternalPublicationDetails",
-        models.CreateExternalPublicationDetails.getJsonObj
+        model.CreateExternalPublicationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -739,7 +746,8 @@ export class DataIntegrationClient {
         responseObject: <responses.CreateExternalPublicationResponse>{},
         body: await response.json(),
         bodyKey: "externalPublication",
-        bodyModel: "model.ExternalPublication",
+        bodyModel: model.ExternalPublication,
+        type: "model.ExternalPublication",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -800,7 +808,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         createExternalPublicationValidationRequest.createExternalPublicationValidationDetails,
         "CreateExternalPublicationValidationDetails",
-        models.CreateExternalPublicationValidationDetails.getJsonObj
+        model.CreateExternalPublicationValidationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -812,7 +820,8 @@ export class DataIntegrationClient {
         responseObject: <responses.CreateExternalPublicationValidationResponse>{},
         body: await response.json(),
         bodyKey: "externalPublicationValidation",
-        bodyModel: "model.ExternalPublicationValidation",
+        bodyModel: model.ExternalPublicationValidation,
+        type: "model.ExternalPublicationValidation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -871,7 +880,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         createFolderRequest.createFolderDetails,
         "CreateFolderDetails",
-        models.CreateFolderDetails.getJsonObj
+        model.CreateFolderDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -883,7 +892,8 @@ export class DataIntegrationClient {
         responseObject: <responses.CreateFolderResponse>{},
         body: await response.json(),
         bodyKey: "folder",
-        bodyModel: "model.Folder",
+        bodyModel: model.Folder,
+        type: "model.Folder",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -941,7 +951,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         createPatchRequest.createPatchDetails,
         "CreatePatchDetails",
-        models.CreatePatchDetails.getJsonObj
+        model.CreatePatchDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -953,7 +963,8 @@ export class DataIntegrationClient {
         responseObject: <responses.CreatePatchResponse>{},
         body: await response.json(),
         bodyKey: "patch",
-        bodyModel: "model.Patch",
+        bodyModel: model.Patch,
+        type: "model.Patch",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1011,7 +1022,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         createPipelineRequest.createPipelineDetails,
         "CreatePipelineDetails",
-        models.CreatePipelineDetails.getJsonObj
+        model.CreatePipelineDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1023,7 +1034,8 @@ export class DataIntegrationClient {
         responseObject: <responses.CreatePipelineResponse>{},
         body: await response.json(),
         bodyKey: "pipeline",
-        bodyModel: "model.Pipeline",
+        bodyModel: model.Pipeline,
+        type: "model.Pipeline",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1082,7 +1094,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         createPipelineValidationRequest.createPipelineValidationDetails,
         "CreatePipelineValidationDetails",
-        models.CreatePipelineValidationDetails.getJsonObj
+        model.CreatePipelineValidationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1094,7 +1106,8 @@ export class DataIntegrationClient {
         responseObject: <responses.CreatePipelineValidationResponse>{},
         body: await response.json(),
         bodyKey: "pipelineValidation",
-        bodyModel: "model.PipelineValidation",
+        bodyModel: model.PipelineValidation,
+        type: "model.PipelineValidation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1152,7 +1165,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         createProjectRequest.createProjectDetails,
         "CreateProjectDetails",
-        models.CreateProjectDetails.getJsonObj
+        model.CreateProjectDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1164,7 +1177,8 @@ export class DataIntegrationClient {
         responseObject: <responses.CreateProjectResponse>{},
         body: await response.json(),
         bodyKey: "project",
-        bodyModel: "model.Project",
+        bodyModel: model.Project,
+        type: "model.Project",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1222,7 +1236,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         createTaskRequest.createTaskDetails,
         "CreateTaskDetails",
-        models.CreateTaskDetails.getJsonObj
+        model.CreateTaskDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1234,7 +1248,8 @@ export class DataIntegrationClient {
         responseObject: <responses.CreateTaskResponse>{},
         body: await response.json(),
         bodyKey: "task",
-        bodyModel: "model.Task",
+        bodyModel: model.Task,
+        type: "model.Task",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1292,7 +1307,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         createTaskRunRequest.createTaskRunDetails,
         "CreateTaskRunDetails",
-        models.CreateTaskRunDetails.getJsonObj
+        model.CreateTaskRunDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1304,7 +1319,8 @@ export class DataIntegrationClient {
         responseObject: <responses.CreateTaskRunResponse>{},
         body: await response.json(),
         bodyKey: "taskRun",
-        bodyModel: "model.TaskRun",
+        bodyModel: model.TaskRun,
+        type: "model.TaskRun",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1362,7 +1378,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         createTaskValidationRequest.createTaskValidationDetails,
         "CreateTaskValidationDetails",
-        models.CreateTaskValidationDetails.getJsonObj
+        model.CreateTaskValidationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1374,7 +1390,8 @@ export class DataIntegrationClient {
         responseObject: <responses.CreateTaskValidationResponse>{},
         body: await response.json(),
         bodyKey: "taskValidation",
-        bodyModel: "model.TaskValidation",
+        bodyModel: model.TaskValidation,
+        type: "model.TaskValidation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1430,7 +1447,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         createWorkspaceRequest.createWorkspaceDetails,
         "CreateWorkspaceDetails",
-        models.CreateWorkspaceDetails.getJsonObj
+        model.CreateWorkspaceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2497,7 +2514,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetApplicationResponse>{},
         body: await response.json(),
         bodyKey: "application",
-        bodyModel: "model.Application",
+        bodyModel: model.Application,
+        type: "model.Application",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2561,7 +2579,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetConnectionResponse>{},
         body: await response.json(),
         bodyKey: "connection",
-        bodyModel: "model.Connection",
+        bodyModel: model.Connection,
+        type: "model.Connection",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2626,7 +2645,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetConnectionValidationResponse>{},
         body: await response.json(),
         bodyKey: "connectionValidation",
-        bodyModel: "model.ConnectionValidation",
+        bodyModel: model.ConnectionValidation,
+        type: "model.ConnectionValidation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2693,7 +2713,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetCountStatisticResponse>{},
         body: await response.json(),
         bodyKey: "countStatistic",
-        bodyModel: "model.CountStatistic",
+        bodyModel: model.CountStatistic,
+        type: "model.CountStatistic",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2757,7 +2778,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetDataAssetResponse>{},
         body: await response.json(),
         bodyKey: "dataAsset",
-        bodyModel: "model.DataAsset",
+        bodyModel: model.DataAsset,
+        type: "model.DataAsset",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2824,7 +2846,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetDataEntityResponse>{},
         body: await response.json(),
         bodyKey: "dataEntity",
-        bodyModel: "model.DataEntity",
+        bodyModel: model.DataEntity,
+        type: "model.DataEntity",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2883,7 +2906,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetDataFlowResponse>{},
         body: await response.json(),
         bodyKey: "dataFlow",
-        bodyModel: "model.DataFlow",
+        bodyModel: model.DataFlow,
+        type: "model.DataFlow",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2948,7 +2972,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetDataFlowValidationResponse>{},
         body: await response.json(),
         bodyKey: "dataFlowValidation",
-        bodyModel: "model.DataFlowValidation",
+        bodyModel: model.DataFlowValidation,
+        type: "model.DataFlowValidation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3015,7 +3040,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetDependentObjectResponse>{},
         body: await response.json(),
         bodyKey: "dependentObject",
-        bodyModel: "model.DependentObject",
+        bodyModel: model.DependentObject,
+        type: "model.DependentObject",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3082,7 +3108,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetExternalPublicationResponse>{},
         body: await response.json(),
         bodyKey: "externalPublication",
-        bodyModel: "model.ExternalPublication",
+        bodyModel: model.ExternalPublication,
+        type: "model.ExternalPublication",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3152,7 +3179,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetExternalPublicationValidationResponse>{},
         body: await response.json(),
         bodyKey: "externalPublicationValidation",
-        bodyModel: "model.ExternalPublicationValidation",
+        bodyModel: model.ExternalPublicationValidation,
+        type: "model.ExternalPublicationValidation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3216,7 +3244,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetFolderResponse>{},
         body: await response.json(),
         bodyKey: "folder",
-        bodyModel: "model.Folder",
+        bodyModel: model.Folder,
+        type: "model.Folder",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3281,7 +3310,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetPatchResponse>{},
         body: await response.json(),
         bodyKey: "patch",
-        bodyModel: "model.Patch",
+        bodyModel: model.Patch,
+        type: "model.Patch",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3345,7 +3375,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetPipelineResponse>{},
         body: await response.json(),
         bodyKey: "pipeline",
-        bodyModel: "model.Pipeline",
+        bodyModel: model.Pipeline,
+        type: "model.Pipeline",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3410,7 +3441,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetPipelineValidationResponse>{},
         body: await response.json(),
         bodyKey: "pipelineValidation",
-        bodyModel: "model.PipelineValidation",
+        bodyModel: model.PipelineValidation,
+        type: "model.PipelineValidation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3474,7 +3506,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetProjectResponse>{},
         body: await response.json(),
         bodyKey: "project",
-        bodyModel: "model.Project",
+        bodyModel: model.Project,
+        type: "model.Project",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3543,7 +3576,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetPublishedObjectResponse>{},
         body: await response.json(),
         bodyKey: "publishedObject",
-        bodyModel: "model.PublishedObject",
+        bodyModel: model.PublishedObject,
+        type: "model.PublishedObject",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3608,7 +3642,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetReferenceResponse>{},
         body: await response.json(),
         bodyKey: "reference",
-        bodyModel: "model.Reference",
+        bodyModel: model.Reference,
+        type: "model.Reference",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3673,7 +3708,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetSchemaResponse>{},
         body: await response.json(),
         bodyKey: "schema",
-        bodyModel: "model.Schema",
+        bodyModel: model.Schema,
+        type: "model.Schema",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3734,7 +3770,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetTaskResponse>{},
         body: await response.json(),
         bodyKey: "task",
-        bodyModel: "model.Task",
+        bodyModel: model.Task,
+        type: "model.Task",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3799,7 +3836,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetTaskRunResponse>{},
         body: await response.json(),
         bodyKey: "taskRun",
-        bodyModel: "model.TaskRun",
+        bodyModel: model.TaskRun,
+        type: "model.TaskRun",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3865,7 +3903,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetTaskValidationResponse>{},
         body: await response.json(),
         bodyKey: "taskValidation",
-        bodyModel: "model.TaskValidation",
+        bodyModel: model.TaskValidation,
+        type: "model.TaskValidation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3928,7 +3967,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3996,7 +4036,8 @@ export class DataIntegrationClient {
         responseObject: <responses.GetWorkspaceResponse>{},
         body: await response.json(),
         bodyKey: "workspace",
-        bodyModel: "model.Workspace",
+        bodyModel: model.Workspace,
+        type: "model.Workspace",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4067,7 +4108,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListApplicationsResponse>{},
         body: await response.json(),
         bodyKey: "applicationSummaryCollection",
-        bodyModel: "model.ApplicationSummaryCollection",
+        bodyModel: model.ApplicationSummaryCollection,
+        type: "model.ApplicationSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4150,7 +4192,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListConnectionValidationsResponse>{},
         body: await response.json(),
         bodyKey: "connectionValidationSummaryCollection",
-        bodyModel: "model.ConnectionValidationSummaryCollection",
+        bodyModel: model.ConnectionValidationSummaryCollection,
+        type: "model.ConnectionValidationSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4232,7 +4275,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListConnectionsResponse>{},
         body: await response.json(),
         bodyKey: "connectionSummaryCollection",
-        bodyModel: "model.ConnectionSummaryCollection",
+        bodyModel: model.ConnectionSummaryCollection,
+        type: "model.ConnectionSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4314,7 +4358,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListDataAssetsResponse>{},
         body: await response.json(),
         bodyKey: "dataAssetSummaryCollection",
-        bodyModel: "model.DataAssetSummaryCollection",
+        bodyModel: model.DataAssetSummaryCollection,
+        type: "model.DataAssetSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4401,7 +4446,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListDataEntitiesResponse>{},
         body: await response.json(),
         bodyKey: "dataEntitySummaryCollection",
-        bodyModel: "model.DataEntitySummaryCollection",
+        bodyModel: model.DataEntitySummaryCollection,
+        type: "model.DataEntitySummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4484,7 +4530,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListDataFlowValidationsResponse>{},
         body: await response.json(),
         bodyKey: "dataFlowValidationSummaryCollection",
-        bodyModel: "model.DataFlowValidationSummaryCollection",
+        bodyModel: model.DataFlowValidationSummaryCollection,
+        type: "model.DataFlowValidationSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4567,7 +4614,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListDataFlowsResponse>{},
         body: await response.json(),
         bodyKey: "dataFlowSummaryCollection",
-        bodyModel: "model.DataFlowSummaryCollection",
+        bodyModel: model.DataFlowSummaryCollection,
+        type: "model.DataFlowSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4652,7 +4700,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListDependentObjectsResponse>{},
         body: await response.json(),
         bodyKey: "dependentObjectSummaryCollection",
-        bodyModel: "model.DependentObjectSummaryCollection",
+        bodyModel: model.DependentObjectSummaryCollection,
+        type: "model.DependentObjectSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4738,7 +4787,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListExternalPublicationValidationsResponse>{},
         body: await response.json(),
         bodyKey: "externalPublicationValidationSummaryCollection",
-        bodyModel: "model.ExternalPublicationValidationSummaryCollection",
+        bodyModel: model.ExternalPublicationValidationSummaryCollection,
+        type: "model.ExternalPublicationValidationSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4820,7 +4870,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListExternalPublicationsResponse>{},
         body: await response.json(),
         bodyKey: "externalPublicationSummaryCollection",
-        bodyModel: "model.ExternalPublicationSummaryCollection",
+        bodyModel: model.ExternalPublicationSummaryCollection,
+        type: "model.ExternalPublicationSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4903,7 +4954,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListFoldersResponse>{},
         body: await response.json(),
         bodyKey: "folderSummaryCollection",
-        bodyModel: "model.FolderSummaryCollection",
+        bodyModel: model.FolderSummaryCollection,
+        type: "model.FolderSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4985,7 +5037,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListPatchChangesResponse>{},
         body: await response.json(),
         bodyKey: "patchChangeSummaryCollection",
-        bodyModel: "model.PatchChangeSummaryCollection",
+        bodyModel: model.PatchChangeSummaryCollection,
+        type: "model.PatchChangeSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5067,7 +5120,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListPatchesResponse>{},
         body: await response.json(),
         bodyKey: "patchSummaryCollection",
-        bodyModel: "model.PatchSummaryCollection",
+        bodyModel: model.PatchSummaryCollection,
+        type: "model.PatchSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5150,7 +5204,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListPipelineValidationsResponse>{},
         body: await response.json(),
         bodyKey: "pipelineValidationSummaryCollection",
-        bodyModel: "model.PipelineValidationSummaryCollection",
+        bodyModel: model.PipelineValidationSummaryCollection,
+        type: "model.PipelineValidationSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5233,7 +5288,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListPipelinesResponse>{},
         body: await response.json(),
         bodyKey: "pipelineSummaryCollection",
-        bodyModel: "model.PipelineSummaryCollection",
+        bodyModel: model.PipelineSummaryCollection,
+        type: "model.PipelineSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5315,7 +5371,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListProjectsResponse>{},
         body: await response.json(),
         bodyKey: "projectSummaryCollection",
-        bodyModel: "model.ProjectSummaryCollection",
+        bodyModel: model.ProjectSummaryCollection,
+        type: "model.ProjectSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5400,7 +5457,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListPublishedObjectsResponse>{},
         body: await response.json(),
         bodyKey: "publishedObjectSummaryCollection",
-        bodyModel: "model.PublishedObjectSummaryCollection",
+        bodyModel: model.PublishedObjectSummaryCollection,
+        type: "model.PublishedObjectSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5480,7 +5538,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListReferencesResponse>{},
         body: await response.json(),
         bodyKey: "referenceSummaryCollection",
-        bodyModel: "model.ReferenceSummaryCollection",
+        bodyModel: model.ReferenceSummaryCollection,
+        type: "model.ReferenceSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5568,7 +5627,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListSchemasResponse>{},
         body: await response.json(),
         bodyKey: "schemaSummaryCollection",
-        bodyModel: "model.SchemaSummaryCollection",
+        bodyModel: model.SchemaSummaryCollection,
+        type: "model.SchemaSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5648,7 +5708,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListTaskRunLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "TaskRunLogSummary[]",
+        bodyModel: model.TaskRunLogSummary,
+        type: "Array<model.TaskRunLogSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5688,7 +5749,7 @@ export class DataIntegrationClient {
    */
   public listAllTaskRunLogs(
     request: requests.ListTaskRunLogsRequest
-  ): AsyncIterableIterator<models.TaskRunLogSummary> {
+  ): AsyncIterableIterator<model.TaskRunLogSummary> {
     return paginateRecords(request, req => this.listTaskRunLogs(req));
   }
 
@@ -5756,7 +5817,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListTaskRunsResponse>{},
         body: await response.json(),
         bodyKey: "taskRunSummaryCollection",
-        bodyModel: "model.TaskRunSummaryCollection",
+        bodyModel: model.TaskRunSummaryCollection,
+        type: "model.TaskRunSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5840,7 +5902,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListTaskValidationsResponse>{},
         body: await response.json(),
         bodyKey: "taskValidationSummaryCollection",
-        bodyModel: "model.TaskValidationSummaryCollection",
+        bodyModel: model.TaskValidationSummaryCollection,
+        type: "model.TaskValidationSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5925,7 +5988,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListTasksResponse>{},
         body: await response.json(),
         bodyKey: "taskSummaryCollection",
-        bodyModel: "model.TaskSummaryCollection",
+        bodyModel: model.TaskSummaryCollection,
+        type: "model.TaskSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6005,7 +6069,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestError[]",
+        bodyModel: model.WorkRequestError,
+        type: "Array<model.WorkRequestError>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6035,7 +6100,7 @@ export class DataIntegrationClient {
    */
   public listAllWorkRequestErrors(
     request: requests.ListWorkRequestErrorsRequest
-  ): AsyncIterableIterator<models.WorkRequestError> {
+  ): AsyncIterableIterator<model.WorkRequestError> {
     return paginateRecords(request, req => this.listWorkRequestErrors(req));
   }
 
@@ -6100,7 +6165,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestLogEntry[]",
+        bodyModel: model.WorkRequestLogEntry,
+        type: "Array<model.WorkRequestLogEntry>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6130,7 +6196,7 @@ export class DataIntegrationClient {
    */
   public listAllWorkRequestLogs(
     request: requests.ListWorkRequestLogsRequest
-  ): AsyncIterableIterator<models.WorkRequestLogEntry> {
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
     return paginateRecords(request, req => this.listWorkRequestLogs(req));
   }
 
@@ -6195,7 +6261,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestSummary[]",
+        bodyModel: model.WorkRequestSummary,
+        type: "Array<model.WorkRequestSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6225,7 +6292,7 @@ export class DataIntegrationClient {
    */
   public listAllWorkRequests(
     request: requests.ListWorkRequestsRequest
-  ): AsyncIterableIterator<models.WorkRequestSummary> {
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
     return paginateRecords(request, req => this.listWorkRequests(req));
   }
 
@@ -6290,7 +6357,8 @@ export class DataIntegrationClient {
         responseObject: <responses.ListWorkspacesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkspaceSummary[]",
+        bodyModel: model.WorkspaceSummary,
+        type: "Array<model.WorkspaceSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6320,7 +6388,7 @@ export class DataIntegrationClient {
    */
   public listAllWorkspaces(
     request: requests.ListWorkspacesRequest
-  ): AsyncIterableIterator<models.WorkspaceSummary> {
+  ): AsyncIterableIterator<model.WorkspaceSummary> {
     return paginateRecords(request, req => this.listWorkspaces(req));
   }
 
@@ -6503,7 +6571,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateApplicationRequest.updateApplicationDetails,
         "UpdateApplicationDetails",
-        models.UpdateApplicationDetails.getJsonObj
+        model.UpdateApplicationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -6515,7 +6583,8 @@ export class DataIntegrationClient {
         responseObject: <responses.UpdateApplicationResponse>{},
         body: await response.json(),
         bodyKey: "application",
-        bodyModel: "model.Application",
+        bodyModel: model.Application,
+        type: "model.Application",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6573,7 +6642,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateConnectionRequest.updateConnectionDetails,
         "UpdateConnectionDetails",
-        models.UpdateConnectionDetails.getJsonObj
+        model.UpdateConnectionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -6585,7 +6654,8 @@ export class DataIntegrationClient {
         responseObject: <responses.UpdateConnectionResponse>{},
         body: await response.json(),
         bodyKey: "connection",
-        bodyModel: "model.Connection",
+        bodyModel: model.Connection,
+        type: "model.Connection",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6643,7 +6713,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateDataAssetRequest.updateDataAssetDetails,
         "UpdateDataAssetDetails",
-        models.UpdateDataAssetDetails.getJsonObj
+        model.UpdateDataAssetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -6655,7 +6725,8 @@ export class DataIntegrationClient {
         responseObject: <responses.UpdateDataAssetResponse>{},
         body: await response.json(),
         bodyKey: "dataAsset",
-        bodyModel: "model.DataAsset",
+        bodyModel: model.DataAsset,
+        type: "model.DataAsset",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6713,7 +6784,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateDataFlowRequest.updateDataFlowDetails,
         "UpdateDataFlowDetails",
-        models.UpdateDataFlowDetails.getJsonObj
+        model.UpdateDataFlowDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -6725,7 +6796,8 @@ export class DataIntegrationClient {
         responseObject: <responses.UpdateDataFlowResponse>{},
         body: await response.json(),
         bodyKey: "dataFlow",
-        bodyModel: "model.DataFlow",
+        bodyModel: model.DataFlow,
+        type: "model.DataFlow",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6786,7 +6858,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateExternalPublicationRequest.updateExternalPublicationDetails,
         "UpdateExternalPublicationDetails",
-        models.UpdateExternalPublicationDetails.getJsonObj
+        model.UpdateExternalPublicationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -6798,7 +6870,8 @@ export class DataIntegrationClient {
         responseObject: <responses.UpdateExternalPublicationResponse>{},
         body: await response.json(),
         bodyKey: "externalPublication",
-        bodyModel: "model.ExternalPublication",
+        bodyModel: model.ExternalPublication,
+        type: "model.ExternalPublication",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6856,7 +6929,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateFolderRequest.updateFolderDetails,
         "UpdateFolderDetails",
-        models.UpdateFolderDetails.getJsonObj
+        model.UpdateFolderDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -6868,7 +6941,8 @@ export class DataIntegrationClient {
         responseObject: <responses.UpdateFolderResponse>{},
         body: await response.json(),
         bodyKey: "folder",
-        bodyModel: "model.Folder",
+        bodyModel: model.Folder,
+        type: "model.Folder",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6926,7 +7000,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         updatePipelineRequest.updatePipelineDetails,
         "UpdatePipelineDetails",
-        models.UpdatePipelineDetails.getJsonObj
+        model.UpdatePipelineDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -6938,7 +7012,8 @@ export class DataIntegrationClient {
         responseObject: <responses.UpdatePipelineResponse>{},
         body: await response.json(),
         bodyKey: "pipeline",
-        bodyModel: "model.Pipeline",
+        bodyModel: model.Pipeline,
+        type: "model.Pipeline",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6996,7 +7071,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateProjectRequest.updateProjectDetails,
         "UpdateProjectDetails",
-        models.UpdateProjectDetails.getJsonObj
+        model.UpdateProjectDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -7008,7 +7083,8 @@ export class DataIntegrationClient {
         responseObject: <responses.UpdateProjectResponse>{},
         body: await response.json(),
         bodyKey: "project",
-        bodyModel: "model.Project",
+        bodyModel: model.Project,
+        type: "model.Project",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -7068,7 +7144,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateReferenceRequest.updateReferenceDetails,
         "UpdateReferenceDetails",
-        models.UpdateReferenceDetails.getJsonObj
+        model.UpdateReferenceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -7080,7 +7156,8 @@ export class DataIntegrationClient {
         responseObject: <responses.UpdateReferenceResponse>{},
         body: await response.json(),
         bodyKey: "reference",
-        bodyModel: "model.Reference",
+        bodyModel: model.Reference,
+        type: "model.Reference",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -7138,7 +7215,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateTaskRequest.updateTaskDetails,
         "UpdateTaskDetails",
-        models.UpdateTaskDetails.getJsonObj
+        model.UpdateTaskDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -7150,7 +7227,8 @@ export class DataIntegrationClient {
         responseObject: <responses.UpdateTaskResponse>{},
         body: await response.json(),
         bodyKey: "task",
-        bodyModel: "model.Task",
+        bodyModel: model.Task,
+        type: "model.Task",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -7209,7 +7287,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateTaskRunRequest.updateTaskRunDetails,
         "UpdateTaskRunDetails",
-        models.UpdateTaskRunDetails.getJsonObj
+        model.UpdateTaskRunDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -7221,7 +7299,8 @@ export class DataIntegrationClient {
         responseObject: <responses.UpdateTaskRunResponse>{},
         body: await response.json(),
         bodyKey: "taskRunDetails",
-        bodyModel: "model.TaskRunDetails",
+        bodyModel: model.TaskRunDetails,
+        type: "model.TaskRunDetails",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -7278,7 +7357,7 @@ export class DataIntegrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateWorkspaceRequest.updateWorkspaceDetails,
         "UpdateWorkspaceDetails",
-        models.UpdateWorkspaceDetails.getJsonObj
+        model.UpdateWorkspaceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -7290,7 +7369,8 @@ export class DataIntegrationClient {
         responseObject: <responses.UpdateWorkspaceResponse>{},
         body: await response.json(),
         bodyKey: "workspace",
-        bodyModel: "model.Workspace",
+        bodyModel: model.Workspace,
+        type: "model.Workspace",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

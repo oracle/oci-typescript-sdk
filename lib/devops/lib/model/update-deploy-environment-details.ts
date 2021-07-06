@@ -65,4 +65,30 @@ export namespace UpdateDeployEnvironmentDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDeployEnvironmentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("deployEnvironmentType" in obj && obj.deployEnvironmentType) {
+      switch (obj.deployEnvironmentType) {
+        case "FUNCTION":
+          return model.UpdateFunctionDeployEnvironmentDetails.getDeserializedJsonObj(
+            <model.UpdateFunctionDeployEnvironmentDetails>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_GROUP":
+          return model.UpdateComputeInstanceGroupDeployEnvironmentDetails.getDeserializedJsonObj(
+            <model.UpdateComputeInstanceGroupDeployEnvironmentDetails>(<object>jsonObj),
+            true
+          );
+        case "OKE_CLUSTER":
+          return model.UpdateOkeClusterDeployEnvironmentDetails.getDeserializedJsonObj(
+            <model.UpdateOkeClusterDeployEnvironmentDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.deployEnvironmentType);
+      }
+    }
+    return jsonObj;
+  }
 }

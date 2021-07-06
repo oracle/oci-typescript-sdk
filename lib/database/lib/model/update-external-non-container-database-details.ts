@@ -46,4 +46,9 @@ export namespace UpdateExternalNonContainerDatabaseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateExternalNonContainerDatabaseDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -37,4 +37,9 @@ export namespace NotebookSessionShapeConfigDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NotebookSessionShapeConfigDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

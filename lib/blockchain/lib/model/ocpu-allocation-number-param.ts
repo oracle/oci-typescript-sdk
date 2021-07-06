@@ -30,4 +30,9 @@ export namespace OcpuAllocationNumberParam {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: OcpuAllocationNumberParam): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

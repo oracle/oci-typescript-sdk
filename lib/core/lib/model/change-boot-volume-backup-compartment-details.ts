@@ -35,4 +35,9 @@ export namespace ChangeBootVolumeBackupCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ChangeBootVolumeBackupCompartmentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

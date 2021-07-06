@@ -97,4 +97,25 @@ export namespace TargetDatabase {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TargetDatabase): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "databaseDetails": obj.databaseDetails
+          ? model.DatabaseDetails.getDeserializedJsonObj(obj.databaseDetails)
+          : undefined,
+        "credentials": obj.credentials
+          ? model.Credentials.getDeserializedJsonObj(obj.credentials)
+          : undefined,
+        "tlsConfig": obj.tlsConfig
+          ? model.TlsConfig.getDeserializedJsonObj(obj.tlsConfig)
+          : undefined,
+        "connectionOption": obj.connectionOption
+          ? model.ConnectionOption.getDeserializedJsonObj(obj.connectionOption)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

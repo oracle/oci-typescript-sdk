@@ -104,4 +104,9 @@ export namespace LogAnalyticsSourceLabelCondition {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsSourceLabelCondition): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -30,4 +30,9 @@ export namespace PurgeCache {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PurgeCache): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

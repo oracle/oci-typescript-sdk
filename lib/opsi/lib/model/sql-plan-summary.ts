@@ -38,4 +38,9 @@ export namespace SqlPlanSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SqlPlanSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

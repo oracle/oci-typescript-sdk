@@ -54,4 +54,28 @@ export namespace CreateSingleDeployStageDeploymentDetails {
     return jsonObj;
   }
   export const deploymentType = "SINGLE_STAGE_DEPLOYMENT";
+  export function getDeserializedJsonObj(
+    obj: CreateSingleDeployStageDeploymentDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateDeploymentDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateSingleDeployStageDeploymentDetails)),
+      ...{
+        "deploymentArguments": obj.deploymentArguments
+          ? model.DeploymentArgumentCollection.getDeserializedJsonObj(obj.deploymentArguments)
+          : undefined,
+        "deployArtifactOverrideArguments": obj.deployArtifactOverrideArguments
+          ? model.DeployArtifactOverrideArgumentCollection.getDeserializedJsonObj(
+              obj.deployArtifactOverrideArguments
+            )
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

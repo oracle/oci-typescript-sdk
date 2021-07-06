@@ -66,4 +66,9 @@ export namespace User {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: User): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

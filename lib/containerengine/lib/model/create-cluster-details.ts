@@ -79,4 +79,23 @@ export namespace CreateClusterDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateClusterDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "endpointConfig": obj.endpointConfig
+          ? model.CreateClusterEndpointConfigDetails.getDeserializedJsonObj(obj.endpointConfig)
+          : undefined,
+
+        "options": obj.options
+          ? model.ClusterCreateOptions.getDeserializedJsonObj(obj.options)
+          : undefined,
+        "imagePolicyConfig": obj.imagePolicyConfig
+          ? model.CreateImagePolicyConfigDetails.getDeserializedJsonObj(obj.imagePolicyConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

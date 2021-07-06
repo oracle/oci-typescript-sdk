@@ -64,4 +64,18 @@ export namespace UpdateZoneDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateZoneDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "externalMasters": obj.externalMasters
+          ? obj.externalMasters.map(item => {
+              return model.ExternalMaster.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

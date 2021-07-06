@@ -72,4 +72,18 @@ export namespace QueryableFieldDescription {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: QueryableFieldDescription): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "objectProperties": obj.objectProperties
+          ? obj.objectProperties.map(item => {
+              return model.QueryableFieldDescription.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

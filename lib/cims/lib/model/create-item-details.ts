@@ -65,4 +65,38 @@ export namespace CreateItemDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateItemDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "category": obj.category
+          ? model.CreateCategoryDetails.getDeserializedJsonObj(obj.category)
+          : undefined,
+        "subCategory": obj.subCategory
+          ? model.CreateSubCategoryDetails.getDeserializedJsonObj(obj.subCategory)
+          : undefined,
+        "issueType": obj.issueType
+          ? model.CreateIssueTypeDetails.getDeserializedJsonObj(obj.issueType)
+          : undefined
+      }
+    };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "tech":
+          return model.CreateTechSupportItemDetails.getDeserializedJsonObj(
+            <model.CreateTechSupportItemDetails>(<object>jsonObj),
+            true
+          );
+        case "limit":
+          return model.CreateLimitItemDetails.getDeserializedJsonObj(
+            <model.CreateLimitItemDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

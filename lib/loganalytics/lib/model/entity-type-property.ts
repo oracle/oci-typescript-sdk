@@ -38,4 +38,9 @@ export namespace EntityTypeProperty {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EntityTypeProperty): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

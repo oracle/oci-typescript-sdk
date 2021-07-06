@@ -37,4 +37,9 @@ export namespace WarningReferenceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WarningReferenceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -39,4 +39,9 @@ export namespace ContextualData {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ContextualData): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

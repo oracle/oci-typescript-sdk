@@ -34,4 +34,9 @@ export namespace SearchResultSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SearchResultSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

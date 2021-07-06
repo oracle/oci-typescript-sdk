@@ -38,4 +38,17 @@ export namespace SingleDeployStageDeployment {
     return jsonObj;
   }
   export const deploymentType = "SINGLE_STAGE_DEPLOYMENT";
+  export function getDeserializedJsonObj(
+    obj: SingleDeployStageDeployment,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.Deployment.getDeserializedJsonObj(obj) as SingleDeployStageDeployment)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

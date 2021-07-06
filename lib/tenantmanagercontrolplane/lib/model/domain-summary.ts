@@ -76,4 +76,9 @@ export namespace DomainSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DomainSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

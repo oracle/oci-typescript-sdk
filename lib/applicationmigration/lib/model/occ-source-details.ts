@@ -44,4 +44,14 @@ export namespace OccSourceDetails {
     return jsonObj;
   }
   export const type = "OCC";
+  export function getDeserializedJsonObj(obj: OccSourceDetails, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.SourceDetails.getDeserializedJsonObj(obj) as OccSourceDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

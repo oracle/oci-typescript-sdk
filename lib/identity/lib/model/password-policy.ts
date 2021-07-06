@@ -51,4 +51,9 @@ export namespace PasswordPolicy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PasswordPolicy): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

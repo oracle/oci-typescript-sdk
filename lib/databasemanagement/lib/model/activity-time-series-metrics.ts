@@ -47,4 +47,28 @@ export namespace ActivityTimeSeriesMetrics {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ActivityTimeSeriesMetrics): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "cpuTime": obj.cpuTime
+          ? model.MetricDataPoint.getDeserializedJsonObj(obj.cpuTime)
+          : undefined,
+        "waitTime": obj.waitTime
+          ? model.MetricDataPoint.getDeserializedJsonObj(obj.waitTime)
+          : undefined,
+        "userIoTime": obj.userIoTime
+          ? model.MetricDataPoint.getDeserializedJsonObj(obj.userIoTime)
+          : undefined,
+        "cpuCount": obj.cpuCount
+          ? model.MetricDataPoint.getDeserializedJsonObj(obj.cpuCount)
+          : undefined,
+        "cluster": obj.cluster
+          ? model.MetricDataPoint.getDeserializedJsonObj(obj.cluster)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -39,4 +39,18 @@ export namespace LogIncludedSearchSummaryCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogIncludedSearchSummaryCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.LogIncludedSearchSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

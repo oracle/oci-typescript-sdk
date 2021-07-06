@@ -59,4 +59,19 @@ export namespace CreateAutonomousDatabaseFromBackupTimestampDetails {
     return jsonObj;
   }
   export const source = "BACKUP_FROM_TIMESTAMP";
+  export function getDeserializedJsonObj(
+    obj: CreateAutonomousDatabaseFromBackupTimestampDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateAutonomousDatabaseBase.getDeserializedJsonObj(
+            obj
+          ) as CreateAutonomousDatabaseFromBackupTimestampDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

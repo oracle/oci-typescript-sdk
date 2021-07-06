@@ -39,4 +39,18 @@ export namespace ConditionMetadataTypeCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConditionMetadataTypeCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ConditionMetadataTypeSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -32,4 +32,9 @@ export namespace DeregisterAutonomousDatabaseDataSafeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeregisterAutonomousDatabaseDataSafeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

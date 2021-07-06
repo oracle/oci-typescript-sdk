@@ -33,4 +33,19 @@ export namespace NoDeployStageRollbackPolicy {
     return jsonObj;
   }
   export const policyType = "NO_STAGE_ROLLBACK_POLICY";
+  export function getDeserializedJsonObj(
+    obj: NoDeployStageRollbackPolicy,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DeployStageRollbackPolicy.getDeserializedJsonObj(
+            obj
+          ) as NoDeployStageRollbackPolicy)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

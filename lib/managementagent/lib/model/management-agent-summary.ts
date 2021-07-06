@@ -111,4 +111,18 @@ export namespace ManagementAgentSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ManagementAgentSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "pluginList": obj.pluginList
+          ? obj.pluginList.map(item => {
+              return model.ManagementAgentPluginDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

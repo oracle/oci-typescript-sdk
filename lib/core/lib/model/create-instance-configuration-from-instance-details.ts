@@ -52,4 +52,19 @@ export namespace CreateInstanceConfigurationFromInstanceDetails {
     return jsonObj;
   }
   export const source = "INSTANCE";
+  export function getDeserializedJsonObj(
+    obj: CreateInstanceConfigurationFromInstanceDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateInstanceConfigurationBase.getDeserializedJsonObj(
+            obj
+          ) as CreateInstanceConfigurationFromInstanceDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

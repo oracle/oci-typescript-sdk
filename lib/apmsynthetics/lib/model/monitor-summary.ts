@@ -116,4 +116,18 @@ export namespace MonitorSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MonitorSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "vantagePoints": obj.vantagePoints
+          ? obj.vantagePoints.map(item => {
+              return model.VantagePointInfo.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

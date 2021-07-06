@@ -43,4 +43,19 @@ export namespace DatabaseUpgradeWithDbHomeDetails {
     return jsonObj;
   }
   export const source = "DB_HOME";
+  export function getDeserializedJsonObj(
+    obj: DatabaseUpgradeWithDbHomeDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DatabaseUpgradeSourceBase.getDeserializedJsonObj(
+            obj
+          ) as DatabaseUpgradeWithDbHomeDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -37,7 +37,12 @@ export enum WorkRequestOperationTypes {
 }
 
 export namespace WorkRequestOperationTypes {
-  export function getJsonObj(obj: WorkRequestOperationTypes): object {
-    return { obj };
+  export function getJsonObj(obj: WorkRequestOperationTypes): WorkRequestOperationTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: WorkRequestOperationTypes
+  ): WorkRequestOperationTypes {
+    return obj;
   }
 }

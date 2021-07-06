@@ -40,4 +40,18 @@ export namespace LogAnalyticsMetaSourceTypeCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsMetaSourceTypeCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.LogAnalyticsMetaSourceType.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

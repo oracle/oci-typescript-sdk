@@ -88,4 +88,9 @@ export namespace BastionSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BastionSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

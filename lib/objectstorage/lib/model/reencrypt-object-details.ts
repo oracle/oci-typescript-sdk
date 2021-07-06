@@ -60,4 +60,19 @@ export namespace ReencryptObjectDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ReencryptObjectDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sseCustomerKey": obj.sseCustomerKey
+          ? model.SSECustomerKeyDetails.getDeserializedJsonObj(obj.sseCustomerKey)
+          : undefined,
+        "sourceSseCustomerKey": obj.sourceSseCustomerKey
+          ? model.SSECustomerKeyDetails.getDeserializedJsonObj(obj.sourceSseCustomerKey)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

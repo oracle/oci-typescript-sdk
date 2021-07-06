@@ -159,4 +159,9 @@ export namespace DataGuardAssociation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DataGuardAssociation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

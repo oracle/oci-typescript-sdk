@@ -48,4 +48,9 @@ export namespace ProjectedDataItem {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ProjectedDataItem): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

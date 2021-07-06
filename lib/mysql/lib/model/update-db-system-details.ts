@@ -159,4 +159,19 @@ export namespace UpdateDbSystemDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDbSystemDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "backupPolicy": obj.backupPolicy
+          ? model.UpdateBackupPolicyDetails.getDeserializedJsonObj(obj.backupPolicy)
+          : undefined,
+        "maintenance": obj.maintenance
+          ? model.UpdateMaintenanceDetails.getDeserializedJsonObj(obj.maintenance)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

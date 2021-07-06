@@ -57,4 +57,9 @@ export namespace UpdateNatGatewayDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateNatGatewayDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

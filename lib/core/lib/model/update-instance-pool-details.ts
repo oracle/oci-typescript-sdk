@@ -82,4 +82,20 @@ export namespace UpdateInstancePoolDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateInstancePoolDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "placementConfigurations": obj.placementConfigurations
+          ? obj.placementConfigurations.map(item => {
+              return model.UpdateInstancePoolPlacementConfigurationDetails.getDeserializedJsonObj(
+                item
+              );
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

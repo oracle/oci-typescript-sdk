@@ -60,4 +60,9 @@ export namespace UpdateAnalyticsInstanceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateAnalyticsInstanceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

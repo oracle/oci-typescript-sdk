@@ -42,4 +42,9 @@ export namespace KafkaSettings {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: KafkaSettings): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

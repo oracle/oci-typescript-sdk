@@ -32,4 +32,9 @@ export namespace UpdateAutonomousDatabaseWalletDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateAutonomousDatabaseWalletDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

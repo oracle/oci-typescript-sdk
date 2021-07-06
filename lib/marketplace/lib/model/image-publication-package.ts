@@ -47,4 +47,17 @@ export namespace ImagePublicationPackage {
     return jsonObj;
   }
   export const packageType = "IMAGE";
+  export function getDeserializedJsonObj(
+    obj: ImagePublicationPackage,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.PublicationPackage.getDeserializedJsonObj(obj) as ImagePublicationPackage)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

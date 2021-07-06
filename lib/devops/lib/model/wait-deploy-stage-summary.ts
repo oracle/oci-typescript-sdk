@@ -39,4 +39,21 @@ export namespace WaitDeployStageSummary {
     return jsonObj;
   }
   export const deployStageType = "WAIT";
+  export function getDeserializedJsonObj(
+    obj: WaitDeployStageSummary,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DeployStageSummary.getDeserializedJsonObj(obj) as WaitDeployStageSummary)),
+      ...{
+        "waitCriteria": obj.waitCriteria
+          ? model.WaitCriteriaSummary.getDeserializedJsonObj(obj.waitCriteria)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

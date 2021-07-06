@@ -46,4 +46,17 @@ export namespace PcsDiscoveryDetails {
     return jsonObj;
   }
   export const type = "PCS";
+  export function getDeserializedJsonObj(
+    obj: PcsDiscoveryDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DiscoveryDetails.getDeserializedJsonObj(obj) as PcsDiscoveryDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

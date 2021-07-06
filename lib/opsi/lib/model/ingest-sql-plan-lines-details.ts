@@ -43,4 +43,18 @@ export namespace IngestSqlPlanLinesDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IngestSqlPlanLinesDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.SqlPlanLine.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

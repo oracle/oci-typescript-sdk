@@ -46,4 +46,11 @@ export namespace EnableExternalNonContainerDatabaseDatabaseManagementDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: EnableExternalNonContainerDatabaseDatabaseManagementDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

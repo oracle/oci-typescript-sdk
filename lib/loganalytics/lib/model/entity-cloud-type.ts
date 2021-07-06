@@ -32,7 +32,10 @@ export enum EntityCloudType {
 }
 
 export namespace EntityCloudType {
-  export function getJsonObj(obj: EntityCloudType): object {
-    return { obj };
+  export function getJsonObj(obj: EntityCloudType): EntityCloudType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: EntityCloudType): EntityCloudType {
+    return obj;
   }
 }

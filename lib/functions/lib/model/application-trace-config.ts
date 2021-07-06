@@ -38,4 +38,9 @@ export namespace ApplicationTraceConfig {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApplicationTraceConfig): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

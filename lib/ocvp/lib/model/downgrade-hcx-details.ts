@@ -31,4 +31,9 @@ export namespace DowngradeHcxDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DowngradeHcxDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

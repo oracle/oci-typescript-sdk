@@ -52,4 +52,14 @@ export namespace GenerateKeyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: GenerateKeyDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "keyShape": obj.keyShape ? model.KeyShape.getDeserializedJsonObj(obj.keyShape) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

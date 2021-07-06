@@ -35,4 +35,17 @@ export namespace SortCommandDescriptor {
     return jsonObj;
   }
   export const name = "SORT";
+  export function getDeserializedJsonObj(
+    obj: SortCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(obj) as SortCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -49,4 +49,12 @@ export namespace SortField {
     return jsonObj;
   }
   export const name = "SORT";
+  export function getDeserializedJsonObj(obj: SortField, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.AbstractField.getDeserializedJsonObj(obj) as SortField)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -37,4 +37,9 @@ export namespace DirectoryObject {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DirectoryObject): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -33,4 +33,9 @@ export namespace ClusterOptions {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ClusterOptions): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

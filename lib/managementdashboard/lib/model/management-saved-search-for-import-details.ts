@@ -108,4 +108,9 @@ export namespace ManagementSavedSearchForImportDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ManagementSavedSearchForImportDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

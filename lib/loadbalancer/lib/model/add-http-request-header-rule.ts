@@ -60,4 +60,17 @@ export namespace AddHttpRequestHeaderRule {
     return jsonObj;
   }
   export const action = "ADD_HTTP_REQUEST_HEADER";
+  export function getDeserializedJsonObj(
+    obj: AddHttpRequestHeaderRule,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.Rule.getDeserializedJsonObj(obj) as AddHttpRequestHeaderRule)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -43,4 +43,9 @@ export namespace NodeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NodeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

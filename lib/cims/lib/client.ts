@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
@@ -141,7 +141,7 @@ export class IncidentClient {
       bodyContent: common.ObjectSerializer.serialize(
         createIncidentRequest.createIncidentDetails,
         "CreateIncident",
-        models.CreateIncident.getJsonObj
+        model.CreateIncident.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -153,7 +153,8 @@ export class IncidentClient {
         responseObject: <responses.CreateIncidentResponse>{},
         body: await response.json(),
         bodyKey: "incident",
-        bodyModel: "model.Incident",
+        bodyModel: model.Incident,
+        type: "model.Incident",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -215,7 +216,8 @@ export class IncidentClient {
         responseObject: <responses.GetIncidentResponse>{},
         body: await response.json(),
         bodyKey: "incident",
-        bodyModel: "model.Incident",
+        bodyModel: model.Incident,
+        type: "model.Incident",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -275,7 +277,8 @@ export class IncidentClient {
         responseObject: <responses.GetStatusResponse>{},
         body: await response.json(),
         bodyKey: "status",
-        bodyModel: "model.Status",
+        bodyModel: model.Status,
+        type: "model.Status",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -343,7 +346,8 @@ export class IncidentClient {
         responseObject: <responses.ListIncidentResourceTypesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "IncidentResourceType[]",
+        bodyModel: model.IncidentResourceType,
+        type: "Array<model.IncidentResourceType>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -373,7 +377,7 @@ export class IncidentClient {
    */
   public listAllIncidentResourceTypes(
     request: requests.ListIncidentResourceTypesRequest
-  ): AsyncIterableIterator<models.IncidentResourceType> {
+  ): AsyncIterableIterator<model.IncidentResourceType> {
     return paginateRecords(request, req => this.listIncidentResourceTypes(req));
   }
 
@@ -440,7 +444,8 @@ export class IncidentClient {
         responseObject: <responses.ListIncidentsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "IncidentSummary[]",
+        bodyModel: model.IncidentSummary,
+        type: "Array<model.IncidentSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -470,7 +475,7 @@ export class IncidentClient {
    */
   public listAllIncidents(
     request: requests.ListIncidentsRequest
-  ): AsyncIterableIterator<models.IncidentSummary> {
+  ): AsyncIterableIterator<model.IncidentSummary> {
     return paginateRecords(request, req => this.listIncidents(req));
   }
 
@@ -525,7 +530,7 @@ export class IncidentClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateIncidentRequest.updateIncidentDetails,
         "UpdateIncident",
-        models.UpdateIncident.getJsonObj
+        model.UpdateIncident.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -537,7 +542,8 @@ export class IncidentClient {
         responseObject: <responses.UpdateIncidentResponse>{},
         body: await response.json(),
         bodyKey: "incident",
-        bodyModel: "model.Incident",
+        bodyModel: model.Incident,
+        type: "model.Incident",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -598,7 +604,8 @@ export class IncidentClient {
         responseObject: <responses.ValidateUserResponse>{},
         body: await response.json(),
         bodyKey: "validationResponse",
-        bodyModel: "model.ValidationResponse",
+        bodyModel: model.ValidationResponse,
+        type: "model.ValidationResponse",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -733,7 +740,7 @@ export class UserClient {
       bodyContent: common.ObjectSerializer.serialize(
         createUserRequest.createUserDetails,
         "CreateUserDetails",
-        models.CreateUserDetails.getJsonObj
+        model.CreateUserDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -745,7 +752,8 @@ export class UserClient {
         responseObject: <responses.CreateUserResponse>{},
         body: await response.json(),
         bodyKey: "user",
-        bodyModel: "model.User",
+        bodyModel: model.User,
+        type: "model.User",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

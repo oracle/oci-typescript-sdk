@@ -54,4 +54,19 @@ export namespace CreateAutonomousDatabaseCloneDetails {
     return jsonObj;
   }
   export const source = "DATABASE";
+  export function getDeserializedJsonObj(
+    obj: CreateAutonomousDatabaseCloneDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateAutonomousDatabaseBase.getDeserializedJsonObj(
+            obj
+          ) as CreateAutonomousDatabaseCloneDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

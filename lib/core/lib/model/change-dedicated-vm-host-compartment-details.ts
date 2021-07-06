@@ -37,4 +37,9 @@ export namespace ChangeDedicatedVmHostCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ChangeDedicatedVmHostCompartmentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { DataSafeWaiter } from "./datasafe-waiter";
@@ -168,7 +168,7 @@ export class DataSafeClient {
       bodyContent: common.ObjectSerializer.serialize(
         activateTargetDatabaseRequest.activateTargetDatabaseDetails,
         "ActivateTargetDatabaseDetails",
-        models.ActivateTargetDatabaseDetails.getJsonObj
+        model.ActivateTargetDatabaseDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -238,7 +238,7 @@ export class DataSafeClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeDataSafePrivateEndpointCompartmentRequest.changeDataSafePrivateEndpointCompartmentDetails,
         "ChangeDataSafePrivateEndpointCompartmentDetails",
-        models.ChangeDataSafePrivateEndpointCompartmentDetails.getJsonObj
+        model.ChangeDataSafePrivateEndpointCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -306,7 +306,7 @@ export class DataSafeClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeOnPremConnectorCompartmentRequest.changeOnPremConnectorCompartmentDetails,
         "ChangeOnPremConnectorCompartmentDetails",
-        models.ChangeOnPremConnectorCompartmentDetails.getJsonObj
+        model.ChangeOnPremConnectorCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -369,7 +369,7 @@ export class DataSafeClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeTargetDatabaseCompartmentRequest.changeTargetDatabaseCompartmentDetails,
         "ChangeTargetDatabaseCompartmentDetails",
-        models.ChangeTargetDatabaseCompartmentDetails.getJsonObj
+        model.ChangeTargetDatabaseCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -430,7 +430,7 @@ export class DataSafeClient {
       bodyContent: common.ObjectSerializer.serialize(
         createDataSafePrivateEndpointRequest.createDataSafePrivateEndpointDetails,
         "CreateDataSafePrivateEndpointDetails",
-        models.CreateDataSafePrivateEndpointDetails.getJsonObj
+        model.CreateDataSafePrivateEndpointDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -442,7 +442,8 @@ export class DataSafeClient {
         responseObject: <responses.CreateDataSafePrivateEndpointResponse>{},
         body: await response.json(),
         bodyKey: "dataSafePrivateEndpoint",
-        bodyModel: "model.DataSafePrivateEndpoint",
+        bodyModel: model.DataSafePrivateEndpoint,
+        type: "model.DataSafePrivateEndpoint",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -508,7 +509,7 @@ export class DataSafeClient {
       bodyContent: common.ObjectSerializer.serialize(
         createOnPremConnectorRequest.createOnPremConnectorDetails,
         "CreateOnPremConnectorDetails",
-        models.CreateOnPremConnectorDetails.getJsonObj
+        model.CreateOnPremConnectorDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -520,7 +521,8 @@ export class DataSafeClient {
         responseObject: <responses.CreateOnPremConnectorResponse>{},
         body: await response.json(),
         bodyKey: "onPremConnector",
-        bodyModel: "model.OnPremConnector",
+        bodyModel: model.OnPremConnector,
+        type: "model.OnPremConnector",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -586,7 +588,7 @@ export class DataSafeClient {
       bodyContent: common.ObjectSerializer.serialize(
         createTargetDatabaseRequest.createTargetDatabaseDetails,
         "CreateTargetDatabaseDetails",
-        models.CreateTargetDatabaseDetails.getJsonObj
+        model.CreateTargetDatabaseDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -598,7 +600,8 @@ export class DataSafeClient {
         responseObject: <responses.CreateTargetDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "targetDatabase",
-        bodyModel: "model.TargetDatabase",
+        bodyModel: model.TargetDatabase,
+        type: "model.TargetDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -985,7 +988,7 @@ export class DataSafeClient {
       bodyContent: common.ObjectSerializer.serialize(
         enableDataSafeConfigurationRequest.enableDataSafeConfigurationDetails,
         "EnableDataSafeConfigurationDetails",
-        models.EnableDataSafeConfigurationDetails.getJsonObj
+        model.EnableDataSafeConfigurationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1054,7 +1057,7 @@ export class DataSafeClient {
       bodyContent: common.ObjectSerializer.serialize(
         generateOnPremConnectorConfigurationRequest.generateOnPremConnectorConfigurationDetails,
         "GenerateOnPremConnectorConfigurationDetails",
-        models.GenerateOnPremConnectorConfigurationDetails.getJsonObj
+        model.GenerateOnPremConnectorConfigurationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1136,7 +1139,8 @@ export class DataSafeClient {
         responseObject: <responses.GetDataSafeConfigurationResponse>{},
         body: await response.json(),
         bodyKey: "dataSafeConfiguration",
-        bodyModel: "model.DataSafeConfiguration",
+        bodyModel: model.DataSafeConfiguration,
+        type: "model.DataSafeConfiguration",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1200,7 +1204,8 @@ export class DataSafeClient {
         responseObject: <responses.GetDataSafePrivateEndpointResponse>{},
         body: await response.json(),
         bodyKey: "dataSafePrivateEndpoint",
-        bodyModel: "model.DataSafePrivateEndpoint",
+        bodyModel: model.DataSafePrivateEndpoint,
+        type: "model.DataSafePrivateEndpoint",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1263,7 +1268,8 @@ export class DataSafeClient {
         responseObject: <responses.GetOnPremConnectorResponse>{},
         body: await response.json(),
         bodyKey: "onPremConnector",
-        bodyModel: "model.OnPremConnector",
+        bodyModel: model.OnPremConnector,
+        type: "model.OnPremConnector",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1327,7 +1333,8 @@ export class DataSafeClient {
         responseObject: <responses.GetTargetDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "targetDatabase",
-        bodyModel: "model.TargetDatabase",
+        bodyModel: model.TargetDatabase,
+        type: "model.TargetDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1390,7 +1397,8 @@ export class DataSafeClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1469,7 +1477,8 @@ export class DataSafeClient {
         responseObject: <responses.ListDataSafePrivateEndpointsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DataSafePrivateEndpointSummary[]",
+        bodyModel: model.DataSafePrivateEndpointSummary,
+        type: "Array<model.DataSafePrivateEndpointSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1499,7 +1508,7 @@ export class DataSafeClient {
    */
   public listAllDataSafePrivateEndpoints(
     request: requests.ListDataSafePrivateEndpointsRequest
-  ): AsyncIterableIterator<models.DataSafePrivateEndpointSummary> {
+  ): AsyncIterableIterator<model.DataSafePrivateEndpointSummary> {
     return paginateRecords(request, req => this.listDataSafePrivateEndpoints(req));
   }
 
@@ -1567,7 +1576,8 @@ export class DataSafeClient {
         responseObject: <responses.ListOnPremConnectorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "OnPremConnectorSummary[]",
+        bodyModel: model.OnPremConnectorSummary,
+        type: "Array<model.OnPremConnectorSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1597,7 +1607,7 @@ export class DataSafeClient {
    */
   public listAllOnPremConnectors(
     request: requests.ListOnPremConnectorsRequest
-  ): AsyncIterableIterator<models.OnPremConnectorSummary> {
+  ): AsyncIterableIterator<model.OnPremConnectorSummary> {
     return paginateRecords(request, req => this.listOnPremConnectors(req));
   }
 
@@ -1667,7 +1677,8 @@ export class DataSafeClient {
         responseObject: <responses.ListTargetDatabasesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "TargetDatabaseSummary[]",
+        bodyModel: model.TargetDatabaseSummary,
+        type: "Array<model.TargetDatabaseSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1702,7 +1713,7 @@ export class DataSafeClient {
    */
   public listAllTargetDatabases(
     request: requests.ListTargetDatabasesRequest
-  ): AsyncIterableIterator<models.TargetDatabaseSummary> {
+  ): AsyncIterableIterator<model.TargetDatabaseSummary> {
     return paginateRecords(request, req => this.listTargetDatabases(req));
   }
 
@@ -1764,7 +1775,8 @@ export class DataSafeClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestError[]",
+        bodyModel: model.WorkRequestError,
+        type: "Array<model.WorkRequestError>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1794,7 +1806,7 @@ export class DataSafeClient {
    */
   public listAllWorkRequestErrors(
     request: requests.ListWorkRequestErrorsRequest
-  ): AsyncIterableIterator<models.WorkRequestError> {
+  ): AsyncIterableIterator<model.WorkRequestError> {
     return paginateRecords(request, req => this.listWorkRequestErrors(req));
   }
 
@@ -1856,7 +1868,8 @@ export class DataSafeClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestLogEntry[]",
+        bodyModel: model.WorkRequestLogEntry,
+        type: "Array<model.WorkRequestLogEntry>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1886,7 +1899,7 @@ export class DataSafeClient {
    */
   public listAllWorkRequestLogs(
     request: requests.ListWorkRequestLogsRequest
-  ): AsyncIterableIterator<models.WorkRequestLogEntry> {
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
     return paginateRecords(request, req => this.listWorkRequestLogs(req));
   }
 
@@ -1949,7 +1962,8 @@ export class DataSafeClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestSummary[]",
+        bodyModel: model.WorkRequestSummary,
+        type: "Array<model.WorkRequestSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1979,7 +1993,7 @@ export class DataSafeClient {
    */
   public listAllWorkRequests(
     request: requests.ListWorkRequestsRequest
-  ): AsyncIterableIterator<models.WorkRequestSummary> {
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
     return paginateRecords(request, req => this.listWorkRequests(req));
   }
 
@@ -2032,7 +2046,7 @@ export class DataSafeClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateDataSafePrivateEndpointRequest.updateDataSafePrivateEndpointDetails,
         "UpdateDataSafePrivateEndpointDetails",
-        models.UpdateDataSafePrivateEndpointDetails.getJsonObj
+        model.UpdateDataSafePrivateEndpointDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2098,7 +2112,7 @@ export class DataSafeClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateOnPremConnectorRequest.updateOnPremConnectorDetails,
         "UpdateOnPremConnectorDetails",
-        models.UpdateOnPremConnectorDetails.getJsonObj
+        model.UpdateOnPremConnectorDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2167,7 +2181,7 @@ export class DataSafeClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateOnPremConnectorWalletRequest.updateOnPremConnectorWalletDetails,
         "UpdateOnPremConnectorWalletDetails",
-        models.UpdateOnPremConnectorWalletDetails.getJsonObj
+        model.UpdateOnPremConnectorWalletDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2234,7 +2248,7 @@ export class DataSafeClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateTargetDatabaseRequest.updateTargetDatabaseDetails,
         "UpdateTargetDatabaseDetails",
-        models.UpdateTargetDatabaseDetails.getJsonObj
+        model.UpdateTargetDatabaseDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,

@@ -95,4 +95,9 @@ export namespace Agent {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Agent): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -26,7 +26,10 @@ export enum Datatypes {
 }
 
 export namespace Datatypes {
-  export function getJsonObj(obj: Datatypes): object {
-    return { obj };
+  export function getJsonObj(obj: Datatypes): Datatypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: Datatypes): Datatypes {
+    return obj;
   }
 }

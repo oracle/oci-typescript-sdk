@@ -68,4 +68,23 @@ export namespace UpdateTargetDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateTargetDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "targetDetectorRecipes": obj.targetDetectorRecipes
+          ? obj.targetDetectorRecipes.map(item => {
+              return model.UpdateTargetDetectorRecipe.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "targetResponderRecipes": obj.targetResponderRecipes
+          ? obj.targetResponderRecipes.map(item => {
+              return model.UpdateTargetResponderRecipe.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -44,4 +44,19 @@ export namespace VirtualCircuitDrgAttachmentNetworkDetails {
     return jsonObj;
   }
   export const type = "VIRTUAL_CIRCUIT";
+  export function getDeserializedJsonObj(
+    obj: VirtualCircuitDrgAttachmentNetworkDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DrgAttachmentNetworkDetails.getDeserializedJsonObj(
+            obj
+          ) as VirtualCircuitDrgAttachmentNetworkDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

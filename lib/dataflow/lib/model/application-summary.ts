@@ -94,4 +94,9 @@ export namespace ApplicationSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApplicationSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

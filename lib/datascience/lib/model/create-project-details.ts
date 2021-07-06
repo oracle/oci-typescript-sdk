@@ -52,4 +52,9 @@ export namespace CreateProjectDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateProjectDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

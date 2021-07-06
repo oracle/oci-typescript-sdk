@@ -63,4 +63,9 @@ export namespace CreateBackupPolicyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateBackupPolicyDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

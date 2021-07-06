@@ -50,4 +50,9 @@ export namespace RemoteClonePluggableDatabaseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RemoteClonePluggableDatabaseDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

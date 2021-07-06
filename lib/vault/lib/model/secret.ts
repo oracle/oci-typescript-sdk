@@ -131,4 +131,18 @@ export namespace Secret {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Secret): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "secretRules": obj.secretRules
+          ? obj.secretRules.map(item => {
+              return model.SecretRule.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

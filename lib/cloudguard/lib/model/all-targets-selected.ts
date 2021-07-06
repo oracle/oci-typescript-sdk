@@ -31,4 +31,17 @@ export namespace AllTargetsSelected {
     return jsonObj;
   }
   export const kind = "ALL";
+  export function getDeserializedJsonObj(
+    obj: AllTargetsSelected,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.TargetSelected.getDeserializedJsonObj(obj) as AllTargetsSelected)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

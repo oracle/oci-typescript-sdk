@@ -36,7 +36,12 @@ export enum RecommendationResourceType {
 }
 
 export namespace RecommendationResourceType {
-  export function getJsonObj(obj: RecommendationResourceType): object {
-    return { obj };
+  export function getJsonObj(obj: RecommendationResourceType): RecommendationResourceType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: RecommendationResourceType
+  ): RecommendationResourceType {
+    return obj;
   }
 }

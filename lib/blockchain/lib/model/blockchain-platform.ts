@@ -193,4 +193,24 @@ export namespace BlockchainPlatform {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BlockchainPlatform): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "componentDetails": obj.componentDetails
+          ? model.BlockchainPlatformComponentDetails.getDeserializedJsonObj(obj.componentDetails)
+          : undefined,
+        "replicas": obj.replicas
+          ? model.ReplicaDetails.getDeserializedJsonObj(obj.replicas)
+          : undefined,
+        "hostOcpuUtilizationInfo": obj.hostOcpuUtilizationInfo
+          ? obj.hostOcpuUtilizationInfo.map(item => {
+              return model.OcpuUtilizationInfo.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -56,4 +56,19 @@ export namespace CreateGithubAccessTokenConfigurationSourceProviderDetails {
     return jsonObj;
   }
   export const configSourceProviderType = "GITHUB_ACCESS_TOKEN";
+  export function getDeserializedJsonObj(
+    obj: CreateGithubAccessTokenConfigurationSourceProviderDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateConfigurationSourceProviderDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateGithubAccessTokenConfigurationSourceProviderDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

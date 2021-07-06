@@ -43,4 +43,9 @@ export namespace LogAnalyticsSourceEntityType {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsSourceEntityType): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

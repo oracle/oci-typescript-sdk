@@ -45,4 +45,23 @@ export namespace StaticPublicKeySet {
     return jsonObj;
   }
   export const type = "STATIC_KEYS";
+  export function getDeserializedJsonObj(
+    obj: StaticPublicKeySet,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.PublicKeySet.getDeserializedJsonObj(obj) as StaticPublicKeySet)),
+      ...{
+        "keys": obj.keys
+          ? obj.keys.map(item => {
+              return model.StaticPublicKey.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

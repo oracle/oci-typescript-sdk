@@ -33,7 +33,10 @@ export enum StorageTier {
 }
 
 export namespace StorageTier {
-  export function getJsonObj(obj: StorageTier): object {
-    return { obj };
+  export function getJsonObj(obj: StorageTier): StorageTier {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: StorageTier): StorageTier {
+    return obj;
   }
 }

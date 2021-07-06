@@ -85,4 +85,9 @@ export namespace HttpProbe {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HttpProbe): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

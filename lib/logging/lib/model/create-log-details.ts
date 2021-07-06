@@ -72,4 +72,16 @@ export namespace CreateLogDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateLogDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "configuration": obj.configuration
+          ? model.Configuration.getDeserializedJsonObj(obj.configuration)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

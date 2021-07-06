@@ -39,4 +39,18 @@ export namespace NetworkLoadBalancersProtocolCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NetworkLoadBalancersProtocolCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.NetworkLoadBalancersProtocolSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -132,4 +132,9 @@ export namespace InstanceConfigurationLaunchOptions {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceConfigurationLaunchOptions): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

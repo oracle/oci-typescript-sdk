@@ -80,4 +80,9 @@ export namespace JobMetricSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: JobMetricSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

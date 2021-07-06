@@ -39,4 +39,18 @@ export namespace DomainCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DomainCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.DomainSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

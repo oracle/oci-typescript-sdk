@@ -29,7 +29,10 @@ export enum WorkRequestSortBy {
 }
 
 export namespace WorkRequestSortBy {
-  export function getJsonObj(obj: WorkRequestSortBy): object {
-    return { obj };
+  export function getJsonObj(obj: WorkRequestSortBy): WorkRequestSortBy {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: WorkRequestSortBy): WorkRequestSortBy {
+    return obj;
   }
 }

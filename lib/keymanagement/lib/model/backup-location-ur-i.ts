@@ -35,4 +35,17 @@ export namespace BackupLocationURI {
     return jsonObj;
   }
   export const destination = "PRE_AUTHENTICATED_REQUEST_URI";
+  export function getDeserializedJsonObj(
+    obj: BackupLocationURI,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.BackupLocation.getDeserializedJsonObj(obj) as BackupLocationURI)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

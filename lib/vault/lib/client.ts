@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { VaultsWaiter } from "./vaults-waiter";
@@ -298,7 +298,7 @@ When provided, if-match is checked against the ETag values of the secret.
       bodyContent: common.ObjectSerializer.serialize(
         changeSecretCompartmentRequest.changeSecretCompartmentDetails,
         "ChangeSecretCompartmentDetails",
-        models.ChangeSecretCompartmentDetails.getJsonObj
+        model.ChangeSecretCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -365,7 +365,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       bodyContent: common.ObjectSerializer.serialize(
         createSecretRequest.createSecretDetails,
         "CreateSecretDetails",
-        models.CreateSecretDetails.getJsonObj
+        model.CreateSecretDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -377,7 +377,8 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
         responseObject: <responses.CreateSecretResponse>{},
         body: await response.json(),
         bodyKey: "secret",
-        bodyModel: "model.Secret",
+        bodyModel: model.Secret,
+        type: "model.Secret",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -440,7 +441,8 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
         responseObject: <responses.GetSecretResponse>{},
         body: await response.json(),
         bodyKey: "secret",
-        bodyModel: "model.Secret",
+        bodyModel: model.Secret,
+        type: "model.Secret",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -505,7 +507,8 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
         responseObject: <responses.GetSecretVersionResponse>{},
         body: await response.json(),
         bodyKey: "secretVersion",
-        bodyModel: "model.SecretVersion",
+        bodyModel: model.SecretVersion,
+        type: "model.SecretVersion",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -573,7 +576,8 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
         responseObject: <responses.ListSecretVersionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "SecretVersionSummary[]",
+        bodyModel: model.SecretVersionSummary,
+        type: "Array<model.SecretVersionSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -603,7 +607,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
    */
   public listAllSecretVersions(
     request: requests.ListSecretVersionsRequest
-  ): AsyncIterableIterator<models.SecretVersionSummary> {
+  ): AsyncIterableIterator<model.SecretVersionSummary> {
     return paginateRecords(request, req => this.listSecretVersions(req));
   }
 
@@ -668,7 +672,8 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
         responseObject: <responses.ListSecretsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "SecretSummary[]",
+        bodyModel: model.SecretSummary,
+        type: "Array<model.SecretSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -698,7 +703,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
    */
   public listAllSecrets(
     request: requests.ListSecretsRequest
-  ): AsyncIterableIterator<models.SecretSummary> {
+  ): AsyncIterableIterator<model.SecretSummary> {
     return paginateRecords(request, req => this.listSecrets(req));
   }
 
@@ -752,7 +757,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       bodyContent: common.ObjectSerializer.serialize(
         scheduleSecretDeletionRequest.scheduleSecretDeletionDetails,
         "ScheduleSecretDeletionDetails",
-        models.ScheduleSecretDeletionDetails.getJsonObj
+        model.ScheduleSecretDeletionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -822,7 +827,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       bodyContent: common.ObjectSerializer.serialize(
         scheduleSecretVersionDeletionRequest.scheduleSecretVersionDeletionDetails,
         "ScheduleSecretVersionDeletionDetails",
-        models.ScheduleSecretVersionDeletionDetails.getJsonObj
+        model.ScheduleSecretVersionDeletionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -894,7 +899,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       bodyContent: common.ObjectSerializer.serialize(
         updateSecretRequest.updateSecretDetails,
         "UpdateSecretDetails",
-        models.UpdateSecretDetails.getJsonObj
+        model.UpdateSecretDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -906,7 +911,8 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
         responseObject: <responses.UpdateSecretResponse>{},
         body: await response.json(),
         bodyKey: "secret",
-        bodyModel: "model.Secret",
+        bodyModel: model.Secret,
+        type: "model.Secret",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

@@ -30,4 +30,9 @@ export namespace TaskRunLogSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TaskRunLogSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

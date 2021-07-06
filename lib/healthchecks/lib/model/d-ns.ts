@@ -39,4 +39,9 @@ export namespace DNS {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DNS): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

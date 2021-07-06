@@ -63,4 +63,18 @@ export namespace ApplicationSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApplicationSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "publisher": obj.publisher
+          ? model.PublisherSummary.getDeserializedJsonObj(obj.publisher)
+          : undefined,
+
+        "logo": obj.logo ? model.UploadData.getDeserializedJsonObj(obj.logo) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

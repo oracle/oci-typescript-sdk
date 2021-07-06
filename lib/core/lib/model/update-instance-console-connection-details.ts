@@ -48,4 +48,9 @@ export namespace UpdateInstanceConsoleConnectionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateInstanceConsoleConnectionDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

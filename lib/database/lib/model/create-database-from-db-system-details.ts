@@ -68,4 +68,16 @@ export namespace CreateDatabaseFromDbSystemDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateDatabaseFromDbSystemDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dbBackupConfig": obj.dbBackupConfig
+          ? model.DbBackupConfig.getDeserializedJsonObj(obj.dbBackupConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

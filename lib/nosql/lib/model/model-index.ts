@@ -82,4 +82,18 @@ export namespace Index {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Index): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "keys": obj.keys
+          ? obj.keys.map(item => {
+              return model.IndexKey.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

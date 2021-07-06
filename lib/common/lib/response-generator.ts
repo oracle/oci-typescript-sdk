@@ -14,8 +14,9 @@ interface ResponseParams<T> {
   readonly responseObject: T;
   readonly responseHeaders: HeaderInfo[];
   readonly body?: ObjectSerializer.BodyType;
-  readonly bodyModel?: string;
+  readonly bodyModel?: any;
   readonly bodyKey?: string;
+  readonly type?: string;
 }
 
 interface HeaderInfo {
@@ -32,7 +33,7 @@ export function composeResponse<T>(params: ResponseParams<T>): T {
   const response = params.responseObject;
   let content = params.body;
   if (content) {
-    const bodyContent = ObjectSerializer.deserialize(content, params.bodyModel);
+    const bodyContent = ObjectSerializer.deserialize(content, params.type, params.bodyModel);
     const key = params.bodyKey;
     Object.assign(response, { [key as string]: bodyContent });
   }

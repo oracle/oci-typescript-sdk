@@ -32,4 +32,9 @@ export namespace CustomerContact {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CustomerContact): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

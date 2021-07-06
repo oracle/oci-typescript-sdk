@@ -91,4 +91,21 @@ export namespace UnifiedAgentConfiguration {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UnifiedAgentConfiguration): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "serviceConfiguration": obj.serviceConfiguration
+          ? model.UnifiedAgentServiceConfigurationDetails.getDeserializedJsonObj(
+              obj.serviceConfiguration
+            )
+          : undefined,
+        "groupAssociation": obj.groupAssociation
+          ? model.GroupAssociationDetails.getDeserializedJsonObj(obj.groupAssociation)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

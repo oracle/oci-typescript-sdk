@@ -41,4 +41,9 @@ export namespace UpdateGroupDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateGroupDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

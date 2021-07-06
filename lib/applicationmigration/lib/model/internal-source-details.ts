@@ -41,4 +41,17 @@ export namespace InternalSourceDetails {
     return jsonObj;
   }
   export const type = "INTERNAL_COMPUTE";
+  export function getDeserializedJsonObj(
+    obj: InternalSourceDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.SourceDetails.getDeserializedJsonObj(obj) as InternalSourceDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

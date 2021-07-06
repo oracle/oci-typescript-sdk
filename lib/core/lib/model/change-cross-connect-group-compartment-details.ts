@@ -37,4 +37,9 @@ export namespace ChangeCrossConnectGroupCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ChangeCrossConnectGroupCompartmentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

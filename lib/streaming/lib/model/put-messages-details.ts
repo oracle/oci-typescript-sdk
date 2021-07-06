@@ -39,4 +39,18 @@ export namespace PutMessagesDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PutMessagesDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "messages": obj.messages
+          ? obj.messages.map(item => {
+              return model.PutMessagesDetailsEntry.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

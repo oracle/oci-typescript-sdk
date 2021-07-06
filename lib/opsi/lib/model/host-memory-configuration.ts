@@ -58,4 +58,19 @@ export namespace HostMemoryConfiguration {
     return jsonObj;
   }
   export const metricName = "HOST_MEMORY_CONFIGURATION";
+  export function getDeserializedJsonObj(
+    obj: HostMemoryConfiguration,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.HostConfigurationMetricGroup.getDeserializedJsonObj(
+            obj
+          ) as HostMemoryConfiguration)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

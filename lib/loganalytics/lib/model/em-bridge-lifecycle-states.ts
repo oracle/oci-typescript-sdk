@@ -33,7 +33,10 @@ export enum EmBridgeLifecycleStates {
 }
 
 export namespace EmBridgeLifecycleStates {
-  export function getJsonObj(obj: EmBridgeLifecycleStates): object {
-    return { obj };
+  export function getJsonObj(obj: EmBridgeLifecycleStates): EmBridgeLifecycleStates {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: EmBridgeLifecycleStates): EmBridgeLifecycleStates {
+    return obj;
   }
 }

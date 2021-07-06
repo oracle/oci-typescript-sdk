@@ -86,4 +86,22 @@ export namespace CreateSecretDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateSecretDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "secretContent": obj.secretContent
+          ? model.SecretContentDetails.getDeserializedJsonObj(obj.secretContent)
+          : undefined,
+
+        "secretRules": obj.secretRules
+          ? obj.secretRules.map(item => {
+              return model.SecretRule.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

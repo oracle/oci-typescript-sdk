@@ -33,4 +33,9 @@ export namespace UpdateManagedDatabaseGroupDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateManagedDatabaseGroupDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

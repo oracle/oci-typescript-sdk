@@ -41,4 +41,17 @@ export namespace TopCommandDescriptor {
     return jsonObj;
   }
   export const name = "TOP";
+  export function getDeserializedJsonObj(
+    obj: TopCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(obj) as TopCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

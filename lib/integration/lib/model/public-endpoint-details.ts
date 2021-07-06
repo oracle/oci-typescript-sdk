@@ -55,4 +55,23 @@ export namespace PublicEndpointDetails {
     return jsonObj;
   }
   export const networkEndpointType = "PUBLIC";
+  export function getDeserializedJsonObj(
+    obj: PublicEndpointDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.NetworkEndpointDetails.getDeserializedJsonObj(obj) as PublicEndpointDetails)),
+      ...{
+        "allowlistedHttpVcns": obj.allowlistedHttpVcns
+          ? obj.allowlistedHttpVcns.map(item => {
+              return model.VirtualCloudNetwork.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

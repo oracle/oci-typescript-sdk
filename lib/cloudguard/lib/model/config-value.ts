@@ -38,4 +38,9 @@ export namespace ConfigValue {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConfigValue): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

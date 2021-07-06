@@ -104,4 +104,23 @@ export namespace Span {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Span): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "tags": obj.tags
+          ? obj.tags.map(item => {
+              return model.Tag.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "logs": obj.logs
+          ? obj.logs.map(item => {
+              return model.SpanLogCollection.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

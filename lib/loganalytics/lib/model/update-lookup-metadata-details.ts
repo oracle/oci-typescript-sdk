@@ -52,4 +52,18 @@ export namespace UpdateLookupMetadataDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateLookupMetadataDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "fields": obj.fields
+          ? obj.fields.map(item => {
+              return model.LogAnalyticsLookupFields.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

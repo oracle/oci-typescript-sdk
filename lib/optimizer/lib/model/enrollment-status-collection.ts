@@ -40,4 +40,18 @@ export namespace EnrollmentStatusCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EnrollmentStatusCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.EnrollmentStatusSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

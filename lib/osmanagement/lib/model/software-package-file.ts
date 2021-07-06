@@ -54,4 +54,9 @@ export namespace SoftwarePackageFile {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SoftwarePackageFile): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

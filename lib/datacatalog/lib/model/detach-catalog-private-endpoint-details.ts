@@ -30,4 +30,9 @@ export namespace DetachCatalogPrivateEndpointDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DetachCatalogPrivateEndpointDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

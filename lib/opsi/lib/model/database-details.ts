@@ -66,4 +66,18 @@ export namespace DatabaseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "instances": obj.instances
+          ? obj.instances.map(item => {
+              return model.HostInstanceMap.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

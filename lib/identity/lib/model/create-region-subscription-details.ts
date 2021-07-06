@@ -31,4 +31,9 @@ export namespace CreateRegionSubscriptionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateRegionSubscriptionDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

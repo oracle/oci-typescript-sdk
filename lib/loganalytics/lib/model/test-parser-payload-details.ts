@@ -159,4 +159,28 @@ export namespace TestParserPayloadDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TestParserPayloadDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "fieldMaps": obj.fieldMaps
+          ? obj.fieldMaps.map(item => {
+              return model.LogAnalyticsParserField.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "metadata": obj.metadata
+          ? model.UiParserTestMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined,
+
+        "parserFunctions": obj.parserFunctions
+          ? obj.parserFunctions.map(item => {
+              return model.LogAnalyticsParserFunction.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

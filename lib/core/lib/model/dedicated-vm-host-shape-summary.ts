@@ -43,4 +43,9 @@ export namespace DedicatedVmHostShapeSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DedicatedVmHostShapeSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

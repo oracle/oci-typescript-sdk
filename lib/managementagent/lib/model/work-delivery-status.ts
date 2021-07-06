@@ -27,7 +27,10 @@ export enum WorkDeliveryStatus {
 }
 
 export namespace WorkDeliveryStatus {
-  export function getJsonObj(obj: WorkDeliveryStatus): object {
-    return { obj };
+  export function getJsonObj(obj: WorkDeliveryStatus): WorkDeliveryStatus {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: WorkDeliveryStatus): WorkDeliveryStatus {
+    return obj;
   }
 }

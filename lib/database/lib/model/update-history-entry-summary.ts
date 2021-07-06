@@ -95,4 +95,9 @@ export namespace UpdateHistoryEntrySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateHistoryEntrySummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

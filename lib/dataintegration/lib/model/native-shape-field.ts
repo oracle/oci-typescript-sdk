@@ -58,4 +58,16 @@ export namespace NativeShapeField {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NativeShapeField): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "configValues": obj.configValues
+          ? model.ConfigValues.getDeserializedJsonObj(obj.configValues)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

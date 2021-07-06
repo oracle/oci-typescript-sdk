@@ -45,4 +45,9 @@ export namespace FaultDomain {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FaultDomain): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

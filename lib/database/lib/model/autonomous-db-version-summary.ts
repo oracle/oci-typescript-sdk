@@ -79,4 +79,9 @@ export namespace AutonomousDbVersionSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutonomousDbVersionSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

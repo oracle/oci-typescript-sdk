@@ -51,4 +51,18 @@ export namespace CommitMultipartUploadDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CommitMultipartUploadDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "partsToCommit": obj.partsToCommit
+          ? obj.partsToCommit.map(item => {
+              return model.CommitMultipartUploadPartDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

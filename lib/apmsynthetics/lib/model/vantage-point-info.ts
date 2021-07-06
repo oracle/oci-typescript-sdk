@@ -34,4 +34,9 @@ export namespace VantagePointInfo {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VantagePointInfo): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

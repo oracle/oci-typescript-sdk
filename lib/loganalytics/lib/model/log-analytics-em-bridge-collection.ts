@@ -41,4 +41,18 @@ export namespace LogAnalyticsEmBridgeCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsEmBridgeCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.LogAnalyticsEmBridgeSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

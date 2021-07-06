@@ -33,4 +33,19 @@ export namespace AnnouncementsPreferences {
     return jsonObj;
   }
   export const type = "AnnouncementsPreferences";
+  export function getDeserializedJsonObj(
+    obj: AnnouncementsPreferences,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.BaseAnnouncementsPreferences.getDeserializedJsonObj(
+            obj
+          ) as AnnouncementsPreferences)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -39,4 +39,20 @@ export namespace ScalingPolicy {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ScalingPolicy): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("policyType" in obj && obj.policyType) {
+      switch (obj.policyType) {
+        case "FIXED_SIZE":
+          return model.FixedSizeScalingPolicy.getDeserializedJsonObj(
+            <model.FixedSizeScalingPolicy>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.policyType);
+      }
+    }
+    return jsonObj;
+  }
 }

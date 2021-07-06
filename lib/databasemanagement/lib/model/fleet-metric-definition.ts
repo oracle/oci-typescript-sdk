@@ -66,4 +66,18 @@ export namespace FleetMetricDefinition {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FleetMetricDefinition): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dimensions": obj.dimensions
+          ? obj.dimensions.map(item => {
+              return model.MetricDimensionDefinition.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

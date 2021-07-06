@@ -37,4 +37,11 @@ export namespace ChangeComputeCapacityReservationCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: ChangeComputeCapacityReservationCompartmentDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

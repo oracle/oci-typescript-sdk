@@ -15,7 +15,7 @@ For more information, see [Overview of the DNS Service](/iaas/Content/DNS/Concep
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import {
   paginateRecords,
@@ -178,7 +178,7 @@ export class DnsClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeResolverCompartmentRequest.changeResolverCompartmentDetails,
         "ChangeResolverCompartmentDetails",
-        models.ChangeResolverCompartmentDetails.getJsonObj
+        model.ChangeResolverCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -248,7 +248,7 @@ export class DnsClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeSteeringPolicyCompartmentRequest.changeSteeringPolicyCompartmentDetails,
         "ChangeSteeringPolicyCompartmentDetails",
-        models.ChangeSteeringPolicyCompartmentDetails.getJsonObj
+        model.ChangeSteeringPolicyCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -312,7 +312,7 @@ export class DnsClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeTsigKeyCompartmentRequest.changeTsigKeyCompartmentDetails,
         "ChangeTsigKeyCompartmentDetails",
-        models.ChangeTsigKeyCompartmentDetails.getJsonObj
+        model.ChangeTsigKeyCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -377,7 +377,7 @@ export class DnsClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeViewCompartmentRequest.changeViewCompartmentDetails,
         "ChangeViewCompartmentDetails",
-        models.ChangeViewCompartmentDetails.getJsonObj
+        model.ChangeViewCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -449,7 +449,7 @@ export class DnsClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeZoneCompartmentRequest.changeZoneCompartmentDetails,
         "ChangeZoneCompartmentDetails",
-        models.ChangeZoneCompartmentDetails.getJsonObj
+        model.ChangeZoneCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -518,7 +518,7 @@ export class DnsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createResolverEndpointRequest.createResolverEndpointDetails,
         "CreateResolverEndpointDetails",
-        models.CreateResolverEndpointDetails.getJsonObj
+        model.CreateResolverEndpointDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -530,7 +530,8 @@ export class DnsClient {
         responseObject: <responses.CreateResolverEndpointResponse>{},
         body: await response.json(),
         bodyKey: "resolverEndpoint",
-        bodyModel: "model.ResolverEndpoint",
+        bodyModel: model.ResolverEndpoint,
+        type: "model.ResolverEndpoint",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -599,7 +600,7 @@ export class DnsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createSteeringPolicyRequest.createSteeringPolicyDetails,
         "CreateSteeringPolicyDetails",
-        models.CreateSteeringPolicyDetails.getJsonObj
+        model.CreateSteeringPolicyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -611,7 +612,8 @@ export class DnsClient {
         responseObject: <responses.CreateSteeringPolicyResponse>{},
         body: await response.json(),
         bodyKey: "steeringPolicy",
-        bodyModel: "model.SteeringPolicy",
+        bodyModel: model.SteeringPolicy,
+        type: "model.SteeringPolicy",
         responseHeaders: [
           {
             value: response.headers.get("ETag"),
@@ -680,7 +682,7 @@ For the purposes of access control, the attachment is automatically placed
       bodyContent: common.ObjectSerializer.serialize(
         createSteeringPolicyAttachmentRequest.createSteeringPolicyAttachmentDetails,
         "CreateSteeringPolicyAttachmentDetails",
-        models.CreateSteeringPolicyAttachmentDetails.getJsonObj
+        model.CreateSteeringPolicyAttachmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -692,7 +694,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.CreateSteeringPolicyAttachmentResponse>{},
         body: await response.json(),
         bodyKey: "steeringPolicyAttachment",
-        bodyModel: "model.SteeringPolicyAttachment",
+        bodyModel: model.SteeringPolicyAttachment,
+        type: "model.SteeringPolicyAttachment",
         responseHeaders: [
           {
             value: response.headers.get("ETag"),
@@ -755,7 +758,7 @@ For the purposes of access control, the attachment is automatically placed
       bodyContent: common.ObjectSerializer.serialize(
         createTsigKeyRequest.createTsigKeyDetails,
         "CreateTsigKeyDetails",
-        models.CreateTsigKeyDetails.getJsonObj
+        model.CreateTsigKeyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -767,7 +770,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.CreateTsigKeyResponse>{},
         body: await response.json(),
         bodyKey: "tsigKey",
-        bodyModel: "model.TsigKey",
+        bodyModel: model.TsigKey,
+        type: "model.TsigKey",
         responseHeaders: [
           {
             value: response.headers.get("ETag"),
@@ -835,7 +839,7 @@ For the purposes of access control, the attachment is automatically placed
       bodyContent: common.ObjectSerializer.serialize(
         createViewRequest.createViewDetails,
         "CreateViewDetails",
-        models.CreateViewDetails.getJsonObj
+        model.CreateViewDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -847,7 +851,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.CreateViewResponse>{},
         body: await response.json(),
         bodyKey: "view",
-        bodyModel: "model.View",
+        bodyModel: model.View,
+        type: "model.View",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -918,7 +923,7 @@ For the purposes of access control, the attachment is automatically placed
       bodyContent: common.ObjectSerializer.serialize(
         createZoneRequest.createZoneDetails,
         "CreateZoneBaseDetails",
-        models.CreateZoneBaseDetails.getJsonObj
+        model.CreateZoneBaseDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -930,7 +935,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.CreateZoneResponse>{},
         body: await response.json(),
         bodyKey: "zone",
-        bodyModel: "model.Zone",
+        bodyModel: model.Zone,
+        type: "model.Zone",
         responseHeaders: [
           {
             value: response.headers.get("ETag"),
@@ -1542,7 +1548,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.GetDomainRecordsResponse>{},
         body: await response.json(),
         bodyKey: "recordCollection",
-        bodyModel: "model.RecordCollection",
+        bodyModel: model.RecordCollection,
+        type: "model.RecordCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1582,7 +1589,7 @@ For the purposes of access control, the attachment is automatically placed
    */
   public getAllDomainRecords(
     request: requests.GetDomainRecordsRequest
-  ): AsyncIterableIterator<models.Record> {
+  ): AsyncIterableIterator<model.Record> {
     return genericPaginateRecords(
       request,
       req => this.getDomainRecords(req),
@@ -1664,7 +1671,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.GetRRSetResponse>{},
         body: await response.json(),
         bodyKey: "rRSet",
-        bodyModel: "model.RRSet",
+        bodyModel: model.RRSet,
+        type: "model.RRSet",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1702,7 +1710,7 @@ For the purposes of access control, the attachment is automatically placed
    *
    * @param request a request which can be sent to the service operation
    */
-  public getAllRRSet(request: requests.GetRRSetRequest): AsyncIterableIterator<models.Record> {
+  public getAllRRSet(request: requests.GetRRSetRequest): AsyncIterableIterator<model.Record> {
     return genericPaginateRecords(
       request,
       req => this.getRRSet(req),
@@ -1778,7 +1786,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.GetResolverResponse>{},
         body: await response.json(),
         bodyKey: "resolver",
-        bodyModel: "model.Resolver",
+        bodyModel: model.Resolver,
+        type: "model.Resolver",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1848,7 +1857,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.GetResolverEndpointResponse>{},
         body: await response.json(),
         bodyKey: "resolverEndpoint",
-        bodyModel: "model.ResolverEndpoint",
+        bodyModel: model.ResolverEndpoint,
+        type: "model.ResolverEndpoint",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1916,7 +1926,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.GetSteeringPolicyResponse>{},
         body: await response.json(),
         bodyKey: "steeringPolicy",
-        bodyModel: "model.SteeringPolicy",
+        bodyModel: model.SteeringPolicy,
+        type: "model.SteeringPolicy",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1984,7 +1995,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.GetSteeringPolicyAttachmentResponse>{},
         body: await response.json(),
         bodyKey: "steeringPolicyAttachment",
-        bodyModel: "model.SteeringPolicyAttachment",
+        bodyModel: model.SteeringPolicyAttachment,
+        type: "model.SteeringPolicyAttachment",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2052,7 +2064,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.GetTsigKeyResponse>{},
         body: await response.json(),
         bodyKey: "tsigKey",
-        bodyModel: "model.TsigKey",
+        bodyModel: model.TsigKey,
+        type: "model.TsigKey",
         responseHeaders: [
           {
             value: response.headers.get("ETag"),
@@ -2122,7 +2135,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.GetViewResponse>{},
         body: await response.json(),
         bodyKey: "view",
-        bodyModel: "model.View",
+        bodyModel: model.View,
+        type: "model.View",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2193,7 +2207,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.GetZoneResponse>{},
         body: await response.json(),
         bodyKey: "zone",
-        bodyModel: "model.Zone",
+        bodyModel: model.Zone,
+        type: "model.Zone",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2273,7 +2288,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.GetZoneRecordsResponse>{},
         body: await response.json(),
         bodyKey: "recordCollection",
-        bodyModel: "model.RecordCollection",
+        bodyModel: model.RecordCollection,
+        type: "model.RecordCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2313,7 +2329,7 @@ For the purposes of access control, the attachment is automatically placed
    */
   public getAllZoneRecords(
     request: requests.GetZoneRecordsRequest
-  ): AsyncIterableIterator<models.Record> {
+  ): AsyncIterableIterator<model.Record> {
     return genericPaginateRecords(
       request,
       req => this.getZoneRecords(req),
@@ -2394,7 +2410,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.ListResolverEndpointsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ResolverEndpointSummary[]",
+        bodyModel: model.ResolverEndpointSummary,
+        type: "Array<model.ResolverEndpointSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2424,7 +2441,7 @@ For the purposes of access control, the attachment is automatically placed
    */
   public listAllResolverEndpoints(
     request: requests.ListResolverEndpointsRequest
-  ): AsyncIterableIterator<models.ResolverEndpointSummary> {
+  ): AsyncIterableIterator<model.ResolverEndpointSummary> {
     return paginateRecords(request, req => this.listResolverEndpoints(req));
   }
 
@@ -2496,7 +2513,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.ListResolversResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ResolverSummary[]",
+        bodyModel: model.ResolverSummary,
+        type: "Array<model.ResolverSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2526,7 +2544,7 @@ For the purposes of access control, the attachment is automatically placed
    */
   public listAllResolvers(
     request: requests.ListResolversRequest
-  ): AsyncIterableIterator<models.ResolverSummary> {
+  ): AsyncIterableIterator<model.ResolverSummary> {
     return paginateRecords(request, req => this.listResolvers(req));
   }
 
@@ -2599,7 +2617,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.ListSteeringPoliciesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "SteeringPolicySummary[]",
+        bodyModel: model.SteeringPolicySummary,
+        type: "Array<model.SteeringPolicySummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2634,7 +2653,7 @@ For the purposes of access control, the attachment is automatically placed
    */
   public listAllSteeringPolicies(
     request: requests.ListSteeringPoliciesRequest
-  ): AsyncIterableIterator<models.SteeringPolicySummary> {
+  ): AsyncIterableIterator<model.SteeringPolicySummary> {
     return paginateRecords(request, req => this.listSteeringPolicies(req));
   }
 
@@ -2709,7 +2728,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.ListSteeringPolicyAttachmentsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "SteeringPolicyAttachmentSummary[]",
+        bodyModel: model.SteeringPolicyAttachmentSummary,
+        type: "Array<model.SteeringPolicyAttachmentSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2744,7 +2764,7 @@ For the purposes of access control, the attachment is automatically placed
    */
   public listAllSteeringPolicyAttachments(
     request: requests.ListSteeringPolicyAttachmentsRequest
-  ): AsyncIterableIterator<models.SteeringPolicyAttachmentSummary> {
+  ): AsyncIterableIterator<model.SteeringPolicyAttachmentSummary> {
     return paginateRecords(request, req => this.listSteeringPolicyAttachments(req));
   }
 
@@ -2811,7 +2831,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.ListTsigKeysResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "TsigKeySummary[]",
+        bodyModel: model.TsigKeySummary,
+        type: "Array<model.TsigKeySummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2841,7 +2862,7 @@ For the purposes of access control, the attachment is automatically placed
    */
   public listAllTsigKeys(
     request: requests.ListTsigKeysRequest
-  ): AsyncIterableIterator<models.TsigKeySummary> {
+  ): AsyncIterableIterator<model.TsigKeySummary> {
     return paginateRecords(request, req => this.listTsigKeys(req));
   }
 
@@ -2913,7 +2934,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.ListViewsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ViewSummary[]",
+        bodyModel: model.ViewSummary,
+        type: "Array<model.ViewSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2943,7 +2965,7 @@ For the purposes of access control, the attachment is automatically placed
    */
   public listAllViews(
     request: requests.ListViewsRequest
-  ): AsyncIterableIterator<models.ViewSummary> {
+  ): AsyncIterableIterator<model.ViewSummary> {
     return paginateRecords(request, req => this.listViews(req));
   }
 
@@ -3015,7 +3037,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.ListZonesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ZoneSummary[]",
+        bodyModel: model.ZoneSummary,
+        type: "Array<model.ZoneSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -3050,7 +3073,7 @@ For the purposes of access control, the attachment is automatically placed
    */
   public listAllZones(
     request: requests.ListZonesRequest
-  ): AsyncIterableIterator<models.ZoneSummary> {
+  ): AsyncIterableIterator<model.ZoneSummary> {
     return paginateRecords(request, req => this.listZones(req));
   }
 
@@ -3112,7 +3135,7 @@ For the purposes of access control, the attachment is automatically placed
       bodyContent: common.ObjectSerializer.serialize(
         patchDomainRecordsRequest.patchDomainRecordsDetails,
         "PatchDomainRecordsDetails",
-        models.PatchDomainRecordsDetails.getJsonObj
+        model.PatchDomainRecordsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3124,7 +3147,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.PatchDomainRecordsResponse>{},
         body: await response.json(),
         bodyKey: "recordCollection",
-        bodyModel: "model.RecordCollection",
+        bodyModel: model.RecordCollection,
+        type: "model.RecordCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -3198,7 +3222,7 @@ For the purposes of access control, the attachment is automatically placed
       bodyContent: common.ObjectSerializer.serialize(
         patchRRSetRequest.patchRRSetDetails,
         "PatchRRSetDetails",
-        models.PatchRRSetDetails.getJsonObj
+        model.PatchRRSetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3210,7 +3234,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.PatchRRSetResponse>{},
         body: await response.json(),
         bodyKey: "recordCollection",
-        bodyModel: "model.RecordCollection",
+        bodyModel: model.RecordCollection,
+        type: "model.RecordCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -3286,7 +3311,7 @@ For the purposes of access control, the attachment is automatically placed
       bodyContent: common.ObjectSerializer.serialize(
         patchZoneRecordsRequest.patchZoneRecordsDetails,
         "PatchZoneRecordsDetails",
-        models.PatchZoneRecordsDetails.getJsonObj
+        model.PatchZoneRecordsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3298,7 +3323,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.PatchZoneRecordsResponse>{},
         body: await response.json(),
         bodyKey: "recordCollection",
-        bodyModel: "model.RecordCollection",
+        bodyModel: model.RecordCollection,
+        type: "model.RecordCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -3377,7 +3403,7 @@ For the purposes of access control, the attachment is automatically placed
       bodyContent: common.ObjectSerializer.serialize(
         updateDomainRecordsRequest.updateDomainRecordsDetails,
         "UpdateDomainRecordsDetails",
-        models.UpdateDomainRecordsDetails.getJsonObj
+        model.UpdateDomainRecordsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3389,7 +3415,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.UpdateDomainRecordsResponse>{},
         body: await response.json(),
         bodyKey: "recordCollection",
-        bodyModel: "model.RecordCollection",
+        bodyModel: model.RecordCollection,
+        type: "model.RecordCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -3463,7 +3490,7 @@ For the purposes of access control, the attachment is automatically placed
       bodyContent: common.ObjectSerializer.serialize(
         updateRRSetRequest.updateRRSetDetails,
         "UpdateRRSetDetails",
-        models.UpdateRRSetDetails.getJsonObj
+        model.UpdateRRSetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3475,7 +3502,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.UpdateRRSetResponse>{},
         body: await response.json(),
         bodyKey: "recordCollection",
-        bodyModel: "model.RecordCollection",
+        bodyModel: model.RecordCollection,
+        type: "model.RecordCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -3546,7 +3574,7 @@ For the purposes of access control, the attachment is automatically placed
       bodyContent: common.ObjectSerializer.serialize(
         updateResolverRequest.updateResolverDetails,
         "UpdateResolverDetails",
-        models.UpdateResolverDetails.getJsonObj
+        model.UpdateResolverDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3558,7 +3586,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.UpdateResolverResponse>{},
         body: await response.json(),
         bodyKey: "resolver",
-        bodyModel: "model.Resolver",
+        bodyModel: model.Resolver,
+        type: "model.Resolver",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3625,7 +3654,7 @@ For the purposes of access control, the attachment is automatically placed
       bodyContent: common.ObjectSerializer.serialize(
         updateResolverEndpointRequest.updateResolverEndpointDetails,
         "UpdateResolverEndpointDetails",
-        models.UpdateResolverEndpointDetails.getJsonObj
+        model.UpdateResolverEndpointDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3637,7 +3666,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.UpdateResolverEndpointResponse>{},
         body: await response.json(),
         bodyKey: "resolverEndpoint",
-        bodyModel: "model.ResolverEndpoint",
+        bodyModel: model.ResolverEndpoint,
+        type: "model.ResolverEndpoint",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3703,7 +3733,7 @@ For the purposes of access control, the attachment is automatically placed
       bodyContent: common.ObjectSerializer.serialize(
         updateSteeringPolicyRequest.updateSteeringPolicyDetails,
         "UpdateSteeringPolicyDetails",
-        models.UpdateSteeringPolicyDetails.getJsonObj
+        model.UpdateSteeringPolicyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3715,7 +3745,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.UpdateSteeringPolicyResponse>{},
         body: await response.json(),
         bodyKey: "steeringPolicy",
-        bodyModel: "model.SteeringPolicy",
+        bodyModel: model.SteeringPolicy,
+        type: "model.SteeringPolicy",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3778,7 +3809,7 @@ For the purposes of access control, the attachment is automatically placed
       bodyContent: common.ObjectSerializer.serialize(
         updateSteeringPolicyAttachmentRequest.updateSteeringPolicyAttachmentDetails,
         "UpdateSteeringPolicyAttachmentDetails",
-        models.UpdateSteeringPolicyAttachmentDetails.getJsonObj
+        model.UpdateSteeringPolicyAttachmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3790,7 +3821,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.UpdateSteeringPolicyAttachmentResponse>{},
         body: await response.json(),
         bodyKey: "steeringPolicyAttachment",
-        bodyModel: "model.SteeringPolicyAttachment",
+        bodyModel: model.SteeringPolicyAttachment,
+        type: "model.SteeringPolicyAttachment",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3851,7 +3883,7 @@ For the purposes of access control, the attachment is automatically placed
       bodyContent: common.ObjectSerializer.serialize(
         updateTsigKeyRequest.updateTsigKeyDetails,
         "UpdateTsigKeyDetails",
-        models.UpdateTsigKeyDetails.getJsonObj
+        model.UpdateTsigKeyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3863,7 +3895,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.UpdateTsigKeyResponse>{},
         body: await response.json(),
         bodyKey: "tsigKey",
-        bodyModel: "model.TsigKey",
+        bodyModel: model.TsigKey,
+        type: "model.TsigKey",
         responseHeaders: [
           {
             value: response.headers.get("ETag"),
@@ -3924,7 +3957,7 @@ For the purposes of access control, the attachment is automatically placed
       bodyContent: common.ObjectSerializer.serialize(
         updateViewRequest.updateViewDetails,
         "UpdateViewDetails",
-        models.UpdateViewDetails.getJsonObj
+        model.UpdateViewDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3936,7 +3969,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.UpdateViewResponse>{},
         body: await response.json(),
         bodyKey: "view",
-        bodyModel: "model.View",
+        bodyModel: model.View,
+        type: "model.View",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4006,7 +4040,7 @@ For the purposes of access control, the attachment is automatically placed
       bodyContent: common.ObjectSerializer.serialize(
         updateZoneRequest.updateZoneDetails,
         "UpdateZoneDetails",
-        models.UpdateZoneDetails.getJsonObj
+        model.UpdateZoneDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4018,7 +4052,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.UpdateZoneResponse>{},
         body: await response.json(),
         bodyKey: "zone",
-        bodyModel: "model.Zone",
+        bodyModel: model.Zone,
+        type: "model.Zone",
         responseHeaders: [
           {
             value: response.headers.get("ETag"),
@@ -4090,7 +4125,7 @@ For the purposes of access control, the attachment is automatically placed
       bodyContent: common.ObjectSerializer.serialize(
         updateZoneRecordsRequest.updateZoneRecordsDetails,
         "UpdateZoneRecordsDetails",
-        models.UpdateZoneRecordsDetails.getJsonObj
+        model.UpdateZoneRecordsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4102,7 +4137,8 @@ For the purposes of access control, the attachment is automatically placed
         responseObject: <responses.UpdateZoneRecordsResponse>{},
         body: await response.json(),
         bodyKey: "recordCollection",
-        bodyModel: "model.RecordCollection",
+        bodyModel: model.RecordCollection,
+        type: "model.RecordCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),

@@ -31,7 +31,10 @@ export enum MonitorTypes {
 }
 
 export namespace MonitorTypes {
-  export function getJsonObj(obj: MonitorTypes): object {
-    return { obj };
+  export function getJsonObj(obj: MonitorTypes): MonitorTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: MonitorTypes): MonitorTypes {
+    return obj;
   }
 }

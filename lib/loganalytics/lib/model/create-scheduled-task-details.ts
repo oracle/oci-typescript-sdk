@@ -70,4 +70,25 @@ export namespace CreateScheduledTaskDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateScheduledTaskDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("kind" in obj && obj.kind) {
+      switch (obj.kind) {
+        case "STANDARD":
+          return model.CreateStandardTaskDetails.getDeserializedJsonObj(
+            <model.CreateStandardTaskDetails>(<object>jsonObj),
+            true
+          );
+        case "ACCELERATION":
+          return model.CreateAccelerationTaskDetails.getDeserializedJsonObj(
+            <model.CreateAccelerationTaskDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.kind);
+      }
+    }
+    return jsonObj;
+  }
 }

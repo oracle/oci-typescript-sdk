@@ -89,4 +89,14 @@ export namespace AutoScalingConfigurationSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutoScalingConfigurationSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "resource": obj.resource ? model.Resource.getDeserializedJsonObj(obj.resource) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

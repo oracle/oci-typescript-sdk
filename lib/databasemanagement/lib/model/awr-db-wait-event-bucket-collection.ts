@@ -54,4 +54,23 @@ export namespace AwrDbWaitEventBucketCollection {
     return jsonObj;
   }
   export const awrResultType = "AWRDB_EVENT_HISTOGRAM_SET";
+  export function getDeserializedJsonObj(
+    obj: AwrDbWaitEventBucketCollection,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AwrQueryResult.getDeserializedJsonObj(obj) as AwrDbWaitEventBucketCollection)),
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.AwrDbWaitEventBucketSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

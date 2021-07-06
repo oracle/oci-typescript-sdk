@@ -80,4 +80,9 @@ export namespace UpdateDatabaseRegistrationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDatabaseRegistrationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

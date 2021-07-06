@@ -56,4 +56,35 @@ export namespace ComputeInstanceDetails {
     return jsonObj;
   }
   export const instanceType = "compute";
+  export function getDeserializedJsonObj(
+    obj: ComputeInstanceDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.InstanceConfigurationInstanceDetails.getDeserializedJsonObj(
+            obj
+          ) as ComputeInstanceDetails)),
+      ...{
+        "blockVolumes": obj.blockVolumes
+          ? obj.blockVolumes.map(item => {
+              return model.InstanceConfigurationBlockVolumeDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "launchDetails": obj.launchDetails
+          ? model.InstanceConfigurationLaunchInstanceDetails.getDeserializedJsonObj(
+              obj.launchDetails
+            )
+          : undefined,
+        "secondaryVnics": obj.secondaryVnics
+          ? obj.secondaryVnics.map(item => {
+              return model.InstanceConfigurationAttachVnicDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

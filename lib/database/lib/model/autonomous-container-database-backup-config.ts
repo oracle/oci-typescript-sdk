@@ -48,4 +48,18 @@ export namespace AutonomousContainerDatabaseBackupConfig {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutonomousContainerDatabaseBackupConfig): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "backupDestinationDetails": obj.backupDestinationDetails
+          ? obj.backupDestinationDetails.map(item => {
+              return model.BackupDestinationDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -92,4 +92,9 @@ export namespace SoftwareSourceSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SoftwareSourceSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

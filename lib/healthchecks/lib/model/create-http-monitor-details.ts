@@ -95,4 +95,9 @@ export namespace CreateHttpMonitorDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateHttpMonitorDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

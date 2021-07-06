@@ -43,4 +43,18 @@ export namespace SetHeaderPolicy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SetHeaderPolicy): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.SetHeaderPolicyItem.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

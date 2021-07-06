@@ -100,4 +100,16 @@ export namespace TargetDetectorRecipeDetectorRule {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TargetDetectorRecipeDetectorRule): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "details": obj.details
+          ? model.TargetDetectorDetails.getDeserializedJsonObj(obj.details)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

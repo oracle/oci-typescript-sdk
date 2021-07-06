@@ -43,4 +43,23 @@ export namespace UnifiedAgentGrokParser {
     return jsonObj;
   }
   export const parserType = "GROK";
+  export function getDeserializedJsonObj(
+    obj: UnifiedAgentGrokParser,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UnifiedAgentParser.getDeserializedJsonObj(obj) as UnifiedAgentGrokParser)),
+      ...{
+        "patterns": obj.patterns
+          ? obj.patterns.map(item => {
+              return model.GrokPattern.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

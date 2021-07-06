@@ -93,4 +93,16 @@ export namespace DeployArtifactSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeployArtifactSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "deployArtifactSource": obj.deployArtifactSource
+          ? model.DeployArtifactSource.getDeserializedJsonObj(obj.deployArtifactSource)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -86,4 +86,18 @@ export namespace Classifier {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Classifier): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "issueTypeList": obj.issueTypeList
+          ? obj.issueTypeList.map(item => {
+              return model.IssueType.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

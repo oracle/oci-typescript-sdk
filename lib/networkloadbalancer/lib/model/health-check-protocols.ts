@@ -31,7 +31,10 @@ export enum HealthCheckProtocols {
 }
 
 export namespace HealthCheckProtocols {
-  export function getJsonObj(obj: HealthCheckProtocols): object {
-    return { obj };
+  export function getJsonObj(obj: HealthCheckProtocols): HealthCheckProtocols {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: HealthCheckProtocols): HealthCheckProtocols {
+    return obj;
   }
 }

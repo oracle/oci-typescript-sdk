@@ -28,7 +28,12 @@ export enum WorkRequestResourceMetadataKey {
 }
 
 export namespace WorkRequestResourceMetadataKey {
-  export function getJsonObj(obj: WorkRequestResourceMetadataKey): object {
-    return { obj };
+  export function getJsonObj(obj: WorkRequestResourceMetadataKey): WorkRequestResourceMetadataKey {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: WorkRequestResourceMetadataKey
+  ): WorkRequestResourceMetadataKey {
+    return obj;
   }
 }

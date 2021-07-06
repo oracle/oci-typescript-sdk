@@ -39,4 +39,19 @@ export namespace UpdateAuthenticationPolicyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateAuthenticationPolicyDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "passwordPolicy": obj.passwordPolicy
+          ? model.PasswordPolicy.getDeserializedJsonObj(obj.passwordPolicy)
+          : undefined,
+        "networkPolicy": obj.networkPolicy
+          ? model.NetworkPolicy.getDeserializedJsonObj(obj.networkPolicy)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

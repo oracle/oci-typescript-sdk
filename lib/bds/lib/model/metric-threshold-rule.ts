@@ -51,4 +51,9 @@ export namespace MetricThresholdRule {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MetricThresholdRule): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

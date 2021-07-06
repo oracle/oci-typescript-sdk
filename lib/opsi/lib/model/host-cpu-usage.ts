@@ -74,4 +74,14 @@ export namespace HostCpuUsage {
     return jsonObj;
   }
   export const metricName = "HOST_CPU_USAGE";
+  export function getDeserializedJsonObj(obj: HostCpuUsage, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.HostPerformanceMetricGroup.getDeserializedJsonObj(obj) as HostCpuUsage)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

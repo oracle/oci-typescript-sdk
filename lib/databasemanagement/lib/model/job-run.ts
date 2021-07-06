@@ -80,4 +80,9 @@ export namespace JobRun {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: JobRun): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

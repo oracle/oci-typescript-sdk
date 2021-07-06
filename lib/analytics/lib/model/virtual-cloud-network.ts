@@ -38,4 +38,9 @@ export namespace VirtualCloudNetwork {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VirtualCloudNetwork): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

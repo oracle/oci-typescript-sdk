@@ -78,4 +78,11 @@ export namespace UpdateLogAnalyticsObjectCollectionRuleDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: UpdateLogAnalyticsObjectCollectionRuleDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

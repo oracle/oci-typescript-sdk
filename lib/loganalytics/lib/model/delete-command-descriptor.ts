@@ -41,4 +41,17 @@ export namespace DeleteCommandDescriptor {
     return jsonObj;
   }
   export const name = "DELETE";
+  export function getDeserializedJsonObj(
+    obj: DeleteCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(obj) as DeleteCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

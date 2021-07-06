@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { ChannelsWaiter } from "./channels-waiter";
@@ -169,7 +169,7 @@ export class ChannelsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createChannelRequest.createChannelDetails,
         "CreateChannelDetails",
-        models.CreateChannelDetails.getJsonObj
+        model.CreateChannelDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -181,7 +181,8 @@ export class ChannelsClient {
         responseObject: <responses.CreateChannelResponse>{},
         body: await response.json(),
         bodyKey: "channel",
-        bodyModel: "model.Channel",
+        bodyModel: model.Channel,
+        type: "model.Channel",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -314,7 +315,8 @@ export class ChannelsClient {
         responseObject: <responses.GetChannelResponse>{},
         body: await response.json(),
         bodyKey: "channel",
-        bodyModel: "model.Channel",
+        bodyModel: model.Channel,
+        type: "model.Channel",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -386,7 +388,8 @@ export class ChannelsClient {
         responseObject: <responses.ListChannelsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ChannelSummary[]",
+        bodyModel: model.ChannelSummary,
+        type: "Array<model.ChannelSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -416,7 +419,7 @@ export class ChannelsClient {
    */
   public listAllChannels(
     request: requests.ListChannelsRequest
-  ): AsyncIterableIterator<models.ChannelSummary> {
+  ): AsyncIterableIterator<model.ChannelSummary> {
     return paginateRecords(request, req => this.listChannels(req));
   }
 
@@ -602,7 +605,7 @@ export class ChannelsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateChannelRequest.updateChannelDetails,
         "UpdateChannelDetails",
-        models.UpdateChannelDetails.getJsonObj
+        model.UpdateChannelDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -774,7 +777,7 @@ export class DbBackupsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createBackupRequest.createBackupDetails,
         "CreateBackupDetails",
-        models.CreateBackupDetails.getJsonObj
+        model.CreateBackupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -786,7 +789,8 @@ export class DbBackupsClient {
         responseObject: <responses.CreateBackupResponse>{},
         body: await response.json(),
         bodyKey: "backup",
-        bodyModel: "model.Backup",
+        bodyModel: model.Backup,
+        type: "model.Backup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -917,7 +921,8 @@ export class DbBackupsClient {
         responseObject: <responses.GetBackupResponse>{},
         body: await response.json(),
         bodyKey: "backup",
-        bodyModel: "model.Backup",
+        bodyModel: model.Backup,
+        type: "model.Backup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -990,7 +995,8 @@ export class DbBackupsClient {
         responseObject: <responses.ListBackupsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "BackupSummary[]",
+        bodyModel: model.BackupSummary,
+        type: "Array<model.BackupSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1020,7 +1026,7 @@ export class DbBackupsClient {
    */
   public listAllBackups(
     request: requests.ListBackupsRequest
-  ): AsyncIterableIterator<models.BackupSummary> {
+  ): AsyncIterableIterator<model.BackupSummary> {
     return paginateRecords(request, req => this.listBackups(req));
   }
 
@@ -1072,7 +1078,7 @@ export class DbBackupsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateBackupRequest.updateBackupDetails,
         "UpdateBackupDetails",
-        models.UpdateBackupDetails.getJsonObj
+        model.UpdateBackupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1243,7 +1249,7 @@ export class DbSystemClient {
       bodyContent: common.ObjectSerializer.serialize(
         addAnalyticsClusterRequest.addAnalyticsClusterDetails,
         "AddAnalyticsClusterDetails",
-        models.AddAnalyticsClusterDetails.getJsonObj
+        model.AddAnalyticsClusterDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1255,7 +1261,8 @@ export class DbSystemClient {
         responseObject: <responses.AddAnalyticsClusterResponse>{},
         body: await response.json(),
         bodyKey: "analyticsCluster",
-        bodyModel: "model.AnalyticsCluster",
+        bodyModel: model.AnalyticsCluster,
+        type: "model.AnalyticsCluster",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1319,7 +1326,7 @@ export class DbSystemClient {
       bodyContent: common.ObjectSerializer.serialize(
         addHeatWaveClusterRequest.addHeatWaveClusterDetails,
         "AddHeatWaveClusterDetails",
-        models.AddHeatWaveClusterDetails.getJsonObj
+        model.AddHeatWaveClusterDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1331,7 +1338,8 @@ export class DbSystemClient {
         responseObject: <responses.AddHeatWaveClusterResponse>{},
         body: await response.json(),
         bodyKey: "heatWaveCluster",
-        bodyModel: "model.HeatWaveCluster",
+        bodyModel: model.HeatWaveCluster,
+        type: "model.HeatWaveCluster",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1392,7 +1400,7 @@ export class DbSystemClient {
       bodyContent: common.ObjectSerializer.serialize(
         createDbSystemRequest.createDbSystemDetails,
         "CreateDbSystemDetails",
-        models.CreateDbSystemDetails.getJsonObj
+        model.CreateDbSystemDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1404,7 +1412,8 @@ export class DbSystemClient {
         responseObject: <responses.CreateDbSystemResponse>{},
         body: await response.json(),
         bodyKey: "dbSystem",
-        bodyModel: "model.DbSystem",
+        bodyModel: model.DbSystem,
+        type: "model.DbSystem",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1671,7 +1680,8 @@ export class DbSystemClient {
         responseObject: <responses.GenerateAnalyticsClusterMemoryEstimateResponse>{},
         body: await response.json(),
         bodyKey: "analyticsClusterMemoryEstimate",
-        bodyModel: "model.AnalyticsClusterMemoryEstimate",
+        bodyModel: model.AnalyticsClusterMemoryEstimate,
+        type: "model.AnalyticsClusterMemoryEstimate",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1737,7 +1747,8 @@ export class DbSystemClient {
         responseObject: <responses.GenerateHeatWaveClusterMemoryEstimateResponse>{},
         body: await response.json(),
         bodyKey: "heatWaveClusterMemoryEstimate",
-        bodyModel: "model.HeatWaveClusterMemoryEstimate",
+        bodyModel: model.HeatWaveClusterMemoryEstimate,
+        type: "model.HeatWaveClusterMemoryEstimate",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1803,7 +1814,8 @@ export class DbSystemClient {
         responseObject: <responses.GetAnalyticsClusterResponse>{},
         body: await response.json(),
         bodyKey: "analyticsCluster",
-        bodyModel: "model.AnalyticsCluster",
+        bodyModel: model.AnalyticsCluster,
+        type: "model.AnalyticsCluster",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1870,7 +1882,8 @@ export class DbSystemClient {
         responseObject: <responses.GetAnalyticsClusterMemoryEstimateResponse>{},
         body: await response.json(),
         bodyKey: "analyticsClusterMemoryEstimate",
-        bodyModel: "model.AnalyticsClusterMemoryEstimate",
+        bodyModel: model.AnalyticsClusterMemoryEstimate,
+        type: "model.AnalyticsClusterMemoryEstimate",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1929,7 +1942,8 @@ export class DbSystemClient {
         responseObject: <responses.GetDbSystemResponse>{},
         body: await response.json(),
         bodyKey: "dbSystem",
-        bodyModel: "model.DbSystem",
+        bodyModel: model.DbSystem,
+        type: "model.DbSystem",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1993,7 +2007,8 @@ export class DbSystemClient {
         responseObject: <responses.GetHeatWaveClusterResponse>{},
         body: await response.json(),
         bodyKey: "heatWaveCluster",
-        bodyModel: "model.HeatWaveCluster",
+        bodyModel: model.HeatWaveCluster,
+        type: "model.HeatWaveCluster",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2059,7 +2074,8 @@ export class DbSystemClient {
         responseObject: <responses.GetHeatWaveClusterMemoryEstimateResponse>{},
         body: await response.json(),
         bodyKey: "heatWaveClusterMemoryEstimate",
-        bodyModel: "model.HeatWaveClusterMemoryEstimate",
+        bodyModel: model.HeatWaveClusterMemoryEstimate,
+        type: "model.HeatWaveClusterMemoryEstimate",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2130,7 +2146,8 @@ export class DbSystemClient {
         responseObject: <responses.ListDbSystemsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DbSystemSummary[]",
+        bodyModel: model.DbSystemSummary,
+        type: "Array<model.DbSystemSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2160,7 +2177,7 @@ export class DbSystemClient {
    */
   public listAllDbSystems(
     request: requests.ListDbSystemsRequest
-  ): AsyncIterableIterator<models.DbSystemSummary> {
+  ): AsyncIterableIterator<model.DbSystemSummary> {
     return paginateRecords(request, req => this.listDbSystems(req));
   }
 
@@ -2277,7 +2294,7 @@ export class DbSystemClient {
       bodyContent: common.ObjectSerializer.serialize(
         restartDbSystemRequest.restartDbSystemDetails,
         "RestartDbSystemDetails",
-        models.RestartDbSystemDetails.getJsonObj
+        model.RestartDbSystemDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2661,7 +2678,7 @@ A stopped DB System is not billed.
       bodyContent: common.ObjectSerializer.serialize(
         stopDbSystemRequest.stopDbSystemDetails,
         "StopDbSystemDetails",
-        models.StopDbSystemDetails.getJsonObj
+        model.StopDbSystemDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2791,7 +2808,7 @@ A stopped DB System is not billed.
       bodyContent: common.ObjectSerializer.serialize(
         updateAnalyticsClusterRequest.updateAnalyticsClusterDetails,
         "UpdateAnalyticsClusterDetails",
-        models.UpdateAnalyticsClusterDetails.getJsonObj
+        model.UpdateAnalyticsClusterDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2865,7 +2882,7 @@ Updating different fields in the DB System will have different results
       bodyContent: common.ObjectSerializer.serialize(
         updateDbSystemRequest.updateDbSystemDetails,
         "UpdateDbSystemDetails",
-        models.UpdateDbSystemDetails.getJsonObj
+        model.UpdateDbSystemDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2932,7 +2949,7 @@ Updating different fields in the DB System will have different results
       bodyContent: common.ObjectSerializer.serialize(
         updateHeatWaveClusterRequest.updateHeatWaveClusterDetails,
         "UpdateHeatWaveClusterDetails",
-        models.UpdateHeatWaveClusterDetails.getJsonObj
+        model.UpdateHeatWaveClusterDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3103,7 +3120,7 @@ export class MysqlaasClient {
       bodyContent: common.ObjectSerializer.serialize(
         createConfigurationRequest.createConfigurationDetails,
         "CreateConfigurationDetails",
-        models.CreateConfigurationDetails.getJsonObj
+        model.CreateConfigurationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3115,7 +3132,8 @@ export class MysqlaasClient {
         responseObject: <responses.CreateConfigurationResponse>{},
         body: await response.json(),
         bodyKey: "configuration",
-        bodyModel: "model.Configuration",
+        bodyModel: model.Configuration,
+        type: "model.Configuration",
         responseHeaders: [
           {
             value: response.headers.get("location"),
@@ -3248,7 +3266,8 @@ export class MysqlaasClient {
         responseObject: <responses.GetConfigurationResponse>{},
         body: await response.json(),
         bodyKey: "configuration",
-        bodyModel: "model.Configuration",
+        bodyModel: model.Configuration,
+        type: "model.Configuration",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3328,7 +3347,8 @@ The default sort order is a multi-part sort by:
         responseObject: <responses.ListConfigurationsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ConfigurationSummary[]",
+        bodyModel: model.ConfigurationSummary,
+        type: "Array<model.ConfigurationSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3358,7 +3378,7 @@ The default sort order is a multi-part sort by:
    */
   public listAllConfigurations(
     request: requests.ListConfigurationsRequest
-  ): AsyncIterableIterator<models.ConfigurationSummary> {
+  ): AsyncIterableIterator<model.ConfigurationSummary> {
     return paginateRecords(request, req => this.listConfigurations(req));
   }
 
@@ -3423,7 +3443,8 @@ The default sort order is a multi-part sort by:
         responseObject: <responses.ListShapesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ShapeSummary[]",
+        bodyModel: model.ShapeSummary,
+        type: "Array<model.ShapeSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3484,7 +3505,8 @@ The list is sorted by version family.
         responseObject: <responses.ListVersionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "VersionSummary[]",
+        bodyModel: model.VersionSummary,
+        type: "Array<model.VersionSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3536,7 +3558,7 @@ The list is sorted by version family.
       bodyContent: common.ObjectSerializer.serialize(
         updateConfigurationRequest.updateConfigurationDetails,
         "UpdateConfigurationDetails",
-        models.UpdateConfigurationDetails.getJsonObj
+        model.UpdateConfigurationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3548,7 +3570,8 @@ The list is sorted by version family.
         responseObject: <responses.UpdateConfigurationResponse>{},
         body: await response.json(),
         bodyKey: "configuration",
-        bodyModel: "model.Configuration",
+        bodyModel: model.Configuration,
+        type: "model.Configuration",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3719,7 +3742,8 @@ export class WorkRequestsClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3792,7 +3816,8 @@ export class WorkRequestsClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestError[]",
+        bodyModel: model.WorkRequestError,
+        type: "Array<model.WorkRequestError>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3822,7 +3847,7 @@ export class WorkRequestsClient {
    */
   public listAllWorkRequestErrors(
     request: requests.ListWorkRequestErrorsRequest
-  ): AsyncIterableIterator<models.WorkRequestError> {
+  ): AsyncIterableIterator<model.WorkRequestError> {
     return paginateRecords(request, req => this.listWorkRequestErrors(req));
   }
 
@@ -3884,7 +3909,8 @@ export class WorkRequestsClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestLogEntry[]",
+        bodyModel: model.WorkRequestLogEntry,
+        type: "Array<model.WorkRequestLogEntry>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3914,7 +3940,7 @@ export class WorkRequestsClient {
    */
   public listAllWorkRequestLogs(
     request: requests.ListWorkRequestLogsRequest
-  ): AsyncIterableIterator<models.WorkRequestLogEntry> {
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
     return paginateRecords(request, req => this.listWorkRequestLogs(req));
   }
 
@@ -3977,7 +4003,8 @@ export class WorkRequestsClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestSummary[]",
+        bodyModel: model.WorkRequestSummary,
+        type: "Array<model.WorkRequestSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4007,7 +4034,7 @@ export class WorkRequestsClient {
    */
   public listAllWorkRequests(
     request: requests.ListWorkRequestsRequest
-  ): AsyncIterableIterator<models.WorkRequestSummary> {
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
     return paginateRecords(request, req => this.listWorkRequests(req));
   }
 

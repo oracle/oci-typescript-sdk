@@ -38,4 +38,19 @@ export namespace FunctionDeployStageExecutionProgress {
     return jsonObj;
   }
   export const deployStageType = "DEPLOY_FUNCTION";
+  export function getDeserializedJsonObj(
+    obj: FunctionDeployStageExecutionProgress,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DeployStageExecutionProgress.getDeserializedJsonObj(
+            obj
+          ) as FunctionDeployStageExecutionProgress)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

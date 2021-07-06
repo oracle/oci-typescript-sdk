@@ -68,4 +68,16 @@ export namespace UpdateGatewayDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateGatewayDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "responseCacheDetails": obj.responseCacheDetails
+          ? model.ResponseCacheDetails.getDeserializedJsonObj(obj.responseCacheDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

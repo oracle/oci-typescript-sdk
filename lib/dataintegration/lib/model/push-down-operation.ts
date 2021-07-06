@@ -43,4 +43,25 @@ export namespace PushDownOperation {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PushDownOperation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "QUERY":
+          return model.Query.getDeserializedJsonObj(<model.Query>(<object>jsonObj), true);
+        case "SELECT":
+          return model.Select.getDeserializedJsonObj(<model.Select>(<object>jsonObj), true);
+        case "JOIN":
+          return model.Join.getDeserializedJsonObj(<model.Join>(<object>jsonObj), true);
+        case "SORT":
+          return model.Sort.getDeserializedJsonObj(<model.Sort>(<object>jsonObj), true);
+        case "FILTER":
+          return model.FilterPush.getDeserializedJsonObj(<model.FilterPush>(<object>jsonObj), true);
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

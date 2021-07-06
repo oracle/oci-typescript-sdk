@@ -93,4 +93,9 @@ export namespace MfaTotpDevice {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MfaTotpDevice): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

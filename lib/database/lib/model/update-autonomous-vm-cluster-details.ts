@@ -51,4 +51,9 @@ export namespace UpdateAutonomousVmClusterDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateAutonomousVmClusterDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

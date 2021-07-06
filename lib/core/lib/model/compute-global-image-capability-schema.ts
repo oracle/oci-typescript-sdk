@@ -74,4 +74,9 @@ export namespace ComputeGlobalImageCapabilitySchema {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ComputeGlobalImageCapabilitySchema): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

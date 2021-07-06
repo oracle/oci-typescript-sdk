@@ -76,4 +76,9 @@ export namespace UpdateVlanDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateVlanDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

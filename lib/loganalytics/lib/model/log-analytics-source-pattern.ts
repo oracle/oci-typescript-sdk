@@ -120,4 +120,22 @@ export namespace LogAnalyticsSourcePattern {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsSourcePattern): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "fields": obj.fields
+          ? obj.fields.map(item => {
+              return model.LogAnalyticsParserField.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "patternFilter": obj.patternFilter
+          ? model.LogAnalyticsPatternFilter.getDeserializedJsonObj(obj.patternFilter)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

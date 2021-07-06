@@ -41,4 +41,19 @@ export namespace AnonymousRouteAuthorizationPolicy {
     return jsonObj;
   }
   export const type = "ANONYMOUS";
+  export function getDeserializedJsonObj(
+    obj: AnonymousRouteAuthorizationPolicy,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.RouteAuthorizationPolicy.getDeserializedJsonObj(
+            obj
+          ) as AnonymousRouteAuthorizationPolicy)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

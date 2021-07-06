@@ -29,7 +29,10 @@ export enum RequestMethods {
 }
 
 export namespace RequestMethods {
-  export function getJsonObj(obj: RequestMethods): object {
-    return { obj };
+  export function getJsonObj(obj: RequestMethods): RequestMethods {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: RequestMethods): RequestMethods {
+    return obj;
   }
 }

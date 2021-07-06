@@ -52,4 +52,19 @@ export namespace InstanceSourceViaImageDetails {
     return jsonObj;
   }
   export const sourceType = "image";
+  export function getDeserializedJsonObj(
+    obj: InstanceSourceViaImageDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.InstanceSourceDetails.getDeserializedJsonObj(
+            obj
+          ) as InstanceSourceViaImageDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

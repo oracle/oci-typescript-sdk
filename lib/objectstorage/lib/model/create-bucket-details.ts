@@ -120,4 +120,9 @@ export namespace CreateBucketDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateBucketDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

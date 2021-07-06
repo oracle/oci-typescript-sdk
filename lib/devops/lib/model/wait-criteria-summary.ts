@@ -38,4 +38,20 @@ export namespace WaitCriteriaSummary {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WaitCriteriaSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("waitType" in obj && obj.waitType) {
+      switch (obj.waitType) {
+        case "ABSOLUTE_WAIT":
+          return model.AbsoluteWaitCriteriaSummary.getDeserializedJsonObj(
+            <model.AbsoluteWaitCriteriaSummary>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.waitType);
+      }
+    }
+    return jsonObj;
+  }
 }

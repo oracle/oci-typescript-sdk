@@ -83,4 +83,37 @@ export namespace PublishedObject {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PublishedObject): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined
+      }
+    };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "DATA_LOADER_TASK":
+          return model.PublishedObjectFromDataLoaderTask.getDeserializedJsonObj(
+            <model.PublishedObjectFromDataLoaderTask>(<object>jsonObj),
+            true
+          );
+        case "PIPELINE_TASK":
+          return model.PublishedObjectFromPipelineTask.getDeserializedJsonObj(
+            <model.PublishedObjectFromPipelineTask>(<object>jsonObj),
+            true
+          );
+        case "INTEGRATION_TASK":
+          return model.PublishedObjectFromIntegrationTask.getDeserializedJsonObj(
+            <model.PublishedObjectFromIntegrationTask>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

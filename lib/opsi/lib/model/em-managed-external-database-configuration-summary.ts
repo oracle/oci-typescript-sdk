@@ -61,4 +61,25 @@ export namespace EmManagedExternalDatabaseConfigurationSummary {
     return jsonObj;
   }
   export const entitySource = "EM_MANAGED_EXTERNAL_DATABASE";
+  export function getDeserializedJsonObj(
+    obj: EmManagedExternalDatabaseConfigurationSummary,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DatabaseConfigurationSummary.getDeserializedJsonObj(
+            obj
+          ) as EmManagedExternalDatabaseConfigurationSummary)),
+      ...{
+        "instances": obj.instances
+          ? obj.instances.map(item => {
+              return model.HostInstanceMap.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

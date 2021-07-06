@@ -33,4 +33,9 @@ export namespace ChangeAutonomousVmClusterCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ChangeAutonomousVmClusterCompartmentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

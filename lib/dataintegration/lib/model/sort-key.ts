@@ -39,4 +39,18 @@ export namespace SortKey {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SortKey): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sortRules": obj.sortRules
+          ? obj.sortRules.map(item => {
+              return model.SortKeyRule.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

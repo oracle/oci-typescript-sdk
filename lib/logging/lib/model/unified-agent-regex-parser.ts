@@ -36,4 +36,17 @@ export namespace UnifiedAgentRegexParser {
     return jsonObj;
   }
   export const parserType = "REGEXP";
+  export function getDeserializedJsonObj(
+    obj: UnifiedAgentRegexParser,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UnifiedAgentParser.getDeserializedJsonObj(obj) as UnifiedAgentRegexParser)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

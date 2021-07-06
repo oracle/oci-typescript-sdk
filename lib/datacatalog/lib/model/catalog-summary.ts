@@ -74,4 +74,9 @@ export namespace CatalogSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CatalogSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

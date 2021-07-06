@@ -45,4 +45,9 @@ export namespace Compression {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Compression): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

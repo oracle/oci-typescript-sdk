@@ -45,4 +45,25 @@ export namespace DatabaseConnectionCredentials {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseConnectionCredentials): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("credentialType" in obj && obj.credentialType) {
+      switch (obj.credentialType) {
+        case "NAME_REFERENCE":
+          return model.DatabaseConnectionCredentailsByName.getDeserializedJsonObj(
+            <model.DatabaseConnectionCredentailsByName>(<object>jsonObj),
+            true
+          );
+        case "DETAILS":
+          return model.DatabaseConnectionCredentialsByDetails.getDeserializedJsonObj(
+            <model.DatabaseConnectionCredentialsByDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.credentialType);
+      }
+    }
+    return jsonObj;
+  }
 }

@@ -47,4 +47,14 @@ export namespace Row {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Row): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "usage": obj.usage ? model.RequestUsage.getDeserializedJsonObj(obj.usage) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

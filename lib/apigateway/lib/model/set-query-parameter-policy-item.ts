@@ -59,4 +59,9 @@ export namespace SetQueryParameterPolicyItem {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SetQueryParameterPolicyItem): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

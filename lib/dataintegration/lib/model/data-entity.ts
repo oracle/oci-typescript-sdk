@@ -55,4 +55,37 @@ export namespace DataEntity {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DataEntity): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "metadata": obj.metadata
+          ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined
+      }
+    };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "TABLE_ENTITY":
+          return model.DataEntityFromTable.getDeserializedJsonObj(
+            <model.DataEntityFromTable>(<object>jsonObj),
+            true
+          );
+        case "VIEW_ENTITY":
+          return model.DataEntityFromView.getDeserializedJsonObj(
+            <model.DataEntityFromView>(<object>jsonObj),
+            true
+          );
+        case "FILE_ENTITY":
+          return model.DataEntityFromFile.getDeserializedJsonObj(
+            <model.DataEntityFromFile>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

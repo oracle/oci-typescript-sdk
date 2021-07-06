@@ -41,4 +41,9 @@ export namespace ApplicationParameter {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApplicationParameter): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

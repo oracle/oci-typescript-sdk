@@ -41,4 +41,9 @@ export namespace RestoreObjectsDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RestoreObjectsDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

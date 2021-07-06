@@ -50,4 +50,19 @@ export namespace AddHttpResponseHeaderAction {
     return jsonObj;
   }
   export const action = "ADD_HTTP_RESPONSE_HEADER";
+  export function getDeserializedJsonObj(
+    obj: AddHttpResponseHeaderAction,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.HeaderManipulationAction.getDeserializedJsonObj(
+            obj
+          ) as AddHttpResponseHeaderAction)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

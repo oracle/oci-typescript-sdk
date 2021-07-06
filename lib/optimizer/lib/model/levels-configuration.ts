@@ -39,4 +39,18 @@ export namespace LevelsConfiguration {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LevelsConfiguration): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.LevelConfiguration.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

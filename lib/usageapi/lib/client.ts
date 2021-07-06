@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 
@@ -139,7 +139,7 @@ export class UsageapiClient {
       bodyContent: common.ObjectSerializer.serialize(
         createQueryRequest.createQueryDetails,
         "CreateQueryDetails",
-        models.CreateQueryDetails.getJsonObj
+        model.CreateQueryDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -151,7 +151,8 @@ export class UsageapiClient {
         responseObject: <responses.CreateQueryResponse>{},
         body: await response.json(),
         bodyKey: "query",
-        bodyModel: "model.Query",
+        bodyModel: model.Query,
+        type: "model.Query",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -272,7 +273,8 @@ export class UsageapiClient {
         responseObject: <responses.GetQueryResponse>{},
         body: await response.json(),
         bodyKey: "query",
-        bodyModel: "model.Query",
+        bodyModel: model.Query,
+        type: "model.Query",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -340,7 +342,8 @@ export class UsageapiClient {
         responseObject: <responses.ListQueriesResponse>{},
         body: await response.json(),
         bodyKey: "queryCollection",
-        bodyModel: "model.QueryCollection",
+        bodyModel: model.QueryCollection,
+        type: "model.QueryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -405,7 +408,8 @@ export class UsageapiClient {
         responseObject: <responses.RequestSummarizedConfigurationsResponse>{},
         body: await response.json(),
         bodyKey: "configurationAggregation",
-        bodyModel: "model.ConfigurationAggregation",
+        bodyModel: model.ConfigurationAggregation,
+        type: "model.ConfigurationAggregation",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -458,7 +462,7 @@ export class UsageapiClient {
       bodyContent: common.ObjectSerializer.serialize(
         requestSummarizedUsagesRequest.requestSummarizedUsagesDetails,
         "RequestSummarizedUsagesDetails",
-        models.RequestSummarizedUsagesDetails.getJsonObj
+        model.RequestSummarizedUsagesDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -470,7 +474,8 @@ export class UsageapiClient {
         responseObject: <responses.RequestSummarizedUsagesResponse>{},
         body: await response.json(),
         bodyKey: "usageAggregation",
-        bodyModel: "model.UsageAggregation",
+        bodyModel: model.UsageAggregation,
+        type: "model.UsageAggregation",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -528,7 +533,7 @@ export class UsageapiClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateQueryRequest.updateQueryDetails,
         "UpdateQueryDetails",
-        models.UpdateQueryDetails.getJsonObj
+        model.UpdateQueryDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -540,7 +545,8 @@ export class UsageapiClient {
         responseObject: <responses.UpdateQueryResponse>{},
         body: await response.json(),
         bodyKey: "query",
-        bodyModel: "model.Query",
+        bodyModel: model.Query,
+        type: "model.Query",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

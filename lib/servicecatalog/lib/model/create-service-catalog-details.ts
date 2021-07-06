@@ -46,4 +46,9 @@ export namespace CreateServiceCatalogDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateServiceCatalogDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

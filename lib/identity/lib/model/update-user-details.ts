@@ -45,4 +45,9 @@ export namespace UpdateUserDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateUserDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

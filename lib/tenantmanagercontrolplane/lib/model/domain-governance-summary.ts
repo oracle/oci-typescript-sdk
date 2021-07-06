@@ -84,4 +84,9 @@ export namespace DomainGovernanceSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DomainGovernanceSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

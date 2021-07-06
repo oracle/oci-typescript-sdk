@@ -44,4 +44,9 @@ export namespace BootVolumeReplicaDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BootVolumeReplicaDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

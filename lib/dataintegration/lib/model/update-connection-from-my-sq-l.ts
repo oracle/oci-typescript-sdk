@@ -47,4 +47,21 @@ export namespace UpdateConnectionFromMySQL {
     return jsonObj;
   }
   export const modelType = "MYSQL_CONNECTION";
+  export function getDeserializedJsonObj(
+    obj: UpdateConnectionFromMySQL,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UpdateConnectionDetails.getDeserializedJsonObj(obj) as UpdateConnectionFromMySQL)),
+      ...{
+        "passwordSecret": obj.passwordSecret
+          ? model.SensitiveAttribute.getDeserializedJsonObj(obj.passwordSecret)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

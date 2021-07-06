@@ -39,4 +39,9 @@ export namespace SdkLanguageOptionalParametersAllowedValue {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SdkLanguageOptionalParametersAllowedValue): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

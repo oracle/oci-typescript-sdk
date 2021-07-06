@@ -38,4 +38,18 @@ export namespace ReplicationStatusDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ReplicationStatusDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "replicaDetails": obj.replicaDetails
+          ? obj.replicaDetails.map(item => {
+              return model.ReplicaDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

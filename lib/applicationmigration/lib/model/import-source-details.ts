@@ -51,4 +51,21 @@ export namespace ImportSourceDetails {
     return jsonObj;
   }
   export const type = "IMPORT";
+  export function getDeserializedJsonObj(
+    obj: ImportSourceDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.SourceDetails.getDeserializedJsonObj(obj) as ImportSourceDetails)),
+      ...{
+        "manifest": obj.manifest
+          ? model.ImportManifest.getDeserializedJsonObj(obj.manifest)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

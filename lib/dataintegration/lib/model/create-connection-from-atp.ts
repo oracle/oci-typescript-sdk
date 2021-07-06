@@ -47,4 +47,21 @@ export namespace CreateConnectionFromAtp {
     return jsonObj;
   }
   export const modelType = "ORACLE_ATP_CONNECTION";
+  export function getDeserializedJsonObj(
+    obj: CreateConnectionFromAtp,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateConnectionDetails.getDeserializedJsonObj(obj) as CreateConnectionFromAtp)),
+      ...{
+        "passwordSecret": obj.passwordSecret
+          ? model.SensitiveAttribute.getDeserializedJsonObj(obj.passwordSecret)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

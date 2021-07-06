@@ -46,4 +46,19 @@ export namespace VolumeSourceFromVolumeBackupDetails {
     return jsonObj;
   }
   export const type = "volumeBackup";
+  export function getDeserializedJsonObj(
+    obj: VolumeSourceFromVolumeBackupDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.VolumeSourceDetails.getDeserializedJsonObj(
+            obj
+          ) as VolumeSourceFromVolumeBackupDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -34,4 +34,9 @@ export namespace RoverNodeGetRpt {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RoverNodeGetRpt): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

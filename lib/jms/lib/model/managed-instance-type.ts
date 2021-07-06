@@ -28,7 +28,10 @@ export enum ManagedInstanceType {
 }
 
 export namespace ManagedInstanceType {
-  export function getJsonObj(obj: ManagedInstanceType): object {
-    return { obj };
+  export function getJsonObj(obj: ManagedInstanceType): ManagedInstanceType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ManagedInstanceType): ManagedInstanceType {
+    return obj;
   }
 }

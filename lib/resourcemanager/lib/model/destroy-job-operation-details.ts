@@ -55,4 +55,17 @@ export namespace DestroyJobOperationDetails {
     return jsonObj;
   }
   export const operation = "DESTROY";
+  export function getDeserializedJsonObj(
+    obj: DestroyJobOperationDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.JobOperationDetails.getDeserializedJsonObj(obj) as DestroyJobOperationDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -31,4 +31,9 @@ export namespace ChangeTagNamespaceCompartmentDetail {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ChangeTagNamespaceCompartmentDetail): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

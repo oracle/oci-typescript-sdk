@@ -53,4 +53,9 @@ export namespace AwrDbSysstatSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AwrDbSysstatSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

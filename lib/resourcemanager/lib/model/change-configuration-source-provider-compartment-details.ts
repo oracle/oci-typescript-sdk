@@ -37,4 +37,11 @@ export namespace ChangeConfigurationSourceProviderCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: ChangeConfigurationSourceProviderCompartmentDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

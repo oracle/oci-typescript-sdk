@@ -50,4 +50,9 @@ export namespace Message {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Message): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -54,4 +54,17 @@ export namespace CronExecutionSchedule {
     return jsonObj;
   }
   export const type = "cron";
+  export function getDeserializedJsonObj(
+    obj: CronExecutionSchedule,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ExecutionSchedule.getDeserializedJsonObj(obj) as CronExecutionSchedule)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

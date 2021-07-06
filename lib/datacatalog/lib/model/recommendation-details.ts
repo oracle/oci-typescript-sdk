@@ -81,4 +81,9 @@ export namespace RecommendationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RecommendationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

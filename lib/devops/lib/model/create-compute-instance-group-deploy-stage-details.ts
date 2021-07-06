@@ -73,4 +73,32 @@ export namespace CreateComputeInstanceGroupDeployStageDetails {
     return jsonObj;
   }
   export const deployStageType = "COMPUTE_INSTANCE_GROUP_ROLLING_DEPLOYMENT";
+  export function getDeserializedJsonObj(
+    obj: CreateComputeInstanceGroupDeployStageDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateDeployStageDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateComputeInstanceGroupDeployStageDetails)),
+      ...{
+        "rolloutPolicy": obj.rolloutPolicy
+          ? model.ComputeInstanceGroupRolloutPolicy.getDeserializedJsonObj(obj.rolloutPolicy)
+          : undefined,
+        "rollbackPolicy": obj.rollbackPolicy
+          ? model.DeployStageRollbackPolicy.getDeserializedJsonObj(obj.rollbackPolicy)
+          : undefined,
+        "failurePolicy": obj.failurePolicy
+          ? model.ComputeInstanceGroupFailurePolicy.getDeserializedJsonObj(obj.failurePolicy)
+          : undefined,
+        "loadBalancerConfig": obj.loadBalancerConfig
+          ? model.LoadBalancerConfig.getDeserializedJsonObj(obj.loadBalancerConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

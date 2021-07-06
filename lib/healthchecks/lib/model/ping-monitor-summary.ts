@@ -82,4 +82,9 @@ export namespace PingMonitorSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PingMonitorSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

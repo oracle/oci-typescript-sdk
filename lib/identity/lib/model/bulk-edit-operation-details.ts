@@ -48,4 +48,9 @@ export namespace BulkEditOperationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BulkEditOperationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

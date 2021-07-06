@@ -80,4 +80,9 @@ export namespace CatalogPrivateEndpointSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CatalogPrivateEndpointSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -31,4 +31,12 @@ export namespace AbstractField {
     return jsonObj;
   }
   export const modelType = "FIELD";
+  export function getDeserializedJsonObj(obj: AbstractField, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.TypedObject.getDeserializedJsonObj(obj) as AbstractField)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

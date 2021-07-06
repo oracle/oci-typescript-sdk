@@ -40,4 +40,18 @@ export namespace TargetTags {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TargetTags): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.TargetTag.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

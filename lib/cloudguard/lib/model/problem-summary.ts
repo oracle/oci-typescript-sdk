@@ -90,4 +90,9 @@ export namespace ProblemSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ProblemSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

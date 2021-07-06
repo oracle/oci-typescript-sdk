@@ -48,4 +48,25 @@ export namespace CreateSessionTargetResourceDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateSessionTargetResourceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("sessionType" in obj && obj.sessionType) {
+      switch (obj.sessionType) {
+        case "MANAGED_SSH":
+          return model.CreateManagedSshSessionTargetResourceDetails.getDeserializedJsonObj(
+            <model.CreateManagedSshSessionTargetResourceDetails>(<object>jsonObj),
+            true
+          );
+        case "PORT_FORWARDING":
+          return model.CreatePortForwardingSessionTargetResourceDetails.getDeserializedJsonObj(
+            <model.CreatePortForwardingSessionTargetResourceDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.sessionType);
+      }
+    }
+    return jsonObj;
+  }
 }

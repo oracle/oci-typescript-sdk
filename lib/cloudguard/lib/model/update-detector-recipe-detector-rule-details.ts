@@ -32,4 +32,16 @@ export namespace UpdateDetectorRecipeDetectorRuleDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDetectorRecipeDetectorRuleDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "details": obj.details
+          ? model.UpdateDetectorRuleDetails.getDeserializedJsonObj(obj.details)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

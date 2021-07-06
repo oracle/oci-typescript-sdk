@@ -76,4 +76,12 @@ export namespace DhcpDnsOption {
     return jsonObj;
   }
   export const type = "DomainNameServer";
+  export function getDeserializedJsonObj(obj: DhcpDnsOption, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.DhcpOption.getDeserializedJsonObj(obj) as DhcpDnsOption)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

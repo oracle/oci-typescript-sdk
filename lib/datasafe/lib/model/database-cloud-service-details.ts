@@ -46,4 +46,17 @@ export namespace DatabaseCloudServiceDetails {
     return jsonObj;
   }
   export const databaseType = "DATABASE_CLOUD_SERVICE";
+  export function getDeserializedJsonObj(
+    obj: DatabaseCloudServiceDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DatabaseDetails.getDeserializedJsonObj(obj) as DatabaseCloudServiceDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

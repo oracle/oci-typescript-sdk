@@ -65,4 +65,18 @@ export namespace CreateDataAssetDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateDataAssetDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customPropertyMembers": obj.customPropertyMembers
+          ? obj.customPropertyMembers.map(item => {
+              return model.CustomPropertySetUsage.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

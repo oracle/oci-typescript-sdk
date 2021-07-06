@@ -77,4 +77,9 @@ export namespace CreateCpeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateCpeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

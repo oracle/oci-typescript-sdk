@@ -66,4 +66,18 @@ export namespace InstanceReservationConfigDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceReservationConfigDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "instanceShapeConfig": obj.instanceShapeConfig
+          ? model.InstanceReservationShapeConfigDetails.getDeserializedJsonObj(
+              obj.instanceShapeConfig
+            )
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

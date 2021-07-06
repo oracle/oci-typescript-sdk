@@ -49,4 +49,14 @@ export namespace ProxyField {
     return jsonObj;
   }
   export const modelType = "PROXY_FIELD";
+  export function getDeserializedJsonObj(obj: ProxyField, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.TypedObject.getDeserializedJsonObj(obj) as ProxyField)),
+      ...{
+        "type": obj.type ? model.BaseType.getDeserializedJsonObj(obj.type) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

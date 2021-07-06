@@ -132,4 +132,9 @@ export namespace LaunchOptions {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LaunchOptions): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

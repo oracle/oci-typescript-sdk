@@ -64,4 +64,9 @@ export namespace BaseTag {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BaseTag): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

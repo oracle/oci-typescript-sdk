@@ -31,4 +31,9 @@ export namespace OriginGroupOrigins {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: OriginGroupOrigins): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

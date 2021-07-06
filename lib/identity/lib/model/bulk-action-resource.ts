@@ -67,4 +67,9 @@ export namespace BulkActionResource {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BulkActionResource): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

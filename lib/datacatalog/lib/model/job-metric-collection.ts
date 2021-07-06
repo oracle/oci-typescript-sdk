@@ -44,4 +44,18 @@ export namespace JobMetricCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: JobMetricCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.JobMetricSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

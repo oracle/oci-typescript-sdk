@@ -55,4 +55,9 @@ export namespace CreateUserDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateUserDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

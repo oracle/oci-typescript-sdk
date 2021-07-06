@@ -40,4 +40,19 @@ export namespace HostInsightResourceStatisticsAggregation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HostInsightResourceStatisticsAggregation): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "hostDetails": obj.hostDetails
+          ? model.HostDetails.getDeserializedJsonObj(obj.hostDetails)
+          : undefined,
+        "currentStatistics": obj.currentStatistics
+          ? model.HostResourceStatistics.getDeserializedJsonObj(obj.currentStatistics)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

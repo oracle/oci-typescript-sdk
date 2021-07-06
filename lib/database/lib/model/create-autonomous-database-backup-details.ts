@@ -38,4 +38,9 @@ export namespace CreateAutonomousDatabaseBackupDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateAutonomousDatabaseBackupDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

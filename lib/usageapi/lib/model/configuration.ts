@@ -34,4 +34,9 @@ export namespace Configuration {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Configuration): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

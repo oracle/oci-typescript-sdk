@@ -50,4 +50,16 @@ export namespace Metric {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Metric): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "threshold": obj.threshold
+          ? model.Threshold.getDeserializedJsonObj(obj.threshold)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

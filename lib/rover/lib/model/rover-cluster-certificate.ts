@@ -30,4 +30,9 @@ export namespace RoverClusterCertificate {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RoverClusterCertificate): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

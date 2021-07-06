@@ -49,4 +49,9 @@ export namespace ApplyJobPlanResolution {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApplyJobPlanResolution): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

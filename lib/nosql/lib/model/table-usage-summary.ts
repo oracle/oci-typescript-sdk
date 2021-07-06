@@ -68,4 +68,9 @@ export namespace TableUsageSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TableUsageSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

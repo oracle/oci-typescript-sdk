@@ -35,4 +35,18 @@ export namespace PatchRRSetDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PatchRRSetDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.RecordOperation.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

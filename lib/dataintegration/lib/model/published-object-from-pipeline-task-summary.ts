@@ -75,4 +75,42 @@ export namespace PublishedObjectFromPipelineTaskSummary {
     return jsonObj;
   }
   export const modelType = "PIPELINE_TASK";
+  export function getDeserializedJsonObj(
+    obj: PublishedObjectFromPipelineTaskSummary,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.PublishedObjectSummary.getDeserializedJsonObj(
+            obj
+          ) as PublishedObjectFromPipelineTaskSummary)),
+      ...{
+        "inputPorts": obj.inputPorts
+          ? obj.inputPorts.map(item => {
+              return model.InputPort.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "outputPorts": obj.outputPorts
+          ? obj.outputPorts.map(item => {
+              return model.OutputPort.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "parameters": obj.parameters
+          ? obj.parameters.map(item => {
+              return model.Parameter.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "opConfigValues": obj.opConfigValues
+          ? model.ConfigValues.getDeserializedJsonObj(obj.opConfigValues)
+          : undefined,
+        "configProviderDelegate": obj.configProviderDelegate
+          ? model.ConfigProvider.getDeserializedJsonObj(obj.configProviderDelegate)
+          : undefined,
+        "pipeline": obj.pipeline ? model.Pipeline.getDeserializedJsonObj(obj.pipeline) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

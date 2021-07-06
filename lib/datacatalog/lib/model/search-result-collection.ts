@@ -63,4 +63,24 @@ export namespace SearchResultCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SearchResultCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.SearchResult.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "facetedSearchAggregation": obj.facetedSearchAggregation
+          ? obj.facetedSearchAggregation.map(item => {
+              return model.FacetedSearchAggregation.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -64,4 +64,19 @@ export namespace CreateChannelDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateChannelDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "source": obj.source
+          ? model.CreateChannelSourceDetails.getDeserializedJsonObj(obj.source)
+          : undefined,
+        "target": obj.target
+          ? model.CreateChannelTargetDetails.getDeserializedJsonObj(obj.target)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -165,4 +165,9 @@ export namespace MaintenanceRunSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MaintenanceRunSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

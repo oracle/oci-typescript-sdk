@@ -42,4 +42,18 @@ export namespace ImportableEnterpriseManagerEntityCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ImportableEnterpriseManagerEntityCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ImportableEnterpriseManagerEntity.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

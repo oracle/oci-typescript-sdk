@@ -36,4 +36,9 @@ export namespace SoftwareSourceId {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SoftwareSourceId): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -127,4 +127,9 @@ export namespace NetworkSecurityGroup {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NetworkSecurityGroup): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -74,4 +74,9 @@ export namespace UserGroupMembership {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UserGroupMembership): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

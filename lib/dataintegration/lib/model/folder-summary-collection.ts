@@ -39,4 +39,18 @@ export namespace FolderSummaryCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FolderSummaryCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.FolderSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -52,4 +52,17 @@ export namespace CustomAuthenticationPolicy {
     return jsonObj;
   }
   export const type = "CUSTOM_AUTHENTICATION";
+  export function getDeserializedJsonObj(
+    obj: CustomAuthenticationPolicy,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AuthenticationPolicy.getDeserializedJsonObj(obj) as CustomAuthenticationPolicy)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -137,4 +137,9 @@ export namespace Datafile {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Datafile): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

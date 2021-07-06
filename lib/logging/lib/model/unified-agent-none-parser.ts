@@ -35,4 +35,17 @@ export namespace UnifiedAgentNoneParser {
     return jsonObj;
   }
   export const parserType = "NONE";
+  export function getDeserializedJsonObj(
+    obj: UnifiedAgentNoneParser,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UnifiedAgentParser.getDeserializedJsonObj(obj) as UnifiedAgentNoneParser)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

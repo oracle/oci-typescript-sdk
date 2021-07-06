@@ -88,4 +88,18 @@ export namespace InstanceAgentConfig {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceAgentConfig): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "pluginsConfig": obj.pluginsConfig
+          ? obj.pluginsConfig.map(item => {
+              return model.InstanceAgentPluginConfigDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -122,4 +122,9 @@ export namespace DatabaseUpgradeHistoryEntry {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseUpgradeHistoryEntry): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

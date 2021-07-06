@@ -24,7 +24,14 @@ export enum SummarizeManagedInstanceUsageFields {
 }
 
 export namespace SummarizeManagedInstanceUsageFields {
-  export function getJsonObj(obj: SummarizeManagedInstanceUsageFields): object {
-    return { obj };
+  export function getJsonObj(
+    obj: SummarizeManagedInstanceUsageFields
+  ): SummarizeManagedInstanceUsageFields {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: SummarizeManagedInstanceUsageFields
+  ): SummarizeManagedInstanceUsageFields {
+    return obj;
   }
 }

@@ -46,4 +46,9 @@ export namespace ResourceField {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResourceField): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -56,4 +56,9 @@ export namespace VaultReplicaSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VaultReplicaSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

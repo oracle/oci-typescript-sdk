@@ -68,4 +68,9 @@ export namespace AutonomousDatabaseStandbySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutonomousDatabaseStandbySummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

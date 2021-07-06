@@ -49,4 +49,18 @@ export namespace PostMetricDataResponseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PostMetricDataResponseDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "failedMetrics": obj.failedMetrics
+          ? obj.failedMetrics.map(item => {
+              return model.FailedMetricRecord.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

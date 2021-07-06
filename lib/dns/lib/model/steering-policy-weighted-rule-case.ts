@@ -48,4 +48,18 @@ export namespace SteeringPolicyWeightedRuleCase {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SteeringPolicyWeightedRuleCase): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "answerData": obj.answerData
+          ? obj.answerData.map(item => {
+              return model.SteeringPolicyWeightedAnswerData.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

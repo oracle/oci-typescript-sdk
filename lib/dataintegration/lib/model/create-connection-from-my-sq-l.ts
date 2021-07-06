@@ -47,4 +47,21 @@ export namespace CreateConnectionFromMySQL {
     return jsonObj;
   }
   export const modelType = "MYSQL_CONNECTION";
+  export function getDeserializedJsonObj(
+    obj: CreateConnectionFromMySQL,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateConnectionDetails.getDeserializedJsonObj(obj) as CreateConnectionFromMySQL)),
+      ...{
+        "passwordSecret": obj.passwordSecret
+          ? model.SensitiveAttribute.getDeserializedJsonObj(obj.passwordSecret)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

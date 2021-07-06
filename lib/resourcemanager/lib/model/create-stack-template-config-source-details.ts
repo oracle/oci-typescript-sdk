@@ -45,4 +45,19 @@ export namespace CreateStackTemplateConfigSourceDetails {
     return jsonObj;
   }
   export const configSourceType = "TEMPLATE_CONFIG_SOURCE";
+  export function getDeserializedJsonObj(
+    obj: CreateStackTemplateConfigSourceDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateConfigSourceDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateStackTemplateConfigSourceDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

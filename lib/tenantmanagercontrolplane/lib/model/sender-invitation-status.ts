@@ -32,7 +32,10 @@ export enum SenderInvitationStatus {
 }
 
 export namespace SenderInvitationStatus {
-  export function getJsonObj(obj: SenderInvitationStatus): object {
-    return { obj };
+  export function getJsonObj(obj: SenderInvitationStatus): SenderInvitationStatus {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: SenderInvitationStatus): SenderInvitationStatus {
+    return obj;
   }
 }

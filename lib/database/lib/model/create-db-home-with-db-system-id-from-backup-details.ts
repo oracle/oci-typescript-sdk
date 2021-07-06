@@ -48,4 +48,23 @@ export namespace CreateDbHomeWithDbSystemIdFromBackupDetails {
     return jsonObj;
   }
   export const source = "DB_BACKUP";
+  export function getDeserializedJsonObj(
+    obj: CreateDbHomeWithDbSystemIdFromBackupDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateDbHomeBase.getDeserializedJsonObj(
+            obj
+          ) as CreateDbHomeWithDbSystemIdFromBackupDetails)),
+      ...{
+        "database": obj.database
+          ? model.CreateDatabaseFromBackupDetails.getDeserializedJsonObj(obj.database)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -69,4 +69,9 @@ export namespace SuppressionSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SuppressionSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

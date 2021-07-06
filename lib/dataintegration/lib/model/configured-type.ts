@@ -45,4 +45,19 @@ export namespace ConfiguredType {
     return jsonObj;
   }
   export const modelType = "CONFIGURED_TYPE";
+  export function getDeserializedJsonObj(obj: ConfiguredType, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.BaseType.getDeserializedJsonObj(obj) as ConfiguredType)),
+      ...{
+        "configValues": obj.configValues
+          ? model.ConfigValues.getDeserializedJsonObj(obj.configValues)
+          : undefined,
+        "configDefinition": obj.configDefinition
+          ? model.ConfigDefinition.getDeserializedJsonObj(obj.configDefinition)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

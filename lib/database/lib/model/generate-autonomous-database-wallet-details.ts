@@ -48,4 +48,9 @@ export namespace GenerateAutonomousDatabaseWalletDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: GenerateAutonomousDatabaseWalletDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

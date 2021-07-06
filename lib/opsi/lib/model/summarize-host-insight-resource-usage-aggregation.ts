@@ -73,4 +73,11 @@ export namespace SummarizeHostInsightResourceUsageAggregation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: SummarizeHostInsightResourceUsageAggregation
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -56,4 +56,21 @@ export namespace SearchCriteria {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SearchCriteria): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sort": obj.sort
+          ? obj.sort.map(item => {
+              return model.FacetedSearchSortRequest.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "filters": obj.filters
+          ? model.FacetedSearchFilterRequest.getDeserializedJsonObj(obj.filters)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

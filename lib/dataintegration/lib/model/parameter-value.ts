@@ -34,4 +34,9 @@ export namespace ParameterValue {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ParameterValue): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

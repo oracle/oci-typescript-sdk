@@ -53,4 +53,19 @@ export namespace UpdateSaml2IdentityProviderDetails {
     return jsonObj;
   }
   export const protocol = "SAML2";
+  export function getDeserializedJsonObj(
+    obj: UpdateSaml2IdentityProviderDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UpdateIdentityProviderDetails.getDeserializedJsonObj(
+            obj
+          ) as UpdateSaml2IdentityProviderDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

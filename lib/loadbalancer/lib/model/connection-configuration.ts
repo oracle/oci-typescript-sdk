@@ -47,4 +47,9 @@ export namespace ConnectionConfiguration {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConnectionConfiguration): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

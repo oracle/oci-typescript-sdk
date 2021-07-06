@@ -38,4 +38,19 @@ export namespace SearchLookupCommandDescriptor {
     return jsonObj;
   }
   export const name = "SEARCH_LOOKUP";
+  export function getDeserializedJsonObj(
+    obj: SearchLookupCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(
+            obj
+          ) as SearchLookupCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

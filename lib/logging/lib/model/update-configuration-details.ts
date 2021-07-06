@@ -34,4 +34,19 @@ export namespace UpdateConfigurationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateConfigurationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "source": obj.source
+          ? model.SourceUpdateDetails.getDeserializedJsonObj(obj.source)
+          : undefined,
+        "archiving": obj.archiving
+          ? model.Archiving.getDeserializedJsonObj(obj.archiving)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

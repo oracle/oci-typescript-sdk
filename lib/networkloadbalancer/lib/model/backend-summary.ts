@@ -89,4 +89,9 @@ export namespace BackendSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BackendSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

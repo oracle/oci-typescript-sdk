@@ -37,4 +37,18 @@ export namespace FlexComponentCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FlexComponentCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.FlexComponentSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

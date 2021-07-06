@@ -45,4 +45,9 @@ export namespace UpdateKeyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateKeyDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

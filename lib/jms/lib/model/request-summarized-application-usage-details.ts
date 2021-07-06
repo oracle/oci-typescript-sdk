@@ -97,4 +97,18 @@ export namespace RequestSummarizedApplicationUsageDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RequestSummarizedApplicationUsageDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "fields": obj.fields
+          ? obj.fields.map(item => {
+              return model.SummarizeApplicationUsageFields.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -42,4 +42,9 @@ export namespace GoodBot {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: GoodBot): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

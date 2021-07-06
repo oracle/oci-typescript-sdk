@@ -32,4 +32,9 @@ export namespace AdminCredentials {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AdminCredentials): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

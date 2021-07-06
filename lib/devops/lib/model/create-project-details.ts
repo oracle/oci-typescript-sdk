@@ -54,4 +54,16 @@ export namespace CreateProjectDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateProjectDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "notificationConfig": obj.notificationConfig
+          ? model.NotificationConfig.getDeserializedJsonObj(obj.notificationConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

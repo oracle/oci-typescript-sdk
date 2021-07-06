@@ -32,4 +32,9 @@ export namespace InstanceAgentCommandTarget {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceAgentCommandTarget): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

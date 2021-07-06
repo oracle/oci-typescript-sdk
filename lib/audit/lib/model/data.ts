@@ -120,4 +120,19 @@ export namespace Data {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Data): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "identity": obj.identity ? model.Identity.getDeserializedJsonObj(obj.identity) : undefined,
+        "request": obj.request ? model.Request.getDeserializedJsonObj(obj.request) : undefined,
+        "response": obj.response ? model.Response.getDeserializedJsonObj(obj.response) : undefined,
+        "stateChange": obj.stateChange
+          ? model.StateChange.getDeserializedJsonObj(obj.stateChange)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

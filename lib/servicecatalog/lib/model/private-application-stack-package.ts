@@ -45,4 +45,19 @@ export namespace PrivateApplicationStackPackage {
     return jsonObj;
   }
   export const packageType = "STACK";
+  export function getDeserializedJsonObj(
+    obj: PrivateApplicationStackPackage,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.PrivateApplicationPackage.getDeserializedJsonObj(
+            obj
+          ) as PrivateApplicationStackPackage)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

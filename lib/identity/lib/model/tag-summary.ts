@@ -80,4 +80,9 @@ export namespace TagSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TagSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

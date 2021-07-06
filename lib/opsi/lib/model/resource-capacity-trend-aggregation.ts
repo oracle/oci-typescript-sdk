@@ -43,4 +43,9 @@ export namespace ResourceCapacityTrendAggregation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResourceCapacityTrendAggregation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

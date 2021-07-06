@@ -72,4 +72,9 @@ export namespace Tenancy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Tenancy): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

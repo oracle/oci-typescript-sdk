@@ -54,4 +54,18 @@ export namespace TimeSeriesMetricDataPoint {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TimeSeriesMetricDataPoint): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dimensions": obj.dimensions
+          ? obj.dimensions.map(item => {
+              return model.MetricDimensionDefinition.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -50,4 +50,9 @@ export namespace AutonomousDatabaseConnectionStrings {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutonomousDatabaseConnectionStrings): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

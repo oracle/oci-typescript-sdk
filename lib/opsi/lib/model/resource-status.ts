@@ -33,7 +33,10 @@ export enum ResourceStatus {
 }
 
 export namespace ResourceStatus {
-  export function getJsonObj(obj: ResourceStatus): object {
-    return { obj };
+  export function getJsonObj(obj: ResourceStatus): ResourceStatus {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ResourceStatus): ResourceStatus {
+    return obj;
   }
 }

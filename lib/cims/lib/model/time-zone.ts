@@ -46,7 +46,10 @@ export enum TimeZone {
 }
 
 export namespace TimeZone {
-  export function getJsonObj(obj: TimeZone): object {
-    return { obj };
+  export function getJsonObj(obj: TimeZone): TimeZone {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: TimeZone): TimeZone {
+    return obj;
   }
 }

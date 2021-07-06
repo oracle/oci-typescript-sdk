@@ -40,4 +40,18 @@ export namespace ScheduledTaskCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ScheduledTaskCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ScheduledTaskSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

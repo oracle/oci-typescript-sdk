@@ -57,4 +57,18 @@ export namespace ClusterNetworkPlacementConfigurationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ClusterNetworkPlacementConfigurationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "secondaryVnicSubnets": obj.secondaryVnicSubnets
+          ? obj.secondaryVnicSubnets.map(item => {
+              return model.InstancePoolPlacementSecondaryVnicSubnet.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

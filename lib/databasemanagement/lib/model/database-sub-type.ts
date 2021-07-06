@@ -35,7 +35,10 @@ export enum DatabaseSubType {
 }
 
 export namespace DatabaseSubType {
-  export function getJsonObj(obj: DatabaseSubType): object {
-    return { obj };
+  export function getJsonObj(obj: DatabaseSubType): DatabaseSubType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: DatabaseSubType): DatabaseSubType {
+    return obj;
   }
 }

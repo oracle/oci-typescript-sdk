@@ -50,4 +50,9 @@ export namespace WafTrafficDatum {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WafTrafficDatum): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

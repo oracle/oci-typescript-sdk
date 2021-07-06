@@ -38,4 +38,9 @@ export namespace GetPublicIpByIpAddressDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: GetPublicIpByIpAddressDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

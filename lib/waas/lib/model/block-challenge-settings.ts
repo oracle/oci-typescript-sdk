@@ -73,4 +73,9 @@ export namespace BlockChallengeSettings {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BlockChallengeSettings): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

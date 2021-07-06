@@ -50,4 +50,20 @@ export namespace SqlStatisticAggregation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SqlStatisticAggregation): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "databaseDetails": obj.databaseDetails
+          ? model.DatabaseDetails.getDeserializedJsonObj(obj.databaseDetails)
+          : undefined,
+
+        "statistics": obj.statistics
+          ? model.SqlStatistics.getDeserializedJsonObj(obj.statistics)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

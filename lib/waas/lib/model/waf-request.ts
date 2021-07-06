@@ -38,4 +38,9 @@ export namespace WafRequest {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WafRequest): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

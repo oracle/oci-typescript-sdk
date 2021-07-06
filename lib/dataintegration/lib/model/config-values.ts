@@ -39,4 +39,22 @@ export namespace ConfigValues {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConfigValues): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "configParamValues": obj.configParamValues
+          ? common.mapContainer(
+              obj.configParamValues,
+              model.ConfigParameterValue.getDeserializedJsonObj
+            )
+          : undefined,
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

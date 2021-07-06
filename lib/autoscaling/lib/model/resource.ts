@@ -53,4 +53,20 @@ export namespace Resource {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Resource): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "instancePool":
+          return model.InstancePoolResource.getDeserializedJsonObj(
+            <model.InstancePoolResource>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

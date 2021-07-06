@@ -67,4 +67,18 @@ export namespace CreateDetectorRecipeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateDetectorRecipeDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "detectorRules": obj.detectorRules
+          ? obj.detectorRules.map(item => {
+              return model.UpdateDetectorRecipeDetectorRule.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

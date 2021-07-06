@@ -114,6 +114,12 @@ export interface OceInstanceSummary {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Usage of system tag keys. These predefined keys are scoped to namespaces.
+   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace OceInstanceSummary {
@@ -152,6 +158,11 @@ export namespace OceInstanceSummary {
   }
 
   export function getJsonObj(obj: OceInstanceSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
+  export function getDeserializedJsonObj(obj: OceInstanceSummary): object {
     const jsonObj = { ...obj, ...{} };
 
     return jsonObj;

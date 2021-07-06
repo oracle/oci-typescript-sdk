@@ -35,7 +35,14 @@ export enum ObjectCollectionRuleCollectionTypes {
 }
 
 export namespace ObjectCollectionRuleCollectionTypes {
-  export function getJsonObj(obj: ObjectCollectionRuleCollectionTypes): object {
-    return { obj };
+  export function getJsonObj(
+    obj: ObjectCollectionRuleCollectionTypes
+  ): ObjectCollectionRuleCollectionTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: ObjectCollectionRuleCollectionTypes
+  ): ObjectCollectionRuleCollectionTypes {
+    return obj;
   }
 }

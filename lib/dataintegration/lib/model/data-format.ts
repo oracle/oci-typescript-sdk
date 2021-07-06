@@ -60,4 +60,20 @@ export namespace DataFormat {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DataFormat): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "formatAttribute": obj.formatAttribute
+          ? model.AbstractFormatAttribute.getDeserializedJsonObj(obj.formatAttribute)
+          : undefined,
+
+        "compressionConfig": obj.compressionConfig
+          ? model.Compression.getDeserializedJsonObj(obj.compressionConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -43,4 +43,9 @@ export namespace ChangeDatabaseParameterDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ChangeDatabaseParameterDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -41,4 +41,19 @@ export namespace DynamicType {
     return jsonObj;
   }
   export const modelType = "DYNAMIC_TYPE";
+  export function getDeserializedJsonObj(obj: DynamicType, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.BaseType.getDeserializedJsonObj(obj) as DynamicType)),
+      ...{
+        "typeHandler": obj.typeHandler
+          ? model.DynamicTypeHandler.getDeserializedJsonObj(obj.typeHandler)
+          : undefined,
+        "configDefinition": obj.configDefinition
+          ? model.ConfigDefinition.getDeserializedJsonObj(obj.configDefinition)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

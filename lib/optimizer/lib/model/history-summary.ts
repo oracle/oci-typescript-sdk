@@ -117,4 +117,14 @@ export namespace HistorySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HistorySummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "action": obj.action ? model.Action.getDeserializedJsonObj(obj.action) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

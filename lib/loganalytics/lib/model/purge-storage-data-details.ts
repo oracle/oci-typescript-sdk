@@ -48,4 +48,9 @@ export namespace PurgeStorageDataDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PurgeStorageDataDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

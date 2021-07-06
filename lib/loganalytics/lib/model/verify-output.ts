@@ -60,4 +60,18 @@ export namespace VerifyOutput {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VerifyOutput): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "columns": obj.columns
+          ? obj.columns.map(item => {
+              return model.ResultColumn.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -62,4 +62,16 @@ export namespace PathRoute {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PathRoute): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "pathMatchType": obj.pathMatchType
+          ? model.PathMatchType.getDeserializedJsonObj(obj.pathMatchType)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -51,4 +51,9 @@ export namespace OperationsInsightsConfig {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: OperationsInsightsConfig): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

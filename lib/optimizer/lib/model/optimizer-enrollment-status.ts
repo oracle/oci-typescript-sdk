@@ -29,7 +29,12 @@ export enum OptimizerEnrollmentStatus {
 }
 
 export namespace OptimizerEnrollmentStatus {
-  export function getJsonObj(obj: OptimizerEnrollmentStatus): object {
-    return { obj };
+  export function getJsonObj(obj: OptimizerEnrollmentStatus): OptimizerEnrollmentStatus {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: OptimizerEnrollmentStatus
+  ): OptimizerEnrollmentStatus {
+    return obj;
   }
 }

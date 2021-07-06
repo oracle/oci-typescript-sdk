@@ -42,4 +42,9 @@ export namespace CrossConnectLocation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CrossConnectLocation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

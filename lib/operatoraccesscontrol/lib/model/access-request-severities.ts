@@ -35,7 +35,10 @@ export enum AccessRequestSeverities {
 }
 
 export namespace AccessRequestSeverities {
-  export function getJsonObj(obj: AccessRequestSeverities): object {
-    return { obj };
+  export function getJsonObj(obj: AccessRequestSeverities): AccessRequestSeverities {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: AccessRequestSeverities): AccessRequestSeverities {
+    return obj;
   }
 }

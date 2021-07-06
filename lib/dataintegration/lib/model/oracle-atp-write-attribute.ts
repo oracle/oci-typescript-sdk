@@ -63,4 +63,24 @@ export namespace OracleAtpWriteAttribute {
     return jsonObj;
   }
   export const modelType = "ORACLEATPWRITEATTRIBUTE";
+  export function getDeserializedJsonObj(
+    obj: OracleAtpWriteAttribute,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractWriteAttribute.getDeserializedJsonObj(obj) as OracleAtpWriteAttribute)),
+      ...{
+        "stagingDataAsset": obj.stagingDataAsset
+          ? model.DataAsset.getDeserializedJsonObj(obj.stagingDataAsset)
+          : undefined,
+        "stagingConnection": obj.stagingConnection
+          ? model.Connection.getDeserializedJsonObj(obj.stagingConnection)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

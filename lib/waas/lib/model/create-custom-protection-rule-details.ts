@@ -91,4 +91,9 @@ export namespace CreateCustomProtectionRuleDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateCustomProtectionRuleDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

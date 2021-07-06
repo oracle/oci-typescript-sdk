@@ -98,4 +98,18 @@ export namespace UpdateDbSystemDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDbSystemDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "version": obj.version ? model.PatchDetails.getDeserializedJsonObj(obj.version) : undefined,
+
+        "maintenanceWindowDetails": obj.maintenanceWindowDetails
+          ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindowDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

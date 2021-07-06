@@ -40,4 +40,18 @@ export namespace ResourceActionCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResourceActionCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ResourceActionSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

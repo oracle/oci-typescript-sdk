@@ -36,4 +36,17 @@ export namespace OciVaultSecretConfig {
     return jsonObj;
   }
   export const modelType = "OCI_VAULT_SECRET_CONFIG";
+  export function getDeserializedJsonObj(
+    obj: OciVaultSecretConfig,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.SecretConfig.getDeserializedJsonObj(obj) as OciVaultSecretConfig)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

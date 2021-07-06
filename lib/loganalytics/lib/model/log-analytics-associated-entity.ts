@@ -51,4 +51,9 @@ export namespace LogAnalyticsAssociatedEntity {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsAssociatedEntity): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -40,4 +40,9 @@ export namespace AddAnalyticsClusterDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AddAnalyticsClusterDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

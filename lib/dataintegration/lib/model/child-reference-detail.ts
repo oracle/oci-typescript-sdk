@@ -34,4 +34,9 @@ export namespace ChildReferenceDetail {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ChildReferenceDetail): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

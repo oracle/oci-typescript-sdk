@@ -31,4 +31,9 @@ export namespace AddUserToGroupDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AddUserToGroupDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

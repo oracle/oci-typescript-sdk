@@ -49,4 +49,9 @@ export namespace UpdateQuotaDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateQuotaDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

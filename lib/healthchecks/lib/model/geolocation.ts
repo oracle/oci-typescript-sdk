@@ -67,4 +67,9 @@ export namespace Geolocation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Geolocation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

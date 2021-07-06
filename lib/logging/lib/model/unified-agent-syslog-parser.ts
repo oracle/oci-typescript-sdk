@@ -61,4 +61,17 @@ export namespace UnifiedAgentSyslogParser {
     return jsonObj;
   }
   export const parserType = "SYSLOG";
+  export function getDeserializedJsonObj(
+    obj: UnifiedAgentSyslogParser,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UnifiedAgentParser.getDeserializedJsonObj(obj) as UnifiedAgentSyslogParser)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

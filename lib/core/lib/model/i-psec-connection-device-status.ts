@@ -61,4 +61,18 @@ export namespace IPSecConnectionDeviceStatus {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IPSecConnectionDeviceStatus): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "tunnels": obj.tunnels
+          ? obj.tunnels.map(item => {
+              return model.TunnelStatus.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

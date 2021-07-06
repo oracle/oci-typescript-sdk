@@ -51,4 +51,19 @@ export namespace ImageSourceViaObjectStorageTupleDetails {
     return jsonObj;
   }
   export const sourceType = "objectStorageTuple";
+  export function getDeserializedJsonObj(
+    obj: ImageSourceViaObjectStorageTupleDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ImageSourceDetails.getDeserializedJsonObj(
+            obj
+          ) as ImageSourceViaObjectStorageTupleDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

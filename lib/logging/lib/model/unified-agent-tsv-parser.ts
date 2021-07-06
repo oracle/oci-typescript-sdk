@@ -36,4 +36,17 @@ export namespace UnifiedAgentTsvParser {
     return jsonObj;
   }
   export const parserType = "TSV";
+  export function getDeserializedJsonObj(
+    obj: UnifiedAgentTsvParser,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UnifiedAgentParser.getDeserializedJsonObj(obj) as UnifiedAgentTsvParser)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

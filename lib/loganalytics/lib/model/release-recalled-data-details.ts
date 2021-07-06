@@ -44,4 +44,9 @@ export namespace ReleaseRecalledDataDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ReleaseRecalledDataDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

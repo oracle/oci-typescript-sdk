@@ -51,4 +51,16 @@ export namespace UpdateLoadBalancerShapeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateLoadBalancerShapeDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "shapeDetails": obj.shapeDetails
+          ? model.ShapeDetails.getDeserializedJsonObj(obj.shapeDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

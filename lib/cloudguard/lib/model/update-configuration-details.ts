@@ -40,4 +40,9 @@ export namespace UpdateConfigurationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateConfigurationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

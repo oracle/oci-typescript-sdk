@@ -87,4 +87,9 @@ export namespace CreateLogAnalyticsEntityDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateLogAnalyticsEntityDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

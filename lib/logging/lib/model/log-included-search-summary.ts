@@ -45,4 +45,9 @@ export namespace LogIncludedSearchSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogIncludedSearchSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

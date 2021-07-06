@@ -45,4 +45,16 @@ export namespace ClusterMigrateToNativeVcnDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ClusterMigrateToNativeVcnDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "endpointConfig": obj.endpointConfig
+          ? model.ClusterEndpointConfig.getDeserializedJsonObj(obj.endpointConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

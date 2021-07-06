@@ -41,4 +41,9 @@ export namespace FleetStatusByCategory {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FleetStatusByCategory): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

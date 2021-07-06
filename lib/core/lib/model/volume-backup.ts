@@ -184,4 +184,9 @@ export namespace VolumeBackup {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VolumeBackup): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

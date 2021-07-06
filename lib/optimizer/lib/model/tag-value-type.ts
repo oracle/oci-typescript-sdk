@@ -36,7 +36,10 @@ export enum TagValueType {
 }
 
 export namespace TagValueType {
-  export function getJsonObj(obj: TagValueType): object {
-    return { obj };
+  export function getJsonObj(obj: TagValueType): TagValueType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: TagValueType): TagValueType {
+    return obj;
   }
 }

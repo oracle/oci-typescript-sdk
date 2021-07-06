@@ -37,4 +37,9 @@ export namespace NetworkConfig {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NetworkConfig): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

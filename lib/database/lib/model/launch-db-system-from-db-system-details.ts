@@ -58,4 +58,23 @@ export namespace LaunchDbSystemFromDbSystemDetails {
     return jsonObj;
   }
   export const source = "DB_SYSTEM";
+  export function getDeserializedJsonObj(
+    obj: LaunchDbSystemFromDbSystemDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.LaunchDbSystemBase.getDeserializedJsonObj(
+            obj
+          ) as LaunchDbSystemFromDbSystemDetails)),
+      ...{
+        "dbHome": obj.dbHome
+          ? model.CreateDbHomeFromDbSystemDetails.getDeserializedJsonObj(obj.dbHome)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

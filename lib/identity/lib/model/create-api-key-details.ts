@@ -27,4 +27,9 @@ export namespace CreateApiKeyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateApiKeyDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

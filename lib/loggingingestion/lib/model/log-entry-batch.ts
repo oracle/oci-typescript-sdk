@@ -66,4 +66,18 @@ export namespace LogEntryBatch {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogEntryBatch): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "entries": obj.entries
+          ? obj.entries.map(item => {
+              return model.LogEntry.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

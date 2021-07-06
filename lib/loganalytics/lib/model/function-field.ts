@@ -50,4 +50,20 @@ export namespace FunctionField {
     return jsonObj;
   }
   export const name = "FUNCTION";
+  export function getDeserializedJsonObj(obj: FunctionField, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractField.getDeserializedJsonObj(obj) as FunctionField)),
+      ...{
+        "arguments": obj.arguments
+          ? obj.arguments.map(item => {
+              return model.Argument.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

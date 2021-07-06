@@ -59,4 +59,18 @@ export namespace AllowRule {
     return jsonObj;
   }
   export const action = "ALLOW";
+  export function getDeserializedJsonObj(obj: AllowRule, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Rule.getDeserializedJsonObj(obj) as AllowRule)),
+      ...{
+        "conditions": obj.conditions
+          ? obj.conditions.map(item => {
+              return model.RuleCondition.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

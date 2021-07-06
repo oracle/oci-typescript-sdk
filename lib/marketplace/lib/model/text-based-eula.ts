@@ -36,4 +36,12 @@ export namespace TextBasedEula {
     return jsonObj;
   }
   export const eulaType = "TEXT";
+  export function getDeserializedJsonObj(obj: TextBasedEula, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Eula.getDeserializedJsonObj(obj) as TextBasedEula)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

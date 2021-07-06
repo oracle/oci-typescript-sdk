@@ -44,4 +44,14 @@ export namespace ChartDataColumn {
     return jsonObj;
   }
   export const type = "CHART_DATA_COLUMN";
+  export function getDeserializedJsonObj(obj: ChartDataColumn, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractColumn.getDeserializedJsonObj(obj) as ChartDataColumn)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

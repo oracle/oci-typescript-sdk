@@ -41,4 +41,9 @@ export namespace TaggingWorkRequestErrorSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TaggingWorkRequestErrorSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

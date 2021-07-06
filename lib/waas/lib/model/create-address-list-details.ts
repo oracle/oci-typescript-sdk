@@ -54,4 +54,9 @@ export namespace CreateAddressListDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateAddressListDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

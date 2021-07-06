@@ -76,4 +76,29 @@ export namespace QueryResultMetadataSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: QueryResultMetadataSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "queryResultRowTypeSummaries": obj.queryResultRowTypeSummaries
+          ? obj.queryResultRowTypeSummaries.map(item => {
+              return model.QueryResultRowTypeSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "queryResultsGroupedBy": obj.queryResultsGroupedBy
+          ? obj.queryResultsGroupedBy.map(item => {
+              return model.QueryResultsGroupedBySummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "queryResultsOrderedBy": obj.queryResultsOrderedBy
+          ? obj.queryResultsOrderedBy.map(item => {
+              return model.QueryResultsOrderedBySummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

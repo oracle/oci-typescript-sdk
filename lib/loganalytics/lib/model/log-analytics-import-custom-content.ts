@@ -51,4 +51,16 @@ export namespace LogAnalyticsImportCustomContent {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsImportCustomContent): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "changeList": obj.changeList
+          ? model.LogAnalyticsImportCustomChangeList.getDeserializedJsonObj(obj.changeList)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -31,7 +31,10 @@ export enum Scope {
 }
 
 export namespace Scope {
-  export function getJsonObj(obj: Scope): object {
-    return { obj };
+  export function getJsonObj(obj: Scope): Scope {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: Scope): Scope {
+    return obj;
   }
 }

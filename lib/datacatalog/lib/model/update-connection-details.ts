@@ -77,4 +77,18 @@ export namespace UpdateConnectionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateConnectionDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customPropertyMembers": obj.customPropertyMembers
+          ? obj.customPropertyMembers.map(item => {
+              return model.CustomPropertySetUsage.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

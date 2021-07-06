@@ -62,4 +62,23 @@ export namespace BucketCommandDescriptor {
     return jsonObj;
   }
   export const name = "BUCKET";
+  export function getDeserializedJsonObj(
+    obj: BucketCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(obj) as BucketCommandDescriptor)),
+      ...{
+        "ranges": obj.ranges
+          ? obj.ranges.map(item => {
+              return model.BucketRange.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

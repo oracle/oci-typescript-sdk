@@ -47,4 +47,9 @@ export namespace NamespaceSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NamespaceSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

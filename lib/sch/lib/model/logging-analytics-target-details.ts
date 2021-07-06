@@ -46,4 +46,17 @@ export namespace LoggingAnalyticsTargetDetails {
     return jsonObj;
   }
   export const kind = "loggingAnalytics";
+  export function getDeserializedJsonObj(
+    obj: LoggingAnalyticsTargetDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.TargetDetails.getDeserializedJsonObj(obj) as LoggingAnalyticsTargetDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

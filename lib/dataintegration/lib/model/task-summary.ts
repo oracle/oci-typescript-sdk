@@ -125,4 +125,62 @@ export namespace TaskSummary {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TaskSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "inputPorts": obj.inputPorts
+          ? obj.inputPorts.map(item => {
+              return model.InputPort.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "outputPorts": obj.outputPorts
+          ? obj.outputPorts.map(item => {
+              return model.OutputPort.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "parameters": obj.parameters
+          ? obj.parameters.map(item => {
+              return model.Parameter.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "opConfigValues": obj.opConfigValues
+          ? model.ConfigValues.getDeserializedJsonObj(obj.opConfigValues)
+          : undefined,
+        "configProviderDelegate": obj.configProviderDelegate
+          ? model.ConfigProvider.getDeserializedJsonObj(obj.configProviderDelegate)
+          : undefined,
+        "metadata": obj.metadata
+          ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined
+      }
+    };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "INTEGRATION_TASK":
+          return model.TaskSummaryFromIntegrationTask.getDeserializedJsonObj(
+            <model.TaskSummaryFromIntegrationTask>(<object>jsonObj),
+            true
+          );
+        case "PIPELINE_TASK":
+          return model.TaskSummaryFromPipelineTask.getDeserializedJsonObj(
+            <model.TaskSummaryFromPipelineTask>(<object>jsonObj),
+            true
+          );
+        case "DATA_LOADER_TASK":
+          return model.TaskSummaryFromDataLoaderTask.getDeserializedJsonObj(
+            <model.TaskSummaryFromDataLoaderTask>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

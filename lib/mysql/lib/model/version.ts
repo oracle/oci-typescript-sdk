@@ -35,4 +35,9 @@ export namespace Version {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Version): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

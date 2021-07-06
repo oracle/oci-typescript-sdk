@@ -54,4 +54,19 @@ export namespace MacroField {
     return jsonObj;
   }
   export const modelType = "MACRO_FIELD";
+  export function getDeserializedJsonObj(obj: MacroField, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.TypedObject.getDeserializedJsonObj(obj) as MacroField)),
+      ...{
+        "expr": obj.expr ? model.Expression.getDeserializedJsonObj(obj.expr) : undefined,
+        "type": obj.type ? model.BaseType.getDeserializedJsonObj(obj.type) : undefined,
+
+        "useType": obj.useType
+          ? model.ConfiguredType.getDeserializedJsonObj(obj.useType)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

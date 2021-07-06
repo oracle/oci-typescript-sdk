@@ -120,4 +120,28 @@ export namespace Certificate {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Certificate): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "subjectName": obj.subjectName
+          ? model.CertificateSubjectName.getDeserializedJsonObj(obj.subjectName)
+          : undefined,
+        "issuerName": obj.issuerName
+          ? model.CertificateIssuerName.getDeserializedJsonObj(obj.issuerName)
+          : undefined,
+
+        "publicKeyInfo": obj.publicKeyInfo
+          ? model.CertificatePublicKeyInfo.getDeserializedJsonObj(obj.publicKeyInfo)
+          : undefined,
+        "extensions": obj.extensions
+          ? obj.extensions.map(item => {
+              return model.CertificateExtensions.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

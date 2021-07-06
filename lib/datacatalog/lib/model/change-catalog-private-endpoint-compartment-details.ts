@@ -30,4 +30,11 @@ export namespace ChangeCatalogPrivateEndpointCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: ChangeCatalogPrivateEndpointCompartmentDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

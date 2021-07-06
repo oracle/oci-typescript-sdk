@@ -38,4 +38,9 @@ export namespace ResponseCacheRespServer {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResponseCacheRespServer): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -44,4 +44,17 @@ export namespace ResolverForwardRuleDetails {
     return jsonObj;
   }
   export const action = "FORWARD";
+  export function getDeserializedJsonObj(
+    obj: ResolverForwardRuleDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ResolverRuleDetails.getDeserializedJsonObj(obj) as ResolverForwardRuleDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

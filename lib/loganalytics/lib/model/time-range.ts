@@ -43,4 +43,9 @@ export namespace TimeRange {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TimeRange): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

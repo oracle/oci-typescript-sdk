@@ -98,4 +98,18 @@ export namespace ResponderExecutionSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResponderExecutionSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "responderRuleExecutionDetails": obj.responderRuleExecutionDetails
+          ? model.ResponderRuleExecutionDetails.getDeserializedJsonObj(
+              obj.responderRuleExecutionDetails
+            )
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

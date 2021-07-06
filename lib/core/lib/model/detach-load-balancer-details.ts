@@ -39,4 +39,9 @@ export namespace DetachLoadBalancerDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DetachLoadBalancerDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

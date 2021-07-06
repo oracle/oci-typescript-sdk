@@ -33,4 +33,17 @@ export namespace UnifiedAgentApache2Parser {
     return jsonObj;
   }
   export const parserType = "APACHE2";
+  export function getDeserializedJsonObj(
+    obj: UnifiedAgentApache2Parser,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UnifiedAgentParser.getDeserializedJsonObj(obj) as UnifiedAgentApache2Parser)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

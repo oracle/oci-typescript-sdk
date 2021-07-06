@@ -48,4 +48,9 @@ export namespace SqlPlanInsights {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SqlPlanInsights): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

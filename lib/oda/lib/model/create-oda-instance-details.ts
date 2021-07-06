@@ -60,4 +60,9 @@ export namespace CreateOdaInstanceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateOdaInstanceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

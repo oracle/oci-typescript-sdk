@@ -34,4 +34,11 @@ export namespace AddManagedDatabaseToManagedDatabaseGroupDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: AddManagedDatabaseToManagedDatabaseGroupDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

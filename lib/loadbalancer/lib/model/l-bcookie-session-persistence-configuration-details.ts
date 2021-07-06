@@ -155,4 +155,11 @@ export namespace LBCookieSessionPersistenceConfigurationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: LBCookieSessionPersistenceConfigurationDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

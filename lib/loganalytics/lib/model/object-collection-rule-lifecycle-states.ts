@@ -32,7 +32,14 @@ export enum ObjectCollectionRuleLifecycleStates {
 }
 
 export namespace ObjectCollectionRuleLifecycleStates {
-  export function getJsonObj(obj: ObjectCollectionRuleLifecycleStates): object {
-    return { obj };
+  export function getJsonObj(
+    obj: ObjectCollectionRuleLifecycleStates
+  ): ObjectCollectionRuleLifecycleStates {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: ObjectCollectionRuleLifecycleStates
+  ): ObjectCollectionRuleLifecycleStates {
+    return obj;
   }
 }

@@ -51,4 +51,23 @@ export namespace ResourceInsightProjectedUtilization {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResourceInsightProjectedUtilization): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "low": obj.low
+          ? obj.low.map(item => {
+              return model.ResourceInsightProjectedUtilizationItem.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "high": obj.high
+          ? obj.high.map(item => {
+              return model.ResourceInsightProjectedUtilizationItem.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

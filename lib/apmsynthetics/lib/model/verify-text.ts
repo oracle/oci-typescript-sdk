@@ -30,4 +30,9 @@ export namespace VerifyText {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VerifyText): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

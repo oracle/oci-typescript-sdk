@@ -53,4 +53,9 @@ export namespace MultipathDevice {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MultipathDevice): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

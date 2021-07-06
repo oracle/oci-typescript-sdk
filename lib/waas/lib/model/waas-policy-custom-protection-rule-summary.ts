@@ -63,4 +63,18 @@ export namespace WaasPolicyCustomProtectionRuleSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WaasPolicyCustomProtectionRuleSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "exclusions": obj.exclusions
+          ? obj.exclusions.map(item => {
+              return model.ProtectionRuleExclusion.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

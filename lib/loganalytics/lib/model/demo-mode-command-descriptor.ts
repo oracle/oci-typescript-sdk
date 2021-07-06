@@ -35,4 +35,19 @@ export namespace DemoModeCommandDescriptor {
     return jsonObj;
   }
   export const name = "DEMO_MODE";
+  export function getDeserializedJsonObj(
+    obj: DemoModeCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(
+            obj
+          ) as DemoModeCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -80,4 +80,22 @@ export namespace LogAnalyticsParserFunction {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsParserFunction): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parserMetaPlugin": obj.parserMetaPlugin
+          ? model.LogAnalyticsParserMetaPlugin.getDeserializedJsonObj(obj.parserMetaPlugin)
+          : undefined,
+
+        "parserFunctionParameters": obj.parserFunctionParameters
+          ? obj.parserFunctionParameters.map(item => {
+              return model.LogAnalyticsParserFunctionParameter.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

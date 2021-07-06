@@ -68,4 +68,9 @@ export namespace LoadBalancerHealthSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LoadBalancerHealthSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

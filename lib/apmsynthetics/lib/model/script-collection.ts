@@ -39,4 +39,18 @@ export namespace ScriptCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ScriptCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ScriptSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

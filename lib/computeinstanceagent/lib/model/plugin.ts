@@ -48,4 +48,9 @@ export namespace Plugin {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Plugin): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

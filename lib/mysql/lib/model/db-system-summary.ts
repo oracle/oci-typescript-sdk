@@ -139,4 +139,30 @@ export namespace DbSystemSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DbSystemSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "currentPlacement": obj.currentPlacement
+          ? model.DbSystemPlacement.getDeserializedJsonObj(obj.currentPlacement)
+          : undefined,
+
+        "analyticsCluster": obj.analyticsCluster
+          ? model.AnalyticsClusterSummary.getDeserializedJsonObj(obj.analyticsCluster)
+          : undefined,
+
+        "heatWaveCluster": obj.heatWaveCluster
+          ? model.HeatWaveClusterSummary.getDeserializedJsonObj(obj.heatWaveCluster)
+          : undefined,
+
+        "endpoints": obj.endpoints
+          ? obj.endpoints.map(item => {
+              return model.DbSystemEndpoint.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

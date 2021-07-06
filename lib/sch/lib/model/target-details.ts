@@ -70,4 +70,45 @@ export namespace TargetDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TargetDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("kind" in obj && obj.kind) {
+      switch (obj.kind) {
+        case "notifications":
+          return model.NotificationsTargetDetails.getDeserializedJsonObj(
+            <model.NotificationsTargetDetails>(<object>jsonObj),
+            true
+          );
+        case "objectStorage":
+          return model.ObjectStorageTargetDetails.getDeserializedJsonObj(
+            <model.ObjectStorageTargetDetails>(<object>jsonObj),
+            true
+          );
+        case "monitoring":
+          return model.MonitoringTargetDetails.getDeserializedJsonObj(
+            <model.MonitoringTargetDetails>(<object>jsonObj),
+            true
+          );
+        case "functions":
+          return model.FunctionsTargetDetails.getDeserializedJsonObj(
+            <model.FunctionsTargetDetails>(<object>jsonObj),
+            true
+          );
+        case "loggingAnalytics":
+          return model.LoggingAnalyticsTargetDetails.getDeserializedJsonObj(
+            <model.LoggingAnalyticsTargetDetails>(<object>jsonObj),
+            true
+          );
+        case "streaming":
+          return model.StreamingTargetDetails.getDeserializedJsonObj(
+            <model.StreamingTargetDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.kind);
+      }
+    }
+    return jsonObj;
+  }
 }

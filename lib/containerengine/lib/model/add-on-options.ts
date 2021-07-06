@@ -37,4 +37,9 @@ export namespace AddOnOptions {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AddOnOptions): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

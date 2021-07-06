@@ -69,4 +69,27 @@ export namespace RuleTypeConfig {
     return jsonObj;
   }
   export const modelType = "RULE_TYPE_CONFIGS";
+  export function getDeserializedJsonObj(obj: RuleTypeConfig, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DynamicTypeHandler.getDeserializedJsonObj(obj) as RuleTypeConfig)),
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "projectionRules": obj.projectionRules
+          ? obj.projectionRules.map(item => {
+              return model.ProjectionRule.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "configValues": obj.configValues
+          ? model.ConfigValues.getDeserializedJsonObj(obj.configValues)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

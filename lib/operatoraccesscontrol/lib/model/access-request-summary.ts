@@ -96,4 +96,9 @@ export namespace AccessRequestSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AccessRequestSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -35,4 +35,14 @@ export namespace NoCache {
     return jsonObj;
   }
   export const type = "NONE";
+  export function getDeserializedJsonObj(obj: NoCache, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ResponseCacheDetails.getDeserializedJsonObj(obj) as NoCache)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -35,7 +35,10 @@ export enum MigrationStatus {
 }
 
 export namespace MigrationStatus {
-  export function getJsonObj(obj: MigrationStatus): object {
-    return { obj };
+  export function getJsonObj(obj: MigrationStatus): MigrationStatus {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: MigrationStatus): MigrationStatus {
+    return obj;
   }
 }

@@ -34,7 +34,10 @@ export enum RecommendationStatus {
 }
 
 export namespace RecommendationStatus {
-  export function getJsonObj(obj: RecommendationStatus): object {
-    return { obj };
+  export function getJsonObj(obj: RecommendationStatus): RecommendationStatus {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: RecommendationStatus): RecommendationStatus {
+    return obj;
   }
 }

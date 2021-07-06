@@ -31,4 +31,9 @@ export namespace LogGroupSummaryReport {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogGroupSummaryReport): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

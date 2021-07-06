@@ -97,4 +97,16 @@ export namespace Node {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Node): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "nodeError": obj.nodeError
+          ? model.NodeError.getDeserializedJsonObj(obj.nodeError)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

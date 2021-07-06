@@ -44,4 +44,9 @@ export namespace TSIG {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TSIG): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

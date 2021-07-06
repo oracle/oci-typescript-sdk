@@ -23,7 +23,14 @@ export enum SummarizeInstallationUsageFields {
 }
 
 export namespace SummarizeInstallationUsageFields {
-  export function getJsonObj(obj: SummarizeInstallationUsageFields): object {
-    return { obj };
+  export function getJsonObj(
+    obj: SummarizeInstallationUsageFields
+  ): SummarizeInstallationUsageFields {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: SummarizeInstallationUsageFields
+  ): SummarizeInstallationUsageFields {
+    return obj;
   }
 }

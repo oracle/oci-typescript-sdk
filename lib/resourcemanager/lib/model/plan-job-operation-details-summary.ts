@@ -41,4 +41,19 @@ export namespace PlanJobOperationDetailsSummary {
     return jsonObj;
   }
   export const operation = "PLAN";
+  export function getDeserializedJsonObj(
+    obj: PlanJobOperationDetailsSummary,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.JobOperationDetailsSummary.getDeserializedJsonObj(
+            obj
+          ) as PlanJobOperationDetailsSummary)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

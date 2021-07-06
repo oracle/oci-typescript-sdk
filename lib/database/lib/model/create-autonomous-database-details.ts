@@ -38,4 +38,19 @@ export namespace CreateAutonomousDatabaseDetails {
     return jsonObj;
   }
   export const source = "NONE";
+  export function getDeserializedJsonObj(
+    obj: CreateAutonomousDatabaseDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateAutonomousDatabaseBase.getDeserializedJsonObj(
+            obj
+          ) as CreateAutonomousDatabaseDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

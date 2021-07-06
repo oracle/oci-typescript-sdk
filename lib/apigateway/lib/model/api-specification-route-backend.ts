@@ -49,4 +49,30 @@ export namespace ApiSpecificationRouteBackend {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApiSpecificationRouteBackend): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "HTTP_BACKEND":
+          return model.HTTPBackend.getDeserializedJsonObj(
+            <model.HTTPBackend>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_FUNCTIONS_BACKEND":
+          return model.OracleFunctionBackend.getDeserializedJsonObj(
+            <model.OracleFunctionBackend>(<object>jsonObj),
+            true
+          );
+        case "STOCK_RESPONSE_BACKEND":
+          return model.StockResponseBackend.getDeserializedJsonObj(
+            <model.StockResponseBackend>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

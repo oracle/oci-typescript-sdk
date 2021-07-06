@@ -51,4 +51,18 @@ export namespace MigrationPhaseSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MigrationPhaseSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "supportedActions": obj.supportedActions
+          ? obj.supportedActions.map(item => {
+              return model.OdmsPhaseActions.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

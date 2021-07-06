@@ -54,4 +54,16 @@ export namespace ResetDatabaseParametersDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResetDatabaseParametersDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "credentials": obj.credentials
+          ? model.DatabaseCredentials.getDeserializedJsonObj(obj.credentials)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -49,4 +49,19 @@ export namespace HighlightRowsCommandDescriptor {
     return jsonObj;
   }
   export const name = "HIGHLIGHT_ROWS";
+  export function getDeserializedJsonObj(
+    obj: HighlightRowsCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(
+            obj
+          ) as HighlightRowsCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

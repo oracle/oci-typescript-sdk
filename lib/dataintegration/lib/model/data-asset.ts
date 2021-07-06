@@ -117,4 +117,59 @@ export namespace DataAsset {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DataAsset): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "nativeTypeSystem": obj.nativeTypeSystem
+          ? model.TypeSystem.getDeserializedJsonObj(obj.nativeTypeSystem)
+          : undefined,
+
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+        "metadata": obj.metadata
+          ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined
+      }
+    };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "GENERIC_JDBC_DATA_ASSET":
+          return model.DataAssetFromJdbc.getDeserializedJsonObj(
+            <model.DataAssetFromJdbc>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_DATA_ASSET":
+          return model.DataAssetFromOracleDetails.getDeserializedJsonObj(
+            <model.DataAssetFromOracleDetails>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ADWC_DATA_ASSET":
+          return model.DataAssetFromAdwcDetails.getDeserializedJsonObj(
+            <model.DataAssetFromAdwcDetails>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_OBJECT_STORAGE_DATA_ASSET":
+          return model.DataAssetFromObjectStorageDetails.getDeserializedJsonObj(
+            <model.DataAssetFromObjectStorageDetails>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ATP_DATA_ASSET":
+          return model.DataAssetFromAtpDetails.getDeserializedJsonObj(
+            <model.DataAssetFromAtpDetails>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_DATA_ASSET":
+          return model.DataAssetFromMySQL.getDeserializedJsonObj(
+            <model.DataAssetFromMySQL>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

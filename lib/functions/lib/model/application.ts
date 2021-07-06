@@ -125,4 +125,16 @@ export namespace Application {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Application): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "traceConfig": obj.traceConfig
+          ? model.ApplicationTraceConfig.getDeserializedJsonObj(obj.traceConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

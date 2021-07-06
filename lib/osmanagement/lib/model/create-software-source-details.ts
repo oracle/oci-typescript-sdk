@@ -76,4 +76,9 @@ export namespace CreateSoftwareSourceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateSoftwareSourceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

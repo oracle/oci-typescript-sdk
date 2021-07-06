@@ -29,7 +29,10 @@ export enum PlatformTypes {
 }
 
 export namespace PlatformTypes {
-  export function getJsonObj(obj: PlatformTypes): object {
-    return { obj };
+  export function getJsonObj(obj: PlatformTypes): PlatformTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: PlatformTypes): PlatformTypes {
+    return obj;
   }
 }

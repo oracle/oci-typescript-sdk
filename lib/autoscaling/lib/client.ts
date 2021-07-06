@@ -19,7 +19,7 @@ Compute service, see [Overview of the Compute Service](/Content/Compute/Concepts
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
@@ -158,7 +158,7 @@ When you move an autoscaling configuration to a different compartment, associate
       bodyContent: common.ObjectSerializer.serialize(
         changeAutoScalingConfigurationCompartmentRequest.changeCompartmentDetails,
         "ChangeAutoScalingCompartmentDetails",
-        models.ChangeAutoScalingCompartmentDetails.getJsonObj
+        model.ChangeAutoScalingCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -223,7 +223,7 @@ When you move an autoscaling configuration to a different compartment, associate
       bodyContent: common.ObjectSerializer.serialize(
         createAutoScalingConfigurationRequest.createAutoScalingConfigurationDetails,
         "CreateAutoScalingConfigurationDetails",
-        models.CreateAutoScalingConfigurationDetails.getJsonObj
+        model.CreateAutoScalingConfigurationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -235,7 +235,8 @@ When you move an autoscaling configuration to a different compartment, associate
         responseObject: <responses.CreateAutoScalingConfigurationResponse>{},
         body: await response.json(),
         bodyKey: "autoScalingConfiguration",
-        bodyModel: "model.AutoScalingConfiguration",
+        bodyModel: model.AutoScalingConfiguration,
+        type: "model.AutoScalingConfiguration",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -302,7 +303,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       bodyContent: common.ObjectSerializer.serialize(
         createAutoScalingPolicyRequest.createAutoScalingPolicyDetails,
         "CreateAutoScalingPolicyDetails",
-        models.CreateAutoScalingPolicyDetails.getJsonObj
+        model.CreateAutoScalingPolicyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -314,7 +315,8 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
         responseObject: <responses.CreateAutoScalingPolicyResponse>{},
         body: await response.json(),
         bodyKey: "autoScalingPolicy",
-        bodyModel: "model.AutoScalingPolicy",
+        bodyModel: model.AutoScalingPolicy,
+        type: "model.AutoScalingPolicy",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -495,7 +497,8 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
         responseObject: <responses.GetAutoScalingConfigurationResponse>{},
         body: await response.json(),
         bodyKey: "autoScalingConfiguration",
-        bodyModel: "model.AutoScalingConfiguration",
+        bodyModel: model.AutoScalingConfiguration,
+        type: "model.AutoScalingConfiguration",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -560,7 +563,8 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
         responseObject: <responses.GetAutoScalingPolicyResponse>{},
         body: await response.json(),
         bodyKey: "autoScalingPolicy",
-        bodyModel: "model.AutoScalingPolicy",
+        bodyModel: model.AutoScalingPolicy,
+        type: "model.AutoScalingPolicy",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -630,7 +634,8 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
         responseObject: <responses.ListAutoScalingConfigurationsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AutoScalingConfigurationSummary[]",
+        bodyModel: model.AutoScalingConfigurationSummary,
+        type: "Array<model.AutoScalingConfigurationSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -660,7 +665,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
    */
   public listAllAutoScalingConfigurations(
     request: requests.ListAutoScalingConfigurationsRequest
-  ): AsyncIterableIterator<models.AutoScalingConfigurationSummary> {
+  ): AsyncIterableIterator<model.AutoScalingConfigurationSummary> {
     return paginateRecords(request, req => this.listAutoScalingConfigurations(req));
   }
 
@@ -726,7 +731,8 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
         responseObject: <responses.ListAutoScalingPoliciesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AutoScalingPolicySummary[]",
+        bodyModel: model.AutoScalingPolicySummary,
+        type: "Array<model.AutoScalingPolicySummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -756,7 +762,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
    */
   public listAllAutoScalingPolicies(
     request: requests.ListAutoScalingPoliciesRequest
-  ): AsyncIterableIterator<models.AutoScalingPolicySummary> {
+  ): AsyncIterableIterator<model.AutoScalingPolicySummary> {
     return paginateRecords(request, req => this.listAutoScalingPolicies(req));
   }
 
@@ -813,7 +819,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       bodyContent: common.ObjectSerializer.serialize(
         updateAutoScalingConfigurationRequest.updateAutoScalingConfigurationDetails,
         "UpdateAutoScalingConfigurationDetails",
-        models.UpdateAutoScalingConfigurationDetails.getJsonObj
+        model.UpdateAutoScalingConfigurationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -825,7 +831,8 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
         responseObject: <responses.UpdateAutoScalingConfigurationResponse>{},
         body: await response.json(),
         bodyKey: "autoScalingConfiguration",
-        bodyModel: "model.AutoScalingConfiguration",
+        bodyModel: model.AutoScalingConfiguration,
+        type: "model.AutoScalingConfiguration",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -886,7 +893,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       bodyContent: common.ObjectSerializer.serialize(
         updateAutoScalingPolicyRequest.updateAutoScalingPolicyDetails,
         "UpdateAutoScalingPolicyDetails",
-        models.UpdateAutoScalingPolicyDetails.getJsonObj
+        model.UpdateAutoScalingPolicyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -898,7 +905,8 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
         responseObject: <responses.UpdateAutoScalingPolicyResponse>{},
         body: await response.json(),
         bodyKey: "autoScalingPolicy",
-        bodyModel: "model.AutoScalingPolicy",
+        bodyModel: model.AutoScalingPolicy,
+        type: "model.AutoScalingPolicy",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

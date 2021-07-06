@@ -43,4 +43,18 @@ export namespace IngestSqlTextDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IngestSqlTextDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.SqlText.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

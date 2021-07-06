@@ -47,4 +47,9 @@ export namespace IndexKey {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IndexKey): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -39,4 +39,9 @@ export namespace DetectStackDriftDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DetectStackDriftDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

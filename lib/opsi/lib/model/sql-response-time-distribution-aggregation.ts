@@ -37,4 +37,9 @@ export namespace SqlResponseTimeDistributionAggregation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SqlResponseTimeDistributionAggregation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

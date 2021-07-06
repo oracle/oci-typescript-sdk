@@ -39,4 +39,17 @@ export namespace CreateFaaSActionDetails {
     return jsonObj;
   }
   export const actionType = "FAAS";
+  export function getDeserializedJsonObj(
+    obj: CreateFaaSActionDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ActionDetails.getDeserializedJsonObj(obj) as CreateFaaSActionDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

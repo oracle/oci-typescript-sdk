@@ -93,4 +93,9 @@ export namespace AwrDbSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AwrDbSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

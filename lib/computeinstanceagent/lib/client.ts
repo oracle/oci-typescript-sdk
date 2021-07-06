@@ -15,7 +15,7 @@ is a lightweight process that monitors and manages compute instances.
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { ComputeInstanceAgentWaiter } from "./computeinstanceagent-waiter";
@@ -237,7 +237,7 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
       bodyContent: common.ObjectSerializer.serialize(
         createInstanceAgentCommandRequest.createInstanceAgentCommandDetails,
         "CreateInstanceAgentCommandDetails",
-        models.CreateInstanceAgentCommandDetails.getJsonObj
+        model.CreateInstanceAgentCommandDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -249,7 +249,8 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
         responseObject: <responses.CreateInstanceAgentCommandResponse>{},
         body: await response.json(),
         bodyKey: "instanceAgentCommand",
-        bodyModel: "model.InstanceAgentCommand",
+        bodyModel: model.InstanceAgentCommand,
+        type: "model.InstanceAgentCommand",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -313,7 +314,8 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
         responseObject: <responses.GetInstanceAgentCommandResponse>{},
         body: await response.json(),
         bodyKey: "instanceAgentCommand",
-        bodyModel: "model.InstanceAgentCommand",
+        bodyModel: model.InstanceAgentCommand,
+        type: "model.InstanceAgentCommand",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -381,7 +383,8 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
         responseObject: <responses.GetInstanceAgentCommandExecutionResponse>{},
         body: await response.json(),
         bodyKey: "instanceAgentCommandExecution",
-        bodyModel: "model.InstanceAgentCommandExecution",
+        bodyModel: model.InstanceAgentCommandExecution,
+        type: "model.InstanceAgentCommandExecution",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -455,7 +458,8 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
         responseObject: <responses.ListInstanceAgentCommandExecutionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "InstanceAgentCommandExecutionSummary[]",
+        bodyModel: model.InstanceAgentCommandExecutionSummary,
+        type: "Array<model.InstanceAgentCommandExecutionSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -485,7 +489,7 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
    */
   public listAllInstanceAgentCommandExecutions(
     request: requests.ListInstanceAgentCommandExecutionsRequest
-  ): AsyncIterableIterator<models.InstanceAgentCommandExecutionSummary> {
+  ): AsyncIterableIterator<model.InstanceAgentCommandExecutionSummary> {
     return paginateRecords(request, req => this.listInstanceAgentCommandExecutions(req));
   }
 
@@ -549,7 +553,8 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
         responseObject: <responses.ListInstanceAgentCommandsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "InstanceAgentCommandSummary[]",
+        bodyModel: model.InstanceAgentCommandSummary,
+        type: "Array<model.InstanceAgentCommandSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -579,7 +584,7 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
    */
   public listAllInstanceAgentCommands(
     request: requests.ListInstanceAgentCommandsRequest
-  ): AsyncIterableIterator<models.InstanceAgentCommandSummary> {
+  ): AsyncIterableIterator<model.InstanceAgentCommandSummary> {
     return paginateRecords(request, req => this.listInstanceAgentCommands(req));
   }
 
@@ -723,7 +728,8 @@ export class PluginClient {
         responseObject: <responses.GetInstanceAgentPluginResponse>{},
         body: await response.json(),
         bodyKey: "instanceAgentPlugin",
-        bodyModel: "model.InstanceAgentPlugin",
+        bodyModel: model.InstanceAgentPlugin,
+        type: "model.InstanceAgentPlugin",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -789,7 +795,8 @@ export class PluginClient {
         responseObject: <responses.ListInstanceAgentPluginsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "InstanceAgentPluginSummary[]",
+        bodyModel: model.InstanceAgentPluginSummary,
+        type: "Array<model.InstanceAgentPluginSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -819,7 +826,7 @@ export class PluginClient {
    */
   public listAllInstanceAgentPlugins(
     request: requests.ListInstanceAgentPluginsRequest
-  ): AsyncIterableIterator<models.InstanceAgentPluginSummary> {
+  ): AsyncIterableIterator<model.InstanceAgentPluginSummary> {
     return paginateRecords(request, req => this.listInstanceAgentPlugins(req));
   }
 
@@ -968,7 +975,8 @@ export class PluginconfigClient {
         responseObject: <responses.ListInstanceagentAvailablePluginsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AvailablePluginSummary[]",
+        bodyModel: model.AvailablePluginSummary,
+        type: "Array<model.AvailablePluginSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -998,7 +1006,7 @@ export class PluginconfigClient {
    */
   public listAllInstanceagentAvailablePlugins(
     request: requests.ListInstanceagentAvailablePluginsRequest
-  ): AsyncIterableIterator<models.AvailablePluginSummary> {
+  ): AsyncIterableIterator<model.AvailablePluginSummary> {
     return paginateRecords(request, req => this.listInstanceagentAvailablePlugins(req));
   }
 

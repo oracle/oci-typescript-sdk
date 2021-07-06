@@ -136,4 +136,18 @@ export namespace ServiceGateway {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ServiceGateway): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "services": obj.services
+          ? obj.services.map(item => {
+              return model.ServiceIdResponseDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

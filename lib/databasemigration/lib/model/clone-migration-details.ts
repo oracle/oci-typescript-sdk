@@ -88,4 +88,21 @@ export namespace CloneMigrationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CloneMigrationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "excludeObjects": obj.excludeObjects
+          ? obj.excludeObjects.map(item => {
+              return model.DatabaseObject.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "vaultDetails": obj.vaultDetails
+          ? model.CreateVaultDetails.getDeserializedJsonObj(obj.vaultDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

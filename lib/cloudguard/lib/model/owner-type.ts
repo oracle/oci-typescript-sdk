@@ -29,7 +29,10 @@ export enum OwnerType {
 }
 
 export namespace OwnerType {
-  export function getJsonObj(obj: OwnerType): object {
-    return { obj };
+  export function getJsonObj(obj: OwnerType): OwnerType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: OwnerType): OwnerType {
+    return obj;
   }
 }

@@ -57,4 +57,9 @@ export namespace CreateCatalogPrivateEndpointDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateCatalogPrivateEndpointDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

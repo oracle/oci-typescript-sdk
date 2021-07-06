@@ -143,4 +143,16 @@ export namespace DrgAttachment {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DrgAttachment): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "networkDetails": obj.networkDetails
+          ? model.DrgAttachmentNetworkDetails.getDeserializedJsonObj(obj.networkDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

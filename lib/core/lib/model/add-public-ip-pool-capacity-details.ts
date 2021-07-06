@@ -41,4 +41,9 @@ export namespace AddPublicIpPoolCapacityDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AddPublicIpPoolCapacityDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

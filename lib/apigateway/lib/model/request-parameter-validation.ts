@@ -33,4 +33,9 @@ export namespace RequestParameterValidation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RequestParameterValidation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

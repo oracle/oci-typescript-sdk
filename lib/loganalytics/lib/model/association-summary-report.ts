@@ -31,4 +31,9 @@ export namespace AssociationSummaryReport {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AssociationSummaryReport): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

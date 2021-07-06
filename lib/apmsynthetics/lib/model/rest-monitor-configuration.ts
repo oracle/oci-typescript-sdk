@@ -90,4 +90,31 @@ export namespace RestMonitorConfiguration {
     return jsonObj;
   }
   export const configType = "REST_CONFIG";
+  export function getDeserializedJsonObj(
+    obj: RestMonitorConfiguration,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.MonitorConfiguration.getDeserializedJsonObj(obj) as RestMonitorConfiguration)),
+      ...{
+        "reqAuthenticationDetails": obj.reqAuthenticationDetails
+          ? model.RequestAuthenticationDetails.getDeserializedJsonObj(obj.reqAuthenticationDetails)
+          : undefined,
+        "requestHeaders": obj.requestHeaders
+          ? obj.requestHeaders.map(item => {
+              return model.Header.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "requestQueryParams": obj.requestQueryParams
+          ? obj.requestQueryParams.map(item => {
+              return model.RequestQueryParam.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

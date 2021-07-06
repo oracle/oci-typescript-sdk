@@ -54,4 +54,9 @@ export namespace UpdateViewDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateViewDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -47,4 +47,23 @@ export namespace SearchCommandDescriptor {
     return jsonObj;
   }
   export const name = "SEARCH";
+  export function getDeserializedJsonObj(
+    obj: SearchCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(obj) as SearchCommandDescriptor)),
+      ...{
+        "subQueries": obj.subQueries
+          ? obj.subQueries.map(item => {
+              return model.ParseQueryOutput.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

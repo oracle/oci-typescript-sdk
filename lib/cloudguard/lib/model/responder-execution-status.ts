@@ -26,7 +26,10 @@ export enum ResponderExecutionStatus {
 }
 
 export namespace ResponderExecutionStatus {
-  export function getJsonObj(obj: ResponderExecutionStatus): object {
-    return { obj };
+  export function getJsonObj(obj: ResponderExecutionStatus): ResponderExecutionStatus {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ResponderExecutionStatus): ResponderExecutionStatus {
+    return obj;
   }
 }

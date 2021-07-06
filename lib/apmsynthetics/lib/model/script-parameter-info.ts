@@ -41,4 +41,16 @@ export namespace ScriptParameterInfo {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ScriptParameterInfo): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "scriptParameter": obj.scriptParameter
+          ? model.ScriptParameter.getDeserializedJsonObj(obj.scriptParameter)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

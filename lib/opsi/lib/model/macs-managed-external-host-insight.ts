@@ -65,4 +65,17 @@ export namespace MacsManagedExternalHostInsight {
     return jsonObj;
   }
   export const entitySource = "MACS_MANAGED_EXTERNAL_HOST";
+  export function getDeserializedJsonObj(
+    obj: MacsManagedExternalHostInsight,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.HostInsight.getDeserializedJsonObj(obj) as MacsManagedExternalHostInsight)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -61,4 +61,18 @@ export namespace UpdateAutonomousExadataInfrastructureDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: UpdateAutonomousExadataInfrastructureDetails
+  ): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "maintenanceWindowDetails": obj.maintenanceWindowDetails
+          ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindowDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

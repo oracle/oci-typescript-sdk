@@ -48,4 +48,9 @@ export namespace WorkRequestResource {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WorkRequestResource): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

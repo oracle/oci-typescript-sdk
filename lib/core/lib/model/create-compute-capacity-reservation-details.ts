@@ -89,4 +89,18 @@ export namespace CreateComputeCapacityReservationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateComputeCapacityReservationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "instanceReservationConfigs": obj.instanceReservationConfigs
+          ? obj.instanceReservationConfigs.map(item => {
+              return model.InstanceReservationConfigDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

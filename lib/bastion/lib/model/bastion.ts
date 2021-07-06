@@ -114,4 +114,9 @@ export namespace Bastion {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Bastion): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

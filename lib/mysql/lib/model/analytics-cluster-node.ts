@@ -59,4 +59,9 @@ export namespace AnalyticsClusterNode {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AnalyticsClusterNode): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

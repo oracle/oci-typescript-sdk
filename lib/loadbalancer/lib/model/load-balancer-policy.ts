@@ -38,4 +38,9 @@ export namespace LoadBalancerPolicy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LoadBalancerPolicy): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

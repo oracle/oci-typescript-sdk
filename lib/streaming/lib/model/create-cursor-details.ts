@@ -58,4 +58,9 @@ export namespace CreateCursorDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateCursorDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -103,4 +103,9 @@ export namespace Domain {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Domain): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

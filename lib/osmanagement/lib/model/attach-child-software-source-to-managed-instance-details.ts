@@ -32,4 +32,11 @@ export namespace AttachChildSoftwareSourceToManagedInstanceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: AttachChildSoftwareSourceToManagedInstanceDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

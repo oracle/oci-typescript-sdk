@@ -107,4 +107,9 @@ export namespace SteeringPolicyAnswer {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SteeringPolicyAnswer): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

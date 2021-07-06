@@ -42,4 +42,9 @@ export namespace CustomPropertySetUsage {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CustomPropertySetUsage): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

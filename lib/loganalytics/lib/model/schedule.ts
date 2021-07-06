@@ -63,4 +63,25 @@ export namespace Schedule {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Schedule): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "CRON":
+          return model.CronSchedule.getDeserializedJsonObj(
+            <model.CronSchedule>(<object>jsonObj),
+            true
+          );
+        case "FIXED_FREQUENCY":
+          return model.FixedFrequencySchedule.getDeserializedJsonObj(
+            <model.FixedFrequencySchedule>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

@@ -48,4 +48,23 @@ export namespace CreateDbHomeWithVmClusterIdFromBackupDetails {
     return jsonObj;
   }
   export const source = "VM_CLUSTER_BACKUP";
+  export function getDeserializedJsonObj(
+    obj: CreateDbHomeWithVmClusterIdFromBackupDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateDbHomeBase.getDeserializedJsonObj(
+            obj
+          ) as CreateDbHomeWithVmClusterIdFromBackupDetails)),
+      ...{
+        "database": obj.database
+          ? model.CreateDatabaseFromBackupDetails.getDeserializedJsonObj(obj.database)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

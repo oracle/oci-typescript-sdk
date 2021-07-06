@@ -38,4 +38,9 @@ export namespace QueryResultsOrderedBySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: QueryResultsOrderedBySummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

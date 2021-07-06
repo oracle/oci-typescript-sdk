@@ -42,4 +42,9 @@ export namespace UploadData {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UploadData): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -51,4 +51,9 @@ export namespace StrategyParameter {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: StrategyParameter): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

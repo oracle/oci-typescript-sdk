@@ -54,4 +54,9 @@ export namespace FastConnectProviderServiceKey {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FastConnectProviderServiceKey): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

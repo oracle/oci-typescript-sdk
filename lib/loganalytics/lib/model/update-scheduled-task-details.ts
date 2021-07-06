@@ -76,4 +76,29 @@ export namespace UpdateScheduledTaskDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateScheduledTaskDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "schedules": obj.schedules
+          ? obj.schedules.map(item => {
+              return model.Schedule.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    if ("kind" in obj && obj.kind) {
+      switch (obj.kind) {
+        case "STANDARD":
+          return model.UpdateStandardTaskDetails.getDeserializedJsonObj(
+            <model.UpdateStandardTaskDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.kind);
+      }
+    }
+    return jsonObj;
+  }
 }

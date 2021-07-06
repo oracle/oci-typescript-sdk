@@ -40,4 +40,9 @@ export namespace CreateNamespaceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateNamespaceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

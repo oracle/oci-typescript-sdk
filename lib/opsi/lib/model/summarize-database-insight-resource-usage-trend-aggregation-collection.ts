@@ -83,4 +83,20 @@ export namespace SummarizeDatabaseInsightResourceUsageTrendAggregationCollection
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: SummarizeDatabaseInsightResourceUsageTrendAggregationCollection
+  ): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "usageData": obj.usageData
+          ? obj.usageData.map(item => {
+              return model.ResourceUsageTrendAggregation.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

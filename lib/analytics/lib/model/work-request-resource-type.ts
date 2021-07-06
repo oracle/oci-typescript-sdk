@@ -30,7 +30,10 @@ export enum WorkRequestResourceType {
 }
 
 export namespace WorkRequestResourceType {
-  export function getJsonObj(obj: WorkRequestResourceType): object {
-    return { obj };
+  export function getJsonObj(obj: WorkRequestResourceType): WorkRequestResourceType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: WorkRequestResourceType): WorkRequestResourceType {
+    return obj;
   }
 }

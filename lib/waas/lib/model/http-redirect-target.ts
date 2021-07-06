@@ -53,4 +53,9 @@ export namespace HttpRedirectTarget {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HttpRedirectTarget): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

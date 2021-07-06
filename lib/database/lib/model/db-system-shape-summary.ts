@@ -116,4 +116,9 @@ export namespace DbSystemShapeSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DbSystemShapeSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -44,4 +44,18 @@ export namespace ServiceConnectorCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ServiceConnectorCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ServiceConnectorSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

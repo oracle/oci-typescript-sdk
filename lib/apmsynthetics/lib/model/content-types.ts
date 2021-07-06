@@ -29,7 +29,10 @@ export enum ContentTypes {
 }
 
 export namespace ContentTypes {
-  export function getJsonObj(obj: ContentTypes): object {
-    return { obj };
+  export function getJsonObj(obj: ContentTypes): ContentTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ContentTypes): ContentTypes {
+    return obj;
   }
 }

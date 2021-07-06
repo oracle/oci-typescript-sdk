@@ -47,7 +47,10 @@ export enum ErrorCode {
 }
 
 export namespace ErrorCode {
-  export function getJsonObj(obj: ErrorCode): object {
-    return { obj };
+  export function getJsonObj(obj: ErrorCode): ErrorCode {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ErrorCode): ErrorCode {
+    return obj;
   }
 }

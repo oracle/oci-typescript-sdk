@@ -176,4 +176,22 @@ export namespace Volume {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Volume): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sourceDetails": obj.sourceDetails
+          ? model.VolumeSourceDetails.getDeserializedJsonObj(obj.sourceDetails)
+          : undefined,
+
+        "blockVolumeReplicas": obj.blockVolumeReplicas
+          ? obj.blockVolumeReplicas.map(item => {
+              return model.BlockVolumeReplicaInfo.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

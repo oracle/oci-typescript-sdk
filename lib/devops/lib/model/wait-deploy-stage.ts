@@ -37,4 +37,18 @@ export namespace WaitDeployStage {
     return jsonObj;
   }
   export const deployStageType = "WAIT";
+  export function getDeserializedJsonObj(obj: WaitDeployStage, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DeployStage.getDeserializedJsonObj(obj) as WaitDeployStage)),
+      ...{
+        "waitCriteria": obj.waitCriteria
+          ? model.WaitCriteria.getDeserializedJsonObj(obj.waitCriteria)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -40,4 +40,9 @@ export namespace AutonomousDatabaseKeyHistoryEntry {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutonomousDatabaseKeyHistoryEntry): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

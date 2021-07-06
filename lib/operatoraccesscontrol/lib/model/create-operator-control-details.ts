@@ -86,4 +86,9 @@ export namespace CreateOperatorControlDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateOperatorControlDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

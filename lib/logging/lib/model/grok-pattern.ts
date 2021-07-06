@@ -46,4 +46,9 @@ export namespace GrokPattern {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: GrokPattern): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

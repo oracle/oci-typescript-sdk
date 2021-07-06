@@ -47,4 +47,16 @@ export namespace FailedMetricRecord {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FailedMetricRecord): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "metricData": obj.metricData
+          ? model.MetricDataDetails.getDeserializedJsonObj(obj.metricData)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -58,4 +58,9 @@ export namespace PathMatchType {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PathMatchType): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

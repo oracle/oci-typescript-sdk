@@ -35,4 +35,9 @@ export namespace ParsedField {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ParsedField): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

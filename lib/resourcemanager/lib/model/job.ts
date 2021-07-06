@@ -170,4 +170,27 @@ export namespace Job {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Job): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "jobOperationDetails": obj.jobOperationDetails
+          ? model.JobOperationDetails.getDeserializedJsonObj(obj.jobOperationDetails)
+          : undefined,
+        "applyJobPlanResolution": obj.applyJobPlanResolution
+          ? model.ApplyJobPlanResolution.getDeserializedJsonObj(obj.applyJobPlanResolution)
+          : undefined,
+
+        "failureDetails": obj.failureDetails
+          ? model.FailureDetails.getDeserializedJsonObj(obj.failureDetails)
+          : undefined,
+
+        "configSource": obj.configSource
+          ? model.ConfigSourceRecord.getDeserializedJsonObj(obj.configSource)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

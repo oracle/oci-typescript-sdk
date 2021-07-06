@@ -34,4 +34,9 @@ export namespace GiVersionSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: GiVersionSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

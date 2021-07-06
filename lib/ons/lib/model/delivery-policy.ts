@@ -37,4 +37,16 @@ export namespace DeliveryPolicy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeliveryPolicy): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "backoffRetryPolicy": obj.backoffRetryPolicy
+          ? model.BackoffRetryPolicy.getDeserializedJsonObj(obj.backoffRetryPolicy)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

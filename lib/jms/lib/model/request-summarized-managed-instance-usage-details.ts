@@ -92,4 +92,20 @@ export namespace RequestSummarizedManagedInstanceUsageDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: RequestSummarizedManagedInstanceUsageDetails
+  ): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "fields": obj.fields
+          ? obj.fields.map(item => {
+              return model.SummarizeManagedInstanceUsageFields.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

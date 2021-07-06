@@ -264,4 +264,16 @@ export namespace CloudVmCluster {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CloudVmCluster): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "iormConfigCache": obj.iormConfigCache
+          ? model.ExadataIormConfig.getDeserializedJsonObj(obj.iormConfigCache)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

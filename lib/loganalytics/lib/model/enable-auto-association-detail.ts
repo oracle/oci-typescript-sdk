@@ -33,4 +33,9 @@ export namespace EnableAutoAssociationDetail {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EnableAutoAssociationDetail): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

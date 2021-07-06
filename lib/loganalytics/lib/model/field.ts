@@ -33,4 +33,12 @@ export namespace Field {
     return jsonObj;
   }
   export const name = "FIELD";
+  export function getDeserializedJsonObj(obj: Field, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.AbstractField.getDeserializedJsonObj(obj) as Field)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

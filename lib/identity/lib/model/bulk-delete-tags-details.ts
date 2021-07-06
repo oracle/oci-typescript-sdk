@@ -30,4 +30,9 @@ export namespace BulkDeleteTagsDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BulkDeleteTagsDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

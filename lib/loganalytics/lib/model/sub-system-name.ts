@@ -32,7 +32,10 @@ export enum SubSystemName {
 }
 
 export namespace SubSystemName {
-  export function getJsonObj(obj: SubSystemName): object {
-    return { obj };
+  export function getJsonObj(obj: SubSystemName): SubSystemName {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: SubSystemName): SubSystemName {
+    return obj;
   }
 }

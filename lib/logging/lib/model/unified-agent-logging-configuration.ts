@@ -51,4 +51,28 @@ export namespace UnifiedAgentLoggingConfiguration {
     return jsonObj;
   }
   export const configurationType = "LOGGING";
+  export function getDeserializedJsonObj(
+    obj: UnifiedAgentLoggingConfiguration,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UnifiedAgentServiceConfigurationDetails.getDeserializedJsonObj(
+            obj
+          ) as UnifiedAgentLoggingConfiguration)),
+      ...{
+        "sources": obj.sources
+          ? obj.sources.map(item => {
+              return model.UnifiedAgentLoggingSource.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "destination": obj.destination
+          ? model.UnifiedAgentLoggingDestination.getDeserializedJsonObj(obj.destination)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

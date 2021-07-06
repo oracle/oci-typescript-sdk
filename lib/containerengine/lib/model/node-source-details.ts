@@ -41,4 +41,20 @@ export namespace NodeSourceDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NodeSourceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("sourceType" in obj && obj.sourceType) {
+      switch (obj.sourceType) {
+        case "IMAGE":
+          return model.NodeSourceViaImageDetails.getDeserializedJsonObj(
+            <model.NodeSourceViaImageDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.sourceType);
+      }
+    }
+    return jsonObj;
+  }
 }

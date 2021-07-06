@@ -34,4 +34,16 @@ export namespace BackupVaultDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BackupVaultDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "backupLocation": obj.backupLocation
+          ? model.BackupLocation.getDeserializedJsonObj(obj.backupLocation)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -33,4 +33,17 @@ export namespace UnifiedAgentMsgpackParser {
     return jsonObj;
   }
   export const parserType = "MSGPACK";
+  export function getDeserializedJsonObj(
+    obj: UnifiedAgentMsgpackParser,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UnifiedAgentParser.getDeserializedJsonObj(obj) as UnifiedAgentMsgpackParser)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -39,4 +39,9 @@ export namespace ConfigureAutonomousDatabaseVaultKeyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConfigureAutonomousDatabaseVaultKeyDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

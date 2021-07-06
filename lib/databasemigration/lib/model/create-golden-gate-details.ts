@@ -37,4 +37,17 @@ export namespace CreateGoldenGateDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateGoldenGateDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "hub": obj.hub ? model.CreateGoldenGateHub.getDeserializedJsonObj(obj.hub) : undefined,
+        "settings": obj.settings
+          ? model.CreateGoldenGateSettings.getDeserializedJsonObj(obj.settings)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

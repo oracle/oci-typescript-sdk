@@ -86,4 +86,21 @@ export namespace CreateBdsInstanceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateBdsInstanceDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "networkConfig": obj.networkConfig
+          ? model.NetworkConfig.getDeserializedJsonObj(obj.networkConfig)
+          : undefined,
+        "nodes": obj.nodes
+          ? obj.nodes.map(item => {
+              return model.CreateNodeDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

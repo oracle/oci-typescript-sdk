@@ -119,4 +119,9 @@ export namespace ResolverSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResolverSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -41,4 +41,12 @@ export namespace VcnTopology {
     return jsonObj;
   }
   export const type = "VCN";
+  export function getDeserializedJsonObj(obj: VcnTopology, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Topology.getDeserializedJsonObj(obj) as VcnTopology)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

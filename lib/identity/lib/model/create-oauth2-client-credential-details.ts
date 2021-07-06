@@ -44,4 +44,18 @@ export namespace CreateOAuth2ClientCredentialDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateOAuth2ClientCredentialDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "scopes": obj.scopes
+          ? obj.scopes.map(item => {
+              return model.FullyQualifiedScope.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

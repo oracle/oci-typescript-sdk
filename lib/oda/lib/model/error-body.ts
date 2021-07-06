@@ -34,4 +34,9 @@ export namespace ErrorBody {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ErrorBody): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

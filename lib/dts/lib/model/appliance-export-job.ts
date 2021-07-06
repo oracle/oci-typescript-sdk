@@ -144,4 +144,16 @@ export namespace ApplianceExportJob {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApplianceExportJob): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customerShippingAddress": obj.customerShippingAddress
+          ? model.ShippingAddress.getDeserializedJsonObj(obj.customerShippingAddress)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

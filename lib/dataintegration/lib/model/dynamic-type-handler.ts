@@ -35,4 +35,20 @@ export namespace DynamicTypeHandler {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DynamicTypeHandler): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "RULE_TYPE_CONFIGS":
+          return model.RuleTypeConfig.getDeserializedJsonObj(
+            <model.RuleTypeConfig>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

@@ -45,4 +45,23 @@ export namespace AwrDbSysstatCollection {
     return jsonObj;
   }
   export const awrResultType = "AWRDB_SYSSTAT_SET";
+  export function getDeserializedJsonObj(
+    obj: AwrDbSysstatCollection,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AwrQueryResult.getDeserializedJsonObj(obj) as AwrDbSysstatCollection)),
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.AwrDbSysstatSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -50,4 +50,18 @@ export namespace InstanceConfigurationAttachVnicDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceConfigurationAttachVnicDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "createVnicDetails": obj.createVnicDetails
+          ? model.InstanceConfigurationCreateVnicDetails.getDeserializedJsonObj(
+              obj.createVnicDetails
+            )
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

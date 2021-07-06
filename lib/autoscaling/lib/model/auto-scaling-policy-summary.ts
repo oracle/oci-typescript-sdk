@@ -50,4 +50,9 @@ export namespace AutoScalingPolicySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutoScalingPolicySummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -54,4 +54,19 @@ export namespace InstanceAgentCommandSourceViaObjectStorageTupleDetails {
     return jsonObj;
   }
   export const sourceType = "OBJECT_STORAGE_TUPLE";
+  export function getDeserializedJsonObj(
+    obj: InstanceAgentCommandSourceViaObjectStorageTupleDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.InstanceAgentCommandSourceDetails.getDeserializedJsonObj(
+            obj
+          ) as InstanceAgentCommandSourceViaObjectStorageTupleDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -59,4 +59,22 @@ export namespace ChangeDatabaseParametersDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ChangeDatabaseParametersDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "credentials": obj.credentials
+          ? model.DatabaseCredentials.getDeserializedJsonObj(obj.credentials)
+          : undefined,
+
+        "parameters": obj.parameters
+          ? obj.parameters.map(item => {
+              return model.ChangeDatabaseParameterDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

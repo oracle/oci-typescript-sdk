@@ -48,4 +48,17 @@ export namespace RemoveHttpResponseHeaderRule {
     return jsonObj;
   }
   export const action = "REMOVE_HTTP_RESPONSE_HEADER";
+  export function getDeserializedJsonObj(
+    obj: RemoveHttpResponseHeaderRule,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.Rule.getDeserializedJsonObj(obj) as RemoveHttpResponseHeaderRule)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -45,4 +45,9 @@ export namespace StateChange {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: StateChange): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

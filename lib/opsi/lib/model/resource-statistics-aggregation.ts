@@ -41,4 +41,19 @@ export namespace ResourceStatisticsAggregation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResourceStatisticsAggregation): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "databaseDetails": obj.databaseDetails
+          ? model.DatabaseDetails.getDeserializedJsonObj(obj.databaseDetails)
+          : undefined,
+        "currentStatistics": obj.currentStatistics
+          ? model.ResourceStatistics.getDeserializedJsonObj(obj.currentStatistics)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

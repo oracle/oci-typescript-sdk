@@ -65,4 +65,25 @@ export namespace CreateDatabaseBase {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateDatabaseBase): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("source" in obj && obj.source) {
+      switch (obj.source) {
+        case "NONE":
+          return model.CreateNewDatabaseDetails.getDeserializedJsonObj(
+            <model.CreateNewDatabaseDetails>(<object>jsonObj),
+            true
+          );
+        case "DB_BACKUP":
+          return model.CreateDatabaseFromBackup.getDeserializedJsonObj(
+            <model.CreateDatabaseFromBackup>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.source);
+      }
+    }
+    return jsonObj;
+  }
 }

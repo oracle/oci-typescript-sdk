@@ -42,4 +42,9 @@ export namespace RenameQueryParameterPolicyItem {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RenameQueryParameterPolicyItem): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -57,4 +57,25 @@ export namespace ClassifyCommandDescriptor {
     return jsonObj;
   }
   export const name = "CLASSIFY";
+  export function getDeserializedJsonObj(
+    obj: ClassifyCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(
+            obj
+          ) as ClassifyCommandDescriptor)),
+      ...{
+        "correlate": obj.correlate
+          ? obj.correlate.map(item => {
+              return model.FieldsAddRemoveField.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

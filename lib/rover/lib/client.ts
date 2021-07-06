@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { RoverClusterWaiter } from "./rovercluster-waiter";
 import { RoverEntitlementWaiter } from "./roverentitlement-waiter";
@@ -169,7 +169,7 @@ export class RoverClusterClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeRoverClusterCompartmentRequest.changeRoverClusterCompartmentDetails,
         "ChangeRoverClusterCompartmentDetails",
-        models.ChangeRoverClusterCompartmentDetails.getJsonObj
+        model.ChangeRoverClusterCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -229,7 +229,7 @@ export class RoverClusterClient {
       bodyContent: common.ObjectSerializer.serialize(
         createRoverClusterRequest.createRoverClusterDetails,
         "CreateRoverClusterDetails",
-        models.CreateRoverClusterDetails.getJsonObj
+        model.CreateRoverClusterDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -241,7 +241,8 @@ export class RoverClusterClient {
         responseObject: <responses.CreateRoverClusterResponse>{},
         body: await response.json(),
         bodyKey: "roverCluster",
-        bodyModel: "model.RoverCluster",
+        bodyModel: model.RoverCluster,
+        type: "model.RoverCluster",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -360,7 +361,8 @@ export class RoverClusterClient {
         responseObject: <responses.GetRoverClusterResponse>{},
         body: await response.json(),
         bodyKey: "roverCluster",
-        bodyModel: "model.RoverCluster",
+        bodyModel: model.RoverCluster,
+        type: "model.RoverCluster",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -424,7 +426,8 @@ export class RoverClusterClient {
         responseObject: <responses.GetRoverClusterCertificateResponse>{},
         body: await response.json(),
         bodyKey: "roverClusterCertificate",
-        bodyModel: "model.RoverClusterCertificate",
+        bodyModel: model.RoverClusterCertificate,
+        type: "model.RoverClusterCertificate",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -494,7 +497,8 @@ export class RoverClusterClient {
         responseObject: <responses.ListRoverClustersResponse>{},
         body: await response.json(),
         bodyKey: "roverClusterCollection",
-        bodyModel: "model.RoverClusterCollection",
+        bodyModel: model.RoverClusterCollection,
+        type: "model.RoverClusterCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -556,7 +560,7 @@ export class RoverClusterClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateRoverClusterRequest.updateRoverClusterDetails,
         "UpdateRoverClusterDetails",
-        models.UpdateRoverClusterDetails.getJsonObj
+        model.UpdateRoverClusterDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -568,7 +572,8 @@ export class RoverClusterClient {
         responseObject: <responses.UpdateRoverClusterResponse>{},
         body: await response.json(),
         bodyKey: "roverCluster",
-        bodyModel: "model.RoverCluster",
+        bodyModel: model.RoverCluster,
+        type: "model.RoverCluster",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -736,7 +741,7 @@ export class RoverEntitlementClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeRoverEntitlementCompartmentRequest.changeRoverEntitlementCompartmentDetails,
         "ChangeRoverEntitlementCompartmentDetails",
-        models.ChangeRoverEntitlementCompartmentDetails.getJsonObj
+        model.ChangeRoverEntitlementCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -796,7 +801,7 @@ export class RoverEntitlementClient {
       bodyContent: common.ObjectSerializer.serialize(
         createRoverEntitlementRequest.createRoverEntitlementDetails,
         "CreateRoverEntitlementDetails",
-        models.CreateRoverEntitlementDetails.getJsonObj
+        model.CreateRoverEntitlementDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -808,7 +813,8 @@ export class RoverEntitlementClient {
         responseObject: <responses.CreateRoverEntitlementResponse>{},
         body: await response.json(),
         bodyKey: "roverEntitlement",
-        bodyModel: "model.RoverEntitlement",
+        bodyModel: model.RoverEntitlement,
+        type: "model.RoverEntitlement",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -933,7 +939,8 @@ export class RoverEntitlementClient {
         responseObject: <responses.GetRoverEntitlementResponse>{},
         body: await response.json(),
         bodyKey: "roverEntitlement",
-        bodyModel: "model.RoverEntitlement",
+        bodyModel: model.RoverEntitlement,
+        type: "model.RoverEntitlement",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1004,7 +1011,8 @@ export class RoverEntitlementClient {
         responseObject: <responses.ListRoverEntitlementsResponse>{},
         body: await response.json(),
         bodyKey: "roverEntitlementCollection",
-        bodyModel: "model.RoverEntitlementCollection",
+        bodyModel: model.RoverEntitlementCollection,
+        type: "model.RoverEntitlementCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1067,7 +1075,7 @@ export class RoverEntitlementClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateRoverEntitlementRequest.updateRoverEntitlementDetails,
         "UpdateRoverEntitlementDetails",
-        models.UpdateRoverEntitlementDetails.getJsonObj
+        model.UpdateRoverEntitlementDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1079,7 +1087,8 @@ export class RoverEntitlementClient {
         responseObject: <responses.UpdateRoverEntitlementResponse>{},
         body: await response.json(),
         bodyKey: "roverEntitlement",
-        bodyModel: "model.RoverEntitlement",
+        bodyModel: model.RoverEntitlement,
+        type: "model.RoverEntitlement",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1245,7 +1254,7 @@ export class RoverNodeClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeRoverNodeCompartmentRequest.changeRoverNodeCompartmentDetails,
         "ChangeRoverNodeCompartmentDetails",
-        models.ChangeRoverNodeCompartmentDetails.getJsonObj
+        model.ChangeRoverNodeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1305,7 +1314,7 @@ export class RoverNodeClient {
       bodyContent: common.ObjectSerializer.serialize(
         createRoverNodeRequest.createRoverNodeDetails,
         "CreateRoverNodeDetails",
-        models.CreateRoverNodeDetails.getJsonObj
+        model.CreateRoverNodeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1317,7 +1326,8 @@ export class RoverNodeClient {
         responseObject: <responses.CreateRoverNodeResponse>{},
         body: await response.json(),
         bodyKey: "roverNode",
-        bodyModel: "model.RoverNode",
+        bodyModel: model.RoverNode,
+        type: "model.RoverNode",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1436,7 +1446,8 @@ export class RoverNodeClient {
         responseObject: <responses.GetRoverNodeResponse>{},
         body: await response.json(),
         bodyKey: "roverNode",
-        bodyModel: "model.RoverNode",
+        bodyModel: model.RoverNode,
+        type: "model.RoverNode",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1500,7 +1511,8 @@ export class RoverNodeClient {
         responseObject: <responses.GetRoverNodeCertificateResponse>{},
         body: await response.json(),
         bodyKey: "roverNodeCertificate",
-        bodyModel: "model.RoverNodeCertificate",
+        bodyModel: model.RoverNodeCertificate,
+        type: "model.RoverNodeCertificate",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1564,7 +1576,8 @@ export class RoverNodeClient {
         responseObject: <responses.GetRoverNodeEncryptionKeyResponse>{},
         body: await response.json(),
         bodyKey: "roverNodeEncryptionKey",
-        bodyModel: "model.RoverNodeEncryptionKey",
+        bodyModel: model.RoverNodeEncryptionKey,
+        type: "model.RoverNodeEncryptionKey",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1628,7 +1641,8 @@ export class RoverNodeClient {
         responseObject: <responses.GetRoverNodeGetRptResponse>{},
         body: await response.json(),
         bodyKey: "roverNodeGetRpt",
-        bodyModel: "model.RoverNodeGetRpt",
+        bodyModel: model.RoverNodeGetRpt,
+        type: "model.RoverNodeGetRpt",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1698,7 +1712,8 @@ export class RoverNodeClient {
         responseObject: <responses.ListRoverNodesResponse>{},
         body: await response.json(),
         bodyKey: "roverNodeCollection",
-        bodyModel: "model.RoverNodeCollection",
+        bodyModel: model.RoverNodeCollection,
+        type: "model.RoverNodeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1762,7 +1777,7 @@ export class RoverNodeClient {
       bodyContent: common.ObjectSerializer.serialize(
         roverNodeActionSetKeyRequest.roverNodeActionSetKeyDetails,
         "RoverNodeActionSetKeyDetails",
-        models.RoverNodeActionSetKeyDetails.getJsonObj
+        model.RoverNodeActionSetKeyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1774,7 +1789,8 @@ export class RoverNodeClient {
         responseObject: <responses.RoverNodeActionSetKeyResponse>{},
         body: await response.json(),
         bodyKey: "roverNodeSetKey",
-        bodyModel: "model.RoverNodeSetKey",
+        bodyModel: model.RoverNodeSetKey,
+        type: "model.RoverNodeSetKey",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1831,7 +1847,7 @@ export class RoverNodeClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateRoverNodeRequest.updateRoverNodeDetails,
         "UpdateRoverNodeDetails",
-        models.UpdateRoverNodeDetails.getJsonObj
+        model.UpdateRoverNodeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1843,7 +1859,8 @@ export class RoverNodeClient {
         responseObject: <responses.UpdateRoverNodeResponse>{},
         body: await response.json(),
         bodyKey: "roverNode",
-        bodyModel: "model.RoverNode",
+        bodyModel: model.RoverNode,
+        type: "model.RoverNode",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

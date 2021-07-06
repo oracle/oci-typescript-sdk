@@ -38,4 +38,9 @@ export namespace ValidationMessage {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ValidationMessage): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

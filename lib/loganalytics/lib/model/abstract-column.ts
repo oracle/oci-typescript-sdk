@@ -107,4 +107,48 @@ export namespace AbstractColumn {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AbstractColumn): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "values": obj.values
+          ? obj.values.map(item => {
+              return model.FieldValue.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "TIME_COLUMN":
+          return model.TimeColumn.getDeserializedJsonObj(<model.TimeColumn>(<object>jsonObj), true);
+        case "CLASSIFY_COLUMN":
+          return model.ClassifyColumn.getDeserializedJsonObj(
+            <model.ClassifyColumn>(<object>jsonObj),
+            true
+          );
+        case "TREND_COLUMN":
+          return model.TrendColumn.getDeserializedJsonObj(
+            <model.TrendColumn>(<object>jsonObj),
+            true
+          );
+        case "COLUMN":
+          return model.Column.getDeserializedJsonObj(<model.Column>(<object>jsonObj), true);
+        case "CHART_COLUMN":
+          return model.ChartColumn.getDeserializedJsonObj(
+            <model.ChartColumn>(<object>jsonObj),
+            true
+          );
+        case "CHART_DATA_COLUMN":
+          return model.ChartDataColumn.getDeserializedJsonObj(
+            <model.ChartDataColumn>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

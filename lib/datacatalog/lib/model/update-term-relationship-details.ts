@@ -36,4 +36,9 @@ export namespace UpdateTermRelationshipDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateTermRelationshipDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

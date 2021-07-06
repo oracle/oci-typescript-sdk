@@ -57,4 +57,20 @@ export namespace SecretContentDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SecretContentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("contentType" in obj && obj.contentType) {
+      switch (obj.contentType) {
+        case "BASE64":
+          return model.Base64SecretContentDetails.getDeserializedJsonObj(
+            <model.Base64SecretContentDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.contentType);
+      }
+    }
+    return jsonObj;
+  }
 }

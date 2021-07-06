@@ -40,4 +40,9 @@ export namespace UpdateDeploymentBackupDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDeploymentBackupDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

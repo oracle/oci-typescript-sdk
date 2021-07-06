@@ -86,4 +86,9 @@ export namespace ObjectNameFilter {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ObjectNameFilter): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

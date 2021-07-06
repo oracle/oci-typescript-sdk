@@ -90,4 +90,9 @@ export namespace SqlBucket {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SqlBucket): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

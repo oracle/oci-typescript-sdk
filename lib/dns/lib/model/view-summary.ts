@@ -103,4 +103,9 @@ export namespace ViewSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ViewSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

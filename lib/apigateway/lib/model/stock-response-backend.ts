@@ -56,4 +56,23 @@ export namespace StockResponseBackend {
     return jsonObj;
   }
   export const type = "STOCK_RESPONSE_BACKEND";
+  export function getDeserializedJsonObj(
+    obj: StockResponseBackend,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ApiSpecificationRouteBackend.getDeserializedJsonObj(obj) as StockResponseBackend)),
+      ...{
+        "headers": obj.headers
+          ? obj.headers.map(item => {
+              return model.HeaderFieldSpecification.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

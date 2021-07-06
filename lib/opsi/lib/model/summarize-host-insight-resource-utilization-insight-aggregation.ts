@@ -68,4 +68,23 @@ export namespace SummarizeHostInsightResourceUtilizationInsightAggregation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: SummarizeHostInsightResourceUtilizationInsightAggregation
+  ): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "projectedUtilization": obj.projectedUtilization
+          ? model.ResourceInsightProjectedUtilization.getDeserializedJsonObj(
+              obj.projectedUtilization
+            )
+          : undefined,
+        "currentUtilization": obj.currentUtilization
+          ? model.ResourceInsightCurrentUtilization.getDeserializedJsonObj(obj.currentUtilization)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

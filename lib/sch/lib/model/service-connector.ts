@@ -122,4 +122,20 @@ export namespace ServiceConnector {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ServiceConnector): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "source": obj.source ? model.SourceDetails.getDeserializedJsonObj(obj.source) : undefined,
+        "tasks": obj.tasks
+          ? obj.tasks.map(item => {
+              return model.TaskDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "target": obj.target ? model.TargetDetails.getDeserializedJsonObj(obj.target) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

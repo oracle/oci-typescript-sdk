@@ -39,4 +39,18 @@ export namespace ReferenceSummaryCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ReferenceSummaryCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ReferenceSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

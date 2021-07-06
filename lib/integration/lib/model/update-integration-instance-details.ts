@@ -88,4 +88,21 @@ export namespace UpdateIntegrationInstanceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateIntegrationInstanceDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customEndpoint": obj.customEndpoint
+          ? model.UpdateCustomEndpointDetails.getDeserializedJsonObj(obj.customEndpoint)
+          : undefined,
+        "alternateCustomEndpoints": obj.alternateCustomEndpoints
+          ? obj.alternateCustomEndpoints.map(item => {
+              return model.UpdateCustomEndpointDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

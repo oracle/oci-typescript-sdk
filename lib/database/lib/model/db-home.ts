@@ -108,4 +108,9 @@ export namespace DbHome {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DbHome): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

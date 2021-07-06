@@ -75,4 +75,9 @@ export namespace CreateDkimDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateDkimDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -49,4 +49,9 @@ export namespace ShapeMaxVnicAttachmentOptions {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ShapeMaxVnicAttachmentOptions): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

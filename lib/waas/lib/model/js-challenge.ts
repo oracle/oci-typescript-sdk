@@ -83,4 +83,25 @@ export namespace JsChallenge {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: JsChallenge): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "setHttpHeader": obj.setHttpHeader
+          ? model.Header.getDeserializedJsonObj(obj.setHttpHeader)
+          : undefined,
+        "challengeSettings": obj.challengeSettings
+          ? model.BlockChallengeSettings.getDeserializedJsonObj(obj.challengeSettings)
+          : undefined,
+
+        "criteria": obj.criteria
+          ? obj.criteria.map(item => {
+              return model.AccessRuleCriteria.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

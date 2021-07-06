@@ -34,4 +34,9 @@ export namespace NamedLink {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NamedLink): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

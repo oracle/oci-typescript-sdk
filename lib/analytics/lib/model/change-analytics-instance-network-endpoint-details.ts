@@ -36,4 +36,18 @@ export namespace ChangeAnalyticsInstanceNetworkEndpointDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: ChangeAnalyticsInstanceNetworkEndpointDetails
+  ): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "networkEndpointDetails": obj.networkEndpointDetails
+          ? model.NetworkEndpointDetails.getDeserializedJsonObj(obj.networkEndpointDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

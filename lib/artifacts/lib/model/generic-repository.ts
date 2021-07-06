@@ -33,4 +33,17 @@ export namespace GenericRepository {
     return jsonObj;
   }
   export const repositoryType = "GENERIC";
+  export function getDeserializedJsonObj(
+    obj: GenericRepository,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.Repository.getDeserializedJsonObj(obj) as GenericRepository)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

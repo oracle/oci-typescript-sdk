@@ -58,4 +58,17 @@ export namespace AutonomousDatabaseInsight {
     return jsonObj;
   }
   export const entitySource = "AUTONOMOUS_DATABASE";
+  export function getDeserializedJsonObj(
+    obj: AutonomousDatabaseInsight,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DatabaseInsight.getDeserializedJsonObj(obj) as AutonomousDatabaseInsight)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

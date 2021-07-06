@@ -38,4 +38,17 @@ export namespace EmulatedVolumeAttachment {
     return jsonObj;
   }
   export const attachmentType = "emulated";
+  export function getDeserializedJsonObj(
+    obj: EmulatedVolumeAttachment,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.VolumeAttachment.getDeserializedJsonObj(obj) as EmulatedVolumeAttachment)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

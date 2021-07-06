@@ -30,4 +30,9 @@ export namespace ImportGlossaryDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ImportGlossaryDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

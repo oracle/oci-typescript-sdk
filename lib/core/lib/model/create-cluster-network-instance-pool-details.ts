@@ -63,4 +63,9 @@ export namespace CreateClusterNetworkInstancePoolDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateClusterNetworkInstancePoolDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

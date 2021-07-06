@@ -139,4 +139,34 @@ export namespace ScheduledJob {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ScheduledJob): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "managedInstances": obj.managedInstances
+          ? obj.managedInstances.map(item => {
+              return model.Id.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "managedInstanceGroups": obj.managedInstanceGroups
+          ? obj.managedInstanceGroups.map(item => {
+              return model.Id.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "packageNames": obj.packageNames
+          ? obj.packageNames.map(item => {
+              return model.PackageName.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "workRequests": obj.workRequests
+          ? obj.workRequests.map(item => {
+              return model.Id.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

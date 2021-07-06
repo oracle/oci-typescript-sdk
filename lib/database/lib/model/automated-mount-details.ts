@@ -43,4 +43,17 @@ export namespace AutomatedMountDetails {
     return jsonObj;
   }
   export const mountType = "AUTOMATED_MOUNT";
+  export function getDeserializedJsonObj(
+    obj: AutomatedMountDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.MountTypeDetails.getDeserializedJsonObj(obj) as AutomatedMountDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

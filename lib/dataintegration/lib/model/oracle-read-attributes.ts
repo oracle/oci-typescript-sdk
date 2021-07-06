@@ -30,4 +30,9 @@ export namespace OracleReadAttributes {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: OracleReadAttributes): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

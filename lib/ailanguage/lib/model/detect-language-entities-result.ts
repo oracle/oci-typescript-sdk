@@ -42,4 +42,18 @@ export namespace DetectLanguageEntitiesResult {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DetectLanguageEntitiesResult): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "entities": obj.entities
+          ? obj.entities.map(item => {
+              return model.Entity.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

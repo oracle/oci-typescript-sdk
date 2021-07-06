@@ -55,4 +55,9 @@ export namespace DeleteLogAnalyticsAssociation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeleteLogAnalyticsAssociation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

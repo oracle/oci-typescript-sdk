@@ -35,4 +35,9 @@ export namespace AutonomousDatabaseConsoleTokenDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutonomousDatabaseConsoleTokenDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

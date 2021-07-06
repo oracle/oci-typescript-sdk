@@ -125,4 +125,18 @@ export namespace Table {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Table): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "tableLimits": obj.tableLimits
+          ? model.TableLimits.getDeserializedJsonObj(obj.tableLimits)
+          : undefined,
+
+        "schema": obj.schema ? model.Schema.getDeserializedJsonObj(obj.schema) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -40,4 +40,19 @@ export namespace CreateDataTransferMediumDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateDataTransferMediumDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "databaseLinkDetails": obj.databaseLinkDetails
+          ? model.CreateDatabaseLinkDetails.getDeserializedJsonObj(obj.databaseLinkDetails)
+          : undefined,
+        "objectStorageDetails": obj.objectStorageDetails
+          ? model.CreateObjectStoreBucket.getDeserializedJsonObj(obj.objectStorageDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

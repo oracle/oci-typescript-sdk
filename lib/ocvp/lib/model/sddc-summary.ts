@@ -129,4 +129,9 @@ export namespace SddcSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SddcSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

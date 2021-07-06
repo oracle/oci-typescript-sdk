@@ -106,4 +106,18 @@ export namespace WorkRequest {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WorkRequest): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "errorDetails": obj.errorDetails
+          ? obj.errorDetails.map(item => {
+              return model.WorkRequestError.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

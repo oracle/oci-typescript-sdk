@@ -38,4 +38,14 @@ export namespace SecretReuseRule {
     return jsonObj;
   }
   export const ruleType = "SECRET_REUSE_RULE";
+  export function getDeserializedJsonObj(obj: SecretReuseRule, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.SecretRule.getDeserializedJsonObj(obj) as SecretReuseRule)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

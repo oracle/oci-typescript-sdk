@@ -39,4 +39,18 @@ export namespace RecommendationSummaryCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RecommendationSummaryCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.RecommendationSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

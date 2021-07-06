@@ -47,4 +47,17 @@ export namespace AttachIScsiVolumeDetails {
     return jsonObj;
   }
   export const type = "iscsi";
+  export function getDeserializedJsonObj(
+    obj: AttachIScsiVolumeDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AttachVolumeDetails.getDeserializedJsonObj(obj) as AttachIScsiVolumeDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

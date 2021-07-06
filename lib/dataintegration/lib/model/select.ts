@@ -46,4 +46,18 @@ export namespace Select {
     return jsonObj;
   }
   export const modelType = "SELECT";
+  export function getDeserializedJsonObj(obj: Select, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.PushDownOperation.getDeserializedJsonObj(obj) as Select)),
+      ...{
+        "selectColumns": obj.selectColumns
+          ? obj.selectColumns.map(item => {
+              return model.ShapeField.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -42,4 +42,14 @@ export namespace PreparedStatement {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PreparedStatement): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "usage": obj.usage ? model.RequestUsage.getDeserializedJsonObj(obj.usage) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

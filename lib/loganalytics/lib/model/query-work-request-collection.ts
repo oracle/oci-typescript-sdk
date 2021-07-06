@@ -42,4 +42,18 @@ export namespace QueryWorkRequestCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: QueryWorkRequestCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.QueryWorkRequestSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

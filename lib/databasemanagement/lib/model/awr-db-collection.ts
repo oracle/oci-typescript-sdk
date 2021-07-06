@@ -45,4 +45,20 @@ export namespace AwrDbCollection {
     return jsonObj;
   }
   export const awrResultType = "AWRDB_SET";
+  export function getDeserializedJsonObj(obj: AwrDbCollection, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AwrQueryResult.getDeserializedJsonObj(obj) as AwrDbCollection)),
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.AwrDbSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

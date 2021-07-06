@@ -42,4 +42,9 @@ export namespace PropertyDefinition {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PropertyDefinition): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

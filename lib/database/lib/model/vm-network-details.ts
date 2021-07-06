@@ -71,4 +71,18 @@ export namespace VmNetworkDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VmNetworkDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "nodes": obj.nodes
+          ? obj.nodes.map(item => {
+              return model.NodeDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

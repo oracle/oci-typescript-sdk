@@ -82,4 +82,22 @@ export namespace TypeSystem {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TypeSystem): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "types": obj.types
+          ? obj.types.map(item => {
+              return model.DataType.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

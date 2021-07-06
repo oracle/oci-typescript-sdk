@@ -177,4 +177,9 @@ export namespace VolumeBackupSchedule {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VolumeBackupSchedule): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

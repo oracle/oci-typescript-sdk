@@ -52,4 +52,9 @@ export namespace CreateCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateCompartmentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

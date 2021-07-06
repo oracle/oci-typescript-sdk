@@ -43,4 +43,18 @@ export namespace IndexCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IndexCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.IndexSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

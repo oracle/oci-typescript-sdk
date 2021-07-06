@@ -42,4 +42,9 @@ export namespace ReportTypeSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ReportTypeSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

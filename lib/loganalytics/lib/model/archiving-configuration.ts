@@ -41,4 +41,9 @@ export namespace ArchivingConfiguration {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ArchivingConfiguration): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

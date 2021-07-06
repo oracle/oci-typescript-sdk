@@ -36,4 +36,17 @@ export namespace UnifiedAgentApacheErrorParser {
     return jsonObj;
   }
   export const parserType = "APACHE_ERROR";
+  export function getDeserializedJsonObj(
+    obj: UnifiedAgentApacheErrorParser,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UnifiedAgentParser.getDeserializedJsonObj(obj) as UnifiedAgentApacheErrorParser)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

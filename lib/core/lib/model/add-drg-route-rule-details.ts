@@ -59,4 +59,9 @@ export namespace AddDrgRouteRuleDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AddDrgRouteRuleDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

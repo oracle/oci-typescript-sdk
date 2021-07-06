@@ -57,4 +57,18 @@ export namespace ExadataIormConfigUpdateDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExadataIormConfigUpdateDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dbPlans": obj.dbPlans
+          ? obj.dbPlans.map(item => {
+              return model.DbIormConfigUpdateDetail.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

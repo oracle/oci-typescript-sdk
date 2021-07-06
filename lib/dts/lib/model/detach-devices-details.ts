@@ -27,4 +27,9 @@ export namespace DetachDevicesDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DetachDevicesDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

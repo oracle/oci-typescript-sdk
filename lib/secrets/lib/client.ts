@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
@@ -154,7 +154,8 @@ export class SecretsClient {
         responseObject: <responses.GetSecretBundleResponse>{},
         body: await response.json(),
         bodyKey: "secretBundle",
-        bodyModel: "model.SecretBundle",
+        bodyModel: model.SecretBundle,
+        type: "model.SecretBundle",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -223,7 +224,8 @@ export class SecretsClient {
         responseObject: <responses.GetSecretBundleByNameResponse>{},
         body: await response.json(),
         bodyKey: "secretBundle",
-        bodyModel: "model.SecretBundle",
+        bodyModel: model.SecretBundle,
+        type: "model.SecretBundle",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -286,7 +288,8 @@ export class SecretsClient {
         responseObject: <responses.ListSecretBundleVersionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "SecretBundleVersionSummary[]",
+        bodyModel: model.SecretBundleVersionSummary,
+        type: "Array<model.SecretBundleVersionSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -316,7 +319,7 @@ export class SecretsClient {
    */
   public listAllSecretBundleVersions(
     request: requests.ListSecretBundleVersionsRequest
-  ): AsyncIterableIterator<models.SecretBundleVersionSummary> {
+  ): AsyncIterableIterator<model.SecretBundleVersionSummary> {
     return paginateRecords(request, req => this.listSecretBundleVersions(req));
   }
 

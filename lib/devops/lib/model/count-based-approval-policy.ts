@@ -38,4 +38,17 @@ export namespace CountBasedApprovalPolicy {
     return jsonObj;
   }
   export const approvalPolicyType = "COUNT_BASED_APPROVAL";
+  export function getDeserializedJsonObj(
+    obj: CountBasedApprovalPolicy,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ApprovalPolicy.getDeserializedJsonObj(obj) as CountBasedApprovalPolicy)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

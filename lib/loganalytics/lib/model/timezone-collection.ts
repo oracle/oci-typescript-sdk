@@ -31,4 +31,9 @@ export namespace TimezoneCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TimezoneCollection): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

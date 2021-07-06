@@ -97,4 +97,18 @@ export namespace MetricDataDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MetricDataDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "datapoints": obj.datapoints
+          ? obj.datapoints.map(item => {
+              return model.Datapoint.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

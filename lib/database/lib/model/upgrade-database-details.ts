@@ -49,4 +49,16 @@ export namespace UpgradeDatabaseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpgradeDatabaseDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "databaseUpgradeSourceDetails": obj.databaseUpgradeSourceDetails
+          ? model.DatabaseUpgradeSourceBase.getDeserializedJsonObj(obj.databaseUpgradeSourceDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

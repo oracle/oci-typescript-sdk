@@ -39,4 +39,18 @@ export namespace PrivateApplicationCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PrivateApplicationCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.PrivateApplicationSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

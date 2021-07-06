@@ -138,4 +138,16 @@ export namespace Stack {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Stack): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "configSource": obj.configSource
+          ? model.ConfigSource.getDeserializedJsonObj(obj.configSource)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

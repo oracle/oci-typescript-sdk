@@ -49,4 +49,19 @@ export namespace BooleanImageCapabilitySchemaDescriptor {
     return jsonObj;
   }
   export const descriptorType = "boolean";
+  export function getDeserializedJsonObj(
+    obj: BooleanImageCapabilitySchemaDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ImageCapabilitySchemaDescriptor.getDeserializedJsonObj(
+            obj
+          ) as BooleanImageCapabilitySchemaDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

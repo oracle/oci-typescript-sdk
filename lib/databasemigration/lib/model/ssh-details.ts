@@ -42,4 +42,9 @@ export namespace SshDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SshDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

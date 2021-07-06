@@ -44,4 +44,19 @@ export namespace FieldSummaryCommandDescriptor {
     return jsonObj;
   }
   export const name = "FIELD_SUMMARY";
+  export function getDeserializedJsonObj(
+    obj: FieldSummaryCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(
+            obj
+          ) as FieldSummaryCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

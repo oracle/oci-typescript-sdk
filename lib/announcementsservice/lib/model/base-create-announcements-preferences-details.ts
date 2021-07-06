@@ -66,4 +66,25 @@ export namespace BaseCreateAnnouncementsPreferencesDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BaseCreateAnnouncementsPreferencesDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "CreateAnnouncementsPreferencesDetails":
+          return model.CreateAnnouncementsPreferencesDetails.getDeserializedJsonObj(
+            <model.CreateAnnouncementsPreferencesDetails>(<object>jsonObj),
+            true
+          );
+        case "UpdateAnnouncementsPreferencesDetails":
+          return model.UpdateAnnouncementsPreferencesDetails.getDeserializedJsonObj(
+            <model.UpdateAnnouncementsPreferencesDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

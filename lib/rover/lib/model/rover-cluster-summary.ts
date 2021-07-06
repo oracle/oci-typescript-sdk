@@ -75,4 +75,9 @@ export namespace RoverClusterSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RoverClusterSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

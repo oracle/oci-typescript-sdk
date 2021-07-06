@@ -70,4 +70,9 @@ export namespace DataAssetSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DataAssetSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

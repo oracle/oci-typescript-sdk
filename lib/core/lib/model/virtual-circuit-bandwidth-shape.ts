@@ -46,4 +46,9 @@ export namespace VirtualCircuitBandwidthShape {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VirtualCircuitBandwidthShape): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

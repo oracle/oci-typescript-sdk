@@ -113,4 +113,9 @@ export namespace VaultSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VaultSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

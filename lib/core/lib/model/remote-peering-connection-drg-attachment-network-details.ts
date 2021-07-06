@@ -44,4 +44,19 @@ export namespace RemotePeeringConnectionDrgAttachmentNetworkDetails {
     return jsonObj;
   }
   export const type = "REMOTE_PEERING_CONNECTION";
+  export function getDeserializedJsonObj(
+    obj: RemotePeeringConnectionDrgAttachmentNetworkDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DrgAttachmentNetworkDetails.getDeserializedJsonObj(
+            obj
+          ) as RemotePeeringConnectionDrgAttachmentNetworkDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -101,4 +101,16 @@ export namespace LogSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "configuration": obj.configuration
+          ? model.Configuration.getDeserializedJsonObj(obj.configuration)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

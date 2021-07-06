@@ -50,7 +50,10 @@ export enum Region {
 }
 
 export namespace Region {
-  export function getJsonObj(obj: Region): object {
-    return { obj };
+  export function getJsonObj(obj: Region): Region {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: Region): Region {
+    return obj;
   }
 }

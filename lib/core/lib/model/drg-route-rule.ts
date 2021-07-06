@@ -128,4 +128,9 @@ export namespace DrgRouteRule {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DrgRouteRule): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

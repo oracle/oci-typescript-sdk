@@ -201,4 +201,48 @@ export namespace LoadBalancer {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LoadBalancer): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "ipAddresses": obj.ipAddresses
+          ? obj.ipAddresses.map(item => {
+              return model.IpAddress.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "shapeDetails": obj.shapeDetails
+          ? model.ShapeDetails.getDeserializedJsonObj(obj.shapeDetails)
+          : undefined,
+
+        "listeners": obj.listeners
+          ? common.mapContainer(obj.listeners, model.Listener.getDeserializedJsonObj)
+          : undefined,
+        "hostnames": obj.hostnames
+          ? common.mapContainer(obj.hostnames, model.Hostname.getDeserializedJsonObj)
+          : undefined,
+        "sslCipherSuites": obj.sslCipherSuites
+          ? common.mapContainer(obj.sslCipherSuites, model.SSLCipherSuite.getDeserializedJsonObj)
+          : undefined,
+        "certificates": obj.certificates
+          ? common.mapContainer(obj.certificates, model.Certificate.getDeserializedJsonObj)
+          : undefined,
+        "backendSets": obj.backendSets
+          ? common.mapContainer(obj.backendSets, model.BackendSet.getDeserializedJsonObj)
+          : undefined,
+        "pathRouteSets": obj.pathRouteSets
+          ? common.mapContainer(obj.pathRouteSets, model.PathRouteSet.getDeserializedJsonObj)
+          : undefined,
+
+        "ruleSets": obj.ruleSets
+          ? common.mapContainer(obj.ruleSets, model.RuleSet.getDeserializedJsonObj)
+          : undefined,
+        "routingPolicies": obj.routingPolicies
+          ? common.mapContainer(obj.routingPolicies, model.RoutingPolicy.getDeserializedJsonObj)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

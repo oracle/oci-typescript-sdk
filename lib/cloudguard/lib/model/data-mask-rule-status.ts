@@ -29,7 +29,10 @@ export enum DataMaskRuleStatus {
 }
 
 export namespace DataMaskRuleStatus {
-  export function getJsonObj(obj: DataMaskRuleStatus): object {
-    return { obj };
+  export function getJsonObj(obj: DataMaskRuleStatus): DataMaskRuleStatus {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: DataMaskRuleStatus): DataMaskRuleStatus {
+    return obj;
   }
 }

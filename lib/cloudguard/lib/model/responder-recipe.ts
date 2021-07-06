@@ -109,4 +109,23 @@ export namespace ResponderRecipe {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResponderRecipe): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "responderRules": obj.responderRules
+          ? obj.responderRules.map(item => {
+              return model.ResponderRecipeResponderRule.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "effectiveResponderRules": obj.effectiveResponderRules
+          ? obj.effectiveResponderRules.map(item => {
+              return model.ResponderRecipeResponderRule.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

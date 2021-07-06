@@ -77,4 +77,9 @@ export namespace VerifyDataDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VerifyDataDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

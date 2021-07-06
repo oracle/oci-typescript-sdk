@@ -34,4 +34,9 @@ export namespace WorkRequestLog {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WorkRequestLog): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

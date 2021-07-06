@@ -50,4 +50,9 @@ export namespace SSECustomerKeyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SSECustomerKeyDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

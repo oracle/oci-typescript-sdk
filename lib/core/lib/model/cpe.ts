@@ -99,4 +99,9 @@ export namespace Cpe {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Cpe): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

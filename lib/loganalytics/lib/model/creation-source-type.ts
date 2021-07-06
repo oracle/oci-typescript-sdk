@@ -33,7 +33,10 @@ export enum CreationSourceType {
 }
 
 export namespace CreationSourceType {
-  export function getJsonObj(obj: CreationSourceType): object {
-    return { obj };
+  export function getJsonObj(obj: CreationSourceType): CreationSourceType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: CreationSourceType): CreationSourceType {
+    return obj;
   }
 }

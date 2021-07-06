@@ -57,4 +57,9 @@ export namespace CreateModelDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateModelDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

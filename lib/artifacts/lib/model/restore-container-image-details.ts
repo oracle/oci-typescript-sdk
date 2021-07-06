@@ -32,4 +32,9 @@ export namespace RestoreContainerImageDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RestoreContainerImageDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

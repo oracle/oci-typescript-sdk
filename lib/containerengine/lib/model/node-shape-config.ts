@@ -40,4 +40,9 @@ export namespace NodeShapeConfig {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NodeShapeConfig): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

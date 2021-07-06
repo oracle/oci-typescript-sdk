@@ -86,4 +86,41 @@ export namespace PublishedObjectSummary {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PublishedObjectSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "metadata": obj.metadata
+          ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined
+      }
+    };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "PIPELINE_TASK":
+          return model.PublishedObjectFromPipelineTaskSummary.getDeserializedJsonObj(
+            <model.PublishedObjectFromPipelineTaskSummary>(<object>jsonObj),
+            true
+          );
+        case "INTEGRATION_TASK":
+          return model.PublishedObjectSummaryFromIntegrationTask.getDeserializedJsonObj(
+            <model.PublishedObjectSummaryFromIntegrationTask>(<object>jsonObj),
+            true
+          );
+        case "DATA_LOADER_TASK":
+          return model.PublishedObjectSummaryFromDataLoaderTask.getDeserializedJsonObj(
+            <model.PublishedObjectSummaryFromDataLoaderTask>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

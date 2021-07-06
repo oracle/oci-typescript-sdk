@@ -71,4 +71,17 @@ export namespace PathMatchCondition {
     return jsonObj;
   }
   export const attributeName = "PATH";
+  export function getDeserializedJsonObj(
+    obj: PathMatchCondition,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.RuleCondition.getDeserializedJsonObj(obj) as PathMatchCondition)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

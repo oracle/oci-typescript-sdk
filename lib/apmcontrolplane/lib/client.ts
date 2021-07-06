@@ -15,7 +15,7 @@ work request APIs to monitor progress of these operations.
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { ApmDomainWaiter } from "./apmdomain-waiter";
@@ -170,7 +170,7 @@ export class ApmDomainClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeApmDomainCompartmentRequest.changeApmDomainCompartmentDetails,
         "ChangeApmDomainCompartmentDetails",
-        models.ChangeApmDomainCompartmentDetails.getJsonObj
+        model.ChangeApmDomainCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -235,7 +235,7 @@ export class ApmDomainClient {
       bodyContent: common.ObjectSerializer.serialize(
         createApmDomainRequest.createApmDomainDetails,
         "CreateApmDomainDetails",
-        models.CreateApmDomainDetails.getJsonObj
+        model.CreateApmDomainDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -367,7 +367,7 @@ export class ApmDomainClient {
       bodyContent: common.ObjectSerializer.serialize(
         generateDataKeysRequest.generateDataKeysListDetails,
         "Array<model.GenerateDataKeyDetails>",
-        models.GenerateDataKeyDetails.getJsonObj
+        model.GenerateDataKeyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -439,7 +439,8 @@ export class ApmDomainClient {
         responseObject: <responses.GetApmDomainResponse>{},
         body: await response.json(),
         bodyKey: "apmDomain",
-        bodyModel: "model.ApmDomain",
+        bodyModel: model.ApmDomain,
+        type: "model.ApmDomain",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -502,7 +503,8 @@ export class ApmDomainClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -572,7 +574,8 @@ export class ApmDomainClient {
         responseObject: <responses.ListApmDomainWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequest[]",
+        bodyModel: model.WorkRequest,
+        type: "Array<model.WorkRequest>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -642,7 +645,8 @@ export class ApmDomainClient {
         responseObject: <responses.ListApmDomainsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ApmDomainSummary[]",
+        bodyModel: model.ApmDomainSummary,
+        type: "Array<model.ApmDomainSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -672,7 +676,7 @@ export class ApmDomainClient {
    */
   public listAllApmDomains(
     request: requests.ListApmDomainsRequest
-  ): AsyncIterableIterator<models.ApmDomainSummary> {
+  ): AsyncIterableIterator<model.ApmDomainSummary> {
     return paginateRecords(request, req => this.listApmDomains(req));
   }
 
@@ -734,7 +738,8 @@ export class ApmDomainClient {
         responseObject: <responses.ListDataKeysResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DataKeySummary[]",
+        bodyModel: model.DataKeySummary,
+        type: "Array<model.DataKeySummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -796,7 +801,8 @@ export class ApmDomainClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestError[]",
+        bodyModel: model.WorkRequestError,
+        type: "Array<model.WorkRequestError>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -826,7 +832,7 @@ export class ApmDomainClient {
    */
   public listAllWorkRequestErrors(
     request: requests.ListWorkRequestErrorsRequest
-  ): AsyncIterableIterator<models.WorkRequestError> {
+  ): AsyncIterableIterator<model.WorkRequestError> {
     return paginateRecords(request, req => this.listWorkRequestErrors(req));
   }
 
@@ -888,7 +894,8 @@ export class ApmDomainClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestLogEntry[]",
+        bodyModel: model.WorkRequestLogEntry,
+        type: "Array<model.WorkRequestLogEntry>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -918,7 +925,7 @@ export class ApmDomainClient {
    */
   public listAllWorkRequestLogs(
     request: requests.ListWorkRequestLogsRequest
-  ): AsyncIterableIterator<models.WorkRequestLogEntry> {
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
     return paginateRecords(request, req => this.listWorkRequestLogs(req));
   }
 
@@ -979,7 +986,8 @@ export class ApmDomainClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequest[]",
+        bodyModel: model.WorkRequest,
+        type: "Array<model.WorkRequest>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1009,7 +1017,7 @@ export class ApmDomainClient {
    */
   public listAllWorkRequests(
     request: requests.ListWorkRequestsRequest
-  ): AsyncIterableIterator<models.WorkRequest> {
+  ): AsyncIterableIterator<model.WorkRequest> {
     return paginateRecords(request, req => this.listWorkRequests(req));
   }
 
@@ -1063,7 +1071,7 @@ export class ApmDomainClient {
       bodyContent: common.ObjectSerializer.serialize(
         removeDataKeysRequest.removeDataKeysListDetails,
         "Array<model.RemoveDataKeyDetails>",
-        models.RemoveDataKeyDetails.getJsonObj
+        model.RemoveDataKeyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1129,7 +1137,7 @@ export class ApmDomainClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateApmDomainRequest.updateApmDomainDetails,
         "UpdateApmDomainDetails",
-        models.UpdateApmDomainDetails.getJsonObj
+        model.UpdateApmDomainDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,

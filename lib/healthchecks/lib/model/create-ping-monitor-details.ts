@@ -83,4 +83,9 @@ export namespace CreatePingMonitorDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreatePingMonitorDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

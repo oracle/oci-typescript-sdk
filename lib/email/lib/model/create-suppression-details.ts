@@ -43,4 +43,9 @@ export namespace CreateSuppressionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateSuppressionDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

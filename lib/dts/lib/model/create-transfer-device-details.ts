@@ -25,4 +25,9 @@ export namespace CreateTransferDeviceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateTransferDeviceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

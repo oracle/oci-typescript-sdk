@@ -131,4 +131,37 @@ export namespace NodePool {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NodePool): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "nodeShapeConfig": obj.nodeShapeConfig
+          ? model.NodeShapeConfig.getDeserializedJsonObj(obj.nodeShapeConfig)
+          : undefined,
+        "nodeSource": obj.nodeSource
+          ? model.NodeSourceOption.getDeserializedJsonObj(obj.nodeSource)
+          : undefined,
+        "nodeSourceDetails": obj.nodeSourceDetails
+          ? model.NodeSourceDetails.getDeserializedJsonObj(obj.nodeSourceDetails)
+          : undefined,
+
+        "initialNodeLabels": obj.initialNodeLabels
+          ? obj.initialNodeLabels.map(item => {
+              return model.KeyValue.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "nodes": obj.nodes
+          ? obj.nodes.map(item => {
+              return model.Node.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "nodeConfigDetails": obj.nodeConfigDetails
+          ? model.NodePoolNodeConfigDetails.getDeserializedJsonObj(obj.nodeConfigDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -58,4 +58,16 @@ export namespace UpdateDrgDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDrgDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "defaultDrgRouteTables": obj.defaultDrgRouteTables
+          ? model.DefaultDrgRouteTables.getDeserializedJsonObj(obj.defaultDrgRouteTables)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -93,4 +93,16 @@ export namespace CreateImageDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateImageDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "imageSourceDetails": obj.imageSourceDetails
+          ? model.ImageSourceDetails.getDeserializedJsonObj(obj.imageSourceDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -70,4 +70,16 @@ export namespace UpdateApplicationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateApplicationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "traceConfig": obj.traceConfig
+          ? model.ApplicationTraceConfig.getDeserializedJsonObj(obj.traceConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

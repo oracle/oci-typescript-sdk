@@ -30,7 +30,10 @@ export enum ListingType {
 }
 
 export namespace ListingType {
-  export function getJsonObj(obj: ListingType): object {
-    return { obj };
+  export function getJsonObj(obj: ListingType): ListingType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ListingType): ListingType {
+    return obj;
   }
 }

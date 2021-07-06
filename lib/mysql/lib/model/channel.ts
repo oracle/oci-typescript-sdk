@@ -100,4 +100,15 @@ export namespace Channel {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Channel): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "source": obj.source ? model.ChannelSource.getDeserializedJsonObj(obj.source) : undefined,
+        "target": obj.target ? model.ChannelTarget.getDeserializedJsonObj(obj.target) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

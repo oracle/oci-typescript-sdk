@@ -38,4 +38,9 @@ export namespace ScopeFilter {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ScopeFilter): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

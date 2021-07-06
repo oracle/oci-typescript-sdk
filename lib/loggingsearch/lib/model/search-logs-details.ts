@@ -48,4 +48,9 @@ export namespace SearchLogsDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SearchLogsDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

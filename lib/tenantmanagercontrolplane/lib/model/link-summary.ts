@@ -54,4 +54,9 @@ export namespace LinkSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LinkSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

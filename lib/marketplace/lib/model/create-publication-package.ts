@@ -60,4 +60,32 @@ export namespace CreatePublicationPackage {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreatePublicationPackage): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "operatingSystem": obj.operatingSystem
+          ? model.OperatingSystem.getDeserializedJsonObj(obj.operatingSystem)
+          : undefined,
+        "eula": obj.eula
+          ? obj.eula.map(item => {
+              return model.Eula.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    if ("packageType" in obj && obj.packageType) {
+      switch (obj.packageType) {
+        case "IMAGE":
+          return model.CreateImagePublicationPackage.getDeserializedJsonObj(
+            <model.CreateImagePublicationPackage>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.packageType);
+      }
+    }
+    return jsonObj;
+  }
 }

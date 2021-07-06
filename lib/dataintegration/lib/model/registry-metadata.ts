@@ -46,4 +46,9 @@ export namespace RegistryMetadata {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RegistryMetadata): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

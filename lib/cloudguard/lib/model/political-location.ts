@@ -38,4 +38,9 @@ export namespace PoliticalLocation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PoliticalLocation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

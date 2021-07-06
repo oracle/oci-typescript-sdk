@@ -15,7 +15,7 @@ Use this API to put and get generic artifact content.
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 
@@ -26,7 +26,8 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 export enum GenericArtifactsContentApiKeys {}
 
 export class GenericArtifactsContentClient {
-  protected static serviceEndpointTemplate = "https://generic.{region}.ocir.io";
+  protected static serviceEndpointTemplate =
+    "https://generic.artifacts.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -294,7 +295,8 @@ export class GenericArtifactsContentClient {
         responseObject: <responses.PutGenericArtifactContentByPathResponse>{},
         body: await response.json(),
         bodyKey: "genericArtifact",
-        bodyModel: "model.GenericArtifact",
+        bodyModel: model.GenericArtifact,
+        type: "model.GenericArtifact",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

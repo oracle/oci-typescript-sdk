@@ -54,4 +54,23 @@ export namespace DataAssetSummaryFromObjectStorage {
     return jsonObj;
   }
   export const modelType = "ORACLE_OBJECT_STORAGE_DATA_ASSET";
+  export function getDeserializedJsonObj(
+    obj: DataAssetSummaryFromObjectStorage,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DataAssetSummary.getDeserializedJsonObj(
+            obj
+          ) as DataAssetSummaryFromObjectStorage)),
+      ...{
+        "defaultConnection": obj.defaultConnection
+          ? model.ConnectionSummaryFromObjectStorage.getDeserializedJsonObj(obj.defaultConnection)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

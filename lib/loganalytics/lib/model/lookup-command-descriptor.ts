@@ -35,4 +35,17 @@ export namespace LookupCommandDescriptor {
     return jsonObj;
   }
   export const name = "LOOKUP";
+  export function getDeserializedJsonObj(
+    obj: LookupCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(obj) as LookupCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

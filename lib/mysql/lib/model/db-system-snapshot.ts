@@ -150,4 +150,25 @@ export namespace DbSystemSnapshot {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DbSystemSnapshot): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "backupPolicy": obj.backupPolicy
+          ? model.BackupPolicy.getDeserializedJsonObj(obj.backupPolicy)
+          : undefined,
+
+        "endpoints": obj.endpoints
+          ? obj.endpoints.map(item => {
+              return model.DbSystemEndpoint.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "maintenance": obj.maintenance
+          ? model.MaintenanceDetails.getDeserializedJsonObj(obj.maintenance)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

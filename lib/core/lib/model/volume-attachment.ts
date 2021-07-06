@@ -162,4 +162,30 @@ export namespace VolumeAttachment {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VolumeAttachment): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("attachmentType" in obj && obj.attachmentType) {
+      switch (obj.attachmentType) {
+        case "iscsi":
+          return model.IScsiVolumeAttachment.getDeserializedJsonObj(
+            <model.IScsiVolumeAttachment>(<object>jsonObj),
+            true
+          );
+        case "emulated":
+          return model.EmulatedVolumeAttachment.getDeserializedJsonObj(
+            <model.EmulatedVolumeAttachment>(<object>jsonObj),
+            true
+          );
+        case "paravirtualized":
+          return model.ParavirtualizedVolumeAttachment.getDeserializedJsonObj(
+            <model.ParavirtualizedVolumeAttachment>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.attachmentType);
+      }
+    }
+    return jsonObj;
+  }
 }

@@ -35,4 +35,17 @@ export namespace WhereCommandDescriptor {
     return jsonObj;
   }
   export const name = "WHERE";
+  export function getDeserializedJsonObj(
+    obj: WhereCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(obj) as WhereCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

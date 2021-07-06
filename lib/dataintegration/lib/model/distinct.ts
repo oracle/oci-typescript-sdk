@@ -31,4 +31,12 @@ export namespace Distinct {
     return jsonObj;
   }
   export const modelType = "DISTINCT_OPERATOR";
+  export function getDeserializedJsonObj(obj: Distinct, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Operator.getDeserializedJsonObj(obj) as Distinct)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -36,4 +36,14 @@ export namespace PrivateEndpoint {
     return jsonObj;
   }
   export const connectionType = "PRIVATE_ENDPOINT";
+  export function getDeserializedJsonObj(obj: PrivateEndpoint, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ConnectionOption.getDeserializedJsonObj(obj) as PrivateEndpoint)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

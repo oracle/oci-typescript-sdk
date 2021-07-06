@@ -34,4 +34,17 @@ export namespace IPHashLoadBalancingMethod {
     return jsonObj;
   }
   export const method = "IP_HASH";
+  export function getDeserializedJsonObj(
+    obj: IPHashLoadBalancingMethod,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.LoadBalancingMethod.getDeserializedJsonObj(obj) as IPHashLoadBalancingMethod)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

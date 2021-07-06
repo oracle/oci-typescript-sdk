@@ -61,4 +61,9 @@ export namespace AwrDbParameterSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AwrDbParameterSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

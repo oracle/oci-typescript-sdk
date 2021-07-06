@@ -39,4 +39,18 @@ export namespace ListenerCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ListenerCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ListenerSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

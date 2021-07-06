@@ -38,4 +38,17 @@ export namespace ConnectionSummaryFromMySQL {
     return jsonObj;
   }
   export const modelType = "MYSQL_CONNECTION";
+  export function getDeserializedJsonObj(
+    obj: ConnectionSummaryFromMySQL,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ConnectionSummary.getDeserializedJsonObj(obj) as ConnectionSummaryFromMySQL)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

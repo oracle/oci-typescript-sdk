@@ -80,4 +80,25 @@ export namespace ExportImageDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExportImageDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("destinationType" in obj && obj.destinationType) {
+      switch (obj.destinationType) {
+        case "objectStorageUri":
+          return model.ExportImageViaObjectStorageUriDetails.getDeserializedJsonObj(
+            <model.ExportImageViaObjectStorageUriDetails>(<object>jsonObj),
+            true
+          );
+        case "objectStorageTuple":
+          return model.ExportImageViaObjectStorageTupleDetails.getDeserializedJsonObj(
+            <model.ExportImageViaObjectStorageTupleDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.destinationType);
+      }
+    }
+    return jsonObj;
+  }
 }

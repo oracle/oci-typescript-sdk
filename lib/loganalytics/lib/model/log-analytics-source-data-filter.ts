@@ -98,4 +98,9 @@ export namespace LogAnalyticsSourceDataFilter {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsSourceDataFilter): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

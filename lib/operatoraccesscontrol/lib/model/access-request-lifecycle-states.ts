@@ -51,7 +51,12 @@ export enum AccessRequestLifecycleStates {
 }
 
 export namespace AccessRequestLifecycleStates {
-  export function getJsonObj(obj: AccessRequestLifecycleStates): object {
-    return { obj };
+  export function getJsonObj(obj: AccessRequestLifecycleStates): AccessRequestLifecycleStates {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: AccessRequestLifecycleStates
+  ): AccessRequestLifecycleStates {
+    return obj;
   }
 }

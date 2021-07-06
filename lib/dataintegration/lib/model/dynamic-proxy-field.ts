@@ -45,4 +45,19 @@ export namespace DynamicProxyField {
     return jsonObj;
   }
   export const modelType = "DYNAMIC_PROXY_FIELD";
+  export function getDeserializedJsonObj(
+    obj: DynamicProxyField,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.TypedObject.getDeserializedJsonObj(obj) as DynamicProxyField)),
+      ...{
+        "type": obj.type ? model.BaseType.getDeserializedJsonObj(obj.type) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -131,4 +131,20 @@ export namespace IdentityProvider {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IdentityProvider): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("protocol" in obj && obj.protocol) {
+      switch (obj.protocol) {
+        case "SAML2":
+          return model.Saml2IdentityProvider.getDeserializedJsonObj(
+            <model.Saml2IdentityProvider>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.protocol);
+      }
+    }
+    return jsonObj;
+  }
 }

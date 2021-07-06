@@ -40,4 +40,20 @@ export namespace Action {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Action): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("name" in obj && obj.name) {
+      switch (obj.name) {
+        case "FORWARD_TO_BACKENDSET":
+          return model.ForwardToBackendSet.getDeserializedJsonObj(
+            <model.ForwardToBackendSet>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.name);
+      }
+    }
+    return jsonObj;
+  }
 }

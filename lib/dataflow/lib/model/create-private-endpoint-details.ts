@@ -80,4 +80,9 @@ export namespace CreatePrivateEndpointDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreatePrivateEndpointDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

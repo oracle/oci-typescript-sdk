@@ -119,4 +119,9 @@ export namespace JobExecution {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: JobExecution): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

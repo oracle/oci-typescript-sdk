@@ -30,4 +30,9 @@ export namespace SourceUpdateDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SourceUpdateDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

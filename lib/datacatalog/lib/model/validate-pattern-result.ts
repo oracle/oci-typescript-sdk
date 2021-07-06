@@ -51,4 +51,18 @@ export namespace ValidatePatternResult {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ValidatePatternResult): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "derivedLogicalEntities": obj.derivedLogicalEntities
+          ? obj.derivedLogicalEntities.map(item => {
+              return model.DerivedLogicalEntities.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

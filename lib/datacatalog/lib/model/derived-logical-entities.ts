@@ -38,4 +38,9 @@ export namespace DerivedLogicalEntities {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DerivedLogicalEntities): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

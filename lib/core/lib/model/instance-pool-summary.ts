@@ -97,4 +97,9 @@ export namespace InstancePoolSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstancePoolSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

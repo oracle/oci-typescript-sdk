@@ -33,7 +33,14 @@ export enum HeatWaveClusterMemoryEstimateStatus {
 }
 
 export namespace HeatWaveClusterMemoryEstimateStatus {
-  export function getJsonObj(obj: HeatWaveClusterMemoryEstimateStatus): object {
-    return { obj };
+  export function getJsonObj(
+    obj: HeatWaveClusterMemoryEstimateStatus
+  ): HeatWaveClusterMemoryEstimateStatus {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: HeatWaveClusterMemoryEstimateStatus
+  ): HeatWaveClusterMemoryEstimateStatus {
+    return obj;
   }
 }

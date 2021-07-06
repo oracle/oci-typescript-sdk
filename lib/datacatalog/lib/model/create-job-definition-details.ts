@@ -72,4 +72,9 @@ export namespace CreateJobDefinitionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateJobDefinitionDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

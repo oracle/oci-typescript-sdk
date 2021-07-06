@@ -91,4 +91,9 @@ export namespace TsigKeySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TsigKeySummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

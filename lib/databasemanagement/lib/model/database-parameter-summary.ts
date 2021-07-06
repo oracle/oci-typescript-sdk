@@ -199,4 +199,18 @@ export namespace DatabaseParameterSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseParameterSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "allowedValues": obj.allowedValues
+          ? obj.allowedValues.map(item => {
+              return model.AllowedParameterValue.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

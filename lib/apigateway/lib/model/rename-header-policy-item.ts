@@ -41,4 +41,9 @@ export namespace RenameHeaderPolicyItem {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RenameHeaderPolicyItem): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

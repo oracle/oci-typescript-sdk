@@ -58,4 +58,9 @@ export namespace ProtectionRuleExclusion {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ProtectionRuleExclusion): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

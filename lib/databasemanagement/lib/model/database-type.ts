@@ -32,7 +32,10 @@ export enum DatabaseType {
 }
 
 export namespace DatabaseType {
-  export function getJsonObj(obj: DatabaseType): object {
-    return { obj };
+  export function getJsonObj(obj: DatabaseType): DatabaseType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: DatabaseType): DatabaseType {
+    return obj;
   }
 }

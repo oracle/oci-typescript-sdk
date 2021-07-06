@@ -35,4 +35,9 @@ export namespace LogDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

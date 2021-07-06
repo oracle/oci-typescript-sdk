@@ -54,4 +54,19 @@ export namespace CreateExternalPublicationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateExternalPublicationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "resourceConfiguration": obj.resourceConfiguration
+          ? model.ResourceConfiguration.getDeserializedJsonObj(obj.resourceConfiguration)
+          : undefined,
+        "configurationDetails": obj.configurationDetails
+          ? model.ConfigurationDetails.getDeserializedJsonObj(obj.configurationDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

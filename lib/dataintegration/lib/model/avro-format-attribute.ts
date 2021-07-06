@@ -38,4 +38,17 @@ export namespace AvroFormatAttribute {
     return jsonObj;
   }
   export const modelType = "AVRO_FORMAT";
+  export function getDeserializedJsonObj(
+    obj: AvroFormatAttribute,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractFormatAttribute.getDeserializedJsonObj(obj) as AvroFormatAttribute)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

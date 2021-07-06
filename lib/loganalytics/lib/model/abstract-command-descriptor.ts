@@ -285,4 +285,239 @@ export namespace AbstractCommandDescriptor {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AbstractCommandDescriptor): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "referencedFields": obj.referencedFields
+          ? obj.referencedFields.map(item => {
+              return model.AbstractField.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "declaredFields": obj.declaredFields
+          ? obj.declaredFields.map(item => {
+              return model.AbstractField.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    if ("name" in obj && obj.name) {
+      switch (obj.name) {
+        case "TOP":
+          return model.TopCommandDescriptor.getDeserializedJsonObj(
+            <model.TopCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "HIGHLIGHT":
+          return model.HighlightCommandDescriptor.getDeserializedJsonObj(
+            <model.HighlightCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "MULTI_SEARCH":
+          return model.MultiSearchCommandDescriptor.getDeserializedJsonObj(
+            <model.MultiSearchCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "COMPARE":
+          return model.CompareCommandDescriptor.getDeserializedJsonObj(
+            <model.CompareCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "STATS":
+          return model.StatsCommandDescriptor.getDeserializedJsonObj(
+            <model.StatsCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "TIME_COMPARE":
+          return model.TimeCompareCommandDescriptor.getDeserializedJsonObj(
+            <model.TimeCompareCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "TAIL":
+          return model.TailCommandDescriptor.getDeserializedJsonObj(
+            <model.TailCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "REGEX":
+          return model.RegexCommandDescriptor.getDeserializedJsonObj(
+            <model.RegexCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "DELTA":
+          return model.DeltaCommandDescriptor.getDeserializedJsonObj(
+            <model.DeltaCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "LOOKUP":
+          return model.LookupCommandDescriptor.getDeserializedJsonObj(
+            <model.LookupCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "DEMO_MODE":
+          return model.DemoModeCommandDescriptor.getDeserializedJsonObj(
+            <model.DemoModeCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "FIELD_SUMMARY":
+          return model.FieldSummaryCommandDescriptor.getDeserializedJsonObj(
+            <model.FieldSummaryCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "MAP":
+          return model.MapCommandDescriptor.getDeserializedJsonObj(
+            <model.MapCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "EVENT_STATS":
+          return model.EventStatsCommandDescriptor.getDeserializedJsonObj(
+            <model.EventStatsCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "HIGHLIGHT_GROUPS":
+          return model.HighlightGroupsCommandDescriptor.getDeserializedJsonObj(
+            <model.HighlightGroupsCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "WHERE":
+          return model.WhereCommandDescriptor.getDeserializedJsonObj(
+            <model.WhereCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "CLUSTER_SPLIT":
+          return model.ClusterSplitCommandDescriptor.getDeserializedJsonObj(
+            <model.ClusterSplitCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "TIME_STATS":
+          return model.TimeStatsCommandDescriptor.getDeserializedJsonObj(
+            <model.TimeStatsCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "CLUSTER":
+          return model.ClusterCommandDescriptor.getDeserializedJsonObj(
+            <model.ClusterCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "CLUSTER_DETAILS":
+          return model.ClusterDetailsCommandDescriptor.getDeserializedJsonObj(
+            <model.ClusterDetailsCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "DELETE":
+          return model.DeleteCommandDescriptor.getDeserializedJsonObj(
+            <model.DeleteCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "CLUSTER_COMPARE":
+          return model.ClusterCompareCommandDescriptor.getDeserializedJsonObj(
+            <model.ClusterCompareCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "SEARCH":
+          return model.SearchCommandDescriptor.getDeserializedJsonObj(
+            <model.SearchCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "BUCKET":
+          return model.BucketCommandDescriptor.getDeserializedJsonObj(
+            <model.BucketCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "COMMAND":
+          return model.CommandDescriptor.getDeserializedJsonObj(
+            <model.CommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "DISTINCT":
+          return model.DistinctCommandDescriptor.getDeserializedJsonObj(
+            <model.DistinctCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "LINK":
+          return model.LinkCommandDescriptor.getDeserializedJsonObj(
+            <model.LinkCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "SORT":
+          return model.SortCommandDescriptor.getDeserializedJsonObj(
+            <model.SortCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "EXTRACT":
+          return model.ExtractCommandDescriptor.getDeserializedJsonObj(
+            <model.ExtractCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "NLP":
+          return model.NlpCommandDescriptor.getDeserializedJsonObj(
+            <model.NlpCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "BOTTOM":
+          return model.BottomCommandDescriptor.getDeserializedJsonObj(
+            <model.BottomCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "FIELDS":
+          return model.FieldsCommandDescriptor.getDeserializedJsonObj(
+            <model.FieldsCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "HIGHLIGHT_ROWS":
+          return model.HighlightRowsCommandDescriptor.getDeserializedJsonObj(
+            <model.HighlightRowsCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "MACRO":
+          return model.MacroCommandDescriptor.getDeserializedJsonObj(
+            <model.MacroCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "CLASSIFY":
+          return model.ClassifyCommandDescriptor.getDeserializedJsonObj(
+            <model.ClassifyCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "LINK_DETAILS":
+          return model.LinkDetailsCommandDescriptor.getDeserializedJsonObj(
+            <model.LinkDetailsCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "SEARCH_LOOKUP":
+          return model.SearchLookupCommandDescriptor.getDeserializedJsonObj(
+            <model.SearchLookupCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "HEAD":
+          return model.HeadCommandDescriptor.getDeserializedJsonObj(
+            <model.HeadCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "CREATE_VIEW":
+          return model.CreateViewCommandDescriptor.getDeserializedJsonObj(
+            <model.CreateViewCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "ADD_FIELDS":
+          return model.AddFieldsCommandDescriptor.getDeserializedJsonObj(
+            <model.AddFieldsCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "EVAL":
+          return model.EvalCommandDescriptor.getDeserializedJsonObj(
+            <model.EvalCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "RENAME":
+          return model.RenameCommandDescriptor.getDeserializedJsonObj(
+            <model.RenameCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.name);
+      }
+    }
+    return jsonObj;
+  }
 }

@@ -64,4 +64,9 @@ export namespace UpdateSoftwareSourceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateSoftwareSourceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -111,4 +111,16 @@ export namespace InstanceAgentCommandExecution {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceAgentCommandExecution): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "content": obj.content
+          ? model.InstanceAgentCommandExecutionOutputContent.getDeserializedJsonObj(obj.content)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

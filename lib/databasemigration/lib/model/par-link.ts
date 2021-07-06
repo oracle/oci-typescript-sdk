@@ -32,4 +32,9 @@ export namespace ParLink {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ParLink): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

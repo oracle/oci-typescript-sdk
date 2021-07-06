@@ -42,4 +42,16 @@ export namespace DeployPipelineArtifact {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeployPipelineArtifact): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "deployPipelineStages": obj.deployPipelineStages
+          ? model.DeployPipelineStageCollection.getDeserializedJsonObj(obj.deployPipelineStages)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

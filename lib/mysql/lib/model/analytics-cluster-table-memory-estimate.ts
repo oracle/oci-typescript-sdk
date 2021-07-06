@@ -63,4 +63,9 @@ export namespace AnalyticsClusterTableMemoryEstimate {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AnalyticsClusterTableMemoryEstimate): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

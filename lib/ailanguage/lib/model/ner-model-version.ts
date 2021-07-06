@@ -26,7 +26,10 @@ export enum NerModelVersion {
 }
 
 export namespace NerModelVersion {
-  export function getJsonObj(obj: NerModelVersion): object {
-    return { obj };
+  export function getJsonObj(obj: NerModelVersion): NerModelVersion {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: NerModelVersion): NerModelVersion {
+    return obj;
   }
 }

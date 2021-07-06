@@ -34,4 +34,9 @@ export namespace OsnSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: OsnSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

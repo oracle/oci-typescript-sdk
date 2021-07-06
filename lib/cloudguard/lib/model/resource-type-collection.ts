@@ -39,4 +39,18 @@ export namespace ResourceTypeCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResourceTypeCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ResourceTypeSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

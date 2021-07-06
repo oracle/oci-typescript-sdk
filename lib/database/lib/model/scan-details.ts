@@ -40,4 +40,9 @@ export namespace ScanDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ScanDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

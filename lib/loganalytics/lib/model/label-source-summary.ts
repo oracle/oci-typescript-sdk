@@ -55,4 +55,9 @@ export namespace LabelSourceSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LabelSourceSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

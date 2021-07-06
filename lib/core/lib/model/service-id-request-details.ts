@@ -33,4 +33,9 @@ export namespace ServiceIdRequestDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ServiceIdRequestDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

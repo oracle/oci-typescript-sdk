@@ -47,4 +47,18 @@ export namespace SpanLogCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SpanLogCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "spanLogs": obj.spanLogs
+          ? obj.spanLogs.map(item => {
+              return model.SpanLog.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -47,4 +47,9 @@ export namespace Forecast {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Forecast): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

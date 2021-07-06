@@ -46,4 +46,22 @@ export namespace QueryParameterTransformationPolicy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: QueryParameterTransformationPolicy): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "setQueryParameters": obj.setQueryParameters
+          ? model.SetQueryParameterPolicy.getDeserializedJsonObj(obj.setQueryParameters)
+          : undefined,
+        "renameQueryParameters": obj.renameQueryParameters
+          ? model.RenameQueryParameterPolicy.getDeserializedJsonObj(obj.renameQueryParameters)
+          : undefined,
+        "filterQueryParameters": obj.filterQueryParameters
+          ? model.FilterQueryParameterPolicy.getDeserializedJsonObj(obj.filterQueryParameters)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

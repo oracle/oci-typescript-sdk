@@ -109,4 +109,18 @@ export namespace RouteTable {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RouteTable): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "routeRules": obj.routeRules
+          ? obj.routeRules.map(item => {
+              return model.RouteRule.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

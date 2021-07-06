@@ -52,4 +52,18 @@ export namespace TunnelCpeDeviceConfig {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TunnelCpeDeviceConfig): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "tunnelCpeDeviceConfigParameter": obj.tunnelCpeDeviceConfigParameter
+          ? obj.tunnelCpeDeviceConfigParameter.map(item => {
+              return model.CpeDeviceConfigAnswer.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

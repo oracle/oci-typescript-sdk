@@ -91,4 +91,9 @@ export namespace CopyObjectDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CopyObjectDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

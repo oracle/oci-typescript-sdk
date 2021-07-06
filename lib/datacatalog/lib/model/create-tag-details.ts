@@ -36,4 +36,9 @@ export namespace CreateTagDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateTagDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

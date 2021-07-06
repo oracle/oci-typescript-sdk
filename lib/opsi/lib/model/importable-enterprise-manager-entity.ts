@@ -49,4 +49,9 @@ export namespace ImportableEnterpriseManagerEntity {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ImportableEnterpriseManagerEntity): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -113,4 +113,11 @@ export namespace CreateLogAnalyticsObjectCollectionRuleDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: CreateLogAnalyticsObjectCollectionRuleDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

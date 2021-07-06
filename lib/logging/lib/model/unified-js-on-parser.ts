@@ -45,4 +45,17 @@ export namespace UnifiedJSONParser {
     return jsonObj;
   }
   export const parserType = "JSON";
+  export function getDeserializedJsonObj(
+    obj: UnifiedJSONParser,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UnifiedAgentParser.getDeserializedJsonObj(obj) as UnifiedJSONParser)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -42,4 +42,9 @@ export namespace TableLimits {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TableLimits): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

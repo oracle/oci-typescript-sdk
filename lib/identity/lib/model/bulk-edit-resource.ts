@@ -36,4 +36,9 @@ export namespace BulkEditResource {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BulkEditResource): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

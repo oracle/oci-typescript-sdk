@@ -39,4 +39,18 @@ export namespace ManagedInstanceUsageCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ManagedInstanceUsageCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ManagedInstanceUsage.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

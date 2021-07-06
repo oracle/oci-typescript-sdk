@@ -36,7 +36,12 @@ export enum PrivateEndpointLifecycleState {
 }
 
 export namespace PrivateEndpointLifecycleState {
-  export function getJsonObj(obj: PrivateEndpointLifecycleState): object {
-    return { obj };
+  export function getJsonObj(obj: PrivateEndpointLifecycleState): PrivateEndpointLifecycleState {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: PrivateEndpointLifecycleState
+  ): PrivateEndpointLifecycleState {
+    return obj;
   }
 }

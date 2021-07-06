@@ -50,4 +50,17 @@ export namespace OcicSourceDetails {
     return jsonObj;
   }
   export const type = "OCIC";
+  export function getDeserializedJsonObj(
+    obj: OcicSourceDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.SourceDetails.getDeserializedJsonObj(obj) as OcicSourceDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

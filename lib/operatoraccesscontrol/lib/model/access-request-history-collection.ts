@@ -43,4 +43,18 @@ export namespace AccessRequestHistoryCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AccessRequestHistoryCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.AccessRequestHistorySummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

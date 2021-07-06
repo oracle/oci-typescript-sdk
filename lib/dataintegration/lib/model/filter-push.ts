@@ -36,4 +36,14 @@ export namespace FilterPush {
     return jsonObj;
   }
   export const modelType = "FILTER";
+  export function getDeserializedJsonObj(obj: FilterPush, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.PushDownOperation.getDeserializedJsonObj(obj) as FilterPush)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

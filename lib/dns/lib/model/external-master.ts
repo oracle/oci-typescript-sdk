@@ -51,4 +51,14 @@ export namespace ExternalMaster {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExternalMaster): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "tsig": obj.tsig ? model.TSIG.getDeserializedJsonObj(obj.tsig) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -23,6 +23,10 @@ export interface ListOceInstancesRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
+   * The ID of the tenancy in which to list resources.
+   */
+  "tenancyId"?: string;
+  /**
  * A user-friendly name. Does not have to be unique, and it's changeable.
 * <p>
 Example: `My new resource`

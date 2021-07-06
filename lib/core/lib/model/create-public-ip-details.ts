@@ -84,4 +84,9 @@ export namespace CreatePublicIpDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreatePublicIpDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

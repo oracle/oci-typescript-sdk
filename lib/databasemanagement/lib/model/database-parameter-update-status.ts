@@ -55,4 +55,9 @@ export namespace DatabaseParameterUpdateStatus {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseParameterUpdateStatus): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

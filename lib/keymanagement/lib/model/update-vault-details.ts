@@ -45,4 +45,9 @@ export namespace UpdateVaultDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateVaultDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

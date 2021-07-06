@@ -37,4 +37,17 @@ export namespace BackupLocationBucket {
     return jsonObj;
   }
   export const destination = "BUCKET";
+  export function getDeserializedJsonObj(
+    obj: BackupLocationBucket,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.BackupLocation.getDeserializedJsonObj(obj) as BackupLocationBucket)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

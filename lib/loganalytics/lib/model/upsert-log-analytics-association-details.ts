@@ -46,4 +46,18 @@ export namespace UpsertLogAnalyticsAssociationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpsertLogAnalyticsAssociationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.UpsertLogAnalyticsAssociation.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

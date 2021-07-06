@@ -50,4 +50,19 @@ export namespace UpdateChannelTargetFromDbSystemDetails {
     return jsonObj;
   }
   export const targetType = "DBSYSTEM";
+  export function getDeserializedJsonObj(
+    obj: UpdateChannelTargetFromDbSystemDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UpdateChannelTargetDetails.getDeserializedJsonObj(
+            obj
+          ) as UpdateChannelTargetFromDbSystemDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

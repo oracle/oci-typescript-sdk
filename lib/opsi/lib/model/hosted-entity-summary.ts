@@ -42,4 +42,9 @@ export namespace HostedEntitySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HostedEntitySummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

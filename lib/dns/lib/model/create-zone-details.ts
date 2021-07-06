@@ -71,4 +71,23 @@ export namespace CreateZoneDetails {
     return jsonObj;
   }
   export const migrationSource = "NONE";
+  export function getDeserializedJsonObj(
+    obj: CreateZoneDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateZoneBaseDetails.getDeserializedJsonObj(obj) as CreateZoneDetails)),
+      ...{
+        "externalMasters": obj.externalMasters
+          ? obj.externalMasters.map(item => {
+              return model.ExternalMaster.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

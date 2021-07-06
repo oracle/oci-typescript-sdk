@@ -38,4 +38,19 @@ export namespace UnifiedAgentWindowsEventSource {
     return jsonObj;
   }
   export const sourceType = "WINDOWS_EVENT_LOG";
+  export function getDeserializedJsonObj(
+    obj: UnifiedAgentWindowsEventSource,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UnifiedAgentLoggingSource.getDeserializedJsonObj(
+            obj
+          ) as UnifiedAgentWindowsEventSource)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

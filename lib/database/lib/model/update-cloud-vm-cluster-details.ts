@@ -93,4 +93,16 @@ export namespace UpdateCloudVmClusterDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateCloudVmClusterDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "updateDetails": obj.updateDetails
+          ? model.UpdateDetails.getDeserializedJsonObj(obj.updateDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

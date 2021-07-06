@@ -50,4 +50,9 @@ export namespace UpdateAddressListDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateAddressListDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

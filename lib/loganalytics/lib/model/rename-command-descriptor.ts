@@ -35,4 +35,17 @@ export namespace RenameCommandDescriptor {
     return jsonObj;
   }
   export const name = "RENAME";
+  export function getDeserializedJsonObj(
+    obj: RenameCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(obj) as RenameCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

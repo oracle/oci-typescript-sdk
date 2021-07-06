@@ -44,4 +44,9 @@ export namespace UpdateGenericArtifactByPathDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateGenericArtifactByPathDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

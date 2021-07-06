@@ -44,4 +44,9 @@ export namespace LogAnalyticsSourceMetric {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsSourceMetric): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

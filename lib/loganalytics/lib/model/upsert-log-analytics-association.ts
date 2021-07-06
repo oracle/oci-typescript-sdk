@@ -59,4 +59,9 @@ export namespace UpsertLogAnalyticsAssociation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpsertLogAnalyticsAssociation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

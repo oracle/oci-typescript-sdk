@@ -88,4 +88,9 @@ export namespace CreateCustomPropertyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateCustomPropertyDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

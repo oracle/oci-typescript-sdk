@@ -30,4 +30,9 @@ export namespace CategorySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CategorySummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

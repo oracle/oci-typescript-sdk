@@ -31,7 +31,10 @@ export enum FeatureSet {
 }
 
 export namespace FeatureSet {
-  export function getJsonObj(obj: FeatureSet): object {
-    return { obj };
+  export function getJsonObj(obj: FeatureSet): FeatureSet {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: FeatureSet): FeatureSet {
+    return obj;
   }
 }

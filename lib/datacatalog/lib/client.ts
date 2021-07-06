@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { DataCatalogWaiter } from "./datacatalog-waiter";
@@ -169,7 +169,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         addDataSelectorPatternsRequest.dataSelectorPatternDetails,
         "DataSelectorPatternDetails",
-        models.DataSelectorPatternDetails.getJsonObj
+        model.DataSelectorPatternDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -181,7 +181,8 @@ export class DataCatalogClient {
         responseObject: <responses.AddDataSelectorPatternsResponse>{},
         body: await response.json(),
         bodyKey: "dataAsset",
-        bodyModel: "model.DataAsset",
+        bodyModel: model.DataAsset,
+        type: "model.DataAsset",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -241,7 +242,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         associateCustomPropertyRequest.associateCustomPropertyDetails,
         "TypeCustomPropertyDetails",
-        models.TypeCustomPropertyDetails.getJsonObj
+        model.TypeCustomPropertyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -253,7 +254,8 @@ export class DataCatalogClient {
         responseObject: <responses.AssociateCustomPropertyResponse>{},
         body: await response.json(),
         bodyKey: "type",
-        bodyModel: "model.Type",
+        bodyModel: model.Type,
+        type: "model.Type",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -312,7 +314,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         attachCatalogPrivateEndpointRequest.attachCatalogPrivateEndpointDetails,
         "AttachCatalogPrivateEndpointDetails",
-        models.AttachCatalogPrivateEndpointDetails.getJsonObj
+        model.AttachCatalogPrivateEndpointDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -379,7 +381,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeCatalogCompartmentRequest.changeCatalogCompartmentDetails,
         "ChangeCatalogCompartmentDetails",
-        models.ChangeCatalogCompartmentDetails.getJsonObj
+        model.ChangeCatalogCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -449,7 +451,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeCatalogPrivateEndpointCompartmentRequest.changeCatalogPrivateEndpointCompartmentDetails,
         "ChangeCatalogPrivateEndpointCompartmentDetails",
-        models.ChangeCatalogPrivateEndpointCompartmentDetails.getJsonObj
+        model.ChangeCatalogPrivateEndpointCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -516,7 +518,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeMetastoreCompartmentRequest.changeMetastoreCompartmentDetails,
         "ChangeMetastoreCompartmentDetails",
-        models.ChangeMetastoreCompartmentDetails.getJsonObj
+        model.ChangeMetastoreCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -584,7 +586,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createAttributeRequest.createAttributeDetails,
         "CreateAttributeDetails",
-        models.CreateAttributeDetails.getJsonObj
+        model.CreateAttributeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -596,7 +598,8 @@ export class DataCatalogClient {
         responseObject: <responses.CreateAttributeResponse>{},
         body: await response.json(),
         bodyKey: "attribute",
-        bodyModel: "model.Attribute",
+        bodyModel: model.Attribute,
+        type: "model.Attribute",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -657,7 +660,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createAttributeTagRequest.createAttributeTagDetails,
         "CreateTagDetails",
-        models.CreateTagDetails.getJsonObj
+        model.CreateTagDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -669,7 +672,8 @@ export class DataCatalogClient {
         responseObject: <responses.CreateAttributeTagResponse>{},
         body: await response.json(),
         bodyKey: "attributeTag",
-        bodyModel: "model.AttributeTag",
+        bodyModel: model.AttributeTag,
+        type: "model.AttributeTag",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -726,7 +730,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createCatalogRequest.createCatalogDetails,
         "CreateCatalogDetails",
-        models.CreateCatalogDetails.getJsonObj
+        model.CreateCatalogDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -791,7 +795,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createCatalogPrivateEndpointRequest.createCatalogPrivateEndpointDetails,
         "CreateCatalogPrivateEndpointDetails",
-        models.CreateCatalogPrivateEndpointDetails.getJsonObj
+        model.CreateCatalogPrivateEndpointDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -858,7 +862,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createConnectionRequest.createConnectionDetails,
         "CreateConnectionDetails",
-        models.CreateConnectionDetails.getJsonObj
+        model.CreateConnectionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -870,7 +874,8 @@ export class DataCatalogClient {
         responseObject: <responses.CreateConnectionResponse>{},
         body: await response.json(),
         bodyKey: "connection",
-        bodyModel: "model.Connection",
+        bodyModel: model.Connection,
+        type: "model.Connection",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -928,7 +933,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createCustomPropertyRequest.createCustomPropertyDetails,
         "CreateCustomPropertyDetails",
-        models.CreateCustomPropertyDetails.getJsonObj
+        model.CreateCustomPropertyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -940,7 +945,8 @@ export class DataCatalogClient {
         responseObject: <responses.CreateCustomPropertyResponse>{},
         body: await response.json(),
         bodyKey: "customProperty",
-        bodyModel: "model.CustomProperty",
+        bodyModel: model.CustomProperty,
+        type: "model.CustomProperty",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -997,7 +1003,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createDataAssetRequest.createDataAssetDetails,
         "CreateDataAssetDetails",
-        models.CreateDataAssetDetails.getJsonObj
+        model.CreateDataAssetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1009,7 +1015,8 @@ export class DataCatalogClient {
         responseObject: <responses.CreateDataAssetResponse>{},
         body: await response.json(),
         bodyKey: "dataAsset",
-        bodyModel: "model.DataAsset",
+        bodyModel: model.DataAsset,
+        type: "model.DataAsset",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1067,7 +1074,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createDataAssetTagRequest.createDataAssetTagDetails,
         "CreateTagDetails",
-        models.CreateTagDetails.getJsonObj
+        model.CreateTagDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1079,7 +1086,8 @@ export class DataCatalogClient {
         responseObject: <responses.CreateDataAssetTagResponse>{},
         body: await response.json(),
         bodyKey: "dataAssetTag",
-        bodyModel: "model.DataAssetTag",
+        bodyModel: model.DataAssetTag,
+        type: "model.DataAssetTag",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1137,7 +1145,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createEntityRequest.createEntityDetails,
         "CreateEntityDetails",
-        models.CreateEntityDetails.getJsonObj
+        model.CreateEntityDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1149,7 +1157,8 @@ export class DataCatalogClient {
         responseObject: <responses.CreateEntityResponse>{},
         body: await response.json(),
         bodyKey: "entity",
-        bodyModel: "model.Entity",
+        bodyModel: model.Entity,
+        type: "model.Entity",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1208,7 +1217,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createEntityTagRequest.createEntityTagDetails,
         "CreateTagDetails",
-        models.CreateTagDetails.getJsonObj
+        model.CreateTagDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1220,7 +1229,8 @@ export class DataCatalogClient {
         responseObject: <responses.CreateEntityTagResponse>{},
         body: await response.json(),
         bodyKey: "entityTag",
-        bodyModel: "model.EntityTag",
+        bodyModel: model.EntityTag,
+        type: "model.EntityTag",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1278,7 +1288,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createFolderRequest.createFolderDetails,
         "CreateFolderDetails",
-        models.CreateFolderDetails.getJsonObj
+        model.CreateFolderDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1290,7 +1300,8 @@ export class DataCatalogClient {
         responseObject: <responses.CreateFolderResponse>{},
         body: await response.json(),
         bodyKey: "folder",
-        bodyModel: "model.Folder",
+        bodyModel: model.Folder,
+        type: "model.Folder",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1349,7 +1360,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createFolderTagRequest.createFolderTagDetails,
         "CreateTagDetails",
-        models.CreateTagDetails.getJsonObj
+        model.CreateTagDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1361,7 +1372,8 @@ export class DataCatalogClient {
         responseObject: <responses.CreateFolderTagResponse>{},
         body: await response.json(),
         bodyKey: "folderTag",
-        bodyModel: "model.FolderTag",
+        bodyModel: model.FolderTag,
+        type: "model.FolderTag",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1418,7 +1430,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createGlossaryRequest.createGlossaryDetails,
         "CreateGlossaryDetails",
-        models.CreateGlossaryDetails.getJsonObj
+        model.CreateGlossaryDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1430,7 +1442,8 @@ export class DataCatalogClient {
         responseObject: <responses.CreateGlossaryResponse>{},
         body: await response.json(),
         bodyKey: "glossary",
-        bodyModel: "model.Glossary",
+        bodyModel: model.Glossary,
+        type: "model.Glossary",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1487,7 +1500,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createJobRequest.createJobDetails,
         "CreateJobDetails",
-        models.CreateJobDetails.getJsonObj
+        model.CreateJobDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1499,7 +1512,8 @@ export class DataCatalogClient {
         responseObject: <responses.CreateJobResponse>{},
         body: await response.json(),
         bodyKey: "job",
-        bodyModel: "model.Job",
+        bodyModel: model.Job,
+        type: "model.Job",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1556,7 +1570,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createJobDefinitionRequest.createJobDefinitionDetails,
         "CreateJobDefinitionDetails",
-        models.CreateJobDefinitionDetails.getJsonObj
+        model.CreateJobDefinitionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1568,7 +1582,8 @@ export class DataCatalogClient {
         responseObject: <responses.CreateJobDefinitionResponse>{},
         body: await response.json(),
         bodyKey: "jobDefinition",
-        bodyModel: "model.JobDefinition",
+        bodyModel: model.JobDefinition,
+        type: "model.JobDefinition",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1626,7 +1641,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createJobExecutionRequest.createJobExecutionDetails,
         "CreateJobExecutionDetails",
-        models.CreateJobExecutionDetails.getJsonObj
+        model.CreateJobExecutionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1638,7 +1653,8 @@ export class DataCatalogClient {
         responseObject: <responses.CreateJobExecutionResponse>{},
         body: await response.json(),
         bodyKey: "jobExecution",
-        bodyModel: "model.JobExecution",
+        bodyModel: model.JobExecution,
+        type: "model.JobExecution",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1694,7 +1710,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createMetastoreRequest.createMetastoreDetails,
         "CreateMetastoreDetails",
-        models.CreateMetastoreDetails.getJsonObj
+        model.CreateMetastoreDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1760,7 +1776,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createNamespaceRequest.createNamespaceDetails,
         "CreateNamespaceDetails",
-        models.CreateNamespaceDetails.getJsonObj
+        model.CreateNamespaceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1772,7 +1788,8 @@ export class DataCatalogClient {
         responseObject: <responses.CreateNamespaceResponse>{},
         body: await response.json(),
         bodyKey: "namespace",
-        bodyModel: "model.Namespace",
+        bodyModel: model.Namespace,
+        type: "model.Namespace",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1829,7 +1846,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createPatternRequest.createPatternDetails,
         "CreatePatternDetails",
-        models.CreatePatternDetails.getJsonObj
+        model.CreatePatternDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1841,7 +1858,8 @@ export class DataCatalogClient {
         responseObject: <responses.CreatePatternResponse>{},
         body: await response.json(),
         bodyKey: "pattern",
-        bodyModel: "model.Pattern",
+        bodyModel: model.Pattern,
+        type: "model.Pattern",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1899,7 +1917,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createTermRequest.createTermDetails,
         "CreateTermDetails",
-        models.CreateTermDetails.getJsonObj
+        model.CreateTermDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1911,7 +1929,8 @@ export class DataCatalogClient {
         responseObject: <responses.CreateTermResponse>{},
         body: await response.json(),
         bodyKey: "term",
-        bodyModel: "model.Term",
+        bodyModel: model.Term,
+        type: "model.Term",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1971,7 +1990,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         createTermRelationshipRequest.createTermRelationshipDetails,
         "CreateTermRelationshipDetails",
-        models.CreateTermRelationshipDetails.getJsonObj
+        model.CreateTermRelationshipDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1983,7 +2002,8 @@ export class DataCatalogClient {
         responseObject: <responses.CreateTermRelationshipResponse>{},
         body: await response.json(),
         bodyKey: "termRelationship",
-        bodyModel: "model.TermRelationship",
+        bodyModel: model.TermRelationship,
+        type: "model.TermRelationship",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3215,7 +3235,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         detachCatalogPrivateEndpointRequest.detachCatalogPrivateEndpointDetails,
         "DetachCatalogPrivateEndpointDetails",
-        models.DetachCatalogPrivateEndpointDetails.getJsonObj
+        model.DetachCatalogPrivateEndpointDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3284,7 +3304,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         disassociateCustomPropertyRequest.disassociateCustomPropertyDetails,
         "TypeCustomPropertyDetails",
-        models.TypeCustomPropertyDetails.getJsonObj
+        model.TypeCustomPropertyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3296,7 +3316,8 @@ export class DataCatalogClient {
         responseObject: <responses.DisassociateCustomPropertyResponse>{},
         body: await response.json(),
         bodyKey: "type",
-        bodyModel: "model.Type",
+        bodyModel: model.Type,
+        type: "model.Type",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3362,7 +3383,8 @@ export class DataCatalogClient {
         responseObject: <responses.ExpandTreeForGlossaryResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "GlossaryTreeElement[]",
+        bodyModel: model.GlossaryTreeElement,
+        type: "Array<model.GlossaryTreeElement>",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3430,6 +3452,7 @@ export class DataCatalogClient {
         body: await response.json(),
         bodyKey: "value",
         bodyModel: "string",
+        type: "string",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3499,7 +3522,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetAttributeResponse>{},
         body: await response.json(),
         bodyKey: "attribute",
-        bodyModel: "model.Attribute",
+        bodyModel: model.Attribute,
+        type: "model.Attribute",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3569,7 +3593,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetAttributeTagResponse>{},
         body: await response.json(),
         bodyKey: "attributeTag",
-        bodyModel: "model.AttributeTag",
+        bodyModel: model.AttributeTag,
+        type: "model.AttributeTag",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3632,7 +3657,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetCatalogResponse>{},
         body: await response.json(),
         bodyKey: "catalog",
-        bodyModel: "model.Catalog",
+        bodyModel: model.Catalog,
+        type: "model.Catalog",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3696,7 +3722,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetCatalogPrivateEndpointResponse>{},
         body: await response.json(),
         bodyKey: "catalogPrivateEndpoint",
-        bodyModel: "model.CatalogPrivateEndpoint",
+        bodyModel: model.CatalogPrivateEndpoint,
+        type: "model.CatalogPrivateEndpoint",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3763,7 +3790,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetConnectionResponse>{},
         body: await response.json(),
         bodyKey: "connection",
-        bodyModel: "model.Connection",
+        bodyModel: model.Connection,
+        type: "model.Connection",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3830,7 +3858,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetCustomPropertyResponse>{},
         body: await response.json(),
         bodyKey: "customProperty",
-        bodyModel: "model.CustomProperty",
+        bodyModel: model.CustomProperty,
+        type: "model.CustomProperty",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3896,7 +3925,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetDataAssetResponse>{},
         body: await response.json(),
         bodyKey: "dataAsset",
-        bodyModel: "model.DataAsset",
+        bodyModel: model.DataAsset,
+        type: "model.DataAsset",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3963,7 +3993,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetDataAssetTagResponse>{},
         body: await response.json(),
         bodyKey: "dataAssetTag",
-        bodyModel: "model.DataAssetTag",
+        bodyModel: model.DataAssetTag,
+        type: "model.DataAssetTag",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4031,7 +4062,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetEntityResponse>{},
         body: await response.json(),
         bodyKey: "entity",
-        bodyModel: "model.Entity",
+        bodyModel: model.Entity,
+        type: "model.Entity",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4099,7 +4131,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetEntityTagResponse>{},
         body: await response.json(),
         bodyKey: "entityTag",
-        bodyModel: "model.EntityTag",
+        bodyModel: model.EntityTag,
+        type: "model.EntityTag",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4167,7 +4200,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetFolderResponse>{},
         body: await response.json(),
         bodyKey: "folder",
-        bodyModel: "model.Folder",
+        bodyModel: model.Folder,
+        type: "model.Folder",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4235,7 +4269,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetFolderTagResponse>{},
         body: await response.json(),
         bodyKey: "folderTag",
-        bodyModel: "model.FolderTag",
+        bodyModel: model.FolderTag,
+        type: "model.FolderTag",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4301,7 +4336,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetGlossaryResponse>{},
         body: await response.json(),
         bodyKey: "glossary",
-        bodyModel: "model.Glossary",
+        bodyModel: model.Glossary,
+        type: "model.Glossary",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4365,7 +4401,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetJobResponse>{},
         body: await response.json(),
         bodyKey: "job",
-        bodyModel: "model.Job",
+        bodyModel: model.Job,
+        type: "model.Job",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4431,7 +4468,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetJobDefinitionResponse>{},
         body: await response.json(),
         bodyKey: "jobDefinition",
-        bodyModel: "model.JobDefinition",
+        bodyModel: model.JobDefinition,
+        type: "model.JobDefinition",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4498,7 +4536,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetJobExecutionResponse>{},
         body: await response.json(),
         bodyKey: "jobExecution",
-        bodyModel: "model.JobExecution",
+        bodyModel: model.JobExecution,
+        type: "model.JobExecution",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4566,7 +4605,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetJobLogResponse>{},
         body: await response.json(),
         bodyKey: "jobLog",
-        bodyModel: "model.JobLog",
+        bodyModel: model.JobLog,
+        type: "model.JobLog",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4635,7 +4675,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetJobMetricsResponse>{},
         body: await response.json(),
         bodyKey: "jobMetric",
-        bodyModel: "model.JobMetric",
+        bodyModel: model.JobMetric,
+        type: "model.JobMetric",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4698,7 +4739,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetMetastoreResponse>{},
         body: await response.json(),
         bodyKey: "metastore",
-        bodyModel: "model.Metastore",
+        bodyModel: model.Metastore,
+        type: "model.Metastore",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4764,7 +4806,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetNamespaceResponse>{},
         body: await response.json(),
         bodyKey: "namespace",
-        bodyModel: "model.Namespace",
+        bodyModel: model.Namespace,
+        type: "model.Namespace",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4830,7 +4873,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetPatternResponse>{},
         body: await response.json(),
         bodyKey: "pattern",
-        bodyModel: "model.Pattern",
+        bodyModel: model.Pattern,
+        type: "model.Pattern",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4897,7 +4941,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetTermResponse>{},
         body: await response.json(),
         bodyKey: "term",
-        bodyModel: "model.Term",
+        bodyModel: model.Term,
+        type: "model.Term",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4966,7 +5011,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetTermRelationshipResponse>{},
         body: await response.json(),
         bodyKey: "termRelationship",
-        bodyModel: "model.TermRelationship",
+        bodyModel: model.TermRelationship,
+        type: "model.TermRelationship",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5032,7 +5078,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetTypeResponse>{},
         body: await response.json(),
         bodyKey: "type",
-        bodyModel: "model.Type",
+        bodyModel: model.Type,
+        type: "model.Type",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5095,7 +5142,8 @@ export class DataCatalogClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5159,7 +5207,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         importConnectionRequest.importConnectionDetails,
         "ImportConnectionDetails",
-        models.ImportConnectionDetails.getJsonObj
+        model.ImportConnectionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5171,7 +5219,8 @@ export class DataCatalogClient {
         responseObject: <responses.ImportConnectionResponse>{},
         body: await response.json(),
         bodyKey: "connection",
-        bodyModel: "model.Connection",
+        bodyModel: model.Connection,
+        type: "model.Connection",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5232,7 +5281,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         importDataAssetRequest.importDataAssetDetails,
         "ImportDataAssetDetails",
-        models.ImportDataAssetDetails.getJsonObj
+        model.ImportDataAssetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5244,7 +5293,8 @@ export class DataCatalogClient {
         responseObject: <responses.ImportDataAssetResponse>{},
         body: await response.json(),
         bodyKey: "importDataAssetJobResult",
-        bodyModel: "model.ImportDataAssetJobResult",
+        bodyModel: model.ImportDataAssetJobResult,
+        type: "model.ImportDataAssetJobResult",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5299,7 +5349,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         importGlossaryRequest.importGlossaryDetails,
         "ImportGlossaryDetails",
-        models.ImportGlossaryDetails.getJsonObj
+        model.ImportGlossaryDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5382,7 +5432,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListAggregatedPhysicalEntitiesResponse>{},
         body: await response.json(),
         bodyKey: "entityCollection",
-        bodyModel: "model.EntityCollection",
+        bodyModel: model.EntityCollection,
+        type: "model.EntityCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5456,7 +5507,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListAttributeTagsResponse>{},
         body: await response.json(),
         bodyKey: "attributeTagCollection",
-        bodyModel: "model.AttributeTagCollection",
+        bodyModel: model.AttributeTagCollection,
+        type: "model.AttributeTagCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5545,7 +5597,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListAttributesResponse>{},
         body: await response.json(),
         bodyKey: "attributeCollection",
-        bodyModel: "model.AttributeCollection",
+        bodyModel: model.AttributeCollection,
+        type: "model.AttributeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5616,7 +5669,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListCatalogPrivateEndpointsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "CatalogPrivateEndpointSummary[]",
+        bodyModel: model.CatalogPrivateEndpointSummary,
+        type: "Array<model.CatalogPrivateEndpointSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5646,7 +5700,7 @@ export class DataCatalogClient {
    */
   public listAllCatalogPrivateEndpoints(
     request: requests.ListCatalogPrivateEndpointsRequest
-  ): AsyncIterableIterator<models.CatalogPrivateEndpointSummary> {
+  ): AsyncIterableIterator<model.CatalogPrivateEndpointSummary> {
     return paginateRecords(request, req => this.listCatalogPrivateEndpoints(req));
   }
 
@@ -5711,7 +5765,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListCatalogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "CatalogSummary[]",
+        bodyModel: model.CatalogSummary,
+        type: "Array<model.CatalogSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5741,7 +5796,7 @@ export class DataCatalogClient {
    */
   public listAllCatalogs(
     request: requests.ListCatalogsRequest
-  ): AsyncIterableIterator<models.CatalogSummary> {
+  ): AsyncIterableIterator<model.CatalogSummary> {
     return paginateRecords(request, req => this.listCatalogs(req));
   }
 
@@ -5816,7 +5871,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListConnectionsResponse>{},
         body: await response.json(),
         bodyKey: "connectionCollection",
-        bodyModel: "model.ConnectionCollection",
+        bodyModel: model.ConnectionCollection,
+        type: "model.ConnectionCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5895,7 +5951,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListCustomPropertiesResponse>{},
         body: await response.json(),
         bodyKey: "customPropertyCollection",
-        bodyModel: "model.CustomPropertyCollection",
+        bodyModel: model.CustomPropertyCollection,
+        type: "model.CustomPropertyCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5971,7 +6028,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListDataAssetTagsResponse>{},
         body: await response.json(),
         bodyKey: "dataAssetTagCollection",
-        bodyModel: "model.DataAssetTagCollection",
+        bodyModel: model.DataAssetTagCollection,
+        type: "model.DataAssetTagCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6049,7 +6107,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListDataAssetsResponse>{},
         body: await response.json(),
         bodyKey: "dataAssetCollection",
-        bodyModel: "model.DataAssetCollection",
+        bodyModel: model.DataAssetCollection,
+        type: "model.DataAssetCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6122,7 +6181,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListDerivedLogicalEntitiesResponse>{},
         body: await response.json(),
         bodyKey: "entityCollection",
-        bodyModel: "model.EntityCollection",
+        bodyModel: model.EntityCollection,
+        type: "model.EntityCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6207,7 +6267,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListEntitiesResponse>{},
         body: await response.json(),
         bodyKey: "entityCollection",
-        bodyModel: "model.EntityCollection",
+        bodyModel: model.EntityCollection,
+        type: "model.EntityCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6284,7 +6345,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListEntityTagsResponse>{},
         body: await response.json(),
         bodyKey: "entityTagCollection",
-        bodyModel: "model.EntityTagCollection",
+        bodyModel: model.EntityTagCollection,
+        type: "model.EntityTagCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6361,7 +6423,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListFolderTagsResponse>{},
         body: await response.json(),
         bodyKey: "folderTagCollection",
-        bodyModel: "model.FolderTagCollection",
+        bodyModel: model.FolderTagCollection,
+        type: "model.FolderTagCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6445,7 +6508,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListFoldersResponse>{},
         body: await response.json(),
         bodyKey: "folderCollection",
-        bodyModel: "model.FolderCollection",
+        bodyModel: model.FolderCollection,
+        type: "model.FolderCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6521,7 +6585,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListGlossariesResponse>{},
         body: await response.json(),
         bodyKey: "glossaryCollection",
-        bodyModel: "model.GlossaryCollection",
+        bodyModel: model.GlossaryCollection,
+        type: "model.GlossaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6603,7 +6668,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListJobDefinitionsResponse>{},
         body: await response.json(),
         bodyKey: "jobDefinitionCollection",
-        bodyModel: "model.JobDefinitionCollection",
+        bodyModel: model.JobDefinitionCollection,
+        type: "model.JobDefinitionCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6689,7 +6755,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListJobExecutionsResponse>{},
         body: await response.json(),
         bodyKey: "jobExecutionCollection",
-        bodyModel: "model.JobExecutionCollection",
+        bodyModel: model.JobExecutionCollection,
+        type: "model.JobExecutionCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6766,7 +6833,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListJobLogsResponse>{},
         body: await response.json(),
         bodyKey: "jobLogCollection",
-        bodyModel: "model.JobLogCollection",
+        bodyModel: model.JobLogCollection,
+        type: "model.JobLogCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6849,7 +6917,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListJobMetricsResponse>{},
         body: await response.json(),
         bodyKey: "jobMetricCollection",
-        bodyModel: "model.JobMetricCollection",
+        bodyModel: model.JobMetricCollection,
+        type: "model.JobMetricCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6935,7 +7004,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListJobsResponse>{},
         body: await response.json(),
         bodyKey: "jobCollection",
-        bodyModel: "model.JobCollection",
+        bodyModel: model.JobCollection,
+        type: "model.JobCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7005,7 +7075,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListMetastoresResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "MetastoreSummary[]",
+        bodyModel: model.MetastoreSummary,
+        type: "Array<model.MetastoreSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7035,7 +7106,7 @@ export class DataCatalogClient {
    */
   public listAllMetastores(
     request: requests.ListMetastoresRequest
-  ): AsyncIterableIterator<models.MetastoreSummary> {
+  ): AsyncIterableIterator<model.MetastoreSummary> {
     return paginateRecords(request, req => this.listMetastores(req));
   }
 
@@ -7106,7 +7177,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListNamespacesResponse>{},
         body: await response.json(),
         bodyKey: "namespaceCollection",
-        bodyModel: "model.NamespaceCollection",
+        bodyModel: model.NamespaceCollection,
+        type: "model.NamespaceCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7182,7 +7254,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListPatternsResponse>{},
         body: await response.json(),
         bodyKey: "patternCollection",
-        bodyModel: "model.PatternCollection",
+        bodyModel: model.PatternCollection,
+        type: "model.PatternCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7263,7 +7336,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListRulesResponse>{},
         body: await response.json(),
         bodyKey: "ruleCollection",
-        bodyModel: "model.RuleCollection",
+        bodyModel: model.RuleCollection,
+        type: "model.RuleCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7335,7 +7409,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListTagsResponse>{},
         body: await response.json(),
         bodyKey: "termCollection",
-        bodyModel: "model.TermCollection",
+        bodyModel: model.TermCollection,
+        type: "model.TermCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7410,7 +7485,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListTermRelationshipsResponse>{},
         body: await response.json(),
         bodyKey: "termRelationshipCollection",
-        bodyModel: "model.TermRelationshipCollection",
+        bodyModel: model.TermRelationshipCollection,
+        type: "model.TermRelationshipCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7487,7 +7563,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListTermsResponse>{},
         body: await response.json(),
         bodyKey: "termCollection",
-        bodyModel: "model.TermCollection",
+        bodyModel: model.TermCollection,
+        type: "model.TermCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7563,7 +7640,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListTypesResponse>{},
         body: await response.json(),
         bodyKey: "typeCollection",
-        bodyModel: "model.TypeCollection",
+        bodyModel: model.TypeCollection,
+        type: "model.TypeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7633,7 +7711,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestError[]",
+        bodyModel: model.WorkRequestError,
+        type: "Array<model.WorkRequestError>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -7663,7 +7742,7 @@ export class DataCatalogClient {
    */
   public listAllWorkRequestErrors(
     request: requests.ListWorkRequestErrorsRequest
-  ): AsyncIterableIterator<models.WorkRequestError> {
+  ): AsyncIterableIterator<model.WorkRequestError> {
     return paginateRecords(request, req => this.listWorkRequestErrors(req));
   }
 
@@ -7727,7 +7806,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestLog[]",
+        bodyModel: model.WorkRequestLog,
+        type: "Array<model.WorkRequestLog>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -7757,7 +7837,7 @@ export class DataCatalogClient {
    */
   public listAllWorkRequestLogs(
     request: requests.ListWorkRequestLogsRequest
-  ): AsyncIterableIterator<models.WorkRequestLog> {
+  ): AsyncIterableIterator<model.WorkRequestLog> {
     return paginateRecords(request, req => this.listWorkRequestLogs(req));
   }
 
@@ -7818,7 +7898,8 @@ export class DataCatalogClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequest[]",
+        bodyModel: model.WorkRequest,
+        type: "Array<model.WorkRequest>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7848,7 +7929,7 @@ export class DataCatalogClient {
    */
   public listAllWorkRequests(
     request: requests.ListWorkRequestsRequest
-  ): AsyncIterableIterator<models.WorkRequest> {
+  ): AsyncIterableIterator<model.WorkRequest> {
     return paginateRecords(request, req => this.listWorkRequests(req));
   }
 
@@ -7912,6 +7993,7 @@ export class DataCatalogClient {
         body: await response.json(),
         bodyKey: "value",
         bodyModel: "string",
+        type: "string",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7971,7 +8053,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         parseConnectionRequest.parseConnectionDetails,
         "ParseConnectionDetails",
-        models.ParseConnectionDetails.getJsonObj
+        model.ParseConnectionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -7983,7 +8065,8 @@ export class DataCatalogClient {
         responseObject: <responses.ParseConnectionResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ConnectionAliasSummary[]",
+        bodyModel: model.ConnectionAliasSummary,
+        type: "Array<model.ConnectionAliasSummary>",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8043,7 +8126,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         processRecommendationRequest.processRecommendationDetails,
         "ProcessRecommendationDetails",
-        models.ProcessRecommendationDetails.getJsonObj
+        model.ProcessRecommendationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8055,7 +8138,8 @@ export class DataCatalogClient {
         responseObject: <responses.ProcessRecommendationResponse>{},
         body: await response.json(),
         bodyKey: "processRecommendationDetails",
-        bodyModel: "model.ProcessRecommendationDetails",
+        bodyModel: model.ProcessRecommendationDetails,
+        type: "model.ProcessRecommendationDetails",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8126,7 +8210,8 @@ export class DataCatalogClient {
         responseObject: <responses.RecommendationsResponse>{},
         body: await response.json(),
         bodyKey: "recommendationCollection",
-        bodyModel: "model.RecommendationCollection",
+        bodyModel: model.RecommendationCollection,
+        type: "model.RecommendationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8181,7 +8266,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         removeDataSelectorPatternsRequest.dataSelectorPatternDetails,
         "DataSelectorPatternDetails",
-        models.DataSelectorPatternDetails.getJsonObj
+        model.DataSelectorPatternDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8193,7 +8278,8 @@ export class DataCatalogClient {
         responseObject: <responses.RemoveDataSelectorPatternsResponse>{},
         body: await response.json(),
         bodyKey: "dataAsset",
-        bodyModel: "model.DataAsset",
+        bodyModel: model.DataAsset,
+        type: "model.DataAsset",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8258,7 +8344,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         searchCriteriaRequest.searchCriteriaDetails,
         "SearchCriteria",
-        models.SearchCriteria.getJsonObj
+        model.SearchCriteria.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8270,7 +8356,8 @@ export class DataCatalogClient {
         responseObject: <responses.SearchCriteriaResponse>{},
         body: await response.json(),
         bodyKey: "searchResultCollection",
-        bodyModel: "model.SearchResultCollection",
+        bodyModel: model.SearchResultCollection,
+        type: "model.SearchResultCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8337,7 +8424,8 @@ export class DataCatalogClient {
         responseObject: <responses.SuggestMatchesResponse>{},
         body: await response.json(),
         bodyKey: "suggestResults",
-        bodyModel: "model.SuggestResults",
+        bodyModel: model.SuggestResults,
+        type: "model.SuggestResults",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8393,7 +8481,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         synchronousExportDataAssetRequest.synchronousExportDataAssetDetails,
         "ExportDataAssetDetails",
-        models.ExportDataAssetDetails.getJsonObj
+        model.ExportDataAssetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8468,7 +8556,8 @@ export class DataCatalogClient {
         responseObject: <responses.TestConnectionResponse>{},
         body: await response.json(),
         bodyKey: "validateConnectionResult",
-        bodyModel: "model.ValidateConnectionResult",
+        bodyModel: model.ValidateConnectionResult,
+        type: "model.ValidateConnectionResult",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8529,7 +8618,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateAttributeRequest.updateAttributeDetails,
         "UpdateAttributeDetails",
-        models.UpdateAttributeDetails.getJsonObj
+        model.UpdateAttributeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8541,7 +8630,8 @@ export class DataCatalogClient {
         responseObject: <responses.UpdateAttributeResponse>{},
         body: await response.json(),
         bodyKey: "attribute",
-        bodyModel: "model.Attribute",
+        bodyModel: model.Attribute,
+        type: "model.Attribute",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8598,7 +8688,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateCatalogRequest.updateCatalogDetails,
         "UpdateCatalogDetails",
-        models.UpdateCatalogDetails.getJsonObj
+        model.UpdateCatalogDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8610,7 +8700,8 @@ export class DataCatalogClient {
         responseObject: <responses.UpdateCatalogResponse>{},
         body: await response.json(),
         bodyKey: "catalog",
-        bodyModel: "model.Catalog",
+        bodyModel: model.Catalog,
+        type: "model.Catalog",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8668,7 +8759,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateCatalogPrivateEndpointRequest.updateCatalogPrivateEndpointDetails,
         "UpdateCatalogPrivateEndpointDetails",
-        models.UpdateCatalogPrivateEndpointDetails.getJsonObj
+        model.UpdateCatalogPrivateEndpointDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8736,7 +8827,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateConnectionRequest.updateConnectionDetails,
         "UpdateConnectionDetails",
-        models.UpdateConnectionDetails.getJsonObj
+        model.UpdateConnectionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8748,7 +8839,8 @@ export class DataCatalogClient {
         responseObject: <responses.UpdateConnectionResponse>{},
         body: await response.json(),
         bodyKey: "connection",
-        bodyModel: "model.Connection",
+        bodyModel: model.Connection,
+        type: "model.Connection",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8807,7 +8899,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateCustomPropertyRequest.updateCustomPropertyDetails,
         "UpdateCustomPropertyDetails",
-        models.UpdateCustomPropertyDetails.getJsonObj
+        model.UpdateCustomPropertyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8819,7 +8911,8 @@ export class DataCatalogClient {
         responseObject: <responses.UpdateCustomPropertyResponse>{},
         body: await response.json(),
         bodyKey: "customProperty",
-        bodyModel: "model.CustomProperty",
+        bodyModel: model.CustomProperty,
+        type: "model.CustomProperty",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8877,7 +8970,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateDataAssetRequest.updateDataAssetDetails,
         "UpdateDataAssetDetails",
-        models.UpdateDataAssetDetails.getJsonObj
+        model.UpdateDataAssetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8889,7 +8982,8 @@ export class DataCatalogClient {
         responseObject: <responses.UpdateDataAssetResponse>{},
         body: await response.json(),
         bodyKey: "dataAsset",
-        bodyModel: "model.DataAsset",
+        bodyModel: model.DataAsset,
+        type: "model.DataAsset",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8948,7 +9042,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateEntityRequest.updateEntityDetails,
         "UpdateEntityDetails",
-        models.UpdateEntityDetails.getJsonObj
+        model.UpdateEntityDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8960,7 +9054,8 @@ export class DataCatalogClient {
         responseObject: <responses.UpdateEntityResponse>{},
         body: await response.json(),
         bodyKey: "entity",
-        bodyModel: "model.Entity",
+        bodyModel: model.Entity,
+        type: "model.Entity",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -9019,7 +9114,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateFolderRequest.updateFolderDetails,
         "UpdateFolderDetails",
-        models.UpdateFolderDetails.getJsonObj
+        model.UpdateFolderDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9031,7 +9126,8 @@ export class DataCatalogClient {
         responseObject: <responses.UpdateFolderResponse>{},
         body: await response.json(),
         bodyKey: "folder",
-        bodyModel: "model.Folder",
+        bodyModel: model.Folder,
+        type: "model.Folder",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -9089,7 +9185,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateGlossaryRequest.updateGlossaryDetails,
         "UpdateGlossaryDetails",
-        models.UpdateGlossaryDetails.getJsonObj
+        model.UpdateGlossaryDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9101,7 +9197,8 @@ export class DataCatalogClient {
         responseObject: <responses.UpdateGlossaryResponse>{},
         body: await response.json(),
         bodyKey: "glossary",
-        bodyModel: "model.Glossary",
+        bodyModel: model.Glossary,
+        type: "model.Glossary",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -9159,7 +9256,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateJobRequest.updateJobDetails,
         "UpdateJobDetails",
-        models.UpdateJobDetails.getJsonObj
+        model.UpdateJobDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9171,7 +9268,8 @@ export class DataCatalogClient {
         responseObject: <responses.UpdateJobResponse>{},
         body: await response.json(),
         bodyKey: "job",
-        bodyModel: "model.Job",
+        bodyModel: model.Job,
+        type: "model.Job",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -9229,7 +9327,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateJobDefinitionRequest.updateJobDefinitionDetails,
         "UpdateJobDefinitionDetails",
-        models.UpdateJobDefinitionDetails.getJsonObj
+        model.UpdateJobDefinitionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9241,7 +9339,8 @@ export class DataCatalogClient {
         responseObject: <responses.UpdateJobDefinitionResponse>{},
         body: await response.json(),
         bodyKey: "jobDefinition",
-        bodyModel: "model.JobDefinition",
+        bodyModel: model.JobDefinition,
+        type: "model.JobDefinition",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -9298,7 +9397,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateMetastoreRequest.updateMetastoreDetails,
         "UpdateMetastoreDetails",
-        models.UpdateMetastoreDetails.getJsonObj
+        model.UpdateMetastoreDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9310,7 +9409,8 @@ export class DataCatalogClient {
         responseObject: <responses.UpdateMetastoreResponse>{},
         body: await response.json(),
         bodyKey: "metastore",
-        bodyModel: "model.Metastore",
+        bodyModel: model.Metastore,
+        type: "model.Metastore",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -9368,7 +9468,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateNamespaceRequest.updateNamespaceDetails,
         "UpdateNamespaceDetails",
-        models.UpdateNamespaceDetails.getJsonObj
+        model.UpdateNamespaceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9380,7 +9480,8 @@ export class DataCatalogClient {
         responseObject: <responses.UpdateNamespaceResponse>{},
         body: await response.json(),
         bodyKey: "namespace",
-        bodyModel: "model.Namespace",
+        bodyModel: model.Namespace,
+        type: "model.Namespace",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -9438,7 +9539,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         updatePatternRequest.updatePatternDetails,
         "UpdatePatternDetails",
-        models.UpdatePatternDetails.getJsonObj
+        model.UpdatePatternDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9450,7 +9551,8 @@ export class DataCatalogClient {
         responseObject: <responses.UpdatePatternResponse>{},
         body: await response.json(),
         bodyKey: "pattern",
-        bodyModel: "model.Pattern",
+        bodyModel: model.Pattern,
+        type: "model.Pattern",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -9509,7 +9611,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateTermRequest.updateTermDetails,
         "UpdateTermDetails",
-        models.UpdateTermDetails.getJsonObj
+        model.UpdateTermDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9521,7 +9623,8 @@ export class DataCatalogClient {
         responseObject: <responses.UpdateTermResponse>{},
         body: await response.json(),
         bodyKey: "term",
-        bodyModel: "model.Term",
+        bodyModel: model.Term,
+        type: "model.Term",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -9583,7 +9686,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateTermRelationshipRequest.updateTermRelationshipDetails,
         "UpdateTermRelationshipDetails",
-        models.UpdateTermRelationshipDetails.getJsonObj
+        model.UpdateTermRelationshipDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9595,7 +9698,8 @@ export class DataCatalogClient {
         responseObject: <responses.UpdateTermRelationshipResponse>{},
         body: await response.json(),
         bodyKey: "termRelationship",
-        bodyModel: "model.TermRelationship",
+        bodyModel: model.TermRelationship,
+        type: "model.TermRelationship",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -9656,7 +9760,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         uploadCredentialsRequest.uploadCredentialsDetails,
         "UploadCredentialsDetails",
-        models.UploadCredentialsDetails.getJsonObj
+        model.UploadCredentialsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9668,7 +9772,8 @@ export class DataCatalogClient {
         responseObject: <responses.UploadCredentialsResponse>{},
         body: await response.json(),
         bodyKey: "connection",
-        bodyModel: "model.Connection",
+        bodyModel: model.Connection,
+        type: "model.Connection",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -9735,6 +9840,7 @@ export class DataCatalogClient {
         body: await response.json(),
         bodyKey: "value",
         bodyModel: "string",
+        type: "string",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -9792,7 +9898,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         validateConnectionRequest.validateConnectionDetails,
         "ValidateConnectionDetails",
-        models.ValidateConnectionDetails.getJsonObj
+        model.ValidateConnectionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9804,7 +9910,8 @@ export class DataCatalogClient {
         responseObject: <responses.ValidateConnectionResponse>{},
         body: await response.json(),
         bodyKey: "validateConnectionResult",
-        bodyModel: "model.ValidateConnectionResult",
+        bodyModel: model.ValidateConnectionResult,
+        type: "model.ValidateConnectionResult",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -9862,7 +9969,7 @@ export class DataCatalogClient {
       bodyContent: common.ObjectSerializer.serialize(
         validatePatternRequest.validatePatternDetails,
         "ValidatePatternDetails",
-        models.ValidatePatternDetails.getJsonObj
+        model.ValidatePatternDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9874,7 +9981,8 @@ export class DataCatalogClient {
         responseObject: <responses.ValidatePatternResponse>{},
         body: await response.json(),
         bodyKey: "validatePatternResult",
-        bodyModel: "model.ValidatePatternResult",
+        bodyModel: model.ValidatePatternResult,
+        type: "model.ValidatePatternResult",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

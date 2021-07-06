@@ -23,7 +23,10 @@ export enum ResponderDimension {
 }
 
 export namespace ResponderDimension {
-  export function getJsonObj(obj: ResponderDimension): object {
-    return { obj };
+  export function getJsonObj(obj: ResponderDimension): ResponderDimension {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ResponderDimension): ResponderDimension {
+    return obj;
   }
 }

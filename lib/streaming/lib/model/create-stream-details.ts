@@ -66,4 +66,9 @@ export namespace CreateStreamDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateStreamDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

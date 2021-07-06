@@ -53,4 +53,19 @@ export namespace UpdateConnectionFromObjectStorage {
     return jsonObj;
   }
   export const modelType = "ORACLE_OBJECT_STORAGE_CONNECTION";
+  export function getDeserializedJsonObj(
+    obj: UpdateConnectionFromObjectStorage,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UpdateConnectionDetails.getDeserializedJsonObj(
+            obj
+          ) as UpdateConnectionFromObjectStorage)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

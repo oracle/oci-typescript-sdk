@@ -116,4 +116,18 @@ export namespace DhcpOptions {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DhcpOptions): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "options": obj.options
+          ? obj.options.map(item => {
+              return model.DhcpOption.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

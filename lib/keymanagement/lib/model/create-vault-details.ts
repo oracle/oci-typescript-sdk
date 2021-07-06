@@ -59,4 +59,9 @@ export namespace CreateVaultDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateVaultDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

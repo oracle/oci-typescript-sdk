@@ -72,4 +72,9 @@ export namespace CreateFileSystemDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateFileSystemDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -42,4 +42,9 @@ export namespace NamespaceMetadata {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NamespaceMetadata): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

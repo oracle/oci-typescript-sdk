@@ -35,7 +35,14 @@ export enum OperatorControlAssignmentLifecycleStates {
 }
 
 export namespace OperatorControlAssignmentLifecycleStates {
-  export function getJsonObj(obj: OperatorControlAssignmentLifecycleStates): object {
-    return { obj };
+  export function getJsonObj(
+    obj: OperatorControlAssignmentLifecycleStates
+  ): OperatorControlAssignmentLifecycleStates {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: OperatorControlAssignmentLifecycleStates
+  ): OperatorControlAssignmentLifecycleStates {
+    return obj;
   }
 }

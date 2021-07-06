@@ -44,4 +44,20 @@ export namespace PreemptionAction {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PreemptionAction): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "TERMINATE":
+          return model.TerminatePreemptionAction.getDeserializedJsonObj(
+            <model.TerminatePreemptionAction>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

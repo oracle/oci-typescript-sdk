@@ -48,4 +48,24 @@ export namespace CompositeType {
     return jsonObj;
   }
   export const modelType = "COMPOSITE_TYPE";
+  export function getDeserializedJsonObj(obj: CompositeType, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.BaseType.getDeserializedJsonObj(obj) as CompositeType)),
+      ...{
+        "parentType": obj.parentType
+          ? model.CompositeType.getDeserializedJsonObj(obj.parentType)
+          : undefined,
+        "elements": obj.elements
+          ? obj.elements.map(item => {
+              return model.TypedObject.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "configDefinition": obj.configDefinition
+          ? model.ConfigDefinition.getDeserializedJsonObj(obj.configDefinition)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

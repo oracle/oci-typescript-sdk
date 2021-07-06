@@ -98,4 +98,9 @@ export namespace InstanceConfigurationCreateVnicDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceConfigurationCreateVnicDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

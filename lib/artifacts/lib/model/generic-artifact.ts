@@ -107,4 +107,9 @@ export namespace GenericArtifact {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: GenericArtifact): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

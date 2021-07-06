@@ -46,4 +46,17 @@ export namespace SourceVcnIdCondition {
     return jsonObj;
   }
   export const attributeName = "SOURCE_VCN_ID";
+  export function getDeserializedJsonObj(
+    obj: SourceVcnIdCondition,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.RuleCondition.getDeserializedJsonObj(obj) as SourceVcnIdCondition)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

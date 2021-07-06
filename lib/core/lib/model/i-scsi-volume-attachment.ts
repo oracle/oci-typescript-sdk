@@ -92,4 +92,23 @@ export namespace IScsiVolumeAttachment {
     return jsonObj;
   }
   export const attachmentType = "iscsi";
+  export function getDeserializedJsonObj(
+    obj: IScsiVolumeAttachment,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.VolumeAttachment.getDeserializedJsonObj(obj) as IScsiVolumeAttachment)),
+      ...{
+        "multipathDevices": obj.multipathDevices
+          ? obj.multipathDevices.map(item => {
+              return model.MultipathDevice.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

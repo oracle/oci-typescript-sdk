@@ -72,4 +72,28 @@ export namespace Filter {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Filter): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dimensions": obj.dimensions
+          ? obj.dimensions.map(item => {
+              return model.Dimension.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "tags": obj.tags
+          ? obj.tags.map(item => {
+              return model.Tag.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "filters": obj.filters
+          ? obj.filters.map(item => {
+              return model.Filter.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -39,4 +39,14 @@ export namespace ChangeShapeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ChangeShapeDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "nodes": obj.nodes ? model.ChangeShapeNodes.getDeserializedJsonObj(obj.nodes) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

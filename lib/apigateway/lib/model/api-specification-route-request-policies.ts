@@ -67,4 +67,39 @@ export namespace ApiSpecificationRouteRequestPolicies {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApiSpecificationRouteRequestPolicies): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "authorization": obj.authorization
+          ? model.RouteAuthorizationPolicy.getDeserializedJsonObj(obj.authorization)
+          : undefined,
+        "cors": obj.cors ? model.CorsPolicy.getDeserializedJsonObj(obj.cors) : undefined,
+        "queryParameterValidations": obj.queryParameterValidations
+          ? model.QueryParameterValidationRequestPolicy.getDeserializedJsonObj(
+              obj.queryParameterValidations
+            )
+          : undefined,
+        "headerValidations": obj.headerValidations
+          ? model.HeaderValidationRequestPolicy.getDeserializedJsonObj(obj.headerValidations)
+          : undefined,
+        "bodyValidation": obj.bodyValidation
+          ? model.BodyValidationRequestPolicy.getDeserializedJsonObj(obj.bodyValidation)
+          : undefined,
+        "headerTransformations": obj.headerTransformations
+          ? model.HeaderTransformationPolicy.getDeserializedJsonObj(obj.headerTransformations)
+          : undefined,
+        "queryParameterTransformations": obj.queryParameterTransformations
+          ? model.QueryParameterTransformationPolicy.getDeserializedJsonObj(
+              obj.queryParameterTransformations
+            )
+          : undefined,
+        "responseCacheLookup": obj.responseCacheLookup
+          ? model.ResponseCacheLookupPolicy.getDeserializedJsonObj(obj.responseCacheLookup)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

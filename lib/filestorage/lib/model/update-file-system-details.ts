@@ -58,4 +58,9 @@ export namespace UpdateFileSystemDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateFileSystemDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 
@@ -142,7 +142,7 @@ export class ApmSyntheticClient {
       bodyContent: common.ObjectSerializer.serialize(
         createMonitorRequest.createMonitorDetails,
         "CreateMonitorDetails",
-        models.CreateMonitorDetails.getJsonObj
+        model.CreateMonitorDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -154,7 +154,8 @@ export class ApmSyntheticClient {
         responseObject: <responses.CreateMonitorResponse>{},
         body: await response.json(),
         bodyKey: "monitor",
-        bodyModel: "model.Monitor",
+        bodyModel: model.Monitor,
+        type: "model.Monitor",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -212,7 +213,7 @@ export class ApmSyntheticClient {
       bodyContent: common.ObjectSerializer.serialize(
         createScriptRequest.createScriptDetails,
         "CreateScriptDetails",
-        models.CreateScriptDetails.getJsonObj
+        model.CreateScriptDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -224,7 +225,8 @@ export class ApmSyntheticClient {
         responseObject: <responses.CreateScriptResponse>{},
         body: await response.json(),
         bodyKey: "script",
-        bodyModel: "model.Script",
+        bodyModel: model.Script,
+        type: "model.Script",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -405,7 +407,8 @@ export class ApmSyntheticClient {
         responseObject: <responses.GetMonitorResponse>{},
         body: await response.json(),
         bodyKey: "monitor",
-        bodyModel: "model.Monitor",
+        bodyModel: model.Monitor,
+        type: "model.Monitor",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -475,7 +478,8 @@ export class ApmSyntheticClient {
         responseObject: <responses.GetMonitorResultResponse>{},
         body: await response.json(),
         bodyKey: "monitorResult",
-        bodyModel: "model.MonitorResult",
+        bodyModel: model.MonitorResult,
+        type: "model.MonitorResult",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -535,7 +539,8 @@ export class ApmSyntheticClient {
         responseObject: <responses.GetScriptResponse>{},
         body: await response.json(),
         bodyKey: "script",
-        bodyModel: "model.Script",
+        bodyModel: model.Script,
+        type: "model.Script",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -607,7 +612,8 @@ export class ApmSyntheticClient {
         responseObject: <responses.ListMonitorsResponse>{},
         body: await response.json(),
         bodyKey: "monitorCollection",
-        bodyModel: "model.MonitorCollection",
+        bodyModel: model.MonitorCollection,
+        type: "model.MonitorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -678,7 +684,8 @@ export class ApmSyntheticClient {
         responseObject: <responses.ListPublicVantagePointsResponse>{},
         body: await response.json(),
         bodyKey: "publicVantagePointCollection",
-        bodyModel: "model.PublicVantagePointCollection",
+        bodyModel: model.PublicVantagePointCollection,
+        type: "model.PublicVantagePointCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -748,7 +755,8 @@ export class ApmSyntheticClient {
         responseObject: <responses.ListScriptsResponse>{},
         body: await response.json(),
         bodyKey: "scriptCollection",
-        bodyModel: "model.ScriptCollection",
+        bodyModel: model.ScriptCollection,
+        type: "model.ScriptCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -807,7 +815,7 @@ export class ApmSyntheticClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateMonitorRequest.updateMonitorDetails,
         "UpdateMonitorDetails",
-        models.UpdateMonitorDetails.getJsonObj
+        model.UpdateMonitorDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -819,7 +827,8 @@ export class ApmSyntheticClient {
         responseObject: <responses.UpdateMonitorResponse>{},
         body: await response.json(),
         bodyKey: "monitor",
-        bodyModel: "model.Monitor",
+        bodyModel: model.Monitor,
+        type: "model.Monitor",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -878,7 +887,7 @@ export class ApmSyntheticClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateScriptRequest.updateScriptDetails,
         "UpdateScriptDetails",
-        models.UpdateScriptDetails.getJsonObj
+        model.UpdateScriptDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -890,7 +899,8 @@ export class ApmSyntheticClient {
         responseObject: <responses.UpdateScriptResponse>{},
         body: await response.json(),
         bodyKey: "script",
-        bodyModel: "model.Script",
+        bodyModel: model.Script,
+        type: "model.Script",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

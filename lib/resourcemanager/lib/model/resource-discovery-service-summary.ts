@@ -54,4 +54,9 @@ export namespace ResourceDiscoveryServiceSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResourceDiscoveryServiceSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

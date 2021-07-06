@@ -39,4 +39,9 @@ export namespace SqlStatisticsTimeSeries {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SqlStatisticsTimeSeries): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

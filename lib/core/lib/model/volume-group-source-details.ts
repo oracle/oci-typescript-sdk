@@ -53,4 +53,30 @@ export namespace VolumeGroupSourceDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VolumeGroupSourceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "volumeGroupId":
+          return model.VolumeGroupSourceFromVolumeGroupDetails.getDeserializedJsonObj(
+            <model.VolumeGroupSourceFromVolumeGroupDetails>(<object>jsonObj),
+            true
+          );
+        case "volumeIds":
+          return model.VolumeGroupSourceFromVolumesDetails.getDeserializedJsonObj(
+            <model.VolumeGroupSourceFromVolumesDetails>(<object>jsonObj),
+            true
+          );
+        case "volumeGroupBackupId":
+          return model.VolumeGroupSourceFromVolumeGroupBackupDetails.getDeserializedJsonObj(
+            <model.VolumeGroupSourceFromVolumeGroupBackupDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

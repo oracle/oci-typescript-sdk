@@ -40,4 +40,19 @@ export namespace CreateTaskFromIntegrationTask {
     return jsonObj;
   }
   export const modelType = "INTEGRATION_TASK";
+  export function getDeserializedJsonObj(
+    obj: CreateTaskFromIntegrationTask,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateTaskDetails.getDeserializedJsonObj(obj) as CreateTaskFromIntegrationTask)),
+      ...{
+        "dataFlow": obj.dataFlow ? model.DataFlow.getDeserializedJsonObj(obj.dataFlow) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

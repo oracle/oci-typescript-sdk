@@ -39,4 +39,20 @@ export namespace ModelDeploymentConfigurationDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ModelDeploymentConfigurationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("deploymentType" in obj && obj.deploymentType) {
+      switch (obj.deploymentType) {
+        case "SINGLE_MODEL":
+          return model.SingleModelDeploymentConfigurationDetails.getDeserializedJsonObj(
+            <model.SingleModelDeploymentConfigurationDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.deploymentType);
+      }
+    }
+    return jsonObj;
+  }
 }

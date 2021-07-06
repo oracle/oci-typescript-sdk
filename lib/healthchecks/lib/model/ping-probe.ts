@@ -73,4 +73,9 @@ export namespace PingProbe {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PingProbe): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

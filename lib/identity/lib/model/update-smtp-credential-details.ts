@@ -27,4 +27,9 @@ export namespace UpdateSmtpCredentialDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateSmtpCredentialDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

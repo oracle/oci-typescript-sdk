@@ -42,4 +42,9 @@ export namespace UpdateServiceCatalogDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateServiceCatalogDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

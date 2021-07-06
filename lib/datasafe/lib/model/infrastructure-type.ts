@@ -36,7 +36,10 @@ export enum InfrastructureType {
 }
 
 export namespace InfrastructureType {
-  export function getJsonObj(obj: InfrastructureType): object {
-    return { obj };
+  export function getJsonObj(obj: InfrastructureType): InfrastructureType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: InfrastructureType): InfrastructureType {
+    return obj;
   }
 }

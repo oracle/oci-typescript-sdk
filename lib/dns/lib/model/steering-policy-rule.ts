@@ -76,4 +76,40 @@ export namespace SteeringPolicyRule {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SteeringPolicyRule): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("ruleType" in obj && obj.ruleType) {
+      switch (obj.ruleType) {
+        case "FILTER":
+          return model.SteeringPolicyFilterRule.getDeserializedJsonObj(
+            <model.SteeringPolicyFilterRule>(<object>jsonObj),
+            true
+          );
+        case "WEIGHTED":
+          return model.SteeringPolicyWeightedRule.getDeserializedJsonObj(
+            <model.SteeringPolicyWeightedRule>(<object>jsonObj),
+            true
+          );
+        case "LIMIT":
+          return model.SteeringPolicyLimitRule.getDeserializedJsonObj(
+            <model.SteeringPolicyLimitRule>(<object>jsonObj),
+            true
+          );
+        case "HEALTH":
+          return model.SteeringPolicyHealthRule.getDeserializedJsonObj(
+            <model.SteeringPolicyHealthRule>(<object>jsonObj),
+            true
+          );
+        case "PRIORITY":
+          return model.SteeringPolicyPriorityRule.getDeserializedJsonObj(
+            <model.SteeringPolicyPriorityRule>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.ruleType);
+      }
+    }
+    return jsonObj;
+  }
 }

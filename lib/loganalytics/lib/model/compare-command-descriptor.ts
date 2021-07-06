@@ -35,4 +35,19 @@ export namespace CompareCommandDescriptor {
     return jsonObj;
   }
   export const name = "COMPARE";
+  export function getDeserializedJsonObj(
+    obj: CompareCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(
+            obj
+          ) as CompareCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

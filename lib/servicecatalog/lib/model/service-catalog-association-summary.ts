@@ -46,4 +46,9 @@ export namespace ServiceCatalogAssociationSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ServiceCatalogAssociationSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

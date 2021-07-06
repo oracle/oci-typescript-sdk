@@ -39,4 +39,18 @@ export namespace DataAssetSummaryCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DataAssetSummaryCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.DataAssetSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

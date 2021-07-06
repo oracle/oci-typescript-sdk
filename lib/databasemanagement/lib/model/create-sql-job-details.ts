@@ -59,4 +59,17 @@ export namespace CreateSqlJobDetails {
     return jsonObj;
   }
   export const jobType = "SQL";
+  export function getDeserializedJsonObj(
+    obj: CreateSqlJobDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateJobDetails.getDeserializedJsonObj(obj) as CreateSqlJobDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

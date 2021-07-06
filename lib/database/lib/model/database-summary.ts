@@ -152,4 +152,20 @@ export namespace DatabaseSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dbBackupConfig": obj.dbBackupConfig
+          ? model.DbBackupConfig.getDeserializedJsonObj(obj.dbBackupConfig)
+          : undefined,
+
+        "connectionStrings": obj.connectionStrings
+          ? model.DatabaseConnectionStrings.getDeserializedJsonObj(obj.connectionStrings)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

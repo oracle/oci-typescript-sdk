@@ -73,4 +73,18 @@ export namespace ProtectionRule {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ProtectionRule): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "exclusions": obj.exclusions
+          ? obj.exclusions.map(item => {
+              return model.ProtectionRuleExclusion.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

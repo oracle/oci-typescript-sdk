@@ -34,4 +34,18 @@ export namespace UpdateTargetResponderRecipeResponderRuleDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: UpdateTargetResponderRecipeResponderRuleDetails
+  ): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "details": obj.details
+          ? model.UpdateTargetResponderRuleDetails.getDeserializedJsonObj(obj.details)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

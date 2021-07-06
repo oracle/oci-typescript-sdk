@@ -111,4 +111,9 @@ export namespace LogAnalyticsAssociation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsAssociation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

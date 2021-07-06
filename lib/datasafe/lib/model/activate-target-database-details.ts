@@ -32,4 +32,16 @@ export namespace ActivateTargetDatabaseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ActivateTargetDatabaseDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "credentials": obj.credentials
+          ? model.Credentials.getDeserializedJsonObj(obj.credentials)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -51,4 +51,23 @@ export namespace UnifiedAgentTailLogSource {
     return jsonObj;
   }
   export const sourceType = "LOG_TAIL";
+  export function getDeserializedJsonObj(
+    obj: UnifiedAgentTailLogSource,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UnifiedAgentLoggingSource.getDeserializedJsonObj(
+            obj
+          ) as UnifiedAgentTailLogSource)),
+      ...{
+        "parser": obj.parser
+          ? model.UnifiedAgentParser.getDeserializedJsonObj(obj.parser)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

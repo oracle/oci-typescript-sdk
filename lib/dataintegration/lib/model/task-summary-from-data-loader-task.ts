@@ -40,4 +40,19 @@ export namespace TaskSummaryFromDataLoaderTask {
     return jsonObj;
   }
   export const modelType = "DATA_LOADER_TASK";
+  export function getDeserializedJsonObj(
+    obj: TaskSummaryFromDataLoaderTask,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.TaskSummary.getDeserializedJsonObj(obj) as TaskSummaryFromDataLoaderTask)),
+      ...{
+        "dataFlow": obj.dataFlow ? model.DataFlow.getDeserializedJsonObj(obj.dataFlow) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

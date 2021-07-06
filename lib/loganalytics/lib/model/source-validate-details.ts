@@ -35,4 +35,9 @@ export namespace SourceValidateDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SourceValidateDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

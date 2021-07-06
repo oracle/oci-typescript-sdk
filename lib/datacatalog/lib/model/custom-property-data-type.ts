@@ -38,7 +38,10 @@ export enum CustomPropertyDataType {
 }
 
 export namespace CustomPropertyDataType {
-  export function getJsonObj(obj: CustomPropertyDataType): object {
-    return { obj };
+  export function getJsonObj(obj: CustomPropertyDataType): CustomPropertyDataType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: CustomPropertyDataType): CustomPropertyDataType {
+    return obj;
   }
 }

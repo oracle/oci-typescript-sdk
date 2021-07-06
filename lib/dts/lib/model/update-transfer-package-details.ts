@@ -32,4 +32,9 @@ export namespace UpdateTransferPackageDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateTransferPackageDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

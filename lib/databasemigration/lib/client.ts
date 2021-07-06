@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { DatabaseMigrationWaiter } from "./databasemigration-waiter";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
@@ -174,7 +174,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.AbortJobResponse>{},
         body: await response.json(),
         bodyKey: "job",
-        bodyModel: "model.Job",
+        bodyModel: model.Job,
+        type: "model.Job",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -234,7 +235,7 @@ export class DatabaseMigrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeAgentCompartmentRequest.changeAgentCompartmentDetails,
         "ChangeAgentCompartmentDetails",
-        models.ChangeAgentCompartmentDetails.getJsonObj
+        model.ChangeAgentCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -298,7 +299,7 @@ export class DatabaseMigrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeConnectionCompartmentRequest.changeConnectionCompartmentDetails,
         "ChangeConnectionCompartmentDetails",
-        models.ChangeConnectionCompartmentDetails.getJsonObj
+        model.ChangeConnectionCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -362,7 +363,7 @@ export class DatabaseMigrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeMigrationCompartmentRequest.changeMigrationCompartmentDetails,
         "ChangeMigrationCompartmentDetails",
-        models.ChangeMigrationCompartmentDetails.getJsonObj
+        model.ChangeMigrationCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -425,7 +426,7 @@ export class DatabaseMigrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         cloneMigrationRequest.cloneMigrationDetails,
         "CloneMigrationDetails",
-        models.CloneMigrationDetails.getJsonObj
+        model.CloneMigrationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -437,7 +438,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.CloneMigrationResponse>{},
         body: await response.json(),
         bodyKey: "migration",
-        bodyModel: "model.Migration",
+        bodyModel: model.Migration,
+        type: "model.Migration",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -500,7 +502,7 @@ export class DatabaseMigrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         createConnectionRequest.createConnectionDetails,
         "CreateConnectionDetails",
-        models.CreateConnectionDetails.getJsonObj
+        model.CreateConnectionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -512,7 +514,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.CreateConnectionResponse>{},
         body: await response.json(),
         bodyKey: "connection",
-        bodyModel: "model.Connection",
+        bodyModel: model.Connection,
+        type: "model.Connection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -576,7 +579,7 @@ export class DatabaseMigrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         createMigrationRequest.createMigrationDetails,
         "CreateMigrationDetails",
-        models.CreateMigrationDetails.getJsonObj
+        model.CreateMigrationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -588,7 +591,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.CreateMigrationResponse>{},
         body: await response.json(),
         bodyKey: "migration",
-        bodyModel: "model.Migration",
+        bodyModel: model.Migration,
+        type: "model.Migration",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -905,7 +909,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.EvaluateMigrationResponse>{},
         body: await response.json(),
         bodyKey: "job",
-        bodyModel: "model.Job",
+        bodyModel: model.Job,
+        type: "model.Job",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -974,7 +979,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.GetAgentResponse>{},
         body: await response.json(),
         bodyKey: "agent",
-        bodyModel: "model.Agent",
+        bodyModel: model.Agent,
+        type: "model.Agent",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1038,7 +1044,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.GetConnectionResponse>{},
         body: await response.json(),
         bodyKey: "connection",
-        bodyModel: "model.Connection",
+        bodyModel: model.Connection,
+        type: "model.Connection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1100,7 +1107,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.GetJobResponse>{},
         body: await response.json(),
         bodyKey: "job",
-        bodyModel: "model.Job",
+        bodyModel: model.Job,
+        type: "model.Job",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1226,7 +1234,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.GetMigrationResponse>{},
         body: await response.json(),
         bodyKey: "migration",
-        bodyModel: "model.Migration",
+        bodyModel: model.Migration,
+        type: "model.Migration",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1290,7 +1299,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1352,7 +1362,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.ListAgentImagesResponse>{},
         body: await response.json(),
         bodyKey: "agentImageCollection",
-        bodyModel: "model.AgentImageCollection",
+        bodyModel: model.AgentImageCollection,
+        type: "model.AgentImageCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1422,7 +1433,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.ListAgentsResponse>{},
         body: await response.json(),
         bodyKey: "agentCollection",
-        bodyModel: "model.AgentCollection",
+        bodyModel: model.AgentCollection,
+        type: "model.AgentCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1493,7 +1505,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.ListConnectionsResponse>{},
         body: await response.json(),
         bodyKey: "connectionCollection",
-        bodyModel: "model.ConnectionCollection",
+        bodyModel: model.ConnectionCollection,
+        type: "model.ConnectionCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1560,7 +1573,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.ListJobOutputsResponse>{},
         body: await response.json(),
         bodyKey: "jobOutputSummaryCollection",
-        bodyModel: "model.JobOutputSummaryCollection",
+        bodyModel: model.JobOutputSummaryCollection,
+        type: "model.JobOutputSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1631,7 +1645,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.ListJobsResponse>{},
         body: await response.json(),
         bodyKey: "jobCollection",
-        bodyModel: "model.JobCollection",
+        bodyModel: model.JobCollection,
+        type: "model.JobCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1702,7 +1717,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.ListMigrationsResponse>{},
         body: await response.json(),
         bodyKey: "migrationCollection",
-        bodyModel: "model.MigrationCollection",
+        bodyModel: model.MigrationCollection,
+        type: "model.MigrationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1773,7 +1789,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestErrorCollection",
-        bodyModel: "model.WorkRequestErrorCollection",
+        bodyModel: model.WorkRequestErrorCollection,
+        type: "model.WorkRequestErrorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1844,7 +1861,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestLogEntryCollection",
-        bodyModel: "model.WorkRequestLogEntryCollection",
+        bodyModel: model.WorkRequestLogEntryCollection,
+        type: "model.WorkRequestLogEntryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1915,7 +1933,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestCollection",
-        bodyModel: "model.WorkRequestCollection",
+        bodyModel: model.WorkRequestCollection,
+        type: "model.WorkRequestCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1974,7 +1993,7 @@ export class DatabaseMigrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         resumeJobRequest.resumeJobDetails,
         "ResumeJobDetails",
-        models.ResumeJobDetails.getJsonObj
+        model.ResumeJobDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1986,7 +2005,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.ResumeJobResponse>{},
         body: await response.json(),
         bodyKey: "job",
-        bodyModel: "model.Job",
+        bodyModel: model.Job,
+        type: "model.Job",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2051,7 +2071,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.RetrieveSupportedPhasesResponse>{},
         body: await response.json(),
         bodyKey: "migrationPhaseCollection",
-        bodyModel: "model.MigrationPhaseCollection",
+        bodyModel: model.MigrationPhaseCollection,
+        type: "model.MigrationPhaseCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2105,7 +2126,7 @@ export class DatabaseMigrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         startMigrationRequest.startMigrationDetails,
         "StartMigrationDetails",
-        models.StartMigrationDetails.getJsonObj
+        model.StartMigrationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2117,7 +2138,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.StartMigrationResponse>{},
         body: await response.json(),
         bodyKey: "job",
-        bodyModel: "model.Job",
+        bodyModel: model.Job,
+        type: "model.Job",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2181,7 +2203,7 @@ export class DatabaseMigrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateAgentRequest.updateAgentDetails,
         "UpdateAgentDetails",
-        models.UpdateAgentDetails.getJsonObj
+        model.UpdateAgentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2193,7 +2215,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.UpdateAgentResponse>{},
         body: await response.json(),
         bodyKey: "agent",
-        bodyModel: "model.Agent",
+        bodyModel: model.Agent,
+        type: "model.Agent",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2252,7 +2275,7 @@ export class DatabaseMigrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateConnectionRequest.updateConnectionDetails,
         "UpdateConnectionDetails",
-        models.UpdateConnectionDetails.getJsonObj
+        model.UpdateConnectionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2319,7 +2342,7 @@ export class DatabaseMigrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateJobRequest.updateJobDetails,
         "UpdateJobDetails",
-        models.UpdateJobDetails.getJsonObj
+        model.UpdateJobDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2331,7 +2354,8 @@ export class DatabaseMigrationClient {
         responseObject: <responses.UpdateJobResponse>{},
         body: await response.json(),
         bodyKey: "job",
-        bodyModel: "model.Job",
+        bodyModel: model.Job,
+        type: "model.Job",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2390,7 +2414,7 @@ export class DatabaseMigrationClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateMigrationRequest.updateMigrationDetails,
         "UpdateMigrationDetails",
-        models.UpdateMigrationDetails.getJsonObj
+        model.UpdateMigrationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,

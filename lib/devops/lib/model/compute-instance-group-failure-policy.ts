@@ -43,4 +43,25 @@ export namespace ComputeInstanceGroupFailurePolicy {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ComputeInstanceGroupFailurePolicy): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("policyType" in obj && obj.policyType) {
+      switch (obj.policyType) {
+        case "COMPUTE_INSTANCE_GROUP_FAILURE_POLICY_BY_PERCENTAGE":
+          return model.ComputeInstanceGroupFailurePolicyByPercentage.getDeserializedJsonObj(
+            <model.ComputeInstanceGroupFailurePolicyByPercentage>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_GROUP_FAILURE_POLICY_BY_COUNT":
+          return model.ComputeInstanceGroupFailurePolicyByCount.getDeserializedJsonObj(
+            <model.ComputeInstanceGroupFailurePolicyByCount>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.policyType);
+      }
+    }
+    return jsonObj;
+  }
 }

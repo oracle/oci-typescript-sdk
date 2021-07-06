@@ -53,4 +53,18 @@ export namespace ManagementDashboardImportDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ManagementDashboardImportDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dashboards": obj.dashboards
+          ? obj.dashboards.map(item => {
+              return model.ManagementDashboardForImportExportDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -34,4 +34,9 @@ export namespace ResourceCount {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResourceCount): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

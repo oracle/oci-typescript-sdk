@@ -77,4 +77,9 @@ export namespace ReplicationPolicySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ReplicationPolicySummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

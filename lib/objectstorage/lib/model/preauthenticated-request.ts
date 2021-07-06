@@ -103,4 +103,9 @@ export namespace PreauthenticatedRequest {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PreauthenticatedRequest): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

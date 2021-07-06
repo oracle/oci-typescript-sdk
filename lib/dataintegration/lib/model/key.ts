@@ -35,4 +35,17 @@ export namespace Key {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Key): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "FOREIGN_KEY":
+          return model.ForeignKey.getDeserializedJsonObj(<model.ForeignKey>(<object>jsonObj), true);
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

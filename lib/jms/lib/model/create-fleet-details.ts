@@ -50,4 +50,9 @@ export namespace CreateFleetDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateFleetDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

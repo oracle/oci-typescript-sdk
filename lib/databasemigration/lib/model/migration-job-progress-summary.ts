@@ -42,4 +42,9 @@ export namespace MigrationJobProgressSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MigrationJobProgressSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

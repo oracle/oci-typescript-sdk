@@ -266,4 +266,48 @@ export namespace LaunchInstanceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LaunchInstanceDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "createVnicDetails": obj.createVnicDetails
+          ? model.CreateVnicDetails.getDeserializedJsonObj(obj.createVnicDetails)
+          : undefined,
+
+        "launchOptions": obj.launchOptions
+          ? model.LaunchOptions.getDeserializedJsonObj(obj.launchOptions)
+          : undefined,
+        "instanceOptions": obj.instanceOptions
+          ? model.InstanceOptions.getDeserializedJsonObj(obj.instanceOptions)
+          : undefined,
+        "availabilityConfig": obj.availabilityConfig
+          ? model.LaunchInstanceAvailabilityConfigDetails.getDeserializedJsonObj(
+              obj.availabilityConfig
+            )
+          : undefined,
+        "preemptibleInstanceConfig": obj.preemptibleInstanceConfig
+          ? model.PreemptibleInstanceConfigDetails.getDeserializedJsonObj(
+              obj.preemptibleInstanceConfig
+            )
+          : undefined,
+
+        "agentConfig": obj.agentConfig
+          ? model.LaunchInstanceAgentConfigDetails.getDeserializedJsonObj(obj.agentConfig)
+          : undefined,
+
+        "shapeConfig": obj.shapeConfig
+          ? model.LaunchInstanceShapeConfigDetails.getDeserializedJsonObj(obj.shapeConfig)
+          : undefined,
+        "sourceDetails": obj.sourceDetails
+          ? model.InstanceSourceDetails.getDeserializedJsonObj(obj.sourceDetails)
+          : undefined,
+
+        "platformConfig": obj.platformConfig
+          ? model.LaunchInstancePlatformConfig.getDeserializedJsonObj(obj.platformConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

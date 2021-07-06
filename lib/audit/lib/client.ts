@@ -17,7 +17,7 @@ For more information, see [Overview of Audit](/iaas/Content/Audit/Concepts/audit
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
@@ -150,7 +150,8 @@ export class AuditClient {
         responseObject: <responses.GetConfigurationResponse>{},
         body: await response.json(),
         bodyKey: "configuration",
-        bodyModel: "model.Configuration",
+        bodyModel: model.Configuration,
+        type: "model.Configuration",
         responseHeaders: []
       });
 
@@ -207,7 +208,8 @@ export class AuditClient {
         responseObject: <responses.ListEventsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AuditEvent[]",
+        bodyModel: model.AuditEvent,
+        type: "Array<model.AuditEvent>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -237,7 +239,7 @@ export class AuditClient {
    */
   public listAllEvents(
     request: requests.ListEventsRequest
-  ): AsyncIterableIterator<models.AuditEvent> {
+  ): AsyncIterableIterator<model.AuditEvent> {
     return paginateRecords(request, req => this.listEvents(req));
   }
 
@@ -287,7 +289,7 @@ export class AuditClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateConfigurationRequest.updateConfigurationDetails,
         "UpdateConfigurationDetails",
-        models.UpdateConfigurationDetails.getJsonObj
+        model.UpdateConfigurationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,

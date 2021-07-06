@@ -55,4 +55,12 @@ export namespace MergeOperator {
     return jsonObj;
   }
   export const modelType = "MERGE_OPERATOR";
+  export function getDeserializedJsonObj(obj: MergeOperator, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Operator.getDeserializedJsonObj(obj) as MergeOperator)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

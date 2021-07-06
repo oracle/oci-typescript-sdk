@@ -32,4 +32,9 @@ export namespace JobOutputSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: JobOutputSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

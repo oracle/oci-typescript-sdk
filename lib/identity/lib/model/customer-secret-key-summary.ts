@@ -78,4 +78,9 @@ export namespace CustomerSecretKeySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CustomerSecretKeySummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

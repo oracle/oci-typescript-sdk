@@ -54,4 +54,9 @@ export namespace Routing {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Routing): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -36,7 +36,10 @@ export enum ClusterLifecycleState {
 }
 
 export namespace ClusterLifecycleState {
-  export function getJsonObj(obj: ClusterLifecycleState): object {
-    return { obj };
+  export function getJsonObj(obj: ClusterLifecycleState): ClusterLifecycleState {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ClusterLifecycleState): ClusterLifecycleState {
+    return obj;
   }
 }

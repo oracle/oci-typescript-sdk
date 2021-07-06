@@ -37,4 +37,9 @@ export namespace PdbStatusDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PdbStatusDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

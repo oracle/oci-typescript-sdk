@@ -40,4 +40,9 @@ export namespace DatabaseConnectionStrings {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseConnectionStrings): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

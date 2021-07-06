@@ -59,4 +59,23 @@ export namespace AwrDbCpuUsageCollection {
     return jsonObj;
   }
   export const awrResultType = "AWRDB_ASH_CPU_USAGE_SET";
+  export function getDeserializedJsonObj(
+    obj: AwrDbCpuUsageCollection,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AwrQueryResult.getDeserializedJsonObj(obj) as AwrDbCpuUsageCollection)),
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.AwrDbCpuUsageSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

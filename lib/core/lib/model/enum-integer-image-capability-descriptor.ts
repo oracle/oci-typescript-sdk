@@ -53,4 +53,19 @@ export namespace EnumIntegerImageCapabilityDescriptor {
     return jsonObj;
   }
   export const descriptorType = "enuminteger";
+  export function getDeserializedJsonObj(
+    obj: EnumIntegerImageCapabilityDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ImageCapabilitySchemaDescriptor.getDeserializedJsonObj(
+            obj
+          ) as EnumIntegerImageCapabilityDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

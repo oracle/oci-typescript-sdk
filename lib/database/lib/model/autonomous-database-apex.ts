@@ -36,4 +36,9 @@ export namespace AutonomousDatabaseApex {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutonomousDatabaseApex): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -48,4 +48,9 @@ export namespace TopologyRoutesToRelationshipDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TopologyRoutesToRelationshipDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -41,4 +41,19 @@ export namespace UpdateDatabaseParametersResult {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDatabaseParametersResult): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "status": obj.status
+          ? common.mapContainer(
+              obj.status,
+              model.DatabaseParameterUpdateStatus.getDeserializedJsonObj
+            )
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

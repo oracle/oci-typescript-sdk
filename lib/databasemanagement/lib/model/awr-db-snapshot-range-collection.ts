@@ -47,4 +47,23 @@ export namespace AwrDbSnapshotRangeCollection {
     return jsonObj;
   }
   export const awrResultType = "AWRDB_SNAPSHOT_RANGE_SET";
+  export function getDeserializedJsonObj(
+    obj: AwrDbSnapshotRangeCollection,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AwrQueryResult.getDeserializedJsonObj(obj) as AwrDbSnapshotRangeCollection)),
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.AwrDbSnapshotRangeSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

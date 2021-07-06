@@ -81,4 +81,9 @@ export namespace CreateBlockchainPlatformDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateBlockchainPlatformDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -29,7 +29,10 @@ export enum SessionType {
 }
 
 export namespace SessionType {
-  export function getJsonObj(obj: SessionType): object {
-    return { obj };
+  export function getJsonObj(obj: SessionType): SessionType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: SessionType): SessionType {
+    return obj;
   }
 }

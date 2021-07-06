@@ -51,4 +51,23 @@ export namespace CreateOkeDeployStageDetails {
     return jsonObj;
   }
   export const deployStageType = "OKE_DEPLOYMENT";
+  export function getDeserializedJsonObj(
+    obj: CreateOkeDeployStageDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateDeployStageDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateOkeDeployStageDetails)),
+      ...{
+        "rollbackPolicy": obj.rollbackPolicy
+          ? model.DeployStageRollbackPolicy.getDeserializedJsonObj(obj.rollbackPolicy)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

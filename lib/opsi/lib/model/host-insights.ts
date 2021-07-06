@@ -33,4 +33,9 @@ export namespace HostInsights {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HostInsights): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

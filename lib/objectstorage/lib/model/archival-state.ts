@@ -33,7 +33,10 @@ export enum ArchivalState {
 }
 
 export namespace ArchivalState {
-  export function getJsonObj(obj: ArchivalState): object {
-    return { obj };
+  export function getJsonObj(obj: ArchivalState): ArchivalState {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ArchivalState): ArchivalState {
+    return obj;
   }
 }

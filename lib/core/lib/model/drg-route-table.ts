@@ -117,4 +117,9 @@ export namespace DrgRouteTable {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DrgRouteTable): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

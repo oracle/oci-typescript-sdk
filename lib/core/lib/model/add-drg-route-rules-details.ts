@@ -46,4 +46,18 @@ export namespace AddDrgRouteRulesDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AddDrgRouteRulesDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "routeRules": obj.routeRules
+          ? obj.routeRules.map(item => {
+              return model.AddDrgRouteRuleDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

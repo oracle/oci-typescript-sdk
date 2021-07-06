@@ -66,4 +66,16 @@ export namespace CreateTableDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateTableDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "tableLimits": obj.tableLimits
+          ? model.TableLimits.getDeserializedJsonObj(obj.tableLimits)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }
